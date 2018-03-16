@@ -1,0 +1,238 @@
+{% extends 'base.html' %}
+{% block class_inicio_menu %}active{% endblock %}
+
+{% block content %}
+    <!--Section: Features v.2-->
+    <section class="feature-box">
+        <!--Section heading-->
+        <h1 class="font-bold">Controle automaziado das ocorrências</h1>
+        <!--Section description-->
+        <p class="px-5 mb-5 lead grey-text">
+            Instituto Federal de Educação, Ciência e Tecnoclogia de Rondônia<br>
+            {% if request.user.is_authenticated %}
+                {{ request.user.userprofile.empresa }}
+            {% endif %}
+        </p>
+        <br><br>
+        <!--Grid row-->
+        <div class="row features-small">
+
+            <!--Grid column-->
+            <div class="col-md-4 mb-r">
+                <div class="col-1 col-md-2 float-left">
+                    <i class="fa fa-bullhorn blue-text"></i>
+                </div>
+                <div class="col-10 col-md-9 col-lg-10 float-right">
+                    <h4 class="font-bold">Avisos</h4>
+                    <p class="grey-text">A CAED e a Coordenação do Curso serão
+                        notificados assim que uma nova ocorrência for registrada.</p>
+                    <a data-toggle="modal" href="#ModalAviso" class="btn btn-primary btn-sm ml-0">Saiba mais</a>
+                </div>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-4 mb-r">
+                <div class="col-1 col-md-2 float-left">
+                    <i class="fa fa-users orange-text"></i>
+                </div>
+                <div class="col-10 col-md-9 col-lg-10 float-right">
+                    <h4 class="font-bold">User Experience</h4>
+                    <p class="grey-text">Sistema responsivo para uma experiência
+                        de
+                        usuário unificada e minimalista.</p>
+                    <a data-toggle="modal" href="#ModalUserExperience" class="btn btn-warning btn-sm ml-0">Saiba
+                        mais</a>
+                </div>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-4 mb-r">
+                <div class="col-1 col-md-2 float-left">
+                    <i class="fa fa-area-chart green-text"></i>
+                </div>
+                <div class="col-10 col-md-9 col-lg-10 float-right">
+                    <h4 class="font-bold">Relatórios</h4>
+                    <p class="grey-text">Emissão de relatórios com consodilidação das ocorrências.
+                        Informação rápida e precisa.</p>
+                    <a data-toggle="modal" href="#ModalRelatorio" class="btn btn-success btn-sm ml-0">Saiba mais</a>
+                </div>
+            </div>
+            <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+    </section>
+    <!--Section: Features v.2-->
+
+    <br><br><br>
+
+{% endblock %}
+{% block footer %}
+    <!--Footer Links-->
+    <div class="row">
+        <!--First column-->
+        <div class="col-sm-8 mx-auto">
+            <h5 class="title">Desenvolvimento</h5>
+            {#            <p>Protótipo do projeto de pesquisa protocolado no Edital 23/2017 do IFRO - <em>Campus</em>#}
+            {#                Cacoal#}
+            {#            </p>#}
+        </div>
+        <!--/.First column-->
+
+        <hr class="w-100 clearfix d-md-none">
+
+        <!--Second column-->
+        <div class="col-sm-4 mx-auto">
+            {#                            <h5 class="title">Links</h5>#}
+            <ul>
+                <li><a href="#!">Prof. Thiago Kaiser</a></li>
+            </ul>
+        </div>
+        <!--/.Second column-->
+        {##}
+        {#            <hr class="w-100 clearfix d-md-none">#}
+        {##}
+        {#            <!--Third column-->#}
+        {#            <div class="col-md-2 mx-auto">#}
+        {#                <h5 class="title">Links</h5>#}
+        {#                <ul>#}
+        {#                    <li><a href="#!">Link 1</a></li>#}
+        {#                    <li><a href="#!">Link 2</a></li>#}
+        {#                </ul>#}
+        {#            </div>#}
+        {#            <!--/.Third column-->#}
+        {##}
+        {#            <hr class="w-100 clearfix d-md-none">#}
+        {##}
+        {#            <!--Fourth column-->#}
+        {#            <div class="col-md-2 mx-auto">#}
+        {#                <h5 class="title">Links</h5>#}
+        {#                <ul>#}
+        {#                    <li><a href="#!">Link 1</a></li>#}
+        {#                    <li><a href="#!">Link 2</a></li>#}
+        {#                </ul>#}
+        {#            </div>#}
+        {#            <!--/.Fourth column-->#}
+
+    </div>
+
+{% endblock %}
+
+{% block modal %}
+
+
+    <!-- Modal AVISO -->
+    <div class="modal fade" id="ModalAviso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-info" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                    <p class="heading lead">Envio de e-mails</p>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body">
+                    <div class="text-justify">
+                        <p>
+                            Assim que uma ocorrência for registrada no sistema, seja ela individual ou coletiva, o
+                            sistema irá disparar um e-mail para o responsável pelo registro da ocorrência, para a CAED e
+                            para a Coordenação do Curso.
+                        </p>
+                        <p>
+                            Caso a ocorrência seja registrada para mais de um aluno, os
+                            e-mails serão enviados de forma individual.
+                        </p>
+                    </div>
+                </div>
+                <!--Footer-->
+                <div class="modal-footer justify-content-center">
+                    <a type="button" class="btn btn-primary waves-effect" data-dismiss="modal">Fechar</a>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!-- Fim do Modal AVISO-->
+
+    <!-- Modal USER EXPERIENCE -->
+    <div class="modal fade" id="ModalUserExperience" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-warning" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                    <p class="heading lead">Usabilidade</p>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body">
+                    <div class="text-justify">
+                        <p>
+                            Assim que uma ocorrência for registrada no sistema, seja ela individual ou coletiva, o
+                            sistema irá disparar um e-mail para o responsável pelo registro da ocorrência, para a CAED e
+                            para a Coordenação do Curso.
+                        </p>
+                        <p>
+                            Caso a ocorrência seja registrada para mais de um aluno, os
+                            e-mails serão enviados de forma individual.
+                        </p>
+                    </div>
+                </div>
+                <!--Footer-->
+                <div class="modal-footer justify-content-center">
+                    <a type="button" class="btn btn-warning waves-effect" data-dismiss="modal">Fechar</a>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!-- Fim do Modal USER EXPERIENCE-->
+
+    <!-- Modal RELATÓRIO -->
+    <div class="modal fade" id="ModalRelatorio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-success" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                    <p class="heading lead">Emissão de relatórios</p>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body">
+                    <div class="text-justify">
+                        <p>
+                            Assim que uma ocorrência for registrada no sistema, seja ela individual ou coletiva, o
+                            sistema irá disparar um e-mail para o responsável pelo registro da ocorrência, para a CAED e
+                            para a Coordenação do Curso.
+                        </p>
+                        <p>
+                            Caso a ocorrência seja registrada para mais de um aluno, os
+                            e-mails serão enviados de forma individual.
+                        </p>
+                    </div>
+                </div>
+                <!--Footer-->
+                <div class="modal-footer justify-content-center">
+                    <a type="button" class="btn btn-success waves-effect" data-dismiss="modal">Fechar</a>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!-- Fim do Modal RELATÓRIO-->
+
+{% endblock %}

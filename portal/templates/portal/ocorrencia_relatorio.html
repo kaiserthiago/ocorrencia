@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}Ocorrências - Gestão de Ocorrências - SIGO{% endblock %}
+{% block class_ocorrencia_menu %}active{% endblock %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'ocorrencia' %}">Ocorrências</a></li>
+        <li class="breadcrumb-item active">Relatórios</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header gradient white-text">
+                    OCORRÊNCIAS
+                </div>
+                <div class="card-body">
+                    <canvas id="productsChart" width="300" height="70"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        var ctx = document.getElementById("productsChart");
+        var faltas = JSON.parse('{{ faltas|safe }}');
+        var categorias = JSON.parse('{{ categorias|safe }}');
+        var productsChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: categorias,
+                datasets: [{
+                    label: 'Categorias',
+{#                    data: faltas,#}
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderColor: '#3cba9f',
+                    fill: false,
+                }]
+            }
+            ,
+            options: {
+                scales: {
+                    yAxes: [{
+
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+{% endblock %}

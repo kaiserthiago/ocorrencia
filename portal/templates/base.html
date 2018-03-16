@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+{% load  static %}
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}Gestão de Ocorrências - SIGO{% endblock %}</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          media="all">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="all">
+    <!-- Material Design Bootstrap -->
+    <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet" media="all">
+    <!-- Your custom styles (optional) -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" media="all">
+    <style>
+        {% block style %}
+        {% endblock %}
+    </style>
+</head>
+<body class="hidden-sn mdb-skin">
+
+<!--Double navigation-->
+<header>
+
+    <!-- Sidebar navigation -->
+    <ul id="slide-out" class="side-nav sn-bg-4 custom-scrollbar">
+        <!-- Logo -->
+        <li>
+            <div class="logo-wrapper waves-light">
+                <a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" alt="SIGO"
+                                                class="img-fluid flex-center"></a>
+            </div>
+        </li>
+        <!--/. Logo -->
+        <!--Social-->
+        <li>
+            <ul class="social">
+                {#                <li><a class="icons-sm fb-ic"><i class="fa fa-facebook"> </i></a></li>#}
+                {#                <li><a class="icons-sm pin-ic"><i class="fa fa-pinterest"> </i></a></li>#}
+                {#                <li><a class="icons-sm gplus-ic"><i class="fa fa-google-plus"> </i></a></li>#}
+                {#                <li><a class="icons-sm tw-ic"><i class="fa fa-twitter"> </i></a></li>#}
+                <li></li>
+            </ul>
+        </li>
+        <!--/Social-->
+        <!-- Side navigation links -->
+        <li>
+            <ul class="collapsible collapsible-accordion">
+                <li>
+                    <a href="{% url 'home' %}"
+                       class="collapsible-header waves-effect arrow-r {% block class_inicio_menu %}{% endblock %}"><i
+                            class="fa fa-home"></i>
+                        Início</a>
+                </li>
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r {% block class_cadastro_menu %}{% endblock %}"><i
+                            class="fa fa-address-card"></i> Cadastros<i
+                            class="fa fa-angle-down rotate-icon"></i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>
+                                <a href="{% url 'aluno' %}"
+                                   class="waves-effect {% block class_cadastro_aluno_item %}{% endblock %}">Alunos</a>
+                                <a href="{% url 'curso' %}"
+                                   class="waves-effect {% block class_cadastro_curso_item %}{% endblock %}">Cursos</a>
+                                <a href="{% url 'turma' %}"
+                                   class="waves-effect {% block class_cadastro_turma_item %}{% endblock %}">Turmas</a>
+                                <a href="{% url 'matricula' %}"
+                                   class="waves-effect {% block class_cadastro_matricula_item %}{% endblock %}">Matrícula</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="{% url 'ocorrencia' %}" class="collapsible-header waves-effect arrow-r
+                            {% block class_ocorrencia_menu %}{% endblock %}"><i
+                            class="fa fa-file-text"></i>
+                        Ocorrências</a>
+                </li>
+                {% if request.user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'logout' %}" class="collapsible-header waves-effect arrow-r"><i
+                                class="fa fa-power-off"></i>
+                            Sair</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a class="collapsible-header waves-effect arrow-r"><i class="fa fa-lock"></i> Acesso<i
+                                class="fa fa-angle-down rotate-icon"></i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="{% url 'login' %}" class="waves-effect">Login</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                {% endif %}
+            </ul>
+        </li>
+        <!--/. Side navigation links -->
+        <div class="sidenav-bg mask-strong"></div>
+    </ul>
+    <!--/. Sidebar navigation -->
+    <!-- Navbar -->
+    <nav id="slide-out" class="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav">
+        <!-- SideNav slide-out button -->
+        <div class="float-left">
+            <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i></a>
+        </div>
+        <!-- Breadcrumb-->
+        <div class="breadcrumb-dn mr-auto">
+            <p>SIGO - Gestão de Ocorrências</p>
+        </div>
+        <ul class="nav navbar-nav nav-flex-icons ml-auto">
+            <li class="nav-item">
+                <a href="{% url 'home' %}" class="nav-link"><i class="fa fa-home"></i> <span
+                        class="clearfix d-none d-sm-inline-block">Home</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'contato' %}" class="nav-link"><i class="fa fa-envelope"></i> <span
+                        class="clearfix d-none d-sm-inline-block">Contato</span></a>
+            </li>
+        </ul>
+
+    </nav>
+
+    <!-- /.Navbar -->
+</header>
+<!--/.Double navigation-->
+
+
+<!--Main layout-->
+<div class="content">
+    <main>
+        <div class="container">
+            <div class="container-fluid">
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if message.tags == 'error' %}
+                            <div class="alert card-header danger-color white-text text-left alert-dismissable">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>Erro!</strong> {{ message }}
+                            </div>
+                        {% elif message.tags == 'success' %}
+                            <div class="alert card-header success-color white-text text-left alert-dismissable">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>Sucesso!</strong> {{ message }}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
+                {% block breadcrumb_base %}
+                {% endblock %}
+
+                {% block content %}
+                {% endblock %}
+            </div>
+    </main>
+    <!--/Main layout-->
+</div>
+<!--Footer-->
+<footer class="footer page-footer center-on-small-only" id="footer">
+    <div class="container">
+        {% block footer %}
+        {% endblock %}
+    </div>
+    <!--Copyright-->
+    <div class="footer-copyright">
+        <div class="container">
+            © 2018 SIGO - Gestão de Ocorrências
+        </div>
+    </div>
+    <!--/.Copyright-->
+</footer>
+<!--/.Footer-->
+
+
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+<script>
+    $('.datepicker').pickadate({
+        format: "dd/mm/yy",
+        mode: 'landscape',
+        monthsFull: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembero", "Outubro", "Novembro", "Dezembro"],
+        monthsShort: ["Jan", "Fev", "Mar", "Abr", "Maio", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+        weekdaysFull: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado",],
+        weekdaysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb",],
+        weekdaysLetter: ["D", "S", "T", "Q", "Q", "S", "S"],
+        labelMonthNext: 'Próximo mês',
+        labelMonthPrev: 'Mês anterior',
+        labelMonthSelect: 'Selecione um mês',
+        labelYearSelect: 'Selecione um ano',
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: false, // Creates a dropdown of 15 years to control year,
+        today: 'Hoje',
+        clear: 'Limpar',
+        close: 'Ok',
+        closeOnSelect: true // Close upon selecting a date,
+    });
+</script>
+<script>
+    $('.timepicker').pickatime({
+        default: 'now', // Set default time: 'now', '1:30AM', '16:30'
+        fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
+        twelvehour: false, // Use AM/PM or 24-hour format
+        donetext: 'OK', // text for done-button
+        cleartext: 'Limpar', // text for clear-button
+        canceltext: 'Cancelar', // Text for cancel-button
+        autoclose: false, // automatic close timepicker
+        ampmclickable: true, // make AM PM clickable
+        aftershow: function () {
+        } //Function for after opening timepicker
+    });
+</script>
+<script>
+
+    // SideNav Initialization
+    $(".button-collapse").sideNav();
+    // SideNav Scrollbar Initialization
+    var sideNavScrollbar = document.querySelector('.custom-scrollbar');
+    Ps.initialize(sideNavScrollbar);
+
+    // Material Select Initialization
+    $(document).ready(function () {
+        $('.mdb-select').material_select();
+    });
+
+    new WOW().init();
+
+</script>
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+{% block script %}
+
+{% endblock %}
+
+{% block modal %}
+{% endblock %}
+</body>
+
+</html>

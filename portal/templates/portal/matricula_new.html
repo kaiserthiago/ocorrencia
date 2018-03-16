@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}Matrícula - Gestão de Ocorrências - SIGO{% endblock %}
+{% block class_cadastro_menu %}active{% endblock %}
+{% block class_cadastro_matricula_item %}collapsible-header active{% endblock %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'matricula' %}">Matrículas</a></li>
+        <li class="breadcrumb-item active">Novo registro</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header gradient white-text">
+                    NOVA MATRÍCULA
+                </div>
+                <div class="card-body">
+                    <div class="col-sm-6">
+                        <select name="SelectTurma" id="SelectTurma"
+                                class="mdb-select colorful-select dropdown-primary"
+                                required>
+                            <option value="" disabled selected>Selecione a turma
+                            </option>
+                            {% for t in turmas %}
+                                <option value={{ t.id }}>{{ t.curso.descricao }} - {{ t.descricao }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="SelectTurma">Turma</label>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>Estudante</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for aluno in alunos %}
+                                <tr>
+                                    <th scope="row" class="pr-md-3 pr-5">
+                                        <input type="checkbox" class="filled-in" id="checkbox124">
+                                        <label for="checkbox124" class="label-table"></label>
+                                    </th>
+                                    <td style="vertical-align: middle;">{{ aluno.nome }}</td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td colspan="2" class="alert alert-warning text-center">Sem alunos cadastrados</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

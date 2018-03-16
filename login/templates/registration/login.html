@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Login - SIGEF{% endblock %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item active">Login</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-2">
+
+        </div>
+        <div class="col-sm-8">
+            <form method="post">
+                {% csrf_token %}
+                <input class="form-control" placeholder="Usuário" input type="text" name="username" autofocus
+                       maxlength="254" required id="id_username"/><br>
+                <input class="form-control" placeholder="Senha" type="password" name="password" required
+                       id="id_password"/>
+                <br>
+                {#                <em class="pull-right">Sem login? <a#}
+                {#                        href="{% url 'login_register' %}">Cadastre-se aqui!</a></em>#}
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="float-right">
+                            <input type="submit" class="btn btn-dark-green" value="Login">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-2">
+
+        </div>
+    </div>
+{% endblock %}

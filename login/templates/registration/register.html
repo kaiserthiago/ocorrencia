@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}Registro de usuário - SIGEF{% endblock %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item active">Novo usuário</li>
+    </ol>
+{% endblock %}
+
+
+{% block content %}
+    <section class="section-content">
+        <div class="container-fluid">
+            <form method="post" action="{% url 'login_register' %}">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="md-form col-sm-6">
+                        <label>{{ user_form.first_name.label }}</label>
+                        {{ user_form.first_name }}
+                    </div>
+                    <div class="md-form col-sm-6">
+                        <label>{{ user_form.last_name.label }}</label>
+                        {{ user_form.last_name }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="md-form col-sm-6">
+                        <label>{{ user_form.username.label }}</label>
+                        {{ user_form.username }}
+                    </div>
+                    <div class="md-form col-sm-6">
+                        <label>{{ user_form.email.label }}</label>
+                        {{ user_form.email }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="md-form col-sm-6">
+                        <label>{{ user_form.password.label }}</label>
+                        {{ user_form.password }}
+                    </div>
+                    <div class="md-form col-sm-6">
+                        <label>{{ user_form.password2.label }}</label>
+                        {{ user_form.password2 }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="float-right">
+                            <input type="submit" class="btn btn-dark-green" value="Cadastrar">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}

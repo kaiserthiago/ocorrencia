@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% block title %}Ocorrências - Gestão de Ocorrências - SIGO{% endblock %}
+{% block class_ocorrencia_menu %}active{% endblock %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item active">Ocorrências</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header gradient white-text">
+                    OCORRÊNCIAS
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="md-form form-group">
+                                <input id="myInput" type="text" class="form-control" autofocus/>
+                                <label for="myInput">Pesquisar...</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="float-right">
+                                <a data-toggle="modal" href="#ModalRegistrarOcorrencia" class="btn btn-success"><i
+                                        class="fa fa-plus"></i> Novo
+                                    Registro</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped">
+                            <thead>
+                            <tr>
+                                <th style="font-weight: bold">#</th>
+                                <th style="font-weight: bold">Turma</th>
+                                <th style="font-weight: bold">Aluno</th>
+                                <th style="font-weight: bold">Data</th>
+                                <th style="font-weight: bold">Descrição</th>
+                                <th style="text-align: right; font-weight: bold">Ações</th>
+                            </tr>
+                            </thead>
+                            <tbody id="myTable">
+                            {% for ocorrencia in ocorrencias %}
+                                <tr>
+                                    <td style="vertical-align: bottom;">{{ ocorrencia.id }}</td>
+                                    <td style="vertical-align: bottom;">{{ ocorrencia.matricula.turma }}</td>
+                                    <td style="vertical-align: bottom;">{{ ocorrencia.matricula.aluno }}</td>
+                                    <td style="vertical-align: bottom;">{{ ocorrencia.data }}</td>
+                                    <td style="vertical-align: bottom;">{{ ocorrencia.descricao|truncatechars:20 }}</td>
+                                    <td style="vertical-align: bottom; text-align: right">
+
+                                        <a href="{% url 'ocorrencia_show' ocorrencia.id %}"
+                                           class="btn-floating btn-sm info-color"
+                                           title="Visualizar"><i class="fa fa-search"></i>
+                                        </a>
+
+                                        {#                                        <a href="#" class="btn-floating btn-sm warning-color"#}
+                                        {#                                           title="Editar"><i class="fa fa-pencil"></i>#}
+                                        {#                                        </a>#}
+
+                                        <a data-toggle="modal" href="#Excluir{{ ocorrencia.id }}"
+                                           class="btn-floating btn-sm danger-color"
+                                           title="Excluir"><i class="fa fa-trash"></i>
+                                        </a>
+
+                                        <!--Modal EXCLUIR-->
+                                        <div class="modal fade" id="Excluir{{ ocorrencia.id }}" tabindex="-1"
+                                             role="dialog"
+                                             aria-labelledby="myModalLabel"
+                                             aria-hidden="true">
+                                            <div class="modal-dialog modal-notify modal-danger" role="document">
+                                                <!--Content-->
+                                                <div class="modal-content">
+                                                    <!--Header-->
+                                                    <div class="modal-header text-center">
+                                                        <h4 class="heading lead">Excluir</h4>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                            <span aria-hidden="true" class="white-text">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <!--Body-->
+                                                    <div class="modal-body">
+                                                        <form action=""
+                                                              method="POST">
+                                                            {% csrf_token %}
+                                                            <div class="row text-left">
+                                                                <div class="col-sm-12">
+                                                                    <p>Tem certeza que deseja excluir?</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="text-center">
+                                                                <button type="submit"
+                                                                        class="btn btn-danger waves-effect">
+                                                                    Confirmar
+                                                                </button>
+                                                                <a type="button"
+                                                                   class="btn btn-outline-danger waves-effect"
+                                                                   data-dismiss="modal">
+                                                                    Voltar
+                                                                </a>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <!--/.Content-->
+                                            </div>
+                                        </div>
+                                        <!--Fim Modal EXCLUIR-->
+                                    </td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td colspan="6" class="card-header warning-color white-text text-center"><strong>
+                                        NÃO HÁ OCORRÊNCIAS REGISTRADAS</strong></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block modal %}
+    <!--Modal TURMA-->
+    <div class="modal fade" id="ModalRegistrarOcorrencia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-success" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header text-center">
+                    <h4 class="modal-title white-text w-100 font-bold py-2">Registrar ocorrência</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body">
+                    <form action="{% url 'ocorrencia_new' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="md-form">
+                            <select name="SelectTurma" id="SelectTurma"
+                                    class="mdb-select colorful-select dropdown-primary dropdown-ins"
+                                    searchable="Pesquisar..." required>
+                                <option value="" disabled selected>Selecione a turma</option>
+                                {% for c in cursos %}
+                                    {% if c.retorna_turmas %}
+                                        <optgroup label="{{ c.descricao }}">
+                                            {% for t in c.retorna_turmas %}
+                                                <option value={{ t.id }}>{{ t.descricao }}</option>
+                                            {% endfor %}
+                                        </optgroup>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                            <label for="SelectTurma">Turma</label>
+                        </div>
+                        <br>
+                        <!--Footer-->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary-modal waves-effect">Enviar</button>
+                            <a type="button" class="btn btn-outline-secondary-modal"
+                               data-dismiss="modal">Voltar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+{% endblock %}

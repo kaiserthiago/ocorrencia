@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Importar Matrícula - Gestão de Ocorrências - SIGO{% endblock %}
+{% block class_cadastro_menu %}active{% endblock %}
+{% block class_cadastro_matricula_item %}collapsible-header active{% endblock %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'matricula' %}">Matrículas</a></li>
+        <li class="breadcrumb-item active">Importar</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header success-color white-text">
+            SUCESSO
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>A importação foi realizada com sucesso!</p>
+                    <p>No intuito de evitar a redundância, alguns registros não foram importados.</p>
+                    <strong>Registros importados: </strong>{{ importado }}<br>
+                    <strong>Registros não importados: </strong>{{ nao_importado }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

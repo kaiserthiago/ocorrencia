@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Importar Aluno - Gestão de Ocorrências - SIGO{% endblock %}
+{% block class_cadastro_menu %}active{% endblock %}
+{% block class_cadastro_aluno_item %}collapsible-header active{% endblock %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'aluno' %}">Alunos</a></li>
+        <li class="breadcrumb-item active">Importar</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header gradient white-text">
+            IMPORTAR ALUNO
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="file-field col-sm-12">
+                            <div class="btn btn-primary btn-sm">
+                                <span>Selecionar arquivo</span>
+                                <input type="file" name="myfile">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input type="text" class="file-path validate" name="myfile"
+                                       placeholder="Escolha o arquivo">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="float-right">
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-check"></i></button>
+                                    <a href="{% url 'aluno' %}" class="btn danger-color"><i
+                                            class="fa fa-close"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
