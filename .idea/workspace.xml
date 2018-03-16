@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia.html" afterPath="$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_show.html" afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_show.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -71,11 +71,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registra-ocorrencia.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="registra-ocorrencia.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="623">
               <caret line="49" column="20" lean-forward="false" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ocorrencia_show.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_show.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="376">
+              <caret line="85" column="40" lean-forward="false" selection-start-line="85" selection-start-column="40" selection-end-line="85" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -86,16 +96,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1055">
               <caret line="152" column="70" lean-forward="false" selection-start-line="152" selection-start-column="62" selection-end-line="152" selection-end-column="70" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="aluno.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="107" column="107" lean-forward="false" selection-start-line="107" selection-start-column="107" selection-end-line="107" selection-end-column="107" />
               <folding />
             </state>
           </provider>
@@ -182,7 +182,6 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/curso_new.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/matricula_new.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/turma_new.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_show.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/matricula.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/aluno.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/curso.html" />
@@ -192,6 +191,7 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/home.html" />
         <option value="$PROJECT_DIR$/ocorrencia/settings.py" />
         <option value="$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_show.html" />
       </list>
     </option>
   </component>
@@ -728,14 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_show.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="110" column="36" lean-forward="true" selection-start-line="110" selection-start-column="36" selection-end-line="110" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -822,6 +814,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="623">
           <caret line="49" column="20" lean-forward="false" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_show.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="85" column="40" lean-forward="false" selection-start-line="85" selection-start-column="40" selection-end-line="85" selection-end-column="40" />
           <folding />
         </state>
       </provider>
