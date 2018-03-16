@@ -142,6 +142,6 @@ EMAIL_HOST_PASSWORD = 'dahv80kaiser'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-MAIL_REPLY = 'sigef.cacoal@ifro.edu.br'
+MAIL_REPLY = 'Gestão de Ocorrências'
 
 IMPORT_EXPORT_USE_TRANSACTIONS = True
