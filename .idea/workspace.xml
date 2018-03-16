@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portal/templates/portal/import_aluno_success.html" afterPath="$PROJECT_DIR$/portal/templates/portal/import_aluno_success.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portal/templates/portal/import_matricula_success.html" afterPath="$PROJECT_DIR$/portal/templates/portal/import_matricula_success.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portal/templates/portal/home.html" afterPath="$PROJECT_DIR$/portal/templates/portal/home.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,6 +39,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="473">
+              <caret line="185" column="26" lean-forward="true" selection-start-line="185" selection-start-column="26" selection-end-line="185" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="import_matricula_success.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/import_matricula_success.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -50,7 +59,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="import_aluno_success.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="import_aluno_success.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/import_aluno_success.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="375">
@@ -68,16 +77,6 @@
               <folding>
                 <element signature="e#309#318#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ocorrencia_show.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_show.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="523">
-              <caret line="110" column="36" lean-forward="true" selection-start-line="110" selection-start-column="36" selection-end-line="110" selection-end-column="36" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -115,8 +114,8 @@
       <file leaf-file-name="matricula.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/matricula.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="651">
-              <caret line="115" column="39" lean-forward="true" selection-start-line="115" selection-start-column="39" selection-end-line="115" selection-end-column="39" />
+            <state relative-caret-position="701">
+              <caret line="117" column="109" lean-forward="true" selection-start-line="117" selection-start-column="109" selection-end-line="117" selection-end-column="109" />
               <folding />
             </state>
           </provider>
@@ -173,7 +172,6 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_print.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/home.html" />
         <option value="$PROJECT_DIR$/portal/templates/base.html" />
         <option value="$PROJECT_DIR$/portal/models.py" />
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" />
@@ -193,6 +191,7 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/turma.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/import_matricula_success.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/import_aluno_success.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/home.html" />
       </list>
     </option>
   </component>
@@ -619,14 +618,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/turmas.html" />
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="77" column="50" lean-forward="false" selection-start-line="77" selection-start-column="50" selection-end-line="77" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
@@ -771,14 +762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/matricula.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="115" column="39" lean-forward="true" selection-start-line="115" selection-start-column="39" selection-end-line="115" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="423">
@@ -823,6 +806,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/matricula.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="701">
+          <caret line="117" column="109" lean-forward="true" selection-start-line="117" selection-start-column="109" selection-end-line="117" selection-end-column="109" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="185" column="26" lean-forward="true" selection-start-line="185" selection-start-column="26" selection-end-line="185" selection-end-column="26" />
           <folding />
         </state>
       </provider>
