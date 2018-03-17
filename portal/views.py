@@ -260,37 +260,66 @@ def curso_delete(request, curso_id):
 
 @login_required
 def dashboard(request):
-    faltas = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa).order_by(
+    # DADOS GRÁFICO DE OCORRÊNCIAS POR CATEGORIA
+    categorias = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa).order_by(
         'falta__categoria__artigo').values_list('falta__categoria__descricao').annotate(qtde=Count('id')).distinct()
 
+    categorias_faltas = [obj[0] for obj in categorias]
+    qtde_categorias_faltas = [int(obj[1]) for obj in categorias]
+
+    # DADOS GRÁFICO DE OCORRÊNCIAS POR CURSO
     cursos = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa).order_by().values_list(
         'matricula__turma__curso__descricao').annotate(qtde=Count('id')).distinct()
 
-    turmas = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa).order_by().values_list(
-        'matricula__turma__curso__descricao', 'matricula__turma__descricao').annotate(qtde=Count('id')).distinct()
-
-    # DADOS GRÁFICO DE OCORRÊNCIAS POR CATEGORIA
-    categorias_faltas = [obj[0] for obj in faltas]
-    qtde_categorias_faltas = [int(obj[1]) for obj in faltas]
-
-    # DADOS GRÁFICO DE OCORRÊNCIAS POR CURSO
     cursos_ocorrencia = [obj[0] for obj in cursos]
     qtde_cursos_ocorrencia = [int(obj[1]) for obj in cursos]
 
     # DADOS GRÁFICO DE OCORRÊNCIAS POR TURMA
-    turmas_ocorrencia = [obj[0]+' - '+obj[1] for obj in turmas]
+    turmas = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa).order_by().values_list(
+        'matricula__turma__curso__descricao', 'matricula__turma__descricao').annotate(qtde=Count('id')).distinct()
+
+    turmas_ocorrencia = [obj[0] + ' - ' + obj[1] for obj in turmas]
     qtde_turmas_ocorrencia = [int(obj[2]) for obj in turmas]
 
+    coures = Curso.objects.all().order_by('descricao')
+
+    if request.method == 'POST':
+        id = request.POST['Course']
+        c = get_object_or_404(Curso, id=id)
+
+        # DADOS GRÁFICO CATEGORIA DE OCORRÊNCIAS POR CURSO
+        distribuicao = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
+                                                 matricula__turma__curso=c).order_by(
+            'falta__categoria__artigo').values_list('falta__categoria__descricao').annotate(qtde=Count('id')).distinct()
+
+        distribuicao_ocorrencia = [obj[0] for obj in distribuicao]
+        distribuicao_qtde = [obj[1] for obj in distribuicao]
+    else:
+        c = ''
+        distribuicao = ''
+        distribuicao_ocorrencia = ''
+        distribuicao_qtde = ''
+
     context = {
-        'faltas': faltas,
+        'c': c,
+
+        'courses': coures,
+        'categorias': categorias,
         'cursos': cursos,
         'turmas': turmas,
+        'distribuicao': distribuicao,
+
         'categorias_faltas': json.dumps(categorias_faltas),
         'qtde_categorias_faltas': json.dumps(qtde_categorias_faltas),
+
         'cursos_ocorrencia': json.dumps(cursos_ocorrencia),
         'qtde_cursos_ocorrencia': json.dumps(qtde_cursos_ocorrencia),
+
         'turmas_ocorrencia': json.dumps(turmas_ocorrencia),
         'qtde_turmas_ocorrencia': json.dumps(qtde_turmas_ocorrencia),
+
+        'distribuicao_ocorrencia': json.dumps(distribuicao_ocorrencia),
+        'distribuicao_qtde': json.dumps(distribuicao_qtde),
     }
 
     return render(request, 'portal/dashboard.html', context)

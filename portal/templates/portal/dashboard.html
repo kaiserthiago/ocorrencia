@@ -115,6 +115,43 @@
             </div>
         </div>
     </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header gradient white-text">
+                    DISTRIBUIÇÃO DE OCORRÊNCIAS POR CURSOS
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                <select name="Course" id="Course" class="mdb-select colorful-select dropdown-primary"
+                                        onchange="this.form.submit();">
+                                    <option value="" disabled {% if not distribuicao %} selected {% endif %}>
+                                        Selecione...
+                                    </option>
+                                    {% for course in courses %}
+                                        <option value="{{ course.id }}" {% if distribuicao and course.id == c.id %}
+                                                selected {% endif %}>{{ course.descricao }}</option>
+                                    {% endfor %}
+                                </select>
+                                <label for="Course">Curso</label>
+                            </form>
+                        </div>
+                        <div class="col-sm-6">
+                            {% if distribuicao %}
+                                <canvas id="distribuicao" width="300" height="200"></canvas>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block script %}
@@ -201,6 +238,48 @@
             },
             options: {
                 responsive: true
+            }
+        });
+    </script>
+    <script>
+        //bar
+        var ctxB = document.getElementById("distribuicao").getContext('2d');
+        var labels = JSON.parse('{{ distribuicao_ocorrencia|safe }}');
+        var data = JSON.parse('{{ distribuicao_qtde|safe }}');
+        var myBarChart = new Chart(ctxB, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: "{{ c.descricao }}",
+                    data: data,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
             }
         });
     </script>
