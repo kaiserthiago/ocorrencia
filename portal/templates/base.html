@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="theme-color" content="#243A51">
     <title>{% block title %}Gestão de Ocorrências - SIGO{% endblock %}</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -15,6 +16,10 @@
     <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet" media="all">
     <!-- Your custom styles (optional) -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet" media="all">
+
+    <!-- Forçar atualizar -->
+    <link href="main.css?version=12"/>
+
     <style>
         {% block style %}
         {% endblock %}
@@ -75,16 +80,19 @@
                     </div>
                 </li>
                 <li>
+                    <a href="{% url 'dashboard' %}"
+                       class="collapsible-header waves-effect arrow-r {% block class_dashboard_menu %}{% endblock %}"><i
+                            class="fa fa-dashboard"></i> Dashboard</a>
+                </li>
+                <li>
                     <a href="{% url 'ocorrencia' %}" class="collapsible-header waves-effect arrow-r
                             {% block class_ocorrencia_menu %}{% endblock %}"><i
-                            class="fa fa-file-text"></i>
-                        Ocorrências</a>
+                            class="fa fa-file-text"></i> Ocorrências</a>
                 </li>
                 {% if request.user.is_authenticated %}
                     <li>
                         <a href="{% url 'logout' %}" class="collapsible-header waves-effect arrow-r"><i
-                                class="fa fa-power-off"></i>
-                            Sair</a>
+                                class="fa fa-power-off"></i> Sair</a>
                     </li>
                 {% else %}
                     <li>
@@ -137,29 +145,28 @@
 <div class="content">
     <main>
         <div class="container">
-            <div class="container-fluid">
-                {% if messages %}
-                    {% for message in messages %}
-                        {% if message.tags == 'error' %}
-                            <div class="alert card-header danger-color white-text text-left alert-dismissable">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>Erro!</strong> {{ message }}
-                            </div>
-                        {% elif message.tags == 'success' %}
-                            <div class="alert card-header success-color white-text text-left alert-dismissable">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>Sucesso!</strong> {{ message }}
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                {% endif %}
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags == 'error' %}
+                        <div class="alert card-header danger-color white-text text-left alert-dismissable">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>Erro!</strong> {{ message }}
+                        </div>
+                    {% elif message.tags == 'success' %}
+                        <div class="alert card-header success-color white-text text-left alert-dismissable">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>Sucesso!</strong> {{ message }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
 
-                {% block breadcrumb_base %}
-                {% endblock %}
+            {% block breadcrumb_base %}
+            {% endblock %}
 
-                {% block content %}
-                {% endblock %}
-            </div>
+            {% block content %}
+            {% endblock %}
+        </div>
     </main>
     <!--/Main layout-->
 </div>

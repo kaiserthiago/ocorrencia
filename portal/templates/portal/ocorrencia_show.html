@@ -31,86 +31,82 @@
                     OCORRÊNCIA {{ ocorrencia.id }}/{{ ano }}
                 </div>
                 <div class="card-body border-primary">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <table class="table table-bordered table-sm">
-                                <tbody>
-                                <tr>
-                                    <td class="text-center align-middle">
-                                        <img src="{% static 'img/logo_ifro.png' %}" width="100">
-                                    </td>
-                                    <td colspan="2" class="text-center font-weight-bold align-middle">
-                                        MINISTÉRIO DA EDUCAÇÃO<br>
-                                        {{ ocorrencia.user.userprofile.empresa.razao_social|upper }}<br>
-                                        {{ ocorrencia.user.userprofile.empresa|upper }}
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <table class="table table-bordered table-sm">
-                                <tbody>
-                                <tr>
-                                    <td>
-                                        <p class="font-weight-bold">
-                                            CURSO
-                                        </p>
-                                        {{ ocorrencia.matricula.turma }}
-                                    </td>
-                                    <td class="text-right">
-                                        <p class="font-weight-bold">
-                                            DATA
-                                        </p>
-                                        {{ ocorrencia.data }}
-                                    </td>
-                                    <td class="text-right">
-                                        <p class="font-weight-bold">
-                                            OCORRÊNCIA
-                                        </p>
-                                        {{ ocorrencia.id }}/{{ ano }}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <p class="font-weight-bold">
-                                            ESTUDANTE
-                                        </p>
-                                        {{ ocorrencia.matricula.aluno }}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <p class="font-weight-bold">
-                                            DESCRIÇÃO DA FALTA
-                                        </p>
-                                        ART. {{ ocorrencia.falta.categoria.artigo }} -
-                                        {{ ocorrencia.falta.categoria.descricao|upper }}<br>
-                                        {{ ocorrencia.falta.inciso }} - {{ ocorrencia.falta.descricao }}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
-                                        <p class="font-weight-bold">
-                                            DESCRIÇÃO DA OCORRÊNCIA
-                                        </p>
-                                        {{ ocorrencia.descricao }}
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <table class="table table-bordered table-sm">
-                                <tbody>
-                                <tr>
-                                    <td colspan="3" class="text-center align-bottom">
-                                        <p class="font-weight-bold">
-                                            {{ ocorrencia.user }}
-                                        </p>
-                                        {{ ocorrencia.user.userprofile.siape }}
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                    <table class="table table-bordered table-sm">
+                        <tbody>
+                        <tr>
+                            <td class="text-center align-middle">
+                                <img src="{% static 'img/logo_ifro.png' %}" width="100">
+                            </td>
+                            <td colspan="2" class="text-center font-weight-bold align-middle">
+                                MINISTÉRIO DA EDUCAÇÃO<br>
+                                {{ ocorrencia.user.userprofile.empresa.razao_social|upper }}<br>
+                                {{ ocorrencia.user.userprofile.empresa|upper }}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-sm">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <p class="font-weight-bold">
+                                    CURSO
+                                </p>
+                                {{ ocorrencia.matricula.turma }}
+                            </td>
+                            <td class="text-right">
+                                <p class="font-weight-bold">
+                                    DATA
+                                </p>
+                                {{ ocorrencia.data }}
+                            </td>
+                            <td class="text-right">
+                                <p class="font-weight-bold">
+                                    OCORRÊNCIA
+                                </p>
+                                {{ ocorrencia.id }}/{{ ano }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <p class="font-weight-bold">
+                                    ESTUDANTE
+                                </p>
+                                {{ ocorrencia.matricula.aluno }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <p class="font-weight-bold">
+                                    DESCRIÇÃO DA FALTA
+                                </p>
+                                ART. {{ ocorrencia.falta.categoria.artigo }} -
+                                {{ ocorrencia.falta.categoria.descricao|upper }}<br>
+                                {{ ocorrencia.falta.inciso }} - {{ ocorrencia.falta.descricao }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <p class="font-weight-bold">
+                                    DESCRIÇÃO DA OCORRÊNCIA
+                                </p>
+                                {{ ocorrencia.descricao }}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-sm">
+                        <tbody>
+                        <tr>
+                            <td colspan="3" class="text-center align-bottom">
+                                <p class="font-weight-bold">
+                                    {{ ocorrencia.user }}
+                                </p>
+                                {{ ocorrencia.user.userprofile.siape }}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

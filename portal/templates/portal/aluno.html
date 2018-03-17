@@ -27,11 +27,9 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="float-right">
-                                <a href="{% url 'aluno_new' %}" class="btn btn-success"><i class="fa fa-plus"></i> Novo
-                                    Registro</a>
+                                <a href="{% url 'aluno_new' %}" class="btn btn-success"><i class="fa fa-plus"></i> Novo Registro</a>
                                 <a href="{% url 'import_aluno' %}" class="btn btn-info"><i
-                                        class="fa fa-arrow-circle-down"></i>
-                                    Importar</a>
+                                        class="fa fa-arrow-circle-down"></i> Importar</a>
                             </div>
                         </div>
                     </div>
@@ -46,8 +44,8 @@
                             <tbody id="myTable">
                             {% for aluno in alunos %}
                                 <tr>
-                                    <td style="vertical-align: bottom;">{{ aluno.nome }}</td>
-                                    <td style="vertical-align: bottom; text-align: right">
+                                    <td style="vertical-align: middle;">{{ aluno.nome }}</td>
+                                    <td style="vertical-align: middle; text-align: right">
                                         <a href="{% url 'aluno_edit' aluno.id %}"
                                            class="btn-floating btn-sm warning-color"
                                            title="Editar"><i class="fa fa-pencil"></i>

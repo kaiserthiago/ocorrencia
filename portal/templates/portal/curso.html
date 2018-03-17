@@ -44,9 +44,9 @@
                             <tbody id="myTable">
                             {% for curso in cursos %}
                                 <tr>
-                                    <td style="vertical-align: bottom;">{{ curso.descricao }}</td>
-                                    <td style="vertical-align: bottom;">{{ curso.email }}</td>
-                                    <td style="vertical-align: bottom; text-align: right">
+                                    <td style="vertical-align: middle;">{{ curso.descricao }}</td>
+                                    <td style="vertical-align: middle;">{{ curso.email }}</td>
+                                    <td style="vertical-align: middle; text-align: right">
                                         <a href="{% url 'curso_edit' curso.id %}"
                                            class="btn-floating btn-sm warning-color"
                                            title="Editar"><i class="fa fa-pencil"></i>

@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard - Gestão de Ocorrências - SIGO{% endblock %}
+{% block class_dashboard_menu %}active{% endblock %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item active">Dasboard</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header gradient white-text">
+                    OCORRÊNCIAS POR CATEGORIA
+                </div>
+                <div class="card-body">
+                    {#                    <div class="table-responsive">#}
+                    {#                        <table class="table table-striped table-sm">#}
+                    {#                            <thead>#}
+                    {#                            <tr>#}
+                    {#                                <th>Descrição</th>#}
+                    {#                                <th style="text-align: right">Quantidade</th>#}
+                    {#                            </tr>#}
+                    {#                            </thead>#}
+                    {#                            <tbody>#}
+                    {#                            {% for f in faltas %}#}
+                    {#                                <tr>#}
+                    {#                                    <td>{{ f.falta__categoria__descricao }}</td>#}
+                    {#                                    <td style="text-align: right">{{ f.qtde }}</td>#}
+                    {#                                </tr>#}
+                    {#                            {% empty %}#}
+                    {#                                <tr>#}
+                    {#                                    <td>Sem dados</td>#}
+                    {#                                </tr>#}
+                    {#                            {% endfor %}#}
+                    {#                            </tbody>#}
+                    {#                        </table>#}
+                    {#                    </div>#}
+                    <canvas id="categoria" width="300" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <hr class="w-100 clearfix d-md-none">
+
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header gradient white-text">
+                    OCORRÊNCIAS POR CURSO
+                </div>
+                <div class="card-body">
+                    {#                    <div class="table-responsive">#}
+                    {#                        <table class="table table-striped table-sm">#}
+                    {#                            <thead>#}
+                    {#                            <tr>#}
+                    {#                                <th>Curso</th>#}
+                    {#                                <th style="text-align: right">Quantidade</th>#}
+                    {#                            </tr>#}
+                    {#                            </thead>#}
+                    {#                            <tbody>#}
+                    {#                            {% for c in cursos %}#}
+                    {#                                <tr>#}
+                    {#                                    <td>{{ c.matricula__turma__curso__descricao }}</td>#}
+                    {#                                    <td style="text-align: right">{{ c.qtde }}</td>#}
+                    {#                                </tr>#}
+                    {#                            {% empty %}#}
+                    {#                                <tr>#}
+                    {#                                    <td colspan="2" class="text-center">Sem dados</td>#}
+                    {#                                </tr>#}
+                    {#                            {% endfor %}#}
+                    {#                            </tbody>#}
+                    {#                        </table>#}
+                    {#                    </div>#}
+                    <canvas id="curso" width="300" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <hr class="w-100 clearfix d-md-none">
+
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header gradient white-text">
+                    OCORRÊNCIAS POR TURMA
+                </div>
+                <div class="card-body">
+                    {#                    <div class="table-responsive">#}
+                    {#                        <table class="table table-striped table-sm">#}
+                    {#                            <thead>#}
+                    {#                            <tr>#}
+                    {#                                <th>Turma</th>#}
+                    {#                                <th style="text-align: right">Quantidade</th>#}
+                    {#                            </tr>#}
+                    {#                            </thead>#}
+                    {#                            <tbody>#}
+                    {#                            {% for t in turmas %}#}
+                    {#                                <tr>#}
+                    {#                                    <td>{{ t.matricula__turma__curso__descricao }}#}
+                    {#                                        - {{ t.matricula__turma__descricao }}</td>#}
+                    {#                                    <td style="text-align: right">{{ t.qtde }}</td>#}
+                    {#                                </tr>#}
+                    {#                            {% empty %}#}
+                    {#                                <tr>#}
+                    {#                                    <td colspan="2" class="text-center">Sem dados</td>#}
+                    {#                                </tr>#}
+                    {#                            {% endfor %}#}
+                    {#                            </tbody>#}
+                    {#                        </table>#}
+                    {#                    </div>#}
+                    <canvas id="turma" width="300" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        //doughnut
+        var ctxD = document.getElementById("categoria").getContext('2d');
+        var labels = JSON.parse('{{ categorias_faltas|safe }}');
+        var data = JSON.parse('{{ qtde_categorias_faltas|safe }}');
+        var myLineChart = new Chart(ctxD, {
+            type: 'doughnut',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        data: data,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ]
+                    }
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+
+    <script>
+        //doughnut
+        var ctxD = document.getElementById("curso").getContext('2d');
+        var labels = JSON.parse('{{ cursos_ocorrencia|safe }}');
+        var data = JSON.parse('{{ qtde_cursos_ocorrencia|safe }}');
+        var myLineChart = new Chart(ctxD, {
+            type: 'doughnut',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        data: data,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ]
+                    }
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+
+    <script>
+        //doughnut
+        var ctxD = document.getElementById("turma").getContext('2d');
+        var labels = JSON.parse('{{ turmas_ocorrencia|safe }}');
+        var data = JSON.parse('{{ qtde_turmas_ocorrencia|safe }}');
+        var myLineChart = new Chart(ctxD, {
+            type: 'doughnut',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        data: data,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ]
+                    }
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+{% endblock %}

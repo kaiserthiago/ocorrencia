@@ -1,3 +1,4 @@
+import json
 from datetime import date
 
 from django.contrib import messages
@@ -16,8 +17,10 @@ from portal.resources import MatriculaResource, TesteResource
 def home(request):
     return render(request, 'portal/home.html', {})
 
+
 def contato(request):
     return render(request, 'portal/contato.html', {})
+
 
 @login_required
 def import_matricula(request):
@@ -40,7 +43,7 @@ def import_matricula(request):
 
         for teste in lista:
             aluno = get_object_or_404(Aluno, nome=teste)
-            matricula = Matricula.objects.filter(aluno=aluno,ano_letivo=int(date.today().year))
+            matricula = Matricula.objects.filter(aluno=aluno, ano_letivo=int(date.today().year))
 
             if teste == aluno.nome and not matricula:
                 matricula = Matricula()
@@ -256,6 +259,44 @@ def curso_delete(request, curso_id):
 
 
 @login_required
+def dashboard(request):
+    faltas = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa).order_by(
+        'falta__categoria__artigo').values_list('falta__categoria__descricao').annotate(qtde=Count('id')).distinct()
+
+    cursos = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa).order_by().values_list(
+        'matricula__turma__curso__descricao').annotate(qtde=Count('id')).distinct()
+
+    turmas = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa).order_by().values_list(
+        'matricula__turma__curso__descricao', 'matricula__turma__descricao').annotate(qtde=Count('id')).distinct()
+
+    # DADOS GRÁFICO DE OCORRÊNCIAS POR CATEGORIA
+    categorias_faltas = [obj[0] for obj in faltas]
+    qtde_categorias_faltas = [int(obj[1]) for obj in faltas]
+
+    # DADOS GRÁFICO DE OCORRÊNCIAS POR CURSO
+    cursos_ocorrencia = [obj[0] for obj in cursos]
+    qtde_cursos_ocorrencia = [int(obj[1]) for obj in cursos]
+
+    # DADOS GRÁFICO DE OCORRÊNCIAS POR TURMA
+    turmas_ocorrencia = [obj[0]+' - '+obj[1] for obj in turmas]
+    qtde_turmas_ocorrencia = [int(obj[2]) for obj in turmas]
+
+    context = {
+        'faltas': faltas,
+        'cursos': cursos,
+        'turmas': turmas,
+        'categorias_faltas': json.dumps(categorias_faltas),
+        'qtde_categorias_faltas': json.dumps(qtde_categorias_faltas),
+        'cursos_ocorrencia': json.dumps(cursos_ocorrencia),
+        'qtde_cursos_ocorrencia': json.dumps(qtde_cursos_ocorrencia),
+        'turmas_ocorrencia': json.dumps(turmas_ocorrencia),
+        'qtde_turmas_ocorrencia': json.dumps(qtde_turmas_ocorrencia),
+    }
+
+    return render(request, 'portal/dashboard.html', context)
+
+
+@login_required
 def turma(request):
     turmas = Turma.objects.all().order_by('curso', 'descricao')
 
@@ -346,7 +387,7 @@ def ocorrencia_show(request, ocorrencia_id):
 
     context = {
         'ocorrencia': ocorrencia,
-        'ano':ano
+        'ano': ano
     }
 
     return render(request, 'portal/ocorrencia_show.html', context)
@@ -405,7 +446,7 @@ def ocorrencia_register(request):
                     ocorrencia.save()
 
                     RegistraOcorrenciaMail(ocorrencia).send(request.user.userprofile.empresa.email_responsavel,
-                                                    request.user.email, ocorrencia.matricula.turma.curso.email)
+                                                            request.user.email, ocorrencia.matricula.turma.curso.email)
             return redirect('ocorrencia')
         else:
             form = OcorrenciaForm()

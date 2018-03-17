@@ -51,12 +51,12 @@
                             <tbody id="myTable">
                             {% for matricula in matriculas %}
                                 <tr>
-                                    <td style="vertical-align: bottom;">{{ matricula.id }}</td>
-                                    <td style="vertical-align: bottom;">{{ matricula.turma.curso }}</td>
-                                    <td style="vertical-align: bottom;">{{ matricula.turma.descricao }}</td>
-                                    <td style="vertical-align: bottom;">{{ matricula.aluno }}</td>
-                                    <td style="text-align: right; vertical-align: bottom;">{{ matricula.ano_letivo }}</td>
-                                    <td style="vertical-align: bottom; text-align: right">
+                                    <td style="vertical-align: middle;">{{ matricula.id }}</td>
+                                    <td style="vertical-align: middle;">{{ matricula.turma.curso }}</td>
+                                    <td style="vertical-align: middle;">{{ matricula.turma.descricao }}</td>
+                                    <td style="vertical-align: middle;">{{ matricula.aluno }}</td>
+                                    <td style="text-align: right; vertical-align: middle;">{{ matricula.ano_letivo }}</td>
+                                    <td style="vertical-align: middle; text-align: right">
                                         <a href="{% url 'matricula_edit' matricula.id %}"
                                            class="btn-floating btn-sm warning-color"
                                            title="Editar"><i class="fa fa-pencil"></i>

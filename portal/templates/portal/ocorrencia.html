@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="table-responsive">
-                        <table class="table table-sm table-striped">
+                        <table class="table table-sm table-striped btn-table">
                             <thead>
                             <tr>
                                 <th style="font-weight: bold">#</th>
@@ -47,12 +47,12 @@
                             <tbody id="myTable">
                             {% for ocorrencia in ocorrencias %}
                                 <tr>
-                                    <td style="vertical-align: bottom;">{{ ocorrencia.id }}</td>
-                                    <td style="vertical-align: bottom;">{{ ocorrencia.matricula.turma }}</td>
-                                    <td style="vertical-align: bottom;">{{ ocorrencia.matricula.aluno }}</td>
-                                    <td style="vertical-align: bottom;">{{ ocorrencia.data }}</td>
-                                    <td style="vertical-align: bottom;">{{ ocorrencia.descricao|truncatechars:20 }}</td>
-                                    <td style="vertical-align: bottom; text-align: right">
+                                    <td style="vertical-align: middle;">{{ ocorrencia.id }}</td>
+                                    <td style="vertical-align: middle;">{{ ocorrencia.matricula.turma }}</td>
+                                    <td style="vertical-align: middle;">{{ ocorrencia.matricula.aluno }}</td>
+                                    <td style="vertical-align: middle;">{{ ocorrencia.data }}</td>
+                                    <td style="vertical-align: middle;">{{ ocorrencia.descricao|truncatechars:20 }}</td>
+                                    <td style="vertical-align: middle; text-align: right">
 
                                         <a href="{% url 'ocorrencia_show' ocorrencia.id %}"
                                            class="btn-floating btn-sm info-color"
