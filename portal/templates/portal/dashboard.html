@@ -52,8 +52,8 @@
                                 {% csrf_token %}
                                 <select name="Course" id="Course" class="mdb-select colorful-select dropdown-primary"
                                         onchange="this.form.submit();">
-                                    <option value="" disabled {% if not distribuicao %}selected{% endif %}>
-                                        Selecione...
+                                    <option value="" disabled
+                                            {% if not distribuicao %}selected{% endif %}>Selecione...
                                     </option>
                                     {% for course in courses %}
                                         <option value="{{ course.matricula__turma__curso__id }}"
