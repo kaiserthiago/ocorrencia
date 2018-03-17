@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/portal/templates/portal/dashboard.html" afterPath="$PROJECT_DIR$/portal/templates/portal/dashboard.html" />
+      <change beforePath="$PROJECT_DIR$/portal/views.py" afterPath="$PROJECT_DIR$/portal/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,8 +33,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="298" column="25" lean-forward="false" selection-start-line="298" selection-start-column="25" selection-end-line="298" selection-end-column="25" />
+            <state relative-caret-position="406">
+              <caret line="284" column="81" lean-forward="false" selection-start-line="284" selection-start-column="54" selection-end-line="284" selection-end-column="81" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
                 <element signature="e#606#652#0" expanded="false" />
@@ -48,15 +49,15 @@
                 <element signature="e#4938#5470#0" expanded="false" />
                 <element signature="e#5528#6082#0" expanded="false" />
                 <element signature="e#6142#6273#0" expanded="false" />
-                <element signature="e#9039#9204#0" expanded="false" />
-                <element signature="e#9251#9783#0" expanded="false" />
-                <element signature="e#9841#10395#0" expanded="false" />
-                <element signature="e#10455#10586#0" expanded="false" />
-                <element signature="e#10634#10901#0" expanded="false" />
-                <element signature="e#10969#11201#0" expanded="false" />
-                <element signature="e#12019#13465#0" expanded="false" />
-                <element signature="e#13574#13769#0" expanded="false" />
-                <element signature="e#13820#14080#0" expanded="false" />
+                <element signature="e#9912#10077#0" expanded="false" />
+                <element signature="e#10124#10656#0" expanded="false" />
+                <element signature="e#10714#11268#0" expanded="false" />
+                <element signature="e#11328#11459#0" expanded="false" />
+                <element signature="e#11507#11774#0" expanded="false" />
+                <element signature="e#11842#12074#0" expanded="false" />
+                <element signature="e#12892#14338#0" expanded="false" />
+                <element signature="e#14447#14642#0" expanded="false" />
+                <element signature="e#14693#14953#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -109,9 +110,11 @@
       <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="149" column="76" lean-forward="false" selection-start-line="149" selection-start-column="76" selection-end-line="149" selection-end-column="76" />
-              <folding />
+            <state relative-caret-position="447">
+              <caret line="147" column="62" lean-forward="false" selection-start-line="147" selection-start-column="62" selection-end-line="147" selection-end-column="62" />
+              <folding>
+                <element signature="e#8001#8022#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -816,10 +819,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="150" column="0" lean-forward="false" selection-start-line="150" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/portal/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="298" column="25" lean-forward="false" selection-start-line="298" selection-start-column="25" selection-end-line="298" selection-end-column="25" />
+        <state relative-caret-position="406">
+          <caret line="284" column="81" lean-forward="false" selection-start-line="284" selection-start-column="54" selection-end-line="284" selection-end-column="81" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
             <element signature="e#606#652#0" expanded="false" />
@@ -834,32 +845,26 @@
             <element signature="e#4938#5470#0" expanded="false" />
             <element signature="e#5528#6082#0" expanded="false" />
             <element signature="e#6142#6273#0" expanded="false" />
-            <element signature="e#9039#9204#0" expanded="false" />
-            <element signature="e#9251#9783#0" expanded="false" />
-            <element signature="e#9841#10395#0" expanded="false" />
-            <element signature="e#10455#10586#0" expanded="false" />
-            <element signature="e#10634#10901#0" expanded="false" />
-            <element signature="e#10969#11201#0" expanded="false" />
-            <element signature="e#12019#13465#0" expanded="false" />
-            <element signature="e#13574#13769#0" expanded="false" />
-            <element signature="e#13820#14080#0" expanded="false" />
+            <element signature="e#9912#10077#0" expanded="false" />
+            <element signature="e#10124#10656#0" expanded="false" />
+            <element signature="e#10714#11268#0" expanded="false" />
+            <element signature="e#11328#11459#0" expanded="false" />
+            <element signature="e#11507#11774#0" expanded="false" />
+            <element signature="e#11842#12074#0" expanded="false" />
+            <element signature="e#12892#14338#0" expanded="false" />
+            <element signature="e#14447#14642#0" expanded="false" />
+            <element signature="e#14693#14953#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="150" column="0" lean-forward="false" selection-start-line="150" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="149" column="76" lean-forward="false" selection-start-line="149" selection-start-column="76" selection-end-line="149" selection-end-column="76" />
-          <folding />
+        <state relative-caret-position="447">
+          <caret line="147" column="62" lean-forward="false" selection-start-line="147" selection-start-column="62" selection-end-line="147" selection-end-column="62" />
+          <folding>
+            <element signature="e#8001#8022#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

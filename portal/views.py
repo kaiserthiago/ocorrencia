@@ -281,11 +281,21 @@ def dashboard(request):
     turmas_ocorrencia = [obj[0] + ' - ' + obj[1] for obj in turmas]
     qtde_turmas_ocorrencia = [int(obj[2]) for obj in turmas]
 
-    coures = Curso.objects.all().order_by('descricao')
+    courses = Ocorrencia.objects.filter(matricula__turma__curso__in=Curso.objects.all()).order_by(
+        'matricula__turma__curso__descricao').values('matricula__turma__curso__id',
+                                                     'matricula__turma__curso__descricao').distinct()
 
     if request.method == 'POST':
         id = request.POST['Course']
         c = get_object_or_404(Curso, id=id)
+
+        detalhamento = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
+                                                 matricula__turma__curso=c).order_by('falta__categoria__artigo').values(
+            'falta__categoria__descricao').annotate(qtde=Count('id')).distinct()
+
+        total = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
+                                          matricula__turma__curso=c).order_by(
+            'falta__categoria__artigo').values().aggregate(qtde=Count('id'))
 
         # DADOS GRÁFICO CATEGORIA DE OCORRÊNCIAS POR CURSO
         distribuicao = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
@@ -299,11 +309,15 @@ def dashboard(request):
         distribuicao = ''
         distribuicao_ocorrencia = ''
         distribuicao_qtde = ''
+        detalhamento = ''
+        total = ''
 
     context = {
         'c': c,
+        'detalhamento': detalhamento,
+        'total': total,
 
-        'courses': coures,
+        'courses': courses,
         'categorias': categorias,
         'cursos': cursos,
         'turmas': turmas,

@@ -135,19 +135,36 @@
                                         Selecione...
                                     </option>
                                     {% for course in courses %}
-                                        <option value="{{ course.id }}" {% if distribuicao and course.id == c.id %}
-                                                selected {% endif %}>{{ course.descricao }}</option>
+                                        <option value="{{ course.matricula__turma__curso__id }}"
+                                                {% if distribuicao and course.matricula__turma__curso__id == c.id %}
+                                                selected {% endif %}>{{ course.matricula__turma__curso__descricao }}</option>
                                     {% endfor %}
                                 </select>
                                 <label for="Course">Curso</label>
                             </form>
+                            {% if distribuicao %}
+                                <div class="card" style="width: 22rem;">
+                                    <div class="card-header info-color white-text">
+                                        RESUMO DAS OCORRÊNCIAS
+                                    </div>
+                                    <div class="card-body">
+                                        {% for o in detalhamento %}
+                                            <strong>{{ o.falta__categoria__descricao }}: </strong>{{ o.qtde }}<br>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="card-footer text-muted info-color white-text">
+                                        <p class="mb-0">TOTAL: {{ total.qtde }}</p>
+                                    </div>
+                                </div>
+
+                            {% endif %}
                         </div>
                         <div class="col-sm-6">
                             {% if distribuicao %}
                                 <canvas id="distribuicao" width="300" height="200"></canvas>
                             {% else %}
                                 <div class="alert card-header info-color white-text text-center">
-                                <strong>SELECIONE O CURSO PARA VER O GRÁFICO</strong>
+                                    <strong>SELECIONE O CURSO PARA VER O GRÁFICO</strong>
                                 </div>
                             {% endif %}
                         </div>
