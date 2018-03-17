@@ -274,13 +274,6 @@ def dashboard(request):
     cursos_ocorrencia = [obj[0] for obj in cursos]
     qtde_cursos_ocorrencia = [int(obj[1]) for obj in cursos]
 
-    # DADOS GRÁFICO DE OCORRÊNCIAS POR TURMA
-    turmas = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa).order_by().values_list(
-        'matricula__turma__curso__descricao', 'matricula__turma__descricao').annotate(qtde=Count('id')).distinct()
-
-    turmas_ocorrencia = [obj[0] + ' - ' + obj[1] for obj in turmas]
-    qtde_turmas_ocorrencia = [int(obj[2]) for obj in turmas]
-
     courses = Ocorrencia.objects.filter(matricula__turma__curso__in=Curso.objects.all()).order_by(
         'matricula__turma__curso__descricao').values('matricula__turma__curso__id',
                                                      'matricula__turma__curso__descricao').distinct()
@@ -304,6 +297,15 @@ def dashboard(request):
 
         distribuicao_ocorrencia = [obj[0] for obj in distribuicao]
         distribuicao_qtde = [obj[1] for obj in distribuicao]
+
+        # DADOS GRÁFICO DE OCORRÊNCIAS POR TURMA
+        turmas = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
+                                           matricula__turma__curso=c).order_by(
+            'matricula__turma__descricao').values_list(
+            'matricula__turma__descricao').annotate(qtde=Count('id')).distinct()
+
+        turmas_ocorrencia = [obj[0] for obj in turmas]
+        qtde_turmas_ocorrencia = [int(obj[1]) for obj in turmas]
     else:
         c = ''
         distribuicao = ''
@@ -311,6 +313,10 @@ def dashboard(request):
         distribuicao_qtde = ''
         detalhamento = ''
         total = ''
+
+        turmas = ''
+        turmas_ocorrencia = ''
+        qtde_turmas_ocorrencia = ''
 
     context = {
         'c': c,
