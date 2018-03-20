@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Count
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
+from django.template.defaultfilters import upper
 from tablib import Dataset
 
 from portal.emails import RegistraOcorrenciaMail
@@ -37,15 +38,23 @@ def import_matricula(request):
 
         importado = 0
         nao_importado = 0
+        # i=1
+        # for n in imported_data:
+        #     aluno = Aluno.objects.filter(nome=upper(n[0]))
+        #     if not aluno:
+        #         lista.append(str(i)+' - '+upper(n[0])+'<br>')
+        #     i+=1
+        # return HttpResponse(lista)
+
 
         for n in imported_data:
-            lista.append(n[0])
+            lista.append(upper(n[0]))
 
         for teste in lista:
             aluno = get_object_or_404(Aluno, nome=teste)
             matricula = Matricula.objects.filter(aluno=aluno, ano_letivo=int(date.today().year))
 
-            if teste == aluno.nome and not matricula:
+            if (teste == aluno.nome) and not matricula:
                 matricula = Matricula()
                 matricula.user = request.user
                 matricula.empresa = request.user.userprofile.empresa
@@ -88,7 +97,7 @@ def import_aluno(request):
         nao_importado = 0
 
         for n in imported_data:
-            lista.append(n[0])
+            lista.append(upper(n[0]))
 
         for teste in lista:
             aluno = Aluno.objects.filter(nome=teste)
@@ -543,5 +552,11 @@ def matricula_edit(request):
 
 
 @login_required
-def matricula_delete(request):
-    pass
+def matricula_delete(request, matricula_id):
+    matricula = get_object_or_404(Matricula, pk=matricula_id)
+
+    if request.method == 'POST':
+        matricula.delete()
+        messages.success(request, 'Matrícula excluída.')
+
+    return redirect('matricula')

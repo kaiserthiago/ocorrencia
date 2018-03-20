@@ -24,7 +24,8 @@
                         <div class="row">
                             <div class="md-form col-sm-6">
                                 <select name="SelectTurma" id="SelectTurma"
-                                        class="mdb-select colorful-select dropdown-primary dropdown-ins" required>
+                                        class="mdb-select colorful-select dropdown-primary dropdown-ins"
+                                        searchable="Pesquisar..." required>
                                     <option value="" disabled selected>Selecione a turma</option>
                                     {% for c in cursos %}
                                         {% if c.retorna_turmas %}
