@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/login/templates/registration/signup-page.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/portal/templates/emails/confirma-usuario.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/portal/templates/emails/responsavel-usuario.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/portal/templates/portal/usuario_lista.html" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/login/templates/registration/login.html" afterPath="$PROJECT_DIR$/login/templates/registration/login.html" />
       <change beforePath="$PROJECT_DIR$/login/views.py" afterPath="$PROJECT_DIR$/login/views.py" />
-      <change beforePath="$PROJECT_DIR$/portal/admin.py" afterPath="$PROJECT_DIR$/portal/admin.py" />
-      <change beforePath="$PROJECT_DIR$/portal/emails.py" afterPath="$PROJECT_DIR$/portal/emails.py" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/base.html" afterPath="$PROJECT_DIR$/portal/templates/base.html" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" />
-      <change beforePath="$PROJECT_DIR$/portal/urls.py" afterPath="$PROJECT_DIR$/portal/urls.py" />
+      <change beforePath="$PROJECT_DIR$/portal/models.py" afterPath="$PROJECT_DIR$/portal/models.py" />
       <change beforePath="$PROJECT_DIR$/portal/views.py" afterPath="$PROJECT_DIR$/portal/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,13 +25,12 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="600" column="51" lean-forward="true" selection-start-line="600" selection-start-column="51" selection-end-line="600" selection-end-column="51" />
+            <state relative-caret-position="269">
+              <caret line="505" column="25" lean-forward="false" selection-start-line="505" selection-start-column="21" selection-end-line="505" selection-end-column="25" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
                 <element signature="e#730#776#0" expanded="false" />
                 <element signature="e#805#854#0" expanded="false" />
-                <element signature="e#915#2581#0" expanded="false" />
                 <element signature="e#2638#3582#0" expanded="false" />
                 <element signature="e#3632#3784#0" expanded="false" />
                 <element signature="e#3838#4315#0" expanded="false" />
@@ -58,13 +48,23 @@
                 <element signature="e#12160#12427#0" expanded="false" />
                 <element signature="e#12495#12727#0" expanded="false" />
                 <element signature="e#12779#13488#0" expanded="false" />
-                <element signature="e#13545#15068#0" expanded="false" />
-                <element signature="e#15145#15360#0" expanded="false" />
-                <element signature="e#15414#15609#0" expanded="false" />
-                <element signature="e#15667#15927#0" expanded="false" />
-                <element signature="e#16065#16274#0" expanded="false" />
-                <element signature="e#16332#16736#0" expanded="false" />
+                <element signature="e#15303#15518#0" expanded="false" />
+                <element signature="e#15572#15767#0" expanded="false" />
+                <element signature="e#15825#16085#0" expanded="false" />
+                <element signature="e#16223#16432#0" expanded="false" />
+                <element signature="e#16490#16894#0" expanded="false" />
+                <element signature="e#16965#17301#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-125">
+              <caret line="31" column="64" lean-forward="true" selection-start-line="31" selection-start-column="64" selection-end-line="31" selection-end-column="64" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -72,8 +72,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="42" column="49" lean-forward="true" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
+            <state relative-caret-position="622">
+              <caret line="44" column="55" lean-forward="true" selection-start-line="44" selection-start-column="55" selection-end-line="44" selection-end-column="55" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -95,10 +95,8 @@
         <entry file="file://$PROJECT_DIR$/portal/templates/emails/responsavel-usuario.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="200">
-              <caret line="8" column="39" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="8" selection-end-column="39" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+              <caret line="8" column="39" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="8" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -116,18 +114,8 @@
       <file leaf-file-name="registra-ocorrencia.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="647">
-              <caret line="93" column="12" lean-forward="true" selection-start-line="73" selection-start-column="4" selection-end-line="93" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/admin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="723">
-              <caret line="34" column="33" lean-forward="false" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
+            <state relative-caret-position="2325">
+              <caret line="93" column="12" lean-forward="false" selection-start-line="73" selection-start-column="4" selection-end-line="93" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -136,7 +124,7 @@
       <file leaf-file-name="ocorrencia.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
+            <state relative-caret-position="2325">
               <caret line="93" column="73" lean-forward="false" selection-start-line="93" selection-start-column="73" selection-end-line="93" selection-end-column="73" />
               <folding />
             </state>
@@ -146,8 +134,8 @@
       <file leaf-file-name="emails.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/emails.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="847">
-              <caret line="44" column="9" lean-forward="true" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+            <state relative-caret-position="1025">
+              <caret line="44" column="9" lean-forward="false" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -156,7 +144,7 @@
       <file leaf-file-name="usuario_lista.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/usuario_lista.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3771">
+            <state relative-caret-position="1725">
               <caret line="69" column="70" lean-forward="false" selection-start-line="69" selection-start-column="70" selection-end-line="69" selection-end-column="70" />
               <folding />
             </state>
@@ -186,6 +174,7 @@
       <find>path</find>
       <find>MATRICULA_D</find>
       <find>ocorrencia_relatorio</find>
+      <find>mail</find>
     </findStrings>
     <replaceStrings>
       <replace>/</replace>
@@ -230,7 +219,6 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html" />
         <option value="$PROJECT_DIR$/static/css/style.css" />
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_show.html" />
-        <option value="$PROJECT_DIR$/portal/models.py" />
         <option value="$PROJECT_DIR$/ocorrencia/urls.py" />
         <option value="$PROJECT_DIR$/login/urls.py" />
         <option value="$PROJECT_DIR$/portal/templates/portal/dashboard.html" />
@@ -250,6 +238,7 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" />
         <option value="$PROJECT_DIR$/portal/urls.py" />
         <option value="$PROJECT_DIR$/portal/emails.py" />
+        <option value="$PROJECT_DIR$/portal/models.py" />
         <option value="$PROJECT_DIR$/login/views.py" />
         <option value="$PROJECT_DIR$/portal/views.py" />
       </list>
@@ -283,7 +272,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -295,29 +283,6 @@
             <path>
               <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
               <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="registration" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
-              <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
               <item name="portal" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -325,13 +290,6 @@
               <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
               <item name="portal" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
-              <item name="portal" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="emails" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
@@ -344,6 +302,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -462,7 +421,6 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18854167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39955848" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -472,6 +430,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -604,7 +563,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="15" column="22" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -622,7 +580,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="9" column="51" lean-forward="false" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -637,7 +594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
           <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -645,15 +601,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2725">
           <caret line="109" column="22" lean-forward="false" selection-start-line="109" selection-start-column="22" selection-end-line="109" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="64" column="57" lean-forward="true" selection-start-line="64" selection-start-column="57" selection-end-line="64" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -661,7 +608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2100">
           <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -669,7 +615,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="27" column="66" lean-forward="false" selection-start-line="27" selection-start-column="66" selection-end-line="27" selection-end-column="66" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -685,7 +630,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="825">
           <caret line="74" column="113" lean-forward="false" selection-start-line="74" selection-start-column="113" selection-end-line="74" selection-end-column="113" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -693,9 +637,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="36" column="64" lean-forward="false" selection-start-line="36" selection-start-column="64" selection-end-line="36" selection-end-column="64" />
-          <folding>
-            <element signature="e#2195#2226#0#HTML" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -703,9 +644,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="39" column="64" lean-forward="false" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="64" />
-          <folding>
-            <element signature="e#3177#3226#0#HTML" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -713,9 +651,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
           <caret line="35" column="64" lean-forward="false" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
-          <folding>
-            <element signature="e#2236#2267#0#HTML" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -723,7 +658,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="36" column="64" lean-forward="false" selection-start-line="36" selection-start-column="64" selection-end-line="36" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -739,7 +673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -747,7 +680,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="34" column="18" lean-forward="true" selection-start-line="27" selection-start-column="12" selection-end-line="34" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -755,7 +687,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="422">
           <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -763,7 +694,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
           <caret line="114" column="81" lean-forward="false" selection-start-line="114" selection-start-column="81" selection-end-line="114" selection-end-column="81" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -771,7 +701,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
           <caret line="1" column="54" lean-forward="false" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -779,7 +708,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
           <caret line="24" column="78" lean-forward="true" selection-start-line="22" selection-start-column="28" selection-end-line="24" selection-end-column="78" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -787,30 +715,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="192" column="61" lean-forward="false" selection-start-line="192" selection-start-column="61" selection-end-line="192" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="723">
+        <state relative-caret-position="725">
           <caret line="34" column="33" lean-forward="false" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/emails/responsavel-solicitacao.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/emails/responsavel-solicitacao.html" />
     <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="647">
-          <caret line="93" column="12" lean-forward="true" selection-start-line="73" selection-start-column="4" selection-end-line="93" selection-end-column="12" />
+        <state relative-caret-position="2325">
+          <caret line="93" column="12" lean-forward="false" selection-start-line="73" selection-start-column="4" selection-end-line="93" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -818,10 +738,8 @@
     <entry file="file://$PROJECT_DIR$/portal/templates/emails/responsavel-usuario.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
-          <caret line="8" column="39" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="8" selection-end-column="39" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+          <caret line="8" column="39" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="8" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -835,7 +753,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/usuario_lista.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3771">
+        <state relative-caret-position="1725">
           <caret line="69" column="70" lean-forward="false" selection-start-line="69" selection-start-column="70" selection-end-line="69" selection-end-column="70" />
           <folding />
         </state>
@@ -843,7 +761,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
+        <state relative-caret-position="2325">
           <caret line="93" column="73" lean-forward="false" selection-start-line="93" selection-start-column="73" selection-end-line="93" selection-end-column="73" />
           <folding />
         </state>
@@ -859,16 +777,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/emails.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="847">
-          <caret line="44" column="9" lean-forward="true" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+        <state relative-caret-position="1025">
+          <caret line="44" column="9" lean-forward="false" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-125">
+          <caret line="31" column="64" lean-forward="true" selection-start-line="31" selection-start-column="64" selection-end-line="31" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/login/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="42" column="49" lean-forward="true" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
+        <state relative-caret-position="622">
+          <caret line="44" column="55" lean-forward="true" selection-start-line="44" selection-start-column="55" selection-end-line="44" selection-end-column="55" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
@@ -877,13 +803,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="600" column="51" lean-forward="true" selection-start-line="600" selection-start-column="51" selection-end-line="600" selection-end-column="51" />
+        <state relative-caret-position="269">
+          <caret line="505" column="25" lean-forward="false" selection-start-line="505" selection-start-column="21" selection-end-line="505" selection-end-column="25" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
             <element signature="e#730#776#0" expanded="false" />
             <element signature="e#805#854#0" expanded="false" />
-            <element signature="e#915#2581#0" expanded="false" />
             <element signature="e#2638#3582#0" expanded="false" />
             <element signature="e#3632#3784#0" expanded="false" />
             <element signature="e#3838#4315#0" expanded="false" />
@@ -901,12 +826,12 @@
             <element signature="e#12160#12427#0" expanded="false" />
             <element signature="e#12495#12727#0" expanded="false" />
             <element signature="e#12779#13488#0" expanded="false" />
-            <element signature="e#13545#15068#0" expanded="false" />
-            <element signature="e#15145#15360#0" expanded="false" />
-            <element signature="e#15414#15609#0" expanded="false" />
-            <element signature="e#15667#15927#0" expanded="false" />
-            <element signature="e#16065#16274#0" expanded="false" />
-            <element signature="e#16332#16736#0" expanded="false" />
+            <element signature="e#15303#15518#0" expanded="false" />
+            <element signature="e#15572#15767#0" expanded="false" />
+            <element signature="e#15825#16085#0" expanded="false" />
+            <element signature="e#16223#16432#0" expanded="false" />
+            <element signature="e#16490#16894#0" expanded="false" />
+            <element signature="e#16965#17301#0" expanded="false" />
           </folding>
         </state>
       </provider>

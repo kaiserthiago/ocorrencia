@@ -40,7 +40,7 @@ def register(request):
 
             email = []
 
-            email.append('thiago.kaiser@ifro.edu.br')
+            email.append(empresa.email_responsavel_sistema)
 
             ResponsavelUsuarioMail(usuario).send(email)
 

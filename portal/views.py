@@ -503,9 +503,12 @@ def ocorrencia_register(request):
 
                     ocorrencia.save()
 
-                    email=[]
-                    email.append(request.user.userprofile.empresa.email_responsavel)
+                    email = []
+                    # EMAIL DO RESPONSÁVEL PELAS OCORRÊNCIAS
+                    email.append(request.user.userprofile.empresa.email_responsavel_ocorrencia)
+                    # EMAIL DO PROFESSOR
                     email.append(request.user.email)
+                    # EMAIL DO COORDENADOR
                     email.append(ocorrencia.matricula.turma.curso.email)
 
                     RegistraOcorrenciaMail(ocorrencia).send(email)
