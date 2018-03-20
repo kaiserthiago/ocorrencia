@@ -2,6 +2,7 @@ import json
 from datetime import date
 
 from django.contrib import messages
+from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 from django.db.models import Count
 from django.http import HttpResponse
@@ -23,7 +24,7 @@ def contato(request):
     return render(request, 'portal/contato.html', {})
 
 
-@login_required
+@staff_member_required
 def import_matricula(request):
     if request.method == 'POST':
         dataset = Dataset()
@@ -83,7 +84,7 @@ def import_matricula(request):
     return render(request, 'portal/import_matricula.html', context)
 
 
-@login_required
+@staff_member_required
 def import_aluno(request):
     if request.method == 'POST':
         dataset = Dataset()
@@ -123,7 +124,7 @@ def import_aluno(request):
     return render(request, 'portal/import_aluno.html', {})
 
 
-@login_required
+@staff_member_required
 def aluno(request):
     alunos = Aluno.objects.all().order_by('nome')
 
@@ -134,7 +135,7 @@ def aluno(request):
     return render(request, 'portal/aluno.html', context)
 
 
-@login_required
+@staff_member_required
 def aluno_new(request):
     if request.method == 'POST':
         form = AlunoForm(request.POST)
@@ -159,7 +160,7 @@ def aluno_new(request):
     return render(request, 'portal/aluno_new.html', context)
 
 
-@login_required
+@staff_member_required
 def aluno_edit(request, aluno_id):
     aluno = get_object_or_404(Aluno, pk=aluno_id)
 
@@ -184,7 +185,7 @@ def aluno_edit(request, aluno_id):
     return render(request, 'portal/aluno_edit.html', context)
 
 
-@login_required
+@staff_member_required
 def aluno_delete(request, aluno_id):
     aluno = get_object_or_404(Aluno, pk=aluno_id)
 
@@ -195,7 +196,7 @@ def aluno_delete(request, aluno_id):
     return redirect('aluno')
 
 
-@login_required
+@staff_member_required
 def curso(request):
     cursos = Curso.objects.all().order_by('descricao')
 
@@ -206,7 +207,7 @@ def curso(request):
     return render(request, 'portal/curso.html', context)
 
 
-@login_required
+@staff_member_required
 def curso_new(request):
     if request.method == 'POST':
         form = CursoForm(request.POST)
@@ -232,7 +233,7 @@ def curso_new(request):
     return render(request, 'portal/curso_new.html', context)
 
 
-@login_required
+@staff_member_required
 def curso_edit(request, curso_id):
     curso = get_object_or_404(Curso, pk=curso_id)
 
@@ -258,7 +259,7 @@ def curso_edit(request, curso_id):
     return render(request, 'portal/curso_edit.html', context)
 
 
-@login_required
+@staff_member_required
 def curso_delete(request, curso_id):
     curso = get_object_or_404(Curso, pk=curso_id)
 
@@ -354,7 +355,7 @@ def dashboard(request):
     return render(request, 'portal/dashboard.html', context)
 
 
-@login_required
+@staff_member_required
 def turma(request):
     turmas = Turma.objects.all().order_by('curso', 'descricao')
 
@@ -365,7 +366,7 @@ def turma(request):
     return render(request, 'portal/turma.html', context)
 
 
-@login_required
+@staff_member_required
 def turma_new(request):
     if request.method == 'POST':
         form = TurmaForm(request.POST)
@@ -391,7 +392,7 @@ def turma_new(request):
     return render(request, 'portal/turma_new.html', context)
 
 
-@login_required
+@staff_member_required
 def turma_edit(request, turma_id):
     turma = get_object_or_404(Turma, pk=turma_id)
 
@@ -523,7 +524,7 @@ def ocorrencia_relatorio(request):
     pass
 
 
-@login_required
+@staff_member_required
 def matricula(request):
     matriculas = Matricula.objects.all().order_by('-ano_letivo', 'turma', 'aluno')
 
@@ -533,7 +534,7 @@ def matricula(request):
     return render(request, 'portal/matricula.html', context)
 
 
-@login_required
+@staff_member_required
 def matricula_new(request):
     alunos = Aluno.objects.all().order_by('nome')
     turmas = Turma.objects.all().order_by('curso__descricao', 'descricao')
@@ -546,12 +547,12 @@ def matricula_new(request):
     return render(request, 'portal/matricula_new.html', context)
 
 
-@login_required
+@staff_member_required
 def matricula_edit(request):
     pass
 
 
-@login_required
+@staff_member_required
 def matricula_delete(request, matricula_id):
     matricula = get_object_or_404(Matricula, pk=matricula_id)
 

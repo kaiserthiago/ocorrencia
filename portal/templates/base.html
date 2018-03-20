@@ -25,92 +25,106 @@
         {% endblock %}
     </style>
 </head>
-<body class="hidden-sn mdb-skin">
+{% if request.user.is_staff %}
+    <body class="fixed-sn mdb-skin">
+{% else %}
+    <body class="hidden-sn mdb-skin">
+{% endif %}
 
 <!--Double navigation-->
 <header>
 
     <!-- Sidebar navigation -->
-    <ul id="slide-out" class="side-nav sn-bg-4 custom-scrollbar">
-        <!-- Logo -->
-        <li>
-            <div class="logo-wrapper waves-light">
-                <a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" alt="SIGO"
-                                                class="img-fluid flex-center"></a>
-            </div>
-        </li>
-        <!--/. Logo -->
-        <!--Social-->
-        <li>
-            <ul class="social">
-                {#                <li><a class="icons-sm fb-ic"><i class="fa fa-facebook"> </i></a></li>#}
-                {#                <li><a class="icons-sm pin-ic"><i class="fa fa-pinterest"> </i></a></li>#}
-                {#                <li><a class="icons-sm gplus-ic"><i class="fa fa-google-plus"> </i></a></li>#}
-                {#                <li><a class="icons-sm tw-ic"><i class="fa fa-twitter"> </i></a></li>#}
-                <li></li>
-            </ul>
-        </li>
-        <!--/Social-->
-        <!-- Side navigation links -->
-        <li>
-            <ul class="collapsible collapsible-accordion">
+    {% if request.user.is_staff %}
+        <ul id="slide-out" class="side-nav fixed sn-bg-4 custom-scrollbar">
+    {% else %}
+        <ul id="slide-out" class="side-nav sn-bg-4 custom-scrollbar">
+    {% endif %}
+    <!-- Logo -->
+    <li>
+        <div class="logo-wrapper waves-light">
+            <a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" alt="SIGO"
+                                            class="img-fluid flex-center"></a>
+        </div>
+    </li>
+    <!--/. Logo -->
+    <!--Social-->
+    <li>
+        <ul class="social">
+            {#                <li><a class="icons-sm fb-ic"><i class="fa fa-facebook"> </i></a></li>#}
+            {#                <li><a class="icons-sm pin-ic"><i class="fa fa-pinterest"> </i></a></li>#}
+            {#                <li><a class="icons-sm gplus-ic"><i class="fa fa-google-plus"> </i></a></li>#}
+            {#                <li><a class="icons-sm tw-ic"><i class="fa fa-twitter"> </i></a></li>#}
+            <li></li>
+        </ul>
+    </li>
+    <!--/Social-->
+    <!-- Side navigation links -->
+    <li>
+        <ul class="collapsible collapsible-accordion">
+            <li>
+                <a href="{% url 'home' %}"
+                   class="collapsible-header waves-effect arrow-r {% block class_inicio_menu %}{% endblock %}"><i
+                        class="fa fa-home"></i>
+                    Início</a>
+            </li>
+            {% if request.user.is_staff %}
                 <li>
-                    <a href="{% url 'home' %}"
-                       class="collapsible-header waves-effect arrow-r {% block class_inicio_menu %}{% endblock %}"><i
-                            class="fa fa-home"></i>
-                        Início</a>
-                </li>
-                <li>
-                    <a class="collapsible-header waves-effect arrow-r {% block class_cadastro_menu %}{% endblock %}"><i
+                    <a class="collapsible-header waves-effect arrow-r
+                                {% block class_cadastro_menu %}{% endblock %}"><i
                             class="fa fa-address-card"></i> Cadastros<i
                             class="fa fa-angle-down rotate-icon"></i></a>
                     <div class="collapsible-body">
                         <ul>
                             <li>
                                 <a href="{% url 'aluno' %}"
-                                   class="waves-effect {% block class_cadastro_aluno_item %}{% endblock %}">Alunos</a>
+                                   class="waves-effect
+                                               {% block class_cadastro_aluno_item %}{% endblock %}">Alunos</a>
                                 <a href="{% url 'curso' %}"
-                                   class="waves-effect {% block class_cadastro_curso_item %}{% endblock %}">Cursos</a>
+                                   class="waves-effect
+                                               {% block class_cadastro_curso_item %}{% endblock %}">Cursos</a>
                                 <a href="{% url 'turma' %}"
-                                   class="waves-effect {% block class_cadastro_turma_item %}{% endblock %}">Turmas</a>
+                                   class="waves-effect
+                                               {% block class_cadastro_turma_item %}{% endblock %}">Turmas</a>
                                 <a href="{% url 'matricula' %}"
                                    class="waves-effect {% block class_cadastro_matricula_item %}{% endblock %}">Matrícula</a>
                             </li>
                         </ul>
                     </div>
                 </li>
-                <li>
-                    <a href="{% url 'dashboard' %}"
-                       class="collapsible-header waves-effect arrow-r {% block class_dashboard_menu %}{% endblock %}"><i
-                            class="fa fa-dashboard"></i> Dashboard</a>
-                </li>
-                <li>
-                    <a href="{% url 'ocorrencia' %}" class="collapsible-header waves-effect arrow-r
+            {% endif %}
+            <li>
+                <a href="{% url 'dashboard' %}"
+                   class="collapsible-header waves-effect arrow-r {% block class_dashboard_menu %}{% endblock %}"><i
+                        class="fa fa-dashboard"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="{% url 'ocorrencia' %}" class="collapsible-header waves-effect arrow-r
                             {% block class_ocorrencia_menu %}{% endblock %}"><i
-                            class="fa fa-file-text"></i> Ocorrências</a>
+                        class="fa fa-file-text"></i> Ocorrências</a>
+            </li>
+            {% if request.user.is_authenticated %}
+                <li>
+                    <a href="{% url 'logout' %}" class="collapsible-header waves-effect arrow-r"><i
+                            class="fa fa-power-off"></i> Sair</a>
                 </li>
-                {% if request.user.is_authenticated %}
-                    <li>
-                        <a href="{% url 'logout' %}" class="collapsible-header waves-effect arrow-r"><i
-                                class="fa fa-power-off"></i> Sair</a>
-                    </li>
-                {% else %}
-                    <li>
-                        <a class="collapsible-header waves-effect arrow-r"><i class="fa fa-lock"></i> Acesso<i
-                                class="fa fa-angle-down rotate-icon"></i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li>
-                                    <a href="{% url 'login' %}" class="waves-effect">Login</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                {% endif %}
-            </ul>
-        </li>
-        <!--/. Side navigation links -->
-        <div class="sidenav-bg mask-strong"></div>
+            {% else %}
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r"><i class="fa fa-lock"></i> Acesso<i
+                            class="fa fa-angle-down rotate-icon"></i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>
+                                <a href="{% url 'login' %}" class="waves-effect">Login</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            {% endif %}
+        </ul>
+    </li>
+    <!--/. Side navigation links -->
+    <div class="sidenav-bg mask-strong"></div>
     </ul>
     <!--/. Sidebar navigation -->
     <!-- Navbar -->
