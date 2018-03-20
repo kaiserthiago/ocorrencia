@@ -8,7 +8,7 @@ from import_export.admin import ImportExportModelAdmin
 
 class UserProfileInline(admin.StackedInline):
     model = UserProfile
-    can_delete = False
+    can_delete = True
 
 
 class UserAdmin(UserAdmin):

@@ -103,6 +103,25 @@
                             {% block class_ocorrencia_menu %}{% endblock %}"><i
                         class="fa fa-file-text"></i> Ocorrências</a>
             </li>
+            {% if request.user.is_staff %}
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r {% block class_usuario_menu %}{% endblock %}"><i
+                            class="fa fa-user"></i> Usuário<i
+                            class="fa fa-angle-down rotate-icon"></i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>
+                                <a href="{% url 'usuario_lista' %}"
+                                   class="waves-effect {% block class_lista_usuario_item %}{% endblock %}">Lista
+                                    de usuários</a>
+                                <a href="{% url 'login_register' %}"
+                                   class="waves-effect {% block class_novo_usuario_item %}{% endblock %}">Novo
+                                    usuário</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            {% endif %}
             {% if request.user.is_authenticated %}
                 <li>
                     <a href="{% url 'logout' %}" class="collapsible-header waves-effect arrow-r"><i

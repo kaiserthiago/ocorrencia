@@ -86,7 +86,7 @@
                                                     </div>
                                                     <!--Body-->
                                                     <div class="modal-body">
-                                                        <form action=""
+                                                        <form action="{% url 'ocorrencia_delete' ocorrencia.id %}"
                                                               method="POST">
                                                             {% csrf_token %}
                                                             <div class="row text-left">

@@ -1,0 +1,266 @@
+{% extends 'base.html' %}
+{% block title %}Lista de usuários - Gestão de Ocorrências - SIGO{% endblock %}
+{% block class_usuario_menu %}active{% endblock %}
+{% block class_lista_usuario_item %}collapsible-header active{% endblock %}
+
+{% block style %}
+    {#.picker__date-display{#}
+    {#    display: none;#}
+{% endblock %}
+
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb" id="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item active">Lista de usuários</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <!--Panel USUÁRIOS INATIVOS-->
+    <div class="card">
+        <div class="card-header gradient white-text">USUÁRIOS INATIVOS</div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-sm table-striped">
+                    <thead>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>Usuário</th>
+                    <th>E-mail</th>
+                    <th>Ações</th>
+                    </thead>
+                    <tbody>
+                    {% for usuario in usuarios_inativos %}
+                        <tr>
+                            <td style="vertical-align: middle;">{{ usuario.first_name }}</td>
+                            <td style="vertical-align: middle;">{{ usuario.last_name }}</td>
+                            <td style="vertical-align: middle;">{{ usuario.username }}</td>
+                            <td style="vertical-align: middle;">{{ usuario.email }}</td>
+                            <td>
+                                <a data-toggle="modal" href="#ConfirmarRegistro{{ usuario.id }}"
+                                   class="btn-floating btn-sm success-color"
+                                   title="Tornar ativo"><i class="fa fa-check"></i>
+                                </a>
+
+                                <a data-toggle="modal" href="#CancelarRegistro{{ usuario.id }}"
+                                   class="btn-floating btn-sm danger-color"
+                                   title="Tornar inativo"><i class="fa fa-close"></i>
+                                </a>
+
+                                <!--Modal CONFIRMAR-->
+                                <div class="modal fade" id="ConfirmarRegistro{{ usuario.id }}" tabindex="-1"
+                                     role="dialog"
+                                     aria-labelledby="myModalLabel"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog modal-notify modal-success" role="document">
+                                        <!--Content-->
+                                        <div class="modal-content">
+                                            <!--Header-->
+                                            <div class="modal-header text-center">
+                                                <h4 class="modal-title white-text w-100 font-bold py-2">Confirmar
+                                                    registro</h4>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true" class="white-text">&times;</span>
+                                                </button>
+                                            </div>
+                                            <!--Body-->
+                                            <div class="modal-body">
+                                                <form action="{% url 'usuario_confirmar' usuario.id %}"
+                                                      method="POST">
+                                                    {% csrf_token %}
+                                                    <div class="row text-left">
+                                                        <div class="col-sm-12">
+                                                            <p>Tem certeza que deseja ativar o usuário?</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <button type="submit"
+                                                                class="btn  btn-primary-modal waves-effect">Confirmar
+                                                        </button>
+                                                        <a type="button" class="btn btn-outline-secondary-modal"
+                                                           data-dismiss="modal">
+                                                            Voltar
+                                                        </a>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <!--/.Content-->
+                                    </div>
+                                </div>
+                                <!--Fim Modal CONFIRMAR-->
+
+
+                                <!--Modal CANCELAR-->
+                                <div class="modal fade" id="CancelarRegistro{{ usuario.id }}" tabindex="-1"
+                                     role="dialog"
+                                     aria-labelledby="myModalLabel"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog modal-notify modal-danger" role="document">
+                                        <!--Content-->
+                                        <div class="modal-content">
+                                            <!--Header-->
+                                            <div class="modal-header text-center">
+                                                <h4 class="modal-title white-text w-100 font-bold py-2">Cancelar
+                                                    registro</h4>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true" class="white-text">&times;</span>
+                                                </button>
+                                            </div>
+                                            <!--Body-->
+                                            <div class="modal-body">
+                                                <form action="#"
+                                                      method="POST">
+                                                    {% csrf_token %}
+                                                    <div class="row text-left">
+                                                        <div class="col-sm-12">
+                                                            <p>Tem certeza que deseja cancelar o registro?</p>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <button type="submit"
+                                                                class="btn  btn-primary-modal waves-effect">Cancelar
+                                                        </button>
+                                                        <a type="button" class="btn btn-outline-secondary-modal"
+                                                           data-dismiss="modal">
+                                                            Voltar
+                                                        </a>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <!--/.Content-->
+                                    </div>
+                                </div>
+                                <!--Fim Modal CANCELAR-->
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="5" class="alert alert-warning text-center">Sem usuários inativos</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--/.Panel USUÁRIOS INATIVOS-->
+    <br>
+    <!--Panel USUÁRIOS ATIVOS-->
+    <div class="card">
+        <div class="card-header gradient white-text">USUÁRIOS ATIVOS</div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-sm table-striped">
+                    <thead>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>Usuário</th>
+                    <th>E-mail</th>
+                    <th>Unidade</th>
+                    <th>Ações</th>
+                    </thead>
+                    <tbody>
+                    {% for usuario in usuarios_ativos %}
+                        <tr>
+                            <td style="vertical-align: middle;">{{ usuario.first_name }}</td>
+                            <td style="vertical-align: middle;">{{ usuario.last_name }}</td>
+                            <td style="vertical-align: middle;">{{ usuario.username }}</td>
+                            <td style="vertical-align: middle;">{{ usuario.email }}</td>
+                            <td style="vertical-align: middle;">{{ usuario.userprofile.empresa }}</td>
+                            <td>
+                                <a data-toggle="modal" href="#InativarRegistro{{ usuario.id }}"
+                                   class="btn-floating btn-sm danger-color"
+                                   title="Tornar inativo"><i class="fa fa-close"></i>
+                                </a>
+
+                                <!--Modal CONFIRMAR-->
+                                <div class="modal fade" id="InativarRegistro{{ usuario.id }}" tabindex="-1"
+                                     role="dialog"
+                                     aria-labelledby="myModalLabel"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog modal-notify modal-danger" role="document">
+                                        <!--Content-->
+                                        <div class="modal-content">
+                                            <!--Header-->
+                                            <div class="modal-header text-center">
+                                                <h4 class="modal-title white-text w-100 font-bold py-2">Inativar
+                                                    registro</h4>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true" class="white-text">&times;</span>
+                                                </button>
+                                            </div>
+                                            <!--Body-->
+                                            <div class="modal-body">
+                                                <form action="#"
+                                                      method="POST">
+                                                    {% csrf_token %}
+                                                    <div class="row text-left">
+                                                        <div class="col-sm-12">
+                                                            <p>Tem certeza que deseja tornar o registro inativo?</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <button type="submit"
+                                                                class="btn  btn-primary-modal waves-effect">Confirmar
+                                                        </button>
+                                                        <a type="button" class="btn btn-outline-secondary-modal"
+                                                           data-dismiss="modal">
+                                                            Voltar
+                                                        </a>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <!--/.Content-->
+                                    </div>
+                                </div>
+                                <!--Fim Modal CONFIRMAR-->
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="6" class="alert alert-warning text-center">Sem usuários inativos</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--/.Panel USUÁRIOS ATIVOS-->
+{% endblock %}
+
+{% block script %}
+    <script>
+        $('.datepicker').pickadate({
+            format: "dd/mm/yyyy",
+            formatSubmit: "yyyy-mm-dd",
+            hiddenPrefix: 'prefix__',
+            hiddenSuffix: '__suffix',
+            mode: 'landscape',
+            monthsFull: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembero", "Outubro", "Novembro", "Dezembro"],
+            monthsShort: ["Jan", "Fev", "Mar", "Abr", "Maio", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+            weekdaysFull: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado",],
+            weekdaysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb",],
+            weekdaysLetter: ["D", "S", "T", "Q", "Q", "S", "S"],
+            labelMonthNext: 'Próximo mês',
+            labelMonthPrev: 'Mês anterior',
+            labelMonthSelect: 'Selecione um mês',
+            labelYearSelect: 'Selecione um ano',
+            selectMonths: false, // Creates a dropdown to control month
+            selectYears: false, // Creates a dropdown of 15 years to control year,
+            today: false,
+            clear: false,
+            close: false,
+            closeOnSelect: true // Close upon selecting a date,
+        });
+    </script>
+{% endblock %}

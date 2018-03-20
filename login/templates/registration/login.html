@@ -2,39 +2,53 @@
 
 {% block title %}Login - SIGEF{% endblock %}
 
-{% block breadcrumb_base %}
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
-        <li class="breadcrumb-item active">Login</li>
-    </ol>
-{% endblock %}
+{#{% block breadcrumb_base %}#}
+{#    <ol class="breadcrumb">#}
+{#        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>#}
+{#        <li class="breadcrumb-item active">Login</li>#}
+{#    </ol>#}
+{#{% endblock %}#}
 
 {% block content %}
     <div class="row">
-        <div class="col-sm-2">
-
-        </div>
-        <div class="col-sm-8">
-            <form method="post">
-                {% csrf_token %}
-                <input class="form-control" placeholder="Usuário" input type="text" name="username" autofocus
-                       maxlength="254" required id="id_username"/><br>
-                <input class="form-control" placeholder="Senha" type="password" name="password" required
-                       id="id_password"/>
-                <br>
-                {#                <em class="pull-right">Sem login? <a#}
-                {#                        href="{% url 'login_register' %}">Cadastre-se aqui!</a></em>#}
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="float-right">
-                            <input type="submit" class="btn btn-dark-green" value="Login">
-                        </div>
-                    </div>
+        <div class="col-sm-12">
+            <div class="card card-cascade narrower mb-5">
+                <div class="view py-3 gradient-card-header info-color-dark">
+                    <h5 class="mb-0"><strong>LOGIN</strong></h5>
                 </div>
-            </form>
-        </div>
-        <div class="col-sm-2">
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="md-form">
+                            <input class="form-control" placeholder="Usuário" input type="text" name="username"
+                                   autofocus
+                                   maxlength="254" required id="id_username"/>
+                        </div>
+                        <div class="md-form">
+                            <input class="form-control" placeholder="Senha" type="password" name="password" required
+                                   id="id_password"/>
+                        </div>
 
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Login
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="modal-footer">
+                                    <p class="font-small grey-text d-flex justify-content-end">Sem cadastro? <a
+                                            href="{% url 'login_register' %}" class="blue-text ml-1"> Clique aqui!</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

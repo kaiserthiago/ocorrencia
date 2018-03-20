@@ -4,16 +4,16 @@ from datetime import date
 from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.db.models import Count
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template.defaultfilters import upper
 from tablib import Dataset
 
-from portal.emails import RegistraOcorrenciaMail
+from portal.emails import RegistraOcorrenciaMail, ConfirmaUsuarioMail
 from portal.forms import OcorrenciaForm, CursoForm, TurmaForm, AlunoForm
 from portal.models import Curso, Aluno, Turma, Ocorrencia, Matricula, CategoriaFalta, Falta, Teste
-from portal.resources import MatriculaResource, TesteResource
 
 
 def home(request):
@@ -46,7 +46,6 @@ def import_matricula(request):
         #         lista.append(str(i)+' - '+upper(n[0])+'<br>')
         #     i+=1
         # return HttpResponse(lista)
-
 
         for n in imported_data:
             lista.append(upper(n[0]))
@@ -504,8 +503,13 @@ def ocorrencia_register(request):
 
                     ocorrencia.save()
 
-                    RegistraOcorrenciaMail(ocorrencia).send(request.user.userprofile.empresa.email_responsavel,
-                                                            request.user.email, ocorrencia.matricula.turma.curso.email)
+                    email=[]
+                    email.append(request.user.userprofile.empresa.email_responsavel)
+                    email.append(request.user.email)
+                    email.append(ocorrencia.matricula.turma.curso.email)
+
+                    RegistraOcorrenciaMail(ocorrencia).send(email)
+
             return redirect('ocorrencia')
         else:
             form = OcorrenciaForm()
@@ -519,9 +523,15 @@ def ocorrencia_register(request):
             return render(request, 'portal/ocorrencia.html', context)
 
 
-@login_required
-def ocorrencia_relatorio(request):
-    pass
+@staff_member_required
+def ocorrencia_delete(request, ocorrencia_id):
+    ocorrencia = get_object_or_404(Ocorrencia, pk=ocorrencia_id)
+
+    if request.method == 'POST':
+        ocorrencia.delete()
+        messages.success(request, 'Ocorrência excluída.')
+
+    return redirect('ocorrencia')
 
 
 @staff_member_required
@@ -561,3 +571,33 @@ def matricula_delete(request, matricula_id):
         messages.success(request, 'Matrícula excluída.')
 
     return redirect('matricula')
+
+
+@staff_member_required
+def usuario_lista(request):
+    usuarios_inativos = User.objects.filter(userprofile__empresa=request.user.userprofile.empresa, is_active=False)
+    usuarios_ativos = User.objects.filter(userprofile__empresa=request.user.userprofile.empresa, is_active=True)
+
+    context = {
+        'usuarios_inativos': usuarios_inativos,
+        'usuarios_ativos': usuarios_ativos,
+    }
+    return render(request, 'portal/usuario_lista.html', context)
+
+
+@staff_member_required
+def usuario_confirmar(request, user_id):
+    usuario = get_object_or_404(User, id=user_id)
+
+    if request.method == 'POST':
+        usuario.is_active = True
+        usuario.save()
+
+        email = []
+        email.append(usuario.email)
+
+        ConfirmaUsuarioMail(usuario).send(email)
+
+        messages.success(request, 'Usuário ativo.')
+
+        return redirect('usuario_lista')

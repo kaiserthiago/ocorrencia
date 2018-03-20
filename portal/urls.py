@@ -9,8 +9,8 @@ urlpatterns = [
 
     url('^dashboard$', views.dashboard, name='dashboard'),
 
-    url('^ocorrencia/relatorio$', views.ocorrencia_relatorio, name='ocorrencia_relatorio'),
     url('^ocorrencia/register$', views.ocorrencia_register, name='ocorrencia_register'),
+    url('^ocorrencia/delete/(?P<ocorrencia_id>\d+)$', views.ocorrencia_delete, name='ocorrencia_delete'),
     url('^ocorrencia/show/(?P<ocorrencia_id>\d+)$', views.ocorrencia_show, name='ocorrencia_show'),
     url('^ocorrencia/new$', views.ocorrencia_new, name='ocorrencia_new'),
     url('^ocorrencia$', views.ocorrencia, name='ocorrencia'),
@@ -37,4 +37,7 @@ urlpatterns = [
 
     url('^import/matricula$', views.import_matricula, name='import_matricula'),
     url('^import/aluno$', views.import_aluno, name='import_aluno'),
+
+    url(r'^usuario/confirmar/(?P<user_id>\d+)$', views.usuario_confirmar, name='usuario_confirmar'),
+    url(r'^usuario/lista$', views.usuario_lista, name='usuario_lista'),
 ]
