@@ -125,7 +125,7 @@ def import_aluno(request):
 
 @staff_member_required
 def aluno(request):
-    alunos = Aluno.objects.all().order_by('nome')
+    alunos = Aluno.objects.filter(empresa=request.user.userprofile.empresa).order_by('nome')
 
     context = {
         'alunos': alunos,
@@ -197,7 +197,7 @@ def aluno_delete(request, aluno_id):
 
 @staff_member_required
 def curso(request):
-    cursos = Curso.objects.all().order_by('descricao')
+    cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa).order_by('descricao')
 
     context = {
         'cursos': cursos
@@ -283,7 +283,7 @@ def dashboard(request):
     cursos_ocorrencia = [obj[0] for obj in cursos]
     qtde_cursos_ocorrencia = [int(obj[1]) for obj in cursos]
 
-    courses = Ocorrencia.objects.filter(matricula__turma__curso__in=Curso.objects.all()).order_by(
+    courses = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa, matricula__turma__curso__in=Curso.objects.all()).order_by(
         'matricula__turma__curso__descricao').values('matricula__turma__curso__id',
                                                      'matricula__turma__curso__descricao').distinct()
 
@@ -356,7 +356,7 @@ def dashboard(request):
 
 @staff_member_required
 def turma(request):
-    turmas = Turma.objects.all().order_by('curso', 'descricao')
+    turmas = Turma.objects.filter(empresa=request.user.userprofile.empresa).order_by('curso', 'descricao')
 
     context = {
         'turmas': turmas
@@ -428,7 +428,7 @@ def turma_delete(request, turma_id):
 
 @login_required
 def ocorrencia(request):
-    cursos = Curso.objects.all()
+    cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa)
     ocorrencias = Ocorrencia.objects.filter(user=request.user, data__year=date.today().year)
 
     context = {
@@ -539,7 +539,7 @@ def ocorrencia_delete(request, ocorrencia_id):
 
 @staff_member_required
 def matricula(request):
-    matriculas = Matricula.objects.all().order_by('-ano_letivo', 'turma', 'aluno')
+    matriculas = Matricula.objects.filter(empresa=request.user.userprofile.empresa).order_by('-ano_letivo', 'turma', 'aluno')
 
     context = {
         'matriculas': matriculas
@@ -549,8 +549,8 @@ def matricula(request):
 
 @staff_member_required
 def matricula_new(request):
-    alunos = Aluno.objects.all().order_by('nome')
-    turmas = Turma.objects.all().order_by('curso__descricao', 'descricao')
+    alunos = Aluno.objects.filter(empresa=request.user.userprofile.empresa).order_by('nome')
+    turmas = Turma.objects.filter(empresa=request.user.userprofile.empresa).order_by('curso__descricao', 'descricao')
 
     context = {
         'alunos': alunos,
