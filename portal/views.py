@@ -429,7 +429,7 @@ def turma_delete(request, turma_id):
 @login_required
 def ocorrencia(request):
     cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa)
-    ocorrencias = Ocorrencia.objects.filter(user=request.user, data__year=date.today().year)
+    ocorrencias = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa, user=request.user, data__year=date.today().year)
 
     context = {
         'cursos': cursos,
