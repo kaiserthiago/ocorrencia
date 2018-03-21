@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/portal/forms.py" afterPath="$PROJECT_DIR$/portal/forms.py" />
       <change beforePath="$PROJECT_DIR$/portal/views.py" afterPath="$PROJECT_DIR$/portal/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,8 +23,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="381" column="31" lean-forward="false" selection-start-line="381" selection-start-column="31" selection-end-line="381" selection-end-column="31" />
+            <state relative-caret-position="177">
+              <caret line="372" column="38" lean-forward="true" selection-start-line="372" selection-start-column="38" selection-end-line="372" selection-end-column="38" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
                 <element signature="e#730#776#0" expanded="false" />
@@ -38,16 +39,19 @@
                 <element signature="e#5477#6009#0" expanded="false" />
                 <element signature="e#6074#6628#0" expanded="false" />
                 <element signature="e#6695#6826#0" expanded="false" />
-                <element signature="e#11722#12276#0" expanded="false" />
-                <element signature="e#12336#12467#0" expanded="false" />
-                <element signature="e#12935#13167#0" expanded="false" />
-                <element signature="e#13219#13928#0" expanded="false" />
-                <element signature="e#15743#15958#0" expanded="false" />
-                <element signature="e#16012#16250#0" expanded="false" />
-                <element signature="e#16308#16654#0" expanded="false" />
-                <element signature="e#16792#17001#0" expanded="false" />
-                <element signature="e#17059#17463#0" expanded="false" />
-                <element signature="e#17534#17870#0" expanded="false" />
+                <element signature="e#6873#10629#0" expanded="false" />
+                <element signature="e#10679#10887#0" expanded="false" />
+                <element signature="e#11730#12284#0" expanded="false" />
+                <element signature="e#12344#12475#0" expanded="false" />
+                <element signature="e#12523#12875#0" expanded="false" />
+                <element signature="e#12943#13175#0" expanded="false" />
+                <element signature="e#13227#13936#0" expanded="false" />
+                <element signature="e#15751#15966#0" expanded="false" />
+                <element signature="e#16020#16258#0" expanded="false" />
+                <element signature="e#16316#16662#0" expanded="false" />
+                <element signature="e#16800#17009#0" expanded="false" />
+                <element signature="e#17067#17471#0" expanded="false" />
+                <element signature="e#17542#17878#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -86,9 +90,21 @@
       <file leaf-file-name="turma_new.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/turma_new.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="39" column="34" lean-forward="true" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
+            <state relative-caret-position="175">
+              <caret line="20" column="34" lean-forward="false" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="347">
+              <caret line="83" column="19" lean-forward="true" selection-start-line="83" selection-start-column="19" selection-end-line="89" selection-end-column="9" />
+              <folding>
+                <element signature="e#2343#2841#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -111,16 +127,6 @@
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="11" column="75" lean-forward="false" selection-start-line="11" selection-start-column="75" selection-end-line="11" selection-end-column="75" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -194,7 +200,6 @@
         <option value="$PROJECT_DIR$/portal/resources.py" />
         <option value="$PROJECT_DIR$/portal/templates/portal/simple_upload.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/import_success.html" />
-        <option value="$PROJECT_DIR$/portal/forms.py" />
         <option value="$PROJECT_DIR$/portal/templates/portal/aluno_edit.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/contato.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/curso_edit.html" />
@@ -234,6 +239,7 @@
         <option value="$PROJECT_DIR$/login/views.py" />
         <option value="$PROJECT_DIR$/portal/models.py" />
         <option value="$PROJECT_DIR$/portal/templates/portal/curso_new.html" />
+        <option value="$PROJECT_DIR$/portal/forms.py" />
         <option value="$PROJECT_DIR$/portal/templates/portal/turma_new.html" />
         <option value="$PROJECT_DIR$/portal/views.py" />
       </list>
@@ -460,7 +466,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -486,13 +492,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="698">
-          <caret line="112" column="29" lean-forward="false" selection-start-line="112" selection-start-column="29" selection-end-line="112" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -810,18 +809,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/portal/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="83" column="19" lean-forward="true" selection-start-line="83" selection-start-column="19" selection-end-line="89" selection-end-column="9" />
+          <folding>
+            <element signature="e#2343#2841#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/turma_new.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="39" column="34" lean-forward="true" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
+        <state relative-caret-position="175">
+          <caret line="20" column="34" lean-forward="false" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="381" column="31" lean-forward="false" selection-start-line="381" selection-start-column="31" selection-end-line="381" selection-end-column="31" />
+        <state relative-caret-position="177">
+          <caret line="372" column="38" lean-forward="true" selection-start-line="372" selection-start-column="38" selection-end-line="372" selection-end-column="38" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
             <element signature="e#730#776#0" expanded="false" />
@@ -836,16 +845,19 @@
             <element signature="e#5477#6009#0" expanded="false" />
             <element signature="e#6074#6628#0" expanded="false" />
             <element signature="e#6695#6826#0" expanded="false" />
-            <element signature="e#11722#12276#0" expanded="false" />
-            <element signature="e#12336#12467#0" expanded="false" />
-            <element signature="e#12935#13167#0" expanded="false" />
-            <element signature="e#13219#13928#0" expanded="false" />
-            <element signature="e#15743#15958#0" expanded="false" />
-            <element signature="e#16012#16250#0" expanded="false" />
-            <element signature="e#16308#16654#0" expanded="false" />
-            <element signature="e#16792#17001#0" expanded="false" />
-            <element signature="e#17059#17463#0" expanded="false" />
-            <element signature="e#17534#17870#0" expanded="false" />
+            <element signature="e#6873#10629#0" expanded="false" />
+            <element signature="e#10679#10887#0" expanded="false" />
+            <element signature="e#11730#12284#0" expanded="false" />
+            <element signature="e#12344#12475#0" expanded="false" />
+            <element signature="e#12523#12875#0" expanded="false" />
+            <element signature="e#12943#13175#0" expanded="false" />
+            <element signature="e#13227#13936#0" expanded="false" />
+            <element signature="e#15751#15966#0" expanded="false" />
+            <element signature="e#16020#16258#0" expanded="false" />
+            <element signature="e#16316#16662#0" expanded="false" />
+            <element signature="e#16800#17009#0" expanded="false" />
+            <element signature="e#17067#17471#0" expanded="false" />
+            <element signature="e#17542#17878#0" expanded="false" />
           </folding>
         </state>
       </provider>

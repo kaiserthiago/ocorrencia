@@ -79,13 +79,9 @@ class CursoForm(forms.ModelForm):
 class TurmaForm(forms.ModelForm):
     class Meta:
         model = Turma
-        fields = ('curso', 'descricao')
+        fields = ('descricao',)
 
         widgets = {
-            'curso': forms.Select(attrs={
-                'class': 'mdb-select colorful-select dropdown-primary',
-                'required': '',
-            }),
             'descricao': forms.TextInput(attrs={
                 'class': 'form-control validate',
                 'required': '',
