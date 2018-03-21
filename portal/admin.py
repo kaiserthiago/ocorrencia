@@ -22,7 +22,7 @@ class AlunoAdmin(ImportExportModelAdmin):
 
 class MatriculaAdmin(ImportExportModelAdmin):
     list_display = ('id', 'aluno', 'turma', 'ano_letivo')
-    list_filter = ['turma', 'ano_letivo']
+    list_filter = ['turma', 'ano_letivo', 'empresa']
     search_fields = ['aluno__nome']
 
 

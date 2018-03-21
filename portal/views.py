@@ -51,7 +51,7 @@ def import_matricula(request):
             lista.append(upper(n[0]))
 
         for teste in lista:
-            aluno = get_object_or_404(Aluno, nome=teste)
+            aluno = get_object_or_404(Aluno, empresa=request.user.userprofile.empresa, nome=teste)
             matricula = Matricula.objects.filter(aluno=aluno, ano_letivo=int(date.today().year))
 
             if (teste == aluno.nome) and not matricula:
@@ -74,7 +74,7 @@ def import_matricula(request):
 
         return render(request, 'portal/import_matricula_success.html', context)
 
-    cursos = Curso.objects.all().order_by('descricao')
+    cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa).order_by('descricao')
 
     context = {
         'cursos': cursos
@@ -100,7 +100,7 @@ def import_aluno(request):
             lista.append(upper(n[0]))
 
         for teste in lista:
-            aluno = Aluno.objects.filter(nome=teste)
+            aluno = Aluno.objects.filter(empresa=request.user.userprofile.empresa, nome=teste)
 
             if not aluno:
                 aluno = Aluno()
