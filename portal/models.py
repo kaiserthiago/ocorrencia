@@ -151,13 +151,3 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, unique=True, on_delete=models.DO_NOTHING)
     empresa = models.ForeignKey(Empresa, blank=True, null=True, on_delete=models.DO_NOTHING)
     siape = models.IntegerField()
-
-
-class Teste(AuditoriaMixin):
-    nome = models.CharField(max_length=255)
-
-    def __str__(self):
-        return self.nome
-
-    class Meta:
-        ordering = ['nome']

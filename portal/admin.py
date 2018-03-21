@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 
-from portal.models import Empresa, Curso, Aluno, Ocorrencia, Turma, UserProfile, Matricula, Falta, CategoriaFalta, Teste
+from portal.models import Empresa, Curso, Aluno, Ocorrencia, Turma, UserProfile, Matricula, Falta, CategoriaFalta
 from import_export.admin import ImportExportModelAdmin
 
 
@@ -28,7 +28,9 @@ class MatriculaAdmin(ImportExportModelAdmin):
 
 
 class CursoAdmin(admin.ModelAdmin):
-    list_display = ('id', 'descricao')
+    list_display = ('id', 'descricao', 'empresa')
+    list_filter = ['empresa']
+    search_fields = ['descricao']
 
 
 class OcorrenciaAdmin(admin.ModelAdmin):
@@ -38,7 +40,9 @@ class OcorrenciaAdmin(admin.ModelAdmin):
 
 
 class TurmaAdmin(admin.ModelAdmin):
-    list_display = ('id', 'curso', 'descricao')
+    list_display = ('id', 'curso', 'descricao', 'empresa')
+    list_filter = ['curso', 'empresa']
+    search_fields = ['descricao']
 
 
 class FaltaAdmin(admin.ModelAdmin):
@@ -47,9 +51,16 @@ class FaltaAdmin(admin.ModelAdmin):
     search_fields = ['descricao']
 
 
+class EmpresaAdmin(admin.ModelAdmin):
+    list_display = (
+    'id', 'nome_fantasia', 'responsavel_ocorrencia', 'email_responsavel_ocorrencia', 'responsavel_sistema',
+    'email_responsavel_sistema')
+    search_fields = ['nome_fantasia']
+
+
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
-admin.site.register(Empresa)
+admin.site.register(Empresa, EmpresaAdmin)
 admin.site.register(Curso, CursoAdmin)
 admin.site.register(Turma, TurmaAdmin)
 admin.site.register(Aluno, AlunoAdmin)
@@ -57,4 +68,3 @@ admin.site.register(Ocorrencia, OcorrenciaAdmin)
 admin.site.register(Matricula, MatriculaAdmin)
 admin.site.register(Falta, FaltaAdmin),
 admin.site.register(CategoriaFalta),
-admin.site.register(Teste)

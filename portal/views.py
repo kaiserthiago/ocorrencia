@@ -13,7 +13,7 @@ from tablib import Dataset
 
 from portal.emails import RegistraOcorrenciaMail, ConfirmaUsuarioMail
 from portal.forms import OcorrenciaForm, CursoForm, TurmaForm, AlunoForm
-from portal.models import Curso, Aluno, Turma, Ocorrencia, Matricula, CategoriaFalta, Falta, Teste
+from portal.models import Curso, Aluno, Turma, Ocorrencia, Matricula, CategoriaFalta, Falta
 
 
 def home(request):
