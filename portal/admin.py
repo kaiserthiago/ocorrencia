@@ -16,7 +16,8 @@ class UserAdmin(UserAdmin):
 
 
 class AlunoAdmin(ImportExportModelAdmin):
-    list_display = ('id', 'nome')
+    list_display = ('id', 'nome', 'empresa')
+    list_filter = ['empresa']
     search_fields = ['nome']
 
 
