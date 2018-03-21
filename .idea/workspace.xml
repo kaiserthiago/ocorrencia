@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/curso_new.html" afterPath="$PROJECT_DIR$/portal/templates/portal/curso_new.html" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/turma_new.html" afterPath="$PROJECT_DIR$/portal/templates/portal/turma_new.html" />
       <change beforePath="$PROJECT_DIR$/portal/views.py" afterPath="$PROJECT_DIR$/portal/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,8 +22,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1138">
-              <caret line="390" column="24" lean-forward="false" selection-start-line="390" selection-start-column="24" selection-end-line="390" selection-end-column="24" />
+            <state relative-caret-position="393">
+              <caret line="381" column="31" lean-forward="false" selection-start-line="381" selection-start-column="31" selection-end-line="381" selection-end-column="31" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
                 <element signature="e#730#776#0" expanded="false" />
@@ -40,17 +38,16 @@
                 <element signature="e#5477#6009#0" expanded="false" />
                 <element signature="e#6074#6628#0" expanded="false" />
                 <element signature="e#6695#6826#0" expanded="false" />
-                <element signature="e#11641#12195#0" expanded="false" />
-                <element signature="e#12255#12386#0" expanded="false" />
-                <element signature="e#12854#13086#0" expanded="false" />
-                <element signature="e#13138#13847#0" expanded="false" />
-                <element signature="e#13904#15585#0" expanded="false" />
-                <element signature="e#15662#15877#0" expanded="false" />
-                <element signature="e#15931#16169#0" expanded="false" />
-                <element signature="e#16227#16573#0" expanded="false" />
-                <element signature="e#16711#16920#0" expanded="false" />
-                <element signature="e#16978#17382#0" expanded="false" />
-                <element signature="e#17453#17789#0" expanded="false" />
+                <element signature="e#11722#12276#0" expanded="false" />
+                <element signature="e#12336#12467#0" expanded="false" />
+                <element signature="e#12935#13167#0" expanded="false" />
+                <element signature="e#13219#13928#0" expanded="false" />
+                <element signature="e#15743#15958#0" expanded="false" />
+                <element signature="e#16012#16250#0" expanded="false" />
+                <element signature="e#16308#16654#0" expanded="false" />
+                <element signature="e#16792#17001#0" expanded="false" />
+                <element signature="e#17059#17463#0" expanded="false" />
+                <element signature="e#17534#17870#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -823,8 +820,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1138">
-          <caret line="390" column="24" lean-forward="false" selection-start-line="390" selection-start-column="24" selection-end-line="390" selection-end-column="24" />
+        <state relative-caret-position="393">
+          <caret line="381" column="31" lean-forward="false" selection-start-line="381" selection-start-column="31" selection-end-line="381" selection-end-column="31" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
             <element signature="e#730#776#0" expanded="false" />
@@ -839,17 +836,16 @@
             <element signature="e#5477#6009#0" expanded="false" />
             <element signature="e#6074#6628#0" expanded="false" />
             <element signature="e#6695#6826#0" expanded="false" />
-            <element signature="e#11641#12195#0" expanded="false" />
-            <element signature="e#12255#12386#0" expanded="false" />
-            <element signature="e#12854#13086#0" expanded="false" />
-            <element signature="e#13138#13847#0" expanded="false" />
-            <element signature="e#13904#15585#0" expanded="false" />
-            <element signature="e#15662#15877#0" expanded="false" />
-            <element signature="e#15931#16169#0" expanded="false" />
-            <element signature="e#16227#16573#0" expanded="false" />
-            <element signature="e#16711#16920#0" expanded="false" />
-            <element signature="e#16978#17382#0" expanded="false" />
-            <element signature="e#17453#17789#0" expanded="false" />
+            <element signature="e#11722#12276#0" expanded="false" />
+            <element signature="e#12336#12467#0" expanded="false" />
+            <element signature="e#12935#13167#0" expanded="false" />
+            <element signature="e#13219#13928#0" expanded="false" />
+            <element signature="e#15743#15958#0" expanded="false" />
+            <element signature="e#16012#16250#0" expanded="false" />
+            <element signature="e#16308#16654#0" expanded="false" />
+            <element signature="e#16792#17001#0" expanded="false" />
+            <element signature="e#17059#17463#0" expanded="false" />
+            <element signature="e#17534#17870#0" expanded="false" />
           </folding>
         </state>
       </provider>

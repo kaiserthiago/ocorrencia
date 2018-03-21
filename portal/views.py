@@ -372,11 +372,14 @@ def turma_new(request):
     if request.method == 'POST':
         form = TurmaForm(request.POST)
 
+        curso_id = request.POST['SelectCurso']
+        curso = get_object_or_404(Curso, id=curso_id)
+
         if form.is_valid():
             turma = Turma()
 
             turma.descricao = form.cleaned_data['descricao']
-            turma.curso = form.cleaned_data['curso']
+            turma.curso = curso
             turma.user = request.user
             turma.empresa = request.user.userprofile.empresa
 
