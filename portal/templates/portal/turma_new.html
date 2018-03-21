@@ -28,8 +28,15 @@
                         </div>
                         <div class="row">
                             <div class="md-form col-sm-12">
-                                {{ form.curso }}
-                                <label for="id_curso">{{ form.curso.label }}</label>
+                                <select name="SelectCurso" id="SelectCurso"
+                                        class="mdb-select colorful-select dropdown-primary dropdown-ins"
+                                        searchable="Pesquisar..." required>
+                                    <option value="" disabled selected>Selecione o curso</option>
+                                    {% for c in cursos %}
+                                        <option value={{ c.id }}>{{ c.descricao }}</option>
+                                    {% endfor %}
+                                </select>
+                                <label for="SelectCurso">Curso</label>
                             </div>
                         </div>
                         <div class="row">

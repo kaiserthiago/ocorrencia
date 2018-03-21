@@ -367,6 +367,8 @@ def turma(request):
 
 @staff_member_required
 def turma_new(request):
+    cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa)
+
     if request.method == 'POST':
         form = TurmaForm(request.POST)
 
@@ -385,7 +387,8 @@ def turma_new(request):
     form = TurmaForm()
 
     context = {
-        'form': form
+        'form': form,
+        'cursos': cursos
     }
 
     return render(request, 'portal/turma_new.html', context)
