@@ -35,7 +35,7 @@ class CursoAdmin(admin.ModelAdmin):
 
 class OcorrenciaAdmin(admin.ModelAdmin):
     list_display = ('id', 'matricula', 'data', 'descricao', 'falta', 'user')
-    list_filter = ['falta__categoria', 'matricula__turma', 'user']
+    list_filter = ['falta__categoria', 'matricula__ano_letivo', 'user', 'empresa']
     search_fields = ['matricula__aluno__nome', ]
 
 
