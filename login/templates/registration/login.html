@@ -10,41 +10,35 @@
 {#{% endblock %}#}
 
 {% block content %}
-    <div class="row">
-        <div class="col-sm-12">
+    <div class="row justify-content-center">
+        <div class="col-sm-auto">
             <div class="card card-cascade narrower mb-5">
                 <div class="view py-3 gradient-card-header info-color-dark">
                     <h5 class="mb-0"><strong>LOGIN</strong></h5>
                 </div>
                 <div class="card-body">
-                    <form method="post">
+                    <form action="" method="POST">
                         {% csrf_token %}
                         <div class="md-form">
                             <input class="form-control" placeholder="Usuário" input type="text" name="username"
                                    autofocus
                                    maxlength="254" required id="id_username"/>
                         </div>
+
                         <div class="md-form">
                             <input class="form-control" placeholder="Senha" type="password" name="password" required
                                    id="id_password"/>
                         </div>
 
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Login
-                                    </button>
-                                </div>
-                            </div>
+                        <div class="md-form text-center">
+                            <button type="submit" class="btn btn-block btn-success"><i class="fa fa-check"></i> Login
+                            </button>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="modal-footer">
-                                    <p class="font-small grey-text d-flex justify-content-end">Sem cadastro? <a
-                                            href="{% url 'login_register' %}" class="blue-text ml-1"> Clique aqui!</a>
-                                    </p>
-                                </div>
-                            </div>
+
+                        <div class="modal-footer">
+                            <p class="font-small grey-text d-flex justify-content-end">Sem cadastro? <a
+                                    href="{% url 'login_register' %}" class="blue-text ml-1"> Clique aqui!</a>
+                            </p>
                         </div>
                     </form>
                 </div>

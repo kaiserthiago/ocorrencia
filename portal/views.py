@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Count
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
@@ -127,6 +128,16 @@ def import_aluno(request):
 def aluno(request):
     alunos = Aluno.objects.filter(empresa=request.user.userprofile.empresa).order_by('nome')
 
+    paginator = Paginator(alunos, 30)
+    page = request.GET.get('page', 1)
+
+    try:
+        alunos = paginator.page(page)
+    except PageNotAnInteger:
+        alunos = paginator.page(1)
+    except EmptyPage:
+        alunos = paginator.page(paginator.num_pages)
+
     context = {
         'alunos': alunos,
     }
@@ -143,6 +154,18 @@ def aluno_new(request):
             aluno = Aluno()
 
             aluno.nome = form.cleaned_data['nome'].upper()
+            aluno.responsavel = form.cleaned_data['responsavel'].upper()
+
+            if form.cleaned_data['email']:
+                aluno.email = form.cleaned_data['email'].lower()
+            else:
+                aluno.email = ''
+
+            if form.cleaned_data['email_responsavel']:
+                aluno.email_responsavel = form.cleaned_data['email_responsavel'].lower()
+            else:
+                aluno.email_responsavel = ''
+
             aluno.user = request.user
             aluno.empresa = request.user.userprofile.empresa
 
@@ -167,6 +190,19 @@ def aluno_edit(request, aluno_id):
         form = AlunoForm(request.POST)
         if form.is_valid():
             aluno.nome = form.cleaned_data['nome'].upper()
+            aluno.responsavel = form.cleaned_data['responsavel'].upper()
+
+            if form.cleaned_data['email']:
+                aluno.email = form.cleaned_data['email'].lower()
+            else:
+                aluno.email = ''
+
+            if form.cleaned_data['email_responsavel']:
+                aluno.email_responsavel = form.cleaned_data['email_responsavel'].lower()
+            else:
+                aluno.email_responsavel = ''
+
+            aluno.empresa = request.user.userprofile.empresa
 
             aluno.save()
 
@@ -517,6 +553,15 @@ def ocorrencia_register(request):
                     # EMAIL DO COORDENADOR
                     email.append(ocorrencia.matricula.turma.curso.email)
 
+                    # VERIFICA SE TEM EMAIL DO RESPONSÁVEL
+                    if ocorrencia.matricula.aluno.email_responsavel:
+                        email.append(ocorrencia.matricula.aluno.email_responsavel)
+
+                    # VERIFICA SE TEM EMAIL DO ALUNO
+                    if ocorrencia.matricula.aluno.email:
+                        email.append(ocorrencia.matricula.aluno.email)
+
+                    # ENVIA OS E-MAILS
                     RegistraOcorrenciaMail(ocorrencia).send(email)
 
             return redirect('ocorrencia')
@@ -546,6 +591,16 @@ def ocorrencia_delete(request, ocorrencia_id):
 @staff_member_required
 def matricula(request):
     matriculas = Matricula.objects.filter(empresa=request.user.userprofile.empresa).order_by('-ano_letivo', 'turma', 'aluno')
+
+    paginator = Paginator(matriculas, 30)
+    page = request.GET.get('page', 1)
+
+    try:
+        matriculas = paginator.page(page)
+    except PageNotAnInteger:
+        matriculas = paginator.page(1)
+    except EmptyPage:
+        matriculas = paginator.page(paginator.num_pages)
 
     context = {
         'matriculas': matriculas

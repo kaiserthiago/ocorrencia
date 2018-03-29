@@ -80,6 +80,9 @@ class Turma(AuditoriaMixin):
 
 class Aluno(AuditoriaMixin):
     nome = models.CharField(max_length=255)
+    email = models.EmailField(blank=True, null=True)
+    responsavel = models.CharField(max_length=255, blank=True, null= True)
+    email_responsavel = models.EmailField(blank=True, null=True)
 
     def __str__(self):
         return self.nome

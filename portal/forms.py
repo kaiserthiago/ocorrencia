@@ -97,13 +97,22 @@ class TurmaForm(forms.ModelForm):
 class AlunoForm(forms.ModelForm):
     class Meta:
         model = Aluno
-        fields = ('nome','empresa')
+        exclude = ('user',)
 
         widgets = {
             'nome': forms.TextInput(attrs={
                 'class': 'form-control validate',
                 'required': '',
                 'autofocus': ''
+            }),
+            'email': forms.EmailInput(attrs={
+                'class': 'form-control validate',
+            }),
+            'responsavel': forms.TextInput(attrs={
+                'class': 'form-control validate',
+            }),
+            'email_responsavel': forms.EmailInput(attrs={
+                'class': 'form-control validate',
             }),
             'empresa': forms.Select(attrs={
                 'class': 'mdb-select colorful-select dropdown-primary',
@@ -112,5 +121,8 @@ class AlunoForm(forms.ModelForm):
         }
 
         labels = {
-            'empresa': 'Câmpus'
+            'empresa': 'Câmpus',
+            'email': 'E-mail aluno',
+            'responsavel': 'Responsável',
+            'email_responsavel': 'E-mail responsável',
         }

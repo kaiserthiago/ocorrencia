@@ -27,7 +27,8 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="float-right">
-                                <a href="{% url 'aluno_new' %}" class="btn btn-success"><i class="fa fa-plus"></i> Novo Registro</a>
+                                <a href="{% url 'aluno_new' %}" class="btn btn-success"><i class="fa fa-plus"></i> Novo
+                                    Registro</a>
                                 <a href="{% url 'import_aluno' %}" class="btn btn-info"><i
                                         class="fa fa-arrow-circle-down"></i> Importar</a>
                             </div>
@@ -38,13 +39,19 @@
                             <thead>
                             <tr>
                                 <th style="font-weight: bold">Nome</th>
-                                    <th style="text-align: right; font-weight: bold">Ações</th>
+                                <th style="font-weight: bold">E-mail</th>
+                                <th style="font-weight: bold">Responsável</th>
+                                <th style="font-weight: bold">E-mail</th>
+                                <th style="text-align: right; font-weight: bold">Ações</th>
                             </tr>
                             </thead>
                             <tbody id="myTable">
                             {% for aluno in alunos %}
                                 <tr>
                                     <td style="vertical-align: middle;">{{ aluno.nome }}</td>
+                                    <td style="vertical-align: middle;">{{ aluno.email }}</td>
+                                    <td style="vertical-align: middle;">{{ aluno.responsavel }}</td>
+                                    <td style="vertical-align: middle;">{{ aluno.email_responsavel }}</td>
                                     <td style="vertical-align: middle; text-align: right">
                                         <a href="{% url 'aluno_edit' aluno.id %}"
                                            class="btn-floating btn-sm warning-color"
@@ -103,13 +110,75 @@
                                 </tr>
                             {% empty %}
                                 <tr>
-                                    <td colspan="2" class="card-header warning-color white-text text-center">Sem estudantes cadastrados
+                                    <td colspan="2" class="card-header warning-color white-text text-center">Sem
+                                        estudantes cadastrados
                                     </td>
                                 </tr>
                             {% endfor %}
                             </tbody>
                         </table>
                     </div>
+
+                    <!--Pagination -->
+                    <nav aria-label="pagination example">
+                        <ul class="pagination justify-content-center pagination-circle pg-blue mb-0">
+
+                            {% if alunos.has_previous %}
+                                <li class="page-item">
+                                    <a href="?page=1"
+                                       class="page-link">Primeira</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled"><a class="page-link">Primeira</a></li>
+                            {% endif %}
+
+                            <!--Arrow left-->
+                            {% if alunos.has_previous %}
+                                <li class="page-item">
+                                    <a href="?page={{ alunos.previous_page_number }}" class="page-link"
+                                       aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Anterior</span>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled"><span>&laquo;</span></li>
+                            {% endif %}
+
+                            <!--Numbers-->
+                            {% for i in alunos.paginator.page_range %}
+                                {% if alunos.number == i %}
+                                    <li class="page-item active"><a class="page-link">{{ i }}</a></li>
+                                {% else %}
+                                    {% if i <= alunos.number|add:5 and i >= alunos.number|add:-5 %}
+                                        <li class="page-item"><a href="?page={{ i }}" class="page-link">{{ i }}</a></li>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+
+                            <!--Arrow right-->
+                            {% if alunos.has_next %}
+                                <li class="page-item">
+                                    <a href="?page={{ alunos.next_page_number }}" class="page-link" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Próxima</span>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled"><span>&raquo;</span></li>
+                            {% endif %}
+
+                            <!--Last-->
+                            {% if alunos.has_next %}
+                                <li class="page-item">
+                                    <a href="?page={{ alunos.paginator.num_pages }}"
+                                       class="page-link">Última</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled"><a class="page-link">Última</a></li>
+                            {% endif %}
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
