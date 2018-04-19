@@ -27,10 +27,11 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="float-right">
-{#                                <a href="{% url 'matricula_new' %}" class="btn btn-success"><i class="fa fa-plus"></i>#}
-{#                                    Novo#}
-{#                                    Registro</a>#}
-                                <a href="{% url 'import_matricula' %}" class="btn btn-info"><i
+                                {#                                <a href="{% url 'matricula_new' %}" class="btn btn-success"><i class="fa fa-plus"></i>#}
+                                {#                                    Novo#}
+                                {#                                    Registro</a>#}
+                                <a href="{% url 'import_matricula' %}" class="btn btn-info" data-toggle="tooltip"
+                                   data-placement="top" title="Importar XLS"><i
                                         class="fa fa-arrow-circle-down"></i>
                                     Importar</a>
                             </div>
@@ -59,13 +60,16 @@
                                     <td style="vertical-align: middle; text-align: right">
                                         <a href="{% url 'matricula_edit' matricula.id %}"
                                            class="btn-floating btn-sm warning-color"
-                                           title="Editar"><i class="fa fa-pencil"></i>
+                                           data-toggle="tooltip" data-placement="top" title="Editar"><i
+                                                class="fa fa-pencil"></i>
                                         </a>
 
-                                        <a data-toggle="modal" href="#Excluir{{ matricula.id }}"
-                                           class="btn-floating btn-sm danger-color"
-                                           title="Excluir"><i class="fa fa-trash"></i>
-                                        </a>
+                                        <i data-toggle="tooltip" data-placement="top" title="Excluir">
+                                            <a data-toggle="modal" href="#Excluir{{ matricula.id }}"
+                                               class="btn-floating btn-sm danger-color"
+                                               title="Excluir"><i class="fa fa-trash"></i>
+                                            </a>
+                                        </i>
 
                                         <!--Modal EXCLUIR-->
                                         <div class="modal fade" id="Excluir{{ matricula.id }}" tabindex="-1"

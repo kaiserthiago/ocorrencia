@@ -50,14 +50,16 @@
                                     <td style="vertical-align: middle; text-align: right">
                                         <a href="{% url 'turma_edit' turma.id %}"
                                            class="btn-floating btn-sm warning-color"
-                                           title="Editar"><i class="fa fa-pencil"></i>
+                                           data-toggle="tooltip" data-placement="top" title="Editar"><i
+                                                class="fa fa-pencil"></i>
                                         </a>
 
-                                        <a data-toggle="modal" href="#Excluir{{ turma.id }}"
-                                           class="btn-floating btn-sm danger-color"
-                                           title="Excluir"><i class="fa fa-trash"></i>
-                                        </a>
-
+                                        <i data-toggle="tooltip" data-placement="top" title="Excluir">
+                                            <a data-toggle="modal" href="#Excluir{{ turma.id }}"
+                                               class="btn-floating btn-sm danger-color"
+                                               title="Excluir"><i class="fa fa-trash"></i>
+                                            </a>
+                                        </i>
                                         <!--Modal EXCLUIR-->
                                         <div class="modal fade" id="Excluir{{ turma.id }}" tabindex="-1" role="dialog"
                                              aria-labelledby="myModalLabel"
@@ -105,7 +107,9 @@
                                 </tr>
                             {% empty %}
                                 <tr>
-                                    <td colspan="3" class="card-header warning-color white-text text-center">Sem turmas cadastradas</td>
+                                    <td colspan="3" class="card-header warning-color white-text text-center">Sem turmas
+                                        cadastradas
+                                    </td>
                                 </tr>
                             {% endfor %}
                             </tbody>

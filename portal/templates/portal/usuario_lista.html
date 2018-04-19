@@ -38,10 +38,11 @@
                             <td style="vertical-align: middle;">{{ usuario.username }}</td>
                             <td style="vertical-align: middle;">{{ usuario.email }}</td>
                             <td>
-                                <a data-toggle="modal" href="#ConfirmarRegistro{{ usuario.id }}"
-                                   class="btn-floating btn-sm success-color"
-                                   title="Tornar ativo"><i class="fa fa-check"></i>
-                                </a>
+                                <i data-toggle="tooltip" data-placement="top" title="Tornar ativo">
+                                    <a data-toggle="modal" href="#ConfirmarRegistro{{ usuario.id }}"
+                                       class="btn-floating btn-sm success-color"><i class="fa fa-check"></i>
+                                    </a>
+                                </i>
 
                                 <!--Modal CONFIRMAR-->
                                 <div class="modal fade" id="ConfirmarRegistro{{ usuario.id }}" tabindex="-1"
@@ -90,7 +91,9 @@
                         </tr>
                     {% empty %}
                         <tr>
-                            <td colspan="5" class="card-header warning-color white-text text-center font-bold">Sem usuários inativos</td>
+                            <td colspan="5" class="card-header warning-color white-text text-center font-bold">Sem
+                                usuários inativos
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -123,10 +126,11 @@
                             <td style="vertical-align: middle;">{{ usuario.email }}</td>
                             <td style="vertical-align: middle;">{{ usuario.userprofile.empresa }}</td>
                             <td>
-                                <a data-toggle="modal" href="#InativarRegistro{{ usuario.id }}"
-                                   class="btn-floating btn-sm danger-color"
-                                   title="Tornar inativo"><i class="fa fa-close"></i>
-                                </a>
+                                <i data-toggle="tooltip" data-placement="top" title="Tornar inativo">
+                                    <a data-toggle="modal" href="#InativarRegistro{{ usuario.id }}"
+                                       class="btn-floating btn-sm danger-color"><i class="fa fa-close"></i>
+                                    </a>
+                                </i>
 
                                 <!--Modal CONFIRMAR-->
                                 <div class="modal fade" id="InativarRegistro{{ usuario.id }}" tabindex="-1"
@@ -175,7 +179,9 @@
                         </tr>
                     {% empty %}
                         <tr>
-                            <td colspan="6" class="card-header warning-color white-text text-center font-bold">Sem usuários inativos</td>
+                            <td colspan="6" class="card-header warning-color white-text text-center font-bold">Sem
+                                usuários inativos
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>

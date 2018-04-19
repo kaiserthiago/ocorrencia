@@ -56,17 +56,19 @@
 
                                         <a href="{% url 'ocorrencia_show' ocorrencia.id %}"
                                            class="btn-floating btn-sm info-color"
-                                           title="Visualizar"><i class="fa fa-search"></i>
+                                           data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fa fa-search"></i>
                                         </a>
 
                                         {#                                        <a href="#" class="btn-floating btn-sm warning-color"#}
-                                        {#                                           title="Editar"><i class="fa fa-pencil"></i>#}
+                                        {#                                           data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil"></i>#}
                                         {#                                        </a>#}
 
-                                        <a data-toggle="modal" href="#Excluir{{ ocorrencia.id }}"
-                                           class="btn-floating btn-sm danger-color"
-                                           title="Excluir"><i class="fa fa-trash"></i>
-                                        </a>
+                                        <i data-toggle="tooltip" data-placement="top" title="Excluir">
+                                            <a data-toggle="modal" href="#Excluir{{ ocorrencia.id }}"
+                                               class="btn-floating btn-sm danger-color"
+                                               title="Excluir"><i class="fa fa-trash"></i>
+                                            </a>
+                                        </i>
 
                                         <!--Modal EXCLUIR-->
                                         <div class="modal fade" id="Excluir{{ ocorrencia.id }}" tabindex="-1"
