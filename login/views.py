@@ -22,7 +22,7 @@ def register(request):
                 password=user_form.cleaned_data['password'],
                 email=user_form.cleaned_data['email'],
                 first_name=user_form.cleaned_data['first_name'],
-                last_name=user_form.cleaned_data['last_name'],
+                # last_name=user_form.cleaned_data['last_name'],
                 is_active=False,
             )
 
@@ -52,7 +52,7 @@ def register(request):
         'user_form': user_form,
         'unidades': unidades
     }
-    return render(request, 'registration/signup-page.html', context)
+    return render(request, 'registration/register.html', context)
 
 
 def register_success(request):

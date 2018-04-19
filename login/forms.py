@@ -4,10 +4,10 @@ from django.contrib.auth.models import User
 
 class RegistroForm(forms.Form):
     first_name = forms.CharField(widget=forms.TextInput(
-        attrs={'class': 'form-control', 'required': 'True', 'max_lenght': '150', 'autofocus':'autofocus'}), label='Nome')
+        attrs={'class': 'form-control', 'required': 'True', 'max_lenght': '150'}), label='Nome')
 
-    last_name = forms.CharField(widget=forms.TextInput(
-        attrs={'class': 'form-control', 'required': 'True', 'max_lenght': '150'}), label='Sobrenome')
+    # last_name = forms.CharField(widget=forms.TextInput(
+    #     attrs={'class': 'form-control', 'required': 'True', 'max_lenght': '150'}), label='Sobrenome')
 
     username = forms.RegexField(regex=r'^\w+$', widget=forms.TextInput(
         attrs={'class': 'form-control', 'required': 'True', 'max_lenght': '30'}), label='Usuário', error_messages={

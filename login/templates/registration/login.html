@@ -1,48 +1,87 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+{% load  static %}
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="theme-color" content="#243A51">
+    <title>{% block title %}Login - Gestão de Ocorrências - SIGO{% endblock %}</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          media="all">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="all">
+    <!-- Material Design Bootstrap -->
+    <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet" media="all">
+    <!-- Your custom styles (optional) -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" media="all">
 
-{% block title %}Login - SIGEF{% endblock %}
+    <!-- Forçar atualizar -->
+    <link href="main.css?version=12"/>
 
-{#{% block breadcrumb_base %}#}
-{#    <ol class="breadcrumb">#}
-{#        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>#}
-{#        <li class="breadcrumb-item active">Login</li>#}
-{#    </ol>#}
-{#{% endblock %}#}
+    <style>
+        {% block style %}
+        {% endblock %}
 
-{% block content %}
-    <div class="row justify-content-center">
-        <div class="col-sm-auto">
-            <div class="card card-cascade narrower mb-5">
-                <div class="view py-3 gradient-card-header info-color-dark">
-                    <h5 class="mb-0"><strong>LOGIN</strong></h5>
-                </div>
-                <div class="card-body">
-                    <form action="" method="POST">
-                        {% csrf_token %}
-                        <div class="md-form">
-                            <input class="form-control" placeholder="Usuário" input type="text" name="username"
-                                   autofocus
-                                   maxlength="254" required id="id_username"/>
-                        </div>
+        body {
+            background: #ededed;
+        }
+    </style>
+</head>
+<body>
+<!-- Purple Header -->
+<div class="edge-header primary-color-dark"></div>
 
-                        <div class="md-form">
-                            <input class="form-control" placeholder="Senha" type="password" name="password" required
-                                   id="id_password"/>
-                        </div>
+<!-- Main Container -->
+<div class="container free-bird">
+    <div class="row">
+        <div class="card card-cascade narrower mb-4 col-md-7 col-lg-6 mx-auto float-none">
+            <div class="view py-3 gradient-card-header info-color-dark">
+                <h5 class="mb-0"><strong>LOGIN</strong></h5>
+            </div>
+            <div class="card-body">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="md-form">
+                        <i class="fa fa-user prefix grey-text"></i>
+                        <input class="form-control" placeholder="Usuário" input type="text" name="username"
+                               autofocus
+                               maxlength="254" required id="id_username"/>
+                    </div>
 
-                        <div class="md-form text-center">
-                            <button type="submit" class="btn btn-block btn-success"><i class="fa fa-check"></i> Login
-                            </button>
-                        </div>
+                    <div class="md-form">
+                        <i class="fa fa-lock prefix grey-text"></i>
+                        <input class="form-control" placeholder="Senha" type="password" name="password" required
+                               id="id_password"/>
+                    </div>
 
-                        <div class="modal-footer">
-                            <p class="font-small grey-text d-flex justify-content-end">Sem cadastro? <a
-                                    href="{% url 'login_register' %}" class="blue-text ml-1"> Clique aqui!</a>
-                            </p>
-                        </div>
-                    </form>
-                </div>
+                    <div class="md-form text-center">
+                        <button type="submit" class="btn btn-success">ENTRAR</button>
+                    </div>
+
+                    <div class="modal-footer">
+                        <p class="font-small grey-text d-flex justify-content-end">Sem cadastro? <a
+                                href="{% url 'login_register' %}" class="blue-text ml-1"> Clique aqui!</a>
+                        </p>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-{% endblock %}
+</div>
+</div>
+<!-- /.Main Container -->
+
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+</body>
+
+</html>
