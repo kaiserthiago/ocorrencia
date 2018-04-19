@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% block title %}Ocorrência {{ ocorrencia.id }}.{{ ano }} - Gestão de Ocorrências - SIGO{% endblock %}
+{% block class_ocorrencia_menu %}active{% endblock %}
+{% block class_ocorrencia_disciplinar_item %}collapsible-header active{% endblock %}
+
 {% load static %}
 {% load widget_tweaks %}
 
@@ -28,7 +31,7 @@
         <div class="col-sm-12">
             <div class="card border-primary mb-3">
                 <div class="card-header gradient white-text" id="card">
-                    OCORRÊNCIA {{ ocorrencia.id }}/{{ ano }}
+                    OCORRÊNCIA DISCIPLINAR {{ ocorrencia.id }}/{{ ano }}
                 </div>
                 <div class="card-body border-primary">
                     <table class="table table-bordered table-sm">

@@ -47,8 +47,11 @@
     <!-- Logo -->
     <li>
         <div class="logo-wrapper waves-light">
-            <a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" alt="SIGO"
-                                            class="img-fluid flex-center"></a>
+            {#            <a href="{% url 'home' %}"></a>#}
+            {#            <p><strong>Unidade:</strong> {{ request.user.userprofile.empresa }}</p>#}
+            {#            <p><strong>Usuário:</strong> {{ request.user.first_name }}</p>#}
+            <img src="{% static 'img/logo.png' %}" alt="SIGO"
+                 class="img-fluid flex-center" width="300">
         </div>
     </li>
     <!--/. Logo -->
@@ -103,9 +106,23 @@
                         class="fa fa-dashboard"></i> Dashboard</a>
             </li>
             <li>
-                <a href="{% url 'ocorrencia' %}" class="collapsible-header waves-effect arrow-r
-                            {% block class_ocorrencia_menu %}{% endblock %}"><i
-                        class="fa fa-file-text"></i> Ocorrências</a>
+                <a class="collapsible-header waves-effect arrow-r {% block class_ocorrencia_menu %}{% endblock %}"><i
+                        class="fa fa-pencil"></i> Ocorrências<i
+                        class="fa fa-angle-down rotate-icon"></i></a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li>
+                            <a href="{% url 'ocorrencia' %}" class="collapsible-header waves-effect arrow-r
+                            {% block class_ocorrencia_disciplinar_item %}{% endblock %}"><i
+                                    class="fa fa-file-text"></i> Disciplinar</a>
+                        </li>
+                        <li>
+                            <a href="#" class="collapsible-header waves-effect arrow-r
+                            {% block class_ocorrencia_encaminhamento_item %}{% endblock %}"><i
+                                    class="fa fa-exchange"></i> Encaminhamento</a>
+                        </li>
+                    </ul>
+                </div>
             </li>
             {% if request.user.is_staff %}
                 <li>
@@ -170,16 +187,33 @@
                 <a href="{% url 'home' %}" class="nav-link"><i class="fa fa-home"></i> <span
                         class="clearfix d-none d-sm-inline-block">Home</span></a>
             </li>
-            <li class="nav-item">
-                <a href="{% url 'contato' %}" class="nav-link"><i class="fa fa-envelope"></i> <span
-                        class="clearfix d-none d-sm-inline-block">Contato</span></a>
-            </li>
-            <li class="nav-item">
-                <a href="{% url 'ocorrencia' %}" class="nav-link"><i class="fa fa-file-text"></i> <span
-                        class="clearfix d-none d-sm-inline-block">Ocorrências</span></a>
-            </li>
-        </ul>
+            {% if request.user.is_authenticated %}
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i><span
+                            class="clearfix d-none d-sm-inline-block"> {{ request.user }}</span>
+                    </a>
 
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{% url 'dashboard' %}">Dashboard</a>
+                        <a class="dropdown-item" href="{% url 'ocorrencia' %}">Ocorrências</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'usuario_conta' %}">Minha conta</a>
+                        <a class="dropdown-item" href="{% url 'logout' %}">Sair</a>
+                    </div>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a href="{% url 'login' %}" class="nav-link"><i class="fa fa-lock"></i> <span
+                            class="clearfix d-none d-sm-inline-block">Login</span></a>
+                </li>
+            {% endif %}
+            {#            <li class="nav-item">#}
+            {#                <a href="{% url 'ocorrencia' %}" class="nav-link"><i class="fa fa-file-text"></i> <span#}
+            {#                        class="clearfix d-none d-sm-inline-block">Ocorrências</span></a>#}
+            {#            </li>#}
+        </ul>
     </nav>
 
     <!-- /.Navbar -->
@@ -281,9 +315,9 @@
 
     // SideNav Initialization
     $(".button-collapse").sideNav();
-    // SideNav Scrollbar Initialization
-    var sideNavScrollbar = document.querySelector('.custom-scrollbar');
-    Ps.initialize(sideNavScrollbar);
+    {#// SideNav Scrollbar Initialization#}
+    {#var sideNavScrollbar = document.querySelector('.custom-scrollbar');#}
+    {#Ps.initialize(sideNavScrollbar);#}
 
     // Material Select Initialization
     $(document).ready(function () {

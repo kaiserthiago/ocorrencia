@@ -680,7 +680,7 @@ def matricula_delete(request, matricula_id):
     return redirect('matricula')
 
 
-@staff_member_required
+@login_required
 def usuario_conta(request):
     user = User.objects.get(pk=request.user.pk)
     user_form = UserForm(instance=user)
