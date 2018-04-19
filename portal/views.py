@@ -9,12 +9,12 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Count
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
-from django.template.defaultfilters import upper
+from django.template.defaultfilters import upper, lower
 from tablib import Dataset
 
 from portal.emails import RegistraOcorrenciaMail, ConfirmaUsuarioMail
-from portal.forms import OcorrenciaForm, CursoForm, TurmaForm, AlunoForm
-from portal.models import Curso, Aluno, Turma, Ocorrencia, Matricula, CategoriaFalta, Falta
+from portal.forms import OcorrenciaForm, CursoForm, TurmaForm, AlunoForm, UserForm, UserProfileForm
+from portal.models import Curso, Aluno, Turma, Ocorrencia, Matricula, CategoriaFalta, Falta, UserProfile
 
 
 def home(request):
@@ -24,6 +24,41 @@ def home(request):
 def contato(request):
     return render(request, 'portal/contato.html', {})
 
+@staff_member_required
+def account(request):
+    user = User.objects.get(pk=request.user.pk)
+    user_form = UserForm(instance=user)
+
+    try:
+        user_profile = UserProfile.objects.get(user=user)
+    except:
+        user_profile = UserProfile()
+        user_profile.user = user
+        user_profile.save()
+
+    profile_form = UserProfileForm(instance=user_profile)
+
+    if request.method == 'POST':
+        user_form = UserForm(request.POST)
+        profile_form = UserProfileForm(request.POST)
+
+        if user_form.is_valid() and profile_form.is_valid() and profile_form.cleaned_data['empresa'] != None:
+            user.first_name = user_form.cleaned_data['first_name']
+            user.last_name = user_form.cleaned_data['last_name']
+            user.save()
+
+            user_profile.empresa = profile_form.cleaned_data['empresa']
+            user_profile.save()
+
+            messages.success(request, 'As alterações foram salvas.')
+        else:
+            messages.error(request, 'Selecione sua unidade de lotação')
+    context = {
+        'user_form': user_form,
+        'profile_form': profile_form,
+        'user': user,
+    }
+    return render(request, 'portal/usuario_conta.html', context)
 
 @staff_member_required
 def import_matricula(request):
@@ -37,6 +72,7 @@ def import_matricula(request):
         turma = get_object_or_404(Turma, id=id)
 
         lista = []
+        lista_nao_importado = []
 
         importado = 0
         nao_importado = 0
@@ -53,7 +89,7 @@ def import_matricula(request):
 
         for teste in lista:
             aluno = get_object_or_404(Aluno, empresa=request.user.userprofile.empresa, nome=teste)
-            matricula = Matricula.objects.filter(aluno=aluno, ano_letivo=int(date.today().year))
+            matricula = Matricula.objects.filter(aluno=aluno, ano_letivo=int(date.today().year), turma=turma)
 
             if (teste == aluno.nome) and not matricula:
                 matricula = Matricula()
@@ -67,10 +103,13 @@ def import_matricula(request):
                 importado += 1
             else:
                 nao_importado += 1
+                lista_nao_importado.append(teste)
 
         context = {
             'importado': importado,
-            'nao_importado': nao_importado
+            'nao_importado': nao_importado,
+            'lista_nao_importado': lista_nao_importado,
+            'turma': turma
         }
 
         return render(request, 'portal/import_matricula_success.html', context)
@@ -92,24 +131,37 @@ def import_aluno(request):
 
         imported_data = dataset.load(new_persons.read())
 
-        lista = []
+        aluno = []
+        email = []
+        responsavel = []
 
         importado = 0
         nao_importado = 0
 
         for n in imported_data:
-            lista.append(upper(n[0]))
+            aluno.append(upper(n[0]))
+            email.append(upper(n[2]))
+            responsavel.append(upper(n[1]))
 
-        for teste in lista:
-            aluno = Aluno.objects.filter(empresa=request.user.userprofile.empresa, nome=teste)
+        for a in aluno:
+            aluno = Aluno.objects.filter(empresa=request.user.userprofile.empresa, nome=a)
 
             if not aluno:
                 aluno = Aluno()
                 aluno.user = request.user
                 aluno.empresa = request.user.userprofile.empresa
-                aluno.nome = teste
+                aluno.nome = a
+                aluno.email_responsavel = ''
+
+                if email:
+                    aluno.email = lower(email[importado])
+                else:
+                    aluno.email = ''
+
+                aluno.responsavel = responsavel[importado]
 
                 aluno.save()
+
                 importado += 1
             else:
                 nao_importado += 1
@@ -128,7 +180,7 @@ def import_aluno(request):
 def aluno(request):
     alunos = Aluno.objects.filter(empresa=request.user.userprofile.empresa).order_by('nome')
 
-    paginator = Paginator(alunos, 30)
+    paginator = Paginator(alunos, 40)
     page = request.GET.get('page', 1)
 
     try:
@@ -319,7 +371,8 @@ def dashboard(request):
     cursos_ocorrencia = [obj[0] for obj in cursos]
     qtde_cursos_ocorrencia = [int(obj[1]) for obj in cursos]
 
-    courses = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa, matricula__turma__curso__in=Curso.objects.all()).order_by(
+    courses = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
+                                        matricula__turma__curso__in=Curso.objects.all()).order_by(
         'matricula__turma__curso__descricao').values('matricula__turma__curso__id',
                                                      'matricula__turma__curso__descricao').distinct()
 
@@ -435,13 +488,18 @@ def turma_new(request):
 
 @staff_member_required
 def turma_edit(request, turma_id):
+    cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa)
     turma = get_object_or_404(Turma, pk=turma_id)
+    c = get_object_or_404(Curso, id=turma.curso.id)
 
     if request.method == 'POST':
         form = TurmaForm(request.POST)
         if form.is_valid():
             turma.descricao = form.cleaned_data['descricao']
-            turma.curso = form.cleaned_data['curso']
+
+            id = request.POST['SelectCurso']
+            c = get_object_or_404(Curso, id=id)
+            turma.curso = c
 
             turma.save()
 
@@ -454,6 +512,8 @@ def turma_edit(request, turma_id):
     context = {
         'form': form,
         'turma': turma,
+        'cursos': cursos,
+        'c': c
     }
 
     return render(request, 'portal/turma_edit.html', context)
@@ -471,7 +531,8 @@ def turma_delete(request, turma_id):
 @login_required
 def ocorrencia(request):
     cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa)
-    ocorrencias = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa, user=request.user, data__year=date.today().year)
+    ocorrencias = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa, user=request.user,
+                                            data__year=date.today().year)
 
     context = {
         'cursos': cursos,
@@ -577,6 +638,18 @@ def ocorrencia_register(request):
             return render(request, 'portal/ocorrencia.html', context)
 
 
+@login_required
+def ocorrencia_relatorio(request, aluno_id):
+    ocorrencias = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa, user=request.user,
+                                            data__year=date.today().year, matricula__aluno=aluno_id)
+
+    context = {
+        'ocorrencias': ocorrencias
+    }
+
+    return render(request, 'portal/ocorrencia.html', context)
+
+
 @staff_member_required
 def ocorrencia_delete(request, ocorrencia_id):
     ocorrencia = get_object_or_404(Ocorrencia, pk=ocorrencia_id)
@@ -590,7 +663,8 @@ def ocorrencia_delete(request, ocorrencia_id):
 
 @staff_member_required
 def matricula(request):
-    matriculas = Matricula.objects.filter(empresa=request.user.userprofile.empresa).order_by('-ano_letivo', 'turma', 'aluno')
+    matriculas = Matricula.objects.filter(empresa=request.user.userprofile.empresa).order_by('-ano_letivo', 'turma',
+                                                                                             'aluno')
 
     paginator = Paginator(matriculas, 30)
     page = request.GET.get('page', 1)

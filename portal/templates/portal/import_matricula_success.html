@@ -21,9 +21,17 @@
             <div class="row">
                 <div class="col-sm-12">
                     <p>A importação foi realizada com sucesso!</p>
+                    <p>
+                        <strong>Curso:</strong> {{ turma.curso }}<br>
+                        <strong>Turma:</strong> {{ turma.descricao }}
+                    </p>
                     <p>No intuito de evitar a redundância, alguns registros não foram importados.</p>
                     <strong>Registros importados: </strong>{{ importado }}<br>
-                    <strong>Registros não importados: </strong>{{ nao_importado }}
+                    <strong>Registros não importados: </strong>{{ nao_importado }}<br>
+                    <br>
+                    {% for i in lista_nao_importado %}
+                        {{ i }}<br>
+                    {% endfor %}
                 </div>
             </div>
         </div>

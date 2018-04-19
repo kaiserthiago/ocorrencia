@@ -90,6 +90,10 @@ class Aluno(AuditoriaMixin):
     class Meta:
         ordering = ['nome']
 
+    @property
+    def ocorrencia_aluno(self):
+        return Ocorrencia.objects.filter(matricula__aluno_id__exact=self.id, data__year=date.today().year)
+
 
 class Matricula(AuditoriaMixin):
     aluno = models.ForeignKey(Aluno, on_delete=models.DO_NOTHING)

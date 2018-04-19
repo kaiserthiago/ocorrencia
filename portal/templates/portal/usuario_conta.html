@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}Minha Conta - SIGEF{% endblock %}
+{% block class_usuario_menu %}active{% endblock %}
+{% block class_account_item %}collapsible-header active{% endblock %}
+
+{% load widget_tweaks %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item active">Minha conta</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="md-form col-sm-6">
+                                <label>{{ user_form.first_name.label }}</label>
+                                {{ user_form.first_name }}
+                            </div>
+                            <div class="md-form col-sm-6">
+                                <label>{{ user_form.last_name.label }}</label>
+                                {{ user_form.last_name }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-12">
+                                <label>{{ profile_form.empresa.label }}</label>
+                                {% if request.user.is_superuser %}
+                                    {{ profile_form.empresa|attr:'enabled' }}
+                                {% else %}
+                                    {{ profile_form.empresa|attr:'disabled' }}
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="float-right">
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-check"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+    <script>
+
+    </script>
+{% endblock %}

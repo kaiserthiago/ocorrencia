@@ -23,6 +23,10 @@
     <style>
         {% block style %}
         {% endblock %}
+
+        body {
+            background: #ededed;
+        }
     </style>
 </head>
 {% if request.user.is_staff %}
@@ -111,6 +115,8 @@
                     <div class="collapsible-body">
                         <ul>
                             <li>
+                                <a href="{% url 'account' %}"
+                                   class="waves-effect {% block class_account_item %}{% endblock %}">Conta</a>
                                 <a href="{% url 'usuario_lista' %}"
                                    class="waves-effect {% block class_lista_usuario_item %}{% endblock %}">Lista
                                     de usuários</a>
@@ -201,8 +207,8 @@
                 {% endfor %}
             {% endif %}
 
-            {% block breadcrumb_base %}
-            {% endblock %}
+            {#            {% block breadcrumb_base %}#}
+            {#            {% endblock %}#}
 
             {% block content %}
             {% endblock %}

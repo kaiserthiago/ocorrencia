@@ -40,8 +40,7 @@
                             <tr>
                                 <th style="font-weight: bold">Nome</th>
                                 <th style="font-weight: bold">E-mail</th>
-                                <th style="font-weight: bold">Responsável</th>
-                                <th style="font-weight: bold">E-mail</th>
+                                <th colspan="2" style="font-weight: bold; text-align: center">Dados do Responsável</th>
                                 <th style="text-align: right; font-weight: bold">Ações</th>
                             </tr>
                             </thead>
@@ -51,8 +50,15 @@
                                     <td style="vertical-align: middle;">{{ aluno.nome }}</td>
                                     <td style="vertical-align: middle;">{{ aluno.email }}</td>
                                     <td style="vertical-align: middle;">{{ aluno.responsavel }}</td>
-                                    <td style="vertical-align: middle;">{{ aluno.email_responsavel }}</td>
+                                    <td style="vertical-align: middle; text-align: right">{{ aluno.email_responsavel }}</td>
                                     <td style="vertical-align: middle; text-align: right">
+                                        {% if aluno.ocorrencia_aluno %}
+                                            <a href="{% url 'ocorrencia_relatorio' aluno.id %}"
+                                               class="btn-floating btn-sm green"
+                                               title="Ocorrências"><i class="fa fa-search"></i>
+                                            </a>
+                                            <span class="counter">{{ aluno.ocorrencia_aluno.count }}</span>
+                                        {% endif %}
                                         <a href="{% url 'aluno_edit' aluno.id %}"
                                            class="btn-floating btn-sm warning-color"
                                            title="Editar"><i class="fa fa-pencil"></i>
@@ -110,7 +116,7 @@
                                 </tr>
                             {% empty %}
                                 <tr>
-                                    <td colspan="2" class="card-header warning-color white-text text-center">Sem
+                                    <td colspan="5" class="card-header warning-color white-text text-center font-bold">Sem
                                         estudantes cadastrados
                                     </td>
                                 </tr>

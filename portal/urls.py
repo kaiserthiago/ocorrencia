@@ -4,11 +4,13 @@ from . import views
 
 urlpatterns = [
     url('^$', views.home, name='home'),
+    url(r'^account$', views.account, name='account'),
 
     url('^contato$', views.contato, name='contato'),
 
     url('^dashboard$', views.dashboard, name='dashboard'),
 
+    url('^ocorrencia/relatorio/(?P<aluno_id>\d+)$', views.ocorrencia_relatorio, name='ocorrencia_relatorio'),
     url('^ocorrencia/register$', views.ocorrencia_register, name='ocorrencia_register'),
     url('^ocorrencia/delete/(?P<ocorrencia_id>\d+)$', views.ocorrencia_delete, name='ocorrencia_delete'),
     url('^ocorrencia/show/(?P<ocorrencia_id>\d+)$', views.ocorrencia_show, name='ocorrencia_show'),
