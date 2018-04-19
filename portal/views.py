@@ -134,6 +134,7 @@ def import_aluno(request):
         aluno = []
         email = []
         responsavel = []
+        lista_nao_importado = []
 
         importado = 0
         nao_importado = 0
@@ -165,6 +166,7 @@ def import_aluno(request):
                 importado += 1
             else:
                 nao_importado += 1
+                lista_nao_importado.append(a)
 
         context = {
             'importado': importado,
