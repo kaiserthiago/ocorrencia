@@ -17,7 +17,13 @@
                     <h5 class="mb-0"><strong>OCORRÊNCIAS POR CATEGORIA</strong></h5>
                 </div>
                 <div class="card-body">
-                    <canvas id="categoria" width="300" height="200"></canvas>
+                    {% if categorias %}
+                        <canvas id="categoria" width="300" height="200"></canvas>
+                    {% else %}
+                        <div class="card-header warning-color white-text text-center">
+                            <strong>NÃO HÁ OCORRÊNCIAS</strong>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -30,7 +36,13 @@
                     <h5 class="mb-0"><strong>OCORRÊNCIAS POR CURSOS</strong></h5>
                 </div>
                 <div class="card-body">
-                    <canvas id="curso" width="300" height="200"></canvas>
+                    {% if cursos %}
+                        <canvas id="curso" width="300" height="200"></canvas>
+                    {% else %}
+                        <div class="card-header warning-color white-text text-center">
+                            <strong>NÃO HÁ OCORRÊNCIAS</strong>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -96,55 +108,6 @@
             </div>
         </div>
     </div>
-
-    {#    <!--Section: Curso panel-->#}
-    {#    <section class="card card-cascade narrower mb-5">#}
-    {#        <div class="row">#}
-    {#            <div class="col-md-5">#}
-    {#                <div class="view py-3 gradient-card-header info-color-dark">#}
-    {#                    <h5 class="mb-0"><strong>DETALHAMENTO DE OCORRÊNCIAS</strong></h5>#}
-    {#                </div>#}
-    {#                <div class="card-body">#}
-    {#                    <div class="row">#}
-    {#                        <div class="col-md-12 mb-4">#}
-    {#                            <p class="lead">#}
-    {#                                <span class="badge info-color-dark p-2">Curso</span>#}
-    {#                            </p>#}
-    {#                            <form action="" method="POST">#}
-    {#                                {% csrf_token %}#}
-    {#                                <select name="Course" id="Course" class="mdb-select colorful-select dropdown-primary"#}
-    {#                                        onchange="this.form.submit();">#}
-    {#                                    <option value="" disabled {% if not distribuicao %}selected{% endif %}>#}
-    {#                                        Selecione...#}
-    {#                                    </option>#}
-    {#                                    {% for course in courses %}#}
-    {#                                        <option value="{{ course.matricula__turma__curso__id }}"#}
-    {#                                                {% if distribuicao and course.matricula__turma__curso__id == c.id %}#}
-    {#                                                selected {% endif %}>{{ course.matricula__turma__curso__descricao }}</option>#}
-    {#                                    {% endfor %}#}
-    {#                                </select>#}
-    {#                            </form>#}
-    {#                            <p class="lead">#}
-    {#                                <span class="badge info-color-dark p-2">Ano Letivo</span>#}
-    {#                            </p>#}
-    {#                            <select class="mdb-select colorful-select dropdown-info">#}
-    {#                                <option value="2018" selected>2018</option>#}
-    {#                            </select>#}
-    {#                        </div>#}
-    {#                    </div>#}
-    {#                </div>#}
-    {#            </div>#}
-    {#            <div class="col-md-7">#}
-    {#                <div class="view py-3 gradient-card-header info-color-dark mb-4">#}
-    {#                    {% if distribuicao %}#}
-    {#                        <canvas id="distribuicao"></canvas>#}
-    {#                    {% else %}#}
-    {#                        <strong>SELECIONE O CURSO PARA VER O GRÁFICO</strong>#}
-    {#                    {% endif %}#}
-    {#                </div>#}
-    {#            </div>#}
-    {#        </div>#}
-    {#    </section>#}
 {% endblock %}
 
 {% block script %}
