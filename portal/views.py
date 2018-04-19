@@ -24,41 +24,6 @@ def home(request):
 def contato(request):
     return render(request, 'portal/contato.html', {})
 
-@staff_member_required
-def account(request):
-    user = User.objects.get(pk=request.user.pk)
-    user_form = UserForm(instance=user)
-
-    try:
-        user_profile = UserProfile.objects.get(user=user)
-    except:
-        user_profile = UserProfile()
-        user_profile.user = user
-        user_profile.save()
-
-    profile_form = UserProfileForm(instance=user_profile)
-
-    if request.method == 'POST':
-        user_form = UserForm(request.POST)
-        profile_form = UserProfileForm(request.POST)
-
-        if user_form.is_valid() and profile_form.is_valid() and profile_form.cleaned_data['empresa'] != None:
-            user.first_name = user_form.cleaned_data['first_name']
-            user.last_name = user_form.cleaned_data['last_name']
-            user.save()
-
-            user_profile.empresa = profile_form.cleaned_data['empresa']
-            user_profile.save()
-
-            messages.success(request, 'As alterações foram salvas.')
-        else:
-            messages.error(request, 'Selecione sua unidade de lotação')
-    context = {
-        'user_form': user_form,
-        'profile_form': profile_form,
-        'user': user,
-    }
-    return render(request, 'portal/usuario_conta.html', context)
 
 @staff_member_required
 def import_matricula(request):
@@ -716,6 +681,43 @@ def matricula_delete(request, matricula_id):
 
 
 @staff_member_required
+def usuario_conta(request):
+    user = User.objects.get(pk=request.user.pk)
+    user_form = UserForm(instance=user)
+
+    try:
+        user_profile = UserProfile.objects.get(user=user)
+    except:
+        user_profile = UserProfile()
+        user_profile.user = user
+        user_profile.save()
+
+    profile_form = UserProfileForm(instance=user_profile)
+
+    if request.method == 'POST':
+        user_form = UserForm(request.POST)
+        profile_form = UserProfileForm(request.POST)
+
+        if user_form.is_valid() and profile_form.is_valid() and profile_form.cleaned_data['empresa'] != None:
+            user.first_name = user_form.cleaned_data['first_name']
+            user.last_name = user_form.cleaned_data['last_name']
+            user.save()
+
+            user_profile.empresa = profile_form.cleaned_data['empresa']
+            user_profile.save()
+
+            messages.success(request, 'As alterações foram salvas.')
+        else:
+            messages.error(request, 'Selecione sua unidade de lotação')
+    context = {
+        'user_form': user_form,
+        'profile_form': profile_form,
+        'user': user,
+    }
+    return render(request, 'portal/usuario_conta.html', context)
+
+
+@staff_member_required
 def usuario_lista(request):
     usuarios_inativos = User.objects.filter(userprofile__empresa=request.user.userprofile.empresa, is_active=False)
     usuarios_ativos = User.objects.filter(userprofile__empresa=request.user.userprofile.empresa, is_active=True)
@@ -728,7 +730,7 @@ def usuario_lista(request):
 
 
 @staff_member_required
-def usuario_confirmar(request, user_id):
+def usuario_ativar(request, user_id):
     usuario = get_object_or_404(User, id=user_id)
 
     if request.method == 'POST':
@@ -741,5 +743,18 @@ def usuario_confirmar(request, user_id):
         ConfirmaUsuarioMail(usuario).send(email)
 
         messages.success(request, 'Usuário ativo.')
+
+        return redirect('usuario_lista')
+
+
+@staff_member_required
+def usuario_desativar(request, user_id):
+    usuario = get_object_or_404(User, id=user_id)
+
+    if request.method == 'POST':
+        usuario.is_active = False
+        usuario.save()
+
+        messages.success(request, 'Usuário inativo.')
 
         return redirect('usuario_lista')

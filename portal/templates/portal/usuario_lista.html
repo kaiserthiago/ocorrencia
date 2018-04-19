@@ -43,11 +43,6 @@
                                    title="Tornar ativo"><i class="fa fa-check"></i>
                                 </a>
 
-                                <a data-toggle="modal" href="#CancelarRegistro{{ usuario.id }}"
-                                   class="btn-floating btn-sm danger-color"
-                                   title="Tornar inativo"><i class="fa fa-close"></i>
-                                </a>
-
                                 <!--Modal CONFIRMAR-->
                                 <div class="modal fade" id="ConfirmarRegistro{{ usuario.id }}" tabindex="-1"
                                      role="dialog"
@@ -67,7 +62,7 @@
                                             </div>
                                             <!--Body-->
                                             <div class="modal-body">
-                                                <form action="{% url 'usuario_confirmar' usuario.id %}"
+                                                <form action="{% url 'usuario_ativar' usuario.id %}"
                                                       method="POST">
                                                     {% csrf_token %}
                                                     <div class="row text-left">
@@ -91,53 +86,6 @@
                                     </div>
                                 </div>
                                 <!--Fim Modal CONFIRMAR-->
-
-
-                                <!--Modal CANCELAR-->
-                                <div class="modal fade" id="CancelarRegistro{{ usuario.id }}" tabindex="-1"
-                                     role="dialog"
-                                     aria-labelledby="myModalLabel"
-                                     aria-hidden="true">
-                                    <div class="modal-dialog modal-notify modal-danger" role="document">
-                                        <!--Content-->
-                                        <div class="modal-content">
-                                            <!--Header-->
-                                            <div class="modal-header text-center">
-                                                <h4 class="modal-title white-text w-100 font-bold py-2">Cancelar
-                                                    registro</h4>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                    <span aria-hidden="true" class="white-text">&times;</span>
-                                                </button>
-                                            </div>
-                                            <!--Body-->
-                                            <div class="modal-body">
-                                                <form action="#"
-                                                      method="POST">
-                                                    {% csrf_token %}
-                                                    <div class="row text-left">
-                                                        <div class="col-sm-12">
-                                                            <p>Tem certeza que deseja cancelar o registro?</p>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="text-center">
-                                                        <button type="submit"
-                                                                class="btn  btn-primary-modal waves-effect">Cancelar
-                                                        </button>
-                                                        <a type="button" class="btn btn-outline-secondary-modal"
-                                                           data-dismiss="modal">
-                                                            Voltar
-                                                        </a>
-                                                    </div>
-
-                                                </form>
-                                            </div>
-                                        </div>
-                                        <!--/.Content-->
-                                    </div>
-                                </div>
-                                <!--Fim Modal CANCELAR-->
                             </td>
                         </tr>
                     {% empty %}
@@ -199,12 +147,12 @@
                                             </div>
                                             <!--Body-->
                                             <div class="modal-body">
-                                                <form action="#"
+                                                <form action="{% url 'usuario_desativar' usuario.id %}"
                                                       method="POST">
                                                     {% csrf_token %}
                                                     <div class="row text-left">
                                                         <div class="col-sm-12">
-                                                            <p>Tem certeza que deseja tornar o registro inativo?</p>
+                                                            <p>Tem certeza que deseja desativar o usuário?</p>
                                                         </div>
                                                     </div>
                                                     <div class="text-center">

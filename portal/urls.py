@@ -4,7 +4,6 @@ from . import views
 
 urlpatterns = [
     url('^$', views.home, name='home'),
-    url(r'^account$', views.account, name='account'),
 
     url('^contato$', views.contato, name='contato'),
 
@@ -40,6 +39,9 @@ urlpatterns = [
     url('^import/matricula$', views.import_matricula, name='import_matricula'),
     url('^import/aluno$', views.import_aluno, name='import_aluno'),
 
-    url(r'^usuario/confirmar/(?P<user_id>\d+)$', views.usuario_confirmar, name='usuario_confirmar'),
+    url(r'^usuario/desativar/(?P<user_id>\d+)$', views.usuario_desativar, name='usuario_desativar'),
+    url(r'^usuario/ativar/(?P<user_id>\d+)$', views.usuario_ativar, name='usuario_ativar'),
     url(r'^usuario/lista$', views.usuario_lista, name='usuario_lista'),
+    url(r'^usuario/conta', views.usuario_conta, name='usuario_conta'),
+
 ]
