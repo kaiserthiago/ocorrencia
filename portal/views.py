@@ -170,7 +170,9 @@ def import_aluno(request):
 
         context = {
             'importado': importado,
-            'nao_importado': nao_importado
+            'nao_importado': nao_importado,
+            'lista_nao_importado': lista_nao_importado,
+
         }
 
         return render(request, 'portal/import_aluno_success.html', context)
