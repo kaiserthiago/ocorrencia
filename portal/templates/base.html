@@ -179,14 +179,10 @@
             <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i></a>
         </div>
         <!-- Breadcrumb-->
-        <div class="breadcrumb-dn mr-auto">
-            <p>SIGO - Gestão de Ocorrências</p>
-        </div>
+        {#        <div class="breadcrumb-dn mr-auto">#}
+        {#            <p>SIGO - Gestão de Ocorrências</p>#}
+        {#        </div>#}
         <ul class="nav navbar-nav nav-flex-icons ml-auto">
-            <li class="nav-item">
-                <a href="{% url 'home' %}" class="nav-link"><i class="fa fa-home"></i> <span
-                        class="clearfix d-none d-sm-inline-block">Home</span></a>
-            </li>
             {% if request.user.is_authenticated %}
                 <!-- Dropdown -->
                 <li class="nav-item dropdown">
@@ -195,9 +191,10 @@
                             class="clearfix d-none d-sm-inline-block"> {{ request.user }}</span>
                     </a>
 
-                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <div class="dropdown-menu dropdown-primary dropdown-menu-right">
                         <a class="dropdown-item" href="{% url 'dashboard' %}">Dashboard</a>
-                        <a class="dropdown-item" href="{% url 'ocorrencia' %}">Ocorrências</a>
+                        <a class="dropdown-item disabled" href="#">Encaminhamento</a>
+                        <a class="dropdown-item" href="{% url 'ocorrencia' %}">Ocorrências Disciplinares</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{% url 'usuario_conta' %}">Minha conta</a>
                         <a class="dropdown-item" href="{% url 'logout' %}">Sair</a>
@@ -209,6 +206,10 @@
                             class="clearfix d-none d-sm-inline-block">Login</span></a>
                 </li>
             {% endif %}
+            <li class="nav-item">
+                <a href="{% url 'home' %}" class="nav-link"><i class="fa fa-home"></i> <span
+                        class="clearfix d-none d-sm-inline-block">Home</span></a>
+            </li>
             {#            <li class="nav-item">#}
             {#                <a href="{% url 'ocorrencia' %}" class="nav-link"><i class="fa fa-file-text"></i> <span#}
             {#                        class="clearfix d-none d-sm-inline-block">Ocorrências</span></a>#}
