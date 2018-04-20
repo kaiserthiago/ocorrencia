@@ -25,10 +25,11 @@ class UserForm(forms.ModelForm):
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ('empresa',)
+        fields = ('empresa', 'siape')
 
         widgets = {
-            'empresa': forms.Select(attrs={'class': 'mdb-select colorful-select dropdown-primary'})
+            'empresa': forms.Select(attrs={'class': 'mdb-select colorful-select dropdown-primary'}),
+            'siape': forms.NumberInput(attrs={'class': 'form-control'}),
         }
 
         labels = {

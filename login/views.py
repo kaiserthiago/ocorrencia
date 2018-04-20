@@ -18,7 +18,7 @@ def register(request):
 
         if user_form.is_valid():
             User.objects.create_user(
-                username=user_form.cleaned_data['username'].lower(),
+                username=user_form.cleaned_data['username'],
                 password=user_form.cleaned_data['password'],
                 email=user_form.cleaned_data['email'],
                 first_name=user_form.cleaned_data['first_name'],
@@ -29,12 +29,12 @@ def register(request):
             id = request.POST['SelectUnidade']
             empresa = get_object_or_404(Empresa, id=id)
 
-            usuario = get_object_or_404(User, username=user_form.cleaned_data['username'].lower())
+            usuario = get_object_or_404(User, username=user_form.cleaned_data['username'])
 
             profile = UserProfile()
             profile.user = usuario
             profile.empresa = empresa
-            profile.siape = int(request.POST['siape'])
+            profile.siape = int(request.POST['username'])
 
             profile.save()
 

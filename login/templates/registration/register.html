@@ -40,25 +40,21 @@
                 <form method="post" action="{% url 'login_register' %}">
                     {% csrf_token %}
                     <div class="row">
-                        <div class="md-form col-sm-6">
+                        <div class="md-form col-sm-12">
                             <i class="fa fa-user prefix"></i>
                             <label>{{ user_form.first_name.label }}</label>
                             {{ user_form.first_name|attr:'autofocus' }}
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="md-form col-sm-6">
                             <i class="fa fa-envelope prefix"></i>
                             {{ user_form.email }}
                             <label>{{ user_form.email.label }}</label>
                         </div>
                         <div class="md-form col-sm-6">
-                            <i class="fa fa-info prefix"></i>
-                            <label for="id_siape">SIAPE</label>
-                            <input type="number" name="siape" class="form-control" required maxlength="255"
-                                   id="id_siape"/>
-                        </div>
-                        <div class="md-form col-sm-6">
                             <i class="fa fa-key prefix"></i>
-                            <label>{{ user_form.username.label }}</label>
+                            <label>SIAPE</label>
                             {{ user_form.username }}
                         </div>
                     </div>

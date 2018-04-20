@@ -25,7 +25,6 @@
                 <table class="table table-sm table-striped">
                     <thead>
                     <th>Nome</th>
-                    <th>Sobrenome</th>
                     <th>Usuário</th>
                     <th>E-mail</th>
                     <th>Ações</th>
@@ -34,7 +33,6 @@
                     {% for usuario in usuarios_inativos %}
                         <tr>
                             <td style="vertical-align: middle;">{{ usuario.first_name }}</td>
-                            <td style="vertical-align: middle;">{{ usuario.last_name }}</td>
                             <td style="vertical-align: middle;">{{ usuario.username }}</td>
                             <td style="vertical-align: middle;">{{ usuario.email }}</td>
                             <td>
@@ -111,7 +109,6 @@
                 <table class="table table-sm table-striped">
                     <thead>
                     <th>Nome</th>
-                    <th>Sobrenome</th>
                     <th>Usuário</th>
                     <th>E-mail</th>
                     <th>Unidade</th>
@@ -121,7 +118,6 @@
                     {% for usuario in usuarios_ativos %}
                         <tr>
                             <td style="vertical-align: middle;">{{ usuario.first_name }}</td>
-                            <td style="vertical-align: middle;">{{ usuario.last_name }}</td>
                             <td style="vertical-align: middle;">{{ usuario.username }}</td>
                             <td style="vertical-align: middle;">{{ usuario.email }}</td>
                             <td style="vertical-align: middle;">{{ usuario.userprofile.empresa }}</td>
