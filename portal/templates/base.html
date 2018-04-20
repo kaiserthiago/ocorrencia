@@ -50,8 +50,8 @@
             {#            <a href="{% url 'home' %}"></a>#}
             {#            <p><strong>Unidade:</strong> {{ request.user.userprofile.empresa }}</p>#}
             {#            <p><strong>Usuário:</strong> {{ request.user.first_name }}</p>#}
-            <img src="{% static 'img/logo.png' %}" alt="SIGO"
-                 class="img-fluid flex-center" width="300">
+            {#            <img src="{% static 'img/logo.png' %}" alt="SIGO"#}
+            {#                 class="img-fluid flex-center" width="300">#}
         </div>
     </li>
     <!--/. Logo -->
@@ -225,7 +225,7 @@
 <!--Main layout-->
 <div class="content">
     <main>
-        <div class="container">
+        <div class="container-fluid">
             {% if messages %}
                 {% for message in messages %}
                     {% if message.tags == 'error' %}
@@ -253,13 +253,60 @@
 </div>
 <!--Footer-->
 <footer class="footer page-footer center-on-small-only" id="footer">
-    <div class="container">
+    <div class="container-fluid">
         {% block footer %}
         {% endblock %}
+        <!--Footer Links-->
+        <div class="row">
+            <!--First column-->
+            <div class="col-sm-8 mx-auto">
+                <h5 class="title">Desenvolvimento</h5>
+                {#            <p>Protótipo do projeto de pesquisa protocolado no Edital 23/2017 do IFRO - <em>Campus</em>#}
+                {#                Cacoal#}
+                {#            </p>#}
+            </div>
+            <!--/.First column-->
+
+            <hr class="w-100 clearfix d-md-none">
+
+            <!--Second column-->
+            <div class="col-sm-4 mx-auto">
+                {#                            <h5 class="title">Links</h5>#}
+                <ul>
+                    <li><a href="mailto:thiago.kaiser@ifro.edu.br?subject=Contato - SIGO">Prof. Thiago Kaiser</a></li>
+                </ul>
+            </div>
+            <!--/.Second column-->
+            {##}
+            {#            <hr class="w-100 clearfix d-md-none">#}
+            {##}
+            {#            <!--Third column-->#}
+            {#            <div class="col-md-2 mx-auto">#}
+            {#                <h5 class="title">Links</h5>#}
+            {#                <ul>#}
+            {#                    <li><a href="#!">Link 1</a></li>#}
+            {#                    <li><a href="#!">Link 2</a></li>#}
+            {#                </ul>#}
+            {#            </div>#}
+            {#            <!--/.Third column-->#}
+            {##}
+            {#            <hr class="w-100 clearfix d-md-none">#}
+            {##}
+            {#            <!--Fourth column-->#}
+            {#            <div class="col-md-2 mx-auto">#}
+            {#                <h5 class="title">Links</h5>#}
+            {#                <ul>#}
+            {#                    <li><a href="#!">Link 1</a></li>#}
+            {#                    <li><a href="#!">Link 2</a></li>#}
+            {#                </ul>#}
+            {#            </div>#}
+            {#            <!--/.Fourth column-->#}
+
+        </div>
     </div>
     <!--Copyright-->
     <div class="footer-copyright">
-        <div class="container">
+        <div class="container-fluid">
             © 2018 SIGO - Gestão de Ocorrências
         </div>
     </div>
