@@ -41,7 +41,8 @@ urlpatterns = [
 
     url(r'^usuario/desativar/(?P<user_id>\d+)$', views.usuario_desativar, name='usuario_desativar'),
     url(r'^usuario/ativar/(?P<user_id>\d+)$', views.usuario_ativar, name='usuario_ativar'),
-    url(r'^usuario/lista$', views.usuario_lista, name='usuario_lista'),
-    url(r'^usuario/conta', views.usuario_conta, name='usuario_conta'),
+    url(r'^user/account/change$', views.user_change_password, name='user_change_password'),
+    url(r'^user/account$', views.user_account, name='user_account'),
+    url(r'^user/list$', views.user_list, name='user_list'),
 
 ]

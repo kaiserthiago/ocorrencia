@@ -10,7 +10,7 @@ class UserForm(forms.ModelForm):
         fields = ('first_name', 'last_name', 'email')
 
         widgets = {
-            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control', 'autofocus': ''}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
         }

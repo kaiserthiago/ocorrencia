@@ -3,7 +3,9 @@ from datetime import date
 
 from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import SetPasswordForm
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Count
@@ -681,7 +683,7 @@ def matricula_delete(request, matricula_id):
 
 
 @login_required
-def usuario_conta(request):
+def user_account(request):
     user = User.objects.get(pk=request.user.pk)
     user_form = UserForm(instance=user)
 
@@ -714,11 +716,11 @@ def usuario_conta(request):
         'profile_form': profile_form,
         'user': user,
     }
-    return render(request, 'portal/usuario_conta.html', context)
+    return render(request, 'portal/user_account.html', context)
 
 
 @staff_member_required
-def usuario_lista(request):
+def user_list(request):
     usuarios_inativos = User.objects.filter(userprofile__empresa=request.user.userprofile.empresa, is_active=False)
     usuarios_ativos = User.objects.filter(userprofile__empresa=request.user.userprofile.empresa, is_active=True)
 
@@ -726,7 +728,7 @@ def usuario_lista(request):
         'usuarios_inativos': usuarios_inativos,
         'usuarios_ativos': usuarios_ativos,
     }
-    return render(request, 'portal/usuario_lista.html', context)
+    return render(request, 'portal/user_list.html', context)
 
 
 @staff_member_required
@@ -758,3 +760,22 @@ def usuario_desativar(request, user_id):
         messages.success(request, 'Usuário inativo.')
 
         return redirect('usuario_lista')
+
+@login_required
+def user_change_password(request):
+    if request.method == 'POST':
+        form = SetPasswordForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'Sua senha foi alterada!')
+            return redirect('user_account')
+        else:
+            messages.error(request, 'Por favor, corrija o erro abaixo.')
+    else:
+        form = SetPasswordForm(request.user)
+
+    context = {
+        'form': form
+    }
+    return render(request, 'portal/user_change_password.html', context)

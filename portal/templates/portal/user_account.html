@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Minha Conta - SIGEF{% endblock %}
+{% block title %}Minha Conta - SIGO{% endblock %}
 {% block class_usuario_menu %}active{% endblock %}
 {% block class_usuario_conta_item %}collapsible-header active{% endblock %}
 
@@ -56,6 +56,11 @@
                             </div>
                         </div>
                     </form>
+                    <div class="modal-footer">
+                        <p class="font-small grey-text d-flex justify-content-end">Para alterar sua senha <a
+                                href="{% url 'user_change_password' %}" class="blue-text ml-1"> clique aqui.</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
