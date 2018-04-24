@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/portal/templates/portal/user_change_password.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/user_change_password.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -51,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_change_password.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="user_change_password.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/user_change_password.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
-              <caret line="45" selection-start-line="45" selection-end-line="45" />
+            <state relative-caret-position="397">
+              <caret line="41" column="53" lean-forward="true" selection-start-line="41" selection-start-column="53" selection-end-line="41" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -87,12 +86,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
+            <state relative-caret-position="397">
+              <caret line="774" column="83" selection-start-line="774" selection-start-column="37" selection-end-line="774" selection-end-column="83" />
               <folding>
+                <element signature="e#0#11#0" expanded="true" />
                 <element signature="e#9114#12910#0" />
                 <element signature="e#12960#13168#0" />
                 <element signature="e#13222#13946#0" />
@@ -228,8 +228,8 @@
         <option value="$PROJECT_DIR$/login/templates/registration/password_reset_complete.html" />
         <option value="$PROJECT_DIR$/login/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/login/templates/registration/password_reset_form.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/user_change_password.html" />
         <option value="$PROJECT_DIR$/portal/views.py" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/user_change_password.html" />
       </list>
     </option>
   </component>
@@ -822,18 +822,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/user_change_password.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
+        <state relative-caret-position="397">
+          <caret line="774" column="83" selection-start-line="774" selection-start-column="37" selection-end-line="774" selection-end-column="83" />
           <folding>
+            <element signature="e#0#11#0" expanded="true" />
             <element signature="e#9114#12910#0" />
             <element signature="e#12960#13168#0" />
             <element signature="e#13222#13946#0" />
@@ -854,6 +848,13 @@
             <element signature="e#22496#22832#0" />
             <element signature="e#22903#23136#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/user_change_password.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="41" column="53" lean-forward="true" selection-start-line="41" selection-start-column="53" selection-end-line="41" selection-end-column="53" />
         </state>
       </provider>
     </entry>
