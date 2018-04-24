@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import SetPasswordForm
+from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Count
@@ -765,7 +765,7 @@ def usuario_desativar(request, user_id):
 @login_required
 def user_change_password(request):
     if request.method == 'POST':
-        form = SetPasswordForm(request.user, request.POST)
+        form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
             user = form.save()
             update_session_auth_hash(request, user)  # Important!
@@ -774,7 +774,7 @@ def user_change_password(request):
         else:
             messages.error(request, 'Por favor, verifique as informações inseridas.')
     else:
-        form = SetPasswordForm(request.user)
+        form = PasswordChangeForm(request.user)
 
     context = {
         'form': form
