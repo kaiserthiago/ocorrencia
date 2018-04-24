@@ -155,6 +155,6 @@ class Ocorrencia(AuditoriaMixin):
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, unique=True, on_delete=models.DO_NOTHING)
+    user = models.OneToOneField(User, unique=True, on_delete=models.CASCADE)
     empresa = models.ForeignKey(Empresa, blank=True, null=True, on_delete=models.DO_NOTHING)
     siape = models.IntegerField()

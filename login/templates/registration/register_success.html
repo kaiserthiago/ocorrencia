@@ -1,11 +1,68 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+{% load static %}
+{% load widget_tweaks %}
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}Gestão de Ocorrências - SIGO{% endblock %}</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          media="all">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="all">
+    <!-- Material Design Bootstrap -->
+    <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet" media="all">
+    <!-- Your custom styles (optional) -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" media="all">
+    <style>
+        body {
+            background: #ededed;
+        }
+    </style>
+</head>
+<body>
 
-{% block title %}Registro de usuário realizado - SIGEF{% endblock %}
+<!-- Header -->
+<div class="edge-header success-color-dark z-depth-2">
+    <div class="text-center text-white font-bold">
+{#        <br><br>#}
+{#        <h5 class="mb-0"><strong>GESTÃO DE OCORRÊNCIAS</strong></h5>#}
+    </div>
+</div>
 
-{% block content %}
-    <section class="section-content">
-        <div class="container-fluid">
-            <p class="alert alert-success text-center">Usuário criado com sucesso!</p>
+<!-- Main Container -->
+<div class="container free-bird">
+    <div class="row">
+        <div class="card card-cascade narrower mb-5 col-md-8 col-lg-7 mx-auto float-none">
+            <div class="view py-3 gradient-card-header primary-color">
+                <h5 class="mb-0"><strong>CADASTRO SOLICITADO COM SUCESSO</strong></h5>
+            </div>
+            <div class="card-body">
+                <p>Seu cadastro foi solicitado com sucesso, contudo o acesso ao sistema é restrito aos servidores da
+                    Instituição e, por isso, o mesmo deverá ser validado antes que você possa acessar o sistema.</p>
+                <p>Aguarde o contato, via e-mail, com o retorno de sua solicitação de acesso.</p>
+            </div>
         </div>
-    </section>
-{% endblock %}
+    </div>
+</div>
+<!-- /.Main Container -->
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+<script>
+    // Tooltip Initialization
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+</script>
+</body>
+
+</html>

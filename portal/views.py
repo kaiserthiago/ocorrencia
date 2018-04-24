@@ -761,6 +761,7 @@ def usuario_desativar(request, user_id):
 
         return redirect('usuario_lista')
 
+
 @login_required
 def user_change_password(request):
     if request.method == 'POST':
@@ -771,7 +772,7 @@ def user_change_password(request):
             messages.success(request, 'Sua senha foi alterada!')
             return redirect('user_account')
         else:
-            messages.error(request, 'Por favor, corrija o erro abaixo.')
+            messages.error(request, 'Por favor, verifique as informações inseridas.')
     else:
         form = SetPasswordForm(request.user)
 

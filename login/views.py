@@ -44,7 +44,7 @@ def register(request):
 
             ResponsavelUsuarioMail(usuario).send(email)
 
-            return redirect('home')
+            return redirect('login_register_success')
     else:
         user_form = RegistroForm()
 
