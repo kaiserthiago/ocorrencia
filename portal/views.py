@@ -746,7 +746,7 @@ def usuario_ativar(request, user_id):
 
         messages.success(request, 'Usuário ativo.')
 
-        return redirect('usuario_lista')
+        return redirect('user_list')
 
 
 @staff_member_required
@@ -759,7 +759,7 @@ def usuario_desativar(request, user_id):
 
         messages.success(request, 'Usuário inativo.')
 
-        return redirect('usuario_lista')
+        return redirect('user_list')
 
 
 @login_required

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/user_account.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/user_account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,8 +23,17 @@
       <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login/templates/registration/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1060">
+            <state relative-caret-position="1580">
               <caret line="79" column="126" selection-start-line="79" selection-start-column="126" selection-end-line="79" selection-end-column="126" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="520">
+              <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -33,7 +42,7 @@
         <entry file="file://$PROJECT_DIR$/login/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="380">
-              <caret line="19" column="94" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="19" selection-end-column="94" />
+              <caret line="19" column="94" selection-start-line="15" selection-start-column="4" selection-end-line="19" selection-end-column="94" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -44,8 +53,28 @@
       <file leaf-file-name="register_success.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login/templates/registration/register_success.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="41" column="35" lean-forward="true" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+            <state relative-caret-position="637">
+              <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ocorrencia/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="397">
+              <caret line="138" selection-start-line="138" selection-end-line="144" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="emails.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/portal/emails.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -53,7 +82,7 @@
       <file leaf-file-name="user_change_password.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/user_change_password.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
+            <state relative-caret-position="1540">
               <caret line="77" column="46" selection-start-line="77" selection-start-column="46" selection-end-line="77" selection-end-column="46" />
             </state>
           </provider>
@@ -62,35 +91,17 @@
       <file leaf-file-name="turma_new.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/turma_new.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="49" column="72" lean-forward="true" selection-start-line="48" selection-start-column="36" selection-end-line="49" selection-end-column="72" />
+            <state relative-caret-position="980">
+              <caret line="49" column="72" selection-start-line="48" selection-start-column="36" selection-end-line="49" selection-end-column="72" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_account.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user_account.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/user_account.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="password_reset_email.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login/templates/registration/password_reset_email.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="password_reset_done.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login/templates/registration/password_reset_done.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+            <state relative-caret-position="940">
+              <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -98,39 +109,11 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
+            <state relative-caret-position="15480">
               <caret line="774" column="83" selection-start-line="774" selection-start-column="37" selection-end-line="774" selection-end-column="83" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <element signature="e#9114#12910#0" />
-                <element signature="e#12960#13168#0" />
-                <element signature="e#13222#13946#0" />
-                <element signature="e#14011#14803#0" />
-                <element signature="e#14863#14994#0" />
-                <element signature="e#15042#15438#0" />
-                <element signature="e#15506#15738#0" />
-                <element signature="e#15790#16499#0" />
-                <element signature="e#16556#18670#0" />
-                <element signature="e#18738#19060#0" />
-                <element signature="e#19137#19352#0" />
-                <element signature="e#19406#20017#0" />
-                <element signature="e#20075#20421#0" />
-                <element signature="e#20480#20484#0" />
-                <element signature="e#20559#20768#0" />
-                <element signature="e#20818#21974#0" />
-                <element signature="e#22028#22428#0" />
-                <element signature="e#22496#22832#0" />
-                <element signature="e#22903#23136#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="password_reset_confirm.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login/templates/registration/password_reset_confirm.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -279,6 +262,11 @@
               <item name="login" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="registration" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
+              <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
@@ -432,17 +420,17 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32965517" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32965517" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18815105" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39955848" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -665,13 +653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ocorrencia/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2740">
-          <caret line="138" selection-start-line="138" selection-end-line="144" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="620">
@@ -725,13 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="46" column="51" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4640">
@@ -745,9 +719,6 @@
           <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login/templates/registration/password_reset_subject.txt">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/login/templates/registration/password_reset_form.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -784,24 +755,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login/templates/registration/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1060">
-          <caret line="79" column="126" selection-start-line="79" selection-start-column="126" selection-end-line="79" selection-end-column="126" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login/templates/registration/register_success.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="41" column="35" lean-forward="true" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/login/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
-          <caret line="19" column="94" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="19" selection-end-column="94" />
+          <caret line="19" column="94" selection-start-line="15" selection-start-column="4" selection-end-line="19" selection-end-column="94" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
@@ -810,51 +767,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
+        <state relative-caret-position="15480">
           <caret line="774" column="83" selection-start-line="774" selection-start-column="37" selection-end-line="774" selection-end-column="83" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#9114#12910#0" />
-            <element signature="e#12960#13168#0" />
-            <element signature="e#13222#13946#0" />
-            <element signature="e#14011#14803#0" />
-            <element signature="e#14863#14994#0" />
-            <element signature="e#15042#15438#0" />
-            <element signature="e#15506#15738#0" />
-            <element signature="e#15790#16499#0" />
-            <element signature="e#16556#18670#0" />
-            <element signature="e#18738#19060#0" />
-            <element signature="e#19137#19352#0" />
-            <element signature="e#19406#20017#0" />
-            <element signature="e#20075#20421#0" />
-            <element signature="e#20480#20484#0" />
-            <element signature="e#20559#20768#0" />
-            <element signature="e#20818#21974#0" />
-            <element signature="e#22028#22428#0" />
-            <element signature="e#22496#22832#0" />
-            <element signature="e#22903#23136#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/turma_new.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="49" column="72" lean-forward="true" selection-start-line="48" selection-start-column="36" selection-end-line="49" selection-end-column="72" />
+        <state relative-caret-position="980">
+          <caret line="49" column="72" selection-start-line="48" selection-start-column="36" selection-end-line="49" selection-end-column="72" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/user_change_password.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
+        <state relative-caret-position="1540">
           <caret line="77" column="46" selection-start-line="77" selection-start-column="46" selection-end-line="77" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/user_account.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+        <state relative-caret-position="940">
+          <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/templates/registration/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1580">
+          <caret line="79" column="126" selection-start-line="79" selection-start-column="126" selection-end-line="79" selection-end-column="126" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/templates/registration/register_success.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="637">
+          <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ocorrencia/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="138" selection-start-line="138" selection-end-line="144" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/emails.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
