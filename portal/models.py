@@ -92,7 +92,7 @@ class Aluno(AuditoriaMixin):
 
     @property
     def ocorrencia_aluno(self):
-        return Ocorrencia.objects.filter(matricula__aluno_id__exact=self.id, data__year=date.today().year)
+        return Ocorrencia.objects.filter(matricula__aluno_id=self.id, data__year=date.today().year)
 
 
 class Matricula(AuditoriaMixin):
