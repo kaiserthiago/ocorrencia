@@ -535,7 +535,7 @@ def ocorrencia_new(request):
             turma = get_object_or_404(Turma, id=id)
             matriculas = Matricula.objects.filter(turma=turma, ano_letivo=int(date.today().year))
 
-            categorias = CategoriaFalta.objects.all().order_by('artigo')
+            categorias = CategoriaFalta.objects.all().order_by('id')
 
             form = OcorrenciaForm()
 
@@ -611,7 +611,7 @@ def ocorrencia_register(request):
 
 @login_required
 def ocorrencia_relatorio(request, aluno_id):
-    ocorrencias = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa, user=request.user,
+    ocorrencias = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
                                             data__year=date.today().year, matricula__aluno=aluno_id)
 
     context = {
@@ -710,7 +710,8 @@ def user_account(request):
 
             messages.success(request, 'As alterações foram salvas.')
         else:
-            messages.error(request, 'Selecione sua unidade de lotação')
+            messages.error(request, 'Verifique as informações inseridas.')
+
     context = {
         'user_form': user_form,
         'profile_form': profile_form,

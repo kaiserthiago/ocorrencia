@@ -21,40 +21,46 @@
                 <div class="col-sm-12">
                     <form method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
-                        <div class="row">
-                            <div class="md-form col-sm-6">
-                                <select name="SelectTurma" id="SelectTurma"
-                                        class="mdb-select colorful-select dropdown-primary dropdown-ins"
-                                        searchable="Pesquisar..." required>
-                                    <option value="" disabled selected>Selecione a turma</option>
-                                    {% for c in cursos %}
-                                        {% if c.retorna_turmas %}
-                                            <optgroup label="{{ c.descricao }}">
-                                                {% for t in c.retorna_turmas %}
-                                                    <option value={{ t.id }}>{{ t.descricao }}</option>
-                                                {% endfor %}
-                                            </optgroup>
-                                        {% endif %}
-                                    {% endfor %}
-                                </select>
-                                <label for="SelectTurma">Turma</label>
-                            </div>
-                            <div class="file-field col-sm-6">
-                                <div class="btn btn-primary btn-sm">
-                                    <span>Selecionar arquivo</span>
-                                    <input type="file" name="myfile">
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="md-form">
+                                    <select name="SelectTurma" id="SelectTurma"
+                                            class="mdb-select colorful-select dropdown-primary dropdown-ins"
+                                            searchable="Pesquisar..." required>
+                                        <option value="" disabled selected>Selecione a turma</option>
+                                        {% for c in cursos %}
+                                            {% if c.retorna_turmas %}
+                                                <optgroup label="{{ c.descricao }}">
+                                                    {% for t in c.retorna_turmas %}
+                                                        <option value={{ t.id }}>{{ t.descricao }}</option>
+                                                    {% endfor %}
+                                                </optgroup>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                    <label for="SelectTurma">Turma</label>
                                 </div>
-                                <div class="file-path-wrapper">
-                                    <input type="text" class="file-path validate" name="myfile"
-                                           placeholder="Escolha o arquivo">
+                            </div>
+                            <div class="col">
+                                <div class="file-field">
+                                    <div class="btn btn-primary btn-sm">
+                                        <span>Selecionar arquivo</span>
+                                        <input type="file" name="myfile">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input type="text" class="file-path validate" name="myfile"
+                                               placeholder="Escolha o arquivo">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12">
+                        <div class="form-row">
+                            <div class="col">
                                 <div class="float-right">
-                                    <button type="submit" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
-                                    <a href="{% url 'matricula' %}" class="btn danger-color"  data-toggle="tooltip" data-placement="top" title="Cancelar"><i
+                                    <button type="submit" class="btn btn-sm btn-success" data-toggle="tooltip"
+                                            data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
+                                    <a href="{% url 'matricula' %}" class="btn btn-sm danger-color"
+                                       data-toggle="tooltip" data-placement="top" title="Cancelar"><i
                                             class="fa fa-close"></i></a>
                                 </div>
                             </div>

@@ -17,8 +17,10 @@
     <!-- Your custom styles (optional) -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet" media="all">
     <style>
-        body {
-            background: #ededed;
+       .edge-header {
+            display: block;
+            height: 200px;
+            background-color: #ccc;
         }
     </style>
 </head>
@@ -33,10 +35,11 @@
 </div>
 
 <!-- Main Container -->
+<div class="content">
 <div class="container free-bird">
     <div class="row">
         <div class="card card-cascade narrower mb-5 col-md-8 col-lg-7 mx-auto float-none">
-            <div class="view py-3 gradient-card-header primary-color">
+            <div class="view py-3 gradient-card-header primary-color-dark">
                 <h5 class="mb-0"><strong>CADASTRO SOLICITADO COM SUCESSO</strong></h5>
             </div>
             <div class="card-body">
@@ -47,7 +50,30 @@
         </div>
     </div>
 </div>
+</div>
 <!-- /.Main Container -->
+
+<!--Footer-->
+<footer class="footer success-color-dark page-footer center-on-small-only">
+    <div class="container-fluid">
+        <!--Call to action-->
+        <div class="social-section text-center">
+            IFRO - Instituto Federal de Educação, Ciência e Tecnologia de Rondônia - <em>Campus</em> Cacoal
+            <br>
+            Desenvolvimento: Prof. Thiago Kaiser
+        </div>
+        <!--/.Call to action-->
+    </div>
+    <!--Copyright-->
+    <div class="footer-copyright text-center">
+        <div class="container-fluid">
+            © 2018 - Gestão de Ocorrências - SIGO
+        </div>
+    </div>
+    <!--/.Copyright-->
+</footer>
+<!--/.Footer-->
+
 <!-- SCRIPTS -->
 <!-- JQuery -->
 <script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>

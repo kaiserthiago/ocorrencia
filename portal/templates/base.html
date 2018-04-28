@@ -137,9 +137,6 @@
                                 <a href="{% url 'user_list' %}"
                                    class="waves-effect {% block class_lista_usuario_item %}{% endblock %}">Lista
                                     de usuários</a>
-                                <a href="{% url 'login_register' %}"
-                                   class="waves-effect {% block class_novo_usuario_item %}{% endblock %}">Novo
-                                    usuário</a>
                             </li>
                         </ul>
                     </div>
@@ -172,16 +169,21 @@
     <div class="sidenav-bg mask-strong"></div>
     </ul>
     <!--/. Sidebar navigation -->
+
     <!-- Navbar -->
-    <nav id="slide-out" class="navbar navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav">
+    <nav id="slide-out" class="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav">
         <!-- SideNav slide-out button -->
         <div class="float-left">
             <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i></a>
         </div>
         <!-- Breadcrumb-->
-        {#        <div class="breadcrumb-dn mr-auto">#}
-        {#            <p>SIGO - Gestão de Ocorrências</p>#}
-        {#        </div>#}
+        <div class="breadcrumb-dn mr-auto">
+            {% if request.user.is_authenticated %}
+                <p>Gestão de Ocorrências - {{ request.user.userprofile.empresa }}</p>
+            {% else %}
+                <p>Gestão de Ocorrências</p>
+            {% endif %}
+        </div>
         <ul class="nav navbar-nav nav-flex-icons ml-auto">
             {% if request.user.is_authenticated %}
                 <!-- Dropdown -->
@@ -218,6 +220,9 @@
 <div class="content">
     <main>
         <div class="container-fluid">
+            {#        {% block breadcrumb_base %}#}
+            {#        {% endblock %}#}
+
             {% if messages %}
                 {% for message in messages %}
                     {% if message.tags == 'error' %}
@@ -234,72 +239,28 @@
                 {% endfor %}
             {% endif %}
 
-            {#            {% block breadcrumb_base %}#}
-            {#            {% endblock %}#}
-
             {% block content %}
             {% endblock %}
         </div>
     </main>
-    <!--/Main layout-->
 </div>
+<!--/Main layout-->
+
 <!--Footer-->
-<footer class="footer page-footer center-on-small-only" id="footer">
+<footer class="footer page-footer center-on-small-only">
     <div class="container-fluid">
-        {% block footer %}
-        {% endblock %}
-        <!--Footer Links-->
-        <div class="row">
-            <!--First column-->
-            <div class="col-sm-8 mx-auto">
-                <h5 class="title">Desenvolvimento</h5>
-                {#            <p>Protótipo do projeto de pesquisa protocolado no Edital 23/2017 do IFRO - <em>Campus</em>#}
-                {#                Cacoal#}
-                {#            </p>#}
-            </div>
-            <!--/.First column-->
-
-            <hr class="w-100 clearfix d-md-none">
-
-            <!--Second column-->
-            <div class="col-sm-4 mx-auto">
-                {#                            <h5 class="title">Links</h5>#}
-                <ul>
-                    <li><a href="mailto:thiago.kaiser@ifro.edu.br?subject=Contato - SIGO">Prof. Thiago Kaiser</a></li>
-                </ul>
-            </div>
-            <!--/.Second column-->
-            {##}
-            {#            <hr class="w-100 clearfix d-md-none">#}
-            {##}
-            {#            <!--Third column-->#}
-            {#            <div class="col-md-2 mx-auto">#}
-            {#                <h5 class="title">Links</h5>#}
-            {#                <ul>#}
-            {#                    <li><a href="#!">Link 1</a></li>#}
-            {#                    <li><a href="#!">Link 2</a></li>#}
-            {#                </ul>#}
-            {#            </div>#}
-            {#            <!--/.Third column-->#}
-            {##}
-            {#            <hr class="w-100 clearfix d-md-none">#}
-            {##}
-            {#            <!--Fourth column-->#}
-            {#            <div class="col-md-2 mx-auto">#}
-            {#                <h5 class="title">Links</h5>#}
-            {#                <ul>#}
-            {#                    <li><a href="#!">Link 1</a></li>#}
-            {#                    <li><a href="#!">Link 2</a></li>#}
-            {#                </ul>#}
-            {#            </div>#}
-            {#            <!--/.Fourth column-->#}
-
+        <!--Call to action-->
+        <div class="social-section text-center">
+            IFRO - Instituto Federal de Educação, Ciência e Tecnologia de Rondônia - <em>Campus</em> Cacoal
+            <br>
+            Desenvolvimento: Prof. Thiago Kaiser
         </div>
+        <!--/.Call to action-->
     </div>
     <!--Copyright-->
-    <div class="footer-copyright">
+    <div class="footer-copyright text-center">
         <div class="container-fluid">
-            © 2018 SIGO - Gestão de Ocorrências
+            © 2018 - Gestão de Ocorrências - SIGO
         </div>
     </div>
     <!--/.Copyright-->
