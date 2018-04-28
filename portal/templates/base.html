@@ -126,6 +126,11 @@
             </li>
             {% if request.user.is_staff %}
                 <li>
+                    <a href="{% url 'report_general' %}"
+                       class="collapsible-header waves-effect arrow-r {% block class_relatorio_menu %}{% endblock %}"><i
+                            class="fa fa-file"></i> Relatório</a>
+                </li>
+                <li>
                     <a class="collapsible-header waves-effect arrow-r {% block class_usuario_menu %}{% endblock %}"><i
                             class="fa fa-user"></i> Usuário<i
                             class="fa fa-angle-down rotate-icon"></i></a>

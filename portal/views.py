@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from django.db.models import Count
+from django.db.models import Count, Sum
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template.defaultfilters import upper, lower
@@ -611,14 +611,21 @@ def ocorrencia_register(request):
 
 @login_required
 def ocorrencia_relatorio(request, aluno_id):
+    aluno = get_object_or_404(Aluno, id=aluno_id)
     ocorrencias = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
                                             data__year=date.today().year, matricula__aluno=aluno_id)
+    count_ocorrencias = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
+                                                  data__year=date.today().year,
+                                                  matricula__aluno=aluno_id).order_by().values(
+        'falta__categoria__descricao').annotate(qtde=Count('falta__categoria__descricao')).distinct()
 
     context = {
-        'ocorrencias': ocorrencias
+        'ocorrencias': ocorrencias,
+        'aluno': aluno,
+        'count_ocorrencias': count_ocorrencias
     }
 
-    return render(request, 'portal/ocorrencia.html', context)
+    return render(request, 'portal/ocorrencia_relatorio.html', context)
 
 
 @staff_member_required
@@ -781,3 +788,46 @@ def user_change_password(request):
         'form': form
     }
     return render(request, 'portal/user_change_password.html', context)
+
+
+@staff_member_required
+def report_general(request):
+    cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa)
+
+    context = {
+        'cursos': cursos
+    }
+
+    return render(request, 'portal/report_general.html', context)
+
+
+@staff_member_required
+def report_ocorrencia_turma(request):
+    id = request.POST['SelectTurma']
+    turma = get_object_or_404(Turma, id=id)
+    ano = date.today().year
+
+    ocorrencias = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa, matricula__turma=turma,
+                                            data__year=ano).order_by().values('matricula__aluno__nome').annotate(
+        qtde=Count('matricula__aluno__nome')).distinct()
+
+    total = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa, matricula__turma=turma,
+                                            data__year=ano)
+
+    cat = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
+                                    data__year=date.today().year,
+                                    matricula__turma=turma).order_by('falta__categoria__artigo').values(
+        'falta__categoria__descricao').annotate(qtde=Count('falta__categoria__descricao')).distinct()
+
+    carai = Matricula.objects.filter(turma=turma, ano_letivo=date.today().year)
+
+    context = {
+        'ocorrencias': ocorrencias,
+        'turma': turma,
+        'ano': ano,
+        'total': total,
+        'cat': cat,
+        'carai': carai
+    }
+
+    return render(request, 'portal/report_ocorrencia_turma.html', context)

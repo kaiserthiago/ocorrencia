@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% block title %}Relatório de Ocorrência por Turma - Gestão de Ocorrências - SIGO{% endblock %}
+{% block class_relatorio_menu %}active{% endblock %}
+{% load static %}
+{% load humanize %}
+
+{% block style %}
+    @media print {
+    #slide-out, #icon-bar, #div-menu, #breadcrumb, #footer, #bread, #div-buttons { display: none; }
+    }
+{% endblock %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb" id="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+        <li class="breadcrumb-item active">Relatório Geral</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div id="div-buttons" class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+        <a href="#" onclick="window.print(); return false;" class="btn-floating btn-lg danger-color">
+            <i class="fa fa-print"></i>
+        </a>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-sm">
+                        <tbody>
+                        <tr>
+                            <td class="text-center align-middle">
+                                <img src="{% static 'img/logo_ifro.png' %}" width="100">
+                            </td>
+                            <td colspan="2" class="text-center font-weight-bold align-middle">
+                                MINISTÉRIO DA EDUCAÇÃO<br>
+                                {{ request.user.userprofile.empresa.razao_social|upper }}<br>
+                                {{ request.user.userprofile.empresa|upper }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="text-center font-weight-bold align-middle">
+                                <br>
+                                RELATÓRIO DE OCORRÊNCIAS POR TURMA<br>
+                                {{ turma }}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm">
+                        <tbody>
+                        {% if ocorrencias %}
+                            <tr>
+                                <td colspan="3">
+                                    <table class="table table-sm table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>Aluno</th>
+                                            <th style="text-align: center">Detalhamento</th>
+                                            <th style="text-align: right">Total</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for o in carai %}
+                                            {% for i in o.aluno.count_ocorrencia %}
+                                                {% if i %}
+                                                    <tr>
+                                                    <td style="vertical-align: middle">{{ i.matricula__aluno__nome }}</td>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% if o.aluno.count_cat_ocorrencia %}
+                                            <td style="vertical-align: middle">
+                                                <div class="row">
+                                                {% for i in o.aluno.count_cat_ocorrencia %}
+                                                    {% if i %}
+                                                        <div class="col">
+                                                        {{ i.falta__categoria__descricao }}: {{ i.qtde }}
+                                                        </div>
+                                                    {% endif %}
+                                                {% endfor %}
+                                                </div>
+                                            </td>
+                                        {% endif %}
+
+
+                                        {% for i in o.aluno.count_ocorrencia %}
+                                            {% if i %}
+                                                <td style="vertical-align: middle; text-align: right">{{ i.qtde }}</td>
+                                            {% endif %}
+                                        {% endfor %}
+                                        </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <div class="card">
+                                <div class="card-header warning-color white-text text-center">
+                                    <strong>TURMA SEM OCORRÊNCIAS REGISTRADAS NO ANO BASE {{ ano }}</strong>
+                                </div>
+                            </div>
+                        {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        {% for o in cat %}
+                            <div class="col">
+                                <p class="float-left font-bold">
+                                    {{ o.falta__categoria__descricao }}: {{ o.qtde }}
+                                </p>
+                            </div>
+                        {% endfor %}
+                        <div class="col">
+                            <p class="float-right font-bold">
+                                Total: {{ total.count }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

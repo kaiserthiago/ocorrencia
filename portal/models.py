@@ -2,6 +2,7 @@ from datetime import date
 
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models import Count
 
 
 def get_user_name(self):
@@ -81,7 +82,7 @@ class Turma(AuditoriaMixin):
 class Aluno(AuditoriaMixin):
     nome = models.CharField(max_length=255)
     email = models.EmailField(blank=True, null=True)
-    responsavel = models.CharField(max_length=255, blank=True, null= True)
+    responsavel = models.CharField(max_length=255, blank=True, null=True)
     email_responsavel = models.EmailField(blank=True, null=True)
 
     def __str__(self):
@@ -93,6 +94,16 @@ class Aluno(AuditoriaMixin):
     @property
     def ocorrencia_aluno(self):
         return Ocorrencia.objects.filter(matricula__aluno_id=self.id, data__year=date.today().year)
+
+    @property
+    def count_cat_ocorrencia(self):
+        return Ocorrencia.objects.filter(data__year=date.today().year, matricula__aluno_id=self.id).order_by('falta__categoria__artigo').values(
+        'falta__categoria__descricao').annotate(qtde=Count('falta__categoria__descricao')).distinct()
+
+    @property
+    def count_ocorrencia(self):
+        return Ocorrencia.objects.filter(data__year=date.today().year, matricula__aluno_id=self.id).order_by().values('matricula__aluno__nome').annotate(
+        qtde=Count('matricula__aluno__nome')).distinct()
 
 
 class Matricula(AuditoriaMixin):
