@@ -1,7 +1,8 @@
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 
-from ocorrencia.settings import MAIL_REPLY
+from ocorrencia.settings import DEFAULT_FROM_EMAIL as MAIL_REPLY
+
 
 
 class Maiable:
