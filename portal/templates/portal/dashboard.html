@@ -55,40 +55,40 @@
                     <h5 class="mb-0"><strong>DETALHAMENTO DE OCORRÊNCIAS</strong></h5>
                 </div>
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <p class="lead">
-                                <span class="badge success-color-dark p-2">Curso</span>
-                            </p>
-                            <form action="" method="POST">
-                                {% csrf_token %}
-                                <select name="CourseOcorrencia" id="CourseOcorrencia"
-                                        class="mdb-select colorful-select dropdown-success"
-                                        onchange="this.form.submit();">
-                                    <option value="" disabled
-                                            {% if not distribuicao %}selected{% endif %}>Selecione...
-                                    </option>
-                                    {% for course in courses %}
-                                        <option value="{{ course.matricula__turma__curso__id }}"
-                                                {% if distribuicao and course.matricula__turma__curso__id == c.id %}
-                                                selected {% endif %}>{{ course.matricula__turma__curso__descricao }}</option>
-                                    {% endfor %}
-                                </select>
-                            </form>
-                        </div>
-                        <hr class="w-100 clearfix d-md-none">
+                    {% if categorias %}
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <p class="lead">
+                                    <span class="badge success-color-dark p-2">Curso</span>
+                                </p>
+                                <form action="" method="POST">
+                                    {% csrf_token %}
+                                    <select name="CourseOcorrencia" id="CourseOcorrencia"
+                                            class="mdb-select colorful-select dropdown-success"
+                                            onchange="this.form.submit();">
+                                        <option value="" disabled
+                                                {% if not distribuicao %}selected{% endif %}>Selecione...
+                                        </option>
+                                        {% for course in courses %}
+                                            <option value="{{ course.matricula__turma__curso__id }}"
+                                                    {% if distribuicao and course.matricula__turma__curso__id == c.id %}
+                                                    selected {% endif %}>{{ course.matricula__turma__curso__descricao }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </form>
+                            </div>
+                            <hr class="w-100 clearfix d-md-none">
 
-                        <div class="col-sm-6">
-                            <p class="lead">
-                                <span class="badge success-color-dark p-2">Ano Letivo</span>
-                            </p>
-                            <select class="mdb-select colorful-select dropdown-success">
-                                <option value="2018" selected>2018</option>
-                            </select>
+                            <div class="col-sm-6">
+                                <p class="lead">
+                                    <span class="badge success-color-dark p-2">Ano Letivo</span>
+                                </p>
+                                <select class="mdb-select colorful-select dropdown-success">
+                                    <option value="2018" selected>2018</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        {% if categorias %}
+                        <div class="form-row">
                             {% if distribuicao %}
                                 <div class="col">
                                     <canvas id="turma" height="200"></canvas>
@@ -105,13 +105,13 @@
                                     </div>
                                 </div>
                             {% endif %}
-                        {% else %}
-                            <div class="card-header warning-color white-text text-center">
-                                <strong>NÃO HÁ OCORRÊNCIAS</strong>
-                            </div>
-                        {% endif %}
+                        </div>
+                    {% else %}
+                        <div class="card-header warning-color white-text text-center">
+                            <strong>NÃO HÁ OCORRÊNCIAS</strong>
+                        </div>
+                    {% endif %}
 
-                    </div>
                 </div>
             </div>
         </div>
@@ -163,40 +163,40 @@
                     <h5 class="mb-0"><strong>DETALHAMENTO DE ENCAMINHAMENTOS</strong></h5>
                 </div>
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <p class="lead">
-                                <span class="badge info-color-dark p-2">Curso</span>
-                            </p>
-                            <form action="" method="POST">
-                                {% csrf_token %}
-                                <select name="CourseEncaminhamento" id="CourseEncaminhamento"
-                                        class="mdb-select colorful-select dropdown-primary"
-                                        onchange="this.form.submit();">
-                                    <option value="" disabled
-                                            {% if not distribuicao_encaminhamento %}selected{% endif %}>Selecione...
-                                    </option>
-                                    {% for course in courses_encaminhamento %}
-                                        <option value="{{ course.matricula__turma__curso__id }}"
-                                                {% if distribuicao_encaminhamento and course.matricula__turma__curso__id == c_encaminhamento.id %}
-                                                selected {% endif %}>{{ course.matricula__turma__curso__descricao }}</option>
-                                    {% endfor %}
-                                </select>
-                            </form>
-                        </div>
-                        <hr class="w-100 clearfix d-md-none">
+                    {% if servico_categorias %}
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <p class="lead">
+                                    <span class="badge info-color-dark p-2">Curso</span>
+                                </p>
+                                <form action="" method="POST">
+                                    {% csrf_token %}
+                                    <select name="CourseEncaminhamento" id="CourseEncaminhamento"
+                                            class="mdb-select colorful-select dropdown-primary"
+                                            onchange="this.form.submit();">
+                                        <option value="" disabled
+                                                {% if not distribuicao_encaminhamento %}selected{% endif %}>Selecione...
+                                        </option>
+                                        {% for course in courses_encaminhamento %}
+                                            <option value="{{ course.matricula__turma__curso__id }}"
+                                                    {% if distribuicao_encaminhamento and course.matricula__turma__curso__id == c_encaminhamento.id %}
+                                                    selected {% endif %}>{{ course.matricula__turma__curso__descricao }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </form>
+                            </div>
+                            <hr class="w-100 clearfix d-md-none">
 
-                        <div class="col">
-                            <p class="lead">
-                                <span class="badge info-color-dark p-2">Ano Letivo</span>
-                            </p>
-                            <select class="mdb-select colorful-select dropdown-info">
-                                <option value="2018" selected>2018</option>
-                            </select>
+                            <div class="col">
+                                <p class="lead">
+                                    <span class="badge info-color-dark p-2">Ano Letivo</span>
+                                </p>
+                                <select class="mdb-select colorful-select dropdown-info">
+                                    <option value="2018" selected>2018</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        {% if servico_categorias %}
+                        <div class="form-row">
                             {% if distribuicao_encaminhamento %}
                                 <div class="col">
                                     <canvas id="turma_encaminhamento" height="200"></canvas>
@@ -213,12 +213,13 @@
                                     </div>
                                 </div>
                             {% endif %}
-                        {% else %}
-                            <div class="card-header warning-color white-text text-center">
-                                <strong>NÃO HÁ ENCAMINHAMENTOS</strong>
-                            </div>
-                        {% endif %}
-                    </div>
+                        </div>
+                    {% else %}
+                        <div class="card-header warning-color white-text text-center">
+                            <strong>NÃO HÁ ENCAMINHAMENTOS</strong>
+                        </div>
+                    {% endif %}
+
                 </div>
             </div>
         </div>
