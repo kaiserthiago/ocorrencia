@@ -355,46 +355,134 @@ def dashboard(request):
                                                      'matricula__turma__curso__descricao').distinct()
 
     if request.method == 'POST':
-        id = request.POST['Course']
-        c = get_object_or_404(Curso, id=id)
+        # OCORRÊNCIAS
+        if 'CourseOcorrencia' in request.POST:
+            id = request.POST['CourseOcorrencia']
+            c = get_object_or_404(Curso, id=id)
 
-        detalhamento = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
-                                                 matricula__turma__curso=c).order_by('falta__categoria__artigo').values(
-            'falta__categoria__descricao').annotate(qtde=Count('id')).distinct()
+            detalhamento = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
+                                                     matricula__turma__curso=c).order_by(
+                'servico__categoria__descricao').values(
+                'falta__categoria__descricao').annotate(qtde=Count('id')).distinct()
 
-        total = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
-                                          matricula__turma__curso=c).order_by(
-            'falta__categoria__artigo').values().aggregate(qtde=Count('id'))
+            total = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
+                                              matricula__turma__curso=c).order_by(
+                'falta__categoria__artigo').values().aggregate(qtde=Count('id'))
 
-        # DADOS GRÁFICO CATEGORIA DE OCORRÊNCIAS POR CURSO
-        distribuicao = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
-                                                 matricula__turma__curso=c).order_by(
-            'falta__categoria__artigo').values_list('falta__categoria__descricao').annotate(qtde=Count('id')).distinct()
+            # DADOS GRÁFICO CATEGORIA DE OCORRÊNCIAS POR CURSO
+            distribuicao = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
+                                                     matricula__turma__curso=c).order_by(
+                'falta__categoria__artigo').values_list('falta__categoria__descricao').annotate(
+                qtde=Count('id')).distinct()
 
-        distribuicao_ocorrencia = [obj[0] for obj in distribuicao]
-        distribuicao_qtde = [obj[1] for obj in distribuicao]
+            distribuicao_ocorrencia = [obj[0] for obj in distribuicao]
+            distribuicao_qtde = [obj[1] for obj in distribuicao]
 
-        # DADOS GRÁFICO DE OCORRÊNCIAS POR TURMA
-        turmas = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
-                                           matricula__turma__curso=c).order_by(
-            'matricula__turma__descricao').values_list(
-            'matricula__turma__descricao').annotate(qtde=Count('id')).distinct()
 
-        turmas_ocorrencia = [obj[0] for obj in turmas]
-        qtde_turmas_ocorrencia = [int(obj[1]) for obj in turmas]
+            # DADOS GRÁFICO DE OCORRÊNCIAS POR TURMA
+            turmas = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
+                                               matricula__turma__curso=c).order_by(
+                'matricula__turma__descricao').values_list(
+                'matricula__turma__descricao').annotate(qtde=Count('id')).distinct()
+
+            turmas_ocorrencia = [obj[0] for obj in turmas]
+            qtde_turmas_ocorrencia = [int(obj[1]) for obj in turmas]
+        else:
+            c = ''
+            distribuicao = ''
+            distribuicao_ocorrencia = ''
+            distribuicao_qtde = ''
+            detalhamento = ''
+            total = ''
+            turmas = ''
+            turmas_ocorrencia = ''
+            qtde_turmas_ocorrencia = ''
+
+        # ENCACMINHAMENTOS
+        if 'CourseEncaminhamento' in request.POST:
+            id = request.POST['CourseEncaminhamento']
+            c_encaminhamento = get_object_or_404(Curso, id=id)
+
+            detalhamento_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
+                                                                        matricula__turma__curso=c_encaminhamento).order_by(
+                'servico__categoria__descricao').values(
+                'servico__categoria__descricao').annotate(qtde=Count('id')).distinct()
+
+            total_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
+                                                                 matricula__turma__curso=c_encaminhamento).order_by(
+                'servico__categoria__descricao').values().aggregate(qtde=Count('id'))
+
+            # DADOS GRÁFICO CATEGORIA DE ENCAMINHAMENTOS POR CURSO
+            distribuicao_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
+                                                                        matricula__turma__curso=c_encaminhamento).order_by(
+                'servico__categoria__descricao').values_list('servico__categoria__descricao').annotate(
+                qtde=Count('id')).distinct()
+
+            distribuicao_json_encaminhamento = [obj[0] for obj in distribuicao_encaminhamento]
+            distribuicao_qtde_encaminhamento = [obj[1] for obj in distribuicao_encaminhamento]
+
+            # DADOS GRÁFICO DE ENCAMINHAMENTOS POR TURMA
+            turmas_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
+                                                                  matricula__turma__curso=c_encaminhamento).order_by(
+                'matricula__turma__descricao').values_list(
+                'matricula__turma__descricao').annotate(qtde=Count('id')).distinct()
+
+            turmas_ocorrencia_encaminhamento = [obj[0] for obj in turmas_encaminhamento]
+            qtde_turmas_encaminhamento = [int(obj[1]) for obj in turmas_encaminhamento]
+        else:
+            c_encaminhamento = ''
+            distribuicao_encaminhamento = ''
+            distribuicao_json_encaminhamento = ''
+            distribuicao_qtde_encaminhamento = ''
+            detalhamento_encaminhamento = ''
+            total_encaminhamento = ''
+            turmas_ocorrencia_encaminhamento = ''
+            turmas_encaminhamento = ''
+            qtde_turmas_encaminhamento = ''
     else:
+        # OCORRÊNCIAS
         c = ''
         distribuicao = ''
         distribuicao_ocorrencia = ''
         distribuicao_qtde = ''
         detalhamento = ''
         total = ''
-
         turmas = ''
         turmas_ocorrencia = ''
         qtde_turmas_ocorrencia = ''
 
+        # ENCAMINHAMENTOS
+        c_encaminhamento = ''
+        distribuicao_encaminhamento = ''
+        distribuicao_json_encaminhamento = ''
+        distribuicao_qtde_encaminhamento = ''
+        detalhamento_encaminhamento = ''
+        total_encaminhamento = ''
+        turmas_ocorrencia_encaminhamento = ''
+        turmas_encaminhamento = ''
+        qtde_turmas_encaminhamento = ''
+
+    # DADOS GRÁFICO DE ENCAMINHAMENTOS POR CATEGORIA
+    servico_categorias = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa).order_by(
+        'servico__categoria__descricao').values_list('servico__categoria__descricao').annotate(qtde=Count('id')).distinct()
+
+    categorias_faltas_encaminhamento = [obj[0] for obj in servico_categorias]
+    qtde_categorias_faltas_encaminhamento = [int(obj[1]) for obj in servico_categorias]
+
+    # DADOS GRÁFICO DE ENCAMINHAMENTOS POR CURSO
+    cursos_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa).order_by().values_list(
+        'matricula__turma__curso__descricao').annotate(qtde=Count('id')).distinct()
+
+    cursos_ocorrencia_encaminhamento = [obj[0] for obj in cursos_encaminhamento]
+    qtde_cursos_ocorrencia_encaminhamento = [int(obj[1]) for obj in cursos_encaminhamento]
+
+    courses_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
+                                        matricula__turma__curso__in=Curso.objects.all()).order_by(
+        'matricula__turma__curso__descricao').values('matricula__turma__curso__id',
+                                                     'matricula__turma__curso__descricao').distinct()
+
     context = {
+        # OCORRÊNCIAS
         'c': c,
         'detalhamento': detalhamento,
         'total': total,
@@ -416,6 +504,29 @@ def dashboard(request):
 
         'distribuicao_ocorrencia': json.dumps(distribuicao_ocorrencia),
         'distribuicao_qtde': json.dumps(distribuicao_qtde),
+
+        # ENCAMINHAMENTOS
+        'c_encaminhamento': c_encaminhamento,
+        'detalhamento_encaminhamento': detalhamento_encaminhamento,
+        'total_encaminhamento': total_encaminhamento,
+
+        'courses_encaminhamento': courses_encaminhamento,
+        'servico_categorias': servico_categorias,
+        'cursos_encaminhamento': cursos_encaminhamento,
+        'turmas_encaminhamento': turmas_encaminhamento,
+        'distribuicao_encaminhamento': distribuicao_encaminhamento,
+
+        'categorias_faltas_encaminhamento': json.dumps(categorias_faltas_encaminhamento),
+        'qtde_categorias_faltas_encaminhamento': json.dumps(qtde_categorias_faltas_encaminhamento),
+
+        'cursos_ocorrencia_encaminhamento': json.dumps(cursos_ocorrencia_encaminhamento),
+        'qtde_cursos_ocorrencia_encaminhamento': json.dumps(qtde_cursos_ocorrencia_encaminhamento),
+
+        'turmas_ocorrencia_encaminhamento': json.dumps(turmas_ocorrencia_encaminhamento),
+        'qtde_turmas_encaminhamento': json.dumps(qtde_turmas_encaminhamento),
+
+        'distribuicao_json_encaminhamento': json.dumps(distribuicao_json_encaminhamento),
+        'distribuicao_qtde_encaminhamento': json.dumps(distribuicao_qtde_encaminhamento),
     }
 
     return render(request, 'portal/dashboard.html', context)
