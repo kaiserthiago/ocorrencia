@@ -107,6 +107,22 @@ class Aluno(AuditoriaMixin):
             'matricula__aluno__nome').annotate(
             qtde=Count('matricula__aluno__nome')).distinct()
 
+    @property
+    def encaminhamento_aluno(self):
+        return Encaminhamento.objects.filter(matricula__aluno_id=self.id, data__year=date.today().year)
+
+    @property
+    def count_cat_encaminhamento(self):
+        return Encaminhamento.objects.filter(data__year=date.today().year, matricula__aluno_id=self.id).order_by(
+            'servico__categoria__artigo').values(
+            'servico__categoria__descricao').annotate(qtde=Count('servico__categoria__descricao')).distinct()
+
+    @property
+    def count_encaminhamento(self):
+        return Encaminhamento.objects.filter(data__year=date.today().year, matricula__aluno_id=self.id).order_by().values(
+            'matricula__aluno__nome').annotate(
+            qtde=Count('matricula__aluno__nome')).distinct()
+
 
 class Matricula(AuditoriaMixin):
     aluno = models.ForeignKey(Aluno, on_delete=models.DO_NOTHING)

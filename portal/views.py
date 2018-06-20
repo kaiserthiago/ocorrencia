@@ -1124,3 +1124,21 @@ def encaminhamento_delete(request, encaminhamento_id):
         messages.success(request, 'Encaminhamento excluído.')
 
     return redirect('encaminhamento')
+
+@login_required
+def encaminhamento_relatorio(request, aluno_id):
+    aluno = get_object_or_404(Aluno, id=aluno_id)
+    encaminhamentos = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
+                                            data__year=date.today().year, matricula__aluno=aluno_id)
+    count_encaminhamentos = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
+                                                  data__year=date.today().year,
+                                                  matricula__aluno=aluno_id).order_by().values(
+        'servico__categoria__descricao').annotate(qtde=Count('servico__categoria__descricao')).distinct()
+
+    context = {
+        'encaminhamentos': encaminhamentos,
+        'aluno': aluno,
+        'count_encaminhamentos': count_encaminhamentos
+    }
+
+    return render(request, 'portal/encaminhamento_relatorio.html', context)

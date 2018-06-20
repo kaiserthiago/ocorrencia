@@ -16,7 +16,7 @@ urlpatterns = [
     url('^ocorrencia/new$', views.ocorrencia_new, name='ocorrencia_new'),
     url('^ocorrencia$', views.ocorrencia, name='ocorrencia'),
 
-    # url('^encaminhamento/relatorio/(?P<aluno_id>\d+)$', views.encaminhamento_relatorio, name='encaminhamento_relatorio'),
+    url('^encaminhamento/relatorio/(?P<aluno_id>\d+)$', views.encaminhamento_relatorio, name='encaminhamento_relatorio'),
     url('^encaminhamento/register$', views.encaminhamento_register, name='encaminhamento_register'),
     url('^encaminhamento/delete/(?P<encaminhamento_id>\d+)$', views.encaminhamento_delete, name='encaminhamento_delete'),
     url('^encaminhamento/show/(?P<encaminhamento_id>\d+)$', views.encaminhamento_show, name='encaminhamento_show'),

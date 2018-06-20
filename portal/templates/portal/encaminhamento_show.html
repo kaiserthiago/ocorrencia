@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% block title %}Encaminhamento {{ encaminhamento.id }}.{{ ano }} - Gestão de Ocorrências - SIGO{% endblock %}
+{% block class_ocorrencia_menu %}active{% endblock %}
+{% block class_ocorrencia_encaminhamento_item %}collapsible-header active{% endblock %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block style %}
+    @media print {
+    #slide-out, #icon-bar, #div-menu, #breadcrumb, #footer, #bread, #div-buttons, #card { display: none; }
+    }
+{% endblock %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb" id="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'encaminhamento' %}">Encaminhamentos</a></li>
+        <li class="breadcrumb-item active">Encaminhamento #{{ encaminhamento.id }}</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div id="div-buttons" class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+        <a href="#" onclick="window.print(); return false;" class="btn-floating btn-lg danger-color">
+            <i class="fa fa-print"></i>
+        </a>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card border-primary mb-3">
+                <div class="card-header gradient white-text" id="card">
+                    ENCAMINHAMENTO {{ encaminhamento.id }}/{{ ano }}
+                </div>
+                <div class="card-body border-primary">
+                    <table class="table table-bordered table-sm">
+                        <tbody>
+                        <tr>
+                            <td class="text-center align-middle">
+                                <img src="{% static 'img/logo_ifro.png' %}" width="100">
+                            </td>
+                            <td colspan="2" class="text-center font-weight-bold align-middle">
+                                MINISTÉRIO DA EDUCAÇÃO<br>
+                                {{ encaminhamento.user.userprofile.empresa.razao_social|upper }}<br>
+                                {{ encaminhamento.user.userprofile.empresa|upper }}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-sm">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <p class="font-weight-bold">
+                                    CURSO
+                                </p>
+                                {{ encaminhamento.matricula.turma }}
+                            </td>
+                            <td class="text-right">
+                                <p class="font-weight-bold">
+                                    DATA
+                                </p>
+                                {{ encaminhamento.data }}
+                            </td>
+                            <td class="text-right">
+                                <p class="font-weight-bold">
+                                    ENCAMINHAMENTO
+                                </p>
+                                {{ encaminhamento.id }}/{{ ano }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <p class="font-weight-bold">
+                                    ESTUDANTE
+                                </p>
+                                {{ encaminhamento.matricula.aluno }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <p class="font-weight-bold">
+                                    DESCRIÇÃO DO ENCAMINHAMENTO
+                                </p>
+                                SERVIÇO DE {{ encaminhamento.servico.categoria.descricao|upper }}<br>
+                                {{ encaminhamento.servico.descricao }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <p class="font-weight-bold">
+                                    DESCRIÇÃO DO ENCAMINHAMENTO
+                                </p>
+                                {{ encaminhamento.descricao }}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-sm">
+                        <tbody>
+                        <tr>
+                            <td colspan="3" class="text-center align-bottom">
+                                <p class="font-weight-bold">
+                                    {{ encaminhamento.user }}
+                                </p>
+                                {{ encaminhamento.user.userprofile.siape }}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

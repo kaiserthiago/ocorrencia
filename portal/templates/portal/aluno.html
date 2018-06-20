@@ -53,6 +53,15 @@
                                     <td style="vertical-align: middle;">{{ aluno.responsavel }}</td>
                                     <td style="vertical-align: middle; text-align: right">{{ aluno.email_responsavel }}</td>
                                     <td style="vertical-align: middle; text-align: right">
+                                        {% if aluno.encaminhamento_aluno %}
+                                            <a href="{% url 'encaminhamento_relatorio' aluno.id %}"
+                                               class="btn-floating btn-sm blue"
+                                               data-toggle="tooltip" data-placement="top"
+                                               title="Visualizar encaminhamentos"><i class="fa fa-search"></i>
+                                            </a>
+                                            <span class="counter">{{ aluno.encaminhamento_aluno.count }}</span>
+                                        {% endif %}
+
                                         {% if aluno.ocorrencia_aluno %}
                                             <a href="{% url 'ocorrencia_relatorio' aluno.id %}"
                                                class="btn-floating btn-sm green"
@@ -61,6 +70,7 @@
                                             </a>
                                             <span class="counter">{{ aluno.ocorrencia_aluno.count }}</span>
                                         {% endif %}
+
                                         <a href="{% url 'aluno_edit' aluno.id %}"
                                            class="btn-floating btn-sm warning-color"
                                            data-toggle="tooltip" data-placement="top" title="Editar"><i
