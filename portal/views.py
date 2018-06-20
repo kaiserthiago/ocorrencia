@@ -1,4 +1,5 @@
 import json
+import string
 from datetime import date
 
 from django.contrib import messages
@@ -149,20 +150,14 @@ def import_aluno(request):
 
 @staff_member_required
 def aluno(request):
-    alunos = Aluno.objects.filter(empresa=request.user.userprofile.empresa).order_by('nome')
-
-    paginator = Paginator(alunos, 40)
-    page = request.GET.get('page', 1)
-
-    try:
-        alunos = paginator.page(page)
-    except PageNotAnInteger:
-        alunos = paginator.page(1)
-    except EmptyPage:
-        alunos = paginator.page(paginator.num_pages)
+    qs = request.GET.get('qs', '')
+    alunos = Aluno.objects.filter(empresa=request.user.userprofile.empresa, nome__istartswith=str(qs)).order_by('nome')
+    lista = list(string.ascii_uppercase)
 
     context = {
         'alunos': alunos,
+        'lista': lista,
+        'qs': qs,
     }
 
     return render(request, 'portal/aluno.html', context)
@@ -812,7 +807,7 @@ def report_ocorrencia_turma(request):
         qtde=Count('matricula__aluno__nome')).distinct()
 
     total = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa, matricula__turma=turma,
-                                            data__year=ano)
+                                      data__year=ano)
 
     cat = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
                                     data__year=date.today().year,
