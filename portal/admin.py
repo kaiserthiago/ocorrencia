@@ -2,7 +2,8 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 
-from portal.models import Empresa, Curso, Aluno, Ocorrencia, Turma, UserProfile, Matricula, Falta, CategoriaFalta
+from portal.models import Empresa, Curso, Aluno, Ocorrencia, Turma, UserProfile, Matricula, Falta, CategoriaFalta, \
+    Servico, ServicoCategoria, Encaminhamento
 from import_export.admin import ImportExportModelAdmin
 
 
@@ -38,6 +39,11 @@ class OcorrenciaAdmin(admin.ModelAdmin):
     list_filter = ['falta__categoria', 'matricula__ano_letivo', 'user', 'empresa']
     search_fields = ['matricula__aluno__nome', ]
 
+class EncaminhamentoAdmin(admin.ModelAdmin):
+    list_display = ('id', 'matricula', 'data', 'descricao',     'providencias', 'servico', 'user')
+    list_filter = ['servico__categoria', 'matricula__ano_letivo', 'user', 'empresa']
+    search_fields = ['matricula__aluno__nome', ]
+
 
 class TurmaAdmin(admin.ModelAdmin):
     list_display = ('id', 'curso', 'descricao', 'empresa')
@@ -57,6 +63,15 @@ class EmpresaAdmin(admin.ModelAdmin):
     'email_responsavel_sistema')
     search_fields = ['nome_fantasia']
 
+class ServicoCategoriaAdmin(admin.ModelAdmin):
+    list_display = ('id', 'descricao', 'empresa')
+    list_filter = ['empresa']
+    search_fields = ['descricao']
+
+class ServicoAdmin(admin.ModelAdmin):
+    list_display = ('id', 'descricao', 'categoria', 'empresa')
+    list_filter = ['categoria', 'empresa']
+    search_fields = ['descricao']
 
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
@@ -65,6 +80,9 @@ admin.site.register(Curso, CursoAdmin)
 admin.site.register(Turma, TurmaAdmin)
 admin.site.register(Aluno, AlunoAdmin)
 admin.site.register(Ocorrencia, OcorrenciaAdmin)
+admin.site.register(Encaminhamento, EncaminhamentoAdmin)
 admin.site.register(Matricula, MatriculaAdmin)
 admin.site.register(Falta, FaltaAdmin),
 admin.site.register(CategoriaFalta),
+admin.site.register(ServicoCategoria, ServicoCategoriaAdmin),
+admin.site.register(Servico, ServicoAdmin),

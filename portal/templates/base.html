@@ -117,8 +117,8 @@
                                     class="fa fa-file-text"></i> Disciplinar</a>
                         </li>
                         <li>
-                            <a href="#" class="collapsible-header waves-effect arrow-r
-                            {% block class_ocorrencia_encaminhamento_item %}{% endblock %} disabled"><i
+                            <a href="{% url 'encaminhamento' %}" class="collapsible-header waves-effect arrow-r
+                            {% block class_ocorrencia_encaminhamento_item %}{% endblock %}"><i
                                     class="fa fa-exchange"></i> Encaminhamento</a>
                         </li>
                     </ul>
@@ -130,6 +130,22 @@
                        class="collapsible-header waves-effect arrow-r {% block class_relatorio_menu %}{% endblock %}"><i
                             class="fa fa-file"></i> Relatório</a>
                 </li>
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r {% block class_servicos_menu %}{% endblock %}"><i
+                            class="fa fa-cog"></i> Serviços<i
+                            class="fa fa-angle-down rotate-icon"></i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>
+                                <a href="{% url 'servico_categoria' %}"
+                                   class="waves-effect {% block class_servicos_categoria_item %}{% endblock %}">Categoria</a>
+                                <a href="{% url 'servico' %}"
+                                   class="waves-effect {% block class_servicos_servico_item %}{% endblock %}">Serviço</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
                 <li>
                     <a class="collapsible-header waves-effect arrow-r {% block class_usuario_menu %}{% endblock %}"><i
                             class="fa fa-user"></i> Usuário<i

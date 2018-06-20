@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
-{% block title %}Alunos - Gestão de Ocorrências - SIGO{% endblock %}
-{% block class_cadastro_menu %}active{% endblock %}
-{% block class_cadastro_aluno_item %}collapsible-header active{% endblock %}
+{% block title %}Categoria de serviço - Gestão de Ocorrências - SIGO{% endblock %}
+{% block class_servicos_menu %}active{% endblock %}
+{% block class_servicos_categoria_item %}collapsible-header active{% endblock %}
 
 {% block breadcrumb_base %}
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
-        <li class="breadcrumb-item active">Alunos</li>
+        <li class="breadcrumb-item active">Categoria de serviço</li>
     </ol>
 {% endblock %}
 
@@ -15,7 +15,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header gradient white-text">
-                    ALUNOS
+                    CATEGORIA DE SERVIÇO
                 </div>
                 <div class="card-body">
                     <div class="form-row">
@@ -27,11 +27,8 @@
                         </div>
                         <div class="col">
                             <div class="float-right">
-                                <a href="{% url 'aluno_new' %}" class="btn btn-success"><i class="fa fa-plus"></i> Novo
+                                <a href="{% url 'servico_categoria_new' %}" class="btn btn-success"><i class="fa fa-plus"></i> Novo
                                     Registro</a>
-                                <a href="{% url 'import_aluno' %}" class="btn btn-info" data-toggle="tooltip"
-                                   data-placement="top" title="Importar XLS"><i
-                                        class="fa fa-arrow-circle-down"></i> Importar</a>
                             </div>
                         </div>
                     </div>
@@ -39,43 +36,30 @@
                         <table class="table table-sm table-hover">
                             <thead>
                             <tr>
-                                <th style="font-weight: bold">Nome</th>
-                                <th style="font-weight: bold">E-mail</th>
-                                <th colspan="2" style="font-weight: bold; text-align: center">Dados do Responsável</th>
+                                <th style="font-weight: bold">Descrição</th>
                                 <th style="text-align: right; font-weight: bold">Ações</th>
                             </tr>
                             </thead>
                             <tbody id="myTable">
-                            {% for aluno in alunos %}
+                            {% for servico_categoria in servico_categorias %}
                                 <tr>
-                                    <td style="vertical-align: middle;">{{ aluno.nome }}</td>
-                                    <td style="vertical-align: middle;">{{ aluno.email }}</td>
-                                    <td style="vertical-align: middle;">{{ aluno.responsavel }}</td>
-                                    <td style="vertical-align: middle; text-align: right">{{ aluno.email_responsavel }}</td>
+                                    <td style="vertical-align: middle;">{{ servico_categoria.descricao }}</td>
                                     <td style="vertical-align: middle; text-align: right">
-                                        {% if aluno.ocorrencia_aluno %}
-                                            <a href="{% url 'ocorrencia_relatorio' aluno.id %}"
-                                               class="btn-floating btn-sm green"
-                                               data-toggle="tooltip" data-placement="top"
-                                               title="Visualizar ocorrências"><i class="fa fa-search"></i>
-                                            </a>
-                                            <span class="counter">{{ aluno.ocorrencia_aluno.count }}</span>
-                                        {% endif %}
-                                        <a href="{% url 'aluno_edit' aluno.id %}"
+                                        <a href="{% url 'servico_categoria_edit' servico_categoria.id %}"
                                            class="btn-floating btn-sm warning-color"
                                            data-toggle="tooltip" data-placement="top" title="Editar"><i
                                                 class="fa fa-pencil"></i>
                                         </a>
 
                                         <i data-toggle="tooltip" data-placement="top" title="Excluir">
-                                            <a data-toggle="modal" href="#Excluir{{ aluno.id }}"
-                                               class="btn-floating btn-sm danger-color"><i class="fa fa-trash"></i>
+                                            <a data-toggle="modal" href="#Excluir{{ servico_categoria.id }}"
+                                               class="btn-floating btn-sm danger-color"
+                                               title="Excluir"><i class="fa fa-trash"></i>
                                             </a>
                                         </i>
 
-
                                         <!--Modal EXCLUIR-->
-                                        <div class="modal fade" id="Excluir{{ aluno.id }}" tabindex="-1" role="dialog"
+                                        <div class="modal fade" id="Excluir{{ servico_categoria.id }}" tabindex="-1" role="dialog"
                                              aria-labelledby="myModalLabel"
                                              aria-hidden="true">
                                             <div class="modal-dialog modal-notify modal-danger" role="document">
@@ -91,7 +75,7 @@
                                                     </div>
                                                     <!--Body-->
                                                     <div class="modal-body">
-                                                        <form action="{% url 'aluno_delete' aluno.id %}"
+                                                        <form action="{% url 'servico_categoria_delete' servico_categoria.id %}"
                                                               method="POST">
                                                             {% csrf_token %}
                                                             <div class="row text-left">
@@ -121,29 +105,14 @@
                                 </tr>
                             {% empty %}
                                 <tr>
-                                    <td colspan="5" class="card-header warning-color white-text text-center font-bold">
-                                        Sem estudantes cadastrados
+                                    <td colspan="3" class="card-header warning-color white-text text-center">Sem categorias de serviço
+                                        cadastrada
                                     </td>
                                 </tr>
                             {% endfor %}
                             </tbody>
                         </table>
                     </div>
-
-                    <!--Pagination -->
-                    <nav aria-label="pagination example">
-                        <ul class="pagination justify-content-center pagination-circle pg-blue mb-0">
-
-                            <!--LETRAS INICIAIS-->
-                            {% for i in lista %}
-                                {% if qs|upper == i %}
-                                    <li class="page-item active"><a class="page-link">{{ i }}</a></li>
-                                {% else %}
-                                    <li class="page-item"><a href="?qs={{ i|lower }}" class="page-link">{{ i }}</a></li>
-                                {% endif %}
-                            {% endfor %}
-                        </ul>
-                    </nav>
                 </div>
             </div>
         </div>

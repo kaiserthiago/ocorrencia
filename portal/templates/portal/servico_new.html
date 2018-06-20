@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}Serviços - Gestão de Ocorrências - SIGO{% endblock %}
+{% block class_servicos_menu %}active{% endblock %}
+{% block class_servicos_servico_item %}collapsible-header active{% endblock %}
+{% load widget_tweaks %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'servico' %}">Serviços</a></li>
+        <li class="breadcrumb-item active">Novo serviço</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header gradient white-text">
+            NOVO SERVIÇO
+        </div>
+        <div class="card-body">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="col">
+                        <div class="md-form">
+                            <label>{{ form.descricao.label }}</label>
+                            {{ form.descricao }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col">
+                        <div class="md-form">
+                            <select name="SelectCategoria" id="SelectCategoria"
+                                    class="mdb-select colorful-select dropdown-primary dropdown-ins"
+                                    searchable="Pesquisar..." required>
+                                <option value="" disabled selected>Selecione a categoria</option>
+                                {% for categoria in categorias %}
+                                    <option value={{ categoria.id }}>{{ categoria.descricao }}</option>
+                                {% endfor %}
+                            </select>
+                            <label for="SelectCategoria">Categoria</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <div class="float-right">
+                            <button type="submit" class="btn btn-success" data-toggle="tooltip"
+                                    data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
+                            <a href="{% url 'servico' %}" class="btn danger-color" data-toggle="tooltip"
+                               data-placement="top" title="Cancelar"><i
+                                    class="fa fa-close"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

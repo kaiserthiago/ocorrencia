@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 
-from portal.models import UserProfile, Ocorrencia, Curso, Turma, Aluno
+from portal.models import UserProfile, Ocorrencia, Curso, Turma, Aluno, ServicoCategoria, Servico, Encaminhamento
 
 
 class UserForm(forms.ModelForm):
@@ -53,6 +53,38 @@ class OcorrenciaForm(forms.ModelForm):
 
         labels = {
             'descricao': 'Descrição da ocorrência'
+        }
+
+
+class EncaminhamentoForm(forms.ModelForm):
+    class Meta:
+        model = Encaminhamento
+        fields = ('data', 'descricao', 'providencias', 'outras_informacoes', 'analise')
+
+        widgets = {
+            'data': forms.TextInput(attrs={
+                'class': 'form-control datepicker',
+                'placeholder': 'Clique para selecionar'
+            }),
+            'descricao': forms.Textarea(attrs={
+                'class': 'md-textarea validate'
+            }),
+            'providencias': forms.Textarea(attrs={
+                'class': 'md-textarea validate'
+            }),
+            'outras_informacoes': forms.Textarea(attrs={
+                'class': 'md-textarea validate'
+            }),
+            'analise': forms.Textarea(attrs={
+                'class': 'md-textarea validate'
+            })
+        }
+
+        labels = {
+            'descricao': 'Descrição',
+            'providencias': 'Que providências já foram tomadas para solucionar o problema mencionado?',
+            'outras_informacoes': 'Outras informações que julgue necessárias',
+            'analise': 'Análise do setor responsável'
         }
 
 
@@ -127,4 +159,40 @@ class AlunoForm(forms.ModelForm):
             'email': 'E-mail aluno',
             'responsavel': 'Responsável',
             'email_responsavel': 'E-mail responsável',
+        }
+
+
+class ServicoCategoriaForm(forms.ModelForm):
+    class Meta:
+        model = ServicoCategoria
+        exclude = ('user', 'empresa')
+
+        widgets = {
+            'descricao': forms.TextInput(attrs={
+                'class': 'form-control validate',
+                'required': '',
+                'autofocus': ''
+            }),
+        }
+
+        labels = {
+            'descricao': 'Descrição',
+        }
+
+
+class ServicoForm(forms.ModelForm):
+    class Meta:
+        model = Servico
+        exclude = ('categoria', 'user', 'empresa')
+
+        widgets = {
+            'descricao': forms.TextInput(attrs={
+                'class': 'form-control validate',
+                'required': '',
+                'autofocus': ''
+            }),
+        }
+
+        labels = {
+            'descricao': 'Descrição',
         }

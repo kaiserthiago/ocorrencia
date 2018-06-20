@@ -16,8 +16,10 @@ from django.template.defaultfilters import upper, lower
 from tablib import Dataset
 
 from portal.emails import RegistraOcorrenciaMail, ConfirmaUsuarioMail
-from portal.forms import OcorrenciaForm, CursoForm, TurmaForm, AlunoForm, UserForm, UserProfileForm
-from portal.models import Curso, Aluno, Turma, Ocorrencia, Matricula, CategoriaFalta, Falta, UserProfile
+from portal.forms import OcorrenciaForm, CursoForm, TurmaForm, AlunoForm, UserForm, UserProfileForm, \
+    ServicoCategoriaForm, ServicoForm, EncaminhamentoForm
+from portal.models import Curso, Aluno, Turma, Ocorrencia, Matricula, CategoriaFalta, Falta, UserProfile, \
+    ServicoCategoria, Servico, Encaminhamento
 
 
 def home(request):
@@ -495,7 +497,7 @@ def turma_edit(request, turma_id):
     return render(request, 'portal/turma_edit.html', context)
 
 
-@login_required
+@staff_member_required
 def turma_delete(request, turma_id):
     turma = get_object_or_404(Turma, pk=turma_id)
 
@@ -633,7 +635,7 @@ def ocorrencia_relatorio(request, aluno_id):
     return render(request, 'portal/ocorrencia_relatorio.html', context)
 
 
-@staff_member_required
+@login_required
 def ocorrencia_delete(request, ocorrencia_id):
     ocorrencia = get_object_or_404(Ocorrencia, pk=ocorrencia_id)
 
@@ -836,3 +838,289 @@ def report_ocorrencia_turma(request):
     }
 
     return render(request, 'portal/report_ocorrencia_turma.html', context)
+
+@staff_member_required
+def servico_categoria(request):
+    servico_categorias = ServicoCategoria.objects.filter(empresa=request.user.userprofile.empresa)
+
+    context = {
+        'servico_categorias': servico_categorias
+    }
+
+    return render(request, 'portal/servico_categoria.html', context)
+
+
+@staff_member_required
+def servico_categoria_new(request):
+    if request.method == 'POST':
+        form = ServicoCategoriaForm(request.POST)
+
+        if form.is_valid():
+            servico_categoria = ServicoCategoria()
+
+            servico_categoria.descricao = form.cleaned_data['descricao']
+            servico_categoria.user = request.user
+            servico_categoria.empresa = request.user.userprofile.empresa
+
+            servico_categoria.save()
+
+            messages.success(request, 'Categoria de serviço cadastradas.')
+
+            return redirect('servico_categoria')
+
+    form = ServicoCategoriaForm()
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'portal/servico_categoria_new.html', context)
+
+
+@staff_member_required
+def servico_categoria_edit(request, servico_categoria_id):
+    servico_categoria = get_object_or_404(ServicoCategoria, pk=servico_categoria_id)
+
+    if request.method == 'POST':
+        form = ServicoCategoriaForm(request.POST)
+
+        if form.is_valid():
+            servico_categoria.descricao = form.cleaned_data['descricao']
+
+            servico_categoria.save()
+
+            messages.success(request, 'Categoria de serviço atualizada.')
+
+            return redirect('servico_categoria')
+
+    form = ServicoCategoriaForm(instance=servico_categoria)
+
+    context = {
+        'form': form,
+        'servico_categoria': servico_categoria,
+    }
+
+    return render(request, 'portal/servico_categoria_edit.html', context)
+
+
+@staff_member_required
+def servico_categoria_delete(request, servico_categoria_id):
+    servico_categoria = get_object_or_404(ServicoCategoria, pk=servico_categoria_id)
+
+    if request.method == 'POST':
+        servico_categoria.delete()
+
+        messages.success(request, 'Categoria de serviço excluída.')
+
+    return redirect('servico_categoria')
+
+@staff_member_required
+def servico(request):
+    servicos = Servico.objects.filter(empresa=request.user.userprofile.empresa)
+
+    context = {
+        'servicos': servicos
+    }
+
+    return render(request, 'portal/servico.html', context)
+
+
+@staff_member_required
+def servico_new(request):
+    categorias = ServicoCategoria.objects.filter(empresa=request.user.userprofile.empresa)
+
+    if request.method == 'POST':
+        form = ServicoForm(request.POST)
+
+        if form.is_valid():
+            categoria_id = request.POST['SelectCategoria']
+            categoria = get_object_or_404(ServicoCategoria, id=categoria_id)
+
+            servico = Servico()
+
+            servico.descricao = form.cleaned_data['descricao']
+            servico.categoria = categoria
+            servico.user = request.user
+            servico.empresa = request.user.userprofile.empresa
+
+            servico.save()
+
+            messages.success(request, 'Serviço cadastrado.')
+
+            return redirect('servico')
+
+    form = ServicoForm()
+
+    context = {
+        'form': form,
+        'categorias': categorias
+    }
+
+    return render(request, 'portal/servico_new.html', context)
+
+
+@staff_member_required
+def servico_edit(request, servico_id):
+    categorias = ServicoCategoria.objects.filter(empresa=request.user.userprofile.empresa)
+    servico = get_object_or_404(Servico, pk=servico_id)
+
+    if request.method == 'POST':
+        form = ServicoForm(request.POST)
+
+        if form.is_valid():
+            categoria_id = request.POST['SelectCategoria']
+            categoria = get_object_or_404(ServicoCategoria, id=categoria_id)
+
+            servico.descricao = form.cleaned_data['descricao']
+            servico.categoria = categoria
+            servico.user = request.user
+            servico.empresa = request.user.userprofile.empresa
+
+            servico.save()
+
+            messages.success(request, 'Serviço atualizado.')
+
+            return redirect('servico')
+
+    form = ServicoForm(instance=servico)
+
+    context = {
+        'form': form,
+        'servico': servico,
+        'categorias': categorias,
+    }
+
+    return render(request, 'portal/servico_edit.html', context)
+
+
+@staff_member_required
+def servico_delete(request, servico_id):
+    servico = get_object_or_404(Servico, pk=servico_id)
+
+    if request.method == 'POST':
+        servico.delete()
+
+        messages.success(request, 'Serviço excluído.')
+
+    return redirect('servico')
+
+@login_required
+def encaminhamento(request):
+    cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa)
+    encaminhamentos = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa, user=request.user,
+                                            data__year=date.today().year)
+
+    context = {
+        'cursos': cursos,
+        'encaminhamentos': encaminhamentos
+    }
+    return render(request, 'portal/encaminhamento.html', context)
+
+
+@login_required
+def encaminhamento_show(request, encaminhamento_id):
+    encaminhamento = get_object_or_404(Encaminhamento, id=encaminhamento_id)
+    ano = date.today().year
+
+    context = {
+        'encaminhamento': encaminhamento,
+        'ano': ano
+    }
+
+    return render(request, 'portal/encaminhamento_show.html', context)
+
+
+@login_required
+def encaminhamento_new(request):
+    if request.method == 'POST':
+        form = EncaminhamentoForm(request.POST)
+
+        if not form.is_valid():
+            id = request.POST['SelectTurma']
+            turma = get_object_or_404(Turma, id=id)
+            matriculas = Matricula.objects.filter(turma=turma, ano_letivo=int(date.today().year))
+
+            servico_categorias = ServicoCategoria.objects.all().order_by('id')
+
+            form = EncaminhamentoForm()
+
+            context = {
+                'servico_categorias': servico_categorias,
+                'matriculas': matriculas,
+                'turma': turma,
+                'ano': int(date.today().year),
+                'form': form
+            }
+
+    return render(request, 'portal/encaminhamento_new.html', context)
+
+@login_required
+def encaminhamento_register(request):
+    if request.method == 'POST':
+        form = EncaminhamentoForm(request.POST)
+
+        if form.is_valid():
+            mat = Matricula.objects.filter(turma=request.POST['turma'])
+
+            for m in mat:
+                if 'mat_' + str(m.aluno.id) in request.POST:
+                    encaminhamento = Encaminhamento()
+
+                    matricula = get_object_or_404(Matricula, id=m.id)
+
+                    servico_id = request.POST['SelectServico']
+                    servico = get_object_or_404(Servico, id=servico_id)
+
+                    encaminhamento.matricula = matricula
+                    encaminhamento.servico = servico
+                    encaminhamento.data = form.cleaned_data['data']
+                    encaminhamento.descricao = form.cleaned_data['descricao']
+                    encaminhamento.providencias = form.cleaned_data['providencias']
+                    encaminhamento.outras_informacoes = form.cleaned_data['outras_informacoes']
+
+                    encaminhamento.user = request.user
+                    encaminhamento.empresa = request.user.userprofile.empresa
+
+                    encaminhamento.save()
+
+                    # email = []
+                    # # EMAIL DO RESPONSÁVEL PELAS OCORRÊNCIAS
+                    # email.append(request.user.userprofile.empresa.email_responsavel_ocorrencia)
+                    # # EMAIL DO PROFESSOR
+                    # email.append(request.user.email)
+                    # # EMAIL DO COORDENADOR
+                    # email.append(ocorrencia.matricula.turma.curso.email)
+                    #
+                    # # VERIFICA SE TEM EMAIL DO RESPONSÁVEL
+                    # if ocorrencia.matricula.aluno.email_responsavel:
+                    #     email.append(ocorrencia.matricula.aluno.email_responsavel)
+                    #
+                    # # VERIFICA SE TEM EMAIL DO ALUNO
+                    # if ocorrencia.matricula.aluno.email:
+                    #     email.append(ocorrencia.matricula.aluno.email)
+                    #
+                    # # ENVIA OS E-MAILS
+                    # RegistraOcorrenciaMail(ocorrencia).send(email)
+
+            return redirect('encaminhamento')
+        else:
+            form = EncaminhamentoForm()
+
+            context = {
+                # 'matriculas': matriculas,
+                'turma': turma,
+                'form': form
+            }
+
+            return render(request, 'portal/encaminhamento.html', context)
+
+@login_required
+def encaminhamento_delete(request, encaminhamento_id):
+    encaminhamento = get_object_or_404(Encaminhamento, pk=encaminhamento_id)
+
+    if request.method == 'POST':
+        encaminhamento.delete()
+
+        messages.success(request, 'Encaminhamento excluído.')
+
+    return redirect('encaminhamento')

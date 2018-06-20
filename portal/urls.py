@@ -16,6 +16,14 @@ urlpatterns = [
     url('^ocorrencia/new$', views.ocorrencia_new, name='ocorrencia_new'),
     url('^ocorrencia$', views.ocorrencia, name='ocorrencia'),
 
+    # url('^encaminhamento/relatorio/(?P<aluno_id>\d+)$', views.encaminhamento_relatorio, name='encaminhamento_relatorio'),
+    url('^encaminhamento/register$', views.encaminhamento_register, name='encaminhamento_register'),
+    url('^encaminhamento/delete/(?P<encaminhamento_id>\d+)$', views.encaminhamento_delete, name='encaminhamento_delete'),
+    url('^encaminhamento/show/(?P<encaminhamento_id>\d+)$', views.encaminhamento_show, name='encaminhamento_show'),
+    url('^encaminhamento/new$', views.encaminhamento_new, name='encaminhamento_new'),
+    url('^encaminhamento', views.encaminhamento, name='encaminhamento'),
+
+
     url('^aluno/delete/(?P<aluno_id>\d+)$', views.aluno_delete, name='aluno_delete'),
     url('^aluno/edit/(?P<aluno_id>\d+)$', views.aluno_edit, name='aluno_edit'),
     url('^aluno/new$', views.aluno_new, name='aluno_new'),
@@ -47,5 +55,15 @@ urlpatterns = [
 
     url(r'^report/ocorrencia/turma', views.report_ocorrencia_turma, name='report_ocorrencia_turma'),
     url(r'^report/general$', views.report_general, name='report_general'),
+
+    url('^servico/categoria/delete/(?P<servico_categoria_id>\d+)$', views.servico_categoria_delete, name='servico_categoria_delete'),
+    url('^servico/categoria/edit/(?P<servico_categoria_id>\d+)$', views.servico_categoria_edit, name='servico_categoria_edit'),
+    url('^servico/categoria/new$', views.servico_categoria_new, name='servico_categoria_new'),
+    url('^servico/categoria', views.servico_categoria, name='servico_categoria'),
+
+    url('^servico/delete/(?P<servico_id>\d+)$', views.servico_delete, name='servico_delete'),
+    url('^servico/edit/(?P<servico_id>\d+)$', views.servico_edit, name='servico_edit'),
+    url('^servico/new$', views.servico_new, name='servico_new'),
+    url('^servico', views.servico, name='servico'),
 
 ]

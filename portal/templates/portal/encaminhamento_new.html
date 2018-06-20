@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
-{% block title %}Registrar Ocorrência - Gestão de Ocorrências - SIGO{% endblock %}
+{% block title %}Registrar Encaminhamento - Gestão de Ocorrências - SIGO{% endblock %}
 {% block class_ocorrencia_menu %}active{% endblock %}
-{% block class_ocorrencia_disciplinar_item %}collapsible-header active{% endblock %}
+{% block class_ocorrencia_encaminhamento_item %}collapsible-header active{% endblock %}
 {% load widget_tweaks %}
 
 {% block breadcrumb_base %}
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
-        <li class="breadcrumb-item"><a href="{% url 'ocorrencia' %}">Ocorrências</a></li>
-        <li class="breadcrumb-item active">Registrar ocorrência</li>
+        <li class="breadcrumb-item"><a href="{% url 'encaminhamento' %}">Encaminhamentos</a></li>
+        <li class="breadcrumb-item active">Registrar encaminhamento</li>
     </ol>
 {% endblock %}
 
 {% block content %}
-    <form action="{% url 'ocorrencia_register' %}" method="POST">
+    <form action="{% url 'encaminhamento_register' %}" method="POST">
         <div class="row">
             <div class="col-sm-6">
                 <div class="card">
@@ -58,7 +58,7 @@
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-header gradient white-text">
-                        DADOS DA OCORRÊNCIA DISCIPLINAR
+                        DADOS DO ENCAMINHAMENTO
                     </div>
                     <div class="card-body">
                         <input type="hidden" value="{{ turma.id }}" name="turma">
@@ -75,19 +75,19 @@
                         <div class="form-row">
                             <div class="col">
                                 <div class="md-form">
-                                    <select name="SelectFalta" id="SelectFalta"
+                                    <select name="SelectServico" id="SelectServico"
                                             class="mdb-select colorful-select dropdown-ins" searchable="Pesquisar..."
                                             required>
-                                        <option value="" disabled selected>Selecione a falta</option>
-                                        {% for c in categorias %}
-                                            <optgroup label="ART. {{ c.artigo }} - {{ c.descricao|upper }}">
-                                                {% for f in c.retorna_faltas %}
-                                                    <option value={{ f.id }}>{{ f.inciso }} - {{ f.descricao }}</option>
+                                        <option value="" disabled selected>Selecione o serviço</option>
+                                        {% for c in servico_categorias %}
+                                            <optgroup label="{{ c.descricao|upper }}">
+                                                {% for s in c.retorna_servicos %}
+                                                    <option value={{ s.id }}>{{ s.descricao }}</option>
                                                 {% endfor %}
                                             </optgroup>
                                         {% endfor %}
                                     </select>
-                                    <label for="SelectFalta">Falta</label>
+                                    <label for="SelectServico">Serviço</label>
                                 </div>
                             </div>
                         </div>
@@ -103,10 +103,28 @@
 
                         <div class="form-row">
                             <div class="col">
+                                <div class="md-form">
+                                    <label>{{ form.providencias.label }}</label>
+                                    {{ form.providencias }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="md-form">
+                                    <label>{{ form.outras_informacoes.label }}</label>
+                                    {{ form.outras_informacoes }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col">
                                 <div class="float-right">
                                     <button type="submit" class="btn btn-sm btn-success" data-toggle="tooltip"
                                             data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
-                                    <a href="{% url 'ocorrencia' %}" class="btn btn-sm danger-color"
+                                    <a href="{% url 'encaminhamento' %}" class="btn btn-sm danger-color"
                                        data-toggle="tooltip"
                                        data-placement="top" title="Cancelar"><i
                                             class="fa fa-close"></i></a>

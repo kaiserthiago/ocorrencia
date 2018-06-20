@@ -97,13 +97,15 @@ class Aluno(AuditoriaMixin):
 
     @property
     def count_cat_ocorrencia(self):
-        return Ocorrencia.objects.filter(data__year=date.today().year, matricula__aluno_id=self.id).order_by('falta__categoria__artigo').values(
-        'falta__categoria__descricao').annotate(qtde=Count('falta__categoria__descricao')).distinct()
+        return Ocorrencia.objects.filter(data__year=date.today().year, matricula__aluno_id=self.id).order_by(
+            'falta__categoria__artigo').values(
+            'falta__categoria__descricao').annotate(qtde=Count('falta__categoria__descricao')).distinct()
 
     @property
     def count_ocorrencia(self):
-        return Ocorrencia.objects.filter(data__year=date.today().year, matricula__aluno_id=self.id).order_by().values('matricula__aluno__nome').annotate(
-        qtde=Count('matricula__aluno__nome')).distinct()
+        return Ocorrencia.objects.filter(data__year=date.today().year, matricula__aluno_id=self.id).order_by().values(
+            'matricula__aluno__nome').annotate(
+            qtde=Count('matricula__aluno__nome')).distinct()
 
 
 class Matricula(AuditoriaMixin):
@@ -169,3 +171,49 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, unique=True, on_delete=models.CASCADE)
     empresa = models.ForeignKey(Empresa, blank=True, null=True, on_delete=models.DO_NOTHING)
     siape = models.IntegerField()
+
+
+class ServicoCategoria(AuditoriaMixin):
+    descricao = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.descricao
+
+    class Meta:
+        verbose_name_plural = 'Categorias de serviços'
+        ordering = ['descricao']
+
+    @property
+    def retorna_servicos(self):
+        return self.servico_set.all().order_by('descricao')
+
+
+class Servico(AuditoriaMixin):
+    categoria = models.ForeignKey(ServicoCategoria, on_delete=models.DO_NOTHING)
+    descricao = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.descricao
+
+    class Meta:
+        verbose_name_plural = 'Serviços'
+        ordering = ['descricao']
+
+
+class Encaminhamento(AuditoriaMixin):
+    matricula = models.ForeignKey(Matricula, on_delete=models.DO_NOTHING)
+    data = models.DateField()
+    servico = models.ForeignKey(Servico, on_delete=models.DO_NOTHING)
+    descricao = models.TextField(blank=True, null=True)
+    providencias = models.TextField(blank=True, null=True)
+    outras_informacoes = models.TextField(blank=True, null=True)
+    analise = models.TextField(blank=True, null=True)
+    responsavel_analise = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='responsavel_analise',
+                                            blank=True, null=True)
+
+    def __str__(self):
+        return str(self.id)
+
+    class Meta:
+        verbose_name_plural = 'Encaminhamentos'
+        ordering = ['-data', 'matricula__aluno']

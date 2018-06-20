@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
-{% block title %}Cursos - Gestão de Ocorrências - SIGO{% endblock %}
-{% block class_cadastro_menu %}active{% endblock %}
-{% block class_cadastro_curso_item %}collapsible-header active{% endblock %}
+{% block title %}Encaminhamentos - Gestão de Ocorrências - SIGO{% endblock %}
+{% block class_ocorrencia_menu %}active{% endblock %}
+{% block class_ocorrencia_encaminhamento_item %}collapsible-header active{% endblock %}
 
 {% block breadcrumb_base %}
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
-        <li class="breadcrumb-item active">Cursos</li>
+        <li class="breadcrumb-item active">Encaminhamentos</li>
     </ol>
 {% endblock %}
 
@@ -15,7 +15,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header gradient white-text">
-                    CURSOS
+                    ENCAMINHAMENTOS
                 </div>
                 <div class="card-body">
                     <div class="form-row">
@@ -27,41 +27,53 @@
                         </div>
                         <div class="col">
                             <div class="float-right">
-                                <a href="{% url 'curso_new' %}" class="btn btn-success"><i class="fa fa-plus"></i> Novo
+                                <a data-toggle="modal" href="#ModalRegistrarEncaminhamento" class="btn btn-success"><i
+                                        class="fa fa-plus"></i> Novo
                                     Registro</a>
                             </div>
                         </div>
                     </div>
                     <div class="table-responsive">
-                        <table class="table table-sm table-hover">
+                        <table class="table table-sm table-hover btn-table">
                             <thead>
                             <tr>
+                                <th style="font-weight: bold">#</th>
+                                <th style="font-weight: bold">Turma</th>
+                                <th style="font-weight: bold">Aluno</th>
+                                <th style="font-weight: bold">Data</th>
                                 <th style="font-weight: bold">Descrição</th>
-                                <th style="font-weight: bold">E-mail coordenação</th>
                                 <th style="text-align: right; font-weight: bold">Ações</th>
                             </tr>
                             </thead>
                             <tbody id="myTable">
-                            {% for curso in cursos %}
+                            {% for encaminhamento in encaminhamentos %}
                                 <tr>
-                                    <td style="vertical-align: middle;">{{ curso.descricao }}</td>
-                                    <td style="vertical-align: middle;">{{ curso.email }}</td>
+                                    <td style="vertical-align: middle;">{{ encaminhamento.id }}</td>
+                                    <td style="vertical-align: middle;">{{ encaminhamento.matricula.turma }}</td>
+                                    <td style="vertical-align: middle;">{{ encaminhamento.matricula.aluno }}</td>
+                                    <td style="vertical-align: middle;">{{ encaminhamento.data }}</td>
+                                    <td style="vertical-align: middle;">{{ encaminhamento.descricao|truncatechars:30 }}</td>
                                     <td style="vertical-align: middle; text-align: right">
-                                        <a href="{% url 'curso_edit' curso.id %}"
-                                           class="btn-floating btn-sm warning-color"
-                                           data-toggle="tooltip" data-placement="top" title="Editar"><i
-                                                class="fa fa-pencil"></i>
+
+                                        <a href="{% url 'encaminhamento_show' encaminhamento.id %}"
+                                           class="btn-floating btn-sm info-color"
+                                           data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fa fa-search"></i>
                                         </a>
 
+                                        {#                                        <a href="#" class="btn-floating btn-sm warning-color"#}
+                                        {#                                           data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil"></i>#}
+                                        {#                                        </a>#}
+
                                         <i data-toggle="tooltip" data-placement="top" title="Excluir">
-                                            <a data-toggle="modal" href="#Excluir{{ curso.id }}"
+                                            <a data-toggle="modal" href="#Excluir{{ encaminhamento.id }}"
                                                class="btn-floating btn-sm danger-color"
                                                title="Excluir"><i class="fa fa-trash"></i>
                                             </a>
                                         </i>
 
                                         <!--Modal EXCLUIR-->
-                                        <div class="modal fade" id="Excluir{{ curso.id }}" tabindex="-1" role="dialog"
+                                        <div class="modal fade" id="Excluir{{ encaminhamento.id }}" tabindex="-1"
+                                             role="dialog"
                                              aria-labelledby="myModalLabel"
                                              aria-hidden="true">
                                             <div class="modal-dialog modal-notify modal-danger" role="document">
@@ -77,7 +89,7 @@
                                                     </div>
                                                     <!--Body-->
                                                     <div class="modal-body">
-                                                        <form action="{% url 'curso_delete' curso.id %}"
+                                                        <form action="{% url 'encaminhamento_delete' encaminhamento.id %}"
                                                               method="POST">
                                                             {% csrf_token %}
                                                             <div class="row text-left">
@@ -107,9 +119,8 @@
                                 </tr>
                             {% empty %}
                                 <tr>
-                                    <td colspan="3" class="card-header warning-color white-text text-center">Sem cursos
-                                        cadastrados
-                                    </td>
+                                    <td colspan="6" class="card-header warning-color white-text text-center"><strong>
+                                        NÃO HÁ ENCAMINHAMENTOS REGISTRADOS</strong></td>
                                 </tr>
                             {% endfor %}
                             </tbody>
@@ -117,6 +128,56 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block modal %}
+    <!--Modal TURMA-->
+    <div class="modal fade" id="ModalRegistrarEncaminhamento" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-success" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header text-center">
+                    <h4 class="modal-title white-text w-100 font-bold py-2">Registrar encaminhamento</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body">
+                    <form action="{% url 'encaminhamento_new' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="md-form">
+                            <select name="SelectTurma" id="SelectTurma"
+                                    class="mdb-select colorful-select dropdown-primary dropdown-ins"
+                                    searchable="Pesquisar..." required>
+                                <option value="" disabled selected>Selecione a turma</option>
+                                {% for c in cursos %}
+                                    {% if c.retorna_turmas %}
+                                        <optgroup label="{{ c.descricao }}">
+                                            {% for t in c.retorna_turmas %}
+                                                <option value={{ t.id }}>{{ t.descricao }}</option>
+                                            {% endfor %}
+                                        </optgroup>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                            <label for="SelectTurma">Turma</label>
+                        </div>
+                        <br>
+                        <!--Footer-->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary-modal waves-effect">Enviar</button>
+                            <a type="button" class="btn btn-outline-secondary-modal"
+                               data-dismiss="modal">Voltar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--/.Content-->
         </div>
     </div>
 {% endblock %}
