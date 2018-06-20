@@ -16,7 +16,7 @@ urlpatterns = [
     url('^ocorrencia/new$', views.ocorrencia_new, name='ocorrencia_new'),
     url('^ocorrencia$', views.ocorrencia, name='ocorrencia'),
 
-    url('^aluno/delete/(?P<aluno_id>\d+)', views.aluno_delete, name='aluno_delete'),
+    url('^aluno/delete/(?P<aluno_id>\d+)$', views.aluno_delete, name='aluno_delete'),
     url('^aluno/edit/(?P<aluno_id>\d+)$', views.aluno_edit, name='aluno_edit'),
     url('^aluno/new$', views.aluno_new, name='aluno_new'),
     url('^aluno$', views.aluno, name='aluno'),

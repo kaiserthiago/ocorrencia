@@ -165,6 +165,8 @@ def aluno(request):
 
 @staff_member_required
 def aluno_new(request):
+    qs = request.GET.get('qs', '')
+
     if request.method == 'POST':
         form = AlunoForm(request.POST)
 
@@ -172,7 +174,10 @@ def aluno_new(request):
             aluno = Aluno()
 
             aluno.nome = form.cleaned_data['nome'].upper()
-            aluno.responsavel = form.cleaned_data['responsavel'].upper()
+            if form.cleaned_data['responsavel']:
+                aluno.responsavel = form.cleaned_data['responsavel'].upper()
+            else:
+                aluno.responsavel = ''
 
             if form.cleaned_data['email']:
                 aluno.email = form.cleaned_data['email'].lower()
@@ -189,7 +194,7 @@ def aluno_new(request):
 
             aluno.save()
 
-            return redirect('aluno')
+            return redirect('/aluno?qs=a')
 
     form = AlunoForm()
 
@@ -203,12 +208,17 @@ def aluno_new(request):
 @staff_member_required
 def aluno_edit(request, aluno_id):
     aluno = get_object_or_404(Aluno, pk=aluno_id)
+    qs = request.GET.get('qs', '')
 
     if request.method == 'POST':
         form = AlunoForm(request.POST)
         if form.is_valid():
             aluno.nome = form.cleaned_data['nome'].upper()
-            aluno.responsavel = form.cleaned_data['responsavel'].upper()
+
+            if form.cleaned_data['responsavel']:
+                aluno.responsavel = form.cleaned_data['responsavel'].upper()
+            else:
+                aluno.responsavel = ''
 
             if form.cleaned_data['email']:
                 aluno.email = form.cleaned_data['email'].lower()
@@ -226,7 +236,7 @@ def aluno_edit(request, aluno_id):
 
             messages.success(request, 'Aluno atualizado.')
 
-            return redirect('aluno')
+            return redirect('/aluno?qs=a')
 
     form = AlunoForm(instance=aluno)
 
