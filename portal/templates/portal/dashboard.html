@@ -62,7 +62,8 @@
                             </p>
                             <form action="" method="POST">
                                 {% csrf_token %}
-                                <select name="CourseOcorrencia" id="CourseOcorrencia" class="mdb-select colorful-select dropdown-success"
+                                <select name="CourseOcorrencia" id="CourseOcorrencia"
+                                        class="mdb-select colorful-select dropdown-success"
                                         onchange="this.form.submit();">
                                     <option value="" disabled
                                             {% if not distribuicao %}selected{% endif %}>Selecione...
@@ -87,22 +88,29 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        {% if distribuicao %}
-                            <div class="col">
-                                <canvas id="turma" height="200"></canvas>
-                            </div>
-                            <hr class="w-100 clearfix d-md-none">
-
-                            <div class="col">
-                                <canvas id="distribuicao" height="200"></canvas>
-                            </div>
-                        {% else %}
-                            <div class="col">
-                                <div class="alert card-header success-color-dark white-text text-center">
-                                    <strong>SELECIONE O CURSO PARA VER O GRÁFICO</strong>
+                        {% if categorias %}
+                            {% if distribuicao %}
+                                <div class="col">
+                                    <canvas id="turma" height="200"></canvas>
                                 </div>
+                                <hr class="w-100 clearfix d-md-none">
+
+                                <div class="col">
+                                    <canvas id="distribuicao" height="200"></canvas>
+                                </div>
+                            {% else %}
+                                <div class="col">
+                                    <div class="alert card-header success-color-dark white-text text-center">
+                                        <strong>SELECIONE O CURSO PARA VER O GRÁFICO</strong>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% else %}
+                            <div class="card-header warning-color white-text text-center">
+                                <strong>NÃO HÁ OCORRÊNCIAS</strong>
                             </div>
                         {% endif %}
+
                     </div>
                 </div>
             </div>
@@ -162,7 +170,8 @@
                             </p>
                             <form action="" method="POST">
                                 {% csrf_token %}
-                                <select name="CourseEncaminhamento" id="CourseEncaminhamento" class="mdb-select colorful-select dropdown-primary"
+                                <select name="CourseEncaminhamento" id="CourseEncaminhamento"
+                                        class="mdb-select colorful-select dropdown-primary"
                                         onchange="this.form.submit();">
                                     <option value="" disabled
                                             {% if not distribuicao_encaminhamento %}selected{% endif %}>Selecione...
@@ -187,20 +196,26 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        {% if distribuicao_encaminhamento %}
-                            <div class="col">
-                                <canvas id="turma_encaminhamento" height="200"></canvas>
-                            </div>
-                            <hr class="w-100 clearfix d-md-none">
-
-                            <div class="col">
-                                <canvas id="distribuicao_encaminhamento" height="200"></canvas>
-                            </div>
-                        {% else %}
-                            <div class="col">
-                                <div class="alert card-header info-color-dark white-text text-center">
-                                    <strong>SELECIONE O CURSO PARA VER O GRÁFICO</strong>
+                        {% if servico_categorias %}
+                            {% if distribuicao_encaminhamento %}
+                                <div class="col">
+                                    <canvas id="turma_encaminhamento" height="200"></canvas>
                                 </div>
+                                <hr class="w-100 clearfix d-md-none">
+
+                                <div class="col">
+                                    <canvas id="distribuicao_encaminhamento" height="200"></canvas>
+                                </div>
+                            {% else %}
+                                <div class="col">
+                                    <div class="alert card-header info-color-dark white-text text-center">
+                                        <strong>SELECIONE O CURSO PARA VER O GRÁFICO</strong>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% else %}
+                            <div class="card-header warning-color white-text text-center">
+                                <strong>NÃO HÁ ENCAMINHAMENTOS</strong>
                             </div>
                         {% endif %}
                     </div>
