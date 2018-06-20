@@ -15,7 +15,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.template.defaultfilters import upper, lower
 from tablib import Dataset
 
-from portal.emails import RegistraOcorrenciaMail, ConfirmaUsuarioMail
+from portal.emails import RegistraOcorrenciaMail, ConfirmaUsuarioMail, RegistraEncaminhamentoMail
 from portal.forms import OcorrenciaForm, CursoForm, TurmaForm, AlunoForm, UserForm, UserProfileForm, \
     ServicoCategoriaForm, ServicoForm, EncaminhamentoForm
 from portal.models import Curso, Aluno, Turma, Ocorrencia, Matricula, CategoriaFalta, Falta, UserProfile, \
@@ -1231,14 +1231,14 @@ def encaminhamento_register(request):
 
                     encaminhamento.save()
 
-                    # email = []
-                    # # EMAIL DO RESPONSÁVEL PELAS OCORRÊNCIAS
-                    # email.append(request.user.userprofile.empresa.email_responsavel_ocorrencia)
-                    # # EMAIL DO PROFESSOR
-                    # email.append(request.user.email)
-                    # # EMAIL DO COORDENADOR
-                    # email.append(ocorrencia.matricula.turma.curso.email)
-                    #
+                    email = []
+                    # EMAIL DO RESPONSÁVEL PELAS OCORRÊNCIAS
+                    email.append(request.user.userprofile.empresa.email_responsavel_ocorrencia)
+                    # EMAIL DO PROFESSOR
+                    email.append(request.user.email)
+                    # EMAIL DO COORDENADOR
+                    email.append(encaminhamento.matricula.turma.curso.email)
+
                     # # VERIFICA SE TEM EMAIL DO RESPONSÁVEL
                     # if ocorrencia.matricula.aluno.email_responsavel:
                     #     email.append(ocorrencia.matricula.aluno.email_responsavel)
@@ -1246,9 +1246,9 @@ def encaminhamento_register(request):
                     # # VERIFICA SE TEM EMAIL DO ALUNO
                     # if ocorrencia.matricula.aluno.email:
                     #     email.append(ocorrencia.matricula.aluno.email)
-                    #
-                    # # ENVIA OS E-MAILS
-                    # RegistraOcorrenciaMail(ocorrencia).send(email)
+
+                    # ENVIA OS E-MAILS
+                    RegistraEncaminhamentoMail(encaminhamento).send(email)
 
             return redirect('encaminhamento')
         else:

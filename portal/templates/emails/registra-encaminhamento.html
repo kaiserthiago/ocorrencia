@@ -1,0 +1,94 @@
+<div style="font-family:&quot;Lucida Grande&quot;,Tahoma;font-size:12px;margin-top:0.5em;color:rgb(102,102,102);letter-spacing:2px;padding-top:3px;padding-left:10px;overflow:hidden">
+    <table border="1" cellpadding="5" cellspacing="0" width="100%">
+        <tr>
+            <td style="text-align: center">
+                <img src="http://frota.pythonanywhere.com/static/img/logo_ifro.png" width="120">
+            </td>
+            <td style="text-align: center; padding: 20px">
+                <p>
+                    <strong>
+                        MINISTÉRIO DA EDUCAÇÃO<br>
+                        {{ encaminhamento.user.userprofile.empresa.razao_social|upper }}<br>
+                        {{ encaminhamento.user.userprofile.empresa|upper }}
+                    </strong>
+                    <br>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center; vertical-align: middle">
+                <strong>REGISTRO DE ENCAMINHAMENTO {{ encaminhamento.id }}/{{ encaminhamento.matricula.ano_letivo }}</strong>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left">
+                <p>
+                    <strong>DATA</strong><br>
+                    {{ encaminhamento.data }}
+                </p>
+            </td>
+            <td>
+                <p>
+                    <strong>CURSO</strong><br>
+                    {{ encaminhamento.matricula.turma|upper }}
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p>
+                    <strong>ESTUDANTE</strong><br>
+                    {{ encaminhamento.matricula.aluno }}
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p>
+                    <strong>DESCRIÇÃO DO ENCAMINHAMENTO</strong><br>
+                    {{ encaminhamento.servico.categoria.descricao|upper }}<br>
+                    {{ encaminhamento.servico.descricao }}
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p>
+                    <strong>DESCRIÇÃO DO ENCAMINHAMENTO</strong><br>
+                    {{ encaminhamento.descricao }}
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center">
+                <p>
+                    <br>
+                    <strong>{{ encaminhamento.user|upper }}</strong><br>
+                    {{ encaminhamento.user.userprofile.siape }}
+                </p>
+            </td>
+        </tr>
+    </table>
+    <br><br>
+    <table border="0" cellpadding="5" cellspacing="0" width="60%" style="font-size: 8.5pt">
+        <tr>
+{#            <td style="text-align: center">#}
+{#                <img src="http://frota.pythonanywhere.com/static/img/logo.png" style="margin-top: 1em;width:130px;">#}
+{#            </td>#}
+            <td style="text-align: left">
+                <p><strong>SIGO&nbsp;<br></strong>
+                    <em>Gestão de Ocorrências&nbsp;</em></p>
+{#                <p>(69) 3443-2445&nbsp;<br><a href="mailto:ocorrencia@ifro.edu.br"#}
+{#                                              style="margin-top:0.5em;color:rgb(102,102,102);text-decoration:none">ocorrencia@ifro.edu.br</a>&nbsp;<br>#}
+{#                </p>#}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="font-size: 7pt">
+                <p style="color: red"><strong>Essa é uma mensagem automática, não é necessário respondê-la.</strong><br>
+                    E-mail foi enviado ao professor que registrou a ocorrência, à
+                    CAED e à Coordenação do Curso.</p>
+            </td>
+        </tr>
+    </table>
+</div>
