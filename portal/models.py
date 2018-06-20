@@ -114,7 +114,7 @@ class Aluno(AuditoriaMixin):
     @property
     def count_cat_encaminhamento(self):
         return Encaminhamento.objects.filter(data__year=date.today().year, matricula__aluno_id=self.id).order_by(
-            'servico__categoria__artigo').values(
+            'servico__categoria__descricao').values(
             'servico__categoria__descricao').annotate(qtde=Count('servico__categoria__descricao')).distinct()
 
     @property

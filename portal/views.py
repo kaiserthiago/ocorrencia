@@ -378,7 +378,6 @@ def dashboard(request):
             distribuicao_ocorrencia = [obj[0] for obj in distribuicao]
             distribuicao_qtde = [obj[1] for obj in distribuicao]
 
-
             # DADOS GRÁFICO DE OCORRÊNCIAS POR TURMA
             turmas = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
                                                matricula__turma__curso=c).order_by(
@@ -464,20 +463,22 @@ def dashboard(request):
 
     # DADOS GRÁFICO DE ENCAMINHAMENTOS POR CATEGORIA
     servico_categorias = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa).order_by(
-        'servico__categoria__descricao').values_list('servico__categoria__descricao').annotate(qtde=Count('id')).distinct()
+        'servico__categoria__descricao').values_list('servico__categoria__descricao').annotate(
+        qtde=Count('id')).distinct()
 
     categorias_faltas_encaminhamento = [obj[0] for obj in servico_categorias]
     qtde_categorias_faltas_encaminhamento = [int(obj[1]) for obj in servico_categorias]
 
     # DADOS GRÁFICO DE ENCAMINHAMENTOS POR CURSO
-    cursos_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa).order_by().values_list(
+    cursos_encaminhamento = Encaminhamento.objects.filter(
+        empresa=request.user.userprofile.empresa).order_by().values_list(
         'matricula__turma__curso__descricao').annotate(qtde=Count('id')).distinct()
 
     cursos_ocorrencia_encaminhamento = [obj[0] for obj in cursos_encaminhamento]
     qtde_cursos_ocorrencia_encaminhamento = [int(obj[1]) for obj in cursos_encaminhamento]
 
     courses_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
-                                        matricula__turma__curso__in=Curso.objects.all()).order_by(
+                                                           matricula__turma__curso__in=Curso.objects.all()).order_by(
         'matricula__turma__curso__descricao').values('matricula__turma__curso__id',
                                                      'matricula__turma__curso__descricao').distinct()
 
@@ -920,6 +921,38 @@ def report_general(request):
 
 
 @staff_member_required
+def report_encaminhamento_turma(request):
+    id = request.POST['SelectTurmaEncaminhamento']
+    turma = get_object_or_404(Turma, id=id)
+    ano = date.today().year
+
+    encaminhamentos = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa, matricula__turma=turma,
+                                            data__year=ano).order_by().values('matricula__aluno__nome').annotate(
+        qtde=Count('matricula__aluno__nome')).distinct()
+
+    total = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa, matricula__turma=turma,
+                                      data__year=ano)
+
+    cat = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
+                                    data__year=date.today().year,
+                                    matricula__turma=turma).order_by('servico__categoria__descricao').values(
+        'servico__categoria__descricao').annotate(qtde=Count('servico__categoria__descricao')).distinct()
+
+    carai = Matricula.objects.filter(turma=turma, ano_letivo=date.today().year)
+
+    context = {
+        'encaminhamentos': encaminhamentos,
+        'turma': turma,
+        'ano': ano,
+        'total': total,
+        'cat': cat,
+        'carai': carai
+    }
+
+    return render(request, 'portal/report_encaminhamento_turma.html', context)
+
+
+@staff_member_required
 def report_ocorrencia_turma(request):
     id = request.POST['SelectTurma']
     turma = get_object_or_404(Turma, id=id)
@@ -949,6 +982,7 @@ def report_ocorrencia_turma(request):
     }
 
     return render(request, 'portal/report_ocorrencia_turma.html', context)
+
 
 @staff_member_required
 def servico_categoria(request):
@@ -1024,6 +1058,7 @@ def servico_categoria_delete(request, servico_categoria_id):
         messages.success(request, 'Categoria de serviço excluída.')
 
     return redirect('servico_categoria')
+
 
 @staff_member_required
 def servico(request):
@@ -1115,11 +1150,12 @@ def servico_delete(request, servico_id):
 
     return redirect('servico')
 
+
 @login_required
 def encaminhamento(request):
     cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa)
     encaminhamentos = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa, user=request.user,
-                                            data__year=date.today().year)
+                                                    data__year=date.today().year)
 
     context = {
         'cursos': cursos,
@@ -1164,6 +1200,7 @@ def encaminhamento_new(request):
             }
 
     return render(request, 'portal/encaminhamento_new.html', context)
+
 
 @login_required
 def encaminhamento_register(request):
@@ -1225,6 +1262,7 @@ def encaminhamento_register(request):
 
             return render(request, 'portal/encaminhamento.html', context)
 
+
 @login_required
 def encaminhamento_delete(request, encaminhamento_id):
     encaminhamento = get_object_or_404(Encaminhamento, pk=encaminhamento_id)
@@ -1236,14 +1274,15 @@ def encaminhamento_delete(request, encaminhamento_id):
 
     return redirect('encaminhamento')
 
+
 @login_required
 def encaminhamento_relatorio(request, aluno_id):
     aluno = get_object_or_404(Aluno, id=aluno_id)
     encaminhamentos = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
-                                            data__year=date.today().year, matricula__aluno=aluno_id)
+                                                    data__year=date.today().year, matricula__aluno=aluno_id)
     count_encaminhamentos = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
-                                                  data__year=date.today().year,
-                                                  matricula__aluno=aluno_id).order_by().values(
+                                                          data__year=date.today().year,
+                                                          matricula__aluno=aluno_id).order_by().values(
         'servico__categoria__descricao').annotate(qtde=Count('servico__categoria__descricao')).distinct()
 
     context = {
