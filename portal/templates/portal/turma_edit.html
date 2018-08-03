@@ -36,7 +36,7 @@
                                         searchable="Pesquisar..." required>
                                     <option value="" disabled selected>Selecione o curso</option>
                                     {% for curso in cursos %}
-                                        <option value={{ c.id }} {% if turma and curso.id == c.id %}selected{% endif %}>{{ curso.descricao }}</option>
+                                        <option value={{ curso.id }} {% if turma and curso.id == c.id %}selected{% endif %}>{{ curso.descricao }}</option>
                                     {% endfor %}
                                 </select>
                                 <label for="SelectCurso">Curso</label>
