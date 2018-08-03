@@ -1062,7 +1062,7 @@ def servico_categoria_delete(request, servico_categoria_id):
 
 @staff_member_required
 def servico(request):
-    servicos = Servico.objects.filter(empresa=request.user.userprofile.empresa)
+    servicos = Servico.objects.filter(empresa=request.user.userprofile.empresa).order_by('categoria__descricao', 'descricao')
 
     context = {
         'servicos': servicos
