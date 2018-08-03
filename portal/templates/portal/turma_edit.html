@@ -36,8 +36,7 @@
                                         searchable="Pesquisar..." required>
                                     <option value="" disabled selected>Selecione o curso</option>
                                     {% for curso in cursos %}
-                                        <option value={{ c.id }}
-                                                        {% if turma and curso.id == c.id %}selected{% endif %}>{{ c.descricao }}</option>
+                                        <option value={{ c.id }} {% if turma and curso.id == c.id %}selected{% endif %}>{{ curso.descricao }}</option>
                                     {% endfor %}
                                 </select>
                                 <label for="SelectCurso">Curso</label>
@@ -46,8 +45,10 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="float-right">
-                                    <button type="submit" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
-                                    <a href="{% url 'turma' %}" class="btn danger-color"  data-toggle="tooltip" data-placement="top" title="Cancelar"><i
+                                    <button type="submit" class="btn btn-success" data-toggle="tooltip"
+                                            data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
+                                    <a href="{% url 'turma' %}" class="btn danger-color" data-toggle="tooltip"
+                                       data-placement="top" title="Cancelar"><i
                                             class="fa fa-close"></i></a>
                                 </div>
                             </div>
