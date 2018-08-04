@@ -233,3 +233,20 @@ class Encaminhamento(AuditoriaMixin):
     class Meta:
         verbose_name_plural = 'Encaminhamentos'
         ordering = ['-data', 'matricula__aluno']
+
+class Autorizacao(AuditoriaMixin):
+    status_choiches = (
+        ('Autorizado', 'Autorizado'),
+        ('Efetuado', 'Efetuado'),
+    )
+    status = models.CharField(choices=status_choiches, max_length=30, default='Autorizado')
+    matricula = models.ForeignKey(Matricula, on_delete=models.DO_NOTHING)
+    data = models.DateField()
+    descricao = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return str(self.id)
+
+    class Meta:
+        verbose_name_plural = 'Autorizações de saída'
+        ordering = ['-data', 'matricula__aluno']

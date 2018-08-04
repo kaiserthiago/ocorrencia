@@ -15,11 +15,12 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.template.defaultfilters import upper, lower
 from tablib import Dataset
 
-from portal.emails import RegistraOcorrenciaMail, ConfirmaUsuarioMail, RegistraEncaminhamentoMail
+from portal.emails import RegistraOcorrenciaMail, ConfirmaUsuarioMail, RegistraEncaminhamentoMail, \
+    RegistraAutorizacaoSaidaMail
 from portal.forms import OcorrenciaForm, CursoForm, TurmaForm, AlunoForm, UserForm, UserProfileForm, \
-    ServicoCategoriaForm, ServicoForm, EncaminhamentoForm
+    ServicoCategoriaForm, ServicoForm, EncaminhamentoForm, AutorizacaoForm
 from portal.models import Curso, Aluno, Turma, Ocorrencia, Matricula, CategoriaFalta, Falta, UserProfile, \
-    ServicoCategoria, Servico, Encaminhamento
+    ServicoCategoria, Servico, Encaminhamento, Autorizacao
 
 
 def home(request):
@@ -927,15 +928,16 @@ def report_encaminhamento_turma(request):
     ano = date.today().year
 
     encaminhamentos = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa, matricula__turma=turma,
-                                            data__year=ano).order_by().values('matricula__aluno__nome').annotate(
+                                                    data__year=ano).order_by().values(
+        'matricula__aluno__nome').annotate(
         qtde=Count('matricula__aluno__nome')).distinct()
 
     total = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa, matricula__turma=turma,
-                                      data__year=ano)
+                                          data__year=ano)
 
     cat = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
-                                    data__year=date.today().year,
-                                    matricula__turma=turma).order_by('servico__categoria__descricao').values(
+                                        data__year=date.today().year,
+                                        matricula__turma=turma).order_by('servico__categoria__descricao').values(
         'servico__categoria__descricao').annotate(qtde=Count('servico__categoria__descricao')).distinct()
 
     carai = Matricula.objects.filter(turma=turma, ano_letivo=date.today().year)
@@ -1062,7 +1064,8 @@ def servico_categoria_delete(request, servico_categoria_id):
 
 @staff_member_required
 def servico(request):
-    servicos = Servico.objects.filter(empresa=request.user.userprofile.empresa).order_by('categoria__descricao', 'descricao')
+    servicos = Servico.objects.filter(empresa=request.user.userprofile.empresa).order_by('categoria__descricao',
+                                                                                         'descricao')
 
     context = {
         'servicos': servicos
@@ -1292,3 +1295,153 @@ def encaminhamento_relatorio(request, aluno_id):
     }
 
     return render(request, 'portal/encaminhamento_relatorio.html', context)
+
+
+@staff_member_required
+def autorizacao(request):
+    cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa)
+    autorizacoes = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa, user=request.user,
+                                              data__year=date.today().year)
+
+    context = {
+        'cursos': cursos,
+        'autorizacoes': autorizacoes
+    }
+    return render(request, 'portal/autorizacao.html', context)
+
+
+@staff_member_required
+def autorizacao_show(request, autorizacao_id):
+    autorizacao = get_object_or_404(Autorizacao, id=autorizacao_id)
+    ano = date.today().year
+
+    context = {
+        'autorizacao': autorizacao,
+        'ano': ano
+    }
+
+    return render(request, 'portal/autorizacao_show.html', context)
+
+
+@staff_member_required
+def autorizacao_new(request):
+    if request.method == 'POST':
+        form = AutorizacaoForm(request.POST)
+
+        if not form.is_valid():
+            id = request.POST['SelectTurma']
+            turma = get_object_or_404(Turma, id=id)
+            matriculas = Matricula.objects.filter(turma=turma, ano_letivo=int(date.today().year))
+
+            # servico_categorias = ServicoCategoria.objects.all().order_by('id')
+
+            form = AutorizacaoForm()
+
+            context = {
+                # 'servico_categorias': servico_categorias,
+                'matriculas': matriculas,
+                'turma': turma,
+                'ano': int(date.today().year),
+                'form': form
+            }
+
+    return render(request, 'portal/autorizacao_new.html', context)
+
+
+@staff_member_required
+def autorizacao_register(request):
+    if request.method == 'POST':
+        form = AutorizacaoForm(request.POST)
+
+        if form.is_valid():
+            mat = Matricula.objects.filter(turma=request.POST['turma'])
+
+            for m in mat:
+                if 'mat_' + str(m.aluno.id) in request.POST:
+                    autorizacao = Autorizacao()
+
+                    matricula = get_object_or_404(Matricula, id=m.id)
+
+                    autorizacao.matricula = matricula
+                    autorizacao.data = form.cleaned_data['data']
+                    autorizacao.descricao = form.cleaned_data['descricao']
+
+                    autorizacao.user = request.user
+                    autorizacao.empresa = request.user.userprofile.empresa
+
+                    autorizacao.save()
+
+            return redirect('autorizacao')
+        else:
+            form = AutorizacaoForm()
+
+            context = {
+                # 'matriculas': matriculas,
+                'turma': turma,
+                'form': form
+            }
+
+            return render(request, 'portal/autorizacao.html', context)
+
+
+@staff_member_required
+def autorizacao_delete(request, autorizacao_id):
+    autorizacao = get_object_or_404(Autorizacao, pk=autorizacao_id)
+
+    if request.method == 'POST':
+        autorizacao.delete()
+
+        messages.success(request, 'Autorização excluída.')
+
+    return redirect('autorizacao')
+
+
+@staff_member_required
+def autorizacao_relatorio(request, aluno_id):
+    aluno = get_object_or_404(Aluno, id=aluno_id)
+    autorizacoes = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa,
+                                              data__year=date.today().year, matricula__aluno=aluno_id)
+
+    context = {
+        'autorizacoes': autorizacoes,
+        'aluno': aluno,
+    }
+
+    return render(request, 'portal/autorizacao_relatorio.html', context)
+
+
+@login_required
+def autorizacao_pendente(request):
+    autorizacoes = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa, user=request.user,
+                                              data__year=date.today().year, status='Autorizado')
+    context = {
+        'autorizacoes': autorizacoes
+    }
+    return render(request, 'portal/autorizacao_pendente.html', context)
+
+
+@login_required
+def autorizacao_confirmar(request, autorizacao_id):
+    autorizacao = get_object_or_404(Autorizacao, id=autorizacao_id)
+
+    if request.method == 'POST':
+        autorizacao.status = 'Efetuado'
+
+        autorizacao.save()
+
+        email = []
+        # EMAIL DO RESPONSÁVEL PELAS OCORRÊNCIAS
+        email.append(request.user.userprofile.empresa.email_responsavel_ocorrencia)
+
+        # VERIFICA SE TEM EMAIL DO RESPONSÁVEL
+        if autorizacao.matricula.aluno.email_responsavel:
+            email.append(autorizacao.matricula.aluno.email_responsavel)
+
+        # VERIFICA SE TEM EMAIL DO ALUNO
+        if autorizacao.matricula.aluno.email:
+            email.append(autorizacao.matricula.aluno.email)
+
+        # ENVIA OS E-MAILS
+        RegistraAutorizacaoSaidaMail(autorizacao).send(email)
+
+        return redirect('autorizacao_pendente')

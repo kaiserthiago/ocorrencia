@@ -130,6 +130,27 @@
                        class="collapsible-header waves-effect arrow-r {% block class_relatorio_menu %}{% endblock %}"><i
                             class="fa fa-file"></i> Relatório</a>
                 </li>
+            {% endif %}
+
+            <li>
+                <a class="collapsible-header waves-effect arrow-r {% block class_saidas_menu %}{% endblock %}"><i
+                        class="fa fa-sign-out"></i> Saídas<i
+                        class="fa fa-angle-down rotate-icon"></i></a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li>
+                            {% if request.user.is_staff %}
+                                <a href="{% url 'autorizacao' %}"
+                                   class="waves-effect {% block class_saidas_autorizacao_item %}{% endblock %}">Autorização</a>
+                            {% endif %}
+                            <a href="{% url 'autorizacao_pendente' %}"
+                               class="waves-effect {% block class_saidas_autorizacao_confirmar_item %}{% endblock %}">Confirmar
+                                saída</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            {% if request.user.is_staff %}
                 <li>
                     <a class="collapsible-header waves-effect arrow-r {% block class_servicos_menu %}{% endblock %}"><i
                             class="fa fa-cog"></i> Serviços<i
@@ -138,9 +159,11 @@
                         <ul>
                             <li>
                                 <a href="{% url 'servico_categoria' %}"
-                                   class="waves-effect {% block class_servicos_categoria_item %}{% endblock %}">Categoria</a>
+                                   class="waves-effect
+                                       {% block class_servicos_categoria_item %}{% endblock %}">Categoria</a>
                                 <a href="{% url 'servico' %}"
-                                   class="waves-effect {% block class_servicos_servico_item %}{% endblock %}">Serviço</a>
+                                   class="waves-effect
+                                           {% block class_servicos_servico_item %}{% endblock %}">Serviço</a>
                             </li>
                         </ul>
                     </div>

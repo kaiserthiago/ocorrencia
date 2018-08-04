@@ -71,3 +71,16 @@ class ConfirmaUsuarioMail(Maiable):
             template='emails/confirma-usuario.html',
             context={'usuario': self.usuario}
         )
+
+class RegistraAutorizacaoSaidaMail(Maiable):
+    def __init__(self, autorizacao):
+        self.autorizacao = autorizacao
+
+    def send(self, to):
+        super().sendMail(
+            from_email=MAIL_REPLY,
+            to=to,
+            subject='SIGO - Registro de saída - ' + str(self.autorizacao.matricula.aluno),
+            template='emails/registra-saida.html',
+            context={'autorizacao': self.autorizacao}
+        )

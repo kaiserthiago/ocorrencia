@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% block title %}Registrar Autorização - Gestão de Ocorrências - SIGO{% endblock %}
+{% block class_saidas_menu %}active{% endblock %}
+{% block class_saidas_autorizacao_item %}collapsible-header active{% endblock %}
+{% load widget_tweaks %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'autorizacao' %}">Autorizações</a></li>
+        <li class="breadcrumb-item active">Registrar autorização</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <form action="{% url 'autorizacao_register' %}" method="POST">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header gradient white-text">
+                        <div class="float-left">
+                            Curso: {{ turma.curso.descricao|upper }}<br>
+                            <span class="float-lg-left">Turma: {{ turma.descricao }}</span>
+                            <span class="float-right">Ano Letivo: {{ ano }}</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="md-form form-group">
+                            <input id="myInput" type="text" class="form-control form-control-sm" autofocus/>
+                            <label for="myInput">Pesquisar aluno...</label>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-sm table-striped">
+                                <tbody id="myTable">
+                                {% for m in matriculas %}
+                                    <tr>
+                                        <th scope="row" class="pr-md-3 pr-5">
+                                            <input class="form-check-input" type="checkbox" id="id_{{ m.id }}"
+                                                   value="{{ m.id }}"
+                                                   name="mat_{{ m.aluno.id }}">
+                                            <label for="id_{{ m.id }}" class="label-table"></label>
+                                            {#                                            </form>#}
+                                        </th>
+                                        <td>{{ m.aluno }}</td>
+                                    </tr>
+                                {% empty %}
+                                    <tr>
+                                        <td class="card-header warning-color white-text text-center"><strong>NÃO HÁ
+                                            ALUNOS PARA TURMA SELECIONADA</strong></td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header gradient white-text">
+                        DADOS DA AUTORIZAÇÃO
+                    </div>
+                    <div class="card-body">
+                        <input type="hidden" value="{{ turma.id }}" name="turma">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="md-form">
+                                    <label>{{ form.data.label }}</label>
+                                    {{ form.data }}
+                                </div>
+                            </div>
+                        </div>
+
+{#                        <div class="form-row">#}
+{#                            <div class="col">#}
+{#                                <div class="md-form">#}
+{#                                    <select name="SelectServico" id="SelectServico"#}
+{#                                            class="mdb-select colorful-select dropdown-ins" searchable="Pesquisar..."#}
+{#                                            required>#}
+{#                                        <option value="" disabled selected>Selecione o serviço</option>#}
+{#                                        {% for c in servico_categorias %}#}
+{#                                            <optgroup label="{{ c.descricao|upper }}">#}
+{#                                                {% for s in c.retorna_servicos %}#}
+{#                                                    <option value={{ s.id }}>{{ s.descricao }}</option>#}
+{#                                                {% endfor %}#}
+{#                                            </optgroup>#}
+{#                                        {% endfor %}#}
+{#                                    </select>#}
+{#                                    <label for="SelectServico">Serviço</label>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="md-form">
+                                    <label>{{ form.descricao.label }}</label>
+                                    {{ form.descricao }}
+                                </div>
+                            </div>
+                        </div>
+
+{#                        <div class="form-row">#}
+{#                            <div class="col">#}
+{#                                <div class="md-form">#}
+{#                                    <label>{{ form.providencias.label }}</label>#}
+{#                                    {{ form.providencias }}#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+
+{#                        <div class="form-row">#}
+{#                            <div class="col">#}
+{#                                <div class="md-form">#}
+{#                                    <label>{{ form.outras_informacoes.label }}</label>#}
+{#                                    {{ form.outras_informacoes }}#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="float-right">
+                                    <button type="submit" class="btn btn-sm btn-success" data-toggle="tooltip"
+                                            data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
+                                    <a href="{% url 'autorizacao' %}" class="btn btn-sm danger-color"
+                                       data-toggle="tooltip"
+                                       data-placement="top" title="Cancelar"><i
+                                            class="fa fa-close"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

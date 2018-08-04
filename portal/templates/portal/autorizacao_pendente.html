@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block title %}Saídas autorizadas - Gestão de Ocorrências - SIGO{% endblock %}
+{% block class_saidas_menu %}active{% endblock %}
+{% block class_saidas_autorizacao_confirmar_item %}collapsible-header active{% endblock %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb" id="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'autorizacao' %}">Autorizações</a></li>
+        <li class="breadcrumb-item active">Saídas autorizadas</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <!--Panel PENDENTES-->
+    <div class="card">
+        <div class="card-header gradient white-text">SAÍDAS AUTORIZADAS PENDENTES</div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-sm table-hover btn-table">
+                    <thead>
+                    <tr>
+                        <th style="font-weight: bold">#</th>
+                        <th style="font-weight: bold">Aluno</th>
+                        <th style="font-weight: bold">Data</th>
+                        <th style="text-align: right; font-weight: bold">Ações</th>
+                    </tr>
+                    </thead>
+                    <tbody id="myTable">
+                    {% for autorizacao in autorizacoes %}
+                        <tr>
+                            <td style="vertical-align: middle;">{{ autorizacao.id }}</td>
+                            <td style="vertical-align: middle;">{{ autorizacao.matricula.aluno }}</td>
+                            <td style="vertical-align: middle;">{{ autorizacao.data }}</td>
+                            <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
+
+                                <i data-toggle="tooltip" data-placement="top" title="Registrar Saída">
+                                    <a data-toggle="modal" href="#RegistrarSaida{{ autorizacao.id }}"
+                                       class="btn-floating btn-sm success-color"><i
+                                            class="fa fa-check"></i></a>
+                                </i>
+
+                                <!--Modal CONFIRMAR-->
+                                <div class="modal fade" id="RegistrarSaida{{ autorizacao.id }}" tabindex="-1"
+                                     role="dialog"
+                                     aria-labelledby="myModalLabel"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog modal-notify modal-success" role="document">
+                                        <!--Content-->
+                                        <div class="modal-content">
+                                            <!--Header-->
+                                            <div class="modal-header text-center">
+                                                <h4 class="modal-title white-text w-100 font-bold py-2">Registrar
+                                                    saída</h4>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true" class="white-text">&times;</span>
+                                                </button>
+                                            </div>
+                                            <!--Body-->
+                                            <div class="modal-body">
+                                                <form action="{% url 'autorizacao_confirmar' autorizacao.id %}"
+                                                      method="POST">
+                                                    {% csrf_token %}
+                                                    <div class="row text-left">
+                                                        <div class="col-sm-12">
+                                                            <p>Tem certeza que registrar essa saída de
+                                                                <strong>{{ autorizacao.matricula.aluno }}</strong>?</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <button type="submit"
+                                                                class="btn  btn-primary-modal waves-effect">Confirmar
+                                                        </button>
+                                                        <a type="button" class="btn btn-outline-secondary-modal"
+                                                           data-dismiss="modal">
+                                                            Voltar
+                                                        </a>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <!--/.Content-->
+                                    </div>
+                                </div>
+                                <!--Fim Modal CONFIRMAR-->
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="6" class="card-header warning-color white-text text-center"><strong>
+                                NÃO HÁ SAÍDAS AUTORIZADAS</strong></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--/.Panel PENDENTES-->
+{% endblock %}

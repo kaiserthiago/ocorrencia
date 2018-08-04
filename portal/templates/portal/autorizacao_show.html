@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{% block title %}Ocorrência {{ ocorrencia.id }}.{{ ano }} - Gestão de Ocorrências - SIGO{% endblock %}
-{% block class_ocorrencia_menu %}active{% endblock %}
-{% block class_ocorrencia_disciplinar_item %}collapsible-header active{% endblock %}
+{% block title %}Autorização {{ autorizacao.id }}.{{ ano }} - Gestão de Ocorrências - SIGO{% endblock %}
+{% block class_saidas_menu %}active{% endblock %}
+{% block class_saidas_autorizacao_item %}collapsible-header active{% endblock %}
 
 {% load static %}
 {% load widget_tweaks %}
@@ -15,8 +15,8 @@
 {% block breadcrumb_base %}
     <ol class="breadcrumb" id="breadcrumb">
         <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
-        <li class="breadcrumb-item"><a href="{% url 'ocorrencia' %}">Ocorrências</a></li>
-        <li class="breadcrumb-item active">Ocorrência #{{ ocorrencia.id }}</li>
+        <li class="breadcrumb-item"><a href="{% url 'autorizacao' %}">Autorizações</a></li>
+        <li class="breadcrumb-item active">Autorização #{{ autorizacao.id }}</li>
     </ol>
 {% endblock %}
 
@@ -31,7 +31,7 @@
         <div class="col-sm-12">
             <div class="card border-primary mb-3">
                 <div class="card-header gradient white-text" id="card">
-                    OCORRÊNCIA DISCIPLINAR {{ ocorrencia.id }}/{{ ano }}
+                    AUTORIZAÇÃO {{ autorizacao.id }}/{{ ano }}
                 </div>
                 <div class="card-body border-primary">
                     <table class="table table-bordered table-sm">
@@ -42,8 +42,8 @@
                             </td>
                             <td colspan="2" class="text-center font-weight-bold align-middle">
                                 MINISTÉRIO DA EDUCAÇÃO<br>
-                                {{ ocorrencia.user.userprofile.empresa.razao_social|upper }}<br>
-                                {{ ocorrencia.user.userprofile.empresa|upper }}
+                                {{ autorizacao.user.userprofile.empresa.razao_social|upper }}<br>
+                                {{ autorizacao.user.userprofile.empresa|upper }}
                             </td>
                         </tr>
                         </tbody>
@@ -55,19 +55,19 @@
                                 <div class="font-weight-bold">
                                     CURSO
                                 </div>
-                                {{ ocorrencia.matricula.turma }}
+                                {{ autorizacao.matricula.turma }}
                             </td>
                             <td class="text-right">
                                 <div class="font-weight-bold">
                                     DATA
                                 </div>
-                                {{ ocorrencia.data }}
+                                {{ autorizacao.data }}
                             </td>
                             <td class="text-right">
                                 <div class="font-weight-bold">
-                                    OCORRÊNCIA
+                                    AUTORIZAÇÃO DE SAÍDA
                                 </div>
-                                {{ ocorrencia.id }}/{{ ano }}
+                                {{ autorizacao.id }}/{{ ano }}
                             </td>
                         </tr>
                         <tr>
@@ -75,25 +75,15 @@
                                 <div class="font-weight-bold">
                                     ESTUDANTE
                                 </div>
-                                {{ ocorrencia.matricula.aluno }}
+                                {{ autorizacao.matricula.aluno }}
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3">
                                 <div class="font-weight-bold">
-                                    DESCRIÇÃO DA FALTA
+                                    DESCRIÇÃO DA AUTORIZAÇÃO DE SAÍDA
                                 </div>
-                                ART. {{ ocorrencia.falta.categoria.artigo }} -
-                                {{ ocorrencia.falta.categoria.descricao|upper }}<br>
-                                {{ ocorrencia.falta.inciso }} - {{ ocorrencia.falta.descricao }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">
-                                <div class="font-weight-bold">
-                                    DESCRIÇÃO DA OCORRÊNCIA
-                                </div>
-                                {{ ocorrencia.descricao }}
+                                {{ autorizacao.descricao }}
                             </td>
                         </tr>
                         </tbody>
@@ -103,12 +93,12 @@
                         <tr>
                             <td colspan="3" class="text-center align-bottom">
                                 <p class="font-weight-bold text-left">
-                                    REGISTRADO POR
+                                    AUTORIZADO POR
                                 </p>
                                 <div class="font-weight-bold">
-                                    {{ ocorrencia.user }}
+                                    {{ autorizacao.user }}
                                 </div>
-                                {{ ocorrencia.user.userprofile.siape }}
+                                {{ autorizacao.user.userprofile.siape }}
                             </td>
                         </tr>
                         </tbody>

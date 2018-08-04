@@ -52,46 +52,46 @@
                         <tbody>
                         <tr>
                             <td>
-                                <p class="font-weight-bold">
+                                <div class="font-weight-bold">
                                     CURSO
-                                </p>
+                                </div>
                                 {{ encaminhamento.matricula.turma }}
                             </td>
                             <td class="text-right">
-                                <p class="font-weight-bold">
+                                <div class="font-weight-bold">
                                     DATA
-                                </p>
+                                </div>
                                 {{ encaminhamento.data }}
                             </td>
                             <td class="text-right">
-                                <p class="font-weight-bold">
+                                <div class="font-weight-bold">
                                     ENCAMINHAMENTO
-                                </p>
+                                </div>
                                 {{ encaminhamento.id }}/{{ ano }}
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3">
-                                <p class="font-weight-bold">
+                                <div class="font-weight-bold">
                                     ESTUDANTE
-                                </p>
+                                </div>
                                 {{ encaminhamento.matricula.aluno }}
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3">
-                                <p class="font-weight-bold">
+                                <div class="font-weight-bold">
                                     DESCRIÇÃO DO ENCAMINHAMENTO
-                                </p>
+                                </div>
                                 SERVIÇO DE {{ encaminhamento.servico.categoria.descricao|upper }}<br>
                                 {{ encaminhamento.servico.descricao }}
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3">
-                                <p class="font-weight-bold">
+                                <div class="font-weight-bold">
                                     DESCRIÇÃO DO ENCAMINHAMENTO
-                                </p>
+                                </div>
                                 {{ encaminhamento.descricao }}
                             </td>
                         </tr>
@@ -101,9 +101,12 @@
                         <tbody>
                         <tr>
                             <td colspan="3" class="text-center align-bottom">
-                                <p class="font-weight-bold">
-                                    {{ encaminhamento.user }}
+                                <p class="font-weight-bold text-left">
+                                    ENCAMINHADO POR
                                 </p>
+                                <div class="font-weight-bold">
+                                    {{ encaminhamento.user }}
+                                </div>
                                 {{ encaminhamento.user.userprofile.siape }}
                             </td>
                         </tr>
