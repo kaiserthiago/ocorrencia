@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Relatório de Autorizações de saída por Curso - SGE - Gestão Estudantil{% endblock %}
+{% block title %}Relatório de Autorizações de saída por Aluno - {{ aluno.nome }} - SGE - Gestão Estudantil{% endblock %}
 {% block class_relatorio_menu %}active{% endblock %}
 {% load static %}
 {% load humanize %}
@@ -43,44 +43,48 @@
                         <tr>
                             <td colspan="2" class="text-center font-weight-bold align-middle">
                                 <br>
-                                RELATÓRIO DE AUTORIZAÇÕES DE SAÍDA POR CURSO - {{ ano}}<br>
+                                RELATÓRIO DE AUTORIZAÇÕES DE SAÍDA POR ALUNO - {{ ano }}<br>
+                                {{ aluno }}
                             </td>
                         </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm">
                         <tbody>
-                        {% if autorizacoes %}
-                            <tr>
-                                <td colspan="3">
-                                    <table class="table table-sm table-striped">
-                                        <thead>
+                        <tr>
+                            <td colspan="3">
+                                <table class="table table-sm table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Descrição da autorização</th>
+                                        <th>Dados da saída</th>
+                                        <th style="text-align:right">Autorizado por</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for autorizacao in autorizacoes %}
                                         <tr>
-                                            <th>Curso</th>
-                                            <th style="text-align: right">Total</th>
+                                            <td style="vertical-align: middle">{{ autorizacao.descricao }}</td>
+                                            <td style="vertical-align: middle">{% if autorizacao.status == 'Efetuado' %}
+                                                {{ autorizacao.update_at|date }} às {{ autorizacao.update_at|time }}
+                                            {% else %}
+                                                Aguardando saída
+                                            {% endif %}
+                                            </td>
+                                            <td style="text-align:right; vertical-align: middle;">{{ autorizacao.user }}</td>
                                         </tr>
-                                        </thead>
-                                        <tbody>
-                                        {% for curso in cursos %}
-                                            {% for i in curso.count_autorizacoes %}
-                                                {% if i %}
-                                                    <tr>
-                                                    <td style="vertical-align: middle">{{ curso.descricao }}</td>
-                                                    <td style="vertical-align: middle; text-align: right">{{ i.qtde }}</td>
-                                                {% endif %}
-                                            {% endfor %}
-                                        {% endfor %}
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                        {% else %}
-                            <div class="card">
-                                <div class="card-header warning-color white-text text-center">
-                                    <strong>SEM AUTORIZAÇÕES DE SAÍDA REGISTRADAS NO ANO BASE {{ ano }}</strong>
-                                </div>
-                            </div>
-                        {% endif %}
+                                    {% empty %}
+                                        <tr>
+                                            <td colspan="6" class="card-header warning-color white-text text-center">
+                                                <strong>
+                                                    NÃO HÁ AUTORIZAÇÕES DE SAÍDA REGISTRADAS</strong>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>

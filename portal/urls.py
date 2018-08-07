@@ -32,7 +32,7 @@ urlpatterns = [
     url('^autorizacao/delete/(?P<autorizacao_id>\d+)$', views.autorizacao_delete, name='autorizacao_delete'),
     url('^autorizacao/show/(?P<autorizacao_id>\d+)$', views.autorizacao_show, name='autorizacao_show'),
     url('^autorizacao/confirmar/(?P<autorizacao_id>\d+)$', views.autorizacao_confirmar, name='autorizacao_confirmar'),
-    url('^autorizacao/pendente', views.autorizacao_pendente, name='autorizacao_pendente'),
+    url('^autorizacao/pendente$', views.autorizacao_pendente, name='autorizacao_pendente'),
     url('^autorizacao/new$', views.autorizacao_new, name='autorizacao_new'),
     url('^autorizacao$', views.autorizacao, name='autorizacao'),
 
@@ -65,10 +65,12 @@ urlpatterns = [
     url(r'^user/account$', views.user_account, name='user_account'),
     url(r'^user/list$', views.user_list, name='user_list'),
 
-    url(r'^report/autorizacao/curso', views.report_autorizacao_saida_curso, name='report_autorizacao_saida_curso'),
-    url(r'^report/autorizacao/turma', views.report_autorizacao_saida_turma, name='report_autorizacao_saida_turma'),
-    url(r'^report/encaminhamento/turma', views.report_encaminhamento_turma, name='report_encaminhamento_turma'),
-    url(r'^report/ocorrencia/turma', views.report_ocorrencia_turma, name='report_ocorrencia_turma'),
+    url(r'^report/autorizacao/aluno/(?P<aluno_id>\d+)$', views.report_autorizacao_saida_aluno, name='report_autorizacao_saida_aluno'),
+    url(r'^report/autorizacao/curso$', views.report_autorizacao_saida_curso, name='report_autorizacao_saida_curso'),
+    url(r'^report/autorizacao/turma$', views.report_autorizacao_saida_turma, name='report_autorizacao_saida_turma'),
+
+    url(r'^report/encaminhamento/turma$', views.report_encaminhamento_turma, name='report_encaminhamento_turma'),
+    url(r'^report/ocorrencia/turma$', views.report_ocorrencia_turma, name='report_ocorrencia_turma'),
     url(r'^report/general$', views.report_general, name='report_general'),
 
     url('^servico/categoria/delete/(?P<servico_categoria_id>\d+)$', views.servico_categoria_delete,

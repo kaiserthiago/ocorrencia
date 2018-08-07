@@ -1030,6 +1030,27 @@ def report_general(request):
 
 
 @staff_member_required
+def report_autorizacao_saida_aluno(request, aluno_id):
+    aluno = get_object_or_404(Aluno, id=aluno_id)
+    ano = date.today().year
+
+    autorizacoes = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa, matricula__aluno=aluno,
+                                              data__year=ano).order_by('-update_at')
+
+    total = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa, matricula__aluno_id=aluno,
+                                       data__year=ano)
+
+    context = {
+        'autorizacoes': autorizacoes,
+        'aluno': aluno,
+        'ano': ano,
+        'total': total,
+    }
+
+    return render(request, 'portal/report_autorizacao_saida_aluno.html', context)
+
+
+@staff_member_required
 def report_autorizacao_saida_curso(request):
     ano = date.today().year
 
@@ -1044,7 +1065,6 @@ def report_autorizacao_saida_curso(request):
 
     context = {
         'autorizacoes': autorizacoes,
-        # 'turma': turma,
         'ano': ano,
         'total': total,
         'cursos': cursos

@@ -25,6 +25,12 @@
                                 <label for="myInput">Pesquisar...</label>
                             </div>
                         </div>
+                        <div class="col">
+                            <div class="float-right">
+                                <a href="{% url 'report_autorizacao_saida_aluno' aluno.id %}" class="btn btn-rounded btn-block btn-danger"><i
+                                        class="fa fa-print"></i> Imprimir</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-sm table-hover btn-table">
