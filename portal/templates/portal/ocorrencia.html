@@ -49,8 +49,8 @@
                             {% for ocorrencia in ocorrencias %}
                                 <tr>
                                     <td style="vertical-align: middle;">{{ ocorrencia.id }}</td>
-                                    <td style="vertical-align: middle;">{{ ocorrencias.matricula.turma.descricao }}
-                                        - {{ ocorrencias.matricula.turma.curso.descricao|truncatechars:30 }}</td>
+                                    <td style="vertical-align: middle;">{{ ocorrencia.matricula.turma.descricao }}
+                                        - {{ ocorrencia.matricula.turma.curso.descricao|truncatechars:30 }}</td>
                                     <td style="vertical-align: middle;">{{ ocorrencia.matricula.aluno }}</td>
                                     <td style="vertical-align: middle;">{{ ocorrencia.data }}</td>
                                     <td style="vertical-align: middle;">{{ ocorrencia.descricao|truncatechars:20 }}</td>
