@@ -934,14 +934,14 @@ def report_autorizacao_saida_turma(request):
     total = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa, matricula__turma=turma,
                                           data__year=ano)
 
-    carai = Matricula.objects.filter(turma=turma, ano_letivo=date.today().year)
+    alunos = Matricula.objects.filter(turma=turma, ano_letivo=date.today().year).order_by('aluno')
 
     context = {
         'autorizacoes': autorizacoes,
         'turma': turma,
         'ano': ano,
         'total': total,
-        'carai': carai
+        'alunos': alunos
     }
 
     return render(request, 'portal/report_autorizacao_saida_turma.html', context)
@@ -965,7 +965,7 @@ def report_encaminhamento_turma(request):
                                         matricula__turma=turma).order_by('servico__categoria__descricao').values(
         'servico__categoria__descricao').annotate(qtde=Count('servico__categoria__descricao')).distinct()
 
-    carai = Matricula.objects.filter(turma=turma, ano_letivo=date.today().year)
+    alunos = Matricula.objects.filter(turma=turma, ano_letivo=date.today().year)
 
     context = {
         'encaminhamentos': encaminhamentos,
@@ -973,7 +973,7 @@ def report_encaminhamento_turma(request):
         'ano': ano,
         'total': total,
         'cat': cat,
-        'carai': carai
+        'alunos': alunos
     }
 
     return render(request, 'portal/report_encaminhamento_turma.html', context)
@@ -997,7 +997,7 @@ def report_ocorrencia_turma(request):
                                     matricula__turma=turma).order_by('falta__categoria__artigo').values(
         'falta__categoria__descricao').annotate(qtde=Count('falta__categoria__descricao')).distinct()
 
-    carai = Matricula.objects.filter(turma=turma, ano_letivo=date.today().year)
+    alunos = Matricula.objects.filter(turma=turma, ano_letivo=date.today().year)
 
     context = {
         'ocorrencias': ocorrencias,
@@ -1005,7 +1005,7 @@ def report_ocorrencia_turma(request):
         'ano': ano,
         'total': total,
         'cat': cat,
-        'carai': carai
+        'alunos': alunos
     }
 
     return render(request, 'portal/report_ocorrencia_turma.html', context)

@@ -62,27 +62,13 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        {% for o in carai %}
+                                        {% for o in alunos %}
                                             {% for i in o.aluno.count_autorizacoes %}
                                                 {% if i %}
                                                     <tr>
                                                     <td style="vertical-align: middle">{{ i.matricula__aluno__nome }}</td>
                                                 {% endif %}
                                             {% endfor %}
-{#                                        {% if o.aluno.count_cat_encaminhamento %}#}
-{#                                            <td style="vertical-align: middle">#}
-{#                                                <div class="row">#}
-{#                                                {% for i in o.aluno.count_cat_encaminhamento %}#}
-{#                                                    {% if i %}#}
-{#                                                        <div class="col">#}
-{#                                                        {{ i.servico__categoria__descricao }}: {{ i.qtde }}#}
-{#                                                        </div>#}
-{#                                                    {% endif %}#}
-{#                                                {% endfor %}#}
-{#                                                </div>#}
-{#                                            </td>#}
-{#                                        {% endif %}#}
-
 
                                         {% for i in o.aluno.count_autorizacoes %}
                                             {% if i %}
