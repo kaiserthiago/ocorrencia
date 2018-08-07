@@ -253,7 +253,7 @@ class Autorizacao(AuditoriaMixin):
     status = models.CharField(choices=status_choiches, max_length=30, default='Autorizado')
     matricula = models.ForeignKey(Matricula, on_delete=models.DO_NOTHING)
     data = models.DateField()
-    descricao = models.TextField(blank=True, null=True)
+    descricao = models.TextField()
 
     def __str__(self):
         return str(self.id)
