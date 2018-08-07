@@ -655,7 +655,7 @@ def ocorrencia_new(request):
             turma = get_object_or_404(Turma, id=id)
             matriculas = Matricula.objects.filter(turma=turma, ano_letivo=int(date.today().year))
 
-            categorias = CategoriaFalta.objects.all().order_by('id')
+            categorias = CategoriaFalta.objects.all().order_by('artigo')
 
             form = OcorrenciaForm()
 
@@ -1437,8 +1437,7 @@ def autorizacao_relatorio(request, aluno_id):
 
 @login_required
 def autorizacao_pendente(request):
-    autorizacoes = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa, user=request.user,
-                                              data__year=date.today().year, status='Autorizado')
+    autorizacoes = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa, data__year=date.today().year, status='Autorizado')
     context = {
         'autorizacoes': autorizacoes
     }
