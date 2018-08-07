@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Serviços - Gestão de Ocorrências - SIGO{% endblock %}
+{% block title %}Serviços - SGE - Gestão Estudantil{% endblock %}
 {% block class_servicos_menu %}active{% endblock %}
 {% block class_servicos_servico_item %}collapsible-header active{% endblock %}
 {% load widget_tweaks %}
@@ -47,9 +47,9 @@
                 <div class="form-row">
                     <div class="col">
                         <div class="float-right">
-                            <button type="submit" class="btn btn-success" data-toggle="tooltip"
+                            <button type="submit" class="btn btn-rounded btn-success" data-toggle="tooltip"
                                     data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
-                            <a href="{% url 'servico' %}" class="btn danger-color" data-toggle="tooltip"
+                            <a href="{% url 'servico' %}" class="btn btn-rounded btn-danger" data-toggle="tooltip"
                                data-placement="top" title="Cancelar"><i
                                     class="fa fa-close"></i></a>
                         </div>

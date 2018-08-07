@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Cursos - Gestão de Ocorrências - SIGO{% endblock %}
+{% block title %}Cursos - SGE - Gestão Estudantil{% endblock %}
 {% block class_cadastro_menu %}active{% endblock %}
 {% block class_cadastro_curso_item %}collapsible-header active{% endblock %}
 
@@ -27,7 +27,7 @@
                         </div>
                         <div class="col">
                             <div class="float-right">
-                                <a href="{% url 'curso_new' %}" class="btn btn-success"><i class="fa fa-plus"></i> Novo
+                                <a href="{% url 'curso_new' %}" class="btn btn-rounded btn-block btn-success"><i class="fa fa-plus"></i> Novo
                                     Registro</a>
                             </div>
                         </div>
@@ -46,13 +46,13 @@
                                 <tr>
                                     <td style="vertical-align: middle;">{{ curso.descricao }}</td>
                                     <td style="vertical-align: middle;">{{ curso.email }}</td>
-                                    <td style="vertical-align: middle; text-align: right">
-                                        <a href="{% url 'curso_edit' curso.id %}"
-                                           class="btn-floating btn-sm warning-color"
-                                           data-toggle="tooltip" data-placement="top" title="Editar"><i
-                                                class="fa fa-pencil"></i>
-                                        </a>
-
+                                    <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
+                                        <i data-toggle="tooltip" data-placement="top" title="Editar">
+                                            <a href="{% url 'curso_edit' curso.id %}"
+                                               class="btn-floating btn-sm warning-color"><i
+                                                    class="fa fa-pencil"></i>
+                                            </a>
+                                        </i>
                                         <i data-toggle="tooltip" data-placement="top" title="Excluir">
                                             <a data-toggle="modal" href="#Excluir{{ curso.id }}"
                                                class="btn-floating btn-sm danger-color"

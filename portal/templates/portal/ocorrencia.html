@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Ocorrências - Gestão de Ocorrências - SIGO{% endblock %}
+{% block title %}Ocorrências - SGE - Gestão Estudantil{% endblock %}
 {% block class_ocorrencia_menu %}active{% endblock %}
 {% block class_ocorrencia_disciplinar_item %}collapsible-header active{% endblock %}
 
@@ -27,7 +27,7 @@
                         </div>
                         <div class="col">
                             <div class="float-right">
-                                <a data-toggle="modal" href="#ModalRegistrarOcorrencia" class="btn btn-success"><i
+                                <a data-toggle="modal" href="#ModalRegistrarOcorrencia" class="btn btn-rounded btn-block btn-success"><i
                                         class="fa fa-plus"></i> Novo
                                     Registro</a>
                             </div>
@@ -49,24 +49,22 @@
                             {% for ocorrencia in ocorrencias %}
                                 <tr>
                                     <td style="vertical-align: middle;">{{ ocorrencia.id }}</td>
-                                    <td style="vertical-align: middle;">{{ ocorrencia.matricula.turma }}</td>
+                                    <td style="vertical-align: middle;">{{ ocorrencias.matricula.turma.descricao }}
+                                        - {{ ocorrencias.matricula.turma.curso.descricao|truncatechars:30 }}</td>
                                     <td style="vertical-align: middle;">{{ ocorrencia.matricula.aluno }}</td>
                                     <td style="vertical-align: middle;">{{ ocorrencia.data }}</td>
                                     <td style="vertical-align: middle;">{{ ocorrencia.descricao|truncatechars:20 }}</td>
-                                    <td class="px-0 py-0"  style="vertical-align: middle; text-align: right">
+                                    <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
 
-                                        <a href="{% url 'ocorrencia_show' ocorrencia.id %}"
-                                           class="btn-floating btn-sm info-color"
-                                           data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fa fa-search"></i>
-                                        </a>
-
-                                        {#                                        <a href="#" class="btn-floating btn-sm warning-color"#}
-                                        {#                                           data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil"></i>#}
-                                        {#                                        </a>#}
+                                        <i data-toggle="tooltip" data-placement="top" title="Visualizar">
+                                            <a href="{% url 'ocorrencia_show' ocorrencia.id %}"
+                                               class="btn-floating btn-sm info-color"><i class="fa fa-search"></i>
+                                            </a>
+                                        </i>
 
                                         <i data-toggle="tooltip" data-placement="top" title="Excluir">
                                             <a data-toggle="modal" href="#Excluir{{ ocorrencia.id }}"
-                                               class="btn-floating btn-sm danger-color"
+                                               class="btn-floating btn-sm btn-danger"
                                                title="Excluir"><i class="fa fa-trash"></i>
                                             </a>
                                         </i>

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Relatório de Ocorrência por Turma - SGE - Gestão Estudantil{% endblock %}
+{% block title %}Relatório de Autorizações de saída por Turma - SGE - Gestão Estudantil{% endblock %}
 {% block class_relatorio_menu %}active{% endblock %}
 {% load static %}
 {% load humanize %}
@@ -43,7 +43,7 @@
                         <tr>
                             <td colspan="2" class="text-center font-weight-bold align-middle">
                                 <br>
-                                RELATÓRIO DE OCORRÊNCIAS POR TURMA<br>
+                                RELATÓRIO DE AUTORIZAÇÕES DE SAÍDA POR TURMA<br>
                                 {{ turma }}
                             </td>
                         </tr>
@@ -51,7 +51,7 @@
                     </table>
                     <table class="table table-sm">
                         <tbody>
-                        {% if ocorrencias %}
+                        {% if autorizacoes %}
                             <tr>
                                 <td colspan="3">
                                     <table class="table table-sm table-striped">
@@ -64,28 +64,28 @@
                                         </thead>
                                         <tbody>
                                         {% for o in carai %}
-                                            {% for i in o.aluno.count_ocorrencia %}
+                                            {% for i in o.aluno.count_autorizacoes %}
                                                 {% if i %}
                                                     <tr>
                                                     <td style="vertical-align: middle">{{ i.matricula__aluno__nome }}</td>
                                                 {% endif %}
                                             {% endfor %}
-                                        {% if o.aluno.count_cat_ocorrencia %}
-                                            <td style="vertical-align: middle">
-                                                <div class="row">
-                                                {% for i in o.aluno.count_cat_ocorrencia %}
-                                                    {% if i %}
-                                                        <div class="col">
-                                                        {{ i.falta__categoria__descricao }}: {{ i.qtde }}
-                                                        </div>
-                                                    {% endif %}
-                                                {% endfor %}
-                                                </div>
-                                            </td>
-                                        {% endif %}
+{#                                        {% if o.aluno.count_cat_encaminhamento %}#}
+{#                                            <td style="vertical-align: middle">#}
+{#                                                <div class="row">#}
+{#                                                {% for i in o.aluno.count_cat_encaminhamento %}#}
+{#                                                    {% if i %}#}
+{#                                                        <div class="col">#}
+{#                                                        {{ i.servico__categoria__descricao }}: {{ i.qtde }}#}
+{#                                                        </div>#}
+{#                                                    {% endif %}#}
+{#                                                {% endfor %}#}
+{#                                                </div>#}
+{#                                            </td>#}
+{#                                        {% endif %}#}
 
 
-                                        {% for i in o.aluno.count_ocorrencia %}
+                                        {% for i in o.aluno.count_autorizacoes %}
                                             {% if i %}
                                                 <td style="vertical-align: middle; text-align: right">{{ i.qtde }}</td>
                                             {% endif %}
@@ -99,7 +99,7 @@
                         {% else %}
                             <div class="card">
                                 <div class="card-header warning-color white-text text-center">
-                                    <strong>TURMA SEM OCORRÊNCIAS REGISTRADAS NO ANO BASE {{ ano }}</strong>
+                                    <strong>TURMA SEM AUTORIZAÇÕES DE SAÍDA REGISTRADAS NO ANO BASE {{ ano }}</strong>
                                 </div>
                             </div>
                         {% endif %}
@@ -108,13 +108,6 @@
                 </div>
                 <div class="card-footer">
                     <div class="row">
-                        {% for o in cat %}
-                            <div class="col">
-                                <p class="float-left font-bold">
-                                    {{ o.falta__categoria__descricao }}: {{ o.qtde }}
-                                </p>
-                            </div>
-                        {% endfor %}
                         <div class="col">
                             <p class="float-right font-bold">
                                 TOTAL: {{ total.count }}

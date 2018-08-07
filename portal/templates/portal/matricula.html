@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Matrícula - Gestão de Ocorrências - SIGO{% endblock %}
+{% block title %}Matrícula - SGE - Gestão Estudantil{% endblock %}
 {% block class_cadastro_menu %}active{% endblock %}
 {% block class_cadastro_matricula_item %}collapsible-header active{% endblock %}
 
@@ -27,10 +27,10 @@
                         </div>
                         <div class="col">
                             <div class="float-right">
-                                {#                                <a href="{% url 'matricula_new' %}" class="btn btn-success"><i class="fa fa-plus"></i>#}
+                                {#                                <a href="{% url 'matricula_new' %}" class="btn btn-rounded btn-block btn-success"><i class="fa fa-plus"></i>#}
                                 {#                                    Novo#}
                                 {#                                    Registro</a>#}
-                                <a href="{% url 'import_matricula' %}" class="btn btn-info" data-toggle="tooltip"
+                                <a href="{% url 'import_matricula' %}" class="btn btn-rounded btn-block btn-info" data-toggle="tooltip"
                                    data-placement="top" title="Importar XLS"><i
                                         class="fa fa-arrow-circle-down"></i>
                                     Importar</a>
@@ -57,16 +57,17 @@
                                     <td style="vertical-align: middle;">{{ matricula.turma.descricao }}</td>
                                     <td style="vertical-align: middle;">{{ matricula.aluno }}</td>
                                     <td style="text-align: right; vertical-align: middle;">{{ matricula.ano_letivo }}</td>
-                                    <td style="vertical-align: middle; text-align: right">
-                                        <a href="{% url 'matricula_edit' matricula.id %}"
-                                           class="btn-floating btn-sm warning-color"
-                                           data-toggle="tooltip" data-placement="top" title="Editar"><i
-                                                class="fa fa-pencil"></i>
-                                        </a>
+                                    <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
+                                        <i data-toggle="tooltip" data-placement="top" title="Editar">
+                                            <a href="{% url 'matricula_edit' matricula.id %}"
+                                               class="btn-floating btn-sm warning-color"><i
+                                                    class="fa fa-pencil"></i>
+                                            </a>
+                                        </i>
 
                                         <i data-toggle="tooltip" data-placement="top" title="Excluir">
                                             <a data-toggle="modal" href="#Excluir{{ matricula.id }}"
-                                               class="btn-floating btn-sm danger-color"
+                                               class="btn-floating btn-sm btn-danger"
                                                title="Excluir"><i class="fa fa-trash"></i>
                                             </a>
                                         </i>

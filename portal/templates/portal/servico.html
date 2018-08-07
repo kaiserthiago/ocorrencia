@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Serviços - Gestão de Ocorrências - SIGO{% endblock %}
+{% block title %}Serviços - SGE - Gestão Estudantil{% endblock %}
 {% block class_servicos_menu %}active{% endblock %}
 {% block class_servicos_servico_item %}collapsible-header active{% endblock %}
 
@@ -27,7 +27,8 @@
                         </div>
                         <div class="col">
                             <div class="float-right">
-                                <a href="{% url 'servico_new' %}" class="btn btn-success"><i class="fa fa-plus"></i> Novo
+                                <a href="{% url 'servico_new' %}" class="btn btn-rounded btn-block btn-success"><i class="fa fa-plus"></i>
+                                    Novo
                                     Registro</a>
                             </div>
                         </div>
@@ -45,13 +46,14 @@
                             {% for servico in servicos %}
                                 <tr>
                                     <td style="vertical-align: middle;">{{ servico.descricao }}</td>
-                                    <td style="vertical-align: middle;">{{ servico.categoria }}</td>
-                                    <td style="vertical-align: middle; text-align: right">
-                                        <a href="{% url 'servico_edit' servico.id %}"
-                                           class="btn-floating btn-sm warning-color"
-                                           data-toggle="tooltip" data-placement="top" title="Editar"><i
-                                                class="fa fa-pencil"></i>
-                                        </a>
+                                    <td style="vertical-align: middle">{{ servico.categoria }}</td>
+                                    <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
+                                        <i data-toggle="tooltip" data-placement="top" title="Editar">
+                                            <a href="{% url 'servico_edit' servico.id %}"
+                                               class="btn-floating btn-sm warning-color"><i
+                                                    class="fa fa-pencil"></i>
+                                            </a>
+                                        </i>
 
                                         <i data-toggle="tooltip" data-placement="top" title="Excluir">
                                             <a data-toggle="modal" href="#Excluir{{ servico.id }}"
@@ -106,7 +108,8 @@
                                 </tr>
                             {% empty %}
                                 <tr>
-                                    <td colspan="3" class="card-header warning-color white-text text-center font-bold">NÃO HÁ SERVIÇO CADASTRADO
+                                    <td colspan="3" class="card-header warning-color white-text text-center font-bold">
+                                        NÃO HÁ SERVIÇO CADASTRADO
                                     </td>
                                 </tr>
                             {% endfor %}

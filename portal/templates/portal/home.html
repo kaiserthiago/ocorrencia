@@ -5,13 +5,10 @@
     <!--Section: Features v.2-->
     <section class="feature-box">
         <!--Section heading-->
-        <h1 class="font-bold">Controle automaziado de ocorrências</h1>
+        <h1 class="font-bold">SGE - Gestão Estudantil</h1>
         <!--Section description-->
         <p class="px-5 mb-5 lead grey-text">
-            Instituto Federal de Educação, Ciência e Tecnologia de Rondônia<br>
-            {% if request.user.is_authenticated %}
-                {{ request.user.userprofile.empresa }}
-            {% endif %}
+            Sistema informatizado para gestão estudantil - CAED/DEPAE
         </p>
         <br><br>
         <!--Grid row-->
@@ -24,8 +21,8 @@
                 </div>
                 <div class="col-10 col-md-9 col-lg-10 float-right">
                     <h4 class="font-bold">Avisos</h4>
-                    <p class="grey-text">A CAED e a Coordenação do Curso serão
-                        notificados assim que uma nova ocorrência for registrada.</p>
+                    <p class="grey-text">Todos os envolvidos nos registros feitos no sistema serão
+                        notificados via e-mail.</p>
                     <a data-toggle="modal" href="#ModalAviso" class="btn btn-primary btn-sm ml-0">Saiba mais</a>
                 </div>
             </div>
@@ -34,13 +31,12 @@
             <!--Grid column-->
             <div class="col-md-4 mb-r">
                 <div class="col-1 col-md-2 float-left">
-                    <i class="fa fa-users orange-text"></i>
+                    <i class="fa fa-cog orange-text"></i>
                 </div>
                 <div class="col-10 col-md-9 col-lg-10 float-right">
-                    <h4 class="font-bold">User Experience</h4>
-                    <p class="grey-text">Sistema responsivo para uma experiência
-                        de
-                        usuário unificada e minimalista.</p>
+                    <h4 class="font-bold">Recursos</h4>
+                    <p class="grey-text">Emissão das Ocorrências Disciplinares,
+                        Encaminhamentos e Autorizações de Saída.</p>
                     <a data-toggle="modal" href="#ModalUserExperience" class="btn btn-warning btn-sm ml-0">Saiba
                         mais</a>
                 </div>
@@ -54,7 +50,7 @@
                 </div>
                 <div class="col-10 col-md-9 col-lg-10 float-right">
                     <h4 class="font-bold">Relatórios</h4>
-                    <p class="grey-text">Emissão de relatórios com consodilidação das ocorrências.
+                    <p class="grey-text">Emissão de relatórios personalizados.
                         Informação rápida e precisa.</p>
                     <a data-toggle="modal" href="#ModalRelatorio" class="btn btn-success btn-sm ml-0">Saiba mais</a>
                 </div>
@@ -83,7 +79,7 @@
             <div class="modal-content">
                 <!--Header-->
                 <div class="modal-header">
-                    <p class="heading lead">Envio de e-mails</p>
+                    <p class="heading lead">Notificação via e-mails</p>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
@@ -92,13 +88,12 @@
                 <div class="modal-body">
                     <div class="text-justify">
                         <p>
-                            Assim que uma ocorrência for registrada no sistema, seja ela individual ou coletiva, o
-                            sistema irá disparar um e-mail para o responsável pelo registro da ocorrência, para a CAED e
-                            para a Coordenação do Curso.
+                            Seja <strong>ocorrência disciplinar</strong>,<strong> encaminhamento para serviço da equipe
+                            multidisciplinar da CAED</strong> ou <strong>autorização de saída</strong> o sistema irá
+                            notificar, via <strong>e-mail institucional</strong>, todos os envolvidos.
                         </p>
                         <p>
-                            Caso a ocorrência seja registrada para mais de um aluno, os
-                            e-mails serão enviados de forma individual.
+                            Caso o registro seja para mais de um aluno, os e-mails serão enviados de forma individual.
                         </p>
                     </div>
                 </div>
@@ -120,7 +115,7 @@
             <div class="modal-content">
                 <!--Header-->
                 <div class="modal-header">
-                    <p class="heading lead">Usabilidade</p>
+                    <p class="heading lead">Recursos</p>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
@@ -129,10 +124,14 @@
                 <div class="modal-body">
                     <div class="text-justify">
                         <p>
-                            Ao utilizar elementos e princípios de Design de Material, conseguimos criar uma estrutura
-                            que incorporasse componentes e animações que proporcionassem mais feedback aos usuários.
-                            Além disso, um único sistema responsivo subjacente em todas as plataformas permite uma
-                            experiência de usuário mais unificada.
+                            <strong>Ocorrência disciplinar:</strong> Registre as ocorrências disciplinares,
+                            conforme Regulamento Disciplinar Discente (Resolução 01/2017).</p>
+                        <p><strong>Encaminhamento:</strong> Encaminhe seus alunos para equipe multidisciplinar da
+                            CAED/DEPAE conforme área de atuação do profissional da equipe.</p>
+                        <p><strong>Autorização de saída:</strong> A CAED/DEPAE autoriza o estudante a deixar o <em>Campus</em>
+                            e o vigia tem, na guarita, diretamente no sistema, a o nome do estudante e a data que ele
+                            está autorizado a sair. O vigia registra o momento da saída e a CAED/DEPAE é avisada via
+                            e-mail.
                         </p>
                     </div>
                 </div>
@@ -163,11 +162,11 @@
                 <div class="modal-body">
                     <div class="text-justify">
                         <p>
-                            Com base nas ocorrências registradas, é possível emitir diversos relatórios gerenciais que
+                            Com base nos registros feitos é possível emitir diversos relatórios gerenciais que
                             podem subsidiar a tomada de decisões relativas à abordagens individuais ou coletivas.
                         </p>
                         <p>
-                            Além de proporcionar, rapidamente, informações precisas sobre a situação disciplinar de cada
+                            Além de proporcionar, rapidamente, informações precisas sobre a situação de cada
                             aluno, turma ou curso.
                         </p>
                     </div>

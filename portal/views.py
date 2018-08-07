@@ -920,6 +920,31 @@ def report_general(request):
 
     return render(request, 'portal/report_general.html', context)
 
+@staff_member_required
+def report_autorizacao_saida_turma(request):
+    id = request.POST['SelectTurmaAutorizacaoSaida']
+    turma = get_object_or_404(Turma, id=id)
+    ano = date.today().year
+
+    autorizacoes = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa, matricula__turma=turma,
+                                                    data__year=ano).order_by().values(
+        'matricula__aluno__nome').annotate(
+        qtde=Count('matricula__aluno__nome')).distinct()
+
+    total = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa, matricula__turma=turma,
+                                          data__year=ano)
+
+    carai = Matricula.objects.filter(turma=turma, ano_letivo=date.today().year)
+
+    context = {
+        'autorizacoes': autorizacoes,
+        'turma': turma,
+        'ano': ano,
+        'total': total,
+        'carai': carai
+    }
+
+    return render(request, 'portal/report_autorizacao_saida_turma.html', context)
 
 @staff_member_required
 def report_encaminhamento_turma(request):

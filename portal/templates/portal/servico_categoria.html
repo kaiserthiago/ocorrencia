@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Categoria de serviço - Gestão de Ocorrências - SIGO{% endblock %}
+{% block title %}Categoria de serviço - SGE - Gestão Estudantil{% endblock %}
 {% block class_servicos_menu %}active{% endblock %}
 {% block class_servicos_categoria_item %}collapsible-header active{% endblock %}
 
@@ -27,7 +27,8 @@
                         </div>
                         <div class="col">
                             <div class="float-right">
-                                <a href="{% url 'servico_categoria_new' %}" class="btn btn-success"><i class="fa fa-plus"></i> Novo
+                                <a href="{% url 'servico_categoria_new' %}" class="btn btn-success"><i
+                                        class="fa fa-plus"></i> Novo
                                     Registro</a>
                             </div>
                         </div>
@@ -44,12 +45,13 @@
                             {% for servico_categoria in servico_categorias %}
                                 <tr>
                                     <td style="vertical-align: middle;">{{ servico_categoria.descricao }}</td>
-                                    <td style="vertical-align: middle; text-align: right">
-                                        <a href="{% url 'servico_categoria_edit' servico_categoria.id %}"
-                                           class="btn-floating btn-sm warning-color"
-                                           data-toggle="tooltip" data-placement="top" title="Editar"><i
-                                                class="fa fa-pencil"></i>
-                                        </a>
+                                    <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
+                                        <i data-toggle="tooltip" data-placement="top" title="Editar">
+                                            <a href="{% url 'servico_categoria_edit' servico_categoria.id %}"
+                                               class="btn-floating btn-sm warning-color"><i
+                                                    class="fa fa-pencil"></i>
+                                            </a>
+                                        </i>
 
                                         <i data-toggle="tooltip" data-placement="top" title="Excluir">
                                             <a data-toggle="modal" href="#Excluir{{ servico_categoria.id }}"
@@ -59,7 +61,8 @@
                                         </i>
 
                                         <!--Modal EXCLUIR-->
-                                        <div class="modal fade" id="Excluir{{ servico_categoria.id }}" tabindex="-1" role="dialog"
+                                        <div class="modal fade" id="Excluir{{ servico_categoria.id }}" tabindex="-1"
+                                             role="dialog"
                                              aria-labelledby="myModalLabel"
                                              aria-hidden="true">
                                             <div class="modal-dialog modal-notify modal-danger" role="document">
@@ -105,7 +108,8 @@
                                 </tr>
                             {% empty %}
                                 <tr>
-                                    <td colspan="3" class="card-header warning-color white-text text-center font-bold">NÃO HÁ CATEGORIA DE SERVIÇO CADASTRADA
+                                    <td colspan="3" class="card-header warning-color white-text text-center font-bold">
+                                        NÃO HÁ CATEGORIA DE SERVIÇO CADASTRADA
                                     </td>
                                 </tr>
                             {% endfor %}

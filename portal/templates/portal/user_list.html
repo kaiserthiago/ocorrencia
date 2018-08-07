@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Lista de usuários - Gestão de Ocorrências - SIGO{% endblock %}
+{% block title %}Lista de usuários - SGE - Gestão Estudantil{% endblock %}
 {% block class_usuario_menu %}active{% endblock %}
 {% block class_lista_usuario_item %}collapsible-header active{% endblock %}
 
@@ -24,10 +24,10 @@
             <div class="table-responsive">
                 <table class="table table-sm table-striped">
                     <thead>
-                    <th>Nome</th>
-                    <th>Usuário</th>
-                    <th>E-mail</th>
-                    <th>Ações</th>
+                    <th style="font-weight: bold">Nome</th>
+                    <th style="font-weight: bold">Usuário</th>
+                    <th style="font-weight: bold">E-mail</th>
+                    <th style="text-align: right; font-weight: bold">Ações</th>
                     </thead>
                     <tbody>
                     {% for usuario in usuarios_inativos %}
@@ -35,7 +35,7 @@
                             <td style="vertical-align: middle;">{{ usuario.first_name }}</td>
                             <td style="vertical-align: middle;">{{ usuario.username }}</td>
                             <td style="vertical-align: middle;">{{ usuario.email }}</td>
-                            <td>
+                            <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
                                 <i data-toggle="tooltip" data-placement="top" title="Tornar ativo">
                                     <a data-toggle="modal" href="#ConfirmarRegistro{{ usuario.id }}"
                                        class="btn-floating btn-sm success-color"><i class="fa fa-check"></i>
@@ -89,8 +89,7 @@
                         </tr>
                     {% empty %}
                         <tr>
-                            <td colspan="5" class="card-header warning-color white-text text-center font-bold">Sem
-                                usuários inativos
+                            <td colspan="5" class="card-header warning-color white-text text-center font-bold">NÃO HÁ USUÁRIOS INATIVOS
                             </td>
                         </tr>
                     {% endfor %}
@@ -108,11 +107,10 @@
             <div class="table-responsive">
                 <table class="table table-sm table-striped">
                     <thead>
-                    <th>Nome</th>
-                    <th>Usuário</th>
-                    <th>E-mail</th>
-                    <th>Unidade</th>
-                    <th>Ações</th>
+                    <th style="font-weight: bold">Nome</th>
+                    <th style="font-weight: bold">Usuário</th>
+                    <th style="font-weight: bold">E-mail</th>
+                    <th style="text-align: right; font-weight: bold">Ações</th>
                     </thead>
                     <tbody>
                     {% for usuario in usuarios_ativos %}
@@ -120,8 +118,7 @@
                             <td style="vertical-align: middle;">{{ usuario.first_name }}</td>
                             <td style="vertical-align: middle;">{{ usuario.username }}</td>
                             <td style="vertical-align: middle;">{{ usuario.email }}</td>
-                            <td style="vertical-align: middle;">{{ usuario.userprofile.empresa }}</td>
-                            <td>
+                            <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
                                 <i data-toggle="tooltip" data-placement="top" title="Tornar inativo">
                                     <a data-toggle="modal" href="#InativarRegistro{{ usuario.id }}"
                                        class="btn-floating btn-sm danger-color"><i class="fa fa-close"></i>
@@ -175,8 +172,8 @@
                         </tr>
                     {% empty %}
                         <tr>
-                            <td colspan="6" class="card-header warning-color white-text text-center font-bold">Sem
-                                usuários inativos
+                            <td colspan="6" class="card-header warning-color white-text text-center font-bold">NÃO HÁ
+                                USUÁRIOS ATIVOS
                             </td>
                         </tr>
                     {% endfor %}

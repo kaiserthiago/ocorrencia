@@ -119,9 +119,19 @@ class Aluno(AuditoriaMixin):
 
     @property
     def count_encaminhamento(self):
-        return Encaminhamento.objects.filter(data__year=date.today().year, matricula__aluno_id=self.id).order_by().values(
+        return Encaminhamento.objects.filter(data__year=date.today().year,
+                                             matricula__aluno_id=self.id).order_by().values(
             'matricula__aluno__nome').annotate(
             qtde=Count('matricula__aluno__nome')).distinct()
+
+    @property
+    def autorizacoes_aluno(self):
+        return Autorizacao.objects.filter(matricula__aluno_id=self.id, data__year=date.today().year)
+
+    @property
+    def count_autorizacoes(self):
+        return Autorizacao.objects.filter(data__year=date.today().year, matricula__aluno_id=self.id).order_by().values(
+            'matricula__aluno__nome').annotate(qtde=Count('matricula__aluno__nome')).distinct()
 
 
 class Matricula(AuditoriaMixin):
@@ -233,6 +243,7 @@ class Encaminhamento(AuditoriaMixin):
     class Meta:
         verbose_name_plural = 'Encaminhamentos'
         ordering = ['-data', 'matricula__aluno']
+
 
 class Autorizacao(AuditoriaMixin):
     status_choiches = (

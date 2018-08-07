@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Importar Aluno - Gestão de Ocorrências - SIGO{% endblock %}
+{% block title %}Importar Aluno - SGE - Gestão Estudantil{% endblock %}
 {% block class_cadastro_menu %}active{% endblock %}
 {% block class_cadastro_aluno_item %}collapsible-header active{% endblock %}
 
@@ -37,7 +37,7 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-sm-auto">
-            <a href="{% url 'aluno' %}" class="btn info-color" data-toggle="tooltip" data-placement="top"
+            <a href="{% url 'aluno' %}?qs=a" class="btn info-color" data-toggle="tooltip" data-placement="top"
                title="Voltar"><i
                     class="fa fa-arrow-left"></i></a>
         </div>

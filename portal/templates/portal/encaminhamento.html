@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Encaminhamentos - Gestão de Ocorrências - SIGO{% endblock %}
+{% block title %}Encaminhamentos - SGE - Gestão Estudantil{% endblock %}
 {% block class_ocorrencia_menu %}active{% endblock %}
 {% block class_ocorrencia_encaminhamento_item %}collapsible-header active{% endblock %}
 
@@ -27,7 +27,7 @@
                         </div>
                         <div class="col">
                             <div class="float-right">
-                                <a data-toggle="modal" href="#ModalRegistrarEncaminhamento" class="btn btn-success"><i
+                                <a data-toggle="modal" href="#ModalRegistrarEncaminhamento" class="btn btn-rounded btn-block btn-success"><i
                                         class="fa fa-plus"></i> Novo
                                     Registro</a>
                             </div>
@@ -49,72 +49,72 @@
                             {% for encaminhamento in encaminhamentos %}
                                 <tr>
                                     <td style="vertical-align: middle;">{{ encaminhamento.id }}</td>
-                                    <td style="vertical-align: middle;">{{ encaminhamento.matricula.turma }}</td>
+                                    <td style="vertical-align: middle;">{{ encaminhamento.matricula.turma.descricao }}
+                                        - {{ encaminhamento.matricula.turma.curso.descricao|truncatechars:30 }}</td>
                                     <td style="vertical-align: middle;">{{ encaminhamento.matricula.aluno }}</td>
                                     <td style="vertical-align: middle;">{{ encaminhamento.data }}</td>
                                     <td style="vertical-align: middle;">{{ encaminhamento.descricao|truncatechars:30 }}</td>
-                                    <td class="px-0 py-0"  style="vertical-align: middle; text-align: right">
+                                    <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
 
-                                        <a href="{% url 'encaminhamento_show' encaminhamento.id %}"
-                                           class="btn-floating btn-sm info-color"
-                                           data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fa fa-search"></i>
-                                        </a>
-
-                                        {#                                        <a href="#" class="btn-floating btn-sm warning-color"#}
-                                        {#                                           data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil"></i>#}
-                                        {#                                        </a>#}
-
-                                        <i data-toggle="tooltip" data-placement="top" title="Excluir">
-                                            <a data-toggle="modal" href="#Excluir{{ encaminhamento.id }}"
-                                               class="btn-floating btn-sm danger-color"
-                                               title="Excluir"><i class="fa fa-trash"></i>
+                                        <i data-toggle="tooltip" data-placement="top" title="Visualizar">
+                                            <a href="{% url 'encaminhamento_show' encaminhamento.id %}"
+                                               class="btn-floating btn-sm info-color"><i class="fa fa-search"></i>
                                             </a>
                                         </i>
+                                        <i data-toggle="tooltip" data-placement="top" title="Excluir">
 
-                                        <!--Modal EXCLUIR-->
-                                        <div class="modal fade" id="Excluir{{ encaminhamento.id }}" tabindex="-1"
-                                             role="dialog"
-                                             aria-labelledby="myModalLabel"
-                                             aria-hidden="true">
-                                            <div class="modal-dialog modal-notify modal-danger" role="document">
-                                                <!--Content-->
-                                                <div class="modal-content">
-                                                    <!--Header-->
-                                                    <div class="modal-header text-center">
-                                                        <h4 class="heading lead">Excluir</h4>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close">
-                                                            <span aria-hidden="true" class="white-text">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <!--Body-->
-                                                    <div class="modal-body">
-                                                        <form action="{% url 'encaminhamento_delete' encaminhamento.id %}"
-                                                              method="POST">
-                                                            {% csrf_token %}
-                                                            <div class="row text-left">
-                                                                <div class="col-sm-12">
-                                                                    <p>Tem certeza que deseja excluir?</p>
+                                            <i data-toggle="tooltip" data-placement="top" title="Excluir">
+                                                <a data-toggle="modal" href="#Excluir{{ encaminhamento.id }}"
+                                                   class="btn-floating btn-sm danger-color"
+                                                   title="Excluir"><i class="fa fa-trash"></i>
+                                                </a>
+                                            </i>
+
+                                            <!--Modal EXCLUIR-->
+                                            <div class="modal fade" id="Excluir{{ encaminhamento.id }}" tabindex="-1"
+                                                 role="dialog"
+                                                 aria-labelledby="myModalLabel"
+                                                 aria-hidden="true">
+                                                <div class="modal-dialog modal-notify modal-danger" role="document">
+                                                    <!--Content-->
+                                                    <div class="modal-content">
+                                                        <!--Header-->
+                                                        <div class="modal-header text-center">
+                                                            <h4 class="heading lead">Excluir</h4>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                <span aria-hidden="true"
+                                                                      class="white-text">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <!--Body-->
+                                                        <div class="modal-body">
+                                                            <form action="{% url 'encaminhamento_delete' encaminhamento.id %}"
+                                                                  method="POST">
+                                                                {% csrf_token %}
+                                                                <div class="row text-left">
+                                                                    <div class="col-sm-12">
+                                                                        <p>Tem certeza que deseja excluir?</p>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="text-center">
-                                                                <button type="submit"
-                                                                        class="btn btn-danger waves-effect">
-                                                                    Confirmar
-                                                                </button>
-                                                                <a type="button"
-                                                                   class="btn btn-outline-danger waves-effect"
-                                                                   data-dismiss="modal">
-                                                                    Voltar
-                                                                </a>
-                                                            </div>
-                                                        </form>
+                                                                <div class="text-center">
+                                                                    <button type="submit"
+                                                                            class="btn btn-danger waves-effect">
+                                                                        Confirmar
+                                                                    </button>
+                                                                    <a type="button"
+                                                                       class="btn btn-outline-danger waves-effect"
+                                                                       data-dismiss="modal">
+                                                                        Voltar
+                                                                    </a>
+                                                                </div>
+                                                            </form>
+                                                        </div>
                                                     </div>
+                                                    <!--/.Content-->
                                                 </div>
-                                                <!--/.Content-->
                                             </div>
-                                        </div>
-                                        <!--Fim Modal EXCLUIR-->
+                                            <!--Fim Modal EXCLUIR-->
                                     </td>
                                 </tr>
                             {% empty %}

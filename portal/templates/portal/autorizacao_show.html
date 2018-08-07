@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Autorização {{ autorizacao.id }}.{{ ano }} - Gestão de Ocorrências - SIGO{% endblock %}
+{% block title %}Autorização {{ autorizacao.id }}.{{ ano }} - SGE - Gestão Estudantil{% endblock %}
 {% block class_saidas_menu %}active{% endblock %}
 {% block class_saidas_autorizacao_item %}collapsible-header active{% endblock %}
 
@@ -79,11 +79,17 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="3">
+                            <td colspan="2">
                                 <div class="font-weight-bold">
                                     DESCRIÇÃO DA AUTORIZAÇÃO DE SAÍDA
                                 </div>
                                 {{ autorizacao.descricao }}
+                            </td>
+                            <td>
+                                <div class="font-weight-bold">
+                                    DATA E HORA DA SAÍDA
+                                </div>
+                                {{ autorizacao.update_at }}
                             </td>
                         </tr>
                         </tbody>

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Registrar Ocorrência - Gestão de Ocorrências - SIGO{% endblock %}
+{% block title %}Registrar Ocorrência - SGE - Gestão Estudantil{% endblock %}
 {% block class_ocorrencia_menu %}active{% endblock %}
 {% block class_ocorrencia_disciplinar_item %}collapsible-header active{% endblock %}
 {% load widget_tweaks %}
@@ -104,9 +104,9 @@
                         <div class="form-row">
                             <div class="col">
                                 <div class="float-right">
-                                    <button type="submit" class="btn btn-sm btn-success" data-toggle="tooltip"
+                                    <button type="submit" class="btn btn-rounded btn-success" data-toggle="tooltip"
                                             data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
-                                    <a href="{% url 'ocorrencia' %}" class="btn btn-sm danger-color"
+                                    <a href="{% url 'ocorrencia' %}" class="btn btn-rounded danger-color"
                                        data-toggle="tooltip"
                                        data-placement="top" title="Cancelar"><i
                                             class="fa fa-close"></i></a>

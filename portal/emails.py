@@ -26,7 +26,7 @@ class RegistraEncaminhamentoMail(Maiable):
         super().sendMail(
             from_email=MAIL_REPLY,
             to=to,
-            subject='SIGO - Registro de encaminhamento #' + str(self.encaminhamento.id),
+            subject='SGE - Registro de encaminhamento #' + str(self.encaminhamento.id),
             template='emails/registra-encaminhamento.html',
             context={'encaminhamento': self.encaminhamento}
         )
@@ -39,7 +39,7 @@ class RegistraOcorrenciaMail(Maiable):
         super().sendMail(
             from_email=MAIL_REPLY,
             to=to,
-            subject='SIGO - Registro de ocorrência #' + str(self.ocorrencia.id),
+            subject='SGE - Registro de ocorrência #' + str(self.ocorrencia.id),
             template='emails/registra-ocorrencia.html',
             context={'ocorrencia': self.ocorrencia}
         )
@@ -53,7 +53,7 @@ class ResponsavelUsuarioMail(Maiable):
         super().sendMail(
             from_email=MAIL_REPLY,
             to=to,
-            subject='SIGO - Nova solicitação usuário',
+            subject='SGE - Nova solicitação usuário',
             template='emails/responsavel-usuario.html',
             context={'usuario': self.usuario}
         )
@@ -67,7 +67,7 @@ class ConfirmaUsuarioMail(Maiable):
         super().sendMail(
             from_email=MAIL_REPLY,
             to=to,
-            subject='SIGO - Acesso autorizado',
+            subject='SGE - Acesso autorizado',
             template='emails/confirma-usuario.html',
             context={'usuario': self.usuario}
         )
@@ -80,7 +80,7 @@ class RegistraAutorizacaoSaidaMail(Maiable):
         super().sendMail(
             from_email=MAIL_REPLY,
             to=to,
-            subject='SIGO - Registro de saída - ' + str(self.autorizacao.matricula.aluno),
+            subject='SGE - Registro de saída - ' + str(self.autorizacao.matricula.aluno),
             template='emails/registra-saida.html',
             context={'autorizacao': self.autorizacao}
         )

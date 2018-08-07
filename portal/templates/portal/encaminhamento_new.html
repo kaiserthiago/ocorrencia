@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Registrar Encaminhamento - Gestão de Ocorrências - SIGO{% endblock %}
+{% block title %}Registrar Encaminhamento - SGE - Gestão Estudantil{% endblock %}
 {% block class_ocorrencia_menu %}active{% endblock %}
 {% block class_ocorrencia_encaminhamento_item %}collapsible-header active{% endblock %}
 {% load widget_tweaks %}
@@ -122,9 +122,9 @@
                         <div class="form-row">
                             <div class="col">
                                 <div class="float-right">
-                                    <button type="submit" class="btn btn-sm btn-success" data-toggle="tooltip"
+                                    <button type="submit" class="btn btn-rounded btn-success" data-toggle="tooltip"
                                             data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
-                                    <a href="{% url 'encaminhamento' %}" class="btn btn-sm danger-color"
+                                    <a href="{% url 'encaminhamento' %}" class="btn btn-rounded danger-color"
                                        data-toggle="tooltip"
                                        data-placement="top" title="Cancelar"><i
                                             class="fa fa-close"></i></a>

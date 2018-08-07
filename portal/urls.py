@@ -63,6 +63,7 @@ urlpatterns = [
     url(r'^user/account$', views.user_account, name='user_account'),
     url(r'^user/list$', views.user_list, name='user_list'),
 
+    url(r'^report/autorizacao/turma', views.report_autorizacao_saida_turma, name='report_autorizacao_saida_turma'),
     url(r'^report/encaminhamento/turma', views.report_encaminhamento_turma, name='report_encaminhamento_turma'),
     url(r'^report/ocorrencia/turma', views.report_ocorrencia_turma, name='report_ocorrencia_turma'),
     url(r'^report/general$', views.report_general, name='report_general'),

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="theme-color" content="#243A51">
-    <title>{% block title %}Gestão de Ocorrências - SIGO{% endblock %}</title>
+    <title>{% block title %}SGE - Gestão Estudantil{% endblock %}</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           media="all">
@@ -46,12 +46,11 @@
     {% endif %}
     <!-- Logo -->
     <li>
-        <div class="logo-wrapper waves-light">
-            {#            <a href="{% url 'home' %}"></a>#}
-            {#            <p><strong>Unidade:</strong> {{ request.user.userprofile.empresa }}</p>#}
-            {#            <p><strong>Usuário:</strong> {{ request.user.first_name }}</p>#}
-            {#            <img src="{% static 'img/logo.png' %}" alt="SIGO"#}
-            {#                 class="img-fluid flex-center" width="300">#}
+        <div class="logo-wrapper waves-light text-center">
+{#            <a href="{% url 'home' %}"><img src="{% static 'img/logo_ifro2.png' %}"#}
+{#                    style="width: 100%; padding: 0"></a>#}
+{#                            <h1 class="display-3 indigo-text font-weight-bold">IFRO</h1>#}
+
         </div>
     </li>
     <!--/. Logo -->
@@ -223,9 +222,9 @@
         <!-- Breadcrumb-->
         <div class="breadcrumb-dn mr-auto">
             {% if request.user.is_authenticated %}
-                <p>Gestão de Ocorrências - {{ request.user.userprofile.empresa }}</p>
+                <p>Gestão Estudantil - {{ request.user.userprofile.empresa }}</p>
             {% else %}
-                <p>Gestão de Ocorrências</p>
+                <p>Gestão Estudantil</p>
             {% endif %}
         </div>
         <ul class="nav navbar-nav nav-flex-icons ml-auto">
@@ -241,6 +240,7 @@
                         <a class="dropdown-item" href="{% url 'dashboard' %}">Dashboard</a>
                         <a class="dropdown-item" href="{% url 'encaminhamento' %}">Encaminhamento</a>
                         <a class="dropdown-item" href="{% url 'ocorrencia' %}">Ocorrências Disciplinares</a>
+                        <a class="dropdown-item" href="{% url 'autorizacao' %}">Saídas</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{% url 'user_account' %}">Minha conta</a>
                         <a class="dropdown-item" href="{% url 'logout' %}">Sair</a>
@@ -295,16 +295,17 @@
     <div class="container-fluid">
         <!--Call to action-->
         <div class="social-section text-center">
-            IFRO - Instituto Federal de Educação, Ciência e Tecnologia de Rondônia - <em>Campus</em> Cacoal
+            Instituto Federal de Educação, Ciência e Tecnologia de Rondônia
             <br>
-            Desenvolvimento: Prof. Thiago Kaiser
+            Desenvolvimento: <a
+                href="mailto:thiago.kaiser@ifro.edu.br?Subject=Contato SGE" target="_top"> Prof. Thiago Kaiser</a>
         </div>
         <!--/.Call to action-->
     </div>
     <!--Copyright-->
     <div class="footer-copyright text-center">
         <div class="container-fluid">
-            © 2018 - Gestão de Ocorrências - SIGO
+            © 2018 - Todos os direitos reservados
         </div>
     </div>
     <!--/.Copyright-->

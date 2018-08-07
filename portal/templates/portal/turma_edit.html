@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Turmas - Gestão de Ocorrências - SIGO{% endblock %}
+{% block title %}Turmas - SGE - Gestão Estudantil{% endblock %}
 {% block class_cadastro_menu %}active{% endblock %}
 {% block class_cadastro_turma_item %}collapsible-header active{% endblock %}
 {% load widget_tweaks %}
@@ -45,9 +45,9 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="float-right">
-                                    <button type="submit" class="btn btn-success" data-toggle="tooltip"
+                                    <button type="submit" class="btn btn-rounded btn-success" data-toggle="tooltip"
                                             data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
-                                    <a href="{% url 'turma' %}" class="btn danger-color" data-toggle="tooltip"
+                                    <a href="{% url 'turma' %}" class="btn btn-rounded btn-danger" data-toggle="tooltip"
                                        data-placement="top" title="Cancelar"><i
                                             class="fa fa-close"></i></a>
                                 </div>

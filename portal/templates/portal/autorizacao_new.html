@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Registrar Autorização - Gestão de Ocorrências - SIGO{% endblock %}
+{% block title %}Autorizações de saída - SGE - Gestão Estudantil{% endblock %}
 {% block class_saidas_menu %}active{% endblock %}
 {% block class_saidas_autorizacao_item %}collapsible-header active{% endblock %}
 {% load widget_tweaks %}
@@ -58,7 +58,7 @@
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-header gradient white-text">
-                        DADOS DA AUTORIZAÇÃO
+                        DADOS DA AUTORIZAÇÃO DE SAÍDA
                     </div>
                     <div class="card-body">
                         <input type="hidden" value="{{ turma.id }}" name="turma">

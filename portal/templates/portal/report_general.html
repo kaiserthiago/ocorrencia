@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Relatórios Gerais - Gestão de Ocorrências - SIGO{% endblock %}
+{% block title %}Relatórios Gerais - SGE - Gestão Estudantil{% endblock %}
 {% block class_relatorio_menu %}active{% endblock %}
 
 
@@ -16,34 +16,77 @@
         <div class="col">
             <div class="card">
                 <div class="card-header gradient white-text">
-                    RELATÓRIOS DE ENCAMINHAMENTOS
+                    AUTORIZAÇÕES DE SAÍDAS
                 </div>
                 <div class="card-body">
                     <div class="form-row">
                         <div class="col">
-                            <a data-toggle="modal" href="#ModalRegistrarEncaminhamento"
-                               class="btn btn-success btn-block">
+                            <a data-toggle="modal" href="#"
+                               class="btn btn-rounded btn-purple btn-block disabled">
+                                <span class="fa fa-industry"></span> Curso
+                            </a>
+
+                            <a data-toggle="modal" href="#ModalRegistrarAutorizacaoSaidaTurma"
+                               class="btn btn-rounded btn-purple btn-block disabled">
                                 <span class="fa fa-user"></span> Turma
                             </a>
                         </div>
-                        <hr class="w-100 clearfix d-md-none">
                     </div>
                 </div>
             </div>
         </div>
+        <hr class="w-100 clearfix d-md-none">
         <div class="col">
             <div class="card">
                 <div class="card-header gradient white-text">
-                    RELATÓRIOS DE OCORRÊNCIAS
+                    ENCAMINHAMENTOS
                 </div>
                 <div class="card-body">
                     <div class="form-row">
                         <div class="col">
-                            <a data-toggle="modal" href="#ModalRegistrarOcorrencia" class="btn btn-info btn-block">
+                            <a data-toggle="modal" href="#"
+                               class="btn btn-rounded btn-success btn-block disabled">
+                                <span class="fa fa-industry"></span> Curso
+                            </a>
+
+                            <a data-toggle="modal" href="#"
+                               class="btn btn-rounded btn-success btn-block disabled">
+                                <span class="fa fa-cog"></span> Serviço
+                            </a>
+
+                            <a data-toggle="modal" href="#ModalRegistrarEncaminhamentoTurma"
+                               class="btn btn-rounded btn-success btn-block">
                                 <span class="fa fa-user"></span> Turma
                             </a>
                         </div>
-                        <hr class="w-100 clearfix d-md-none">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="w-100 clearfix d-md-none">
+        <div class="col">
+            <div class="card">
+                <div class="card-header gradient white-text">
+                    OCORRÊNCIAS DISCIPLINARES
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="col">
+                            <a data-toggle="modal" href="#"
+                               class="btn btn-rounded btn-info btn-block disabled">
+                                <span class="fa fa-industry"></span> Curso
+                            </a>
+
+                            <a data-toggle="modal" href="#"
+                               class="btn btn-rounded btn-info btn-block disabled">
+                                <span class="fa fa-pencil"></span> Categoria
+                            </a>
+
+                            <a data-toggle="modal" href="#ModalRegistrarOcorrenciaTurma"
+                               class="btn btn-rounded btn-info btn-block">
+                                <span class="fa fa-user"></span> Turma
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -52,7 +95,7 @@
 
 
     <!--Modal TURMA OCORRÊNCIA-->
-    <div class="modal fade" id="ModalRegistrarOcorrencia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    <div class="modal fade" id="ModalRegistrarOcorrenciaTurma" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
          aria-hidden="true">
         <div class="modal-dialog modal-notify modal-success" role="document">
             <!--Content-->
@@ -100,7 +143,7 @@
     </div>
 
     <!--Modal TURMA ENCAMINHAMENTO-->
-    <div class="modal fade" id="ModalRegistrarEncaminhamento" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    <div class="modal fade" id="ModalRegistrarEncaminhamentoTurma" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
          aria-hidden="true">
         <div class="modal-dialog modal-notify modal-success" role="document">
             <!--Content-->
@@ -132,6 +175,54 @@
                                 {% endfor %}
                             </select>
                             <label for="SelectTurmaEncaminhamento">Turma</label>
+                        </div>
+                        <br>
+                        <!--Footer-->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary-modal waves-effect">Enviar</button>
+                            <a type="button" class="btn btn-outline-secondary-modal"
+                               data-dismiss="modal">Voltar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+
+    <!--Modal TURMA AUTORIZAÇÃO DE SAÍDA-->
+    <div class="modal fade" id="ModalRegistrarAutorizacaoSaidaTurma" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-notify purple" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header text-center">
+                    <h4 class="modal-title white-text w-100 font-bold py-2">Autorizações de saída</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body">
+                    <form action="{% url 'report_autorizacao_saida_turma' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="md-form">
+                            <select name="SelectTurmaAutorizacaoSaida" id="SelectTurmaAutorizacaoSaida"
+                                    class="mdb-select colorful-select dropdown-primary dropdown-ins"
+                                    searchable="Pesquisar..." required>
+                                <option value="" disabled selected>Selecione a turma</option>
+                                {% for c in cursos %}
+                                    {% if c.retorna_turmas %}
+                                        <optgroup label="{{ c.descricao }}">
+                                            {% for t in c.retorna_turmas %}
+                                                <option value={{ t.id }}>{{ t.descricao }}</option>
+                                            {% endfor %}
+                                        </optgroup>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                            <label for="SelectTurmaAutorizacaoSaida">Turma</label>
                         </div>
                         <br>
                         <!--Footer-->

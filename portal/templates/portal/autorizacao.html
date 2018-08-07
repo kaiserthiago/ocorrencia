@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
-{% block title %}Autorizações - Gestão de Ocorrências - SIGO{% endblock %}
+{% block title %}Autorizações de saída - SGE - Gestão Estudantil{% endblock %}
 {% block class_saidas_menu %}active{% endblock %}
 {% block class_saidas_autorizacao_item %}collapsible-header active{% endblock %}
+{% load humanize %}
 
 {% block breadcrumb_base %}
     <ol class="breadcrumb">
@@ -15,7 +16,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header gradient white-text">
-                    AUTORIZAÇÕES
+                    AUTORIZAÇÕES DE SAÍDA
                 </div>
                 <div class="card-body">
                     <div class="form-row">
@@ -40,8 +41,8 @@
                                 <th style="font-weight: bold">#</th>
                                 <th style="font-weight: bold">Turma</th>
                                 <th style="font-weight: bold">Aluno</th>
-                                <th style="font-weight: bold">Data</th>
                                 <th style="font-weight: bold">Descrição</th>
+                                <th style="font-weight: bold">Saída</th>
                                 <th style="text-align: right; font-weight: bold">Ações</th>
                             </tr>
                             </thead>
@@ -49,20 +50,24 @@
                             {% for autorizacao in autorizacoes %}
                                 <tr>
                                     <td style="vertical-align: middle;">{{ autorizacao.id }}</td>
-                                    <td style="vertical-align: middle;">{{ autorizacao.matricula.turma }}</td>
+                                    <td style="vertical-align: middle;">{{ autorizacao.matricula.turma.descricao }}
+                                        - {{ autorizacao.matricula.turma.curso.descricao|truncatechars:30 }}</td>
                                     <td style="vertical-align: middle;">{{ autorizacao.matricula.aluno }}</td>
-                                    <td style="vertical-align: middle;">{{ autorizacao.data }}</td>
                                     <td style="vertical-align: middle;">{{ autorizacao.descricao|truncatechars:30 }}</td>
-                                    <td class="px-0 py-0"  style="vertical-align: middle; text-align: right">
+                                    <td style="vertical-align: middle;">
+                                        {% if autorizacao.status == 'Efetuado' %}
+                                            {{ autorizacao.update_at|date }} às {{ autorizacao.update_at|time }}
+                                        {% else %}
+                                            Aguardando saída
+                                        {% endif %}
+                                    </td>
+                                    <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
 
                                         <a href="{% url 'autorizacao_show' autorizacao.id %}"
                                            class="btn-floating btn-sm info-color"
-                                           data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fa fa-search"></i>
+                                           data-toggle="tooltip" data-placement="top" title="Visualizar"><i
+                                                class="fa fa-search"></i>
                                         </a>
-
-                                        {#                                        <a href="#" class="btn-floating btn-sm warning-color"#}
-                                        {#                                           data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil"></i>#}
-                                        {#                                        </a>#}
 
                                         <i data-toggle="tooltip" data-placement="top" title="Excluir">
                                             <a data-toggle="modal" href="#Excluir{{ autorizacao.id }}"
