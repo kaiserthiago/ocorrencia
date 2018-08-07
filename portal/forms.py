@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 
 from portal.models import UserProfile, Ocorrencia, Curso, Turma, Aluno, ServicoCategoria, Servico, Encaminhamento, \
-    Autorizacao
+    Autorizacao, Configuracao
 
 
 class UserForm(forms.ModelForm):
@@ -198,6 +198,7 @@ class ServicoForm(forms.ModelForm):
             'descricao': 'Descrição',
         }
 
+
 class AutorizacaoForm(forms.ModelForm):
     class Meta:
         model = Autorizacao
@@ -215,4 +216,82 @@ class AutorizacaoForm(forms.ModelForm):
 
         labels = {
             'descricao': 'Descrição',
+        }
+
+
+class ConfiguracaoForm(forms.ModelForm):
+
+    class Meta:
+        model = Configuracao
+        exclude = ('user', 'empresa')
+
+        widgets = {
+            'ocorrencia_email_aluno': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'ocorrencia_email_responsavel_aluno': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'ocorrencia_email_responsavel_user': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'ocorrencia_email_responsavel_setor': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'ocorrencia_email_coordenacao_curso': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+
+            'encaminhamento_email_aluno': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'encaminhamento_email_responsavel_aluno': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'encaminhamento_email_responsavel_user': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'encaminhamento_email_responsavel_setor': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'encaminhamento_email_coordenacao_curso': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+
+            'autorizacao_email_aluno': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'autorizacao_email_responsavel_aluno': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'autorizacao_email_responsavel_user': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'autorizacao_email_responsavel_setor': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'autorizacao_email_coordenacao_curso': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+        }
+
+
+        labels = {
+            'ocorrencia_email_aluno': 'Estudante',
+            'ocorrencia_email_responsavel_aluno': 'Responsável do estudante',
+            'ocorrencia_email_responsavel_user': 'Servidor',
+            'ocorrencia_email_responsavel_setor': 'CAED/DEPAE',
+            'ocorrencia_email_coordenacao_curso': 'Coordenador de curso',
+
+            'encaminhamento_email_aluno': 'Estudante',
+            'encaminhamento_email_responsavel_aluno': 'Responsável do estudante',
+            'encaminhamento_email_responsavel_user': 'Servidor',
+            'encaminhamento_email_responsavel_setor': 'CAED/DEPAE',
+            'encaminhamento_email_coordenacao_curso': 'Coordenador de curso',
+
+            'autorizacao_email_aluno': 'Estudante',
+            'autorizacao_email_responsavel_aluno': 'Responsável do estudante',
+            'autorizacao_email_responsavel_user': 'Servidor',
+            'autorizacao_email_responsavel_setor': 'CAED/DEPAE',
+            'autorizacao_email_coordenacao_curso': 'Coordenador de curso',
         }

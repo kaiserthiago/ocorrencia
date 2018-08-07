@@ -7,6 +7,8 @@ urlpatterns = [
 
     url('^contato$', views.contato, name='contato'),
 
+    url('^configuracao', views.configuracao, name='configuracao'),
+
     url('^dashboard$', views.dashboard, name='dashboard'),
 
     url('^ocorrencia/relatorio/(?P<aluno_id>\d+)$', views.ocorrencia_relatorio, name='ocorrencia_relatorio'),

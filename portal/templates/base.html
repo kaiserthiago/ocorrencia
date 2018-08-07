@@ -47,9 +47,9 @@
     <!-- Logo -->
     <li>
         <div class="logo-wrapper waves-light text-center">
-{#            <a href="{% url 'home' %}"><img src="{% static 'img/logo_ifro2.png' %}"#}
-{#                    style="width: 100%; padding: 0"></a>#}
-{#                            <h1 class="display-3 indigo-text font-weight-bold">IFRO</h1>#}
+            {#            <a href="{% url 'home' %}"><img src="{% static 'img/logo_ifro2.png' %}"#}
+            {#                    style="width: 100%; padding: 0"></a>#}
+            {#                            <h1 class="display-3 indigo-text font-weight-bold">IFRO</h1>#}
 
         </div>
     </li>
@@ -98,12 +98,18 @@
                         </ul>
                     </div>
                 </li>
+                <li>
+                    <a href="{% url 'configuracao' %}" class="collapsible-header waves-effect arrow-r
+                            {% block class_configuracao_menu %}{% endblock %}"><i class="fa fa-cog"></i>
+                        Configurações</a>
+                </li>
             {% endif %}
             <li>
                 <a href="{% url 'dashboard' %}"
                    class="collapsible-header waves-effect arrow-r {% block class_dashboard_menu %}{% endblock %}"><i
                         class="fa fa-dashboard"></i> Dashboard</a>
             </li>
+
             <li>
                 <a class="collapsible-header waves-effect arrow-r {% block class_ocorrencia_menu %}{% endblock %}"><i
                         class="fa fa-pencil"></i> Ocorrências<i
@@ -111,14 +117,12 @@
                 <div class="collapsible-body">
                     <ul>
                         <li>
-                            <a href="{% url 'ocorrencia' %}" class="collapsible-header waves-effect arrow-r
-                            {% block class_ocorrencia_disciplinar_item %}{% endblock %}"><i
-                                    class="fa fa-file-text"></i> Disciplinar</a>
+                            <a href="{% url 'ocorrencia' %}"
+                               class="waves-effect {% block class_ocorrencia_disciplinar_item %}{% endblock %}">Disciplinar</a>
                         </li>
                         <li>
-                            <a href="{% url 'encaminhamento' %}" class="collapsible-header waves-effect arrow-r
-                            {% block class_ocorrencia_encaminhamento_item %}{% endblock %}"><i
-                                    class="fa fa-exchange"></i> Encaminhamento</a>
+                            <a href="{% url 'encaminhamento' %}"
+                               class="waves-effect {% block class_ocorrencia_encaminhamento_item %}{% endblock %}">Encaminhamento</a>
                         </li>
                     </ul>
                 </div>
@@ -152,7 +156,7 @@
             {% if request.user.is_staff %}
                 <li>
                     <a class="collapsible-header waves-effect arrow-r {% block class_servicos_menu %}{% endblock %}"><i
-                            class="fa fa-cog"></i> Serviços<i
+                            class="fa fa-users"></i> Serviços<i
                             class="fa fa-angle-down rotate-icon"></i></a>
                     <div class="collapsible-body">
                         <ul>
@@ -264,9 +268,9 @@
 <div class="content">
     <main>
         <div class="container-fluid">
-            {#        {% block breadcrumb_base %}#}
-            {#        {% endblock %}#}
-
+{#            {% block breadcrumb_base %}#}
+{#            {% endblock %}#}
+        
             {% if messages %}
                 {% for message in messages %}
                     {% if message.tags == 'error' %}

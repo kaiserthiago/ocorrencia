@@ -22,6 +22,7 @@
                     <tr>
                         <th style="font-weight: bold">#</th>
                         <th style="font-weight: bold">Aluno</th>
+                        <th style="font-weight: bold">Autorizado por</th>
                         <th style="font-weight: bold">Data</th>
                         <th style="text-align: right; font-weight: bold">Ações</th>
                     </tr>
@@ -31,6 +32,7 @@
                         <tr>
                             <td style="vertical-align: middle;">{{ autorizacao.id }}</td>
                             <td style="vertical-align: middle;">{{ autorizacao.matricula.aluno }}</td>
+                            <td style="vertical-align: middle;">{{ autorizacao.user }}</td>
                             <td style="vertical-align: middle;">{{ autorizacao.data }}</td>
                             <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
 

@@ -80,3 +80,11 @@ body {
 .form-elegant .modal-body, .form-elegant .modal-footer {
     font-weight: 400;
 }
+
+light-font .breadcrumb-item + .breadcrumb-item::before {
+    color: #fff;
+}
+
+.light-font .breadcrumb-item.active {
+    color: #cfd8dc;
+}

@@ -3,7 +3,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 
 from portal.models import Empresa, Curso, Aluno, Ocorrencia, Turma, UserProfile, Matricula, Falta, CategoriaFalta, \
-    Servico, ServicoCategoria, Encaminhamento, Autorizacao
+    Servico, ServicoCategoria, Encaminhamento, Autorizacao, Configuracao
 from import_export.admin import ImportExportModelAdmin
 
 
@@ -39,15 +39,18 @@ class OcorrenciaAdmin(admin.ModelAdmin):
     list_filter = ['falta__categoria', 'matricula__ano_letivo', 'user', 'empresa']
     search_fields = ['matricula__aluno__nome', ]
 
+
 class EncaminhamentoAdmin(admin.ModelAdmin):
-    list_display = ('id', 'matricula', 'data', 'descricao',     'providencias', 'servico', 'user')
+    list_display = ('id', 'matricula', 'data', 'descricao', 'providencias', 'servico', 'user')
     list_filter = ['servico__categoria', 'matricula__ano_letivo', 'user', 'empresa']
     search_fields = ['matricula__aluno__nome', ]
+
 
 class AutorizacaoAdmin(admin.ModelAdmin):
     list_display = ('id', 'matricula', 'data', 'descricao', 'status', 'user')
     list_filter = ['matricula__ano_letivo', 'user', 'empresa']
     search_fields = ['matricula__aluno__nome', ]
+
 
 class TurmaAdmin(admin.ModelAdmin):
     list_display = ('id', 'curso', 'descricao', 'empresa')
@@ -63,19 +66,28 @@ class FaltaAdmin(admin.ModelAdmin):
 
 class EmpresaAdmin(admin.ModelAdmin):
     list_display = (
-    'id', 'nome_fantasia', 'responsavel_ocorrencia', 'email_responsavel_ocorrencia', 'responsavel_sistema',
-    'email_responsavel_sistema')
+        'id', 'nome_fantasia', 'responsavel_ocorrencia', 'email_responsavel_ocorrencia', 'responsavel_sistema',
+        'email_responsavel_sistema')
     search_fields = ['nome_fantasia']
+
 
 class ServicoCategoriaAdmin(admin.ModelAdmin):
     list_display = ('id', 'descricao', 'empresa')
     list_filter = ['empresa']
     search_fields = ['descricao']
 
+
 class ServicoAdmin(admin.ModelAdmin):
     list_display = ('id', 'descricao', 'categoria', 'empresa')
     list_filter = ['categoria', 'empresa']
     search_fields = ['descricao']
+
+
+class ConfiguracaoAdmin(admin.ModelAdmin):
+    list_display = (
+    'id', 'ocorrencia_email_aluno', 'ocorrencia_email_responsavel_aluno', 'ocorrencia_email_responsavel_user',
+    'ocorrencia_email_responsavel_setor', 'ocorrencia_email_coordenacao_curso')
+
 
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
@@ -91,3 +103,4 @@ admin.site.register(CategoriaFalta),
 admin.site.register(ServicoCategoria, ServicoCategoriaAdmin),
 admin.site.register(Servico, ServicoAdmin),
 admin.site.register(Autorizacao, AutorizacaoAdmin),
+admin.site.register(Configuracao, ConfiguracaoAdmin),

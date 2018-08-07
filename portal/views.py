@@ -18,9 +18,9 @@ from tablib import Dataset
 from portal.emails import RegistraOcorrenciaMail, ConfirmaUsuarioMail, RegistraEncaminhamentoMail, \
     RegistraAutorizacaoSaidaMail
 from portal.forms import OcorrenciaForm, CursoForm, TurmaForm, AlunoForm, UserForm, UserProfileForm, \
-    ServicoCategoriaForm, ServicoForm, EncaminhamentoForm, AutorizacaoForm
+    ServicoCategoriaForm, ServicoForm, EncaminhamentoForm, AutorizacaoForm, ConfiguracaoForm
 from portal.models import Curso, Aluno, Turma, Ocorrencia, Matricula, CategoriaFalta, Falta, UserProfile, \
-    ServicoCategoria, Servico, Encaminhamento, Autorizacao
+    ServicoCategoria, Servico, Encaminhamento, Autorizacao, Configuracao
 
 
 def home(request):
@@ -29,6 +29,105 @@ def home(request):
 
 def contato(request):
     return render(request, 'portal/contato.html', {})
+
+def configuracao(request):
+    configuracao = get_object_or_404(Configuracao, id=1)
+
+    if request.method == 'POST':
+        form = ConfiguracaoForm(request.POST)
+
+        if form.is_valid():
+
+            if 'autorizacao_email_aluno' in request.POST:
+                configuracao.autorizacao_email_aluno = True
+            else:
+                configuracao.autorizacao_email_aluno = False
+
+            if 'autorizacao_email_responsavel_aluno' in request.POST:
+                configuracao.autorizacao_email_responsavel_aluno = True
+            else:
+                configuracao.autorizacao_email_responsavel_aluno = False
+
+            if 'autorizacao_email_responsavel_user' in request.POST:
+                configuracao.autorizacao_email_responsavel_user = True
+            else:
+                configuracao.autorizacao_email_responsavel_user = False
+
+            if 'autorizacao_email_responsavel_setor' in request.POST:
+                configuracao.autorizacao_email_responsavel_setor = True
+            else:
+                configuracao.autorizacao_email_responsavel_setor = False
+
+            if 'autorizacao_email_coordenacao_curso' in request.POST:
+                configuracao.autorizacao_email_coordenacao_curso = True
+            else:
+                configuracao.autorizacao_email_coordenacao_curso = False
+
+
+            if 'encaminhamento_email_aluno' in request.POST:
+                configuracao.encaminhamento_email_aluno = True
+            else:
+                configuracao.encaminhamento_email_aluno = False
+
+            if 'encaminhamento_email_responsavel_aluno' in request.POST:
+                configuracao.encaminhamento_email_responsavel_aluno = True
+            else:
+                configuracao.encaminhamento_email_responsavel_aluno = False
+
+            if 'encaminhamento_email_responsavel_user' in request.POST:
+                configuracao.encaminhamento_email_responsavel_user = True
+            else:
+                configuracao.encaminhamento_email_responsavel_user = False
+
+            if 'encaminhamento_email_responsavel_setor' in request.POST:
+                configuracao.encaminhamento_email_responsavel_setor = True
+            else:
+                configuracao.encaminhamento_email_responsavel_setor = False
+
+            if 'encaminhamento_email_coordenacao_curso' in request.POST:
+                configuracao.encaminhamento_email_coordenacao_curso = True
+            else:
+                configuracao.encaminhamento_email_coordenacao_curso = False
+
+
+            if 'ocorrencia_email_aluno' in request.POST:
+                configuracao.ocorrencia_email_aluno = True
+            else:
+                configuracao.ocorrencia_email_aluno = False
+
+            if 'ocorrencia_email_responsavel_aluno' in request.POST:
+                configuracao.ocorrencia_email_responsavel_aluno = True
+            else:
+                configuracao.ocorrencia_email_responsavel_aluno = False
+
+            if 'ocorrencia_email_responsavel_user' in request.POST:
+                configuracao.ocorrencia_email_responsavel_user = True
+            else:
+                configuracao.ocorrencia_email_responsavel_user = False
+
+            if 'ocorrencia_email_responsavel_setor' in request.POST:
+                configuracao.ocorrencia_email_responsavel_setor = True
+            else:
+                configuracao.ocorrencia_email_responsavel_setor = False
+
+            if 'ocorrencia_email_coordenacao_curso' in request.POST:
+                configuracao.ocorrencia_email_coordenacao_curso = True
+            else:
+                configuracao.ocorrencia_email_coordenacao_curso = False
+
+            configuracao.save()
+
+            messages.success(request, 'Configuração salva.')
+
+            return redirect('configuracao')
+
+    form = ConfiguracaoForm(instance=configuracao)
+
+    context = {
+        'form': form,
+        'configuracao': configuracao
+    }
+    return render(request, 'portal/configuracao.html', context)
 
 
 @staff_member_required
@@ -698,23 +797,33 @@ def ocorrencia_register(request):
                     ocorrencia.save()
 
                     email = []
-                    # EMAIL DO RESPONSÁVEL PELAS OCORRÊNCIAS
-                    email.append(request.user.userprofile.empresa.email_responsavel_ocorrencia)
-                    # EMAIL DO PROFESSOR
-                    email.append(request.user.email)
-                    # EMAIL DO COORDENADOR
-                    email.append(ocorrencia.matricula.turma.curso.email)
+                    configuracao = get_object_or_404(Configuracao, id=1)
 
-                    # VERIFICA SE TEM EMAIL DO RESPONSÁVEL
-                    if ocorrencia.matricula.aluno.email_responsavel:
-                        email.append(ocorrencia.matricula.aluno.email_responsavel)
+                    if configuracao.ocorrencia_email_aluno:
+                        # VERIFICA SE TEM EMAIL DO ALUNO
+                        if ocorrencia.matricula.aluno.email:
+                            email.append(ocorrencia.matricula.aluno.email)
 
-                    # VERIFICA SE TEM EMAIL DO ALUNO
-                    if ocorrencia.matricula.aluno.email:
-                        email.append(ocorrencia.matricula.aluno.email)
+                    if configuracao.ocorrencia_email_responsavel_aluno:
+                        # VERIFICA SE TEM EMAIL DO RESPONSÁVEL
+                        if ocorrencia.matricula.aluno.email_responsavel:
+                            email.append(ocorrencia.matricula.aluno.email_responsavel)
 
-                    # ENVIA OS E-MAILS
-                    RegistraOcorrenciaMail(ocorrencia).send(email)
+                    if configuracao.ocorrencia_email_responsavel_user:
+                        # EMAIL DO SERVIDOR QUE REGISTROU A OCORRÊNCIA
+                        email.append(request.user.email)
+
+                    if configuracao.ocorrencia_email_coordenacao_curso:
+                        # EMAIL DA COORDENAÇÃO DE CURSO
+                        email.append(ocorrencia.matricula.turma.curso.email)
+
+                    if configuracao.ocorrencia_email_responsavel_setor:
+                        # EMAIL DO SETOR RESPONSÁVEL PELAS OCORRÊNCIAS
+                        email.append(request.user.userprofile.empresa.email_responsavel_ocorrencia)
+
+                    if email:
+                        # ENVIA OS E-MAILS
+                        RegistraOcorrenciaMail(ocorrencia).send(email)
 
             return redirect('ocorrencia')
         else:
@@ -1260,23 +1369,33 @@ def encaminhamento_register(request):
                     encaminhamento.save()
 
                     email = []
-                    # EMAIL DO RESPONSÁVEL PELAS OCORRÊNCIAS
-                    email.append(request.user.userprofile.empresa.email_responsavel_ocorrencia)
-                    # EMAIL DO PROFESSOR
-                    email.append(request.user.email)
-                    # EMAIL DO COORDENADOR
-                    email.append(encaminhamento.matricula.turma.curso.email)
+                    configuracao = get_object_or_404(Configuracao, id=1)
 
-                    # # VERIFICA SE TEM EMAIL DO RESPONSÁVEL
-                    # if ocorrencia.matricula.aluno.email_responsavel:
-                    #     email.append(ocorrencia.matricula.aluno.email_responsavel)
-                    #
-                    # # VERIFICA SE TEM EMAIL DO ALUNO
-                    # if ocorrencia.matricula.aluno.email:
-                    #     email.append(ocorrencia.matricula.aluno.email)
+                    if configuracao.encaminhamento_email_aluno:
+                        # VERIFICA SE TEM EMAIL DO ALUNO
+                        if encaminhamento.matricula.aluno.email:
+                            email.append(encaminhamento.matricula.aluno.email)
 
-                    # ENVIA OS E-MAILS
-                    RegistraEncaminhamentoMail(encaminhamento).send(email)
+                    if configuracao.encaminhamento_email_responsavel_aluno:
+                        # VERIFICA SE TEM EMAIL DO RESPONSÁVEL
+                        if encaminhamento.matricula.aluno.email_responsavel:
+                            email.append(encaminhamento.matricula.aluno.email_responsavel)
+
+                    if configuracao.encaminhamento_email_responsavel_user:
+                        # EMAIL DO SERVIDOR QUE REGISTROU A OCORRÊNCIA
+                        email.append(request.user.email)
+
+                    if configuracao.encaminhamento_email_coordenacao_curso:
+                        # EMAIL DA COORDENAÇÃO DE CURSO
+                        email.append(encaminhamento.matricula.turma.curso.email)
+
+                    if configuracao.encaminhamento_email_responsavel_setor:
+                        # EMAIL DO SETOR RESPONSÁVEL PELAS OCORRÊNCIAS
+                        email.append(request.user.userprofile.empresa.email_responsavel_ocorrencia)
+
+                    if email:
+                        # ENVIA OS E-MAILS
+                        RegistraEncaminhamentoMail(encaminhamento).send(email)
 
             return redirect('encaminhamento')
         else:
@@ -1454,18 +1573,32 @@ def autorizacao_confirmar(request, autorizacao_id):
         autorizacao.save()
 
         email = []
-        # EMAIL DO RESPONSÁVEL PELAS OCORRÊNCIAS
-        email.append(request.user.userprofile.empresa.email_responsavel_ocorrencia)
+        configuracao = get_object_or_404(Configuracao, id=1)
 
-        # VERIFICA SE TEM EMAIL DO RESPONSÁVEL
-        if autorizacao.matricula.aluno.email_responsavel:
-            email.append(autorizacao.matricula.aluno.email_responsavel)
+        if configuracao.autorizacao_email_aluno:
+            # VERIFICA SE TEM EMAIL DO ALUNO
+            if autorizacao.matricula.aluno.email:
+                email.append(autorizacao.matricula.aluno.email)
 
-        # VERIFICA SE TEM EMAIL DO ALUNO
-        if autorizacao.matricula.aluno.email:
-            email.append(autorizacao.matricula.aluno.email)
+        if configuracao.autorizacao_email_responsavel_aluno:
+            # VERIFICA SE TEM EMAIL DO RESPONSÁVEL
+            if autorizacao.matricula.aluno.email_responsavel:
+                email.append(autorizacao.matricula.aluno.email_responsavel)
 
-        # ENVIA OS E-MAILS
-        RegistraAutorizacaoSaidaMail(autorizacao).send(email)
+        if configuracao.autorizacao_email_responsavel_user:
+            # EMAIL DO SERVIDOR QUE REGISTROU A OCORRÊNCIA
+            email.append(request.user.email)
+
+        if configuracao.autorizacao_email_coordenacao_curso:
+            # EMAIL DA COORDENAÇÃO DE CURSO
+            email.append(autorizacao.matricula.turma.curso.email)
+
+        if configuracao.autorizacao_email_responsavel_setor:
+            # EMAIL DO SETOR RESPONSÁVEL PELAS OCORRÊNCIAS
+            email.append(request.user.userprofile.empresa.email_responsavel_ocorrencia)
+
+        if email:
+            # ENVIA OS E-MAILS
+            RegistraAutorizacaoSaidaMail(autorizacao).send(email)
 
         return redirect('autorizacao_pendente')

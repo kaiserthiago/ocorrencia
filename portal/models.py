@@ -261,3 +261,28 @@ class Autorizacao(AuditoriaMixin):
     class Meta:
         verbose_name_plural = 'Autorizações de saída'
         ordering = ['-data', 'matricula__aluno']
+
+class Configuracao (AuditoriaMixin):
+    ocorrencia_email_aluno = models.BooleanField(default=True)
+    ocorrencia_email_responsavel_aluno = models.BooleanField(default=True)
+    ocorrencia_email_responsavel_user = models.BooleanField(default=True)
+    ocorrencia_email_responsavel_setor = models.BooleanField(default=True)
+    ocorrencia_email_coordenacao_curso = models.BooleanField(default=True)
+
+    encaminhamento_email_aluno = models.BooleanField(default=True)
+    encaminhamento_email_responsavel_aluno = models.BooleanField(default=True)
+    encaminhamento_email_responsavel_user = models.BooleanField(default=True)
+    encaminhamento_email_responsavel_setor = models.BooleanField(default=True)
+    encaminhamento_email_coordenacao_curso = models.BooleanField(default=True)
+
+    autorizacao_email_aluno = models.BooleanField(default=True)
+    autorizacao_email_responsavel_aluno = models.BooleanField(default=True)
+    autorizacao_email_responsavel_user = models.BooleanField(default=True)
+    autorizacao_email_responsavel_setor = models.BooleanField(default=True)
+    autorizacao_email_coordenacao_curso = models.BooleanField(default=True)
+
+    def __str__(self):
+        return str(self.id)
+
+    class Meta:
+        verbose_name_plural = 'Configurações do sistema'
