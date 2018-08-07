@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block title %}Relatório de Autorizações de saída por Curso - SGE - Gestão Estudantil{% endblock %}
+{% block class_relatorio_menu %}active{% endblock %}
+{% load static %}
+{% load humanize %}
+
+{% block style %}
+    @media print {
+    #slide-out, #icon-bar, #div-menu, #breadcrumb, #footer, #bread, #div-buttons { display: none; }
+    }
+{% endblock %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb" id="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+        <li class="breadcrumb-item active">Relatório Geral</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div id="div-buttons" class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+        <a href="#" onclick="window.print(); return false;" class="btn-floating btn-lg danger-color">
+            <i class="fa fa-print"></i>
+        </a>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-sm">
+                        <tbody>
+                        <tr>
+                            <td class="text-center align-middle">
+                                <img src="{% static 'img/logo_ifro.png' %}" width="100">
+                            </td>
+                            <td colspan="2" class="text-center font-weight-bold align-middle">
+                                MINISTÉRIO DA EDUCAÇÃO<br>
+                                {{ request.user.userprofile.empresa.razao_social|upper }}<br>
+                                {{ request.user.userprofile.empresa|upper }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="text-center font-weight-bold align-middle">
+                                <br>
+                                RELATÓRIO DE AUTORIZAÇÕES DE SAÍDA POR CURSO<br>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm">
+                        <tbody>
+                        {% if autorizacoes %}
+                            <tr>
+                                <td colspan="3">
+                                    <table class="table table-sm table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>Curso</th>
+                                            <th style="text-align: right">Total</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for curso in cursos %}
+
+                                            {% for i in curso.count_autorizacoes %}
+                                                {% if i %}
+                                                    <tr>
+                                                    <td style="vertical-align: middle">{{ curso.descricao }}</td>
+                                                    <td style="vertical-align: middle; text-align: right">{{ i.qtde }}</td>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endfor %}
+                                        {#                                        {% for autorizacao in autorizacoes %}#}
+                                        {#                                            <tr>#}
+                                        {#                                                <td style="vertical-align: middle">{{ autorizacao.matricula__turma__curso__descricao }}</td>#}
+                                        {##}
+                                        {#                                                {% for i in autorizacao %}#}
+                                        {#                                                    {% if i %}#}
+                                        {#                                                        <td style="vertical-align: middle; text-align: right">{{ i.qtde }}</td>#}
+                                        {#                                                    {% endif %}#}
+                                        {#                                                {% endfor %}#}
+                                        {#                                            </tr>#}
+                                        {#                                        {% endfor %}#}
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <div class="card">
+                                <div class="card-header warning-color white-text text-center">
+                                    <strong>SEM AUTORIZAÇÕES DE SAÍDA REGISTRADAS NO ANO BASE {{ ano }}</strong>
+                                </div>
+                            </div>
+                        {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col">
+                            <p class="float-right font-bold">
+                                TOTAL: {{ total.count }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

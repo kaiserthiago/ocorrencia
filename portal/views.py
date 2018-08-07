@@ -30,6 +30,7 @@ def home(request):
 def contato(request):
     return render(request, 'portal/contato.html', {})
 
+
 def configuracao(request):
     configuracao = get_object_or_404(Configuracao, id=1)
 
@@ -63,7 +64,6 @@ def configuracao(request):
             else:
                 configuracao.autorizacao_email_coordenacao_curso = False
 
-
             if 'encaminhamento_email_aluno' in request.POST:
                 configuracao.encaminhamento_email_aluno = True
             else:
@@ -88,7 +88,6 @@ def configuracao(request):
                 configuracao.encaminhamento_email_coordenacao_curso = True
             else:
                 configuracao.encaminhamento_email_coordenacao_curso = False
-
 
             if 'ocorrencia_email_aluno' in request.POST:
                 configuracao.ocorrencia_email_aluno = True
@@ -1029,6 +1028,31 @@ def report_general(request):
 
     return render(request, 'portal/report_general.html', context)
 
+
+@staff_member_required
+def report_autorizacao_saida_curso(request):
+    ano = date.today().year
+
+    autorizacoes = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa,
+                                              data__year=ano).order_by('matricula__turma__curso__descricao').values(
+        'matricula__turma__curso__descricao').annotate(
+        qtde=Count('matricula__turma__curso__descricao')).distinct()
+
+    total = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa, data__year=ano)
+
+    cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa).order_by('descricao')
+
+    context = {
+        'autorizacoes': autorizacoes,
+        # 'turma': turma,
+        'ano': ano,
+        'total': total,
+        'cursos': cursos
+    }
+
+    return render(request, 'portal/report_autorizacao_saida_curso.html', context)
+
+
 @staff_member_required
 def report_autorizacao_saida_turma(request):
     id = request.POST['SelectTurmaAutorizacaoSaida']
@@ -1036,12 +1060,12 @@ def report_autorizacao_saida_turma(request):
     ano = date.today().year
 
     autorizacoes = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa, matricula__turma=turma,
-                                                    data__year=ano).order_by().values(
+                                              data__year=ano).order_by().values(
         'matricula__aluno__nome').annotate(
         qtde=Count('matricula__aluno__nome')).distinct()
 
     total = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa, matricula__turma=turma,
-                                          data__year=ano)
+                                       data__year=ano)
 
     alunos = Matricula.objects.filter(turma=turma, ano_letivo=date.today().year).order_by('aluno')
 
@@ -1054,6 +1078,7 @@ def report_autorizacao_saida_turma(request):
     }
 
     return render(request, 'portal/report_autorizacao_saida_turma.html', context)
+
 
 @staff_member_required
 def report_encaminhamento_turma(request):
@@ -1556,7 +1581,8 @@ def autorizacao_relatorio(request, aluno_id):
 
 @login_required
 def autorizacao_pendente(request):
-    autorizacoes = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa, data__year=date.today().year, status='Autorizado')
+    autorizacoes = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa, data__year=date.today().year,
+                                              status='Autorizado')
     context = {
         'autorizacoes': autorizacoes
     }

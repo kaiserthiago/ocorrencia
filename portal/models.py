@@ -67,6 +67,11 @@ class Curso(AuditoriaMixin):
     def retorna_turmas(self):
         return self.turma_set.all().order_by('descricao')
 
+    @property
+    def count_autorizacoes(self):
+        return Autorizacao.objects.filter(data__year=date.today().year, matricula__turma__curso_id=self.id).order_by().values(
+            'matricula__turma__curso__descricao').annotate(qtde=Count('matricula__turma__curso__descricao')).distinct()
+
 
 class Turma(AuditoriaMixin):
     descricao = models.CharField(max_length=150)
@@ -149,6 +154,10 @@ class Matricula(AuditoriaMixin):
     @property
     def ocorrencias(self):
         return self.ocorrencia_set.all().order_by('-data')
+
+    @property
+    def autorizacoes_saidas(self):
+        return self.autorizacao_set.all()
 
 
 class CategoriaFalta(AuditoriaMixin):
