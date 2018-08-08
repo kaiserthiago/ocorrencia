@@ -84,9 +84,7 @@ class ServicoAdmin(admin.ModelAdmin):
 
 
 class ConfiguracaoAdmin(admin.ModelAdmin):
-    list_display = (
-    'id', 'ocorrencia_email_aluno', 'ocorrencia_email_responsavel_aluno', 'ocorrencia_email_responsavel_user',
-    'ocorrencia_email_responsavel_setor', 'ocorrencia_email_coordenacao_curso')
+    list_display = ('id', 'empresa')
 
 
 admin.site.unregister(User)
