@@ -62,8 +62,7 @@ def configuracao(request):
 
             configuracao.save()
 
-            messages.success(request, 'Configuração salva.')
-            # messages.add_message(request, messages.SUCCESS, 'Signout Successful.')
+            messages.success(request, 'Configurações salvas.')
 
             return redirect('configuracao')
 
@@ -242,6 +241,8 @@ def aluno_new(request):
 
             aluno.save()
 
+            messages.success(request, 'Aluno registrado.')
+
             return redirect('/aluno?qs=a')
 
     form = AlunoForm()
@@ -332,6 +333,7 @@ def curso_new(request):
             curso.empresa = request.user.userprofile.empresa
 
             curso.save()
+            messages.success(request, 'Curso registrado.')
 
             return redirect('curso')
 
@@ -376,6 +378,8 @@ def curso_delete(request, curso_id):
 
     if request.method == 'POST':
         curso.delete()
+        messages.success(request, 'Curso excluído.')
+
     return redirect('curso')
 
 
@@ -610,6 +614,8 @@ def turma_new(request):
 
             turma.save()
 
+            messages.success(request, 'Turma registrada.')
+
             return redirect('turma')
 
     form = TurmaForm()
@@ -661,6 +667,8 @@ def turma_delete(request, turma_id):
 
     if request.method == 'POST':
         turma.delete()
+        messages.success(request, 'Turma excluída.')
+
     return redirect('turma')
 
 
@@ -770,6 +778,8 @@ def ocorrencia_register(request):
                     if email:
                         # ENVIA OS E-MAILS
                         RegistraOcorrenciaMail(ocorrencia).send(email)
+
+            messages.success(request, 'Ocorrência disciplinar registrada.')
 
             return redirect('ocorrencia')
         else:
@@ -890,7 +900,7 @@ def user_account(request):
             user_profile.empresa = profile_form.cleaned_data['empresa']
             user_profile.save()
 
-            messages.success(request, 'As alterações foram salvas.')
+            messages.success(request, 'Conta de usuário atualizada.')
         else:
             messages.error(request, 'Verifique as informações inseridas.')
 
@@ -1137,7 +1147,7 @@ def servico_categoria_new(request):
 
             servico_categoria.save()
 
-            messages.success(request, 'Categoria de serviço cadastradas.')
+            messages.success(request, 'Categoria de serviço registrada.')
 
             return redirect('servico_categoria')
 
@@ -1220,7 +1230,7 @@ def servico_new(request):
 
             servico.save()
 
-            messages.success(request, 'Serviço cadastrado.')
+            messages.success(request, 'Serviço registrado.')
 
             return redirect('servico')
 
@@ -1389,6 +1399,8 @@ def encaminhamento_register(request):
                         # ENVIA OS E-MAILS
                         RegistraEncaminhamentoMail(encaminhamento).send(email)
 
+            messages.success(request, 'Encaminhamento registrado.')
+
             return redirect('encaminhamento')
         else:
             form = EncaminhamentoForm()
@@ -1507,6 +1519,7 @@ def autorizacao_register(request):
 
                     autorizacao.save()
 
+            messages.success(request, 'Autorização de saída registrada.')
             return redirect('autorizacao')
         else:
             form = AutorizacaoForm()
@@ -1527,7 +1540,7 @@ def autorizacao_delete(request, autorizacao_id):
     if request.method == 'POST':
         autorizacao.delete()
 
-        messages.success(request, 'Autorização excluída.')
+        messages.success(request, 'Autorização de saída excluída.')
 
     return redirect('autorizacao')
 
@@ -1593,5 +1606,7 @@ def autorizacao_confirmar(request, autorizacao_id):
         if email:
             # ENVIA OS E-MAILS
             RegistraAutorizacaoSaidaMail(autorizacao).send(email)
+
+        messages.success(request, 'Saída confirmada.')
 
         return redirect('autorizacao_pendente')
