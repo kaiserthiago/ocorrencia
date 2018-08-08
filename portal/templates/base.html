@@ -279,21 +279,21 @@
             {#            {% block breadcrumb_base %}#}
             {#            {% endblock %}#}
 
-            {% if messages %}
-                {% for message in messages %}
-                    {% if message.tags == 'error' %}
-                        <div class="alert card-header danger-color white-text text-left alert-dismissable">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <strong>Erro!</strong> {{ message }}
-                        </div>
-                    {% elif message.tags == 'success' %}
-                        <div class="alert card-header success-color white-text text-left alert-dismissable">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <strong>Sucesso!</strong> {{ message }}
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            {% endif %}
+            {#            {% if messages %}#}
+            {#                {% for message in messages %}#}
+            {#                    {% if message.tags == 'error' %}#}
+            {#                        <div class="alert card-header danger-color white-text text-left alert-dismissable">#}
+            {#                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>#}
+            {#                            <strong>Erro!</strong> {{ message }}#}
+            {#                        </div>#}
+            {#                    {% elif message.tags == 'success' %}#}
+            {#                        <div class="alert card-header success-color white-text text-left alert-dismissable">#}
+            {#                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>#}
+            {#                            <strong>Sucesso!</strong> {{ message }}#}
+            {#                        </div>#}
+            {#                    {% endif %}#}
+            {#                {% endfor %}#}
+            {#            {% endif %}#}
 
             {% block content %}
             {% endblock %}
@@ -400,12 +400,50 @@
         });
     });
 </script>
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags == 'error' %}
+            <script type='text/javascript'>
+                $("document").ready(function () {
+                    toastr["danger"]("{{ message }}")
+                });
+            </script>
+        {% elif message.tags == 'success' %}
+            <script type='text/javascript'>
+                $("document").ready(function () {
+                    toastr["success"]("{{ message }}")
+                });
+            </script>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+<script type='text/javascript'>
+
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": true,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": 300,
+        "hideDuration": 1000,
+        "timeOut": 2500,
+        "extendedTimeOut": 1000,
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+</script>
 {% block script %}
 
 {% endblock %}
 
 {% block modal %}
 {% endblock %}
-</body>
+<
+/body>
 
-</html>
+< /html>

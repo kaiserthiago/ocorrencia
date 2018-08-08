@@ -38,85 +38,32 @@ def configuracao(request):
         form = ConfiguracaoForm(request.POST)
 
         if form.is_valid():
+            configuracao.autorizacao_email_aluno = form.cleaned_data['autorizacao_email_aluno']
+            configuracao.autorizacao_email_responsavel_aluno = form.cleaned_data['autorizacao_email_responsavel_aluno']
+            configuracao.autorizacao_email_responsavel_user = form.cleaned_data['autorizacao_email_responsavel_user']
+            configuracao.autorizacao_email_responsavel_setor = form.cleaned_data['autorizacao_email_responsavel_setor']
+            configuracao.autorizacao_email_coordenacao_curso = form.cleaned_data['autorizacao_email_coordenacao_curso']
 
-            if 'autorizacao_email_aluno' in request.POST:
-                configuracao.autorizacao_email_aluno = True
-            else:
-                configuracao.autorizacao_email_aluno = False
+            configuracao.encaminhamento_email_aluno = form.cleaned_data['encaminhamento_email_aluno']
+            configuracao.encaminhamento_email_responsavel_aluno = form.cleaned_data[
+                'encaminhamento_email_responsavel_aluno']
+            configuracao.encaminhamento_email_responsavel_user = form.cleaned_data[
+                'encaminhamento_email_responsavel_user']
+            configuracao.encaminhamento_email_responsavel_setor = form.cleaned_data[
+                'encaminhamento_email_responsavel_setor']
+            configuracao.encaminhamento_email_coordenacao_curso = form.cleaned_data[
+                'encaminhamento_email_coordenacao_curso']
 
-            if 'autorizacao_email_responsavel_aluno' in request.POST:
-                configuracao.autorizacao_email_responsavel_aluno = True
-            else:
-                configuracao.autorizacao_email_responsavel_aluno = False
-
-            if 'autorizacao_email_responsavel_user' in request.POST:
-                configuracao.autorizacao_email_responsavel_user = True
-            else:
-                configuracao.autorizacao_email_responsavel_user = False
-
-            if 'autorizacao_email_responsavel_setor' in request.POST:
-                configuracao.autorizacao_email_responsavel_setor = True
-            else:
-                configuracao.autorizacao_email_responsavel_setor = False
-
-            if 'autorizacao_email_coordenacao_curso' in request.POST:
-                configuracao.autorizacao_email_coordenacao_curso = True
-            else:
-                configuracao.autorizacao_email_coordenacao_curso = False
-
-            if 'encaminhamento_email_aluno' in request.POST:
-                configuracao.encaminhamento_email_aluno = True
-            else:
-                configuracao.encaminhamento_email_aluno = False
-
-            if 'encaminhamento_email_responsavel_aluno' in request.POST:
-                configuracao.encaminhamento_email_responsavel_aluno = True
-            else:
-                configuracao.encaminhamento_email_responsavel_aluno = False
-
-            if 'encaminhamento_email_responsavel_user' in request.POST:
-                configuracao.encaminhamento_email_responsavel_user = True
-            else:
-                configuracao.encaminhamento_email_responsavel_user = False
-
-            if 'encaminhamento_email_responsavel_setor' in request.POST:
-                configuracao.encaminhamento_email_responsavel_setor = True
-            else:
-                configuracao.encaminhamento_email_responsavel_setor = False
-
-            if 'encaminhamento_email_coordenacao_curso' in request.POST:
-                configuracao.encaminhamento_email_coordenacao_curso = True
-            else:
-                configuracao.encaminhamento_email_coordenacao_curso = False
-
-            if 'ocorrencia_email_aluno' in request.POST:
-                configuracao.ocorrencia_email_aluno = True
-            else:
-                configuracao.ocorrencia_email_aluno = False
-
-            if 'ocorrencia_email_responsavel_aluno' in request.POST:
-                configuracao.ocorrencia_email_responsavel_aluno = True
-            else:
-                configuracao.ocorrencia_email_responsavel_aluno = False
-
-            if 'ocorrencia_email_responsavel_user' in request.POST:
-                configuracao.ocorrencia_email_responsavel_user = True
-            else:
-                configuracao.ocorrencia_email_responsavel_user = False
-
-            if 'ocorrencia_email_responsavel_setor' in request.POST:
-                configuracao.ocorrencia_email_responsavel_setor = True
-            else:
-                configuracao.ocorrencia_email_responsavel_setor = False
-
-            if 'ocorrencia_email_coordenacao_curso' in request.POST:
-                configuracao.ocorrencia_email_coordenacao_curso = True
-            else:
-                configuracao.ocorrencia_email_coordenacao_curso = False
+            configuracao.ocorrencia_email_aluno = form.cleaned_data['ocorrencia_email_aluno']
+            configuracao.ocorrencia_email_responsavel_aluno = form.cleaned_data['ocorrencia_email_responsavel_aluno']
+            configuracao.ocorrencia_email_responsavel_user = form.cleaned_data['ocorrencia_email_responsavel_user']
+            configuracao.ocorrencia_email_responsavel_setor = form.cleaned_data['ocorrencia_email_responsavel_setor']
+            configuracao.ocorrencia_email_coordenacao_curso = form.cleaned_data['ocorrencia_email_coordenacao_curso']
 
             configuracao.save()
 
             messages.success(request, 'Configuração salva.')
+            # messages.add_message(request, messages.SUCCESS, 'Signout Successful.')
 
             return redirect('configuracao')
 
