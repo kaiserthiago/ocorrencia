@@ -32,7 +32,12 @@ def contato(request):
 
 
 def configuracao(request):
-    configuracao = get_object_or_404(Configuracao, empresa=request.user.userprofile.empresa)
+    try:
+        configuracao = get_object_or_404(Configuracao, empresa=request.user.userprofile.empresa)
+    except:
+        configuracao = Configuracao()
+        configuracao.empresa = request.user.userprofile.empresa
+        configuracao.save()
 
     if request.method == 'POST':
         form = ConfiguracaoForm(request.POST)
