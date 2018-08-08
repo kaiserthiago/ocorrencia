@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block title %}Relatório de Ocorrências por Aluno - {{ aluno.nome }} - SGE - Gestão Estudantil{% endblock %}
+{% block class_relatorio_menu %}active{% endblock %}
+{% load static %}
+{% load humanize %}
+
+{% block style %}
+    @media print {
+    #slide-out, #icon-bar, #div-menu, #breadcrumb, #footer, #bread, #div-buttons { display: none; }
+    }
+{% endblock %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb" id="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+        <li class="breadcrumb-item active">Relatório Geral</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div id="div-buttons" class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+        <a href="#" onclick="window.print(); return false;" class="btn-floating btn-lg danger-color">
+            <i class="fa fa-print"></i>
+        </a>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-sm">
+                        <tbody>
+                        <tr>
+                            <td class="text-center align-middle">
+                                <img src="{% static 'img/logo_ifro.png' %}" width="100">
+                            </td>
+                            <td colspan="2" class="text-center font-weight-bold align-middle">
+                                MINISTÉRIO DA EDUCAÇÃO<br>
+                                {{ request.user.userprofile.empresa.razao_social|upper }}<br>
+                                {{ request.user.userprofile.empresa|upper }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="text-center font-weight-bold align-middle">
+                                <br>
+                                RELATÓRIO DE OCORRÊNCIAS DISCIPLINARES POR ALUNO - {{ ano }}<br>
+                                {{ aluno }}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm">
+                        <tbody>
+                        <tr>
+                            <td colspan="3">
+                                <table class="table table-sm table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Data</th>
+                                        <th colspan="2">Infração</th>
+                                        <th>Descrição</th>
+                                        <th style="text-align:right">Resgistrado por</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for ocorrencia in ocorrencias %}
+                                        <tr>
+                                            <td style="vertical-align: middle">{{ ocorrencia.data }}</td>
+                                            <td style="vertical-align: middle;">{{ ocorrencia.falta.categoria }}</td>
+                                            <td style="vertical-align: middle;">{{ ocorrencia.falta.descricao }}</td>
+                                            <td style="vertical-align: middle">{{ ocorrencia.descricao }}</td>
+                                            <td style="vertical-align: middle">{{ ocorrencia.user }}</td>
+                                        </tr>
+                                    {% empty %}
+                                        <tr>
+                                            <td colspan="6" class="card-header warning-color white-text text-center">
+                                                <strong>
+                                                    NÃO HÁ OCORRÊNCIAS DISCIPLINARES REGISTRADAS</strong>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col">
+                            <p class="float-right font-bold">
+                                TOTAL: {{ total.count }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

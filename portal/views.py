@@ -1,5 +1,6 @@
 import json
 import string
+import types
 from datetime import date
 
 from django.contrib import messages
@@ -983,9 +984,11 @@ def user_change_password(request):
 @staff_member_required
 def report_general(request):
     cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa)
+    alunos = Aluno.objects.filter(empresa=request.user.userprofile.empresa).order_by('nome')
 
     context = {
-        'cursos': cursos
+        'cursos': cursos,
+        'alunos': alunos,
     }
 
     return render(request, 'portal/report_general.html', context)
@@ -1061,6 +1064,25 @@ def report_autorizacao_saida_turma(request):
 
     return render(request, 'portal/report_autorizacao_saida_turma.html', context)
 
+@staff_member_required
+def report_encaminhamento_aluno(request, aluno_id):
+    aluno = get_object_or_404(Aluno, id=aluno_id)
+    ano = date.today().year
+
+    encaminhamentos = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa, matricula__aluno=aluno,
+                                              data__year=ano).order_by('-data')
+
+    total = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa, matricula__aluno_id=aluno,
+                                       data__year=ano)
+
+    context = {
+        'encaminhamentos': encaminhamentos,
+        'aluno': aluno,
+        'ano': ano,
+        'total': total,
+    }
+
+    return render(request, 'portal/report_encaminhamento_aluno.html', context)
 
 @staff_member_required
 def report_encaminhamento_turma(request):
@@ -1094,6 +1116,25 @@ def report_encaminhamento_turma(request):
 
     return render(request, 'portal/report_encaminhamento_turma.html', context)
 
+@staff_member_required
+def report_ocorrencia_aluno(request, aluno_id):
+    aluno = get_object_or_404(Aluno, id=aluno_id)
+    ano = date.today().year
+
+    ocorrencias = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa, matricula__aluno=aluno,
+                                              data__year=ano).order_by('-data')
+
+    total = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa, matricula__aluno_id=aluno,
+                                       data__year=ano)
+
+    context = {
+        'ocorrencias': ocorrencias,
+        'aluno': aluno,
+        'ano': ano,
+        'total': total,
+    }
+
+    return render(request, 'portal/report_ocorrencia_aluno.html', context)
 
 @staff_member_required
 def report_ocorrencia_turma(request):
@@ -1551,8 +1592,33 @@ def autorizacao_delete(request, autorizacao_id):
 
 
 @staff_member_required
+def autorizacao_relatorio_aluno(request):
+    if request.method == 'POST':
+        id = request.POST['SelectAlunoAutorizacao']
+
+        return redirect('autorizacao_relatorio', id)
+
+
+@staff_member_required
+def encaminhamento_relatorio_aluno(request):
+    if request.method == 'POST':
+        id = request.POST['SelectAlunoEncaminhamento']
+
+        return redirect('encaminhamento_relatorio', id)
+
+
+@staff_member_required
+def ocorrencia_relatorio_aluno(request):
+    if request.method == 'POST':
+        id = request.POST['SelectAlunoOcorrencia']
+
+        return redirect('ocorrencia_relatorio', id)
+
+
+@staff_member_required
 def autorizacao_relatorio(request, aluno_id):
     aluno = get_object_or_404(Aluno, id=aluno_id)
+
     autorizacoes = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa,
                                               data__year=date.today().year, matricula__aluno=aluno_id)
 

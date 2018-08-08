@@ -12,6 +12,7 @@ urlpatterns = [
     url('^dashboard$', views.dashboard, name='dashboard'),
 
     url('^ocorrencia/relatorio/(?P<aluno_id>\d+)$', views.ocorrencia_relatorio, name='ocorrencia_relatorio'),
+    url('^ocorrencia/relatorio/aluno$', views.ocorrencia_relatorio_aluno, name='ocorrencia_relatorio_aluno'),
     url('^ocorrencia/register$', views.ocorrencia_register, name='ocorrencia_register'),
     url('^ocorrencia/delete/(?P<ocorrencia_id>\d+)$', views.ocorrencia_delete, name='ocorrencia_delete'),
     url('^ocorrencia/show/(?P<ocorrencia_id>\d+)$', views.ocorrencia_show, name='ocorrencia_show'),
@@ -20,6 +21,7 @@ urlpatterns = [
 
     url('^encaminhamento/relatorio/(?P<aluno_id>\d+)$', views.encaminhamento_relatorio,
         name='encaminhamento_relatorio'),
+    url('^encaminhamento/relatorio/aluno$', views.encaminhamento_relatorio_aluno, name='encaminhamento_relatorio_aluno'),
     url('^encaminhamento/register$', views.encaminhamento_register, name='encaminhamento_register'),
     url('^encaminhamento/delete/(?P<encaminhamento_id>\d+)$', views.encaminhamento_delete,
         name='encaminhamento_delete'),
@@ -28,6 +30,7 @@ urlpatterns = [
     url('^encaminhamento$', views.encaminhamento, name='encaminhamento'),
 
     url('^autorizacao/relatorio/(?P<aluno_id>\d+)$', views.autorizacao_relatorio, name='autorizacao_relatorio'),
+    url('^autorizacao/relatorio/aluno$', views.autorizacao_relatorio_aluno, name='autorizacao_relatorio_aluno'),
     url('^autorizacao/register$', views.autorizacao_register, name='autorizacao_register'),
     url('^autorizacao/delete/(?P<autorizacao_id>\d+)$', views.autorizacao_delete, name='autorizacao_delete'),
     url('^autorizacao/show/(?P<autorizacao_id>\d+)$', views.autorizacao_show, name='autorizacao_show'),
@@ -69,8 +72,12 @@ urlpatterns = [
     url(r'^report/autorizacao/curso$', views.report_autorizacao_saida_curso, name='report_autorizacao_saida_curso'),
     url(r'^report/autorizacao/turma$', views.report_autorizacao_saida_turma, name='report_autorizacao_saida_turma'),
 
+    url(r'^report/encaminhamento/aluno/(?P<aluno_id>\d+)$', views.report_encaminhamento_aluno, name='report_encaminhamento_aluno'),
     url(r'^report/encaminhamento/turma$', views.report_encaminhamento_turma, name='report_encaminhamento_turma'),
+
+    url(r'^report/ocorrencia/aluno/(?P<aluno_id>\d+)$', views.report_ocorrencia_aluno, name='report_ocorrencia_aluno'),
     url(r'^report/ocorrencia/turma$', views.report_ocorrencia_turma, name='report_ocorrencia_turma'),
+
     url(r'^report/general$', views.report_general, name='report_general'),
 
     url('^servico/categoria/delete/(?P<servico_categoria_id>\d+)$', views.servico_categoria_delete,

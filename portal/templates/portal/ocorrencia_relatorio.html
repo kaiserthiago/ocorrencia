@@ -18,11 +18,17 @@
                     OCORRÊNCIAS DISCIPLINARES - {{ aluno.nome }}
                 </div>
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="md-form form-group">
-                                <input id="myInput" type="text" class="form-control" autofocus/>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="md-form">
+                                <input id="myInput" type="text" class="form-control form-control-sm" autofocus/>
                                 <label for="myInput">Pesquisar...</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="float-right">
+                                <a href="{% url 'report_ocorrencia_aluno' aluno.id %}" class="btn btn-rounded btn-block btn-danger"><i
+                                        class="fa fa-print"></i> Imprimir</a>
                             </div>
                         </div>
                     </div>

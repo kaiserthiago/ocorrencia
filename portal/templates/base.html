@@ -414,6 +414,12 @@
                     toastr["success"]("{{ message }}")
                 });
             </script>
+        {% elif message.tags == 'warning' %}
+            <script type='text/javascript'>
+                $("document").ready(function () {
+                    toastr["warning"]("{{ message }}")
+                });
+            </script>
         {% endif %}
     {% endfor %}
 {% endif %}
