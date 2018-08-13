@@ -109,7 +109,7 @@ def import_matricula(request):
             lista.append(upper(n[0]))
 
         for teste in lista:
-            aluno = get_object_or_404(Aluno, empresa=request.user.userprofile.empresa, nome=teste)
+            aluno = get_object_or_404(Aluno, empresa=request.user.userprofile.empresa, nome=teste.rstrip(" "))
             matricula = Matricula.objects.filter(aluno=aluno, ano_letivo=int(date.today().year), turma=turma)
 
             if (teste == aluno.nome) and not matricula:
