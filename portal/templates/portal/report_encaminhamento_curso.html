@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Relatório de Encaminhamento por Turma - SGE - Gestão Estudantil{% endblock %}
+{% block title %}Relatório de Encaminhamento por Curso - SGE - Gestão Estudantil{% endblock %}
 {% block class_relatorio_menu %}active{% endblock %}
 {% load static %}
 {% load humanize %}
@@ -43,8 +43,8 @@
                         <tr>
                             <td colspan="2" class="text-center font-weight-bold align-middle">
                                 <br>
-                                RELATÓRIO DE ENCAMINHAMENTO POR TURMA - {{ ano}}<br>
-                                {{ turma }}
+                                RELATÓRIO DE ENCAMINHAMENTO POR CURSO - {{ ano }}<br>
+                                {{ curso }}
                             </td>
                         </tr>
                         </tbody>
@@ -57,35 +57,36 @@
                                     <table class="table table-sm table-striped">
                                         <thead>
                                         <tr>
-                                            <th>Aluno</th>
+                                            <th>Turma</th>
                                             <th style="text-align: center">Detalhamento</th>
                                             <th style="text-align: right">Total</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        {% for o in alunos %}
-                                            {% for i in o.aluno.count_encaminhamento %}
+                                        {% for o in turmas %}
+                                            {% for i in o.count_encaminhamento %}
                                                 {% if i %}
                                                     <tr>
-                                                    <td style="vertical-align: middle">{{ i.matricula__aluno__nome }}</td>
+                                                    <td style="vertical-align: middle">{{ curso.descricao }}
+                                                        - {{ i.matricula__turma__descricao }}</td>
                                                 {% endif %}
                                             {% endfor %}
-                                        {% if o.aluno.count_cat_encaminhamento %}
+                                        {% if o.count_cat_encaminhamento %}
                                             <td style="vertical-align: middle">
                                                 <div class="row">
-                                                {% for i in o.aluno.count_cat_encaminhamento %}
-                                                    {% if i %}
-                                                        <div class="col">
-                                                        {{ i.servico__categoria__descricao }}: {{ i.qtde }}
-                                                        </div>
-                                                    {% endif %}
-                                                {% endfor %}
+                                                    {% for i in o.count_cat_encaminhamento %}
+                                                        {% if i %}
+                                                            <div class="col">
+                                                                {{ i.servico__categoria__descricao }}: {{ i.qtde }}
+                                                            </div>
+                                                        {% endif %}
+                                                    {% endfor %}
                                                 </div>
                                             </td>
                                         {% endif %}
 
 
-                                        {% for i in o.aluno.count_encaminhamento %}
+                                        {% for i in o.count_encaminhamento %}
                                             {% if i %}
                                                 <td style="vertical-align: middle; text-align: right">{{ i.qtde }}</td>
                                             {% endif %}
@@ -99,7 +100,7 @@
                         {% else %}
                             <div class="card">
                                 <div class="card-header warning-color white-text text-center">
-                                    <strong>TURMA SEM ENCAMINHAMENTOS REGISTRADOS NO ANO BASE {{ ano }}</strong>
+                                    <strong>CURSO SEM ENCAMINHAMENTOS REGISTRADOS NO ANO BASE {{ ano }}</strong>
                                 </div>
                             </div>
                         {% endif %}

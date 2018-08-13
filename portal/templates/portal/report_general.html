@@ -54,15 +54,15 @@
                                 <span class="fa fa-user"></span> Aluno
                             </a>
 
-                            <a data-toggle="modal" href="#"
-                               class="btn btn-rounded btn-info btn-block disabled">
+                            <a data-toggle="modal" href="#ModalRegistrarEncaminhamentoCurso"
+                               class="btn btn-rounded btn-info btn-block">
                                 <span class="fa fa-industry"></span> Curso
                             </a>
 
-                            <a data-toggle="modal" href="#"
-                               class="btn btn-rounded btn-info btn-block disabled">
-                                <span class="fa fa-cog"></span> Serviço
-                            </a>
+{#                            <a data-toggle="modal" href="#"#}
+{#                               class="btn btn-rounded btn-info btn-block disabled">#}
+{#                                <span class="fa fa-cog"></span> Serviço#}
+{#                            </a>#}
 
                             <a data-toggle="modal" href="#ModalRegistrarEncaminhamentoTurma"
                                class="btn btn-rounded btn-info btn-block">
@@ -87,13 +87,13 @@
                                 <span class="fa fa-user"></span> Aluno
                             </a>
 
-                            <a data-toggle="modal" href="#"
-                               class="btn btn-rounded btn-success btn-block disabled">
-                                <span class="fa fa-pencil"></span> Categoria
-                            </a>
+{#                            <a data-toggle="modal" href="#"#}
+{#                               class="btn btn-rounded btn-success btn-block disabled">#}
+{#                                <span class="fa fa-pencil"></span> Categoria#}
+{#                            </a>#}
 
-                            <a data-toggle="modal" href="#"
-                               class="btn btn-rounded btn-success btn-block disabled">
+                            <a data-toggle="modal" href="#ModalRegistrarOcorrenciaCurso"
+                               class="btn btn-rounded btn-success btn-block">
                                 <span class="fa fa-industry"></span> Curso
                             </a>
 
@@ -108,7 +108,7 @@
         </div>
     </div>
 
-<!--Modal ALUNO OCORRÊNCIA-->
+    <!--Modal ALUNO OCORRÊNCIA-->
     <div class="modal fade" id="ModalRegistrarOcorrenciaAluno" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel"
          aria-hidden="true">
@@ -151,6 +151,49 @@
         </div>
     </div>
 
+    <!--Modal CURSO OCORRÊNCIA-->
+    <div class="modal fade" id="ModalRegistrarOcorrenciaCurso" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-success" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header text-center">
+                    <h4 class="modal-title white-text w-100 font-bold py-2">Relatório ocorrência disciplinar</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body">
+                    <form action="{% url 'report_ocorrencia_curso' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="md-form">
+                            <select name="SelectCursoOcorrencia" id="SelectCursoOcorrencia"
+                                    class="mdb-select colorful-select dropdown-primary dropdown-ins"
+                                    searchable="Pesquisar..." required>
+                                <option value="" disabled selected>Selecione o curso</option>
+                                {% for c in cursos %}
+                                    <option value={{ c.id }}>{{ c.descricao }}</option>
+                                {% endfor %}
+                            </select>
+                            <label for="SelectCursoOcorrencia">Curso</label>
+                        </div>
+                        <br>
+                        <!--Footer-->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-rounded btn-primary-modal waves-effect">Enviar</button>
+                            <a type="button" class="btn btn-rounded btn-outline-secondary-modal"
+                               data-dismiss="modal">Voltar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+
     <!--Modal TURMA OCORRÊNCIA-->
     <div class="modal fade" id="ModalRegistrarOcorrenciaTurma" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel"
@@ -170,7 +213,7 @@
                     <form action="{% url 'report_ocorrencia_turma' %}" method="POST">
                         {% csrf_token %}
                         <div class="md-form">
-                            <select name="SelectTurma" id="SelectTurma"
+                            <select name="SelectTurmaOcorrencia" id="SelectTurmaOcorrencia"
                                     class="mdb-select colorful-select dropdown-primary dropdown-ins"
                                     searchable="Pesquisar..." required>
                                 <option value="" disabled selected>Selecione a turma</option>
@@ -184,7 +227,7 @@
                                     {% endif %}
                                 {% endfor %}
                             </select>
-                            <label for="SelectTurma">Turma</label>
+                            <label for="SelectTurmaOcorrencia">Turma</label>
                         </div>
                         <br>
                         <!--Footer-->
@@ -242,7 +285,48 @@
             <!--/.Content-->
         </div>
     </div>
-
+    <!--Modal CURSO ENCAMINHAMENTO-->
+    <div class="modal fade" id="ModalRegistrarEncaminhamentoCurso" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-success" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header text-center">
+                    <h4 class="modal-title white-text w-100 font-bold py-2">Relatório encaminhamento</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body">
+                    <form action="{% url 'report_encaminhamento_curso' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="md-form">
+                            <select name="SelectCursoEncaminhamento" id="SelectCursoEncaminhamento"
+                                    class="mdb-select colorful-select dropdown-primary dropdown-ins"
+                                    searchable="Pesquisar..." required>
+                                <option value="" disabled selected>Selecione o curso</option>
+                                {% for c in cursos %}
+                                    <option value={{ c.id }}>{{ c.descricao }}</option>
+                                {% endfor %}
+                            </select>
+                            <label for="SelectCursoEncaminhamento">Curso</label>
+                        </div>
+                        <br>
+                        <!--Footer-->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-rounded btn-primary-modal waves-effect">Enviar</button>
+                            <a type="button" class="btn btn-rounded btn-outline-secondary-modal"
+                               data-dismiss="modal">Voltar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
     <!--Modal TURMA ENCAMINHAMENTO-->
     <div class="modal fade" id="ModalRegistrarEncaminhamentoTurma" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel"

@@ -1064,16 +1064,17 @@ def report_autorizacao_saida_turma(request):
 
     return render(request, 'portal/report_autorizacao_saida_turma.html', context)
 
+
 @staff_member_required
 def report_encaminhamento_aluno(request, aluno_id):
     aluno = get_object_or_404(Aluno, id=aluno_id)
     ano = date.today().year
 
     encaminhamentos = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa, matricula__aluno=aluno,
-                                              data__year=ano).order_by('-data')
+                                                    data__year=ano).order_by('-data')
 
     total = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa, matricula__aluno_id=aluno,
-                                       data__year=ano)
+                                          data__year=ano)
 
     context = {
         'encaminhamentos': encaminhamentos,
@@ -1083,6 +1084,41 @@ def report_encaminhamento_aluno(request, aluno_id):
     }
 
     return render(request, 'portal/report_encaminhamento_aluno.html', context)
+
+
+@staff_member_required
+def report_encaminhamento_curso(request):
+    id = request.POST['SelectCursoEncaminhamento']
+    curso = get_object_or_404(Curso, id=id)
+    ano = date.today().year
+
+    encaminhamentos = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
+                                                    matricula__turma__curso=curso,
+                                                    data__year=ano).order_by().values(
+        'matricula__turma__descricao').annotate(
+        qtde=Count('matricula__turma__descricao')).distinct()
+
+    total = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa, matricula__turma__curso=curso,
+                                          data__year=ano)
+
+    cat = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
+                                        data__year=date.today().year,
+                                        matricula__turma__curso=curso).order_by('servico__categoria__descricao').values(
+        'servico__categoria__descricao').annotate(qtde=Count('servico__categoria__descricao')).distinct()
+
+    turmas = Turma.objects.filter(empresa=request.user.userprofile.empresa, curso=curso).order_by('descricao')
+
+    context = {
+        'encaminhamentos': encaminhamentos,
+        'curso': curso,
+        'ano': ano,
+        'total': total,
+        'cat': cat,
+        'turmas': turmas
+    }
+
+    return render(request, 'portal/report_encaminhamento_curso.html', context)
+
 
 @staff_member_required
 def report_encaminhamento_turma(request):
@@ -1116,16 +1152,17 @@ def report_encaminhamento_turma(request):
 
     return render(request, 'portal/report_encaminhamento_turma.html', context)
 
+
 @staff_member_required
 def report_ocorrencia_aluno(request, aluno_id):
     aluno = get_object_or_404(Aluno, id=aluno_id)
     ano = date.today().year
 
     ocorrencias = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa, matricula__aluno=aluno,
-                                              data__year=ano).order_by('-data')
+                                            data__year=ano).order_by('-data')
 
     total = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa, matricula__aluno_id=aluno,
-                                       data__year=ano)
+                                      data__year=ano)
 
     context = {
         'ocorrencias': ocorrencias,
@@ -1136,9 +1173,43 @@ def report_ocorrencia_aluno(request, aluno_id):
 
     return render(request, 'portal/report_ocorrencia_aluno.html', context)
 
+
+@staff_member_required
+def report_ocorrencia_curso(request):
+    id = request.POST['SelectCursoOcorrencia']
+    curso = get_object_or_404(Curso, id=id)
+    ano = date.today().year
+
+    ocorrencias = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa, matricula__turma__curso=curso,
+                                            data__year=ano).order_by().values('matricula__turma__descricao').annotate(
+        qtde=Count('matricula__turma__descricao')).distinct()
+
+    total = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa, matricula__turma__curso=curso,
+                                      data__year=ano)
+
+    cat = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
+                                    data__year=date.today().year,
+                                    matricula__turma__curso=curso).order_by('falta__categoria__artigo').values(
+        'falta__categoria__descricao').annotate(qtde=Count('falta__categoria__descricao')).distinct()
+
+    turmas = Turma.objects.filter(empresa=request.user.userprofile.empresa, curso=curso).order_by('descricao')
+
+    context = {
+        'ocorrencias': ocorrencias,
+        'curso': curso,
+        'ano': ano,
+        'total': total,
+        'cat': cat,
+        'turmas': turmas
+
+    }
+
+    return render(request, 'portal/report_ocorrencia_curso.html', context)
+
+
 @staff_member_required
 def report_ocorrencia_turma(request):
-    id = request.POST['SelectTurma']
+    id = request.POST['SelectTurmaOcorrencia']
     turma = get_object_or_404(Turma, id=id)
     ano = date.today().year
 

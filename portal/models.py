@@ -69,7 +69,8 @@ class Curso(AuditoriaMixin):
 
     @property
     def count_autorizacoes(self):
-        return Autorizacao.objects.filter(data__year=date.today().year, matricula__turma__curso_id=self.id).order_by().values(
+        return Autorizacao.objects.filter(data__year=date.today().year,
+                                          matricula__turma__curso_id=self.id).order_by().values(
             'matricula__turma__curso__descricao').annotate(qtde=Count('matricula__turma__curso__descricao')).distinct()
 
 
@@ -82,6 +83,31 @@ class Turma(AuditoriaMixin):
 
     class Meta:
         ordering = ['descricao']
+
+    @property
+    def count_cat_ocorrencia(self):
+        return Ocorrencia.objects.filter(data__year=date.today().year, matricula__turma_id=self.id).order_by(
+            'falta__categoria__artigo').values(
+            'falta__categoria__descricao').annotate(qtde=Count('falta__categoria__descricao')).distinct()
+
+    @property
+    def count_ocorrencia(self):
+        return Ocorrencia.objects.filter(data__year=date.today().year, matricula__turma_id=self.id).order_by().values(
+            'matricula__turma__descricao').annotate(
+            qtde=Count('matricula__turma__descricao')).distinct()
+
+    @property
+    def count_cat_encaminhamento(self):
+        return Encaminhamento.objects.filter(data__year=date.today().year, matricula__turma_id=self.id).order_by(
+            'servico__categoria__descricao').values(
+            'servico__categoria__descricao').annotate(qtde=Count('servico__categoria__descricao')).distinct()
+
+    @property
+    def count_encaminhamento(self):
+        return Encaminhamento.objects.filter(data__year=date.today().year,
+                                             matricula__turma_id=self.id).order_by().values(
+            'matricula__turma__descricao').annotate(
+            qtde=Count('matricula__turma__descricao')).distinct()
 
 
 class Aluno(AuditoriaMixin):
@@ -271,7 +297,8 @@ class Autorizacao(AuditoriaMixin):
         verbose_name_plural = 'Autorizações de saída'
         ordering = ['-data', 'matricula__aluno']
 
-class Configuracao (AuditoriaMixin):
+
+class Configuracao(AuditoriaMixin):
     ocorrencia_email_aluno = models.BooleanField(default=True)
     ocorrencia_email_responsavel_aluno = models.BooleanField(default=True)
     ocorrencia_email_responsavel_user = models.BooleanField(default=True)
