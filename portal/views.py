@@ -162,8 +162,8 @@ def import_aluno(request):
 
         for n in imported_data:
             aluno.append(upper(n[0]))
-            email.append(upper(n[2]))
             responsavel.append(upper(n[1]))
+            email.append(upper(n[2]))
 
         for a in aluno:
             aluno = Aluno.objects.filter(empresa=request.user.userprofile.empresa, nome=a)
@@ -172,7 +172,7 @@ def import_aluno(request):
                 aluno = Aluno()
                 aluno.user = request.user
                 aluno.empresa = request.user.userprofile.empresa
-                aluno.nome = a
+                aluno.nome = a.rstrip(" ")
                 aluno.email_responsavel = ''
 
                 if email:
