@@ -44,6 +44,7 @@
                             <td colspan="2" class="text-center font-weight-bold align-middle">
                                 <br>
                                 RELATÓRIO DE AUTORIZAÇÕES DE SAÍDA POR CURSO - {{ ano}}<br>
+                                {{ curso }}
                             </td>
                         </tr>
                         </tbody>
@@ -61,11 +62,11 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        {% for curso in cursos %}
-                                            {% for i in curso.count_autorizacoes %}
+                                        {% for o in turmas %}
+                                            {% for i in o.count_autorizacoes %}
                                                 {% if i %}
                                                     <tr>
-                                                    <td style="vertical-align: middle">{{ curso.descricao }}</td>
+                                                    <td style="vertical-align: middle">{{ curso.descricao }} - {{ i.matricula__turma__descricao }}</td>
                                                     <td style="vertical-align: middle; text-align: right">{{ i.qtde }}</td>
                                                 {% endif %}
                                             {% endfor %}

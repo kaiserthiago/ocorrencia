@@ -71,7 +71,7 @@ class Curso(AuditoriaMixin):
     def count_autorizacoes(self):
         return Autorizacao.objects.filter(data__year=date.today().year,
                                           matricula__turma__curso_id=self.id).order_by().values(
-            'matricula__turma__curso__descricao').annotate(qtde=Count('matricula__turma__curso__descricao')).distinct()
+            'matricula__turma__descricao').annotate(qtde=Count('matricula__turma__descricao')).distinct()
 
 
 class Turma(AuditoriaMixin):
@@ -106,6 +106,12 @@ class Turma(AuditoriaMixin):
     def count_encaminhamento(self):
         return Encaminhamento.objects.filter(data__year=date.today().year,
                                              matricula__turma_id=self.id).order_by().values(
+            'matricula__turma__descricao').annotate(
+            qtde=Count('matricula__turma__descricao')).distinct()
+
+    @property
+    def count_autorizacoes(self):
+        return Autorizacao.objects.filter(data__year=date.today().year, matricula__turma_id=self.id).order_by().values(
             'matricula__turma__descricao').annotate(
             qtde=Count('matricula__turma__descricao')).distinct()
 

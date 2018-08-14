@@ -26,7 +26,7 @@
                                 <span class="fa fa-user"></span> Aluno
                             </a>
 
-                            <a href="{% url 'report_autorizacao_saida_curso' %}"
+                            <a data-toggle="modal" href="#ModalRegistrarAutorizacaoSaidaCurso"
                                class="btn btn-rounded btn-purple btn-block">
                                 <span class="fa fa-industry"></span> Curso
                             </a>
@@ -59,10 +59,10 @@
                                 <span class="fa fa-industry"></span> Curso
                             </a>
 
-{#                            <a data-toggle="modal" href="#"#}
-{#                               class="btn btn-rounded btn-info btn-block disabled">#}
-{#                                <span class="fa fa-cog"></span> Serviço#}
-{#                            </a>#}
+                            <a data-toggle="modal" href="#"
+                               class="btn btn-rounded btn-info btn-block disabled">
+                                <span class="fa fa-cog"></span> Serviço
+                            </a>
 
                             <a data-toggle="modal" href="#ModalRegistrarEncaminhamentoTurma"
                                class="btn btn-rounded btn-info btn-block">
@@ -87,10 +87,10 @@
                                 <span class="fa fa-user"></span> Aluno
                             </a>
 
-{#                            <a data-toggle="modal" href="#"#}
-{#                               class="btn btn-rounded btn-success btn-block disabled">#}
-{#                                <span class="fa fa-pencil"></span> Categoria#}
-{#                            </a>#}
+                            {#                            <a data-toggle="modal" href="#"#}
+                            {#                               class="btn btn-rounded btn-success btn-block disabled">#}
+                            {#                                <span class="fa fa-pencil"></span> Categoria#}
+                            {#                            </a>#}
 
                             <a data-toggle="modal" href="#ModalRegistrarOcorrenciaCurso"
                                class="btn btn-rounded btn-success btn-block">
@@ -385,7 +385,7 @@
             <div class="modal-content">
                 <!--Header-->
                 <div class="modal-header text-center">
-                    <h4 class="modal-title white-text w-100 font-bold py-2">Autorizações de saída</h4>
+                    <h4 class="modal-title white-text w-100 font-bold py-2">Relatório de autorizações de saída</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
@@ -419,6 +419,49 @@
         </div>
     </div>
 
+    <!--Modal CURSO AUTORIZAÇÃO SAÍDA-->
+    <div class="modal fade" id="ModalRegistrarAutorizacaoSaidaCurso" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-success" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header text-center">
+                    <h4 class="modal-title white-text w-100 font-bold py-2">Relatório autorizações de saída</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body">
+                    <form action="{% url 'report_autorizacao_saida_curso' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="md-form">
+                            <select name="SelectCursoAutorizacaoSaida" id="SelectCursoAutorizacaoSaida"
+                                    class="mdb-select colorful-select dropdown-primary dropdown-ins"
+                                    searchable="Pesquisar..." required>
+                                <option value="" disabled selected>Selecione o curso</option>
+                                {% for c in cursos %}
+                                    <option value={{ c.id }}>{{ c.descricao }}</option>
+                                {% endfor %}
+                            </select>
+                            <label for="SelectCursoAutorizacaoSaida">Curso</label>
+                        </div>
+                        <br>
+                        <!--Footer-->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-rounded btn-primary-modal waves-effect">Enviar</button>
+                            <a type="button" class="btn btn-rounded btn-outline-secondary-modal"
+                               data-dismiss="modal">Voltar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+
     <!--Modal TURMA AUTORIZAÇÃO DE SAÍDA-->
     <div class="modal fade" id="ModalRegistrarAutorizacaoSaidaTurma" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel"
@@ -428,7 +471,7 @@
             <div class="modal-content">
                 <!--Header-->
                 <div class="modal-header text-center">
-                    <h4 class="modal-title white-text w-100 font-bold py-2">Autorizações de saída</h4>
+                    <h4 class="modal-title white-text w-100 font-bold py-2">Relatório de autorizações de saída</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>

@@ -1017,22 +1017,27 @@ def report_autorizacao_saida_aluno(request, aluno_id):
 
 @staff_member_required
 def report_autorizacao_saida_curso(request):
+    id = request.POST['SelectCursoAutorizacaoSaida']
+    curso = get_object_or_404(Curso, id=id)
     ano = date.today().year
 
     autorizacoes = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa,
-                                              data__year=ano).order_by('matricula__turma__curso__descricao').values(
-        'matricula__turma__curso__descricao').annotate(
-        qtde=Count('matricula__turma__curso__descricao')).distinct()
+                                              matricula__turma__curso=curso,
+                                              data__year=ano).order_by().values(
+        'matricula__turma__descricao', 'matricula__turma_id').annotate(
+        qtde=Count('matricula__turma__descricao')).distinct()
 
-    total = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa, data__year=ano)
+    total = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa, matricula__turma__curso=curso,
+                                       data__year=ano)
 
-    cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa).order_by('descricao')
+    turmas = Turma.objects.filter(empresa=request.user.userprofile.empresa, curso=curso).order_by('descricao')
 
     context = {
         'autorizacoes': autorizacoes,
+        'curso': curso,
         'ano': ano,
         'total': total,
-        'cursos': cursos
+        'turmas': turmas
     }
 
     return render(request, 'portal/report_autorizacao_saida_curso.html', context)
@@ -1095,7 +1100,7 @@ def report_encaminhamento_curso(request):
     encaminhamentos = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
                                                     matricula__turma__curso=curso,
                                                     data__year=ano).order_by().values(
-        'matricula__turma__descricao').annotate(
+        'matricula__turma__descricao', 'matricula__turma_id').annotate(
         qtde=Count('matricula__turma__descricao')).distinct()
 
     total = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa, matricula__turma__curso=curso,
