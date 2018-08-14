@@ -311,7 +311,7 @@ def aluno_delete(request, aluno_id):
         aluno.delete()
         messages.success(request, 'Aluno excluído.')
 
-    return redirect('aluno')
+    return redirect('/aluno?qs=a')
 
 
 @staff_member_required

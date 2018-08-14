@@ -56,15 +56,15 @@
                                 <table class="table table-sm table-striped">
                                     <thead>
                                     <tr>
-                                        <th>Dados da ocorrência disciplinar</th>
-                                        <th>Resgistrado por</th>
+                                        <th style="font-weight: bold">Dados da ocorrência disciplinar</th>
+                                        <th style="font-weight: bold; text-align: right">Resgistrado por</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     {% for ocorrencia in ocorrencias %}
                                         <tr>
-                                            <td style="vertical-align: middle"><strong>Falta {{ ocorrencia.falta.categoria }} - {{ ocorrencia.data }}</strong><br>{{ ocorrencia.descricao }}</td>
-                                            <td style="vertical-align: middle">{{ ocorrencia.user }}</td>
+                                            <td style="vertical-align: middle"><strong>{{ ocorrencia.falta.categoria }} - {{ ocorrencia.data }}</strong><br>{{ ocorrencia.descricao }}</td>
+                                            <td style="text-align: right;width: 250px; vertical-align: middle">{{ ocorrencia.user }}</td>
                                         </tr>
                                     {% empty %}
                                         <tr>
