@@ -7,6 +7,7 @@
 {% block style %}
     @media print {
     #slide-out, #icon-bar, #div-menu, #breadcrumb, #footer, #bread, #div-buttons { display: none; }
+    a:link {text-decoration: none;}
     }
 {% endblock %}
 
@@ -67,7 +68,11 @@
                                             {% for i in o.aluno.count_ocorrencia %}
                                                 {% if i %}
                                                     <tr>
-                                                    <td style="vertical-align: middle">{{ i.matricula__aluno__nome }}</td>
+                                                    <td style="vertical-align: middle">
+                                                    <a href="{% url 'report_ocorrencia_aluno' i.matricula__aluno_id %}">
+                                                        {{ i.matricula__aluno__nome }}
+                                                        </a>
+                                                    </td>
                                                 {% endif %}
                                             {% endfor %}
                                         {% if o.aluno.count_cat_ocorrencia %}

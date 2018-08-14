@@ -1219,7 +1219,8 @@ def report_ocorrencia_turma(request):
     ano = date.today().year
 
     ocorrencias = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa, matricula__turma=turma,
-                                            data__year=ano).order_by().values('matricula__aluno__nome').annotate(
+                                            data__year=ano).order_by().values('matricula__aluno__nome',
+                                                                              'matricula__aluno_id').annotate(
         qtde=Count('matricula__aluno__nome')).distinct()
 
     total = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa, matricula__turma=turma,

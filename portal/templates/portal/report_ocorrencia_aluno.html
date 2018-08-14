@@ -56,15 +56,26 @@
                                 <table class="table table-sm table-striped">
                                     <thead>
                                     <tr>
+                                        <th style="font-weight: bold">Classificação da ocorrência disciplinar</th>
                                         <th style="font-weight: bold">Dados da ocorrência disciplinar</th>
-                                        <th style="font-weight: bold; text-align: right">Resgistrado por</th>
+                                        <th style="width: 250px;font-weight: bold; text-align: right">Resgistrado por
+                                        </th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     {% for ocorrencia in ocorrencias %}
                                         <tr>
-                                            <td style="vertical-align: middle"><strong>{{ ocorrencia.falta.categoria }} - {{ ocorrencia.data }}</strong><br>{{ ocorrencia.descricao }}</td>
-                                            <td style="text-align: right;width: 250px; vertical-align: middle">{{ ocorrencia.user }}</td>
+                                            <td>
+                                                <strong>Art. {{ ocorrencia.falta.categoria.artigo }}
+                                                    - {{ ocorrencia.falta.categoria }}</strong><br>{{ ocorrencia.falta.inciso }}
+                                                - {{ ocorrencia.falta.descricao }}
+                                            </td>
+                                            <td>
+                                                <strong>{{ ocorrencia.data }}</strong><br>{{ ocorrencia.descricao }}
+                                            </td>
+                                            <td style="text-align: right;width: 250px; vertical-align: middle">
+                                                {{ ocorrencia.user }}
+                                            </td>
                                         </tr>
                                     {% empty %}
                                         <tr>

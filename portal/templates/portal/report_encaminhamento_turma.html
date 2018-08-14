@@ -7,6 +7,7 @@
 {% block style %}
     @media print {
     #slide-out, #icon-bar, #div-menu, #breadcrumb, #footer, #bread, #div-buttons { display: none; }
+    a:link {text-decoration: none;}
     }
 {% endblock %}
 
@@ -43,7 +44,7 @@
                         <tr>
                             <td colspan="2" class="text-center font-weight-bold align-middle">
                                 <br>
-                                RELATÓRIO DE ENCAMINHAMENTO POR TURMA - {{ ano}}<br>
+                                RELATÓRIO DE ENCAMINHAMENTO POR TURMA - {{ ano }}<br>
                                 {{ turma }}
                             </td>
                         </tr>
@@ -67,19 +68,23 @@
                                             {% for i in o.aluno.count_encaminhamento %}
                                                 {% if i %}
                                                     <tr>
-                                                    <td style="vertical-align: middle">{{ i.matricula__aluno__nome }}</td>
+                                                    <td style="vertical-align: middle">
+                                                        <a href="{% url 'report_autorizacao_saida_aluno' i.matricula__aluno_id %}">
+                                                            {{ i.matricula__aluno__nome }}
+                                                        </a>
+                                                    </td>
                                                 {% endif %}
                                             {% endfor %}
                                         {% if o.aluno.count_cat_encaminhamento %}
                                             <td style="vertical-align: middle">
                                                 <div class="row">
-                                                {% for i in o.aluno.count_cat_encaminhamento %}
-                                                    {% if i %}
-                                                        <div class="col">
-                                                        {{ i.servico__categoria__descricao }}: {{ i.qtde }}
-                                                        </div>
-                                                    {% endif %}
-                                                {% endfor %}
+                                                    {% for i in o.aluno.count_cat_encaminhamento %}
+                                                        {% if i %}
+                                                            <div class="col">
+                                                                {{ i.servico__categoria__descricao }}: {{ i.qtde }}
+                                                            </div>
+                                                        {% endif %}
+                                                    {% endfor %}
                                                 </div>
                                             </td>
                                         {% endif %}

@@ -7,6 +7,7 @@
 {% block style %}
     @media print {
     #slide-out, #icon-bar, #div-menu, #breadcrumb, #footer, #bread, #div-buttons { display: none; }
+    a:link {text-decoration: none;}
     }
 {% endblock %}
 
@@ -43,7 +44,7 @@
                         <tr>
                             <td colspan="2" class="text-center font-weight-bold align-middle">
                                 <br>
-                                RELATÓRIO DE AUTORIZAÇÕES DE SAÍDA POR TURMA - {{ ano}}<br>
+                                RELATÓRIO DE AUTORIZAÇÕES DE SAÍDA POR TURMA - {{ ano }}<br>
                                 {{ turma }}
                             </td>
                         </tr>
@@ -66,7 +67,11 @@
                                             {% for i in o.aluno.count_autorizacoes %}
                                                 {% if i %}
                                                     <tr>
-                                                    <td style="vertical-align: middle">{{ i.matricula__aluno__nome }}</td>
+                                                    <td style="vertical-align: middle">
+                                                        <a href="{% url 'report_autorizacao_saida_aluno' i.matricula__aluno_id %}">
+                                                            {{ i.matricula__aluno__nome }}
+                                                        </a>
+                                                    </td>
                                                 {% endif %}
                                             {% endfor %}
 

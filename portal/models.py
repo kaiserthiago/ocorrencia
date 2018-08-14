@@ -141,7 +141,7 @@ class Aluno(AuditoriaMixin):
     @property
     def count_ocorrencia(self):
         return Ocorrencia.objects.filter(data__year=date.today().year, matricula__aluno_id=self.id).order_by().values(
-            'matricula__aluno__nome').annotate(
+            'matricula__aluno__nome', 'matricula__aluno_id').annotate(
             qtde=Count('matricula__aluno__nome')).distinct()
 
     @property
@@ -158,7 +158,7 @@ class Aluno(AuditoriaMixin):
     def count_encaminhamento(self):
         return Encaminhamento.objects.filter(data__year=date.today().year,
                                              matricula__aluno_id=self.id).order_by().values(
-            'matricula__aluno__nome').annotate(
+            'matricula__aluno__nome', 'matricula__aluno_id').annotate(
             qtde=Count('matricula__aluno__nome')).distinct()
 
     @property
@@ -168,7 +168,7 @@ class Aluno(AuditoriaMixin):
     @property
     def count_autorizacoes(self):
         return Autorizacao.objects.filter(data__year=date.today().year, matricula__aluno_id=self.id).order_by().values(
-            'matricula__aluno__nome').annotate(qtde=Count('matricula__aluno__nome')).distinct()
+            'matricula__aluno__nome', 'matricula__aluno_id').annotate(qtde=Count('matricula__aluno__nome')).distinct()
 
 
 class Matricula(AuditoriaMixin):
