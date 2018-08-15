@@ -44,7 +44,7 @@
                         <tr>
                             <td colspan="2" class="text-center font-weight-bold align-middle">
                                 <br>
-                                RELATÓRIO DE OCORRÊNCIAS POR TURMA - {{ ano}}<br>
+                                RELATÓRIO DE OCORRÊNCIAS POR TURMA - {{ ano }}<br>
                                 {{ turma }}
                             </td>
                         </tr>
@@ -69,8 +69,8 @@
                                                 {% if i %}
                                                     <tr>
                                                     <td style="vertical-align: middle">
-                                                    <a href="{% url 'report_ocorrencia_aluno' i.matricula__aluno_id %}">
-                                                        {{ i.matricula__aluno__nome }}
+                                                        <a href="{% url 'report_ocorrencia_aluno' i.matricula__aluno_id %}">
+                                                            {{ i.matricula__aluno__nome }}
                                                         </a>
                                                     </td>
                                                 {% endif %}
@@ -78,13 +78,13 @@
                                         {% if o.aluno.count_cat_ocorrencia %}
                                             <td style="vertical-align: middle">
                                                 <div class="row">
-                                                {% for i in o.aluno.count_cat_ocorrencia %}
-                                                    {% if i %}
-                                                        <div class="col">
-                                                        {{ i.falta__categoria__descricao }}: {{ i.qtde }}
-                                                        </div>
-                                                    {% endif %}
-                                                {% endfor %}
+                                                    {% for i in o.aluno.count_cat_ocorrencia %}
+                                                        {% if i %}
+                                                            <div class="col">
+                                                                {{ i.falta__categoria__descricao }}: {{ i.qtde }}
+                                                            </div>
+                                                        {% endif %}
+                                                    {% endfor %}
                                                 </div>
                                             </td>
                                         {% endif %}
@@ -130,4 +130,11 @@
             </div>
         </div>
     </div>
+{% endblock %}
+{% block script %}
+    <script type='text/javascript'>
+        $("document").ready(function () {
+            toastr["info"]("Clique no nome do aluno para o detalhamento.")
+        });
+    </script>
 {% endblock %}
