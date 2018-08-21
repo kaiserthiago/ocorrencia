@@ -81,7 +81,7 @@
                         <tr>
                             <td colspan="3">
                                 <div class="font-weight-bold">
-                                    DESCRIÇÃO DO ENCAMINHAMENTO
+                                    CATEGORIA DO ENCAMINHAMENTO
                                 </div>
                                 SERVIÇO DE {{ encaminhamento.servico.categoria.descricao|upper }}<br>
                                 {{ encaminhamento.servico.descricao }}
@@ -95,6 +95,26 @@
                                 {{ encaminhamento.descricao }}
                             </td>
                         </tr>
+                        {% if encaminhamento.providencias %}
+                            <tr>
+                            <td colspan="3">
+                                <div class="font-weight-bold">
+                                    PROVIDÊNCIAS JÁ ADOTADAS
+                                </div>
+                                {{ encaminhamento.providencias }}
+                            </td>
+                        </tr>
+                        {% endif %}
+                        {% if encaminhamento.outras_informacoes %}
+                            <tr>
+                            <td colspan="3">
+                                <div class="font-weight-bold">
+                                    OUTRAS INFORMAÇÕES
+                                </div>
+                                {{ encaminhamento.outras_informacoes }}
+                            </td>
+                        </tr>
+                        {% endif %}
                         </tbody>
                     </table>
                     <table class="table table-bordered table-sm">
