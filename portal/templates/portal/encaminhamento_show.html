@@ -43,7 +43,7 @@
                             <td colspan="2" class="text-center font-weight-bold align-middle">
                                 MINISTÉRIO DA EDUCAÇÃO<br>
                                 {{ encaminhamento.user.userprofile.empresa.razao_social|upper }}<br>
-                                {{ encaminhamento.user.userprofile.empresa|upper }}
+                                <em>CAMPUS </em>{{ encaminhamento.user.userprofile.empresa|upper }}
                             </td>
                         </tr>
                         </tbody>
@@ -97,23 +97,23 @@
                         </tr>
                         {% if encaminhamento.providencias %}
                             <tr>
-                            <td colspan="3">
-                                <div class="font-weight-bold">
-                                    PROVIDÊNCIAS JÁ ADOTADAS
-                                </div>
-                                {{ encaminhamento.providencias }}
-                            </td>
-                        </tr>
+                                <td colspan="3">
+                                    <div class="font-weight-bold">
+                                        PROVIDÊNCIAS JÁ ADOTADAS
+                                    </div>
+                                    {{ encaminhamento.providencias }}
+                                </td>
+                            </tr>
                         {% endif %}
                         {% if encaminhamento.outras_informacoes %}
                             <tr>
-                            <td colspan="3">
-                                <div class="font-weight-bold">
-                                    OUTRAS INFORMAÇÕES
-                                </div>
-                                {{ encaminhamento.outras_informacoes }}
-                            </td>
-                        </tr>
+                                <td colspan="3">
+                                    <div class="font-weight-bold">
+                                        OUTRAS INFORMAÇÕES
+                                    </div>
+                                    {{ encaminhamento.outras_informacoes }}
+                                </td>
+                            </tr>
                         {% endif %}
                         </tbody>
                     </table>
@@ -130,8 +130,14 @@
                                 {{ encaminhamento.user.userprofile.siape }}
                             </td>
                         </tr>
+                        {#                        <tr>#}
+                        {#                            <td style="font-size: 8pt; text-align: left"><strong>Registrado em:</strong> {{ encaminhamento.created_at|date }} às {{ encaminhamento.created_at|time:'h:i:s' }}</td>#}
+                        {#                        </tr>#}
                         </tbody>
                     </table>
+                    <div style="font-size: 8pt; text-align: left"><strong>Impresso em:</strong> {% now "d/m/y" %}
+                        às {% now "H:m:s" %} por {{ request.user }}
+                    </div>
                 </div>
             </div>
         </div>

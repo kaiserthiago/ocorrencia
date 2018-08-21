@@ -232,7 +232,7 @@
         <!-- Breadcrumb-->
         <div class="breadcrumb-dn mr-auto">
             {% if request.user.is_authenticated %}
-                <p>Gestão Estudantil - {{ request.user.userprofile.empresa }}</p>
+                <p>Gestão Estudantil - <em>Campus </em>{{ request.user.userprofile.empresa }}</p>
             {% else %}
                 <p>Gestão Estudantil</p>
             {% endif %}
