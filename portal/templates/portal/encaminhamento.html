@@ -47,7 +47,7 @@
                             <tbody id="myTable">
                             {% for encaminhamento in encaminhamentos %}
                                 <tr>
-                                    <td style="vertical-align: middle;">{{ encaminhamento.id }}</td>
+                                    <td style="vertical-align: middle;">{{ encaminhamento.id }}/{{ encaminhamento.created_at|date:"Y" }}</td>
                                     <td style="vertical-align: middle;">{{ encaminhamento.matricula.turma.descricao }}
                                         - {{ encaminhamento.matricula.turma.curso.descricao|truncatechars:30 }}</td>
                                     <td style="vertical-align: middle;">{{ encaminhamento.matricula.aluno }}</td>

@@ -4,14 +4,6 @@
     <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/portal/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/templates/portal/encaminhamento.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/encaminhamento.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/encaminhamento_new.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/encaminhamento_new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/encaminhamento_relatorio.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/encaminhamento_relatorio.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/encaminhamento_show.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/encaminhamento_show.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_show.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_show.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/report_general.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/report_general.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -83,11 +75,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="244" column="23" selection-start-line="244" selection-start-column="23" selection-end-line="244" selection-end-column="23" />
+            <state relative-caret-position="320">
+              <caret line="239" column="54" lean-forward="true" selection-start-line="239" selection-start-column="54" selection-end-line="239" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="encaminhamento.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="49" column="132" selection-start-line="49" selection-start-column="132" selection-end-line="49" selection-end-column="132" />
             </state>
           </provider>
         </entry>
@@ -106,15 +107,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
               <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="encaminhamento_new.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_new.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -228,7 +220,6 @@
         <option value="$PROJECT_DIR$/portal/templates/emails/registra-saida.html" />
         <option value="$PROJECT_DIR$/portal/models.py" />
         <option value="$PROJECT_DIR$/portal/templates/portal/home.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_new.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_relatorio.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_show.html" />
@@ -238,6 +229,7 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_show.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/report_general.html" />
         <option value="$PROJECT_DIR$/portal/templates/base.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento.html" />
       </list>
     </option>
   </component>
@@ -799,13 +791,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="34" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_new.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -871,8 +856,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="244" column="23" selection-start-line="244" selection-start-column="23" selection-end-line="244" selection-end-column="23" />
+        <state relative-caret-position="320">
+          <caret line="239" column="54" lean-forward="true" selection-start-line="239" selection-start-column="54" selection-end-line="239" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="49" column="132" selection-start-line="49" selection-start-column="132" selection-end-line="49" selection-end-column="132" />
         </state>
       </provider>
     </entry>
