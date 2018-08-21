@@ -29,13 +29,21 @@
         }
     </style>
 </head>
-<body class="fixed-sn mdb-skin">
+{% if request.user.is_authenticated %}
+    <body class="fixed-sn mdb-skin">
+{% else %}
+    <body class="hidden-sn mdb-skin">
+{% endif %}
 
 <!--Double navigation-->
 <header>
 
     <!-- Sidebar navigation -->
+    {% if request.user.is_authenticated %}
         <ul id="slide-out" class="side-nav fixed sn-bg-4 custom-scrollbar">
+    {% else %}
+        <ul id="slide-out" class="side-nav sn-bg-4 custom-scrollbar">
+    {% endif %}
     <!-- Logo -->
     <li>
         <div class="logo-wrapper waves-light text-center">
@@ -69,6 +77,25 @@
             {% if request.user.is_staff %}
                 <li>
                     <a class="collapsible-header waves-effect arrow-r
+                                {% block class_administrativo_menu %}{% endblock %}"><i
+                            class="fa fa-user"></i> Administrativo<i
+                            class="fa fa-angle-down rotate-icon"></i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>
+                                <a href="{% url 'configuracao' %}" class="waves-effect
+                                            {% block class_administrativo_configuracao_item %}{% endblock %}"><i
+                                        class="fa fa-cog"></i> Configurações</a>
+                                <a href="{% url 'user_list' %}" class="waves-effect
+                                            {% block class_administrativo_lista_usuario_item %}{% endblock %}"><i
+                                        class="fa fa-list"></i> Lista de usuários</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r
                                 {% block class_cadastro_menu %}{% endblock %}"><i
                             class="fa fa-address-card"></i> Cadastros<i
                             class="fa fa-angle-down rotate-icon"></i></a>
@@ -77,70 +104,71 @@
                             <li>
                                 <a href="{% url 'aluno' %}?qs=a"
                                    class="waves-effect
-                                               {% block class_cadastro_aluno_item %}{% endblock %}">Alunos</a>
+                                               {% block class_cadastro_aluno_item %}{% endblock %}"><i
+                                        class="fa fa-user"></i> Aluno</a>
+                                <a href="{% url 'servico_categoria' %}"
+                                   class="waves-effect {% block class_servicos_categoria_item %}{% endblock %}"><i
+                                        class="fa fa-cog"></i> Categoria
+                                    de serviço</a>
                                 <a href="{% url 'curso' %}"
                                    class="waves-effect
-                                               {% block class_cadastro_curso_item %}{% endblock %}">Cursos</a>
+                                               {% block class_cadastro_curso_item %}{% endblock %}"><i
+                                        class="fa fa-industry"></i> Curso</a>
                                 <a href="{% url 'turma' %}"
                                    class="waves-effect
-                                               {% block class_cadastro_turma_item %}{% endblock %}">Turmas</a>
+                                               {% block class_cadastro_turma_item %}{% endblock %}"><i
+                                        class="fa fa-graduation-cap"></i> Turma</a>
                                 <a href="{% url 'matricula' %}"
-                                   class="waves-effect {% block class_cadastro_matricula_item %}{% endblock %}">Matrícula</a>
+                                   class="waves-effect {% block class_cadastro_matricula_item %}{% endblock %}"><i
+                                        class="fa fa-users"></i> Matrícula</a>
+                                <a href="{% url 'servico' %}"
+                                   class="waves-effect {% block class_servicos_servico_item %}{% endblock %}"><i
+                                        class="fa fa-cog"></i> Serviço</a>
                             </li>
                         </ul>
                     </div>
                 </li>
-                <li>
-                    <a href="{% url 'configuracao' %}" class="collapsible-header waves-effect arrow-r
-                            {% block class_configuracao_menu %}{% endblock %}"><i class="fa fa-cog"></i>
-                        Configurações</a>
-                </li>
             {% endif %}
+
             <li>
                 <a href="{% url 'dashboard' %}"
                    class="collapsible-header waves-effect arrow-r {% block class_dashboard_menu %}{% endblock %}"><i
                         class="fa fa-dashboard"></i> Dashboard</a>
             </li>
 
-            <li>
-                <a href="{% url 'encaminhamento' %}"
-                   class="collapsible-header waves-effect arrow-r
-                           {% block class_encaminhamento_menu %}{% endblock %}"><i
-                        class="fa fa-book"></i> Encaminhamentos</a>
-            </li>
-            <li>
-                <a href="{% url 'ocorrencia' %}"
-                   class="collapsible-header waves-effect arrow-r {% block class_ocorrencia_menu %}{% endblock %}"><i
-                        class="fa fa-pencil"></i> Ocorrências disciplinares</a>
-            </li>
-
-            {% if request.user.is_staff %}
+            {% if request.user.is_authenticated or perms.portal.change_autorizacao %}
                 <li>
-                    <a href="{% url 'report_general' %}"
-                       class="collapsible-header waves-effect arrow-r {% block class_relatorio_menu %}{% endblock %}"><i
-                            class="fa fa-file"></i> Relatórios</a>
-                </li>
-            {% endif %}
-
-            {% if request.user.is_staff or perms.portal.change_autorizacao %}
-                <li>
-                    <a class="collapsible-header waves-effect arrow-r {% block class_saidas_menu %}{% endblock %}"><i
-                            class="fa fa-sign-out"></i> Saídas<i
+                    <a class="collapsible-header waves-effect arrow-r
+                                {% block class_registros_menu %}{% endblock %}"><i
+                            class="fa fa-sign-out"></i> Registros<i
                             class="fa fa-angle-down rotate-icon"></i></a>
                     <div class="collapsible-body">
                         <ul>
                             <li>
                                 {% if request.user.is_staff %}
                                     <a href="{% url 'autorizacao' %}"
-                                       class="waves-effect {% block class_saidas_autorizacao_item %}{% endblock %}">Autorização</a>
+                                       class="waves-effect
+                                                   {% block class_registros_autorizacao_item %}{% endblock %}"><i
+                                            class="fa fa-sign-out"></i> Autorização de saída</a>
                                 {% endif %}
 
                                 {% if perms.portal.change_autorizacao %}
                                     <a href="{% url 'autorizacao_pendente' %}"
                                        class="waves-effect
-                                           {% block class_saidas_autorizacao_confirmar_item %}{% endblock %}">Confirmar
-                                        saída</a>
+                                           {% block class_registros_autorizacao_confirmar_item %}{% endblock %}"><i
+                                            class="fa fa-check"></i> Confirmar saída</a>
                                 {% endif %}
+
+                                <a href="{% url 'encaminhamento' %}"
+                                   class="waves-effect
+                                               {% block class_registros_encaminhamento_item %}{% endblock %}"><i
+                                        class="fa fa-book"></i> Encaminhamento</a>
+
+                                <a href="{% url 'ocorrencia' %}"
+                                   class="waves-effect {% block class_registros_ocorrencia_item %}{% endblock %}"><i
+                                        class="fa fa-pencil"></i> Ocorrência disciplinar</a>
+
+
                             </li>
                         </ul>
                     </div>
@@ -149,40 +177,13 @@
 
             {% if request.user.is_staff %}
                 <li>
-                    <a class="collapsible-header waves-effect arrow-r {% block class_servicos_menu %}{% endblock %}"><i
-                            class="fa fa-users"></i> Serviços<i
-                            class="fa fa-angle-down rotate-icon"></i></a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li>
-                                <a href="{% url 'servico_categoria' %}"
-                                   class="waves-effect
-                                       {% block class_servicos_categoria_item %}{% endblock %}">Categoria</a>
-                                <a href="{% url 'servico' %}"
-                                   class="waves-effect
-                                           {% block class_servicos_servico_item %}{% endblock %}">Serviço</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li>
-                    <a class="collapsible-header waves-effect arrow-r {% block class_usuario_menu %}{% endblock %}"><i
-                            class="fa fa-user"></i> Usuário<i
-                            class="fa fa-angle-down rotate-icon"></i></a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li>
-                                <a href="{% url 'user_account' %}"
-                                   class="waves-effect {% block class_usuario_conta_item %}{% endblock %}">Conta</a>
-                                <a href="{% url 'user_list' %}"
-                                   class="waves-effect {% block class_lista_usuario_item %}{% endblock %}">Lista
-                                    de usuários</a>
-                            </li>
-                        </ul>
-                    </div>
+                    <a href="{% url 'report_general' %}"
+                       class="collapsible-header waves-effect arrow-r
+                                   {% block class_relatorio_menu %}{% endblock %}"><i
+                            class="fa fa-file"></i> Relatórios</a>
                 </li>
             {% endif %}
+
             {% if request.user.is_authenticated %}
                 <li>
                     <a href="{% url 'logout' %}" class="collapsible-header waves-effect arrow-r"><i
@@ -190,18 +191,8 @@
                 </li>
             {% else %}
                 <li>
-                    <a class="collapsible-header waves-effect arrow-r"><i class="fa fa-lock"></i> Acesso<i
-                            class="fa fa-angle-down rotate-icon"></i></a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li>
-                                <a href="{% url 'login' %}" class="waves-effect">Login</a>
-                            </li>
-                            <li>
-                                <a href="{% url 'login_register' %}" class="waves-effect">Registro</a>
-                            </li>
-                        </ul>
-                    </div>
+                    <a href="{% url 'login' %}" class="collapsible-header waves-effect arrow-r"><i
+                            class="fa fa-lock"></i> Login</a>
                 </li>
             {% endif %}
         </ul>
@@ -242,7 +233,7 @@
                                 Autorizações de saída</a>
                         {% endif %}
 
-                         <a class="dropdown-item" href="{% url 'encaminhamento' %}"><i class="fa fa-book"></i>
+                        <a class="dropdown-item" href="{% url 'encaminhamento' %}"><i class="fa fa-book"></i>
                             Encaminhamentos</a>
                         <a class="dropdown-item" href="{% url 'ocorrencia' %}"><i class="fa fa-pencil"></i> Ocorrências
                             disciplinares</a>
