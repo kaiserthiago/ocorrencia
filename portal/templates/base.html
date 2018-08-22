@@ -100,7 +100,7 @@
 
                                 {% if perms.portal.change_encaminhamento %}
 
-                                    <a href="#" class="waves-effect
+                                    <a href="{% url 'encaminhamento_pendente' %}" class="waves-effect
                                             {% block class_administrativo_retorno_encaminhamento_item %}{% endblock %}"><i
                                             class="fa fa-book"></i> Retorno encaminhamento</a>
                                 {% endif %}

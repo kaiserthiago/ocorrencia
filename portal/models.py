@@ -321,6 +321,12 @@ class Configuracao(AuditoriaMixin):
     encaminhamento_email_responsavel_setor = models.BooleanField(default=True)
     encaminhamento_email_coordenacao_curso = models.BooleanField(default=True)
 
+    providencia_encaminhamento_email_aluno = models.BooleanField(default=True)
+    providencia_encaminhamento_email_responsavel_aluno = models.BooleanField(default=True)
+    providencia_encaminhamento_email_responsavel_user = models.BooleanField(default=True)
+    providencia_encaminhamento_email_responsavel_setor = models.BooleanField(default=True)
+    providencia_encaminhamento_email_coordenacao_curso = models.BooleanField(default=True)
+
     autorizacao_email_aluno = models.BooleanField(default=True)
     autorizacao_email_responsavel_aluno = models.BooleanField(default=True)
     autorizacao_email_responsavel_user = models.BooleanField(default=True)

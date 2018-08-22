@@ -17,7 +17,7 @@ from django.template.defaultfilters import upper, lower
 from tablib import Dataset
 
 from portal.emails import RegistraOcorrenciaMail, ConfirmaUsuarioMail, RegistraEncaminhamentoMail, \
-    RegistraAutorizacaoSaidaMail
+    RegistraAutorizacaoSaidaMail, RegistraEncaminhamentoProvidenciasMail
 from portal.forms import OcorrenciaForm, CursoForm, TurmaForm, AlunoForm, UserForm, UserProfileForm, \
     ServicoCategoriaForm, ServicoForm, EncaminhamentoForm, AutorizacaoForm, ConfiguracaoForm
 from portal.models import Curso, Aluno, Turma, Ocorrencia, Matricula, CategoriaFalta, Falta, UserProfile, \
@@ -757,7 +757,7 @@ def ocorrencia_register(request):
                     ocorrencia.save()
 
                     email = []
-                    configuracao = get_object_or_404(Configuracao, id=1)
+                    configuracao = get_object_or_404(Configuracao, empresa=request.user.userprofile.empresa)
 
                     if configuracao.ocorrencia_email_aluno:
                         # VERIFICA SE TEM EMAIL DO ALUNO
@@ -1425,6 +1425,63 @@ def encaminhamento(request):
     }
     return render(request, 'portal/encaminhamento.html', context)
 
+@login_required
+def encaminhamento_pendente(request):
+    cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa)
+    encaminhamentos = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa, user=request.user,
+                                                    data__year=date.today().year, status='Encaminhado')
+
+    context = {
+        'cursos': cursos,
+        'encaminhamentos': encaminhamentos
+    }
+    return render(request, 'portal/encaminhamento_pendente.html', context)
+
+@login_required
+def encaminhamento_providencia(request, encaminhamento_id):
+    encaminhamento = get_object_or_404(Encaminhamento, id=encaminhamento_id)
+
+    if request.method == 'POST':
+        providencias = request.POST['providencias']
+
+        encaminhamento.providencias = providencias
+        encaminhamento.status = 'Atendido'
+        encaminhamento.responsavel_providencias = request.user
+
+        encaminhamento.save()
+
+        email = []
+        configuracao = get_object_or_404(Configuracao, empresa=request.user.userprofile.empresa)
+
+        if configuracao.encaminhamento_email_aluno:
+            # VERIFICA SE TEM EMAIL DO ALUNO
+            if encaminhamento.matricula.aluno.email:
+                email.append(encaminhamento.matricula.aluno.email)
+
+        if configuracao.encaminhamento_email_responsavel_aluno:
+            # VERIFICA SE TEM EMAIL DO RESPONSÁVEL
+            if encaminhamento.matricula.aluno.email_responsavel:
+                email.append(encaminhamento.matricula.aluno.email_responsavel)
+
+        if configuracao.encaminhamento_email_responsavel_user:
+            # EMAIL DO SERVIDOR QUE REGISTROU A OCORRÊNCIA
+            email.append(request.user.email)
+
+        if configuracao.encaminhamento_email_coordenacao_curso:
+            # EMAIL DA COORDENAÇÃO DE CURSO
+            email.append(encaminhamento.matricula.turma.curso.email)
+
+        if configuracao.encaminhamento_email_responsavel_setor:
+            # EMAIL DO SETOR RESPONSÁVEL PELAS OCORRÊNCIAS
+            email.append(request.user.userprofile.empresa.email_responsavel_ocorrencia)
+
+        if email:
+            # ENVIA OS E-MAILS
+            RegistraEncaminhamentoProvidenciasMail(encaminhamento).send(email)
+
+        messages.success(request, 'Providências adotadas registradas.')
+
+        return redirect('encaminhamento_pendente')
 
 @login_required
 def encaminhamento_show(request, encaminhamento_id):
@@ -1494,7 +1551,7 @@ def encaminhamento_register(request):
                     encaminhamento.save()
 
                     email = []
-                    configuracao = get_object_or_404(Configuracao, id=1)
+                    configuracao = get_object_or_404(Configuracao, empresa=request.user.userprofile.empresa)
 
                     if configuracao.encaminhamento_email_aluno:
                         # VERIFICA SE TEM EMAIL DO ALUNO
@@ -1727,7 +1784,7 @@ def autorizacao_confirmar(request, autorizacao_id):
         autorizacao.save()
 
         email = []
-        configuracao = get_object_or_404(Configuracao, id=1)
+        configuracao = get_object_or_404(Configuracao, empresa=request.user.userprofile.empresa)
 
         if configuracao.autorizacao_email_aluno:
             # VERIFICA SE TEM EMAIL DO ALUNO
