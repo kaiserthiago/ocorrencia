@@ -56,9 +56,8 @@
                                 <table class="table table-sm table-striped">
                                     <thead>
                                     <tr>
-                                        <th style="font-weight: bold">Dados do encaminhamento</th>
-                                        <th style="font-weight: bold">Informações complementares</th>
-                                        <th style="width: 300px; font-weight: bold">Análise do setor responsável</th>
+                                        <th colspan="2" style="font-weight: bold">Dados do encaminhamento</th>
+                                        <th style="width: 400px; font-weight: bold">Providências do setor responsável</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -71,13 +70,6 @@
                                                 </p>
                                             </td>
                                             <td>
-                                                {% if encaminhamento.providencias %}
-                                                    <p>
-                                                        <strong>Providências</strong><br>
-                                                        {{ encaminhamento.providencias }}
-                                                    </p>
-                                                {% endif %}
-
                                                 {% if encaminhamento.outras_informacoes %}
                                                     <p>
                                                         <strong>Outras informações</strong><br>
@@ -87,11 +79,11 @@
                                             </td>
                                             <td>
                                                 <p>
-                                                    {% if encaminhamento.outras_informacoes %}
-                                                        {{ encaminhamento.analise }}<br>
-                                                        <strong>Responsável: {{ encaminhamento.responsavel_analise }}</strong>
+                                                    {% if encaminhamento.providencias %}
+                                                        {{ encaminhamento.providencias }}<br>
+                                                        <strong>Responsável: {{ encaminhamento.responsavel_providencias }}</strong>
                                                     {% else %}
-                                                        Aguardando análise
+                                                        Aguardando providências do setor responsável.
                                                     {% endif %}
                                                 </p>
                                             </td>
