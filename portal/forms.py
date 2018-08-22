@@ -60,7 +60,7 @@ class OcorrenciaForm(forms.ModelForm):
 class EncaminhamentoForm(forms.ModelForm):
     class Meta:
         model = Encaminhamento
-        fields = ('data', 'descricao', 'providencias', 'outras_informacoes', 'analise')
+        fields = ('data', 'descricao', 'providencias', 'outras_informacoes')
 
         widgets = {
             'data': forms.TextInput(attrs={
@@ -76,16 +76,12 @@ class EncaminhamentoForm(forms.ModelForm):
             'outras_informacoes': forms.Textarea(attrs={
                 'class': 'md-textarea validate'
             }),
-            'analise': forms.Textarea(attrs={
-                'class': 'md-textarea validate'
-            })
         }
 
         labels = {
             'descricao': 'Descrição',
-            'providencias': 'Que providências já foram tomadas para solucionar o problema mencionado?',
+            'providencias': 'Providências adotadas',
             'outras_informacoes': 'Outras informações que julgue necessárias',
-            'analise': 'Análise do setor responsável'
         }
 
 

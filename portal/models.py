@@ -274,8 +274,7 @@ class Encaminhamento(AuditoriaMixin):
     descricao = models.TextField(blank=True, null=True)
     providencias = models.TextField(blank=True, null=True)
     outras_informacoes = models.TextField(blank=True, null=True)
-    analise = models.TextField(blank=True, null=True)
-    responsavel_analise = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='responsavel_analise',
+    responsavel_providencias = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='responsavel_providencias',
                                             blank=True, null=True)
 
     def __str__(self):
