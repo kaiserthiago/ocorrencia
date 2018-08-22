@@ -548,6 +548,15 @@ def dashboard(request):
         'matricula__turma__curso__descricao').values('matricula__turma__curso__id',
                                                      'matricula__turma__curso__descricao').distinct()
 
+    # DADOS GRÁFICO DE ENCAMINHAMENTOS POR STATUS
+    status_encaminhamento = Encaminhamento.objects.filter(
+        empresa=request.user.userprofile.empresa).order_by().values_list(
+        'status').annotate(qtde=Count('id')).distinct()
+
+    status_ocorrencia_encaminhamento = [obj[0] for obj in status_encaminhamento]
+    qtde_status_ocorrencia_encaminhamento = [int(obj[1]) for obj in status_encaminhamento]
+
+
     context = {
         # OCORRÊNCIAS
         'c': c,
@@ -580,6 +589,7 @@ def dashboard(request):
         'courses_encaminhamento': courses_encaminhamento,
         'servico_categorias': servico_categorias,
         'cursos_encaminhamento': cursos_encaminhamento,
+        'status_encaminhamento': status_encaminhamento,
         'turmas_encaminhamento': turmas_encaminhamento,
         'distribuicao_encaminhamento': distribuicao_encaminhamento,
 
@@ -588,6 +598,9 @@ def dashboard(request):
 
         'cursos_ocorrencia_encaminhamento': json.dumps(cursos_ocorrencia_encaminhamento),
         'qtde_cursos_ocorrencia_encaminhamento': json.dumps(qtde_cursos_ocorrencia_encaminhamento),
+
+        'status_ocorrencia_encaminhamento': json.dumps(status_ocorrencia_encaminhamento),
+        'qtde_status_ocorrencia_encaminhamento': json.dumps(qtde_status_ocorrencia_encaminhamento),
 
         'turmas_ocorrencia_encaminhamento': json.dumps(turmas_ocorrencia_encaminhamento),
         'qtde_turmas_encaminhamento': json.dumps(qtde_turmas_encaminhamento),
