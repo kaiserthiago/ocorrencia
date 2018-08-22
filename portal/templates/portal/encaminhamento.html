@@ -42,6 +42,7 @@
                                 <th style="font-weight: bold">Aluno</th>
                                 <th style="font-weight: bold">Data</th>
                                 <th style="font-weight: bold">Descrição</th>
+                                <th style="font-weight: bold">Status</th>
                                 <th style="text-align: right; font-weight: bold">Ações</th>
                             </tr>
                             </thead>
@@ -54,6 +55,7 @@
                                     <td style="vertical-align: middle;">{{ encaminhamento.matricula.aluno }}</td>
                                     <td style="vertical-align: middle;">{{ encaminhamento.data }}</td>
                                     <td style="vertical-align: middle;">{{ encaminhamento.descricao|truncatechars:30 }}</td>
+                                    <td style="vertical-align: middle;">{{ encaminhamento.status }}</td>
                                     <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
 
                                         <i data-toggle="tooltip" data-placement="top" title="Visualizar">

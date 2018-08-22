@@ -280,7 +280,7 @@ class Encaminhamento(AuditoriaMixin):
         ('Encaminhado', 'Encaminhado'),
         ('Atendido', 'Atendido'),
     )
-    status = models.CharField(choices=status_choiches, max_length=30, default='v')
+    status = models.CharField(choices=status_choiches, max_length=30, default='Encaminhado')
 
     def __str__(self):
         return str(self.id)
