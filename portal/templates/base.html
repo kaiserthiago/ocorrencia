@@ -74,7 +74,7 @@
                         class="fa fa-home"></i>
                     Início</a>
             </li>
-            {% if request.user.is_staff or perm.portal.change_autorizacao %}
+            {% if request.user.is_staff or perm.portal.change_autorizacao or perm.portal.change_encaminhamento %}
                 <li>
                     <a class="collapsible-header waves-effect arrow-r
                                 {% block class_administrativo_menu %}{% endblock %}"><i
@@ -97,6 +97,13 @@
                                 <a href="{% url 'user_list' %}" class="waves-effect
                                             {% block class_administrativo_lista_usuario_item %}{% endblock %}"><i
                                         class="fa fa-list"></i> Lista de usuários</a>
+
+                                {% if perms.portal.change_encaminhamento %}
+
+                                    <a href="#" class="waves-effect
+                                            {% block class_administrativo_retorno_encaminhamento_item %}{% endblock %}"><i
+                                            class="fa fa-book"></i> Retorno encaminhamento</a>
+                                {% endif %}
                             </li>
                         </ul>
                     </div>
