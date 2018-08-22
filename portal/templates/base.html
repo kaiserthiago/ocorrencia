@@ -74,7 +74,7 @@
                         class="fa fa-home"></i>
                     Início</a>
             </li>
-            {% if request.user.is_staff %}
+            {% if request.user.is_staff or perm.portal.change_autorizacao %}
                 <li>
                     <a class="collapsible-header waves-effect arrow-r
                                 {% block class_administrativo_menu %}{% endblock %}"><i
@@ -86,6 +86,14 @@
                                 <a href="{% url 'configuracao' %}" class="waves-effect
                                             {% block class_administrativo_configuracao_item %}{% endblock %}"><i
                                         class="fa fa-cog"></i> Configurações</a>
+
+                                {% if perms.portal.change_autorizacao %}
+                                    <a href="{% url 'autorizacao_pendente' %}"
+                                       class="waves-effect
+                                           {% block class_administrativo_autorizacao_confirmar_item %}{% endblock %}"><i
+                                            class="fa fa-check"></i> Confirmar saída</a>
+                                {% endif %}
+
                                 <a href="{% url 'user_list' %}" class="waves-effect
                                             {% block class_administrativo_lista_usuario_item %}{% endblock %}"><i
                                         class="fa fa-list"></i> Lista de usuários</a>
@@ -136,7 +144,7 @@
                         class="fa fa-dashboard"></i> Dashboard</a>
             </li>
 
-            {% if request.user.is_authenticated or perms.portal.change_autorizacao %}
+            {% if request.user.is_authenticated %}
                 <li>
                     <a class="collapsible-header waves-effect arrow-r
                                 {% block class_registros_menu %}{% endblock %}"><i
@@ -152,12 +160,6 @@
                                             class="fa fa-sign-out"></i> Autorização de saída</a>
                                 {% endif %}
 
-                                {% if perms.portal.change_autorizacao %}
-                                    <a href="{% url 'autorizacao_pendente' %}"
-                                       class="waves-effect
-                                           {% block class_registros_autorizacao_confirmar_item %}{% endblock %}"><i
-                                            class="fa fa-check"></i> Confirmar saída</a>
-                                {% endif %}
 
                                 <a href="{% url 'encaminhamento' %}"
                                    class="waves-effect
