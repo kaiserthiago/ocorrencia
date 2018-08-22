@@ -276,6 +276,11 @@ class Encaminhamento(AuditoriaMixin):
     outras_informacoes = models.TextField(blank=True, null=True)
     responsavel_providencias = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='responsavel_providencias',
                                             blank=True, null=True)
+    status_choiches = (
+        ('Encaminhado', 'Encaminhado'),
+        ('Atendido', 'Atendido'),
+    )
+    status = models.CharField(choices=status_choiches, max_length=30, default='v')
 
     def __str__(self):
         return str(self.id)

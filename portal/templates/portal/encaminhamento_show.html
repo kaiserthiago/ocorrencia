@@ -120,7 +120,7 @@
                                     <div class="font-weight-bold">
                                         PROVIDÊNCIAS ADOTADAS
                                     </div>
-                                    Aguardando poscionamento do setor responsável.
+                                    Aguardando posicionamento do setor responsável.
                                 </td>
                             </tr>
                         {% endif %}
@@ -128,17 +128,47 @@
                     </table>
                     <table class="table table-bordered table-sm">
                         <tbody>
-                        <tr>
+                        {% if encaminhamento.providencias %}
+                            <tr>
+                                <td colspan="3" class="text-center align-bottom">
+                                    <p class="font-weight-bold text-left">
+                                        ENCAMINHADO POR
+                                    </p>
+                                    <div class="font-weight-bold">
+                                        {{ encaminhamento.user }}
+                                    </div>
+                                    {{ encaminhamento.user.userprofile.siape }}
+                                </td>
+                                <td colspan="3" class="text-center align-bottom">
+                                    <p class="font-weight-bold text-left">
+                                        ENCAMINHAMENTO ATENDIDO POR
+                                    </p>
+                                    <div class="font-weight-bold">
+                                        {{ encaminhamento.responsavel_providencias }}
+                                    </div>
+                                    {{ encaminhamento.responsavel_providencias.userprofile.siape }}
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="3" class="text-center align-bottom">
+                                    <p class="font-weight-bold text-left">
+                                        ENCAMINHADO POR
+                                    </p>
+                                    <div class="font-weight-bold">
+                                        {{ encaminhamento.user }}
+                                    </div>
+                                    {{ encaminhamento.user.userprofile.siape }}
+                                </td>
                             <td colspan="3" class="text-center align-bottom">
-                                <p class="font-weight-bold text-left">
-                                    ENCAMINHADO POR
-                                </p>
-                                <div class="font-weight-bold">
-                                    {{ encaminhamento.user }}
-                                </div>
-                                {{ encaminhamento.user.userprofile.siape }}
-                            </td>
-                        </tr>
+                                    <p class="font-weight-bold text-left">
+                                        ENCAMINHAMENTO ATENDIDO POR
+                                    </p>
+                                    <p>Aguardando posicionamento do setor responsável.</p>
+                                </td>
+                            </tr>
+                        {% endif %}
+
                         {#                        <tr>#}
                         {#                            <td style="font-size: 8pt; text-align: left"><strong>Registrado em:</strong> {{ encaminhamento.created_at|date }} às {{ encaminhamento.created_at|time:'h:i:s' }}</td>#}
                         {#                        </tr>#}
