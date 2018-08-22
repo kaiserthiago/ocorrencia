@@ -1438,7 +1438,7 @@ def encaminhamento(request):
 @login_required
 def encaminhamento_pendente(request):
     cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa)
-    encaminhamentos = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa, user=request.user,
+    encaminhamentos = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
                                                     data__year=date.today().year, status='Encaminhado')
 
     context = {
