@@ -56,7 +56,53 @@
                     </div>
                 </div>
             </div>
+
             <hr class="w-100 clearfix d-md-none">
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-header gradient white-text">
+                        ENVIO DE E-MAIL<br>
+                        OCORRÊNCIAS DISCIPLINARES
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="form-check">
+                                    {{ form.ocorrencia_email_aluno }}
+                                    <label for="id_ocorrencia_email_aluno"
+                                           class="form-check-label">{{ form.ocorrencia_email_aluno.label }}</label>
+                                </div>
+                                <div class="form-check">
+                                    {{ form.ocorrencia_email_responsavel_aluno }}
+                                    <label for="id_ocorrencia_email_responsavel_aluno"
+                                           class="form-check-label">{{ form.ocorrencia_email_responsavel_aluno.label }}</label>
+                                </div>
+                                <div class="form-check">
+                                    {{ form.ocorrencia_email_responsavel_user }}
+                                    <label for="id_ocorrencia_email_responsavel_user"
+                                           class="form-check-label">{{ form.ocorrencia_email_responsavel_user.label }}</label>
+                                </div>
+                                <div class="form-check">
+                                    {{ form.ocorrencia_email_responsavel_setor }}
+                                    <label for="id_ocorrencia_email_responsavel_setor"
+                                           class="form-check-label">{{ form.ocorrencia_email_responsavel_setor.label }}</label>
+                                </div>
+                                <div class="form-check">
+                                    {{ form.ocorrencia_email_coordenacao_curso }}
+                                    <label for="id_ocorrencia_email_coordenacao_curso"
+                                           class="form-check-label">{{ form.ocorrencia_email_coordenacao_curso.label }}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="form-row">
             <div class="col">
                 <div class="card">
                     <div class="card-header gradient white-text">
@@ -96,40 +142,42 @@
                     </div>
                 </div>
             </div>
+
             <hr class="w-100 clearfix d-md-none">
+
             <div class="col">
                 <div class="card">
                     <div class="card-header gradient white-text">
                         ENVIO DE E-MAIL<br>
-                        OCORRÊNCIAS DISCIPLINARES
+                        PROVIDÊNCIAS DOS ENCAMINHAMENTOS
                     </div>
                     <div class="card-body">
                         <div class="form-row">
                             <div class="col">
                                 <div class="form-check">
-                                    {{ form.ocorrencia_email_aluno }}
-                                    <label for="id_ocorrencia_email_aluno"
-                                           class="form-check-label">{{ form.ocorrencia_email_aluno.label }}</label>
+                                    {{ form.providencia_encaminhamento_email_aluno }}
+                                    <label for="id_providencia_encaminhamento_email_aluno"
+                                           class="form-check-label">{{ form.providencia_encaminhamento_email_aluno.label }}</label>
                                 </div>
                                 <div class="form-check">
-                                    {{ form.ocorrencia_email_responsavel_aluno }}
-                                    <label for="id_ocorrencia_email_responsavel_aluno"
-                                           class="form-check-label">{{ form.ocorrencia_email_responsavel_aluno.label }}</label>
+                                    {{ form.providencia_encaminhamento_email_responsavel_aluno }}
+                                    <label for="id_providencia_encaminhamento_email_responsavel_aluno"
+                                           class="form-check-label">{{ form.providencia_encaminhamento_email_responsavel_aluno.label }}</label>
                                 </div>
                                 <div class="form-check">
-                                    {{ form.ocorrencia_email_responsavel_user }}
-                                    <label for="id_ocorrencia_email_responsavel_user"
-                                           class="form-check-label">{{ form.ocorrencia_email_responsavel_user.label }}</label>
+                                    {{ form.providencia_encaminhamento_email_responsavel_user }}
+                                    <label for="id_providencia_encaminhamento_email_responsavel_user"
+                                           class="form-check-label">{{ form.providencia_encaminhamento_email_responsavel_user.label }}</label>
                                 </div>
                                 <div class="form-check">
-                                    {{ form.ocorrencia_email_responsavel_setor }}
-                                    <label for="id_ocorrencia_email_responsavel_setor"
-                                           class="form-check-label">{{ form.ocorrencia_email_responsavel_setor.label }}</label>
+                                    {{ form.providencia_encaminhamento_email_responsavel_setor }}
+                                    <label for="id_providencia_encaminhamento_email_responsavel_setor"
+                                           class="form-check-label">{{ form.providencia_encaminhamento_email_responsavel_setor.label }}</label>
                                 </div>
                                 <div class="form-check">
-                                    {{ form.ocorrencia_email_coordenacao_curso }}
-                                    <label for="id_ocorrencia_email_coordenacao_curso"
-                                           class="form-check-label">{{ form.ocorrencia_email_coordenacao_curso.label }}</label>
+                                    {{ form.providencia_encaminhamento_email_coordenacao_curso }}
+                                    <label for="id_providencia_encaminhamento_email_coordenacao_curso"
+                                           class="form-check-label">{{ form.providencia_encaminhamento_email_coordenacao_curso.label }}</label>
                                 </div>
                             </div>
                         </div>

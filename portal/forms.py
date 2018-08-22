@@ -254,6 +254,22 @@ class ConfiguracaoForm(forms.ModelForm):
                 'class': 'form-check-input',
             }),
 
+            'providencia_encaminhamento_email_aluno': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'providencia_encaminhamento_email_responsavel_aluno': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'providencia_encaminhamento_email_responsavel_user': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'providencia_encaminhamento_email_responsavel_setor': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'providencia_encaminhamento_email_coordenacao_curso': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+
             'autorizacao_email_aluno': forms.CheckboxInput(attrs={
                 'class': 'form-check-input',
             }),
@@ -284,6 +300,12 @@ class ConfiguracaoForm(forms.ModelForm):
             'encaminhamento_email_responsavel_user': 'Servidor',
             'encaminhamento_email_responsavel_setor': 'CAED/DEPAE',
             'encaminhamento_email_coordenacao_curso': 'Coordenador de curso',
+
+            'providencia_encaminhamento_email_aluno': 'Estudante',
+            'providencia_encaminhamento_email_responsavel_aluno': 'Responsável do estudante',
+            'providencia_encaminhamento_email_responsavel_user': 'Servidor',
+            'providencia_encaminhamento_email_responsavel_setor': 'CAED/DEPAE',
+            'providencia_encaminhamento_email_coordenacao_curso': 'Coordenador de curso',
 
             'autorizacao_email_aluno': 'Estudante',
             'autorizacao_email_responsavel_aluno': 'Responsável do estudante',
