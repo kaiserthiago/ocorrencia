@@ -74,7 +74,7 @@
                                                     </div>
                                                     <!--Body-->
                                                     <div class="modal-body">
-                                                        <form action="#"
+                                                        <form action="{% url 'encaminhamento_providencia' encaminhamento.id %}"
                                                               method="POST">
                                                             {% csrf_token %}
                                                             <div class="row text-left">

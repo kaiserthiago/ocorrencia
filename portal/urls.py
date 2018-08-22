@@ -28,6 +28,7 @@ urlpatterns = [
     url('^encaminhamento/show/(?P<encaminhamento_id>\d+)$', views.encaminhamento_show, name='encaminhamento_show'),
     url('^encaminhamento/new$', views.encaminhamento_new, name='encaminhamento_new'),
     url('^encaminhamento/pendente$', views.encaminhamento_pendente, name='encaminhamento_pendente'),
+    url('^encaminhamento/providencia/(?P<encaminhamento_id>\d+)$', views.encaminhamento_providencia, name='encaminhamento_providencia'),
     url('^encaminhamento$', views.encaminhamento, name='encaminhamento'),
 
     url('^autorizacao/relatorio/(?P<aluno_id>\d+)$', views.autorizacao_relatorio, name='autorizacao_relatorio'),

@@ -60,6 +60,16 @@ def configuracao(request):
             configuracao.encaminhamento_email_coordenacao_curso = form.cleaned_data[
                 'encaminhamento_email_coordenacao_curso']
 
+            configuracao.providencia_encaminhamento_email_aluno = form.cleaned_data['providencia_encaminhamento_email_aluno']
+            configuracao.providencia_encaminhamento_email_responsavel_aluno = form.cleaned_data[
+                'providencia_encaminhamento_email_responsavel_aluno']
+            configuracao.providencia_encaminhamento_email_responsavel_user = form.cleaned_data[
+                'providencia_encaminhamento_email_responsavel_user']
+            configuracao.providencia_encaminhamento_email_responsavel_setor = form.cleaned_data[
+                'providencia_encaminhamento_email_responsavel_setor']
+            configuracao.providencia_encaminhamento_email_coordenacao_curso = form.cleaned_data[
+                'providencia_encaminhamento_email_coordenacao_curso']
+
             configuracao.ocorrencia_email_aluno = form.cleaned_data['ocorrencia_email_aluno']
             configuracao.ocorrencia_email_responsavel_aluno = form.cleaned_data['ocorrencia_email_responsavel_aluno']
             configuracao.ocorrencia_email_responsavel_user = form.cleaned_data['ocorrencia_email_responsavel_user']
@@ -1453,25 +1463,25 @@ def encaminhamento_providencia(request, encaminhamento_id):
         email = []
         configuracao = get_object_or_404(Configuracao, empresa=request.user.userprofile.empresa)
 
-        if configuracao.encaminhamento_email_aluno:
+        if configuracao.providencia_encaminhamento_email_aluno:
             # VERIFICA SE TEM EMAIL DO ALUNO
             if encaminhamento.matricula.aluno.email:
                 email.append(encaminhamento.matricula.aluno.email)
 
-        if configuracao.encaminhamento_email_responsavel_aluno:
+        if configuracao.providencia_encaminhamento_email_responsavel_aluno:
             # VERIFICA SE TEM EMAIL DO RESPONSÁVEL
             if encaminhamento.matricula.aluno.email_responsavel:
                 email.append(encaminhamento.matricula.aluno.email_responsavel)
 
-        if configuracao.encaminhamento_email_responsavel_user:
+        if configuracao.providencia_encaminhamento_email_responsavel_user:
             # EMAIL DO SERVIDOR QUE REGISTROU A OCORRÊNCIA
             email.append(request.user.email)
 
-        if configuracao.encaminhamento_email_coordenacao_curso:
+        if configuracao.providencia_encaminhamento_email_coordenacao_curso:
             # EMAIL DA COORDENAÇÃO DE CURSO
             email.append(encaminhamento.matricula.turma.curso.email)
 
-        if configuracao.encaminhamento_email_responsavel_setor:
+        if configuracao.providencia_encaminhamento_email_responsavel_setor:
             # EMAIL DO SETOR RESPONSÁVEL PELAS OCORRÊNCIAS
             email.append(request.user.userprofile.empresa.email_responsavel_ocorrencia)
 
