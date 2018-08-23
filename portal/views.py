@@ -1276,7 +1276,7 @@ def servico_categoria(request):
         'servico_categorias': servico_categorias
     }
 
-    return render(request, 'portal/servico_categoria.html', context)
+    return render(request, 'portal/categoria_servico.html', context)
 
 
 @staff_member_required
@@ -1303,7 +1303,7 @@ def servico_categoria_new(request):
         'form': form
     }
 
-    return render(request, 'portal/servico_categoria_new.html', context)
+    return render(request, 'portal/categoria_servico_new.html', context)
 
 
 @staff_member_required
@@ -1329,7 +1329,7 @@ def servico_categoria_edit(request, servico_categoria_id):
         'servico_categoria': servico_categoria,
     }
 
-    return render(request, 'portal/servico_categoria_edit.html', context)
+    return render(request, 'portal/categoria_servico_edit.html', context)
 
 
 @staff_member_required
@@ -1529,7 +1529,7 @@ def encaminhamento_new(request):
             turma = get_object_or_404(Turma, id=id)
             matriculas = Matricula.objects.filter(turma=turma, ano_letivo=int(date.today().year))
 
-            servico_categorias = ServicoCategoria.objects.all().order_by('id')
+            servico_categorias = ServicoCategoria.objects.filter(empresa=request.user.userprofile.empresa).order_by('descricao')
 
             form = EncaminhamentoForm()
 
