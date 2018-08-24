@@ -408,6 +408,7 @@ def dashboard(request):
     categorias_faltas = [obj[0] for obj in categorias]
     qtde_categorias_faltas = [int(obj[1]) for obj in categorias]
 
+
     # DADOS GRÁFICO DE OCORRÊNCIAS POR CURSO
     cursos = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa).order_by().values_list(
         'matricula__turma__curso__descricao').annotate(qtde=Count('id')).distinct()
