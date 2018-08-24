@@ -11,10 +11,10 @@
 {% endblock %}
 
 {% block breadcrumb_base %}
-    <ol class="breadcrumb" id="breadcrumb">
+    <ol class="breadcrumb blue-grey lighten-4" id="breadcrumb">
         <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
-        <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
-        <li class="breadcrumb-item active">Relatório Geral</li>
+        <li class="breadcrumb-item"><a href="{% url 'report_general' %}">Relatório Geral</a></li>
+        <li class="breadcrumb-item active">Relatório de Ocorrências por Aluno</li>
     </ol>
 {% endblock %}
 

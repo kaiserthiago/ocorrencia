@@ -40,7 +40,7 @@
 
     <!-- Sidebar navigation -->
     {% if request.user.is_authenticated %}
-        <ul id="slide-out" class="side-nav fixed sn-bg-4 custom-scrollbar">
+        <ul id="slide-out" class="side-nav sn-bg-4 fixed custom-scrollbar">
     {% else %}
         <ul id="slide-out" class="side-nav sn-bg-4 custom-scrollbar">
     {% endif %}
@@ -49,21 +49,20 @@
         <div class="logo-wrapper waves-light text-center">
             {#            <a href="{% url 'home' %}"><img src="{% static 'img/logo_ifro2.png' %}"#}
             {#                    style="width: 100%; padding: 0"></a>#}
-            {#                            <h1 class="display-3 indigo-text font-weight-bold">IFRO</h1>#}
-
+            <h1 class="display-3 indigo-text font-weight-bold">IFRO</h1>
         </div>
     </li>
     <!--/. Logo -->
     <!--Social-->
-    <li>
-        <ul class="social">
+{#    <li>#}
+{#        <ul class="social">#}
             {#                <li><a class="icons-sm fb-ic"><i class="fa fa-facebook"> </i></a></li>#}
             {#                <li><a class="icons-sm pin-ic"><i class="fa fa-pinterest"> </i></a></li>#}
             {#                <li><a class="icons-sm gplus-ic"><i class="fa fa-google-plus"> </i></a></li>#}
             {#                <li><a class="icons-sm tw-ic"><i class="fa fa-twitter"> </i></a></li>#}
-            <li></li>
-        </ul>
-    </li>
+{#            <li></li>#}
+{#        </ul>#}
+{#    </li>#}
     <!--/Social-->
     <!-- Side navigation links -->
     <li>
@@ -128,7 +127,8 @@
                                                {% block class_cadastro_aluno_item %}{% endblock %}"><i
                                             class="fa fa-user"></i> Aluno</a>
                                     <a href="{% url 'servico_categoria' %}"
-                                       class="waves-effect {% block class_cadastro_servicos_categoria_item %}{% endblock %}"><i
+                                       class="waves-effect
+                                               {% block class_cadastro_servicos_categoria_item %}{% endblock %}"><i
                                             class="fa fa-cog"></i> Categoria
                                         de serviço</a>
                                     <a href="{% url 'curso' %}"
@@ -276,24 +276,8 @@
 <div class="content">
     <main>
         <div class="container-fluid">
-            {#            {% block breadcrumb_base %}#}
-            {#            {% endblock %}#}
-
-            {#            {% if messages %}#}
-            {#                {% for message in messages %}#}
-            {#                    {% if message.tags == 'error' %}#}
-            {#                        <div class="alert card-header danger-color white-text text-left alert-dismissable">#}
-            {#                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>#}
-            {#                            <strong>Erro!</strong> {{ message }}#}
-            {#                        </div>#}
-            {#                    {% elif message.tags == 'success' %}#}
-            {#                        <div class="alert card-header success-color white-text text-left alert-dismissable">#}
-            {#                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>#}
-            {#                            <strong>Sucesso!</strong> {{ message }}#}
-            {#                        </div>#}
-            {#                    {% endif %}#}
-            {#                {% endfor %}#}
-            {#            {% endif %}#}
+            {% block breadcrumb_base %}
+            {% endblock %}
 
             {% block content %}
             {% endblock %}
@@ -336,7 +320,6 @@
 <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
 <!--Google Charts-->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 <script>
     $('.datepicker').pickadate({

@@ -31,7 +31,7 @@ def home(request):
 def contato(request):
     return render(request, 'portal/contato.html', {})
 
-
+@staff_member_required
 def configuracao(request):
     try:
         configuracao = get_object_or_404(Configuracao, empresa=request.user.userprofile.empresa)
