@@ -31,6 +31,7 @@ def home(request):
 def contato(request):
     return render(request, 'portal/contato.html', {})
 
+
 @staff_member_required
 def configuracao(request):
     try:
@@ -60,7 +61,8 @@ def configuracao(request):
             configuracao.encaminhamento_email_coordenacao_curso = form.cleaned_data[
                 'encaminhamento_email_coordenacao_curso']
 
-            configuracao.providencia_encaminhamento_email_aluno = form.cleaned_data['providencia_encaminhamento_email_aluno']
+            configuracao.providencia_encaminhamento_email_aluno = form.cleaned_data[
+                'providencia_encaminhamento_email_aluno']
             configuracao.providencia_encaminhamento_email_responsavel_aluno = form.cleaned_data[
                 'providencia_encaminhamento_email_responsavel_aluno']
             configuracao.providencia_encaminhamento_email_responsavel_user = form.cleaned_data[
@@ -408,6 +410,7 @@ def dashboard(request):
     categorias_faltas = [obj[0] for obj in categorias]
     qtde_categorias_faltas = [int(obj[1]) for obj in categorias]
 
+    dados_grafico = json.dumps(list(categorias))
 
     # DADOS GRÁFICO DE OCORRÊNCIAS POR CURSO
     cursos = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa).order_by().values_list(
@@ -557,12 +560,13 @@ def dashboard(request):
     status_ocorrencia_encaminhamento = [obj[0] for obj in status_encaminhamento]
     qtde_status_ocorrencia_encaminhamento = [int(obj[1]) for obj in status_encaminhamento]
 
-
     context = {
         # OCORRÊNCIAS
         'c': c,
         'detalhamento': detalhamento,
         'total': total,
+
+        'dados_grafico': dados_grafico,
 
         'courses': courses,
         'categorias': categorias,
@@ -1449,6 +1453,7 @@ def encaminhamento(request):
     }
     return render(request, 'portal/encaminhamento.html', context)
 
+
 @login_required
 def encaminhamento_pendente(request):
     cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa)
@@ -1460,6 +1465,7 @@ def encaminhamento_pendente(request):
         'encaminhamentos': encaminhamentos
     }
     return render(request, 'portal/encaminhamento_pendente.html', context)
+
 
 @login_required
 def encaminhamento_providencia(request, encaminhamento_id):
@@ -1507,6 +1513,7 @@ def encaminhamento_providencia(request, encaminhamento_id):
 
         return redirect('encaminhamento_pendente')
 
+
 @login_required
 def encaminhamento_show(request, encaminhamento_id):
     encaminhamento = get_object_or_404(Encaminhamento, id=encaminhamento_id)
@@ -1530,7 +1537,8 @@ def encaminhamento_new(request):
             turma = get_object_or_404(Turma, id=id)
             matriculas = Matricula.objects.filter(turma=turma, ano_letivo=int(date.today().year))
 
-            servico_categorias = ServicoCategoria.objects.filter(empresa=request.user.userprofile.empresa).order_by('descricao')
+            servico_categorias = ServicoCategoria.objects.filter(empresa=request.user.userprofile.empresa).order_by(
+                'descricao')
 
             form = EncaminhamentoForm()
 
