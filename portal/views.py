@@ -525,6 +525,11 @@ def dashboard(request):
         turmas_ocorrencia = ''
         qtde_turmas_ocorrencia = ''
 
+        dados_grafico_ocorrencia_categoria = ''
+        dados_grafico_ocorrencia_curso = ''
+        dados_grafico_ocorrencia_turma = ''
+        dados_grafico_ocorrencia_distribuicao = ''
+
         # ENCAMINHAMENTOS
         c_encaminhamento = ''
         distribuicao_encaminhamento = ''
