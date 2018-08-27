@@ -407,8 +407,8 @@ def dashboard(request):
     categorias = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa).order_by(
         'falta__categoria__artigo').values_list('falta__categoria__descricao').annotate(qtde=Count('id')).distinct()
 
-    categorias_faltas = [obj[0] for obj in categorias]
-    qtde_categorias_faltas = [int(obj[1]) for obj in categorias]
+    # categorias_faltas = [obj[0] for obj in categorias]
+    # qtde_categorias_faltas = [int(obj[1]) for obj in categorias]
 
     dados_grafico_ocorrencia_categoria = json.dumps(list(categorias))
 
@@ -416,8 +416,8 @@ def dashboard(request):
     cursos = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa).order_by().values_list(
         'matricula__turma__curso__descricao').annotate(qtde=Count('id')).distinct()
 
-    cursos_ocorrencia = [obj[0] for obj in cursos]
-    qtde_cursos_ocorrencia = [int(obj[1]) for obj in cursos]
+    # cursos_ocorrencia = [obj[0] for obj in cursos]
+    # qtde_cursos_ocorrencia = [int(obj[1]) for obj in cursos]
 
     dados_grafico_ocorrencia_curso = json.dumps(list(cursos))
 
@@ -471,6 +471,8 @@ def dashboard(request):
             turmas = ''
             turmas_ocorrencia = ''
             qtde_turmas_ocorrencia = ''
+            dados_grafico_ocorrencia_turma = ''
+            dados_grafico_ocorrencia_distribuicao = ''
 
         # ENCACMINHAMENTOS
         if 'CourseEncaminhamento' in request.POST:
@@ -513,6 +515,7 @@ def dashboard(request):
             turmas_ocorrencia_encaminhamento = ''
             turmas_encaminhamento = ''
             qtde_turmas_encaminhamento = ''
+
     else:
         # OCORRÊNCIAS
         c = ''
@@ -585,11 +588,11 @@ def dashboard(request):
         'turmas': turmas,
         'distribuicao': distribuicao,
 
-        'categorias_faltas': json.dumps(categorias_faltas),
-        'qtde_categorias_faltas': json.dumps(qtde_categorias_faltas),
+        # 'categorias_faltas': json.dumps(categorias_faltas),
+        # 'qtde_categorias_faltas': json.dumps(qtde_categorias_faltas),
 
-        'cursos_ocorrencia': json.dumps(cursos_ocorrencia),
-        'qtde_cursos_ocorrencia': json.dumps(qtde_cursos_ocorrencia),
+        # 'cursos_ocorrencia': json.dumps(cursos_ocorrencia),
+        # 'qtde_cursos_ocorrencia': json.dumps(qtde_cursos_ocorrencia),
 
         'turmas_ocorrencia': json.dumps(turmas_ocorrencia),
         'qtde_turmas_ocorrencia': json.dumps(qtde_turmas_ocorrencia),
