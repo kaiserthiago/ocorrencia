@@ -11,7 +11,7 @@
 
 {% block content %}
     <div class="row">
-        <div class="col">
+        <div class="col-sm-6">
             <div class="card card-cascade narrower mb-5">
                 <div class="view py-3 gradient-card-header success-color-dark">
                     <h5 class="mb-0"><strong>OCORRÊNCIAS POR CATEGORIA</strong></h5>
@@ -35,7 +35,7 @@
 
         <hr class="w-100 clearfix d-md-none">
 
-        <div class="col">
+        <div class="col-sm-6">
             <div class="card card-cascade narrower mb-5">
                 <div class="view py-3 gradient-card-header success-color-dark">
                     <h5 class="mb-0"><strong>OCORRÊNCIAS POR CURSOS</strong></h5>
@@ -102,18 +102,18 @@
                             {% if distribuicao %}
                                 <div class="col-sm-6">
                                     {#                                    <canvas id="turma1" height="200"></canvas>#}
-{#                                    <div class="border text-center">#}
-                                        <div id="turma" style="height: 250px"></div>
+                                    {#                                    <div class="border text-center">#}
+                                    <div id="turma" style="height: 250px"></div>
 
-{#                                    </div>#}
+                                    {#                                    </div>#}
                                 </div>
                                 <hr class="w-100 clearfix d-md-none">
 
                                 <div class="col-sm-6">
                                     {#                                    <canvas id="distribuicao1" height="200"></canvas>#}
-{#                                    <div class="border text-center">#}
-                                        <div id="distribuicao" style="height: 250px"></div>
-{#                                    </div>#}
+                                    {#                                    <div class="border text-center">#}
+                                    <div id="distribuicao" style="height: 250px"></div>
+                                    {#                                    </div>#}
                                 </div>
                             {% else %}
                                 <div class="col">
@@ -260,6 +260,12 @@
             </div>
         </div>
     </div>
+
+    <div id="dashboard_teste" class="text-center">
+        <!--Divs that will hold each control and chart-->
+        <div id="filtro_teste"></div>
+        <div id="grafico_teste"></div>
+    </div>
 {% endblock %}
 
 {% block script %}
@@ -289,10 +295,17 @@
 
             // Create a range slider, passing some options
             var donutRangeSlider = new google.visualization.ControlWrapper({
-                'controlType': 'NumberRangeFilter',
+                'controlType': 'CategoryFilter',
                 'containerId': 'filtro_ocorrencia_categoria',
                 'options': {
-                    'filterColumnLabel': 'Ocorrências'
+                    'filterColumnLabel': 'Categoria',
+                    'ui': {
+                        'caption': 'Todas as categorias',
+                        'selectedValuesLayout': 'aside',
+                        'labelStacking': 'horizontal',
+                        'allowMultiple': true,
+                        'allowTyping': false
+                    }
                 }
             });
 
@@ -303,12 +316,12 @@
                 'options': {
                     {#'width': 300,#}
                     {#'height': 300,#}
-                    'pieSliceText': 'percent',
+                    'pieSliceText': 'percentage',
                     'legend': {
                         'position': 'right',
                         'alignment': 'center'
                     },
-                    'chartArea': {'left': 15, 'top': 15, 'right': 0, 'bottom': 10},
+                    'chartArea': {'left': 15, 'top': 15, 'right': 0, 'bottom': 10}
                 }
             });
 
@@ -376,10 +389,17 @@
 
             // Create a range slider, passing some options
             var donutRangeSlider = new google.visualization.ControlWrapper({
-                'controlType': 'NumberRangeFilter',
+                'controlType': 'CategoryFilter',
                 'containerId': 'filtro_ocorrencia_curso',
                 'options': {
-                    'filterColumnLabel': 'Ocorrências'
+                    'filterColumnLabel': 'Curso',
+                    'ui': {
+                        'caption': 'Todos os cursos',
+                        'selectedValuesLayout': 'aside',
+                        'labelStacking': 'horizontal',
+                        'allowMultiple': true,
+                        'allowTyping': false
+                    }
                 }
             });
 
@@ -390,7 +410,7 @@
                 'options': {
                     {#'width': 300,#}
                     {#'height': 300,#}
-                    'pieSliceText': 'percent',
+                    'pieSliceText': 'percentage',
                     'legend': {
                         'position': 'right',
                         'alignment': 'center'
