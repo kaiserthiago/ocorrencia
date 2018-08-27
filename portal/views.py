@@ -25,7 +25,13 @@ from portal.models import Curso, Aluno, Turma, Ocorrencia, Matricula, CategoriaF
 
 
 def home(request):
-    return render(request, 'portal/home.html', {})
+    alunos = Aluno.objects.filter(empresa=request.user.userprofile.empresa)
+
+    for aluno in alunos:
+        aluno.nome = aluno.nome.rstrip(" ")
+        aluno.save()
+
+    return render(request, 'portal/home.html', {'alunos':alunos})
 
 
 def contato(request):
@@ -118,13 +124,13 @@ def import_matricula(request):
         # return HttpResponse(lista)
 
         for n in imported_data:
-            lista.append(upper(n[0])).rstrip(" ")
+            lista.append(upper(n[0]))
 
         for teste in lista:
             aluno = get_object_or_404(Aluno, empresa=request.user.userprofile.empresa, nome=teste.rstrip(" "))
             matricula = Matricula.objects.filter(aluno=aluno, ano_letivo=int(date.today().year), turma=turma)
 
-            if (teste == aluno.nome) and not matricula:
+            if (teste.rstrip(" ") == aluno.nome) and not matricula:
                 matricula = Matricula()
                 matricula.user = request.user
                 matricula.empresa = request.user.userprofile.empresa
