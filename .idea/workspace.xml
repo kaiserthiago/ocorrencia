@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/templates/portal/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/dashboard.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,8 +23,8 @@
       <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="637">
-              <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+            <state relative-caret-position="380">
+              <caret line="307" column="35" selection-start-line="307" selection-start-column="35" selection-end-line="307" selection-end-column="35" />
               <folding>
                 <element signature="e#5407#5428#0#HTML" expanded="true" />
                 <element signature="e#5902#5923#0#HTML" expanded="true" />
@@ -743,8 +742,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+        <state relative-caret-position="380">
+          <caret line="307" column="35" selection-start-line="307" selection-start-column="35" selection-end-line="307" selection-end-column="35" />
           <folding>
             <element signature="e#5407#5428#0#HTML" expanded="true" />
             <element signature="e#5902#5923#0#HTML" expanded="true" />
