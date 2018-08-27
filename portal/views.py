@@ -118,7 +118,7 @@ def import_matricula(request):
         # return HttpResponse(lista)
 
         for n in imported_data:
-            lista.append(upper(n[0]))
+            lista.append(upper(n[0])).rstrip(" ")
 
         for teste in lista:
             aluno = get_object_or_404(Aluno, empresa=request.user.userprofile.empresa, nome=teste.rstrip(" "))
