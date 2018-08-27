@@ -410,7 +410,7 @@ def dashboard(request):
     categorias_faltas = [obj[0] for obj in categorias]
     qtde_categorias_faltas = [int(obj[1]) for obj in categorias]
 
-    dados_grafico = json.dumps(list(categorias))
+    dados_grafico_ocorrencia_categoria = json.dumps(list(categorias))
 
     # DADOS GRÁFICO DE OCORRÊNCIAS POR CURSO
     cursos = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa).order_by().values_list(
@@ -418,6 +418,8 @@ def dashboard(request):
 
     cursos_ocorrencia = [obj[0] for obj in cursos]
     qtde_cursos_ocorrencia = [int(obj[1]) for obj in cursos]
+
+    dados_grafico_ocorrencia_curso = json.dumps(list(cursos))
 
     courses = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
                                         matricula__turma__curso__in=Curso.objects.all()).order_by(
@@ -453,6 +455,9 @@ def dashboard(request):
                                                matricula__turma__curso=c).order_by(
                 'matricula__turma__descricao').values_list(
                 'matricula__turma__descricao').annotate(qtde=Count('id')).distinct()
+
+            dados_grafico_ocorrencia_turma = json.dumps(list(turmas))
+            dados_grafico_ocorrencia_distribuicao = json.dumps(list(distribuicao))
 
             turmas_ocorrencia = [obj[0] for obj in turmas]
             qtde_turmas_ocorrencia = [int(obj[1]) for obj in turmas]
@@ -566,7 +571,10 @@ def dashboard(request):
         'detalhamento': detalhamento,
         'total': total,
 
-        'dados_grafico': dados_grafico,
+        'dados_grafico_ocorrencia_categoria': dados_grafico_ocorrencia_categoria,
+        'dados_grafico_ocorrencia_curso': dados_grafico_ocorrencia_curso,
+        'dados_grafico_ocorrencia_turma': dados_grafico_ocorrencia_turma,
+        'dados_grafico_ocorrencia_distribuicao': dados_grafico_ocorrencia_distribuicao,
 
         'courses': courses,
         'categorias': categorias,
