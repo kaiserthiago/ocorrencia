@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/templates/portal/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views.py" afterDir="false" />
     </list>
@@ -30,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="34" column="72" selection-start-line="34" selection-start-column="72" selection-end-line="34" selection-end-column="72" />
+            <state relative-caret-position="343">
+              <caret line="31" column="20" lean-forward="true" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -42,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/home.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="80">
-              <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+              <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -54,7 +55,7 @@
       <file leaf-file-name="aluno.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2640">
+            <state relative-caret-position="120">
               <caret line="6" column="45" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="45" />
             </state>
           </provider>
@@ -63,7 +64,7 @@
       <file leaf-file-name="turma_new.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/turma_new.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
+            <state relative-caret-position="960">
               <caret line="48" selection-start-line="48" selection-end-line="48" />
             </state>
           </provider>
@@ -72,8 +73,8 @@
       <file leaf-file-name="aluno_new.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_new.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="24" column="24" lean-forward="true" selection-start-line="24" selection-start-column="24" selection-end-line="61" selection-end-column="30" />
+            <state relative-caret-position="480">
+              <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="61" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -81,7 +82,7 @@
       <file leaf-file-name="aluno_edit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
+            <state relative-caret-position="1240">
               <caret line="62" selection-start-line="62" selection-end-line="62" />
             </state>
           </provider>
@@ -99,7 +100,7 @@
       <file leaf-file-name="categoria_servico_edit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/categoria_servico_edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-60">
+            <state relative-caret-position="60">
               <caret line="3" column="89" selection-start-line="3" selection-start-column="89" selection-end-line="3" selection-end-column="89" />
             </state>
           </provider>
@@ -108,7 +109,7 @@
       <file leaf-file-name="turma_edit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/turma_edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
+            <state relative-caret-position="960">
               <caret line="48" selection-start-line="48" selection-end-line="48" />
             </state>
           </provider>
@@ -138,7 +139,7 @@
       <find>provi</find>
       <find>encaminhamento(</find>
       <find>configuracao</find>
-      <find>configuracao, id</find>
+      <find />
       <find>pendente</find>
       <find>confi</find>
       <find>encaminhamento_p</find>
@@ -163,19 +164,19 @@
       <replace>'</replace>
       <replace>middle</replace>
       <replace>$'</replace>
-      <replace>SGE - Gestão Estudantil</replace>
+      <replace />
       <replace>SGE</replace>
-      <replace>Gestão Estudantil</replace>
-      <replace>btn btn-danger</replace>
-      <replace>class=&quot;btn btn-rounded btn-block btn-success&quot;</replace>
-      <replace>class=&quot;btn btn-rounded btn-block btn-success&quot;&gt;&lt;i class</replace>
-      <replace>type=&quot;submit&quot; class=&quot;btn btn-round btn-success&quot;</replace>
-      <replace>type=&quot;submit&quot; class=&quot;btn btn-rounded btn-success&quot;</replace>
-      <replace>%}&quot; class=&quot;btn btn-rounded btn-danger&quot;</replace>
+      <replace />
+      <replace />
+      <replace />
+      <replace />
+      <replace />
+      <replace />
+      <replace />
       <replace>btn-danger</replace>
       <replace>Setembro</replace>
-      <replace>&quot;breadcrumb blue-grey lighten-4&quot;</replace>
-      <replace>class=&quot;breadcrumb blue-grey lighten-4&quot;</replace>
+      <replace />
+      <replace />
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -233,8 +234,8 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/turma_edit.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/aluno_new.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/aluno_edit.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/home.html" />
         <option value="$PROJECT_DIR$/portal/views.py" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/home.html" />
       </list>
     </option>
   </component>
@@ -751,28 +752,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/turma_edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
+        <state relative-caret-position="960">
           <caret line="48" selection-start-line="48" selection-end-line="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/turma_new.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
+        <state relative-caret-position="960">
           <caret line="48" selection-start-line="48" selection-end-line="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_new.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="24" column="24" lean-forward="true" selection-start-line="24" selection-start-column="24" selection-end-line="61" selection-end-column="30" />
+        <state relative-caret-position="480">
+          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="61" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
+        <state relative-caret-position="1240">
           <caret line="62" selection-start-line="62" selection-end-line="62" />
         </state>
       </provider>
@@ -786,7 +787,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/categoria_servico_edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
+        <state relative-caret-position="60">
           <caret line="3" column="89" selection-start-line="3" selection-start-column="89" selection-end-line="3" selection-end-column="89" />
         </state>
       </provider>
@@ -800,25 +801,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2640">
+        <state relative-caret-position="120">
           <caret line="6" column="45" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="31" column="20" lean-forward="true" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
-          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="34" column="72" selection-start-line="34" selection-start-column="72" selection-end-line="34" selection-end-column="72" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
         </state>
       </provider>
     </entry>

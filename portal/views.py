@@ -25,13 +25,7 @@ from portal.models import Curso, Aluno, Turma, Ocorrencia, Matricula, CategoriaF
 
 
 def home(request):
-    alunos = Aluno.objects.filter(empresa=request.user.userprofile.empresa)
-
-    for aluno in alunos:
-        aluno.nome = aluno.nome.rstrip(" ")
-        aluno.save()
-
-    return render(request, 'portal/home.html', {'alunos':alunos})
+    return render(request, 'portal/home.html', {})
 
 
 def contato(request):
