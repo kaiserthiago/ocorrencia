@@ -23,39 +23,51 @@
                     <form action="" method="POST">
                         {% csrf_token %}
                         <div class="row">
-                            <div class="md-form col-sm-6">
-                                <label>{{ form.nome.label }}</label>
-                                {{ form.nome }}
+                            <div class=" col-sm-6">
+                                <div class="md-form">
+                                    <label>{{ form.nome.label }}</label>
+                                    {{ form.nome }}
+                                </div>
                             </div>
-                            <div class="md-form col-sm-6">
-                                <label>{{ form.email.label }}</label>
-                                {{ form.email }}
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="md-form col-sm-6">
-                                <label>{{ form.responsavel.label }}</label>
-                                {{ form.responsavel }}
-                            </div>
-                            <div class="md-form col-sm-6">
-                                <label>{{ form.email_responsavel.label }}</label>
-                                {{ form.email_responsavel }}
+                            <div class=" col-sm-6">
+                                <div class="md-form">
+                                    <label>{{ form.email.label }}</label>
+                                    {{ form.email }}
+                                </div>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="md-form col-sm-6">
-                                {{ form.empresa }}
-                                <label for="id_empresa">{{ form.empresa.label }}</label>
+                            <div class=" col-sm-6">
+                                <div class="md-form">
+                                    <label>{{ form.responsavel.label }}</label>
+                                    {{ form.responsavel }}
+                                </div>
+                            </div>
+                            <div class=" col-sm-6">
+                                <div class="md-form">
+                                    <label>{{ form.email_responsavel.label }}</label>
+                                    {{ form.email_responsavel }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class=" col-sm-6">
+                                <div class="md-form">
+                                    {{ form.empresa }}
+                                    <label for="id_empresa">{{ form.empresa.label }}</label>
+                                </div>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="float-right">
-                                    <button type="submit" class="btn btn-rounded btn-success" data-toggle="tooltip" data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
-                                    <a href="javascript:history.back()" class="btn btn-rounded btn-danger"  data-toggle="tooltip" data-placement="top" title="Cancelar"><i
+                                    <button type="submit" class="btn btn-rounded btn-success" data-toggle="tooltip"
+                                            data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
+                                    <a href="javascript:history.back()" class="btn btn-rounded btn-danger"
+                                       data-toggle="tooltip" data-placement="top" title="Cancelar"><i
                                             class="fa fa-close"></i></a>
                                 </div>
                             </div>

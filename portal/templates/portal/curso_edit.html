@@ -23,17 +23,22 @@
                     <form action="" method="POST">
                         {% csrf_token %}
                         <div class="row">
-                            <div class="md-form col-sm-12">
-                                <label>{{ form.descricao.label }}</label>
-                                {{ form.descricao }}
+                            <div class="col-sm-12">
+                                <div class="md-form">
+                                    <label>{{ form.descricao.label }}</label>
+                                    {{ form.descricao }}
+                                </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="md-form col-sm-12">
-                                <label>{{ form.email.label }}</label>
-                                {{ form.email }}
+                            <div class="col-sm-12">
+                                <div class="md-form">
+                                    <label>{{ form.email.label }}</label>
+                                    {{ form.email }}
+                                </div>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="float-right">
