@@ -269,16 +269,9 @@
     </header>
     <!--/.Double navigation-->
 {% else %}
+    <header>
     <!-- Navbar -->
     <nav class="navbar fixed-top navbar-toggleable-sm navbar-expand-md scrolling-navbar double-nav">
-        <!-- SideNav slide-out button -->
-        <div class="float-left">
-            <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i></a>
-        </div>
-        <!-- Breadcrumb-->
-        {#        <div class="breadcrumb-dn mr-auto">#}
-        {#            <p>Calibração em Eficência Absoluta</p>#}
-        {#        </div>#}
         <ul class="nav navbar-nav nav-flex-icons ml-auto">
             {% if request.user.is_authenticated %}
                 <!-- Dropdown -->
@@ -302,6 +295,7 @@
         </ul>
     </nav>
     <!-- /.Navbar -->
+    </header>
     <div class="my-5"></div>
 {% endif %}
 
