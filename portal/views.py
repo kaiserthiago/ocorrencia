@@ -6,7 +6,7 @@ from datetime import date
 from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth import update_session_auth_hash
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
@@ -32,7 +32,7 @@ def contato(request):
     return render(request, 'portal/contato.html', {})
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def configuracao(request):
     try:
         configuracao = get_object_or_404(Configuracao, empresa=request.user.userprofile.empresa)
@@ -93,7 +93,7 @@ def configuracao(request):
     return render(request, 'portal/configuracao.html', context)
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def import_matricula(request):
     if request.method == 'POST':
         dataset = Dataset()
@@ -156,7 +156,7 @@ def import_matricula(request):
     return render(request, 'portal/import_matricula.html', context)
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def import_aluno(request):
     if request.method == 'POST':
         dataset = Dataset()
@@ -213,7 +213,7 @@ def import_aluno(request):
     return render(request, 'portal/import_aluno.html', {})
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def aluno(request):
     qs = request.GET.get('qs', '')
     alunos = Aluno.objects.filter(empresa=request.user.userprofile.empresa, nome__istartswith=str(qs)).order_by('nome')
@@ -228,7 +228,7 @@ def aluno(request):
     return render(request, 'portal/aluno.html', context)
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def aluno_new(request):
     qs = request.GET.get('qs', '')
 
@@ -272,7 +272,7 @@ def aluno_new(request):
     return render(request, 'portal/aluno_new.html', context)
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def aluno_edit(request, aluno_id):
     aluno = get_object_or_404(Aluno, pk=aluno_id)
     qs = request.GET.get('qs', '')
@@ -315,7 +315,7 @@ def aluno_edit(request, aluno_id):
     return render(request, 'portal/aluno_edit.html', context)
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def aluno_delete(request, aluno_id):
     aluno = get_object_or_404(Aluno, pk=aluno_id)
 
@@ -326,7 +326,7 @@ def aluno_delete(request, aluno_id):
     return redirect('/aluno?qs=a')
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def curso(request):
     cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa).order_by('descricao')
 
@@ -337,7 +337,7 @@ def curso(request):
     return render(request, 'portal/curso.html', context)
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def curso_new(request):
     if request.method == 'POST':
         form = CursoForm(request.POST)
@@ -364,7 +364,7 @@ def curso_new(request):
     return render(request, 'portal/curso_new.html', context)
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def curso_edit(request, curso_id):
     curso = get_object_or_404(Curso, pk=curso_id)
 
@@ -390,7 +390,7 @@ def curso_edit(request, curso_id):
     return render(request, 'portal/curso_edit.html', context)
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def curso_delete(request, curso_id):
     curso = get_object_or_404(Curso, pk=curso_id)
 
@@ -631,7 +631,7 @@ def dashboard(request):
     return render(request, 'portal/dashboard.html', context)
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def turma(request):
     turmas = Turma.objects.filter(empresa=request.user.userprofile.empresa).order_by('curso', 'descricao')
 
@@ -642,7 +642,7 @@ def turma(request):
     return render(request, 'portal/turma.html', context)
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def turma_new(request):
     cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa)
 
@@ -676,7 +676,7 @@ def turma_new(request):
     return render(request, 'portal/turma_new.html', context)
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def turma_edit(request, turma_id):
     cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa)
     turma = get_object_or_404(Turma, pk=turma_id)
@@ -709,7 +709,7 @@ def turma_edit(request, turma_id):
     return render(request, 'portal/turma_edit.html', context)
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def turma_delete(request, turma_id):
     turma = get_object_or_404(Turma, pk=turma_id)
 
@@ -872,7 +872,7 @@ def ocorrencia_delete(request, ocorrencia_id):
     return redirect('ocorrencia')
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def matricula(request):
     matriculas = Matricula.objects.filter(empresa=request.user.userprofile.empresa).order_by('-ano_letivo', 'turma',
                                                                                              'aluno')
@@ -893,7 +893,7 @@ def matricula(request):
     return render(request, 'portal/matricula.html', context)
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def matricula_new(request):
     alunos = Aluno.objects.filter(empresa=request.user.userprofile.empresa).order_by('nome')
     turmas = Turma.objects.filter(empresa=request.user.userprofile.empresa).order_by('curso__descricao', 'descricao')
@@ -906,12 +906,12 @@ def matricula_new(request):
     return render(request, 'portal/matricula_new.html', context)
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def matricula_edit(request):
     pass
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def matricula_delete(request, matricula_id):
     matricula = get_object_or_404(Matricula, pk=matricula_id)
 
@@ -960,7 +960,7 @@ def user_account(request):
     return render(request, 'portal/user_account.html', context)
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def user_list(request):
     usuarios_inativos = User.objects.filter(userprofile__empresa=request.user.userprofile.empresa, is_active=False)
     usuarios_ativos = User.objects.filter(userprofile__empresa=request.user.userprofile.empresa, is_active=True)
@@ -972,7 +972,7 @@ def user_list(request):
     return render(request, 'portal/user_list.html', context)
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def usuario_ativar(request, user_id):
     usuario = get_object_or_404(User, id=user_id)
 
@@ -990,7 +990,7 @@ def usuario_ativar(request, user_id):
         return redirect('user_list')
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def usuario_desativar(request, user_id):
     usuario = get_object_or_404(User, id=user_id)
 
@@ -1287,7 +1287,7 @@ def report_ocorrencia_turma(request):
     return render(request, 'portal/report_ocorrencia_turma.html', context)
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def servico_categoria(request):
     servico_categorias = ServicoCategoria.objects.filter(empresa=request.user.userprofile.empresa)
 
@@ -1298,7 +1298,7 @@ def servico_categoria(request):
     return render(request, 'portal/categoria_servico.html', context)
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def servico_categoria_new(request):
     if request.method == 'POST':
         form = ServicoCategoriaForm(request.POST)
@@ -1325,7 +1325,7 @@ def servico_categoria_new(request):
     return render(request, 'portal/categoria_servico_new.html', context)
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def servico_categoria_edit(request, servico_categoria_id):
     servico_categoria = get_object_or_404(ServicoCategoria, pk=servico_categoria_id)
 
@@ -1351,7 +1351,7 @@ def servico_categoria_edit(request, servico_categoria_id):
     return render(request, 'portal/categoria_servico_edit.html', context)
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def servico_categoria_delete(request, servico_categoria_id):
     servico_categoria = get_object_or_404(ServicoCategoria, pk=servico_categoria_id)
 
@@ -1363,7 +1363,7 @@ def servico_categoria_delete(request, servico_categoria_id):
     return redirect('servico_categoria')
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def servico(request):
     servicos = Servico.objects.filter(empresa=request.user.userprofile.empresa).order_by('categoria__descricao',
                                                                                          'descricao')
@@ -1375,7 +1375,7 @@ def servico(request):
     return render(request, 'portal/servico.html', context)
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def servico_new(request):
     categorias = ServicoCategoria.objects.filter(empresa=request.user.userprofile.empresa)
 
@@ -1409,7 +1409,7 @@ def servico_new(request):
     return render(request, 'portal/servico_new.html', context)
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def servico_edit(request, servico_id):
     categorias = ServicoCategoria.objects.filter(empresa=request.user.userprofile.empresa)
     servico = get_object_or_404(Servico, pk=servico_id)
@@ -1443,7 +1443,7 @@ def servico_edit(request, servico_id):
     return render(request, 'portal/servico_edit.html', context)
 
 
-@staff_member_required
+@permission_required('is_superuser')
 def servico_delete(request, servico_id):
     servico = get_object_or_404(Servico, pk=servico_id)
 
