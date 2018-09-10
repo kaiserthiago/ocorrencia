@@ -66,7 +66,7 @@
                                 class="fa fa-home"></i>
                             Início</a>
                     </li>
-                    {% if request.user.is_authenticated or perm.portal.change_autorizacao or perm.portal.change_encaminhamento %}
+                    {% if request.user.is_superuser or perm.portal.change_autorizacao or perm.portal.change_encaminhamento %}
                         <li>
                             <a class="collapsible-header waves-effect arrow-r
                                 {% block class_administrativo_menu %}{% endblock %}"><i
@@ -75,27 +75,27 @@
                             <div class="collapsible-body">
                                 <ul>
                                     <li>
-                                        {% if request.user.is_staff %}
+                                        {% if request.user.is_superuser %}
                                             <a href="{% url 'configuracao' %}" class="waves-effect
                                             {% block class_administrativo_configuracao_item %}{% endblock %}"><i
                                                     class="fa fa-cog"></i> Configurações</a>
                                         {% endif %}
 
-                                        {% if request.user.is_staff or perms.portal.change_autorizacao %}
+                                        {% if request.user.is_superuser or perms.portal.change_autorizacao %}
                                             <a href="{% url 'autorizacao_pendente' %}"
                                                class="waves-effect
                                            {% block class_administrativo_autorizacao_confirmar_item %}{% endblock %}"><i
                                                     class="fa fa-check"></i> Confirmar saída</a>
                                         {% endif %}
 
-                                        {% if request.user.is_staff %}
+                                        {% if request.user.is_superuser %}
 
                                             <a href="{% url 'user_list' %}" class="waves-effect
                                             {% block class_administrativo_lista_usuario_item %}{% endblock %}"><i
                                                     class="fa fa-list"></i> Lista de usuários</a>
                                         {% endif %}
 
-                                        {% if request.user.is_staff or perms.portal.change_encaminhamento %}
+                                        {% if request.user.is_superuser or perms.portal.change_encaminhamento %}
 
                                             <a href="{% url 'encaminhamento_pendente' %}" class="waves-effect
                                             {% block class_administrativo_retorno_encaminhamento_item %}{% endblock %}"><i
@@ -106,7 +106,7 @@
                             </div>
                         </li>
 
-                        {% if request.user.is_staff %}
+                        {% if request.user.is_superuser %}
                             <li>
                                 <a class="collapsible-header waves-effect arrow-r
                                 {% block class_cadastro_menu %}{% endblock %}"><i
