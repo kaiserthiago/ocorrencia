@@ -18,7 +18,8 @@
         <ul class="list-unstyled">
 
             <li>
-                <a href="{% url 'autorizacao' %}" class="btn-floating btn-rounded btn-warning" type="button" id="save-png"><i
+                <a href="{% url 'autorizacao' %}" class="btn-floating btn-rounded btn-warning" type="button"
+                   id="save-png"><i
                         class="fa fa-sign-out" data-toggle="tooltip" data-placement="top"
                         title="Autorização de saída"></i></a>
             </li>
@@ -191,14 +192,14 @@
                     <p class="font-bold text-uppercase">
                         ENCAMINHAMENTOS POR STATUS
                     </p>
-                    <div class="float-right">
-                        <i data-toggle="tooltip" data-placement="top" title="Responder encaminhamento">
-                            <a href="{% url 'encaminhamento_pendente' %}"
-                               class="btn-floating btn-sm primary-color-dark"><i class="fa fa-bell"></i>
-                            </a>
-                        </i>
-                    </div>
                     {% if status_encaminhamento %}
+                        <div class="float-right">
+                            <i data-toggle="tooltip" data-placement="top" title="Responder encaminhamento">
+                                <a href="{% url 'encaminhamento_pendente' %}"
+                                   class="btn-floating btn-sm primary-color-dark"><i class="fa fa-bell"></i>
+                                </a>
+                            </i>
+                        </div>
                         <div id="status_encaminhamento"></div>
                     {% else %}
                         <div class="card-header warning-color white-text text-center">
