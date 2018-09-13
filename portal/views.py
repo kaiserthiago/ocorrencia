@@ -403,6 +403,11 @@ def curso_delete(request, curso_id):
 
 @login_required
 def dashboard(request):
+    #DADOS DOS INDICADORES
+    indicador_autorizacao = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa)
+    indicador_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa)
+    indicador_ocorrencia = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa)
+
     # DADOS GRÁFICO DE OCORRÊNCIAS POR CATEGORIA
     categorias = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa).order_by(
         'falta__categoria__artigo').values_list('falta__categoria__descricao').annotate(qtde=Count('id')).distinct()
@@ -572,6 +577,11 @@ def dashboard(request):
     qtde_status_ocorrencia_encaminhamento = [int(obj[1]) for obj in status_encaminhamento]
 
     context = {
+        #INDICADORES
+        'indicador_autorizacao': indicador_autorizacao,
+        'indicador_encaminhamento': indicador_encaminhamento,
+        'indicador_ocorrencia': indicador_ocorrencia,
+
         # OCORRÊNCIAS
         'c': c,
         'detalhamento': detalhamento,

@@ -88,3 +88,7 @@ light-font .breadcrumb-item + .breadcrumb-item::before {
 .light-font .breadcrumb-item.active {
     color: #cfd8dc;
 }
+
+.ifro-color{
+    background-color: #2f9e41 !important;;
+}

@@ -66,7 +66,7 @@
                                 class="fa fa-home"></i>
                             Início</a>
                     </li>
-                    {% if request.user.is_superuser or perm.portal.change_autorizacao or perm.portal.change_encaminhamento %}
+                    {% if request.user.is_authenticated or perm.portal.change_autorizacao or perm.portal.change_encaminhamento %}
                         <li>
                             <a class="collapsible-header waves-effect arrow-r
                                 {% block class_administrativo_menu %}{% endblock %}"><i
@@ -89,14 +89,12 @@
                                         {% endif %}
 
                                         {% if request.user.is_superuser %}
-
                                             <a href="{% url 'user_list' %}" class="waves-effect
                                             {% block class_administrativo_lista_usuario_item %}{% endblock %}"><i
                                                     class="fa fa-list"></i> Lista de usuários</a>
                                         {% endif %}
 
                                         {% if request.user.is_superuser or perms.portal.change_encaminhamento %}
-
                                             <a href="{% url 'encaminhamento_pendente' %}" class="waves-effect
                                             {% block class_administrativo_retorno_encaminhamento_item %}{% endblock %}"><i
                                                     class="fa fa-book"></i> Retorno encaminhamento</a>
@@ -270,31 +268,31 @@
     <!--/.Double navigation-->
 {% else %}
     <header>
-    <!-- Navbar -->
-    <nav class="navbar fixed-top navbar-toggleable-sm navbar-expand-md scrolling-navbar double-nav">
-        <ul class="nav navbar-nav nav-flex-icons ml-auto">
-            {% if request.user.is_authenticated %}
-                <!-- Dropdown -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i><span
-                            class="clearfix d-none d-sm-inline-block"> {{ request.user }}</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-success">
-                        <a class="dropdown-item" href="#"><i class="fa fa-dashboard"></i> Dashboard</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{% url 'logout' %}"><i class="fa fa-power-off"></i> Sair</a>
-                    </div>
-                </li>
-            {% else %}
-                <li class="nav-item">
-                    <a href="{% url 'login' %}" class="nav-link"><i class="fa fa-lock"></i> <span
-                            class="clearfix d-none d-sm-inline-block">Login</span></a>
-                </li>
-            {% endif %}
-        </ul>
-    </nav>
-    <!-- /.Navbar -->
+        <!-- Navbar -->
+        <nav class="navbar fixed-top navbar-toggleable-sm navbar-expand-md scrolling-navbar double-nav">
+            <ul class="nav navbar-nav nav-flex-icons ml-auto">
+                {% if request.user.is_authenticated %}
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i><span
+                                class="clearfix d-none d-sm-inline-block"> {{ request.user }}</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-success">
+                            <a class="dropdown-item" href="#"><i class="fa fa-dashboard"></i> Dashboard</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'logout' %}"><i class="fa fa-power-off"></i> Sair</a>
+                        </div>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'login' %}" class="nav-link"><i class="fa fa-lock"></i> <span
+                                class="clearfix d-none d-sm-inline-block">Login</span></a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+        <!-- /.Navbar -->
     </header>
     <div class="my-5"></div>
 {% endif %}

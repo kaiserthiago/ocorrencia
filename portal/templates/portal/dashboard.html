@@ -11,9 +11,9 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <div class="card card-cascade narrower mb-5">
-                <div class="view py-3 gradient-card-header success-color-dark">
+                <div class="view py-3 gradient-card-header ifro-color">
                     <h5 class="mb-0"><strong>OCORRÊNCIAS POR CATEGORIA</strong></h5>
                 </div>
                 <div class="card-body">
@@ -35,9 +35,9 @@
 
         <hr class="w-100 clearfix d-md-none">
 
-        <div class="col-sm-6">
+        <div class="col-sm-5">
             <div class="card card-cascade narrower mb-5">
-                <div class="view py-3 gradient-card-header success-color-dark">
+                <div class="view py-3 gradient-card-header ifro-color">
                     <h5 class="mb-0"><strong>OCORRÊNCIAS POR CURSOS</strong></h5>
                 </div>
                 <div class="card-body">
@@ -56,12 +56,40 @@
                 </div>
             </div>
         </div>
-    </div>
+        <div class="col-sm-3">
+            <!--Card-->
+            <div class="card card-cascade narrower mb-5">
+                <div class="view py-3 gradient-card-header ifro-color">
+                    <h5 class="mb-0"><strong>INDICADORES</strong></h5>
+                </div>
+                <!--Card content-->
+                <div class="card-body">
 
+                    <!-- List group links -->
+                    <div class="list-group list-group-flush">
+                        <a href="{% url 'report_general' %}"
+                           class="list-group-item list-group-item-action waves-effect">Autorizações
+                            <span class="badge badge-warning badge-pill pull-right">{{ indicador_autorizacao.count }}</span>
+                        </a>
+                        <a href="{% url 'report_general' %}"
+                           class="list-group-item list-group-item-action waves-effect">Encaminhamentos
+                            <span class="badge badge-primary badge-pill pull-right">{{ indicador_encaminhamento.count }}</span>
+                        </a>
+                        <a href="{% url 'report_general' %}"
+                           class="list-group-item list-group-item-action waves-effect">Ocorrências
+                            <span class="badge ifro-color badge-pill pull-right">{{ indicador_ocorrencia.count }}</span>
+                        </a>
+                    </div>
+                    <!-- List group links -->
+
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col">
             <div class="card card-cascade narrower mb-5">
-                <div class="view py-3 gradient-card-header success-color-dark">
+                <div class="view py-3 gradient-card-header ifro-color">
                     <h5 class="mb-0"><strong>DETALHAMENTO DE OCORRÊNCIAS</strong></h5>
                 </div>
                 <div class="card-body">
@@ -69,7 +97,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <p class="lead">
-                                    <span class="badge success-color-dark p-2">Curso</span>
+                                    <span class="badge ifro-color p-2">Curso</span>
                                 </p>
                                 <form action="" method="POST">
                                     {% csrf_token %}
@@ -91,7 +119,7 @@
 
                             <div class="col-sm-6">
                                 <p class="lead">
-                                    <span class="badge success-color-dark p-2">Ano Letivo</span>
+                                    <span class="badge ifro-color p-2">Ano Letivo</span>
                                 </p>
                                 <select class="mdb-select colorful-select dropdown-success">
                                     <option value="2018" selected>2018</option>
@@ -101,23 +129,16 @@
                         <div class="form-row">
                             {% if distribuicao %}
                                 <div class="col-sm-6">
-                                    {#                                    <canvas id="turma1" height="200"></canvas>#}
-                                    {#                                    <div class="border text-center">#}
                                     <div id="turma" style="height: 250px"></div>
-
-                                    {#                                    </div>#}
                                 </div>
                                 <hr class="w-100 clearfix d-md-none">
 
                                 <div class="col-sm-6">
-                                    {#                                    <canvas id="distribuicao1" height="200"></canvas>#}
-                                    {#                                    <div class="border text-center">#}
                                     <div id="distribuicao" style="height: 250px"></div>
-                                    {#                                    </div>#}
                                 </div>
                             {% else %}
                                 <div class="col">
-                                    <div class="alert card-header success-color-dark white-text text-center">
+                                    <div class="alert card-header ifro-color white-text text-center">
                                         <strong>SELECIONE O CURSO PARA VER O GRÁFICO</strong>
                                     </div>
                                 </div>
@@ -139,7 +160,7 @@
         <div class="col-sm-4">
             <div class="card card-cascade narrower mb-5">
                 <div class="view py-3 gradient-card-header info-color-dark">
-                    <h5 class="mb-0"><strong>ENCAMINHAMENTOS POR CATEGORIA</strong></h5>
+                    <h5 class="mb-0"><strong>ENCAMINHAMENTOS<br>CATEGORIA</strong></h5>
                 </div>
                 <div class="card-body">
                     {% if servico_categorias %}
@@ -158,7 +179,7 @@
         <div class="col-sm-4">
             <div class="card card-cascade narrower mb-5">
                 <div class="view py-3 gradient-card-header info-color-dark">
-                    <h5 class="mb-0"><strong>ENCAMINHAMENTOS POR CURSOS</strong></h5>
+                    <h5 class="mb-0"><strong>ENCAMINHAMENTOS<br>CURSOS</strong></h5>
                 </div>
                 <div class="card-body">
                     {% if cursos_encaminhamento %}
@@ -177,7 +198,7 @@
         <div class="col-sm-4">
             <div class="card card-cascade narrower mb-5">
                 <div class="view py-3 gradient-card-header info-color-dark">
-                    <h5 class="mb-0"><strong>ENCAMINHAMENTOS POR STATUS</strong></h5>
+                    <h5 class="mb-0"><strong>ENCAMINHAMENTOS<br>STATUS</strong></h5>
                 </div>
                 <div class="card-body">
                     {% if status_encaminhamento %}
@@ -235,12 +256,12 @@
                         <div class="form-row">
                             {% if distribuicao_encaminhamento %}
                                 <div class="col">
-                                    <canvas id="turma_encaminhamento" height="200"></canvas>
+                                    <canvas id="turma_encaminhamento" height="150"></canvas>
                                 </div>
                                 <hr class="w-100 clearfix d-md-none">
 
                                 <div class="col">
-                                    <canvas id="distribuicao_encaminhamento" height="200"></canvas>
+                                    <canvas id="distribuicao_encaminhamento" height="150"></canvas>
                                 </div>
                             {% else %}
                                 <div class="col">
@@ -259,12 +280,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <div id="dashboard_teste" class="text-center">
-        <!--Divs that will hold each control and chart-->
-        <div id="filtro_teste"></div>
-        <div id="grafico_teste"></div>
     </div>
 {% endblock %}
 
@@ -337,35 +352,6 @@
         }
     </script>
 
-    {#    <script>#}
-    {#        //doughnut#}
-    {#        var ctxD = document.getElementById("categoria").getContext('2d');#}
-    {#        var labels = JSON.parse('{{ categorias_faltas|safe }}');#}
-    {#        var data = JSON.parse('{{ qtde_categorias_faltas|safe }}');#}
-    {#        var myLineChart = new Chart(ctxD, {#}
-    {#            type: 'doughnut',#}
-    {#            data: {#}
-    {#                labels: labels,#}
-    {#                datasets: [#}
-    {#                    {#}
-    {#                        data: data,#}
-    {#                        backgroundColor: [#}
-    {#                            'rgba(255, 206, 86, 1)',#}
-    {#                            'rgba(54, 162, 235, 1)',#}
-    {#                            'rgba(255, 99, 132, 1)',#}
-    {#                            'rgba(75, 192, 192, 1)',#}
-    {#                            'rgba(153, 102, 255, 1)',#}
-    {#                            'rgba(255, 159, 64, 1)'#}
-    {#                        ]#}
-    {#                    }#}
-    {#                ]#}
-    {#            },#}
-    {#            options: {#}
-    {#                responsive: true#}
-    {#            }#}
-    {#        });#}
-    {#    </script>#}
-
     <script type="text/javascript">
 
         // Load the Visualization API and the controls package.
@@ -432,34 +418,6 @@
         }
     </script>
 
-    {#    <script>#}
-    {#        //doughnut#}
-    {#        var ctxD = document.getElementById("curso1").getContext('2d');#}
-    {#        var labels = JSON.parse('{{ cursos_ocorrencia|safe }}');#}
-    {#        var data = JSON.parse('{{ qtde_cursos_ocorrencia|safe }}');#}
-    {#        var myLineChart = new Chart(ctxD, {#}
-    {#            type: 'doughnut',#}
-    {#            data: {#}
-    {#                labels: labels,#}
-    {#                datasets: [#}
-    {#                    {#}
-    {#                        data: data,#}
-    {#                        backgroundColor: [#}
-    {#                            'rgba(75, 192, 192, 1)',#}
-    {#                            'rgba(255, 206, 86, 1)',#}
-    {#                            'rgba(255, 99, 132, 1)',#}
-    {#                            'rgba(54, 162, 235, 1)',#}
-    {#                            'rgba(153, 102, 255, 1)',#}
-    {#                            'rgba(255, 159, 64, 1)'#}
-    {#                        ]#}
-    {#                    }#}
-    {#                ]#}
-    {#            },#}
-    {#            options: {#}
-    {#                responsive: true#}
-    {#            }#}
-    {#        });#}
-    {#    </script>#}
     <script type="text/javascript">
         google.charts.load('current', {'packages': ['corechart']});
         google.charts.setOnLoadCallback(drawChart);
@@ -489,34 +447,6 @@
         }
     </script>
 
-    {#    <script>#}
-    {#        //doughnut#}
-    {#        var ctxD = document.getElementById("turma1").getContext('2d');#}
-    {#        var labels = JSON.parse('{{ turmas_ocorrencia|safe }}');#}
-    {#        var data = JSON.parse('{{ qtde_turmas_ocorrencia|safe }}');#}
-    {#        var myLineChart = new Chart(ctxD, {#}
-    {#            type: 'doughnut',#}
-    {#            data: {#}
-    {#                labels: labels,#}
-    {#                datasets: [#}
-    {#                    {#}
-    {#                        data: data,#}
-    {#                        backgroundColor: [#}
-    {#                            'rgba(255, 99, 132, 1)',#}
-    {#                            'rgba(54, 162, 235, 1)',#}
-    {#                            'rgba(255, 206, 86, 1)',#}
-    {#                            'rgba(75, 192, 192, 1)',#}
-    {#                            'rgba(153, 102, 255, 1)',#}
-    {#                            'rgba(255, 159, 64, 1)'#}
-    {#                        ]#}
-    {#                    }#}
-    {#                ]#}
-    {#            },#}
-    {#            options: {#}
-    {#                responsive: true#}
-    {#            }#}
-    {#        });#}
-    {#    </script>#}
 
     <script type="text/javascript">
         google.charts.load('current', {'packages': ['bar']});
@@ -551,48 +481,6 @@
         }
     </script>
 
-    {#    <script>#}
-    {#        //bar#}
-    {#        var ctxB = document.getElementById("distribuicao1").getContext('2d');#}
-    {#        var labels = JSON.parse('{{ distribuicao_ocorrencia|safe }}');#}
-    {#        var data = JSON.parse('{{ distribuicao_qtde|safe }}');#}
-    {#        var myBarChart = new Chart(ctxB, {#}
-    {#            type: 'bar',#}
-    {#            data: {#}
-    {#                labels: labels,#}
-    {#                datasets: [{#}
-    {#                    label: "{{ c.descricao }}",#}
-    {#                    data: data,#}
-    {#                    backgroundColor: [#}
-    {#                        'rgba(255, 99, 132, 0.2)',#}
-    {#                        'rgba(54, 162, 235, 0.2)',#}
-    {#                        'rgba(255, 206, 86, 0.2)',#}
-    {#                        'rgba(75, 192, 192, 0.2)',#}
-    {#                        'rgba(153, 102, 255, 0.2)',#}
-    {#                        'rgba(255, 159, 64, 0.2)'#}
-    {#                    ],#}
-    {#                    borderColor: [#}
-    {#                        'rgba(255,99,132,1)',#}
-    {#                        'rgba(54, 162, 235, 1)',#}
-    {#                        'rgba(255, 206, 86, 1)',#}
-    {#                        'rgba(75, 192, 192, 1)',#}
-    {#                        'rgba(153, 102, 255, 1)',#}
-    {#                        'rgba(255, 159, 64, 1)'#}
-    {#                    ],#}
-    {#                    borderWidth: 1#}
-    {#                }]#}
-    {#            },#}
-    {#            options: {#}
-    {#                scales: {#}
-    {#                    yAxes: [{#}
-    {#                        ticks: {#}
-    {#                            beginAtZero: true#}
-    {#                        }#}
-    {#                    }]#}
-    {#                }#}
-    {#            }#}
-    {#        });#}
-    {#    </script>#}
 
     <!--ENCAMINHAMENTOS-->
     <script>
