@@ -164,7 +164,16 @@
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-body">
-                    <p class="font-bold text-uppercase">ENCAMINHAMENTOS POR STATUS</p>
+                    <p class="font-bold text-uppercase">
+                        ENCAMINHAMENTOS POR STATUS
+                    </p>
+                    <div class="float-right">
+                        <i data-toggle="tooltip" data-placement="top" title="Responder encaminhamento">
+                            <a href="{% url 'encaminhamento_pendente' %}"
+                               class="btn-floating btn-sm danger-color"><i class="fa fa-bell"></i>
+                            </a>
+                        </i>
+                    </div>
                     {% if status_encaminhamento %}
                         <div id="status_encaminhamento"></div>
                     {% else %}
@@ -172,6 +181,13 @@
                             <strong>NÃO HÁ ENCAMINHAMENTOS</strong>
                         </div>
                     {% endif %}
+                </div>
+                <div class="container">
+
+                    {#                    <div class="card mb-4 text-center py-3 red accent-2 white-text">#}
+                    {#                        <i class="fa fa-bell fa-3x mb-3"></i>#}
+                    {#                        <h4 class="h4-responsive">Responer</h4>#}
+                    {#                    </div>#}
                 </div>
             </div>
         </div>
