@@ -14,60 +14,55 @@
 {% block content %}
     <form action="" method="POST">
         {% csrf_token %}
-        <div class="form-row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-header gradient white-text">
-                        ENVIO DE E-MAIL<br>
-                        AUTORIZAÇÕES DE SAÍDA
-                    </div>
-                    <div class="card-body">
-                        <div class="form-row">
-                            <div class="col">
+        <div class="card">
+            <div class="card-header white-text gradient">
+                ENVIO DE E-MAILS
+            </div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-header warning-color white-text">
+                                Autorizações de saída
+                            </div>
+                            <div class="card-body">
                                 <div class="form-check">
-                                    <div class="form-check">
-                                        {{ form.autorizacao_email_aluno }}
-                                        <label for="id_autorizacao_email_aluno"
-                                               class="form-check-label">{{ form.autorizacao_email_aluno.label }}</label>
-                                    </div>
-                                    <div class="form-check">
-                                        {{ form.autorizacao_email_responsavel_aluno }}
-                                        <label for="id_autorizacao_email_responsavel_aluno"
-                                               class="form-check-label">{{ form.autorizacao_email_responsavel_aluno.label }}</label>
-                                    </div>
-                                    <div class="form-check">
-                                        {{ form.autorizacao_email_responsavel_user }}
-                                        <label for="id_autorizacao_email_responsavel_user"
-                                               class="form-check-label">{{ form.autorizacao_email_responsavel_user.label }}</label>
-                                    </div>
-                                    <div class="form-check">
-                                        {{ form.autorizacao_email_responsavel_setor }}
-                                        <label for="id_autorizacao_email_responsavel_setor"
-                                               class="form-check-label">{{ form.autorizacao_email_responsavel_setor.label }}</label>
-                                    </div>
-                                    <div class="form-check">
-                                        {{ form.autorizacao_email_coordenacao_curso }}
-                                        <label for="id_autorizacao_email_coordenacao_curso"
-                                               class="form-check-label">{{ form.autorizacao_email_coordenacao_curso.label }}</label>
-                                    </div>
+                                    {{ form.autorizacao_email_aluno }}
+                                    <label for="id_autorizacao_email_aluno"
+                                           class="form-check-label">{{ form.autorizacao_email_aluno.label }}</label>
+                                </div>
+                                <div class="form-check">
+                                    {{ form.autorizacao_email_responsavel_aluno }}
+                                    <label for="id_autorizacao_email_responsavel_aluno"
+                                           class="form-check-label">{{ form.autorizacao_email_responsavel_aluno.label }}</label>
+                                </div>
+                                <div class="form-check">
+                                    {{ form.autorizacao_email_responsavel_user }}
+                                    <label for="id_autorizacao_email_responsavel_user"
+                                           class="form-check-label">{{ form.autorizacao_email_responsavel_user.label }}</label>
+                                </div>
+                                <div class="form-check">
+                                    {{ form.autorizacao_email_responsavel_setor }}
+                                    <label for="id_autorizacao_email_responsavel_setor"
+                                           class="form-check-label">{{ form.autorizacao_email_responsavel_setor.label }}</label>
+                                </div>
+                                <div class="form-check">
+                                    {{ form.autorizacao_email_coordenacao_curso }}
+                                    <label for="id_autorizacao_email_coordenacao_curso"
+                                           class="form-check-label">{{ form.autorizacao_email_coordenacao_curso.label }}</label>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <hr class="w-100 clearfix d-md-none">
+                    <hr class="w-100 clearfix d-md-none">
 
-            <div class="col">
-                <div class="card">
-                    <div class="card-header gradient white-text">
-                        ENVIO DE E-MAIL<br>
-                        OCORRÊNCIAS DISCIPLINARES
-                    </div>
-                    <div class="card-body">
-                        <div class="form-row">
-                            <div class="col">
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-header ifro-color white-text">
+                                Ocorrências disciplinares
+                            </div>
+                            <div class="card-body">
                                 <div class="form-check">
                                     {{ form.ocorrencia_email_aluno }}
                                     <label for="id_ocorrencia_email_aluno"
@@ -96,22 +91,15 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
 
-        <br>
+                    <hr class="w-100 clearfix d-md-none">
 
-        <div class="form-row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-header gradient white-text">
-                        ENVIO DE E-MAIL<br>
-                        ENCAMINHAMENTOS
-                    </div>
-                    <div class="card-body">
-                        <div class="form-row">
-                            <div class="col">
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-header primary-color-dark white-text">
+                                Encaminhamentos
+                            </div>
+                            <div class="card-body">
                                 <div class="form-check">
                                     {{ form.encaminhamento_email_aluno }}
                                     <label for="id_encaminhamento_email_aluno"
@@ -140,20 +128,15 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <hr class="w-100 clearfix d-md-none">
+                    <hr class="w-100 clearfix d-md-none">
 
-            <div class="col">
-                <div class="card">
-                    <div class="card-header gradient white-text">
-                        ENVIO DE E-MAIL<br>
-                        PROVIDÊNCIAS DOS ENCAMINHAMENTOS
-                    </div>
-                    <div class="card-body">
-                        <div class="form-row">
-                            <div class="col">
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-header info-color white-text">
+                                Retorno encaminhamentos
+                            </div>
+                            <div class="card-body">
                                 <div class="form-check">
                                     {{ form.providencia_encaminhamento_email_aluno }}
                                     <label for="id_providencia_encaminhamento_email_aluno"
@@ -185,165 +168,14 @@
                 </div>
             </div>
         </div>
-
+        
         <div class="row">
             <div class="col-sm-12">
                 <div class="float-right">
                     <button type="submit" class="btn btn-rounded btn-success" data-toggle="tooltip"
                             data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
-                    {#                <a href="{% url 'turma' %}" class="btn btn-rounded btn-danger" data-toggle="tooltip"#}
-                    {#                   data-placement="top" title="Cancelar"><i#}
-                    {#                        class="fa fa-close"></i></a>#}
                 </div>
             </div>
         </div>
     </form>
-
-
-    <!--Modal TURMA OCORRÊNCIA-->
-    <div class="modal fade" id="ModalRegistrarOcorrenciaTurma" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog modal-notify modal-success" role="document">
-            <!--Content-->
-            <div class="modal-content">
-                <!--Header-->
-                <div class="modal-header text-center">
-                    <h4 class="modal-title white-text w-100 font-bold py-2">Relatório ocorrência disciplinar</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" class="white-text">&times;</span>
-                    </button>
-                </div>
-                <!--Body-->
-                <div class="modal-body">
-                    <form action="{% url 'report_ocorrencia_turma' %}" method="POST">
-                        {% csrf_token %}
-                        <div class="md-form">
-                            <select name="SelectTurma" id="SelectTurma"
-                                    class="mdb-select colorful-select dropdown-primary dropdown-ins"
-                                    searchable="Pesquisar..." required>
-                                <option value="" disabled selected>Selecione a turma</option>
-                                {% for c in cursos %}
-                                    {% if c.retorna_turmas %}
-                                        <optgroup label="{{ c.descricao }}">
-                                            {% for t in c.retorna_turmas %}
-                                                <option value={{ t.id }}>{{ t.descricao }}</option>
-                                            {% endfor %}
-                                        </optgroup>
-                                    {% endif %}
-                                {% endfor %}
-                            </select>
-                            <label for="SelectTurma">Turma</label>
-                        </div>
-                        <br>
-                        <!--Footer-->
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-primary-modal waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-secondary-modal"
-                               data-dismiss="modal">Voltar</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!--/.Content-->
-        </div>
-    </div>
-
-    <!--Modal TURMA ENCAMINHAMENTO-->
-    <div class="modal fade" id="ModalRegistrarEncaminhamentoTurma" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog modal-notify modal-success" role="document">
-            <!--Content-->
-            <div class="modal-content">
-                <!--Header-->
-                <div class="modal-header text-center">
-                    <h4 class="modal-title white-text w-100 font-bold py-2">Relatório encaminhamento</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" class="white-text">&times;</span>
-                    </button>
-                </div>
-                <!--Body-->
-                <div class="modal-body">
-                    <form action="{% url 'report_encaminhamento_turma' %}" method="POST">
-                        {% csrf_token %}
-                        <div class="md-form">
-                            <select name="SelectTurmaEncaminhamento" id="SelectTurmaEncaminhamento"
-                                    class="mdb-select colorful-select dropdown-primary dropdown-ins"
-                                    searchable="Pesquisar..." required>
-                                <option value="" disabled selected>Selecione a turma</option>
-                                {% for c in cursos %}
-                                    {% if c.retorna_turmas %}
-                                        <optgroup label="{{ c.descricao }}">
-                                            {% for t in c.retorna_turmas %}
-                                                <option value={{ t.id }}>{{ t.descricao }}</option>
-                                            {% endfor %}
-                                        </optgroup>
-                                    {% endif %}
-                                {% endfor %}
-                            </select>
-                            <label for="SelectTurmaEncaminhamento">Turma</label>
-                        </div>
-                        <br>
-                        <!--Footer-->
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-primary-modal waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-secondary-modal"
-                               data-dismiss="modal">Voltar</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!--/.Content-->
-        </div>
-    </div>
-
-    <!--Modal TURMA AUTORIZAÇÃO DE SAÍDA-->
-    <div class="modal fade" id="ModalRegistrarAutorizacaoSaidaTurma" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog modal-notify modal-success" role="document">
-            <!--Content-->
-            <div class="modal-content">
-                <!--Header-->
-                <div class="modal-header text-center">
-                    <h4 class="modal-title white-text w-100 font-bold py-2">Autorizações de saída</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" class="white-text">&times;</span>
-                    </button>
-                </div>
-                <!--Body-->
-                <div class="modal-body">
-                    <form action="{% url 'report_autorizacao_saida_turma' %}" method="POST">
-                        {% csrf_token %}
-                        <div class="md-form">
-                            <select name="SelectTurmaAutorizacaoSaida" id="SelectTurmaAutorizacaoSaida"
-                                    class="mdb-select colorful-select dropdown-primary dropdown-ins"
-                                    searchable="Pesquisar..." required>
-                                <option value="" disabled selected>Selecione a turma</option>
-                                {% for c in cursos %}
-                                    {% if c.retorna_turmas %}
-                                        <optgroup label="{{ c.descricao }}">
-                                            {% for t in c.retorna_turmas %}
-                                                <option value={{ t.id }}>{{ t.descricao }}</option>
-                                            {% endfor %}
-                                        </optgroup>
-                                    {% endif %}
-                                {% endfor %}
-                            </select>
-                            <label for="SelectTurmaAutorizacaoSaida">Turma</label>
-                        </div>
-                        <br>
-                        <!--Footer-->
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-primary-modal waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-secondary-modal"
-                               data-dismiss="modal">Voltar</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!--/.Content-->
-        </div>
-    </div>
 {% endblock %}
