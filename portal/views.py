@@ -403,7 +403,7 @@ def curso_delete(request, curso_id):
 
 @login_required
 def dashboard(request):
-    #DADOS DOS INDICADORES
+    # DADOS DOS INDICADORES
     indicador_autorizacao = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa)
     indicador_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa)
     indicador_ocorrencia = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa)
@@ -552,16 +552,20 @@ def dashboard(request):
         'servico__categoria__descricao').values_list('servico__categoria__descricao').annotate(
         qtde=Count('id')).distinct()
 
-    categorias_faltas_encaminhamento = [obj[0] for obj in servico_categorias]
-    qtde_categorias_faltas_encaminhamento = [int(obj[1]) for obj in servico_categorias]
+    # categorias_faltas_encaminhamento = [obj[0] for obj in servico_categorias]
+    # qtde_categorias_faltas_encaminhamento = [int(obj[1]) for obj in servico_categorias]
+
+    dados_grafico_encaminhamento_categoria = json.dumps(list(servico_categorias))
 
     # DADOS GRÁFICO DE ENCAMINHAMENTOS POR CURSO
     cursos_encaminhamento = Encaminhamento.objects.filter(
         empresa=request.user.userprofile.empresa).order_by().values_list(
         'matricula__turma__curso__descricao').annotate(qtde=Count('id')).distinct()
 
-    cursos_ocorrencia_encaminhamento = [obj[0] for obj in cursos_encaminhamento]
-    qtde_cursos_ocorrencia_encaminhamento = [int(obj[1]) for obj in cursos_encaminhamento]
+    # cursos_ocorrencia_encaminhamento = [obj[0] for obj in cursos_encaminhamento]
+    # qtde_cursos_ocorrencia_encaminhamento = [int(obj[1]) for obj in cursos_encaminhamento]
+
+    # dados_grafico_encaminhamento_curso = json.dumps(list(cursos_encaminhamento))
 
     courses_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
                                                            matricula__turma__curso__in=Curso.objects.all()).order_by(
@@ -573,11 +577,13 @@ def dashboard(request):
         empresa=request.user.userprofile.empresa).order_by().values_list(
         'status').annotate(qtde=Count('id')).distinct()
 
-    status_ocorrencia_encaminhamento = [obj[0] for obj in status_encaminhamento]
-    qtde_status_ocorrencia_encaminhamento = [int(obj[1]) for obj in status_encaminhamento]
+    # status_ocorrencia_encaminhamento = [obj[0] for obj in status_encaminhamento]
+    # qtde_status_ocorrencia_encaminhamento = [int(obj[1]) for obj in status_encaminhamento]
+
+    dados_grafico_encaminhamento_status = json.dumps(list(status_encaminhamento))
 
     context = {
-        #INDICADORES
+        # INDICADORES
         'indicador_autorizacao': indicador_autorizacao,
         'indicador_encaminhamento': indicador_encaminhamento,
         'indicador_ocorrencia': indicador_ocorrencia,
@@ -591,6 +597,9 @@ def dashboard(request):
         'dados_grafico_ocorrencia_curso': dados_grafico_ocorrencia_curso,
         'dados_grafico_ocorrencia_turma': dados_grafico_ocorrencia_turma,
         'dados_grafico_ocorrencia_distribuicao': dados_grafico_ocorrencia_distribuicao,
+
+        'dados_grafico_encaminhamento_categoria': dados_grafico_encaminhamento_categoria,
+        'dados_grafico_encaminhamento_status': dados_grafico_encaminhamento_status,
 
         'courses': courses,
         'categorias': categorias,
@@ -622,14 +631,14 @@ def dashboard(request):
         'turmas_encaminhamento': turmas_encaminhamento,
         'distribuicao_encaminhamento': distribuicao_encaminhamento,
 
-        'categorias_faltas_encaminhamento': json.dumps(categorias_faltas_encaminhamento),
-        'qtde_categorias_faltas_encaminhamento': json.dumps(qtde_categorias_faltas_encaminhamento),
+        # 'categorias_faltas_encaminhamento': json.dumps(categorias_faltas_encaminhamento),
+        # 'qtde_categorias_faltas_encaminhamento': json.dumps(qtde_categorias_faltas_encaminhamento),
 
-        'cursos_ocorrencia_encaminhamento': json.dumps(cursos_ocorrencia_encaminhamento),
-        'qtde_cursos_ocorrencia_encaminhamento': json.dumps(qtde_cursos_ocorrencia_encaminhamento),
+        # 'cursos_ocorrencia_encaminhamento': json.dumps(cursos_ocorrencia_encaminhamento),
+        # 'qtde_cursos_ocorrencia_encaminhamento': json.dumps(qtde_cursos_ocorrencia_encaminhamento),
 
-        'status_ocorrencia_encaminhamento': json.dumps(status_ocorrencia_encaminhamento),
-        'qtde_status_ocorrencia_encaminhamento': json.dumps(qtde_status_ocorrencia_encaminhamento),
+        # 'status_ocorrencia_encaminhamento': json.dumps(status_ocorrencia_encaminhamento),
+        # 'qtde_status_ocorrencia_encaminhamento': json.dumps(qtde_status_ocorrencia_encaminhamento),
 
         'turmas_ocorrencia_encaminhamento': json.dumps(turmas_ocorrencia_encaminhamento),
         'qtde_turmas_encaminhamento': json.dumps(qtde_turmas_encaminhamento),

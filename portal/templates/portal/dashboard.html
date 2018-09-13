@@ -10,18 +10,15 @@
 {% endblock %}
 
 {% block content %}
-    <div class="row">
+    <div class="row mb-4">
         <div class="col-sm-4">
-            <div class="card card-cascade narrower mb-5">
-                <div class="view py-3 gradient-card-header ifro-color">
-                    <h5 class="mb-0"><strong>OCORRÊNCIAS<br>CATEGORIA</strong></h5>
-                </div>
+            <div class="card">
                 <div class="card-body">
+                    <p class="font-bold text-uppercase">OCORRÊNCIAS POR CATEGORIA</p>
                     {% if categorias %}
                         <!--Div that will hold the dashboard-->
                         <div id="dashboard_ocorrencia_categoria" class="text-center">
                             <!--Divs that will hold each control and chart-->
-                            <div id="filtro_ocorrencia_categoria"></div>
                             <div id="grafico_ocorrencia_categoria"></div>
                         </div>
                     {% else %}
@@ -36,16 +33,13 @@
         <hr class="w-100 clearfix d-md-none">
 
         <div class="col-sm-5">
-            <div class="card card-cascade narrower mb-5">
-                <div class="view py-3 gradient-card-header ifro-color">
-                    <h5 class="mb-0"><strong>OCORRÊNCIAS<br>CURSOS</strong></h5>
-                </div>
+            <div class="card">
                 <div class="card-body">
+                    <p class="font-bold text-uppercase">OCORRÊNCIAS POR CURSOS</p>
                     {% if cursos %}
                         <!--Div that will hold the dashboard-->
                         <div id="dashboard_ocorrencia_curso" class="text-center">
                             <!--Divs that will hold each control and chart-->
-                            <div id="filtro_ocorrencia_curso"></div>
                             <div id="grafico_ocorrencia_curso"></div>
                         </div>
                     {% else %}
@@ -58,47 +52,40 @@
         </div>
         <div class="col-sm-3">
             <!--Card-->
-            <div class="card card-cascade narrower mb-5">
-                <div class="view py-3 gradient-card-header ifro-color">
-                    <h5 class="mb-0"><strong>INDICADORES</strong></h5>
-                </div>
-                <!--Card content-->
+            <div class="card">
                 <div class="card-body">
+                    <p class="font-bold text-uppercase">INDICADORES</p>
 
                     <!-- List group links -->
-                    <div class="list-group list-group-flush">
-                        <a href="{% url 'report_general' %}"
-                           class="list-group-item list-group-item-action waves-effect">Autorizações
+                    <div class="list-group list-group-flush mb-2">
+                        <a class="list-group-item list-group-item-action waves-effect">Autorizações
                             <span class="badge badge-warning badge-pill pull-right">{{ indicador_autorizacao.count }}</span>
                         </a>
-                        <a href="{% url 'report_general' %}"
-                           class="list-group-item list-group-item-action waves-effect">Encaminhamentos
+                        <a class="list-group-item list-group-item-action waves-effect">Encaminhamentos
                             <span class="badge badge-primary badge-pill pull-right">{{ indicador_encaminhamento.count }}</span>
                         </a>
-                        <a href="{% url 'report_general' %}"
-                           class="list-group-item list-group-item-action waves-effect">Ocorrências
+                        <a class="list-group-item list-group-item-action waves-effect">Ocorrências
                             <span class="badge ifro-color badge-pill pull-right">{{ indicador_ocorrencia.count }}</span>
                         </a>
                     </div>
                     <!-- List group links -->
 
+                    <a href="{% url 'report_general' %}"
+                       class="btn ifro-color btn-rounded waves-effect btn-block"> Ver
+                        relatórios</a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
+
+    <div class="row mb-4">
         <div class="col">
-            <div class="card card-cascade narrower mb-5">
-                <div class="view py-3 gradient-card-header ifro-color">
-                    <h5 class="mb-0"><strong>DETALHAMENTO DE OCORRÊNCIAS</strong></h5>
-                </div>
+            <div class="card">
                 <div class="card-body">
+                    <p class="font-bold text-uppercase mb-4">DETALHAMENTO DE OCORRÊNCIAS</p>
                     {% if categorias %}
                         <div class="row">
                             <div class="col-sm-6">
-                                <p class="lead">
-                                    <span class="badge ifro-color p-2">Curso</span>
-                                </p>
                                 <form action="" method="POST">
                                     {% csrf_token %}
                                     <select name="CourseOcorrencia" id="CourseOcorrencia"
@@ -113,17 +100,17 @@
                                                     selected {% endif %}>{{ course.matricula__turma__curso__descricao }}</option>
                                         {% endfor %}
                                     </select>
+                                    <label for="CourseOcorrencia">Curso</label>
                                 </form>
                             </div>
                             <hr class="w-100 clearfix d-md-none">
 
                             <div class="col-sm-6">
-                                <p class="lead">
-                                    <span class="badge ifro-color p-2">Ano Letivo</span>
-                                </p>
-                                <select class="mdb-select colorful-select dropdown-success">
+                                <select id="SelectYearOcorrencia" name="SelectYearOcorrencia"
+                                        class="mdb-select colorful-select dropdown-success">
                                     <option value="2018" selected>2018</option>
                                 </select>
+                                <label for="SelectYearOcorrencia">Ano letivo</label>
                             </div>
                         </div>
                         <div class="form-row">
@@ -137,7 +124,7 @@
                                     <div id="distribuicao" style="height: 250px"></div>
                                 </div>
                             {% else %}
-                                <div class="col">
+                                <div class="col-sm-12">
                                     <div class="alert card-header ifro-color white-text text-center">
                                         <strong>SELECIONE O CURSO PARA VER O GRÁFICO</strong>
                                     </div>
@@ -156,15 +143,13 @@
     </div>
 
     <!--ENCAMINHAMENTOS-->
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="card card-cascade narrower mb-5">
-                <div class="view py-3 gradient-card-header info-color-dark">
-                    <h5 class="mb-0"><strong>ENCAMINHAMENTOS<br>CATEGORIA</strong></h5>
-                </div>
+    <div class="row mb-4">
+        <div class="col-sm-6">
+            <div class="card">
                 <div class="card-body">
+                    <p class="font-bold text-uppercase">ENCAMINHAMENTOS POR CATEGORIA</p>
                     {% if servico_categorias %}
-                        <canvas id="categoria_encaminhamento" width="300" height="150"></canvas>
+                        <div id="categoria_encaminhamento"></div>
                     {% else %}
                         <div class="card-header warning-color white-text text-center">
                             <strong>NÃO HÁ ENCAMINHAMENTOS</strong>
@@ -176,33 +161,12 @@
 
         <hr class="w-100 clearfix d-md-none">
 
-        <div class="col-sm-4">
-            <div class="card card-cascade narrower mb-5">
-                <div class="view py-3 gradient-card-header info-color-dark">
-                    <h5 class="mb-0"><strong>ENCAMINHAMENTOS<br>CURSOS</strong></h5>
-                </div>
+        <div class="col-sm-6">
+            <div class="card">
                 <div class="card-body">
-                    {% if cursos_encaminhamento %}
-                        <canvas id="curso_encaminhamento" width="300" height="150"></canvas>
-                    {% else %}
-                        <div class="card-header warning-color white-text text-center">
-                            <strong>NÃO HÁ ENCAMINHAMENTOS</strong>
-                        </div>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-
-        <hr class="w-100 clearfix d-md-none">
-
-        <div class="col-sm-4">
-            <div class="card card-cascade narrower mb-5">
-                <div class="view py-3 gradient-card-header info-color-dark">
-                    <h5 class="mb-0"><strong>ENCAMINHAMENTOS<br>STATUS</strong></h5>
-                </div>
-                <div class="card-body">
+                    <p class="font-bold text-uppercase">ENCAMINHAMENTOS POR STATUS</p>
                     {% if status_encaminhamento %}
-                        <canvas id="status_encaminhamento" width="300" height="150"></canvas>
+                        <div id="status_encaminhamento"></div>
                     {% else %}
                         <div class="card-header warning-color white-text text-center">
                             <strong>NÃO HÁ ENCAMINHAMENTOS</strong>
@@ -215,17 +179,12 @@
 
     <div class="row">
         <div class="col-sm-12">
-            <div class="card card-cascade narrower mb-5">
-                <div class="view py-3 gradient-card-header info-color-dark">
-                    <h5 class="mb-0"><strong>DETALHAMENTO DE ENCAMINHAMENTOS</strong></h5>
-                </div>
+            <div class="card">
                 <div class="card-body">
+                    <p class="font-bold text-uppercase mb-4">DETALHAMENTO DE ENCAMINHAMENTOS</p>
                     {% if servico_categorias %}
                         <div class="row">
                             <div class="col-sm-6">
-                                <p class="lead">
-                                    <span class="badge info-color-dark p-2">Curso</span>
-                                </p>
                                 <form action="" method="POST">
                                     {% csrf_token %}
                                     <select name="CourseEncaminhamento" id="CourseEncaminhamento"
@@ -240,17 +199,17 @@
                                                     selected {% endif %}>{{ course.matricula__turma__curso__descricao }}</option>
                                         {% endfor %}
                                     </select>
+                                    <label for="CourseEncaminhamento">Curso</label>
                                 </form>
                             </div>
                             <hr class="w-100 clearfix d-md-none">
 
                             <div class="col">
-                                <p class="lead">
-                                    <span class="badge info-color-dark p-2">Ano Letivo</span>
-                                </p>
-                                <select class="mdb-select colorful-select dropdown-info">
+                                <select id="SelectYearEncaminhamento" name="SelectYearEncaminhamento"
+                                        class="mdb-select colorful-select dropdown-info">
                                     <option value="2018" selected>2018</option>
                                 </select>
+                                <label for="SelectYearEncaminhamento">Ano letivo</label>
                             </div>
                         </div>
                         <div class="form-row">
@@ -286,137 +245,199 @@
 {% block script %}
     <!--OCORRÊNCIAS-->
     <script type="text/javascript">
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
 
-        // Load the Visualization API and the controls package.
-        google.charts.load('current', {'packages': ['corechart', 'controls']});
+        function drawChart() {
 
-        // Set a callback to run when the Google Visualization API is loaded.
-        google.charts.setOnLoadCallback(drawDashboard);
-
-        // Callback that creates and populates a data table,
-        // instantiates a dashboard, a range slider and a pie chart,
-        // passes in the data and draws it.
-        function drawDashboard() {
-
-            // Create our data table.
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Categoria');
             data.addColumn('number', 'Ocorrências');
             data.addRows({{ dados_grafico_ocorrencia_categoria|safe }});
 
-            // Create a dashboard.
-            var dashboard = new google.visualization.Dashboard(
-                document.getElementById('dashboard_ocorrencia_categoria'));
-
-            // Create a range slider, passing some options
-            var donutRangeSlider = new google.visualization.ControlWrapper({
-                'controlType': 'CategoryFilter',
-                'containerId': 'filtro_ocorrencia_categoria',
-                'options': {
-                    'filterColumnLabel': 'Categoria',
-                    'ui': {
-                        'caption': 'Todas as categorias',
-                        'selectedValuesLayout': 'aside',
-                        'labelStacking': 'horizontal',
-                        'allowMultiple': true,
-                        'allowTyping': false,
-                        'sortValues': false,
-                        'label': ''
-                    }
+            var options = {
+                pieSliceText: 'percentage',
+                legend: {
+                    position: 'right',
+                    alignment: 'center'
+                },
+                chartArea: {
+                    left: 15,
+                    top: 15,
+                    right: 0,
+                    bottom: 10
                 }
-            });
+            };
 
-            // Create a pie chart, passing some options
-            var pieChart = new google.visualization.ChartWrapper({
-                'chartType': 'PieChart',
-                'containerId': 'grafico_ocorrencia_categoria',
-                'options': {
-                    {#'width': 300,#}
-                    {#'height': 300,#}
-                    'pieSliceText': 'percentage',
-                    'legend': {
-                        'position': 'right',
-                        'alignment': 'center'
-                    },
-                    'chartArea': {'left': 15, 'top': 15, 'right': 0, 'bottom': 10}
-                }
-            });
+            var chart = new google.visualization.PieChart(document.getElementById('grafico_ocorrencia_categoria'));
 
-            // Establish dependencies, declaring that 'filter' drives 'pieChart',
-            // so that the pie chart will only display entries that are let through
-            // given the chosen slider range.
-            dashboard.bind(donutRangeSlider, pieChart);
-
-            // Draw the dashboard.
-            dashboard.draw(data);
+            chart.draw(data, options);
         }
     </script>
 
+    {#    <script type="text/javascript">#}
+    {##}
+    {#        // Load the Visualization API and the controls package.#}
+    {#        google.charts.load('current', {'packages': ['corechart', 'controls']});#}
+    {##}
+    {#        // Set a callback to run when the Google Visualization API is loaded.#}
+    {#        google.charts.setOnLoadCallback(drawDashboard);#}
+    {##}
+    {#        // Callback that creates and populates a data table,#}
+    {#        // instantiates a dashboard, a range slider and a pie chart,#}
+    {#        // passes in the data and draws it.#}
+    {#        function drawDashboard() {#}
+    {##}
+    {#            // Create our data table.#}
+    {#            var data = new google.visualization.DataTable();#}
+    {#            data.addColumn('string', 'Categoria');#}
+    {#            data.addColumn('number', 'Ocorrências');#}
+    {#            data.addRows({{ dados_grafico_ocorrencia_categoria|safe }});#}
+    {##}
+    {#            // Create a dashboard.#}
+    {#            var dashboard = new google.visualization.Dashboard(#}
+    {#                document.getElementById('dashboard_ocorrencia_categoria'));#}
+    {##}
+    {#            // Create a range slider, passing some options#}
+    {#            var donutRangeSlider = new google.visualization.ControlWrapper({#}
+    {#                'controlType': 'CategoryFilter',#}
+    {#                'containerId': 'filtro_ocorrencia_categoria',#}
+    {#                'options': {#}
+    {#                    'filterColumnLabel': 'Categoria',#}
+    {#                    'ui': {#}
+    {#                        'caption': 'Todas as categorias',#}
+    {#                        'selectedValuesLayout': 'aside',#}
+    {#                        'labelStacking': 'horizontal',#}
+    {#                        'allowMultiple': true,#}
+    {#                        'allowTyping': false,#}
+    {#                        'sortValues': false,#}
+    {#                        'label': ''#}
+    {#                    }#}
+    {#                }#}
+    {#            });#}
+    {##}
+    {#            // Create a pie chart, passing some options#}
+    {#            var pieChart = new google.visualization.ChartWrapper({#}
+    {#                'chartType': 'PieChart',#}
+    {#                'containerId': 'grafico_ocorrencia_categoria',#}
+    {#                'options': {#}
+    {#'width': 300,#}
+    {#'height': 300,#}
+    {#                    'pieSliceText': 'percentage',#}
+    {#                    'legend': {#}
+    {#                        'position': 'right',#}
+    {#                        'alignment': 'center'#}
+    {#                    },#}
+    {#                    'chartArea': {'left': 15, 'top': 15, 'right': 0, 'bottom': 10}#}
+    {#                }#}
+    {#            });#}
+    {##}
+    {#            // Establish dependencies, declaring that 'filter' drives 'pieChart',#}
+    {#            // so that the pie chart will only display entries that are let through#}
+    {#            // given the chosen slider range.#}
+    {#            dashboard.bind(donutRangeSlider, pieChart);#}
+    {##}
+    {#            // Draw the dashboard.#}
+    {#            dashboard.draw(data);#}
+    {#        }#}
+    {#    </script>#}
+
     <script type="text/javascript">
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
 
-        // Load the Visualization API and the controls package.
-        google.charts.load('current', {'packages': ['corechart', 'controls']});
+        function drawChart() {
 
-        // Set a callback to run when the Google Visualization API is loaded.
-        google.charts.setOnLoadCallback(drawDashboard);
-
-        // Callback that creates and populates a data table,
-        // instantiates a dashboard, a range slider and a pie chart,
-        // passes in the data and draws it.
-        function drawDashboard() {
-
-            // Create our data table.
             var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Curso');
+            data.addColumn('string', 'Categoria');
             data.addColumn('number', 'Ocorrências');
             data.addRows({{ dados_grafico_ocorrencia_curso|safe }});
 
-            // Create a dashboard.
-            var dashboard = new google.visualization.Dashboard(
-                document.getElementById('dashboard_ocorrencia_curso'));
-
-            // Create a range slider, passing some options
-            var donutRangeSlider = new google.visualization.ControlWrapper({
-                'controlType': 'CategoryFilter',
-                'containerId': 'filtro_ocorrencia_curso',
-                'options': {
-                    'filterColumnLabel': 'Curso',
-                    'ui': {
-                        'caption': 'Todos os cursos',
-                        'selectedValuesLayout': 'aside',
-                        'labelStacking': 'horizontal',
-                        'allowMultiple': true,
-                        'allowTyping': false,
-                        'label': ''
-                    }
+            var options = {
+                pieSliceText: 'percentage',
+                legend: {
+                    position: 'right',
+                    alignment: 'center'
+                },
+                chartArea: {
+                    left: 15,
+                    top: 15,
+                    right: 0,
+                    bottom: 10
                 }
-            });
+            };
 
-            // Create a pie chart, passing some options
-            var pieChart = new google.visualization.ChartWrapper({
-                'chartType': 'PieChart',
-                'containerId': 'grafico_ocorrencia_curso',
-                'options': {
-                    {#'width': 300,#}
-                    {#'height': 300,#}
-                    'pieSliceText': 'percentage',
-                    'legend': {
-                        'position': 'right',
-                        'alignment': 'center'
-                    },
-                    'chartArea': {'left': 15, 'top': 15, 'right': 0, 'bottom': 10},
-                }
-            });
+            var chart = new google.visualization.PieChart(document.getElementById('grafico_ocorrencia_curso'));
 
-            // Establish dependencies, declaring that 'filter' drives 'pieChart',
-            // so that the pie chart will only display entries that are let through
-            // given the chosen slider range.
-            dashboard.bind(donutRangeSlider, pieChart);
-
-            // Draw the dashboard.
-            dashboard.draw(data);
+            chart.draw(data, options);
         }
     </script>
+
+    {#    <script type="text/javascript">#}
+    {##}
+    {#        // Load the Visualization API and the controls package.#}
+    {#        google.charts.load('current', {'packages': ['corechart', 'controls']});#}
+    {##}
+    {#        // Set a callback to run when the Google Visualization API is loaded.#}
+    {#        google.charts.setOnLoadCallback(drawDashboard);#}
+    {##}
+    {#        // Callback that creates and populates a data table,#}
+    {#        // instantiates a dashboard, a range slider and a pie chart,#}
+    {#        // passes in the data and draws it.#}
+    {#        function drawDashboard() {#}
+    {##}
+    {#            // Create our data table.#}
+    {#            var data = new google.visualization.DataTable();#}
+    {#            data.addColumn('string', 'Curso');#}
+    {#            data.addColumn('number', 'Ocorrências');#}
+    {#            data.addRows({{ dados_grafico_ocorrencia_curso|safe }});#}
+    {##}
+    {#            // Create a dashboard.#}
+    {#            var dashboard = new google.visualization.Dashboard(#}
+    {#                document.getElementById('dashboard_ocorrencia_curso'));#}
+    {##}
+    {#            // Create a range slider, passing some options#}
+    {#            var donutRangeSlider = new google.visualization.ControlWrapper({#}
+    {#                'controlType': 'CategoryFilter',#}
+    {#                'containerId': 'filtro_ocorrencia_curso',#}
+    {#                'options': {#}
+    {#                    'filterColumnLabel': 'Curso',#}
+    {#                    'ui': {#}
+    {#                        'caption': 'Todos os cursos',#}
+    {#                        'selectedValuesLayout': 'aside',#}
+    {#                        'labelStacking': 'horizontal',#}
+    {#                        'allowMultiple': true,#}
+    {#                        'allowTyping': false,#}
+    {#                        'label': ''#}
+    {#                    }#}
+    {#                }#}
+    {#            });#}
+    {##}
+    {#            // Create a pie chart, passing some options#}
+    {#            var pieChart = new google.visualization.ChartWrapper({#}
+    {#                'chartType': 'PieChart',#}
+    {#                'containerId': 'grafico_ocorrencia_curso',#}
+    {#                'options': {#}
+    {#'width': 300,#}
+    {#'height': 300,#}
+    {#                    'pieSliceText': 'percentage',#}
+    {#                    'legend': {#}
+    {#                        'position': 'right',#}
+    {#                        'alignment': 'center'#}
+    {#                    },#}
+    {#                    'chartArea': {'left': 15, 'top': 15, 'right': 0, 'bottom': 10},#}
+    {#                }#}
+    {#            });#}
+    {##}
+    {#            // Establish dependencies, declaring that 'filter' drives 'pieChart',#}
+    {#            // so that the pie chart will only display entries that are let through#}
+    {#            // given the chosen slider range.#}
+    {#            dashboard.bind(donutRangeSlider, pieChart);#}
+    {##}
+    {#            // Draw the dashboard.#}
+    {#            dashboard.draw(data);#}
+    {#        }#}
+    {#    </script>#}
 
     <script type="text/javascript">
         google.charts.load('current', {'packages': ['corechart']});
@@ -483,91 +504,64 @@
 
 
     <!--ENCAMINHAMENTOS-->
-    <script>
-        //doughnut
-        var ctxD = document.getElementById("categoria_encaminhamento").getContext('2d');
-        var labels = JSON.parse('{{ categorias_faltas_encaminhamento|safe }}');
-        var data = JSON.parse('{{ qtde_categorias_faltas_encaminhamento|safe }}');
-        var myLineChart = new Chart(ctxD, {
-            type: 'doughnut',
-            data: {
-                labels: labels,
-                datasets: [
-                    {
-                        data: data,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ]
-                    }
-                ]
-            },
-            options: {
-                responsive: true
-            }
-        });
+    <script type="text/javascript">
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Categoria');
+            data.addColumn('number', 'Encaminhamentos');
+            data.addRows({{ dados_grafico_encaminhamento_categoria|safe }});
+
+            var options = {
+                chartArea: {
+                    top: 10,
+                    bottom: 10,
+                    widht: '100%',
+                },
+                legend: {
+                    position: 'right',
+                    alignment: 'center'
+                }
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('categoria_encaminhamento'));
+
+            chart.draw(data, options);
+        }
     </script>
 
-    <script>
-        //doughnut
-        var ctxD = document.getElementById("curso_encaminhamento").getContext('2d');
-        var labels = JSON.parse('{{ cursos_ocorrencia_encaminhamento|safe }}');
-        var data = JSON.parse('{{ qtde_cursos_ocorrencia_encaminhamento|safe }}');
-        var myLineChart = new Chart(ctxD, {
-            type: 'doughnut',
-            data: {
-                labels: labels,
-                datasets: [
-                    {
-                        data: data,
-                        backgroundColor: [
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(255, 159, 64, 1)',
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(153, 102, 255, 1)'
-                        ]
-                    }
-                ]
-            },
-            options: {
-                responsive: true
-            }
-        });
+    <script type="text/javascript">
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Status');
+            data.addColumn('number', 'Encaminhamentos');
+            data.addRows({{ dados_grafico_encaminhamento_status|safe }});
+
+            var options = {
+                chartArea: {
+                    top: 10,
+                    bottom: 10,
+                    widht: '100%',
+                },
+                legend: {
+                    position: 'right',
+                    alignment: 'center'
+                }
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('status_encaminhamento'));
+
+            chart.draw(data, options);
+        }
     </script>
-    <script>
-        //doughnut
-        var ctxD = document.getElementById("status_encaminhamento").getContext('2d');
-        var labels = JSON.parse('{{ status_ocorrencia_encaminhamento|safe }}');
-        var data = JSON.parse('{{ qtde_status_ocorrencia_encaminhamento|safe }}');
-        var myLineChart = new Chart(ctxD, {
-            type: 'doughnut',
-            data: {
-                labels: labels,
-                datasets: [
-                    {
-                        data: data,
-                        backgroundColor: [
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ]
-                    }
-                ]
-            },
-            options: {
-                responsive: true
-            }
-        });
-    </script>
+
     <script>
         //doughnut
         var ctxD = document.getElementById("turma_encaminhamento").getContext('2d');
