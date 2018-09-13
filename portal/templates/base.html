@@ -15,15 +15,11 @@
     <!-- Material Design Bootstrap -->
     <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet" media="all">
     <!-- Your custom styles (optional) -->
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'css/style.css' %}?v=2" rel="stylesheet" media="all">
 
     <style>
         {% block style %}
         {% endblock %}
-
-        body {
-            background: #ededed;
-        }
     </style>
 </head>
 {% if request.user.is_authenticated %}
