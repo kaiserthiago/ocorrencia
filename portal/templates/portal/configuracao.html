@@ -22,7 +22,7 @@
                 <div class="form-row">
                     <div class="col-sm-3">
                         <div class="card">
-                            <div class="card-header warning-color white-text">
+                            <div class="card-header btn-warning white-text">
                                 Autorizações de saída
                             </div>
                             <div class="card-body">
@@ -50,6 +50,43 @@
                                     {{ form.autorizacao_email_coordenacao_curso }}
                                     <label for="id_autorizacao_email_coordenacao_curso"
                                            class="form-check-label">{{ form.autorizacao_email_coordenacao_curso.label }}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="w-100 clearfix d-md-none">
+
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-header primary-color-dark white-text">
+                                Encaminhamentos
+                            </div>
+                            <div class="card-body">
+                                <div class="form-check">
+                                    {{ form.encaminhamento_email_aluno }}
+                                    <label for="id_encaminhamento_email_aluno"
+                                           class="form-check-label">{{ form.encaminhamento_email_aluno.label }}</label>
+                                </div>
+                                <div class="form-check">
+                                    {{ form.encaminhamento_email_responsavel_aluno }}
+                                    <label for="id_encaminhamento_email_responsavel_aluno"
+                                           class="form-check-label">{{ form.encaminhamento_email_responsavel_aluno.label }}</label>
+                                </div>
+                                <div class="form-check">
+                                    {{ form.encaminhamento_email_responsavel_user }}
+                                    <label for="id_encaminhamento_email_responsavel_user"
+                                           class="form-check-label">{{ form.encaminhamento_email_responsavel_user.label }}</label>
+                                </div>
+                                <div class="form-check">
+                                    {{ form.encaminhamento_email_responsavel_setor }}
+                                    <label for="id_encaminhamento_email_responsavel_setor"
+                                           class="form-check-label">{{ form.encaminhamento_email_responsavel_setor.label }}</label>
+                                </div>
+                                <div class="form-check">
+                                    {{ form.encaminhamento_email_coordenacao_curso }}
+                                    <label for="id_encaminhamento_email_coordenacao_curso"
+                                           class="form-check-label">{{ form.encaminhamento_email_coordenacao_curso.label }}</label>
                                 </div>
                             </div>
                         </div>
@@ -97,43 +134,6 @@
                     <div class="col-sm-3">
                         <div class="card">
                             <div class="card-header primary-color-dark white-text">
-                                Encaminhamentos
-                            </div>
-                            <div class="card-body">
-                                <div class="form-check">
-                                    {{ form.encaminhamento_email_aluno }}
-                                    <label for="id_encaminhamento_email_aluno"
-                                           class="form-check-label">{{ form.encaminhamento_email_aluno.label }}</label>
-                                </div>
-                                <div class="form-check">
-                                    {{ form.encaminhamento_email_responsavel_aluno }}
-                                    <label for="id_encaminhamento_email_responsavel_aluno"
-                                           class="form-check-label">{{ form.encaminhamento_email_responsavel_aluno.label }}</label>
-                                </div>
-                                <div class="form-check">
-                                    {{ form.encaminhamento_email_responsavel_user }}
-                                    <label for="id_encaminhamento_email_responsavel_user"
-                                           class="form-check-label">{{ form.encaminhamento_email_responsavel_user.label }}</label>
-                                </div>
-                                <div class="form-check">
-                                    {{ form.encaminhamento_email_responsavel_setor }}
-                                    <label for="id_encaminhamento_email_responsavel_setor"
-                                           class="form-check-label">{{ form.encaminhamento_email_responsavel_setor.label }}</label>
-                                </div>
-                                <div class="form-check">
-                                    {{ form.encaminhamento_email_coordenacao_curso }}
-                                    <label for="id_encaminhamento_email_coordenacao_curso"
-                                           class="form-check-label">{{ form.encaminhamento_email_coordenacao_curso.label }}</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <hr class="w-100 clearfix d-md-none">
-
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <div class="card-header info-color white-text">
                                 Retorno encaminhamentos
                             </div>
                             <div class="card-body">
