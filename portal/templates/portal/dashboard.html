@@ -37,9 +37,11 @@
     </div>
     <div class="row mb-4">
         <div class="col-sm-4">
-            <div class="card">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-2 font-weight-bold">
+                    OCORRÊNCIAS POR CATEGORIA
+                </div>
                 <div class="card-body">
-                    <p class="font-bold text-uppercase">OCORRÊNCIAS POR CATEGORIA</p>
                     {% if categorias %}
                         <!--Div that will hold the dashboard-->
                         <div id="dashboard_ocorrencia_categoria" class="text-center">
@@ -58,9 +60,11 @@
         <hr class="w-100 clearfix d-md-none">
 
         <div class="col-sm-5">
-            <div class="card">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-2 font-weight-bold">
+                    OCORRÊNCIAS POR CURSOS
+                </div>
                 <div class="card-body">
-                    <p class="font-bold text-uppercase">OCORRÊNCIAS POR CURSOS</p>
                     {% if cursos %}
                         <!--Div that will hold the dashboard-->
                         <div id="dashboard_ocorrencia_curso" class="text-center">
@@ -80,10 +84,11 @@
 
         <div class="col-sm-3">
             <!--Card-->
-            <div class="card">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-2 font-weight-bold">
+                    INDICADORES
+                </div>
                 <div class="card-body">
-                    <p class="font-bold text-uppercase">INDICADORES</p>
-
                     <!-- List group links -->
                     <div class="list-group list-group-flush mb-2">
                         <a class="list-group-item list-group-item-action waves-effect">Autorizações
@@ -108,9 +113,11 @@
 
     <div class="row mb-4">
         <div class="col">
-            <div class="card">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-2 font-weight-bold">
+                    DETALHAMENTO DE OCORRÊNCIAS
+                </div>
                 <div class="card-body">
-                    <p class="font-bold text-uppercase mb-4">DETALHAMENTO DE OCORRÊNCIAS</p>
                     {% if categorias %}
                         <div class="row">
                             <div class="col-sm-6">
@@ -173,9 +180,11 @@
     <!--ENCAMINHAMENTOS-->
     <div class="row mb-4">
         <div class="col-sm-6">
-            <div class="card">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-2 font-weight-bold">
+                    ENCAMINHAMENTOS POR CATEGORIA
+                </div>
                 <div class="card-body">
-                    <p class="font-bold text-uppercase">ENCAMINHAMENTOS POR CATEGORIA</p>
                     {% if servico_categorias %}
                         <div id="categoria_encaminhamento"></div>
                     {% else %}
@@ -190,11 +199,11 @@
         <hr class="w-100 clearfix d-md-none">
 
         <div class="col-sm-6">
-            <div class="card">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-2 font-weight-bold">
+                    ENCAMINHAMENTOS POR STATUS
+                </div>
                 <div class="card-body">
-                    <p class="font-bold text-uppercase">
-                        ENCAMINHAMENTOS POR STATUS
-                    </p>
                     {% if status_encaminhamento %}
                         <div class="float-right">
                             <i data-toggle="tooltip" data-placement="top" title="Responder encaminhamento">
@@ -223,9 +232,11 @@
 
     <div class="row">
         <div class="col-sm-12">
-            <div class="card">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-2 font-weight-bold">
+                    DETALHAMENTO DE ENCAMINHAMENTOS
+                </div>
                 <div class="card-body">
-                    <p class="font-bold text-uppercase mb-4">DETALHAMENTO DE ENCAMINHAMENTOS</p>
                     {% if servico_categorias %}
                         <div class="row">
                             <div class="col-sm-6">

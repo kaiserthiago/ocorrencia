@@ -92,3 +92,12 @@ light-font .breadcrumb-item + .breadcrumb-item::before {
 .ifro-color{
     background-color: #2f9e41 !important;;
 }
+
+.card.redonda{
+    border-radius: 15px;
+}
+
+.card-header.redonda{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
