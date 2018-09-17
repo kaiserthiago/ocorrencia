@@ -259,12 +259,12 @@
                         <div class="form-row">
                             {% if distribuicao_encaminhamento %}
                                 <div class="col-sm-6">
-                                    <canvas id="turma_encaminhamento" height="150"></canvas>
+                                    <div id="turma_encaminhamento" style="height:250px"></div>
                                 </div>
                                 <hr class="w-100 clearfix d-md-none">
 
                                 <div class="col-sm-6">
-                                    <canvas id="distribuicao_encaminhamento" height="150"></canvas>
+                                    <div id="distribuicao_encaminhamento" style="height: 250px;"></div>
                                 </div>
                             {% else %}
                                 <div class="col-sm-12">
@@ -319,72 +319,6 @@
         }
     </script>
 
-    {#    <script type="text/javascript">#}
-    {##}
-    {#        // Load the Visualization API and the controls package.#}
-    {#        google.charts.load('current', {'packages': ['corechart', 'controls']});#}
-    {##}
-    {#        // Set a callback to run when the Google Visualization API is loaded.#}
-    {#        google.charts.setOnLoadCallback(drawDashboard);#}
-    {##}
-    {#        // Callback that creates and populates a data table,#}
-    {#        // instantiates a dashboard, a range slider and a pie chart,#}
-    {#        // passes in the data and draws it.#}
-    {#        function drawDashboard() {#}
-    {##}
-    {#            // Create our data table.#}
-    {#            var data = new google.visualization.DataTable();#}
-    {#            data.addColumn('string', 'Categoria');#}
-    {#            data.addColumn('number', 'Ocorrências');#}
-    {#            data.addRows({{ dados_grafico_ocorrencia_categoria|safe }});#}
-    {##}
-    {#            // Create a dashboard.#}
-    {#            var dashboard = new google.visualization.Dashboard(#}
-    {#                document.getElementById('dashboard_ocorrencia_categoria'));#}
-    {##}
-    {#            // Create a range slider, passing some options#}
-    {#            var donutRangeSlider = new google.visualization.ControlWrapper({#}
-    {#                'controlType': 'CategoryFilter',#}
-    {#                'containerId': 'filtro_ocorrencia_categoria',#}
-    {#                'options': {#}
-    {#                    'filterColumnLabel': 'Categoria',#}
-    {#                    'ui': {#}
-    {#                        'caption': 'Todas as categorias',#}
-    {#                        'selectedValuesLayout': 'aside',#}
-    {#                        'labelStacking': 'horizontal',#}
-    {#                        'allowMultiple': true,#}
-    {#                        'allowTyping': false,#}
-    {#                        'sortValues': false,#}
-    {#                        'label': ''#}
-    {#                    }#}
-    {#                }#}
-    {#            });#}
-    {##}
-    {#            // Create a pie chart, passing some options#}
-    {#            var pieChart = new google.visualization.ChartWrapper({#}
-    {#                'chartType': 'PieChart',#}
-    {#                'containerId': 'grafico_ocorrencia_categoria',#}
-    {#                'options': {#}
-    {#'width': 300,#}
-    {#'height': 300,#}
-    {#                    'pieSliceText': 'percentage',#}
-    {#                    'legend': {#}
-    {#                        'position': 'right',#}
-    {#                        'alignment': 'center'#}
-    {#                    },#}
-    {#                    'chartArea': {'left': 15, 'top': 15, 'right': 0, 'bottom': 10}#}
-    {#                }#}
-    {#            });#}
-    {##}
-    {#            // Establish dependencies, declaring that 'filter' drives 'pieChart',#}
-    {#            // so that the pie chart will only display entries that are let through#}
-    {#            // given the chosen slider range.#}
-    {#            dashboard.bind(donutRangeSlider, pieChart);#}
-    {##}
-    {#            // Draw the dashboard.#}
-    {#            dashboard.draw(data);#}
-    {#        }#}
-    {#    </script>#}
 
     <script type="text/javascript">
         google.charts.load('current', {'packages': ['corechart']});
@@ -417,71 +351,6 @@
         }
     </script>
 
-    {#    <script type="text/javascript">#}
-    {##}
-    {#        // Load the Visualization API and the controls package.#}
-    {#        google.charts.load('current', {'packages': ['corechart', 'controls']});#}
-    {##}
-    {#        // Set a callback to run when the Google Visualization API is loaded.#}
-    {#        google.charts.setOnLoadCallback(drawDashboard);#}
-    {##}
-    {#        // Callback that creates and populates a data table,#}
-    {#        // instantiates a dashboard, a range slider and a pie chart,#}
-    {#        // passes in the data and draws it.#}
-    {#        function drawDashboard() {#}
-    {##}
-    {#            // Create our data table.#}
-    {#            var data = new google.visualization.DataTable();#}
-    {#            data.addColumn('string', 'Curso');#}
-    {#            data.addColumn('number', 'Ocorrências');#}
-    {#            data.addRows({{ dados_grafico_ocorrencia_curso|safe }});#}
-    {##}
-    {#            // Create a dashboard.#}
-    {#            var dashboard = new google.visualization.Dashboard(#}
-    {#                document.getElementById('dashboard_ocorrencia_curso'));#}
-    {##}
-    {#            // Create a range slider, passing some options#}
-    {#            var donutRangeSlider = new google.visualization.ControlWrapper({#}
-    {#                'controlType': 'CategoryFilter',#}
-    {#                'containerId': 'filtro_ocorrencia_curso',#}
-    {#                'options': {#}
-    {#                    'filterColumnLabel': 'Curso',#}
-    {#                    'ui': {#}
-    {#                        'caption': 'Todos os cursos',#}
-    {#                        'selectedValuesLayout': 'aside',#}
-    {#                        'labelStacking': 'horizontal',#}
-    {#                        'allowMultiple': true,#}
-    {#                        'allowTyping': false,#}
-    {#                        'label': ''#}
-    {#                    }#}
-    {#                }#}
-    {#            });#}
-    {##}
-    {#            // Create a pie chart, passing some options#}
-    {#            var pieChart = new google.visualization.ChartWrapper({#}
-    {#                'chartType': 'PieChart',#}
-    {#                'containerId': 'grafico_ocorrencia_curso',#}
-    {#                'options': {#}
-    {#'width': 300,#}
-    {#'height': 300,#}
-    {#                    'pieSliceText': 'percentage',#}
-    {#                    'legend': {#}
-    {#                        'position': 'right',#}
-    {#                        'alignment': 'center'#}
-    {#                    },#}
-    {#                    'chartArea': {'left': 15, 'top': 15, 'right': 0, 'bottom': 10},#}
-    {#                }#}
-    {#            });#}
-    {##}
-    {#            // Establish dependencies, declaring that 'filter' drives 'pieChart',#}
-    {#            // so that the pie chart will only display entries that are let through#}
-    {#            // given the chosen slider range.#}
-    {#            dashboard.bind(donutRangeSlider, pieChart);#}
-    {##}
-    {#            // Draw the dashboard.#}
-    {#            dashboard.draw(data);#}
-    {#        }#}
-    {#    </script>#}
 
     <script type="text/javascript">
         google.charts.load('current', {'packages': ['corechart']});
@@ -513,39 +382,34 @@
     </script>
 
 
-    <script type="text/javascript">
-        google.charts.load('current', {'packages': ['bar']});
+    <script>
+        google.charts.load("current", {packages: ['corechart']});
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
             var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Categoria');
-            data.addColumn('number', 'Ocorrências');
+            data.addColumn('string', 'Categorias');
+            data.addColumn('number', 'Quantidade');
             data.addRows({{ dados_grafico_ocorrencia_distribuicao|safe }});
 
             var options = {
                 chartArea: {
-                    top: 10,
-                    left: 0,
-                    righ: 0,
-                    bottom: 10,
-                    widht: '100%'
+                    top: 20,
+                    bottom: 20,
+                    widht: '100%',
+                    height: '100%'
                 },
                 legend: {
                     position: 'none',
                     alignment: 'center'
-                },
-                hAxis: {
-                    title: ''
                 }
             };
 
-            var chart = new google.charts.Bar(document.getElementById('distribuicao'));
+            var chart = new google.visualization.ColumnChart(document.getElementById('distribuicao'));
 
-            chart.draw(data, google.charts.Bar.convertOptions(options));
+            chart.draw(data, options);
         }
     </script>
-
 
     <!--ENCAMINHAMENTOS-->
     <script type="text/javascript">
@@ -606,74 +470,61 @@
         }
     </script>
 
-    <script>
-        //doughnut
-        var ctxD = document.getElementById("turma_encaminhamento").getContext('2d');
-        var labels = JSON.parse('{{ turmas_ocorrencia_encaminhamento|safe }}');
-        var data = JSON.parse('{{ qtde_turmas_encaminhamento|safe }}');
-        var myLineChart = new Chart(ctxD, {
-            type: 'doughnut',
-            data: {
-                labels: labels,
-                datasets: [
-                    {
-                        data: data,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ]
-                    }
-                ]
-            },
-            options: {
-                responsive: true
-            }
-        });
-    </script>
-    <script>
-        //bar
-        var ctxB = document.getElementById("distribuicao_encaminhamento").getContext('2d');
-        var labels = JSON.parse('{{ distribuicao_json_encaminhamento|safe }}');
-        var data = JSON.parse('{{ distribuicao_qtde_encaminhamento|safe }}');
-        var myBarChart = new Chart(ctxB, {
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: "{{ c.descricao }}",
-                    data: data,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
+    <script type="text/javascript">
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Turma');
+            data.addColumn('number', 'Quantidade');
+            data.addRows({{ dados_grafico_encaminhamento_turma|safe }});
+
+            var options = {
+                chartArea: {
+                    top: 10,
+                    bottom: 10,
+                    widht: '100%',
+                },
+                legend: {
+                    position: 'right',
+                    alignment: 'center'
                 }
-            }
-        });
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('turma_encaminhamento'));
+
+            chart.draw(data, options);
+        }
+    </script>
+
+    <script>
+        google.charts.load("current", {packages: ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Categorias');
+            data.addColumn('number', 'Quantidade');
+            data.addRows({{ dados_grafico_encaminhamento_distribuicao|safe }});
+
+            var options = {
+                chartArea: {
+                    top: 20,
+                    bottom: 20,
+                    widht: '100%',
+                    height: '100%'
+                },
+                legend: {
+                    position: 'none',
+                    alignment: 'center'
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('distribuicao_encaminhamento'));
+
+            chart.draw(data, options);
+        }
     </script>
 {% endblock %}

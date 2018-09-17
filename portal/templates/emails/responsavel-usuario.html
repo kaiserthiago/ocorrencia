@@ -1,33 +1,42 @@
-<div style="font-family:&quot;Lucida Grande&quot;,Tahoma;font-size:12px;margin-top:0.5em;color:rgb(102,102,102);letter-spacing:2px;padding-top:3px;padding-left:10px;overflow:hidden">
-    <p>Olá, {{ usuario.userprofile.empresa.responsavel }}.</p>
-    <p><strong>Atenção!</strong> Há uma solicitação de acesso ao sistema.</p>
+<body style="background: #ededed;">
+<br><br>
+<div style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        width: 80%;
+        max-width: 80%;
+        border-radius: 5px;
+        background: #fff;
+        font-family: 'Roboto', sans-serif;
+        font-size: 13px;
+        color:rgb(102,102,102);
+        overflow:hidden;
+        margin: auto;
+        padding: 10px;">
+    <h2 style="font-weight: bold; text-align: center;">
+        NOVO USUÁRIO CADASTRADO
+    </h2>
+    <div style="padding-top: 15px">
+        <p>Olá, {{ usuario.userprofile.empresa.responsavel }}.<br>
+            Tudo bem?</p>
+        <p>
+            Olha só! Um novo usuário se cadastrou em nosso sistema.<br>
+            Logo abaixo seguem os dados informados durante o cadastro.
+        </p>
 
-    <strong>Solicitante: </strong> {{ usuario.first_name }}<br>
-    <strong>E-mail: </strong> {{ usuario.email }}<br>
-    <strong>Unidade: </strong> {{ usuario.userprofile.empresa }}<br><br>
-    Acesse a <a href="http://ocorrencia.pythonanywhere.com/user/list" target="_blank">Lista de Usuários</a>
-    para confirmar ou cancelar.<br><br>
-</div>
+        <strong>Solicitante: </strong> {{ usuario.first_name }}<br>
+        <strong>E-mail: </strong> {{ usuario.email }}<br>
+        <strong>Unidade: </strong> {{ usuario.userprofile.empresa }}<br>
 
-<div dir="ltr">
-    <table border="0" cellpadding="5" cellspacing="0" width="60%" style="font-size: 8.5pt">
-        <tr>
-{#            <td style="text-align: center">#}
-{#                <img src="http://frota.pythonanywhere.com/static/img/logo.png" style="margin-top: 1em;width:130px;">#}
-{#            </td>#}
-            <td style="text-align: left">
-                <p><strong>SGE&nbsp;<br></strong>
-                    <em>Gestão Estudantil&nbsp;</em></p>
-{#                <p>(69) 3443-2445&nbsp;<br><a href="mailto:ocorrencia@ifro.edu.br"#}
-{#                                              style="margin-top:0.5em;color:rgb(102,102,102);text-decoration:none">ocorrencia@ifro.edu.br</a>&nbsp;<br>#}
-{#                </p>#}
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" style="font-size: 7pt">
-                <p style="color: red"><strong>Essa é uma mensagem automática, não é necessário respondê-la.</strong>
-                   </p>
-            </td>
-        </tr>
-    </table>
+        <p>Agora é só você acessar a <a href="http://ocorrencia.pythonanywhere.com/user/list"
+                                         target="_blank" style="font-weight: bold; text-decoration: none">lista de usuários</a> para analisar a solicitação e tomar
+            as providências necessárias.<br><br></p>
+
+        <p style="padding-top: 10px">Atenciosamente,</p>
+        <strong>SGE&nbsp;<br></strong>
+        <em>Sistema de Gestão Estudantil</em><br><br>
+
+        <p style="color: red"><strong>Essa é uma mensagem automática, não é necessário respondê-la.</strong></p>
+    </div>
 </div>
+<br><br>
+</body>

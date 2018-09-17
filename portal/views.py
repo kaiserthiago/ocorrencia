@@ -499,8 +499,10 @@ def dashboard(request):
                 'servico__categoria__descricao').values_list('servico__categoria__descricao').annotate(
                 qtde=Count('id')).distinct()
 
-            distribuicao_json_encaminhamento = [obj[0] for obj in distribuicao_encaminhamento]
-            distribuicao_qtde_encaminhamento = [obj[1] for obj in distribuicao_encaminhamento]
+            # distribuicao_json_encaminhamento = [obj[0] for obj in distribuicao_encaminhamento]
+            # distribuicao_qtde_encaminhamento = [obj[1] for obj in distribuicao_encaminhamento]
+
+            dados_grafico_encaminhamento_distribuicao = json.dumps(list(distribuicao_encaminhamento))
 
             # DADOS GRÁFICO DE ENCAMINHAMENTOS POR TURMA
             turmas_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
@@ -508,8 +510,10 @@ def dashboard(request):
                 'matricula__turma__descricao').values_list(
                 'matricula__turma__descricao').annotate(qtde=Count('id')).distinct()
 
-            turmas_ocorrencia_encaminhamento = [obj[0] for obj in turmas_encaminhamento]
-            qtde_turmas_encaminhamento = [int(obj[1]) for obj in turmas_encaminhamento]
+            # turmas_ocorrencia_encaminhamento = [obj[0] for obj in turmas_encaminhamento]
+            # qtde_turmas_encaminhamento = [int(obj[1]) for obj in turmas_encaminhamento]
+
+            dados_grafico_encaminhamento_turma = json.dumps(list(turmas_encaminhamento))
         else:
             c_encaminhamento = ''
             distribuicao_encaminhamento = ''
@@ -535,6 +539,9 @@ def dashboard(request):
 
         dados_grafico_ocorrencia_turma = ''
         dados_grafico_ocorrencia_distribuicao = ''
+        dados_grafico_encaminhamento_distribuicao = ''
+        dados_grafico_encaminhamento_turma = ''
+
 
         # ENCAMINHAMENTOS
         c_encaminhamento = ''
@@ -600,6 +607,8 @@ def dashboard(request):
 
         'dados_grafico_encaminhamento_categoria': dados_grafico_encaminhamento_categoria,
         'dados_grafico_encaminhamento_status': dados_grafico_encaminhamento_status,
+        'dados_grafico_encaminhamento_distribuicao': dados_grafico_encaminhamento_distribuicao,
+        'dados_grafico_encaminhamento_turma': dados_grafico_encaminhamento_turma,
 
         'courses': courses,
         'categorias': categorias,
@@ -640,11 +649,11 @@ def dashboard(request):
         # 'status_ocorrencia_encaminhamento': json.dumps(status_ocorrencia_encaminhamento),
         # 'qtde_status_ocorrencia_encaminhamento': json.dumps(qtde_status_ocorrencia_encaminhamento),
 
-        'turmas_ocorrencia_encaminhamento': json.dumps(turmas_ocorrencia_encaminhamento),
-        'qtde_turmas_encaminhamento': json.dumps(qtde_turmas_encaminhamento),
+        # 'turmas_ocorrencia_encaminhamento': json.dumps(turmas_ocorrencia_encaminhamento),
+        # 'qtde_turmas_encaminhamento': json.dumps(qtde_turmas_encaminhamento),
 
-        'distribuicao_json_encaminhamento': json.dumps(distribuicao_json_encaminhamento),
-        'distribuicao_qtde_encaminhamento': json.dumps(distribuicao_qtde_encaminhamento),
+        # 'distribuicao_json_encaminhamento': json.dumps(distribuicao_json_encaminhamento),
+        # 'distribuicao_qtde_encaminhamento': json.dumps(distribuicao_qtde_encaminhamento),
     }
 
     return render(request, 'portal/dashboard.html', context)

@@ -1,34 +1,46 @@
-<div style="font-family:&quot;Lucida Grande&quot;,Tahoma;font-size:12px;margin-top:0.5em;color:rgb(102,102,102);letter-spacing:2px;padding-top:3px;padding-left:10px;overflow:hidden">
-    <p>Olá, {{ usuario.first_name }} {{ usuario.last_name }}.</p>
+<body style="background: #ededed;">
+<br><br>
+<div style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        width: 80%;
+        max-width: 80%;
+        border-radius: 5px;
+        background: #fff;
+        font-family: 'Roboto', sans-serif;
+        font-size: 13px;
+        color:rgb(102,102,102);
+        overflow:hidden;
+        margin: auto;
+        padding: 10px;">
+    <h2 style="font-weight: bold; text-align: center;">
+        ACESSO AUTORIZADO
+    </h2>
+    <div style="padding-top: 15px">
+        <p>Olá, {{ usuario.first_name }}.<br>
+            Tudo bem?</p>
+        <p>
+            Olha só que bacana, o seu acesso ao sistema foi <strong>autorizado!</strong><br>
+            Logo abaixo seguem, somente para fins de confirmação, seus dados cadastrais.
+        </p>
 
-    <p><strong>Sucesso!</strong> Sua solicitação de acesso ao sistema foi confirmada!</p>
+        <strong>Nome: </strong> {{ usuario.first_name }}<br>
+        <strong>E-mail: </strong> {{ usuario.email }}<br>
+        <strong>Usuário: </strong> {{ usuario.username }}<br>
+        <p>
+            Ah, por questões de segurança, não informamos, aqui, sua senha. Caso você tenha dificuldades em acessar o
+            sistema, é só solicitar a redefinição da senha <a href="http://ocorrencia.pythonanywhere.com/password_reset/"
+                                                              target="_blank" style="font-weight: bold; text-decoration: none">clicando aqui.</a>
+        </p>
 
-    <strong>Nome: </strong>{{ usuario.first_name }}<br>
-    <strong>E-mail: </strong>{{ usuario.email }}<br>
-    <strong>Usuário: </strong>{{ usuario.username }}<br>
-    Acesse o <a href="http://ocorrencia.pythonanywhere.com" target="_blank">Sistema Gestor de Ocorrências</a>
-    agora mesmo.<br><br>
+        <p>Viu só? Agora é só você <a href="http://ocorrencia.pythonanywhere.com/" target="_blank" style="font-weight: bold; text-decoration: none">clicar aqui</a>,
+            acessar o sistema e aproveitar seus ótimos recursos!<br><br></p>
+
+        <p style="padding-top: 10px">Atenciosamente,</p>
+        <strong>SGE&nbsp;<br></strong>
+        <em>Sistema de Gestão Estudantil</em><br><br>
+
+        <p style="color: red"><strong>Essa é uma mensagem automática, não é necessário respondê-la.</strong></p>
+    </div>
 </div>
-
-<div dir="ltr">
-    <table border="0" cellpadding="5" cellspacing="0" width="60%" style="font-size: 8.5pt">
-        <tr>
-{#            <td style="text-align: center">#}
-{#                <img src="http://frota.pythonanywhere.com/static/img/logo.png" style="margin-top: 1em;width:130px;">#}
-{#            </td>#}
-            <td style="text-align: left">
-                <p><strong>SGE&nbsp;<br></strong>
-                    <em>Gestão Estudantil&nbsp;</em></p>
-{#                <p>(69) 3443-2445&nbsp;<br><a href="mailto:ocorrencia@ifro.edu.br"#}
-{#                                              style="margin-top:0.5em;color:rgb(102,102,102);text-decoration:none">ocorrencia@ifro.edu.br</a>&nbsp;<br>#}
-{#                </p>#}
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" style="font-size: 7pt">
-                <p style="color: red"><strong>Essa é uma mensagem automática, não é necessário respondê-la.</strong>
-                   </p>
-            </td>
-        </tr>
-    </table>
-</div>
+<br><br>
+</body>
