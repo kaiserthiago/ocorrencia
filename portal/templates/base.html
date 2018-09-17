@@ -225,12 +225,11 @@
                 {% if request.user.is_authenticated %}
                     <!-- Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i><span
                                 class="clearfix d-none d-sm-inline-block"> {{ request.user }}</span>
                         </a>
-
-                        <div class="dropdown-menu dropdown-primary dropdown-menu-right">
+                        <div class="dropdown-menu dropdown-menu-right dropdown-success">
                             <a class="dropdown-item" href="{% url 'dashboard' %}"><i class="fa fa-dashboard"></i>
                                 Dashboard</a>
 

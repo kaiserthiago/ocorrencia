@@ -411,7 +411,7 @@ def dashboard(request):
 
     dados_encaminhamentos = Encaminhamento.objects.filter(
         empresa=request.user.userprofile.empresa, status='Atendido').order_by().annotate(tempo=ExpressionWrapper(
-                F('update_at') - F('created_at'), output_field=DurationField()))
+        F('update_at') - F('created_at'), output_field=DurationField()))
 
     indicador_encaminhamento_tempo = []
 

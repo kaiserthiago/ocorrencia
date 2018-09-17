@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/templates/portal/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,8 +25,8 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
+            <state relative-caret-position="220">
+              <caret line="230" column="28" lean-forward="true" selection-start-line="230" selection-start-column="28" selection-end-line="230" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -84,8 +82,8 @@
       <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="63" column="32" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
+            <state relative-caret-position="297">
+              <caret line="155" column="18" lean-forward="true" selection-start-line="155" selection-start-column="18" selection-end-line="155" selection-end-column="18" />
               <folding>
                 <element signature="e#9784#9805#0#HTML" expanded="true" />
                 <element signature="e#10037#10058#0#HTML" expanded="true" />
@@ -108,8 +106,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="418" column="58" selection-start-line="418" selection-start-column="58" selection-end-line="418" selection-end-column="58" />
+            <state relative-caret-position="380">
+              <caret line="422" column="48" lean-forward="true" selection-start-line="422" selection-start-column="48" selection-end-line="422" selection-end-column="48" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -247,11 +245,11 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/configuracao.html" />
         <option value="$PROJECT_DIR$/portal/templates/emails/confirma-usuario.html" />
         <option value="$PROJECT_DIR$/portal/templates/emails/responsavel-usuario.html" />
-        <option value="$PROJECT_DIR$/portal/templates/base.html" />
         <option value="$PROJECT_DIR$/static/css/style.css" />
         <option value="$PROJECT_DIR$/portal/admin.py" />
-        <option value="$PROJECT_DIR$/portal/views.py" />
+        <option value="$PROJECT_DIR$/portal/templates/base.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/dashboard.html" />
+        <option value="$PROJECT_DIR$/portal/views.py" />
       </list>
     </option>
   </component>
@@ -266,8 +264,9 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
+    <option name="y" value="-10" />
+    <option name="width" value="1940" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -784,13 +783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
@@ -815,10 +807,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="230" column="28" lean-forward="true" selection-start-line="230" selection-start-column="28" selection-end-line="230" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/portal/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="418" column="58" selection-start-line="418" selection-start-column="58" selection-end-line="418" selection-end-column="58" />
+        <state relative-caret-position="380">
+          <caret line="422" column="48" lean-forward="true" selection-start-line="422" selection-start-column="48" selection-end-line="422" selection-end-column="48" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
@@ -827,8 +826,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="63" column="32" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
+        <state relative-caret-position="297">
+          <caret line="155" column="18" lean-forward="true" selection-start-line="155" selection-start-column="18" selection-end-line="155" selection-end-column="18" />
           <folding>
             <element signature="e#9784#9805#0#HTML" expanded="true" />
             <element signature="e#10037#10058#0#HTML" expanded="true" />
