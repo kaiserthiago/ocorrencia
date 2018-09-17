@@ -479,6 +479,8 @@ def dashboard(request):
             dados_grafico_ocorrencia_turma = ''
             dados_grafico_ocorrencia_distribuicao = ''
 
+
+
         # ENCACMINHAMENTOS
         if 'CourseEncaminhamento' in request.POST:
             id = request.POST['CourseEncaminhamento']
@@ -524,6 +526,9 @@ def dashboard(request):
             turmas_ocorrencia_encaminhamento = ''
             turmas_encaminhamento = ''
             qtde_turmas_encaminhamento = ''
+            dados_grafico_encaminhamento_turma = ''
+            dados_grafico_encaminhamento_distribuicao = ''
+
 
     else:
         # OCORRÊNCIAS
@@ -539,8 +544,8 @@ def dashboard(request):
 
         dados_grafico_ocorrencia_turma = ''
         dados_grafico_ocorrencia_distribuicao = ''
-        dados_grafico_encaminhamento_distribuicao = ''
-        dados_grafico_encaminhamento_turma = ''
+
+
 
 
         # ENCAMINHAMENTOS
@@ -553,6 +558,9 @@ def dashboard(request):
         turmas_ocorrencia_encaminhamento = ''
         turmas_encaminhamento = ''
         qtde_turmas_encaminhamento = ''
+
+        dados_grafico_encaminhamento_turma = ''
+        dados_grafico_encaminhamento_distribuicao = ''
 
     # DADOS GRÁFICO DE ENCAMINHAMENTOS POR CATEGORIA
     servico_categorias = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa).order_by(

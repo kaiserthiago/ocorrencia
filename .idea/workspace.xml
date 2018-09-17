@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/emails/confirma-usuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/emails/confirma-usuario.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/emails/responsavel-usuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/emails/responsavel-usuario.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -92,11 +88,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="480" column="48" selection-start-line="480" selection-start-column="48" selection-end-line="480" selection-end-column="48" />
+            <state relative-caret-position="300">
+              <caret line="261" column="82" selection-start-line="261" selection-start-column="82" selection-end-line="261" selection-end-column="82" />
               <folding>
                 <element signature="e#7492#7513#0#HTML" expanded="true" />
                 <element signature="e#13334#13356#0#HTML" expanded="true" />
@@ -105,11 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="653" lean-forward="true" selection-start-line="653" selection-end-line="653" />
+            <state relative-caret-position="183">
+              <caret line="527" column="51" selection-start-line="527" selection-start-column="51" selection-end-line="527" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -246,8 +242,8 @@
         <option value="$PROJECT_DIR$/portal/templates/base.html" />
         <option value="$PROJECT_DIR$/portal/templates/emails/confirma-usuario.html" />
         <option value="$PROJECT_DIR$/portal/templates/emails/responsavel-usuario.html" />
-        <option value="$PROJECT_DIR$/portal/views.py" />
         <option value="$PROJECT_DIR$/portal/templates/portal/dashboard.html" />
+        <option value="$PROJECT_DIR$/portal/views.py" />
       </list>
     </option>
   </component>
@@ -811,21 +807,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="653" lean-forward="true" selection-start-line="653" selection-end-line="653" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="480" column="48" selection-start-line="480" selection-start-column="48" selection-end-line="480" selection-end-column="48" />
+        <state relative-caret-position="300">
+          <caret line="261" column="82" selection-start-line="261" selection-start-column="82" selection-end-line="261" selection-end-column="82" />
           <folding>
             <element signature="e#7492#7513#0#HTML" expanded="true" />
             <element signature="e#13334#13356#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="527" column="51" selection-start-line="527" selection-start-column="51" selection-end-line="527" selection-end-column="51" />
         </state>
       </provider>
     </entry>
