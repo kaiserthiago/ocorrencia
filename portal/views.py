@@ -3,6 +3,7 @@ import string
 import types
 from datetime import date
 
+import numpy
 from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth import update_session_auth_hash
@@ -10,7 +11,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from django.db.models import Count, Sum
+from django.db.models import Count, Sum, Avg, Func, F, ExpressionWrapper, DurationField
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template.defaultfilters import upper, lower
@@ -408,6 +409,17 @@ def dashboard(request):
     indicador_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa)
     indicador_ocorrencia = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa)
 
+    dados_encaminhamentos = Encaminhamento.objects.filter(
+        empresa=request.user.userprofile.empresa, status='Atendido').order_by().annotate(tempo=ExpressionWrapper(
+                F('update_at') - F('created_at'), output_field=DurationField()))
+
+    indicador_encaminhamento_tempo = []
+
+    for i in dados_encaminhamentos:
+        indicador_encaminhamento_tempo.append(i.tempo.days)
+
+    indicador_encaminhamento_tempo = round(numpy.mean(indicador_encaminhamento_tempo))
+
     # DADOS GRÁFICO DE OCORRÊNCIAS POR CATEGORIA
     categorias = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa).order_by(
         'falta__categoria__artigo').values_list('falta__categoria__descricao').annotate(qtde=Count('id')).distinct()
@@ -479,8 +491,6 @@ def dashboard(request):
             dados_grafico_ocorrencia_turma = ''
             dados_grafico_ocorrencia_distribuicao = ''
 
-
-
         # ENCACMINHAMENTOS
         if 'CourseEncaminhamento' in request.POST:
             id = request.POST['CourseEncaminhamento']
@@ -545,9 +555,6 @@ def dashboard(request):
         dados_grafico_ocorrencia_turma = ''
         dados_grafico_ocorrencia_distribuicao = ''
 
-
-
-
         # ENCAMINHAMENTOS
         c_encaminhamento = ''
         distribuicao_encaminhamento = ''
@@ -602,6 +609,7 @@ def dashboard(request):
         'indicador_autorizacao': indicador_autorizacao,
         'indicador_encaminhamento': indicador_encaminhamento,
         'indicador_ocorrencia': indicador_ocorrencia,
+        'indicador_encaminhamento_tempo': indicador_encaminhamento_tempo,
 
         # OCORRÊNCIAS
         'c': c,

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Dashboard - SGE - Gestão Estudantil{% endblock %}
 {% block class_dashboard_menu %}active{% endblock %}
+{% load humanize %}
 
 {% block breadcrumb_base %}
     <ol class="breadcrumb blue-grey lighten-4">
@@ -37,9 +38,42 @@
     </div>
     <div class="row mb-4">
         <div class="col-sm-4">
+            <!--Card-->
             <div class="card redonda">
-                <div class="card-header redonda grey lighten-2 font-weight-bold">
-                    OCORRÊNCIAS POR CATEGORIA
+                <div class="card-header redonda grey lighten-1 font-weight-bold">
+                    <p class="float-left m-0">
+                        Indicadores
+                    </p>
+                    <a href="{% url 'report_general' %}" class="float-right m-0"> VER MAIS</a>
+                </div>
+                <div class="card-body">
+                    <p class="border-bottom">
+                        Autorizações
+                        <span class="badge badge-warning badge-pill pull-right">{{ indicador_autorizacao.count }}</span>
+
+                    </p>
+                    <p class="border-bottom">
+                        Encaminhamentos
+                        <span class="badge badge-primary badge-pill pull-right">{{ indicador_encaminhamento.count }}</span>
+                    </p>
+                    <p class="border-bottom">
+                        Ocorrências
+                        <span class="badge ifro-color badge-pill pull-right">{{ indicador_ocorrencia.count }}</span>
+                    </p>
+                    <p class="border-bottom">
+                        Retorno encaminhamento (dias)
+                        <span class="badge danger-color badge-pill pull-right">{{ indicador_encaminhamento_tempo|intword }}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <hr class="w-100 clearfix d-md-none">
+
+        <div class="col-sm-4">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-1 font-weight-bold">
+                    Ocorrências por categoria
                 </div>
                 <div class="card-body">
                     {% if categorias %}
@@ -59,10 +93,10 @@
 
         <hr class="w-100 clearfix d-md-none">
 
-        <div class="col-sm-5">
+        <div class="col-sm-4">
             <div class="card redonda">
-                <div class="card-header redonda grey lighten-2 font-weight-bold">
-                    OCORRÊNCIAS POR CURSOS
+                <div class="card-header redonda grey lighten-1 font-weight-bold">
+                    Ocorrências por curso
                 </div>
                 <div class="card-body">
                     {% if cursos %}
@@ -79,43 +113,56 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!--ENCAMINHAMENTOS-->
+    <div class="row mb-4">
+        <div class="col-sm-6">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-1 font-weight-bold">
+                    Encaminhamentos por categoria
+                </div>
+                <div class="card-body">
+                    {% if servico_categorias %}
+                        <div id="categoria_encaminhamento"></div>
+                    {% else %}
+                        <div class="card-header warning-color white-text text-center">
+                            <strong>NÃO HÁ ENCAMINHAMENTOS</strong>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
 
         <hr class="w-100 clearfix d-md-none">
 
-        <div class="col-sm-3">
-            <!--Card-->
+        <div class="col-sm-6">
             <div class="card redonda">
-                <div class="card-header redonda grey lighten-2 font-weight-bold">
-                    INDICADORES
+                <div class="card-header redonda grey lighten-1 font-weight-bold">
+                    <p class="float-left m-0">
+                        Encaminhamentos por status
+                    </p>
+                    <a href="{% url 'encaminhamento_pendente' %}" class="float-right m-0"> VER MAIS</a>
                 </div>
                 <div class="card-body">
-                    <!-- List group links -->
-                    <div class="list-group list-group-flush mb-2">
-                        <a class="list-group-item list-group-item-action waves-effect">Autorizações
-                            <span class="badge badge-warning badge-pill pull-right">{{ indicador_autorizacao.count }}</span>
-                        </a>
-                        <a class="list-group-item list-group-item-action waves-effect">Encaminhamentos
-                            <span class="badge badge-primary badge-pill pull-right">{{ indicador_encaminhamento.count }}</span>
-                        </a>
-                        <a class="list-group-item list-group-item-action waves-effect">Ocorrências
-                            <span class="badge ifro-color badge-pill pull-right">{{ indicador_ocorrencia.count }}</span>
-                        </a>
-                    </div>
-                    <!-- List group links -->
-
-                    <a href="{% url 'report_general' %}"
-                       class="btn ifro-color btn-rounded waves-effect btn-block"> Ver
-                        relatórios</a>
+                    {% if status_encaminhamento %}
+                        <div id="status_encaminhamento"></div>
+                    {% else %}
+                        <div class="card-header warning-color white-text text-center">
+                            <strong>NÃO HÁ ENCAMINHAMENTOS</strong>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
+    <hr class="w-100 clearfix d-md-none">
 
     <div class="row mb-4">
-        <div class="col">
+        <div class="col-sm-12">
             <div class="card redonda">
-                <div class="card-header redonda grey lighten-2 font-weight-bold">
-                    DETALHAMENTO DE OCORRÊNCIAS
+                <div class="card-header redonda grey lighten-1 font-weight-bold">
+                    Ocorrências detalhadas
                 </div>
                 <div class="card-body">
                     {% if categorias %}
@@ -176,65 +223,13 @@
             </div>
         </div>
     </div>
-
-    <!--ENCAMINHAMENTOS-->
-    <div class="row mb-4">
-        <div class="col-sm-6">
-            <div class="card redonda">
-                <div class="card-header redonda grey lighten-2 font-weight-bold">
-                    ENCAMINHAMENTOS POR CATEGORIA
-                </div>
-                <div class="card-body">
-                    {% if servico_categorias %}
-                        <div id="categoria_encaminhamento"></div>
-                    {% else %}
-                        <div class="card-header warning-color white-text text-center">
-                            <strong>NÃO HÁ ENCAMINHAMENTOS</strong>
-                        </div>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-
-        <hr class="w-100 clearfix d-md-none">
-
-        <div class="col-sm-6">
-            <div class="card redonda">
-                <div class="card-header redonda grey lighten-2 font-weight-bold">
-                    ENCAMINHAMENTOS POR STATUS
-                </div>
-                <div class="card-body">
-                    {% if status_encaminhamento %}
-                        <div class="float-right">
-                            <i data-toggle="tooltip" data-placement="top" title="Responder encaminhamento">
-                                <a href="{% url 'encaminhamento_pendente' %}"
-                                   class="btn-floating btn-sm primary-color-dark"><i class="fa fa-bell"></i>
-                                </a>
-                            </i>
-                        </div>
-                        <div id="status_encaminhamento"></div>
-                    {% else %}
-                        <div class="card-header warning-color white-text text-center">
-                            <strong>NÃO HÁ ENCAMINHAMENTOS</strong>
-                        </div>
-                    {% endif %}
-                </div>
-                <div class="container">
-
-                    {#                    <div class="card mb-4 text-center py-3 red accent-2 white-text">#}
-                    {#                        <i class="fa fa-bell fa-3x mb-3"></i>#}
-                    {#                        <h4 class="h4-responsive">Responer</h4>#}
-                    {#                    </div>#}
-                </div>
-            </div>
-        </div>
-    </div>
+    <hr class="w-100 clearfix d-md-none">
 
     <div class="row">
         <div class="col-sm-12">
             <div class="card redonda">
-                <div class="card-header redonda grey lighten-2 font-weight-bold">
-                    DETALHAMENTO DE ENCAMINHAMENTOS
+                <div class="card-header redonda grey lighten-1 font-weight-bold">
+                    Encaminhamentos detalhados
                 </div>
                 <div class="card-body">
                     {% if servico_categorias %}
