@@ -1823,7 +1823,7 @@ def autorizacao_relatorio_aluno(request):
         return redirect('autorizacao_relatorio', id)
 
 
-@staff_member_required
+@login_required
 def encaminhamento_relatorio_aluno(request):
     if request.method == 'POST':
         id = request.POST['SelectAlunoEncaminhamento']
@@ -1831,7 +1831,7 @@ def encaminhamento_relatorio_aluno(request):
         return redirect('encaminhamento_relatorio', id)
 
 
-@staff_member_required
+@login_required
 def ocorrencia_relatorio_aluno(request):
     if request.method == 'POST':
         id = request.POST['SelectAlunoOcorrencia']
