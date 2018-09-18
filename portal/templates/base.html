@@ -186,7 +186,7 @@
 
                     <ul class="social"></ul>
                     <li>
-                        <a href="{% url 'logout' %}" class="collapsible-header waves-effect arrow-r"><i
+                        <a data-toggle="modal" href="#ModalLogout" class="collapsible-header waves-effect arrow-r"><i
                                 class="fa fa-power-off"></i> Sair</a>
                     </li>
                 </ul>
@@ -235,7 +235,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{% url 'user_account' %}"><i class="fa fa-user"></i> Minha
                                 conta</a>
-                            <a class="dropdown-item" href="{% url 'logout' %}"><i class="fa fa-power-off"></i> Sair</a>
+                            <a class="dropdown-item" data-toggle="modal" href="#ModalLogout"><i class="fa fa-power-off"></i> Sair</a>
                         </div>
                     </li>
                 {% else %}
@@ -265,12 +265,12 @@
                         <div class="dropdown-menu dropdown-menu-right dropdown-success">
                             <a class="dropdown-item" href="#"><i class="fa fa-dashboard"></i> Dashboard</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{% url 'logout' %}"><i class="fa fa-power-off"></i> Sair</a>
+                            <a class="dropdown-item" data-toggle="modal" href="#ModalLogout"><i class="fa fa-power-off"></i> Sair</a>
                         </div>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a href="{% url 'login' %}" class="nav-link"><i class="fa fa-lock"></i> <span
+                        <a data href="{% url 'login' %}" class="nav-link"><i class="fa fa-lock"></i> <span
                                 class="clearfix d-none d-sm-inline-block">Login</span></a>
                     </li>
                 {% endif %}
@@ -449,7 +449,50 @@
 {% block script %}
 
 {% endblock %}
-
+<!--Modal LOGOUT-->
+<div class="modal fade" id="ModalLogout" tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-info" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header text-center">
+                <h4 class="heading lead">Logout</h4>
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body">
+                <form action="{% url 'logout'%}"
+                      method="POST">
+                    {% csrf_token %}
+                    <div class="row text-left">
+                        <div class="col-sm-12">
+                            <p>Tem certeza que deseja sair do sistema?</p>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit"
+                                class="btn btn-rounded btn-info waves-effect">
+                            Confirmar
+                        </button>
+                        <a type="button"
+                           class="btn btn-rounded btn-outline-info waves-effect"
+                           data-dismiss="modal">
+                            Voltar
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+<!--Fim Modal LOGOUT-->
 {% block modal %}
 {% endblock %}
 </body>
