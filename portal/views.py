@@ -12,6 +12,7 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Count, Sum, Avg, Func, F, ExpressionWrapper, DurationField
+from django.db.models.functions import TruncMonth
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template.defaultfilters import upper, lower
@@ -404,6 +405,35 @@ def curso_delete(request, curso_id):
 
 @login_required
 def dashboard(request):
+    # DADOS OCORRÊNCIA POR MÊS
+    datas_ocorrencia = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
+                                                 data__year=date.today().year).annotate(
+        month=TruncMonth('data')).values('month').annotate(c=Count('id')).values_list('month', 'c').order_by()
+
+    mes_ocorrencia = [str(obj[0].strftime('%m/%Y')) for obj in datas_ocorrencia]
+    qtde_ocorrencia = [int(obj[1]) for obj in datas_ocorrencia]
+
+    dados_grafico_datas_ocorrencia = []
+
+    for i in range(0, datas_ocorrencia.count()):
+        dados_grafico_datas_ocorrencia.append([mes_ocorrencia[i], qtde_ocorrencia[i]])
+
+    # DADOS ENCAMINHAMENTO POR MÊS
+    datas_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
+                                                         data__year=date.today().year).annotate(
+        month=TruncMonth('data')).values('month').annotate(c=Count('id')).values_list('month', 'c').order_by()
+
+    mes_encaminhamento = [str(obj[0].strftime('%m/%Y')) for obj in datas_encaminhamento]
+    qtde_encaminhamento = [int(obj[1]) for obj in datas_encaminhamento]
+
+    dados_grafico_datas_encaminhamento = []
+
+    for i in range(0, datas_encaminhamento.count()):
+        dados_grafico_datas_encaminhamento.append([mes_encaminhamento[i], qtde_encaminhamento[i]])
+
+    # for i in datas_ocorrencia:
+    #     dados_grafico_datas_ocorrencia.append([i[0], i[1]])
+
     # DADOS DOS INDICADORES
     indicador_autorizacao = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa)
     indicador_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa)
@@ -605,6 +635,10 @@ def dashboard(request):
     dados_grafico_encaminhamento_status = json.dumps(list(status_encaminhamento))
 
     context = {
+        # GRÁFICO DE DATAS
+        'dados_grafico_datas_ocorrencia': dados_grafico_datas_ocorrencia,
+        'dados_grafico_datas_encaminhamento': dados_grafico_datas_encaminhamento,
+
         # INDICADORES
         'indicador_autorizacao': indicador_autorizacao,
         'indicador_encaminhamento': indicador_encaminhamento,
