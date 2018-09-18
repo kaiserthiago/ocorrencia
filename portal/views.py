@@ -1067,7 +1067,7 @@ def user_change_password(request):
     return render(request, 'portal/user_change_password.html', context)
 
 
-@staff_member_required
+@login_required
 def report_general(request):
     cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa)
     alunos = Aluno.objects.filter(empresa=request.user.userprofile.empresa).order_by('nome')
@@ -1080,7 +1080,7 @@ def report_general(request):
     return render(request, 'portal/report_general.html', context)
 
 
-@staff_member_required
+@login_required
 def report_autorizacao_saida_aluno(request, aluno_id):
     aluno = get_object_or_404(Aluno, id=aluno_id)
     ano = date.today().year
@@ -1101,7 +1101,7 @@ def report_autorizacao_saida_aluno(request, aluno_id):
     return render(request, 'portal/report_autorizacao_saida_aluno.html', context)
 
 
-@staff_member_required
+@login_required
 def report_autorizacao_saida_curso(request):
     id = request.POST['SelectCursoAutorizacaoSaida']
     curso = get_object_or_404(Curso, id=id)
@@ -1129,7 +1129,7 @@ def report_autorizacao_saida_curso(request):
     return render(request, 'portal/report_autorizacao_saida_curso.html', context)
 
 
-@staff_member_required
+@login_required
 def report_autorizacao_saida_turma(request):
     id = request.POST['SelectTurmaAutorizacaoSaida']
     turma = get_object_or_404(Turma, id=id)
@@ -1156,7 +1156,7 @@ def report_autorizacao_saida_turma(request):
     return render(request, 'portal/report_autorizacao_saida_turma.html', context)
 
 
-@staff_member_required
+@login_required
 def report_encaminhamento_aluno(request, aluno_id):
     aluno = get_object_or_404(Aluno, id=aluno_id)
     ano = date.today().year
@@ -1177,7 +1177,7 @@ def report_encaminhamento_aluno(request, aluno_id):
     return render(request, 'portal/report_encaminhamento_aluno.html', context)
 
 
-@staff_member_required
+@login_required
 def report_encaminhamento_curso(request):
     id = request.POST['SelectCursoEncaminhamento']
     curso = get_object_or_404(Curso, id=id)
@@ -1211,7 +1211,7 @@ def report_encaminhamento_curso(request):
     return render(request, 'portal/report_encaminhamento_curso.html', context)
 
 
-@staff_member_required
+@login_required
 def report_encaminhamento_turma(request):
     id = request.POST['SelectTurmaEncaminhamento']
     turma = get_object_or_404(Turma, id=id)
@@ -1244,7 +1244,7 @@ def report_encaminhamento_turma(request):
     return render(request, 'portal/report_encaminhamento_turma.html', context)
 
 
-@staff_member_required
+@login_required
 def report_ocorrencia_aluno(request, aluno_id):
     aluno = get_object_or_404(Aluno, id=aluno_id)
     ano = date.today().year
@@ -1265,7 +1265,7 @@ def report_ocorrencia_aluno(request, aluno_id):
     return render(request, 'portal/report_ocorrencia_aluno.html', context)
 
 
-@staff_member_required
+@login_required
 def report_ocorrencia_curso(request):
     id = request.POST['SelectCursoOcorrencia']
     curso = get_object_or_404(Curso, id=id)
@@ -1298,7 +1298,7 @@ def report_ocorrencia_curso(request):
     return render(request, 'portal/report_ocorrencia_curso.html', context)
 
 
-@staff_member_required
+@login_required
 def report_ocorrencia_turma(request):
     id = request.POST['SelectTurmaOcorrencia']
     turma = get_object_or_404(Turma, id=id)
