@@ -142,7 +142,9 @@
                     <p class="float-left m-0">
                         Encaminhamentos por status
                     </p>
-                    <a href="{% url 'encaminhamento_pendente' %}" class="float-right m-0"> VER MAIS</a>
+                    {% if request.user.is_superuser or perms.portal.change_encaminhamento %}
+                        <a href="{% url 'encaminhamento_pendente' %}" class="float-right m-0"> VER MAIS</a>
+                    {% endif %}
                 </div>
                 <div class="card-body">
                     {% if status_encaminhamento %}
