@@ -17,7 +17,7 @@
     <!-- Your custom styles (optional) -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet" media="all">
     <style>
-       .edge-header {
+        .edge-header {
             display: block;
             height: 200px;
             background-color: #ccc;
@@ -27,38 +27,45 @@
 <body>
 
 <!-- Header -->
-<div class="edge-header success-color-dark z-depth-2">
-    <div class="text-center text-white font-bold">
-{#        <br><br>#}
-{#        <h5 class="mb-0"><strong>Gestão Estudantil</strong></h5>#}
+<div class="edge-header z-depth-2" style="background-color: #243A51">
+     <div class="text-center text-white font-bold">
+        <img src="{% static 'img/Logotipo IFRO - Cacoal-2.png' %}"
+             class="img-fluid flex-center" style="width: 30%; padding: 10px; padding-top: 15px"></a>
     </div>
 </div>
 
 <!-- Main Container -->
 <div class="content">
-<div class="container free-bird">
-    <div class="row">
-        <div class="card card-cascade narrower mb-5 col-md-8 col-lg-7 mx-auto float-none">
-            <div class="view py-3 gradient-card-header primary-color-dark">
-                <h5 class="mb-0"><strong>CADASTRO SOLICITADO COM SUCESSO</strong></h5>
+    <div class="container free-bird">
+        <div class="row">
+            <div class="card card-cascade narrower mb-5 col-md-8 col-lg-7 mx-auto float-none">
+                <div class="view py-3 gradient-card-header success-color-dark">
+                    <h5 class="mb-0"><strong>CADASTRO SOLICITADO COM SUCESSO</strong></h5>
+                </div>
+                <div class="card-body">
+                    <p>Seu cadastro foi solicitado com sucesso, contudo o acesso ao sistema é restrito aos servidores da
+                        Instituição e, por isso, o mesmo deverá ser validado antes que você possa acessar o sistema.</p>
+                    <p>Aguarde o contato, via e-mail, com o retorno de sua solicitação de acesso.</p>
+                </div>
             </div>
-            <div class="card-body">
-                <p>Seu cadastro foi solicitado com sucesso, contudo o acesso ao sistema é restrito aos servidores da
-                    Instituição e, por isso, o mesmo deverá ser validado antes que você possa acessar o sistema.</p>
-                <p>Aguarde o contato, via e-mail, com o retorno de sua solicitação de acesso.</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-auto">
+                <a href="{% url 'home' %}" class="btn ifro-color" data-toggle="tooltip" data-placement="top"
+                   title="Voltar"><i
+                        class="fa fa-arrow-left"></i></a>
             </div>
         </div>
     </div>
 </div>
-</div>
 <!-- /.Main Container -->
 
 <!--Footer-->
-<footer class="footer success-color-dark page-footer center-on-small-only">
+<footer class="footer page-footer center-on-small-only" style="background-color: #243A51">
     <div class="container-fluid">
         <!--Call to action-->
         <div class="social-section text-center">
-            IFRO - Instituto Federal de Educação, Ciência e Tecnologia de Rondônia - <em>Campus</em> Cacoal
+            IFRO - Instituto Federal de Rondônia - <em>Campus</em> Cacoal
             <br>
             Desenvolvimento: Prof. Thiago Kaiser
         </div>
