@@ -159,6 +159,35 @@
         </div>
     </div>
 
+    <!-- AUTORIZAÇÕES DE SAÍDA POR MÊS -->
+    <div class="row mb-4">
+        <div class="col-sm-12">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
+                    <p class="float-left m-0">
+                        Autorizações de saídas
+                    </p>
+                    {% if categorias_ocorrencias %}
+                        <a href="{% url 'autorizacao_relatorio' aluno.id %}" class="float-right m-0"> VER MAIS</a>
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            {% if dados_grafico_datas_saidas %}
+                                <div id="saida_mes"></div>
+                            {% else %}
+                                <div class="card-header warning-color white-text text-center">
+                                    <strong>NÃO HÁ OCORRÊNCIAS</strong>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
 
 {% block script %}
@@ -224,6 +253,7 @@
         }
     </script>
 
+    <!-- STATUS ENCAMINHAMENTO -->
     <script type="text/javascript">
         google.charts.load('current', {'packages': ['corechart']});
         google.charts.setOnLoadCallback(drawChart);
@@ -283,6 +313,41 @@
             };
 
             var chart = new google.visualization.LineChart(document.getElementById('ocorrencia_mes'));
+
+            chart.draw(data, options);
+        }
+    </script>
+
+    <!-- GRÁFICO AUTORIZAÇÕES DE SAÍDA POR MÊS -->
+    <script type="text/javascript">
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Mês');
+            data.addColumn('number', 'Saídas');
+            data.addRows({{ dados_grafico_datas_saidas|safe }});
+
+            var options = {
+                curveType: 'function',
+                legend: 'none',
+                pointSize: 7,
+                lineWidth: 3,
+                chartArea: {
+                    top: 10,
+                    bottom: 20,
+                    {#widht: '100%',#}
+                    {#height: '100%'#}
+                },
+                series: {
+                    0: {
+                        color: '#2f9e41'
+                    }
+                }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('saida_mes'));
 
             chart.draw(data, options);
         }

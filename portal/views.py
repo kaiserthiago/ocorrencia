@@ -445,6 +445,19 @@ def aluno_perfil(request, aluno_id):
     for i in range(0, datas_ocorrencia.count()):
         dados_grafico_datas_ocorrencia.append([mes_ocorrencia[i], qtde_ocorrencia[i]])
 
+    # DADOS AUTORIZAÇÕES DE SAÍDAS POR MÊS
+    datas_saida = Autorizacao.objects.filter(matricula__aluno=aluno,
+                                                 data__year=date.today().year).annotate(
+        month=TruncMonth('data')).values('month').annotate(c=Count('id')).values_list('month', 'c').order_by()
+
+    mes_saida = [str(obj[0].strftime('%m/%Y')) for obj in datas_saida]
+    qtde_saida = [int(obj[1]) for obj in datas_saida]
+
+    dados_grafico_datas_saidas = []
+
+    for i in range(0, datas_saida.count()):
+        dados_grafico_datas_saidas.append([mes_saida[i], qtde_saida[i]])
+
     context = {
         'aluno': aluno,
         'indicador_autorizacao': indicador_autorizacao,
@@ -460,7 +473,8 @@ def aluno_perfil(request, aluno_id):
         'dados_grafico_encaminhamento_categoria': dados_grafico_encaminhamento_categoria,
         'dados_grafico_encaminhamento_status': dados_grafico_encaminhamento_status,
 
-        'dados_grafico_datas_ocorrencia': dados_grafico_datas_ocorrencia
+        'dados_grafico_datas_ocorrencia': dados_grafico_datas_ocorrencia,
+        'dados_grafico_datas_saidas': dados_grafico_datas_saidas
     }
 
     return render(request, 'portal/aluno_perfil.html', context)
