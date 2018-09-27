@@ -55,7 +55,7 @@
                                     <td style="vertical-align: middle; text-align: right">{{ aluno.email_responsavel }}</td>
                                     <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
                                         <i data-toggle="tooltip" data-placement="top" title="Perfil">
-                                            <a href="{% url 'aluno_perfil' aluno.id %}"
+                                            <a href="{% url 'perfil_aluno' aluno.id %}"
                                                class="btn-floating btn-sm ifro-color"><i class="fa fa-address-book"></i>
                                             </a>
                                         </i>
@@ -71,51 +71,6 @@
                                                class="btn-floating btn-sm btn-danger"><i class="fa fa-trash"></i>
                                             </a>
                                         </i>
-
-
-                                        <!--Modal EXCLUIR-->
-                                        <div class="modal fade" id="Excluir{{ aluno.id }}" tabindex="-1" role="dialog"
-                                             aria-labelledby="myModalLabel"
-                                             aria-hidden="true">
-                                            <div class="modal-dialog modal-notify modal-danger" role="document">
-                                                <!--Content-->
-                                                <div class="modal-content">
-                                                    <!--Header-->
-                                                    <div class="modal-header text-center">
-                                                        <h4 class="heading lead">Excluir</h4>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close">
-                                                            <span aria-hidden="true" class="white-text">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <!--Body-->
-                                                    <div class="modal-body">
-                                                        <form action="{% url 'aluno_delete' aluno.id %}"
-                                                              method="POST">
-                                                            {% csrf_token %}
-                                                            <div class="row text-left">
-                                                                <div class="col-sm-12">
-                                                                    <p>Tem certeza que deseja excluir?</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="text-center">
-                                                                <button type="submit"
-                                                                        class="btn btn-rounded btn-danger waves-effect">
-                                                                    Confirmar
-                                                                </button>
-                                                                <a type="button"
-                                                                   class="btn btn-rounded btn-outline-danger waves-effect"
-                                                                   data-dismiss="modal">
-                                                                    Voltar
-                                                                </a>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                <!--/.Content-->
-                                            </div>
-                                        </div>
-                                        <!--Fim Modal EXCLUIR-->
                                     </td>
                                 </tr>
                             {% empty %}
@@ -147,4 +102,52 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block modal %}
+    {% for aluno in alunos %}
+        <!--Modal EXCLUIR-->
+        <div class="modal fade" id="Excluir{{ aluno.id }}" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-danger" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header text-center">
+                        <h4 class="heading lead">Excluir</h4>
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
+                    </div>
+                    <!--Body-->
+                    <div class="modal-body">
+                        <form action="{% url 'aluno_delete' aluno.id %}"
+                              method="POST">
+                            {% csrf_token %}
+                            <div class="row text-left">
+                                <div class="col-sm-12">
+                                    <p>Tem certeza que deseja excluir?</p>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit"
+                                        class="btn btn-rounded btn-danger waves-effect">
+                                    Confirmar
+                                </button>
+                                <a type="button"
+                                   class="btn btn-rounded btn-outline-danger waves-effect"
+                                   data-dismiss="modal">
+                                    Voltar
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!--Fim Modal EXCLUIR-->
+    {% endfor %}
 {% endblock %}

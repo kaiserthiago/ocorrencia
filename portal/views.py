@@ -235,7 +235,7 @@ def aluno_new(request):
     qs = request.GET.get('qs', '')
 
     if request.method == 'POST':
-        form = AlunoForm(request.POST)
+        form = AlunoForm(request.POST, request.FILES)
 
         if form.is_valid():
             aluno = Aluno()
@@ -257,6 +257,7 @@ def aluno_new(request):
                 aluno.email_responsavel = ''
 
             aluno.user = request.user
+            aluno.foto = form.cleaned_data['foto']
             aluno.empresa = request.user.userprofile.empresa
 
             aluno.save()
@@ -264,6 +265,7 @@ def aluno_new(request):
             messages.success(request, 'Aluno registrado.')
 
             return redirect('/aluno?qs=a')
+
 
     form = AlunoForm()
 
@@ -280,7 +282,7 @@ def aluno_edit(request, aluno_id):
     qs = request.GET.get('qs', '')
 
     if request.method == 'POST':
-        form = AlunoForm(request.POST)
+        form = AlunoForm(request.POST, request.FILES)
         if form.is_valid():
             aluno.nome = form.cleaned_data['nome'].upper()
 
@@ -300,6 +302,7 @@ def aluno_edit(request, aluno_id):
                 aluno.email_responsavel = ''
 
             aluno.empresa = request.user.userprofile.empresa
+            aluno.foto = form.cleaned_data['foto']
 
             aluno.save()
 

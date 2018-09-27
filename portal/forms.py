@@ -152,6 +152,9 @@ class AlunoForm(forms.ModelForm):
             'empresa': forms.Select(attrs={
                 'class': 'mdb-select md-form colorful-select dropdown-success',
                 'required': ''
+            }),
+            'foto': forms.FileInput(attrs={
+                'class': 'file-path validate'
             })
         }
 
