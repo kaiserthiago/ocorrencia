@@ -72,9 +72,8 @@
 
                         <div class="form-row">
                             <div class="col">
-                                <div class="md-form">
                                     <select name="SelectFalta" id="SelectFalta"
-                                            class="mdb-select colorful-select dropdown-ins" searchable="Pesquisar..."
+                                            class="mdb-select md-form colorful-select dropdown-success" searchable="Pesquisar..."
                                             required>
                                         <option value="" disabled selected>Selecione a falta</option>
                                         {% for c in categorias %}
@@ -86,7 +85,6 @@
                                         {% endfor %}
                                     </select>
                                     <label for="SelectFalta">Falta</label>
-                                </div>
                             </div>
                         </div>
 
@@ -104,7 +102,7 @@
                                 <div class="float-right">
                                     <button type="submit" class="btn btn-rounded btn-success" data-toggle="tooltip"
                                             data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
-                                    <a href="{% url 'ocorrencia' %}" class="btn btn-rounded danger-color"
+                                    <a href="{% url 'ocorrencia' %}" class="btn btn-rounded btn-danger"
                                        data-toggle="tooltip"
                                        data-placement="top" title="Cancelar"><i
                                             class="fa fa-close"></i></a>

@@ -12,12 +12,13 @@
 {% block content %}
     <div class="row">
         <div class="col-sm-12">
-            <div class="card redonda">                 <div class="card-header redonda grey lighten-1 font-weight-bold">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-1 font-weight-bold">
                     ENCAMINHAMENTOS PENDENTES
                 </div>
                 <div class="card-body">
                     <div class="form-row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                             <div class="md-form">
                                 <input id="myInput" type="text" class="form-control form-control-sm" autofocus/>
                                 <label for="myInput">Pesquisar...</label>
@@ -47,65 +48,17 @@
                                     <td style="vertical-align: middle;">{{ encaminhamento.descricao|truncatechars:30 }}</td>
                                     <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
 
-                                        <i data-toggle="tooltip" data-placement="top" title="Informar providências">
-                                            <a data-toggle="modal" href="#Providencia{{ encaminhamento.id }}"
-                                               class="btn-floating btn-sm info-color"><i class="fa fa-check"></i>
+                                        <i data-toggle="tooltip" data-placement="top" title="Visualizar">
+                                            <a href="{% url 'encaminhamento_show' encaminhamento.id %}"
+                                               class="btn-floating btn-sm btn-info"><i class="fa fa-search"></i>
                                             </a>
                                         </i>
 
-                                        <!--Modal PROVIDÊNCIAS-->
-                                        <div class="modal fade" id="Providencia{{ encaminhamento.id }}" tabindex="-1"
-                                             role="dialog"
-                                             aria-labelledby="myModalLabel"
-                                             aria-hidden="true">
-                                            <div class="modal-dialog modal-lg modal-notify modal-info" role="document">
-                                                <!--Content-->
-                                                <div class="modal-content">
-                                                    <!--Header-->
-                                                    <div class="modal-header text-center">
-                                                        <h4 class="modal-title white-text w-100 font-bold py-2">
-                                                            Providências adotadas</h4>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close">
-                                                            <span aria-hidden="true" class="white-text">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <!--Body-->
-                                                    <div class="modal-body">
-                                                        <form action="{% url 'encaminhamento_providencia' encaminhamento.id %}"
-                                                              method="POST">
-                                                            {% csrf_token %}
-                                                            <div class="row text-left">
-                                                                <div class="col-sm-12">
-                                                                    <div class="md-form">
-                                                                        <textarea type="text" id="id_providencias"
-                                                                                  name="providencias"
-                                                                                  class="md-textarea md-textarea-auto form-control"
-                                                                                  rows="5"
-                                                                                  required></textarea>
-                                                                        <label for="id_providencias">Providências
-                                                                            adotadas</label>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="text-center">
-                                                                <button type="submit"
-                                                                        class="btn btn-rounded btn-info waves-effect">
-                                                                    Confirmar
-                                                                </button>
-                                                                <a type="button"
-                                                                   class="btn btn-rounded btn-outline-info waves-effect"
-                                                                   data-dismiss="modal">
-                                                                    Voltar
-                                                                </a>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                <!--/.Content-->
-                                            </div>
-                                        </div>
-                                        <!--Fim Modal PROVIDÊNCIAS-->
+                                        <i data-toggle="tooltip" data-placement="top" title="Informar providências">
+                                            <a data-toggle="modal" href="#Providencia{{ encaminhamento.id }}"
+                                               class="btn-floating btn-sm btn-success"><i class="fa fa-check"></i>
+                                            </a>
+                                        </i>
                                     </td>
                                 </tr>
                             {% empty %}
@@ -124,6 +77,62 @@
 {% endblock %}
 
 {% block modal %}
+    {% for encaminhamento in encaminhamentos %}
+        <!--Modal PROVIDÊNCIAS-->
+        <div class="modal fade" id="Providencia{{ encaminhamento.id }}" tabindex="-1"
+             role="dialog"
+             aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-notify modal-success" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title white-text w-100 font-bold py-2">
+                            Providências adotadas</h4>
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
+                    </div>
+                    <!--Body-->
+                    <div class="modal-body">
+                        <form action="{% url 'encaminhamento_providencia' encaminhamento.id %}"
+                              method="POST">
+                            {% csrf_token %}
+                            <div class="row text-left">
+                                <div class="col-sm-12">
+                                    <div class="md-form">
+                                                                        <textarea type="text" id="id_providencias"
+                                                                                  name="providencias"
+                                                                                  class="md-textarea md-textarea-auto form-control validate"
+                                                                                  rows="5"
+                                                                                  required></textarea>
+                                        <label for="id_providencias">Providências
+                                            adotadas</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit"
+                                        class="btn btn-rounded btn-success waves-effect">
+                                    Confirmar
+                                </button>
+                                <a type="button"
+                                   class="btn btn-rounded btn-outline-success waves-effect"
+                                   data-dismiss="modal">
+                                    Voltar
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!--Fim Modal PROVIDÊNCIAS-->
+    {% endfor %}
+
     <!--Modal TURMA-->
     <div class="modal fade" id="ModalRegistrarEncaminhamento" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
          aria-hidden="true">
@@ -143,7 +152,7 @@
                         {% csrf_token %}
                         <div class="md-form">
                             <select name="SelectTurma" id="SelectTurma"
-                                    class="mdb-select colorful-select dropdown-primary dropdown-ins"
+                                    class="mdb-select md-form colorful-select dropdown-success"
                                     searchable="Pesquisar..." required>
                                 <option value="" disabled selected>Selecione a turma</option>
                                 {% for c in cursos %}
@@ -161,8 +170,8 @@
                         <br>
                         <!--Footer-->
                         <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-primary-modal waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-secondary-modal"
+                            <button type="submit" class="btn btn-rounded btn-primary waves-effect">Enviar</button>
+                            <a type="button" class="btn btn-rounded btn-outline-primary"
                                data-dismiss="modal">Voltar</a>
                         </div>
                     </form>

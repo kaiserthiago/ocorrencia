@@ -329,7 +329,7 @@
 
 <!-- SCRIPTS -->
 <!-- JQuery -->
-<script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
 <!-- Bootstrap tooltips -->
 <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
 <!-- Bootstrap core JavaScript -->
@@ -357,7 +357,7 @@
         today: 'Hoje',
         clear: 'Limpar',
         close: 'Ok',
-        closeOnSelect: true // Close upon selecting a date,
+        closeOnSelect: false // Close upon selecting a date,
     });
 </script>
 <script>
@@ -456,7 +456,7 @@
      role="dialog"
      aria-labelledby="myModalLabel"
      aria-hidden="true">
-    <div class="modal-dialog modal-notify modal-warning" role="document">
+    <div class="modal-dialog modal-notify modal-danger" role="document">
         <!--Content-->
         <div class="modal-content">
             <!--Header-->
@@ -477,10 +477,10 @@
             <!--Footer-->
             <div class="modal-footer justify-content-center">
                 <div class="text-center">
-                    <button type="submit" class="btn btn-rounded btn-warning waves-effect" form="FormLogout">
+                    <button type="submit" class="btn btn-rounded btn-danger waves-effect" form="FormLogout">
                         Confirmar
                     </button>
-                    <a type="button" class="btn btn-rounded btn-outline-warning waves-effect" data-dismiss="modal">
+                    <a type="button" class="btn btn-rounded btn-outline-danger waves-effect" data-dismiss="modal">
                         Voltar</a>
                 </div>
             </div>

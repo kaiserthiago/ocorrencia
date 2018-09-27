@@ -13,22 +13,22 @@
 {% block content %}
     <div class="row">
         <div class="col-sm-12">
-            <div class="card redonda">                 <div class="card-header redonda grey lighten-1 font-weight-bold">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-1 font-weight-bold">
                     ALUNOS
                 </div>
                 <div class="card-body">
                     <div class="form-row">
-                        <div class="col">
+                        <div class="col-sm-8">
                             <div class="md-form">
                                 <input id="myInput" type="text" class="form-control form-control-sm" autofocus/>
                                 <label for="myInput">Pesquisar...</label>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col-sm-4">
                             <div class="float-right">
                                 <a href="{% url 'aluno_new' %}" class="btn btn-rounded btn-success"><i
-                                        class="fa fa-plus"></i> Novo
-                                    Registro</a>
+                                        class="fa fa-plus"></i> Adicionar</a>
                                 <a href="{% url 'import_aluno' %}" class="btn btn-rounded btn-info"
                                    data-toggle="tooltip"
                                    data-placement="top" title="Importar XLS"><i
@@ -62,13 +62,13 @@
 
                                         <i data-toggle="tooltip" data-placement="top" title="Editar">
                                             <a href="{% url 'aluno_edit' aluno.id %}"
-                                               class="btn-floating btn-sm warning-color"><i
+                                               class="btn-floating btn-sm btn-warning"><i
                                                     class="fa fa-pencil"></i>
                                             </a>
                                         </i>
                                         <i data-toggle="tooltip" data-placement="top" title="Excluir">
                                             <a data-toggle="modal" href="#Excluir{{ aluno.id }}"
-                                               class="btn-floating btn-sm danger-color"><i class="fa fa-trash"></i>
+                                               class="btn-floating btn-sm btn-danger"><i class="fa fa-trash"></i>
                                             </a>
                                         </i>
 

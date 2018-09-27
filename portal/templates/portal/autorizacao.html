@@ -14,22 +14,23 @@
 {% block content %}
     <div class="row">
         <div class="col-sm-12">
-            <div class="card redonda">                 <div class="card-header redonda grey lighten-1 font-weight-bold">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-1 font-weight-bold">
                     AUTORIZAÇÕES DE SAÍDA
                 </div>
                 <div class="card-body">
                     <div class="form-row">
-                        <div class="col">
+                        <div class="col-sm-10">
                             <div class="md-form">
                                 <input id="myInput" type="text" class="form-control form-control-sm" autofocus/>
                                 <label for="myInput">Pesquisar...</label>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col-sm-2">
                             <div class="float-right">
-                                <a data-toggle="modal" href="#ModalRegistrarAutorizacao" class="btn btn-rounded btn-block btn-success"><i
-                                        class="fa fa-plus"></i> Novo
-                                    Registro</a>
+                                <a data-toggle="modal" href="#ModalRegistrarAutorizacao"
+                                   class="btn btn-rounded btn-block btn-success"><i
+                                        class="fa fa-plus"></i> Adicionar</a>
                             </div>
                         </div>
                     </div>
@@ -70,55 +71,10 @@
 
                                         <i data-toggle="tooltip" data-placement="top" title="Excluir">
                                             <a data-toggle="modal" href="#Excluir{{ autorizacao.id }}"
-                                               class="btn-floating btn-sm danger-color"
+                                               class="btn-floating btn-sm btn-danger"
                                                title="Excluir"><i class="fa fa-trash"></i>
                                             </a>
                                         </i>
-
-                                        <!--Modal EXCLUIR-->
-                                        <div class="modal fade" id="Excluir{{ autorizacao.id }}" tabindex="-1"
-                                             role="dialog"
-                                             aria-labelledby="myModalLabel"
-                                             aria-hidden="true">
-                                            <div class="modal-dialog modal-notify modal-danger" role="document">
-                                                <!--Content-->
-                                                <div class="modal-content">
-                                                    <!--Header-->
-                                                    <div class="modal-header text-center">
-                                                        <h4 class="heading lead">Excluir</h4>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close">
-                                                            <span aria-hidden="true" class="white-text">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <!--Body-->
-                                                    <div class="modal-body">
-                                                        <form action="{% url 'autorizacao_delete' autorizacao.id %}"
-                                                              method="POST">
-                                                            {% csrf_token %}
-                                                            <div class="row text-left">
-                                                                <div class="col-sm-12">
-                                                                    <p>Tem certeza que deseja excluir?</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="text-center">
-                                                                <button type="submit"
-                                                                        class="btn btn-rounded btn-danger waves-effect">
-                                                                    Confirmar
-                                                                </button>
-                                                                <a type="button"
-                                                                   class="btn btn-rounded btn-outline-danger waves-effect"
-                                                                   data-dismiss="modal">
-                                                                    Voltar
-                                                                </a>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                <!--/.Content-->
-                                            </div>
-                                        </div>
-                                        <!--Fim Modal EXCLUIR-->
                                     </td>
                                 </tr>
                             {% empty %}
@@ -137,6 +93,53 @@
 {% endblock %}
 
 {% block modal %}
+    {% for autorizacao in autorizacoes %}
+        <!--Modal EXCLUIR-->
+        <div class="modal fade" id="Excluir{{ autorizacao.id }}" tabindex="-1"
+             role="dialog"
+             aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-danger" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header text-center">
+                        <h4 class="heading lead">Excluir</h4>
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
+                    </div>
+                    <!--Body-->
+                    <div class="modal-body">
+                        <form action="{% url 'autorizacao_delete' autorizacao.id %}"
+                              method="POST">
+                            {% csrf_token %}
+                            <div class="row text-left">
+                                <div class="col-sm-12">
+                                    <p>Tem certeza que deseja excluir?</p>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit"
+                                        class="btn btn-rounded btn-danger waves-effect">
+                                    Confirmar
+                                </button>
+                                <a type="button"
+                                   class="btn btn-rounded btn-outline-danger waves-effect"
+                                   data-dismiss="modal">
+                                    Voltar
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!--Fim Modal EXCLUIR-->
+    {% endfor %}
+
     <!--Modal TURMA-->
     <div class="modal fade" id="ModalRegistrarAutorizacao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
          aria-hidden="true">
@@ -154,28 +157,26 @@
                 <div class="modal-body">
                     <form action="{% url 'autorizacao_new' %}" method="POST">
                         {% csrf_token %}
-                        <div class="md-form">
-                            <select name="SelectTurma" id="SelectTurma"
-                                    class="mdb-select colorful-select dropdown-primary dropdown-ins"
-                                    searchable="Pesquisar..." required>
-                                <option value="" disabled selected>Selecione a turma</option>
-                                {% for c in cursos %}
-                                    {% if c.retorna_turmas %}
-                                        <optgroup label="{{ c.descricao }}">
-                                            {% for t in c.retorna_turmas %}
-                                                <option value={{ t.id }}>{{ t.descricao }}</option>
-                                            {% endfor %}
-                                        </optgroup>
-                                    {% endif %}
-                                {% endfor %}
-                            </select>
-                            <label for="SelectTurma">Turma</label>
-                        </div>
+                        <select name="SelectTurma" id="SelectTurma"
+                                class="mdb-select md-form colorful-select dropdown-success"
+                                searchable="Pesquisar..." required>
+                            <option value="" disabled selected>Selecione a turma</option>
+                            {% for c in cursos %}
+                                {% if c.retorna_turmas %}
+                                    <optgroup label="{{ c.descricao }}">
+                                        {% for t in c.retorna_turmas %}
+                                            <option value={{ t.id }}>{{ t.descricao }}</option>
+                                        {% endfor %}
+                                    </optgroup>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        <label for="SelectTurma">Turma</label>
                         <br>
                         <!--Footer-->
                         <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-primary-modal waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-secondary-modal"
+                            <button type="submit" class="btn btn-rounded btn-success waves-effect">Enviar</button>
+                            <a type="button" class="btn btn-rounded btn-outline-success"
                                data-dismiss="modal">Voltar</a>
                         </div>
                     </form>

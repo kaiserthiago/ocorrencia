@@ -69,9 +69,9 @@
                                                     </div>
                                                     <div class="text-center">
                                                         <button type="submit"
-                                                                class="btn btn-rounded btn-primary-modal waves-effect">Confirmar
+                                                                class="btn btn-rounded btn-success waves-effect">Confirmar
                                                         </button>
-                                                        <a type="button" class="btn btn-rounded btn-outline-secondary-modal"
+                                                        <a type="button" class="btn btn-rounded btn-outline-success"
                                                            data-dismiss="modal">
                                                             Voltar
                                                         </a>
@@ -118,7 +118,7 @@
                             <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
                                 <i data-toggle="tooltip" data-placement="top" title="Tornar inativo">
                                     <a data-toggle="modal" href="#InativarRegistro{{ usuario.id }}"
-                                       class="btn-floating btn-sm danger-color"><i class="fa fa-close"></i>
+                                       class="btn-floating btn-sm btn-danger"><i class="fa fa-close"></i>
                                     </a>
                                 </i>
 
@@ -151,9 +151,9 @@
                                                     </div>
                                                     <div class="text-center">
                                                         <button type="submit"
-                                                                class="btn btn-rounded btn-primary-modal waves-effect">Confirmar
+                                                                class="btn btn-rounded btn-danger waves-effect">Confirmar
                                                         </button>
-                                                        <a type="button" class="btn btn-rounded btn-outline-secondary-modal"
+                                                        <a type="button" class="btn btn-rounded btn-outline-danger"
                                                            data-dismiss="modal">
                                                             Voltar
                                                         </a>
@@ -180,31 +180,4 @@
         </div>
     </div>
     <!--/.Panel USUÁRIOS ATIVOS-->
-{% endblock %}
-
-{% block script %}
-    <script>
-        $('.datepicker').pickadate({
-            format: "dd/mm/yyyy",
-            formatSubmit: "yyyy-mm-dd",
-            hiddenPrefix: 'prefix__',
-            hiddenSuffix: '__suffix',
-            mode: 'landscape',
-            monthsFull: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
-            monthsShort: ["Jan", "Fev", "Mar", "Abr", "Maio", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
-            weekdaysFull: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado",],
-            weekdaysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb",],
-            weekdaysLetter: ["D", "S", "T", "Q", "Q", "S", "S"],
-            labelMonthNext: 'Próximo mês',
-            labelMonthPrev: 'Mês anterior',
-            labelMonthSelect: 'Selecione um mês',
-            labelYearSelect: 'Selecione um ano',
-            selectMonths: false, // Creates a dropdown to control month
-            selectYears: false, // Creates a dropdown of 15 years to control year,
-            today: false,
-            clear: false,
-            close: false,
-            closeOnSelect: true // Close upon selecting a date,
-        });
-    </script>
 {% endblock %}

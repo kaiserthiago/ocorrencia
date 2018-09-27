@@ -29,7 +29,7 @@ class UserProfileForm(forms.ModelForm):
         fields = ('empresa',)
 
         widgets = {
-            'empresa': forms.Select(attrs={'class': 'mdb-select colorful-select dropdown-primary'}),
+            'empresa': forms.Select(attrs={'class': 'mdb-select md-form colorful-select dropdown-success'}),
         }
 
         labels = {
@@ -48,7 +48,8 @@ class OcorrenciaForm(forms.ModelForm):
                 'placeholder': 'Clique para selecionar'
             }),
             'descricao': forms.Textarea(attrs={
-                'class': 'md-textarea validate'
+                'class': 'form-control md-textarea validate',
+                'rows': '3'
             })
         }
 
@@ -68,13 +69,16 @@ class EncaminhamentoForm(forms.ModelForm):
                 'placeholder': 'Clique para selecionar'
             }),
             'descricao': forms.Textarea(attrs={
-                'class': 'md-textarea validate'
+                'class': 'form-control md-textarea validate',
+                'rows': '3'
             }),
             'providencias': forms.Textarea(attrs={
-                'class': 'md-textarea validate'
+                'class': 'form-control md-textarea validate',
+                'rows': '3'
             }),
             'outras_informacoes': forms.Textarea(attrs={
-                'class': 'md-textarea validate'
+                'class': 'form-control md-textarea validate',
+                'rows': '3'
             }),
         }
 
@@ -146,7 +150,7 @@ class AlunoForm(forms.ModelForm):
                 'class': 'form-control validate',
             }),
             'empresa': forms.Select(attrs={
-                'class': 'mdb-select colorful-select dropdown-primary',
+                'class': 'mdb-select md-form colorful-select dropdown-success',
                 'required': ''
             })
         }
@@ -206,7 +210,8 @@ class AutorizacaoForm(forms.ModelForm):
                 'placeholder': 'Clique para selecionar'
             }),
             'descricao': forms.Textarea(attrs={
-                'class': 'md-textarea validate'
+                'class': 'form-control md-textarea validate',
+                'rows': '3'
             }),
         }
 

@@ -20,20 +20,20 @@
                 <div class="card-body">
                     <div class="form-row">
                         <div class="col">
-                            <a data-toggle="modal" href="#ModalRegistrarAutorizacaoSaidaAluno"
-                               class="btn btn-rounded btn-warning btn-block">
+                            <button data-toggle="modal" href="#ModalRegistrarAutorizacaoSaidaAluno"
+                                    class="btn btn-rounded btn-warning btn-block mb-2">
                                 <i class="fa fa-user"></i> Aluno
-                            </a>
+                            </button>
 
-                            <a data-toggle="modal" href="#ModalRegistrarAutorizacaoSaidaCurso"
-                               class="btn btn-rounded btn-warning btn-block">
+                            <button data-toggle="modal" href="#ModalRegistrarAutorizacaoSaidaCurso"
+                                    class="btn btn-rounded btn-warning btn-block mb-2">
                                 <i class="fa fa-industry"></i> Curso
-                            </a>
+                            </button>
 
-                            <a data-toggle="modal" href="#ModalRegistrarAutorizacaoSaidaTurma"
-                               class="btn btn-rounded btn-warning btn-block">
+                            <button data-toggle="modal" href="#ModalRegistrarAutorizacaoSaidaTurma"
+                                    class="btn btn-rounded btn-warning btn-block">
                                 <i class="fa fa-graduation-cap"></i> Turma
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -49,21 +49,21 @@
                 </div>
                 <div class="card-body">
                     <div class="form-row">
-                        <div class="col">
-                            <a data-toggle="modal" href="#ModalRegistrarEncaminhamentoAluno"
-                               class="btn btn-rounded primary-color-dark btn-block">
+                        <div class="col-sm-12">
+                            <button data-toggle="modal" href="#ModalRegistrarEncaminhamentoAluno"
+                                    class="btn btn-rounded primary-color-dark btn-block mb-2">
                                 <i class="fa fa-user"></i> Aluno
-                            </a>
+                            </button>
 
-                            <a data-toggle="modal" href="#ModalRegistrarEncaminhamentoCurso"
-                               class="btn btn-rounded primary-color-dark btn-block">
+                            <button data-toggle="modal" href="#ModalRegistrarEncaminhamentoCurso"
+                                    class="btn btn-rounded primary-color-dark btn-block mb-2">
                                 <i class="fa fa-industry"></i> Curso
-                            </a>
+                            </button>
 
-                            <a data-toggle="modal" href="#ModalRegistrarEncaminhamentoTurma"
-                               class="btn btn-rounded primary-color-dark btn-block">
+                            <button data-toggle="modal" href="#ModalRegistrarEncaminhamentoTurma"
+                                    class="btn btn-rounded primary-color-dark btn-block">
                                 <i class="fa fa-graduation-cap"></i> Turma
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -80,20 +80,20 @@
                 <div class="card-body">
                     <div class="form-row">
                         <div class="col">
-                            <a data-toggle="modal" href="#ModalRegistrarOcorrenciaAluno"
-                               class="btn btn-rounded ifro-color btn-block">
+                            <button data-toggle="modal" href="#ModalRegistrarOcorrenciaAluno"
+                                    class="btn btn-rounded ifro-color btn-block mb-2">
                                 <i class="fa fa-user"></i> Aluno
-                            </a>
+                            </button>
 
-                            <a data-toggle="modal" href="#ModalRegistrarOcorrenciaCurso"
-                               class="btn btn-rounded ifro-color btn-block">
+                            <button data-toggle="modal" href="#ModalRegistrarOcorrenciaCurso"
+                                    class="btn btn-rounded ifro-color btn-block mb-2">
                                 <i class="fa fa-industry"></i> Curso
-                            </a>
+                            </button>
 
-                            <a data-toggle="modal" href="#ModalRegistrarOcorrenciaTurma"
-                               class="btn btn-rounded ifro-color btn-block">
+                            <button data-toggle="modal" href="#ModalRegistrarOcorrenciaTurma"
+                                    class="btn btn-rounded ifro-color btn-block">
                                 <i class="fa fa-graduation-cap"></i> Turma
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -121,22 +121,20 @@
                 <div class="modal-body">
                     <form action="{% url 'ocorrencia_relatorio_aluno' %}" method="POST">
                         {% csrf_token %}
-                        <div class="md-form">
-                            <select name="SelectAlunoOcorrencia" id="SelectAlunoOcorrencia"
-                                    class="mdb-select colorful-select dropdown-primary dropdown-ins"
-                                    searchable="Pesquisar..." required>
-                                <option value="" disabled selected>Selecione o Aluno</option>
-                                {% for a in alunos %}
-                                    <option value={{ a.id }}>{{ a.nome }}</option>
-                                {% endfor %}
-                            </select>
-                            <label for="SelectAlunoOcorrencia">Lista de alunos</label>
-                        </div>
+                        <select name="SelectAlunoOcorrencia" id="SelectAlunoOcorrencia"
+                                class="mdb-select md-form colorful-select dropdown-success"
+                                searchable="Pesquisar..." required>
+                            <option value="" disabled selected>Selecione o Aluno</option>
+                            {% for a in alunos %}
+                                <option value={{ a.id }}>{{ a.nome }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="SelectAlunoOcorrencia">Lista de alunos</label>
                         <br>
                         <!--Footer-->
                         <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-primary-modal waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-secondary-modal"
+                            <button type="submit" class="btn btn-rounded btn-success waves-effect">Enviar</button>
+                            <a type="button" class="btn btn-rounded btn-outline-success"
                                data-dismiss="modal">Voltar</a>
                         </div>
                     </form>
@@ -164,22 +162,20 @@
                 <div class="modal-body">
                     <form action="{% url 'report_ocorrencia_curso' %}" method="POST">
                         {% csrf_token %}
-                        <div class="md-form">
-                            <select name="SelectCursoOcorrencia" id="SelectCursoOcorrencia"
-                                    class="mdb-select colorful-select dropdown-primary dropdown-ins"
-                                    searchable="Pesquisar..." required>
-                                <option value="" disabled selected>Selecione o curso</option>
-                                {% for c in cursos %}
-                                    <option value={{ c.id }}>{{ c.descricao }}</option>
-                                {% endfor %}
-                            </select>
-                            <label for="SelectCursoOcorrencia">Curso</label>
-                        </div>
+                        <select name="SelectCursoOcorrencia" id="SelectCursoOcorrencia"
+                                class="mdb-select md-form colorful-select dropdown-success"
+                                searchable="Pesquisar..." required>
+                            <option value="" disabled selected>Selecione o curso</option>
+                            {% for c in cursos %}
+                                <option value={{ c.id }}>{{ c.descricao }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="SelectCursoOcorrencia">Curso</label>
                         <br>
                         <!--Footer-->
                         <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-primary-modal waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-secondary-modal"
+                            <button type="submit" class="btn btn-rounded btn-success waves-effect">Enviar</button>
+                            <a type="button" class="btn btn-rounded btn-outline-success"
                                data-dismiss="modal">Voltar</a>
                         </div>
                     </form>
@@ -207,28 +203,26 @@
                 <div class="modal-body">
                     <form action="{% url 'report_ocorrencia_turma' %}" method="POST">
                         {% csrf_token %}
-                        <div class="md-form">
-                            <select name="SelectTurmaOcorrencia" id="SelectTurmaOcorrencia"
-                                    class="mdb-select colorful-select dropdown-primary dropdown-ins"
-                                    searchable="Pesquisar..." required>
-                                <option value="" disabled selected>Selecione a turma</option>
-                                {% for c in cursos %}
-                                    {% if c.retorna_turmas %}
-                                        <optgroup label="{{ c.descricao }}">
-                                            {% for t in c.retorna_turmas %}
-                                                <option value={{ t.id }}>{{ t.descricao }}</option>
-                                            {% endfor %}
-                                        </optgroup>
-                                    {% endif %}
-                                {% endfor %}
-                            </select>
-                            <label for="SelectTurmaOcorrencia">Turma</label>
-                        </div>
+                        <select name="SelectTurmaOcorrencia" id="SelectTurmaOcorrencia"
+                                class="mdb-select md-form colorful-select dropdown-success"
+                                searchable="Pesquisar..." required>
+                            <option value="" disabled selected>Selecione a turma</option>
+                            {% for c in cursos %}
+                                {% if c.retorna_turmas %}
+                                    <optgroup label="{{ c.descricao }}">
+                                        {% for t in c.retorna_turmas %}
+                                            <option value={{ t.id }}>{{ t.descricao }}</option>
+                                        {% endfor %}
+                                    </optgroup>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        <label for="SelectTurmaOcorrencia">Turma</label>
                         <br>
                         <!--Footer-->
                         <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-primary-modal waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-secondary-modal"
+                            <button type="submit" class="btn btn-rounded btn-success waves-effect">Enviar</button>
+                            <a type="button" class="btn btn-rounded btn-outline-success "
                                data-dismiss="modal">Voltar</a>
                         </div>
                     </form>
@@ -256,22 +250,20 @@
                 <div class="modal-body">
                     <form action="{% url 'encaminhamento_relatorio_aluno' %}" method="POST">
                         {% csrf_token %}
-                        <div class="md-form">
-                            <select name="SelectAlunoEncaminhamento" id="SelectAlunoEncaminhamento"
-                                    class="mdb-select colorful-select dropdown-primary dropdown-ins"
-                                    searchable="Pesquisar..." required>
-                                <option value="" disabled selected>Selecione o aluno</option>
-                                {% for a in alunos %}
-                                    <option value={{ a.id }}>{{ a.nome }}</option>
-                                {% endfor %}
-                            </select>
-                            <label for="SelectAlunoEncaminhamento">Lista de alunos</label>
-                        </div>
+                        <select name="SelectAlunoEncaminhamento" id="SelectAlunoEncaminhamento"
+                                class="mdb-select md-form colorful-select dropdown-success"
+                                searchable="Pesquisar..." required>
+                            <option value="" disabled selected>Selecione o aluno</option>
+                            {% for a in alunos %}
+                                <option value={{ a.id }}>{{ a.nome }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="SelectAlunoEncaminhamento">Lista de alunos</label>
                         <br>
                         <!--Footer-->
                         <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-primary-modal waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-secondary-modal"
+                            <button type="submit" class="btn btn-rounded btn-primary waves-effect">Enviar</button>
+                            <a type="button" class="btn btn-rounded btn-outline-primary"
                                data-dismiss="modal">Voltar</a>
                         </div>
                     </form>
@@ -298,22 +290,20 @@
                 <div class="modal-body">
                     <form action="{% url 'report_encaminhamento_curso' %}" method="POST">
                         {% csrf_token %}
-                        <div class="md-form">
-                            <select name="SelectCursoEncaminhamento" id="SelectCursoEncaminhamento"
-                                    class="mdb-select colorful-select dropdown-primary dropdown-ins"
-                                    searchable="Pesquisar..." required>
-                                <option value="" disabled selected>Selecione o curso</option>
-                                {% for c in cursos %}
-                                    <option value={{ c.id }}>{{ c.descricao }}</option>
-                                {% endfor %}
-                            </select>
-                            <label for="SelectCursoEncaminhamento">Curso</label>
-                        </div>
+                        <select name="SelectCursoEncaminhamento" id="SelectCursoEncaminhamento"
+                                class="mdb-select md-form colorful-select dropdown-success"
+                                searchable="Pesquisar..." required>
+                            <option value="" disabled selected>Selecione o curso</option>
+                            {% for c in cursos %}
+                                <option value={{ c.id }}>{{ c.descricao }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="SelectCursoEncaminhamento">Curso</label>
                         <br>
                         <!--Footer-->
                         <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-primary-modal waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-secondary-modal"
+                            <button type="submit" class="btn btn-rounded btn-primary waves-effect">Enviar</button>
+                            <a type="button" class="btn btn-rounded btn-outline-primary"
                                data-dismiss="modal">Voltar</a>
                         </div>
                     </form>
@@ -340,28 +330,26 @@
                 <div class="modal-body">
                     <form action="{% url 'report_encaminhamento_turma' %}" method="POST">
                         {% csrf_token %}
-                        <div class="md-form">
-                            <select name="SelectTurmaEncaminhamento" id="SelectTurmaEncaminhamento"
-                                    class="mdb-select colorful-select dropdown-primary dropdown-ins"
-                                    searchable="Pesquisar..." required>
-                                <option value="" disabled selected>Selecione a turma</option>
-                                {% for c in cursos %}
-                                    {% if c.retorna_turmas %}
-                                        <optgroup label="{{ c.descricao }}">
-                                            {% for t in c.retorna_turmas %}
-                                                <option value={{ t.id }}>{{ t.descricao }}</option>
-                                            {% endfor %}
-                                        </optgroup>
-                                    {% endif %}
-                                {% endfor %}
-                            </select>
-                            <label for="SelectTurmaEncaminhamento">Turma</label>
-                        </div>
+                        <select name="SelectTurmaEncaminhamento" id="SelectTurmaEncaminhamento"
+                                class="mdb-select md-form colorful-select dropdown-success"
+                                searchable="Pesquisar..." required>
+                            <option value="" disabled selected>Selecione a turma</option>
+                            {% for c in cursos %}
+                                {% if c.retorna_turmas %}
+                                    <optgroup label="{{ c.descricao }}">
+                                        {% for t in c.retorna_turmas %}
+                                            <option value={{ t.id }}>{{ t.descricao }}</option>
+                                        {% endfor %}
+                                    </optgroup>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        <label for="SelectTurmaEncaminhamento">Turma</label>
                         <br>
                         <!--Footer-->
                         <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-primary-modal waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-secondary-modal"
+                            <button type="submit" class="btn btn-rounded btn-primary waves-effect">Enviar</button>
+                            <a type="button" class="btn btn-rounded btn-outline-primary"
                                data-dismiss="modal">Voltar</a>
                         </div>
                     </form>
@@ -389,22 +377,20 @@
                 <div class="modal-body">
                     <form action="{% url 'autorizacao_relatorio_aluno' %}" method="POST">
                         {% csrf_token %}
-                        <div class="md-form">
-                            <select name="SelectAlunoAutorizacao" id="SelectAlunoAutorizacao"
-                                    class="mdb-select colorful-select dropdown-primary dropdown-ins"
-                                    searchable="Pesquisar..." required>
-                                <option value="" disabled selected>Selecione o aluno</option>
-                                {% for a in alunos %}
-                                    <option value={{ a.id }}>{{ a.nome }}</option>
-                                {% endfor %}
-                            </select>
-                            <label for="SelectAlunoAutorizacao">Lista de alunos</label>
-                        </div>
+                        <select name="SelectAlunoAutorizacao" id="SelectAlunoAutorizacao"
+                                class="mdb-select md-form colorful-select dropdown-success"
+                                searchable="Pesquisar..." required>
+                            <option value="" disabled selected>Selecione o aluno</option>
+                            {% for a in alunos %}
+                                <option value={{ a.id }}>{{ a.nome }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="SelectAlunoAutorizacao">Lista de alunos</label>
                         <br>
                         <!--Footer-->
                         <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-primary-modal waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-secondary-modal"
+                            <button type="submit" class="btn btn-rounded btn-warning waves-effect">Enviar</button>
+                            <a type="button" class="btn btn-rounded btn-outline-warning"
                                data-dismiss="modal">Voltar</a>
                         </div>
                     </form>
@@ -432,22 +418,20 @@
                 <div class="modal-body">
                     <form action="{% url 'report_autorizacao_saida_curso' %}" method="POST">
                         {% csrf_token %}
-                        <div class="md-form">
-                            <select name="SelectCursoAutorizacaoSaida" id="SelectCursoAutorizacaoSaida"
-                                    class="mdb-select colorful-select dropdown-primary dropdown-ins"
-                                    searchable="Pesquisar..." required>
-                                <option value="" disabled selected>Selecione o curso</option>
-                                {% for c in cursos %}
-                                    <option value={{ c.id }}>{{ c.descricao }}</option>
-                                {% endfor %}
-                            </select>
-                            <label for="SelectCursoAutorizacaoSaida">Curso</label>
-                        </div>
+                        <select name="SelectCursoAutorizacaoSaida" id="SelectCursoAutorizacaoSaida"
+                                class="mdb-select md-form colorful-select dropdown-success"
+                                searchable="Pesquisar..." required>
+                            <option value="" disabled selected>Selecione o curso</option>
+                            {% for c in cursos %}
+                                <option value={{ c.id }}>{{ c.descricao }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="SelectCursoAutorizacaoSaida">Curso</label>
                         <br>
                         <!--Footer-->
                         <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-primary-modal waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-secondary-modal"
+                            <button type="submit" class="btn btn-rounded btn-warning waves-effect">Enviar</button>
+                            <a type="button" class="btn btn-rounded btn-outline-warning"
                                data-dismiss="modal">Voltar</a>
                         </div>
                     </form>
@@ -475,28 +459,26 @@
                 <div class="modal-body">
                     <form action="{% url 'report_autorizacao_saida_turma' %}" method="POST">
                         {% csrf_token %}
-                        <div class="md-form">
-                            <select name="SelectTurmaAutorizacaoSaida" id="SelectTurmaAutorizacaoSaida"
-                                    class="mdb-select colorful-select dropdown-primary dropdown-ins"
-                                    searchable="Pesquisar..." required>
-                                <option value="" disabled selected>Selecione a turma</option>
-                                {% for c in cursos %}
-                                    {% if c.retorna_turmas %}
-                                        <optgroup label="{{ c.descricao }}">
-                                            {% for t in c.retorna_turmas %}
-                                                <option value={{ t.id }}>{{ t.descricao }}</option>
-                                            {% endfor %}
-                                        </optgroup>
-                                    {% endif %}
-                                {% endfor %}
-                            </select>
-                            <label for="SelectTurmaAutorizacaoSaida">Turma</label>
-                        </div>
+                        <select name="SelectTurmaAutorizacaoSaida" id="SelectTurmaAutorizacaoSaida"
+                                class="mdb-select md-form colorful-select dropdown-success"
+                                searchable="Pesquisar..." required>
+                            <option value="" disabled selected>Selecione a turma</option>
+                            {% for c in cursos %}
+                                {% if c.retorna_turmas %}
+                                    <optgroup label="{{ c.descricao }}">
+                                        {% for t in c.retorna_turmas %}
+                                            <option value={{ t.id }}>{{ t.descricao }}</option>
+                                        {% endfor %}
+                                    </optgroup>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        <label for="SelectTurmaAutorizacaoSaida">Turma</label>
                         <br>
                         <!--Footer-->
                         <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-primary-modal waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-secondary-modal"
+                            <button type="submit" class="btn btn-rounded btn-warning waves-effect">Enviar</button>
+                            <a type="button" class="btn btn-rounded btn-outline-warning"
                                data-dismiss="modal">Voltar</a>
                         </div>
                     </form>

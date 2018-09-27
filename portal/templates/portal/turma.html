@@ -14,21 +14,21 @@
 {% block content %}
     <div class="row">
         <div class="col-sm-12">
-            <div class="card redonda">                 <div class="card-header redonda grey lighten-1 font-weight-bold">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-1 font-weight-bold">
                     TURMAS
                 </div>
                 <div class="card-body">
                     <div class="form-row">
-                        <div class="col">
+                        <div class="col-sm-10">
                             <div class="md-form">
                                 <input id="myInput" type="text" class="form-control form-control-sm" autofocus/>
                                 <label for="myInput">Pesquisar...</label>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col-sm-2">
                             <div class="float-right">
-                                <a href="{% url 'turma_new' %}" class="btn btn-rounded btn-block btn-success"><i class="fa fa-plus"></i> Novo
-                                    Registro</a>
+                                <a href="{% url 'turma_new' %}" class="btn btn-rounded btn-block btn-success"><i class="fa fa-plus"></i> Adicionar</a>
                             </div>
                         </div>
                     </div>
@@ -49,14 +49,14 @@
                                     <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
                                         <i data-toggle="tooltip" data-placement="top" title="Editar">
                                             <a href="{% url 'turma_edit' turma.id %}"
-                                               class="btn-floating btn-sm warning-color"><i
+                                               class="btn-floating btn-sm btn-warning"><i
                                                     class="fa fa-pencil"></i>
                                             </a>
                                         </i>
 
                                         <i data-toggle="tooltip" data-placement="top" title="Excluir">
                                             <a data-toggle="modal" href="#Excluir{{ turma.id }}"
-                                               class="btn-floating btn-sm danger-color"
+                                               class="btn-floating btn-sm btn-danger"
                                                title="Excluir"><i class="fa fa-trash"></i>
                                             </a>
                                         </i>

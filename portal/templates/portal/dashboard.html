@@ -212,7 +212,7 @@
                                 <form action="" method="POST">
                                     {% csrf_token %}
                                     <select name="CourseOcorrencia" id="CourseOcorrencia"
-                                            class="mdb-select colorful-select dropdown-success"
+                                            class="mdb-select md-form colorful-select dropdown-success"
                                             onchange="this.form.submit();">
                                         <option value="" disabled
                                                 {% if not distribuicao %}selected{% endif %}>Selecione...
@@ -230,7 +230,7 @@
 
                             <div class="col-sm-6">
                                 <select id="SelectYearOcorrencia" name="SelectYearOcorrencia"
-                                        class="mdb-select colorful-select dropdown-success">
+                                        class="mdb-select md-form colorful-select dropdown-success">
                                     <option value="2018" selected>2018</option>
                                 </select>
                                 <label for="SelectYearOcorrencia">Ano letivo</label>
@@ -266,7 +266,7 @@
     </div>
     <hr class="w-100 clearfix d-md-none">
 
-    <div class="row">
+    <div class="row mb-4">
         <div class="col-sm-12">
             <div class="card redonda">
                 <div class="card-header redonda grey lighten-1 font-weight-bold">
@@ -279,7 +279,7 @@
                                 <form action="" method="POST">
                                     {% csrf_token %}
                                     <select name="CourseEncaminhamento" id="CourseEncaminhamento"
-                                            class="mdb-select colorful-select dropdown-primary"
+                                            class="mdb-select md-form colorful-select dropdown-success"
                                             onchange="this.form.submit();">
                                         <option value="" disabled
                                                 {% if not distribuicao_encaminhamento %}selected{% endif %}>Selecione...
@@ -297,7 +297,7 @@
 
                             <div class="col">
                                 <select id="SelectYearEncaminhamento" name="SelectYearEncaminhamento"
-                                        class="mdb-select colorful-select dropdown-info">
+                                        class="mdb-select md-form colorful-select dropdown-success">
                                     <option value="2018" selected>2018</option>
                                 </select>
                                 <label for="SelectYearEncaminhamento">Ano letivo</label>

@@ -13,14 +13,11 @@
     {#          media="all">#}
     <link href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
     <!-- Bootstrap core CSS -->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'css/bootstrap.min.css' %}?v=4" rel="stylesheet" media="all">
     <!-- Material Design Bootstrap -->
-    <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'css/mdb.min.css' %}?v=4.5.11" rel="stylesheet" media="all">
     <!-- Your custom styles (optional) -->
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" media="all">
-
-    <!-- Forçar atualizar -->
-    <link href="main.css?version=12"/>
+    <link href="{% static 'css/style.css' %}?v=1.1" rel="stylesheet" media="all">
 
     <style>
         .edge-header {
@@ -46,12 +43,14 @@
         <div class="row">
             <div class="mb-4 col-sm-7 mx-auto float-none">
                 <!-- Nav tabs -->
-                <ul class="nav nav-tabs nav-justified success-color-dark">
+                <ul class="nav nav-tabs md-tabs nav-justified success-color-dark">
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#panelentrar" role="tab">ENTRAR</a>
+                        <a class="nav-link active" data-toggle="tab" href="#panelentrar"
+                           role="tab"><strong>ENTRAR</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#panelcadastrar" role="tab">CADASTRAR</a>
+                        <a class="nav-link" data-toggle="tab" href="#panelcadastrar"
+                           role="tab"><strong>CADASTRAR</strong></a>
                     </li>
                 </ul>
                 <!-- Tab panels -->
@@ -64,7 +63,7 @@
                             {% csrf_token %}
                             <input type="hidden" name="next" value="{{ next }}"/>
                             <div class="form-row">
-                                <div class="col">
+                                <div class="col-sm-12">
                                     <div class="md-form">
                                         <i class="fa fa-user prefix"></i>
                                         <input class="form-control" type="text" name="username" maxlength="254" required
@@ -75,7 +74,7 @@
                             </div>
 
                             <div class="form-row">
-                                <div class="col">
+                                <div class="col-sm-12">
                                     <div class="md-form">
                                         <i class="fa fa-lock prefix"></i>
                                         <input class="form-control" type="password" name="password" required
@@ -91,7 +90,7 @@
                             </div>
 
                             <div class="form-row">
-                                <div class="col">
+                                <div class="col-sm-12">
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-rounded btn-lg success-color-dark">ENTRAR
                                         </button>
@@ -108,7 +107,7 @@
                         <form method="post" action="{% url 'login_register' %}">
                             {% csrf_token %}
                             <div class="form-row">
-                                <div class="col">
+                                <div class="col-sm-12">
                                     <div class="md-form">
                                         <i class="fa fa-user prefix"></i>
                                         <input class="form-control" type="text" name="first_name" autofocus
@@ -120,7 +119,7 @@
                             </div>
 
                             <div class="form-row">
-                                <div class="col">
+                                <div class="col-sm-6">
                                     <div class="md-form">
                                         <i class="fa fa-envelope prefix"></i>
                                         <input class="form-control" type="email" name="email" maxlength="254" required
@@ -128,7 +127,7 @@
                                         <label for="id_email">E-mail</label>
                                     </div>
                                 </div>
-                                <div class="col">
+                                <div class="col-sm-6">
                                     <div class="md-form">
                                         <i class="fa fa-key prefix"></i>
                                         <input class="form-control" type="text" name="username" maxlength="254" required
@@ -139,7 +138,7 @@
                             </div>
 
                             <div class="form-row">
-                                <div class="col">
+                                <div class="col-sm-6">
                                     <div class="md-form">
                                         <i class="fa fa-lock prefix"></i>
                                         <input class="form-control" type="password" name="password" maxlength="254"
@@ -148,7 +147,7 @@
                                         <label for="id_password">Senha</label>
                                     </div>
                                 </div>
-                                <div class="col">
+                                <div class="col-sm-6">
                                     <div class="md-form">
                                         <i class="fa fa-lock prefix"></i>
                                         <input class="form-control" type="password" name="password2" maxlength="254"
@@ -160,24 +159,22 @@
                             </div>
 
                             <div class="form-row">
-                                <div class="col">
-                                    <div class="md-form">
-                                        <select name="SelectUnidade" id="SelectUnidade"
-                                                class="mdb-select colorful-select dropdown-primary"
-                                                required>
-                                            <option value="" disabled selected>Selecione a unidade
-                                            </option>
-                                            {% for u in unidades %}
-                                                <option value={{ u.id }}>{{ u.nome_fantasia }}</option>
-                                            {% endfor %}
-                                        </select>
-                                        <label for="SelectUnidade">Unidade</label>
-                                    </div>
+                                <div class="col-sm-12">
+                                    <select name="SelectUnidade" id="SelectUnidade"
+                                            class="mdb-select md-form colorful-select dropdown-success"
+                                            required>
+                                        <option value="" disabled selected>Selecione a unidade
+                                        </option>
+                                        {% for u in unidades %}
+                                            <option value={{ u.id }}>{{ u.nome_fantasia }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <label for="SelectUnidade">Unidade</label>
                                 </div>
                             </div>
 
                             <div class="form-row">
-                                <div class="col">
+                                <div class="col-sm-12">
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-rounded btn-lg success-color-dark">
                                             CADASTRAR
@@ -219,7 +216,7 @@
 
 <!-- SCRIPTS -->
 <!-- JQuery -->
-<script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
 <!-- Bootstrap tooltips -->
 <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
 <!-- Bootstrap core JavaScript -->
