@@ -7,14 +7,13 @@
 {% block breadcrumb_base %}
     <ol class="breadcrumb blue-grey lighten-4">
         <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
-        <li class="breadcrumb-item"><a href="{% url 'aluno' %}">Alunos</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'aluno' %}}?qs=a">Alunos</a></li>
         <li class="breadcrumb-item active">Novo registro</li>
     </ol>
 {% endblock %}
 
 {% block content %}
-    <div class="card">
-        <div class="card-header gradient white-text">
+    <div class="card redonda">                 <div class="card-header redonda grey lighten-1 font-weight-bold">
             NOVO ALUNO
         </div>
         <div class="card-body">

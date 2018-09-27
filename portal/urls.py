@@ -41,6 +41,7 @@ urlpatterns = [
     url('^autorizacao/new$', views.autorizacao_new, name='autorizacao_new'),
     url('^autorizacao$', views.autorizacao, name='autorizacao'),
 
+    url('^aluno/perfil/(?P<aluno_id>\d+)$', views.aluno_perfil, name='aluno_perfil'),
     url('^aluno/delete/(?P<aluno_id>\d+)$', views.aluno_delete, name='aluno_delete'),
     url('^aluno/edit/(?P<aluno_id>\d+)$', views.aluno_edit, name='aluno_edit'),
     url('^aluno/new$', views.aluno_new, name='aluno_new'),

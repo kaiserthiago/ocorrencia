@@ -404,6 +404,68 @@ def curso_delete(request, curso_id):
 
 
 @login_required
+def aluno_perfil(request, aluno_id):
+    aluno = get_object_or_404(Aluno, pk=aluno_id)
+
+    # DADOS DOS INDICADORES
+    indicador_autorizacao = Autorizacao.objects.filter(matricula__aluno=aluno)
+    indicador_encaminhamento = Encaminhamento.objects.filter(matricula__aluno=aluno)
+    indicador_ocorrencia = Ocorrencia.objects.filter(matricula__aluno=aluno)
+
+    # DADOS GRÁFICO DE OCORRÊNCIAS POR CATEGORIA
+    categorias_ocorrencias = Ocorrencia.objects.filter(matricula__aluno=aluno).order_by(
+        'falta__categoria__artigo').values_list('falta__categoria__descricao').annotate(qtde=Count('id')).distinct()
+
+    dados_grafico_ocorrencia_categoria = json.dumps(list(categorias_ocorrencias))
+
+    # DADOS GRÁFICO DE ENCAMINHAMENTOS POR CATEGORIA
+    categorias_encaminhamentos = Encaminhamento.objects.filter(matricula__aluno=aluno).order_by(
+        'servico__categoria__descricao').values_list('servico__categoria__descricao').annotate(
+        qtde=Count('id')).distinct()
+
+    dados_grafico_encaminhamento_categoria = json.dumps(list(categorias_encaminhamentos))
+
+    # DADOS GRÁFICO DE ENCAMINHAMENTOS POR STATUS
+    status_encaminhamento = Encaminhamento.objects.filter(matricula__aluno=aluno).order_by().values_list(
+        'status').annotate(qtde=Count('id')).distinct()
+
+
+    dados_grafico_encaminhamento_status = json.dumps(list(status_encaminhamento))
+
+    # DADOS OCORRÊNCIA POR MÊS
+    datas_ocorrencia = Ocorrencia.objects.filter(matricula__aluno=aluno,
+                                                 data__year=date.today().year).annotate(
+        month=TruncMonth('data')).values('month').annotate(c=Count('id')).values_list('month', 'c').order_by()
+
+    mes_ocorrencia = [str(obj[0].strftime('%m/%Y')) for obj in datas_ocorrencia]
+    qtde_ocorrencia = [int(obj[1]) for obj in datas_ocorrencia]
+
+    dados_grafico_datas_ocorrencia = []
+
+    for i in range(0, datas_ocorrencia.count()):
+        dados_grafico_datas_ocorrencia.append([mes_ocorrencia[i], qtde_ocorrencia[i]])
+
+    context = {
+        'aluno': aluno,
+        'indicador_autorizacao': indicador_autorizacao,
+        'indicador_encaminhamento': indicador_encaminhamento,
+        'indicador_ocorrencia': indicador_ocorrencia,
+
+        'categorias_ocorrencias': categorias_ocorrencias,
+        'categorias_encaminhamentos': categorias_encaminhamentos,
+        'status_encaminhamento': status_encaminhamento,
+
+
+        'dados_grafico_ocorrencia_categoria': dados_grafico_ocorrencia_categoria,
+        'dados_grafico_encaminhamento_categoria': dados_grafico_encaminhamento_categoria,
+        'dados_grafico_encaminhamento_status': dados_grafico_encaminhamento_status,
+
+        'dados_grafico_datas_ocorrencia': dados_grafico_datas_ocorrencia
+    }
+
+    return render(request, 'portal/aluno_perfil.html', context)
+
+@login_required
 def dashboard(request):
     # DADOS OCORRÊNCIA POR MÊS
     datas_ocorrencia = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
@@ -1040,8 +1102,8 @@ def user_account(request):
 
 @permission_required('is_superuser')
 def user_list(request):
-    usuarios_inativos = User.objects.filter(userprofile__empresa=request.user.userprofile.empresa, is_active=False)
-    usuarios_ativos = User.objects.filter(userprofile__empresa=request.user.userprofile.empresa, is_active=True)
+    usuarios_inativos = User.objects.filter(userprofile__empresa=request.user.userprofile.empresa, is_active=False).order_by('first_name')
+    usuarios_ativos = User.objects.filter(userprofile__empresa=request.user.userprofile.empresa, is_active=True).order_by('first_name')
 
     context = {
         'usuarios_inativos': usuarios_inativos,

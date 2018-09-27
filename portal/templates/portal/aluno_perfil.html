@@ -1,0 +1,276 @@
+{% extends 'base.html' %}
+{% block title %}Perfil do Estudante - SGE - Gestão Estudantil{% endblock %}
+{% block class_cadastro_menu %}active{% endblock %}
+{% block class_cadastro_aluno_item %}collapsible-header active{% endblock %}
+{% load humanize %}
+{% load static %}
+{% block breadcrumb_base %}
+    <ol class="breadcrumb blue-grey lighten-4">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'aluno' %}?qs=a">Alunos</a></li>
+        <li class="breadcrumb-item active">Perfil aluno - {{ aluno.nome }}</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="row mb-4">
+        <div class="col-sm-9">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
+                    Dados do estudante
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <p><strong>Nome: </strong>{{ aluno.nome }}</p>
+                            <p><strong>E-mail: </strong>{{ aluno.email }}</p>
+                            <p><strong>Responsável: </strong>{{ aluno.responsavel }}</p>
+                            <p><strong>E-mail: </strong>{{ aluno.email_responsavel }}</p>
+                        </div>
+
+                        <hr class="w-100 clearfix d-md-none">
+
+                        <div class="col-sm-4">
+                            <div class="border">
+                                <img src="{% static 'img/logo_ifro.png' %}" style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <!--Card-->
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
+                    <p class="float-left m-0">
+                        Indicadores
+                    </p>
+                </div>
+                <div class="card-body">
+                    <p class="border-bottom">
+                        Autorizações
+                        <span class="badge badge-warning badge-pill pull-right">{{ indicador_autorizacao.count }}</span>
+
+                    </p>
+                    <p class="border-bottom">
+                        Encaminhamentos
+                        <span class="badge badge-primary badge-pill pull-right">{{ indicador_encaminhamento.count }}</span>
+                    </p>
+                    <p class="border-bottom">
+                        Ocorrências
+                        <span class="badge ifro-color badge-pill pull-right">{{ indicador_ocorrencia.count }}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-sm-12">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
+                    <p class="float-left m-0">
+                        Ocorrências
+                    </p>
+                    <a href="{% url 'ocorrencia_relatorio' aluno.id %}" class="float-right m-0"> VER MAIS</a>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            {% if categorias_ocorrencias %}
+                                <p class="font-weight-bold">Por categoria</p>
+                                <div id="grafico_ocorrencia_categoria"></div>
+                            {% else %}
+                                <div class="card-header warning-color white-text text-center">
+                                    <strong>NÃO HÁ OCORRÊNCIAS</strong>
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <hr class="w-100 clearfix d-md-none">
+
+                        <div class="col-sm-8">
+                            {% if dados_grafico_datas_ocorrencia %}
+                                <p class="font-weight-bold">Por mês</p>
+                                <div id="ocorrencia_mes"></div>
+                            {% else %}
+                                <div class="card-header warning-color white-text text-center">
+                                    <strong>NÃO HÁ OCORRÊNCIAS</strong>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--ENCAMINHAMENTOS-->
+    <div class="row mb-4">
+        <div class="col-sm-12">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
+                    <p class="float-left m-0">
+                        Encaminhamentos
+                    </p>
+                    <a href="{% url 'encaminhamento_relatorio' aluno.id %}" class="float-right m-0"> VER MAIS</a>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {% if categorias_encaminhamentos %}
+                                <p class="font-weight-bold">Por categoria</p>
+                                <div id="categoria_encaminhamento"></div>
+                            {% else %}
+                                <div class="card-header warning-color white-text text-center">
+                                    <strong>NÃO HÁ ENCAMINHAMENTOS</strong>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <hr class="w-100 clearfix d-md-none">
+                        <div class="col-sm-6">
+                            {% if status_encaminhamento %}
+                                <p class="font-weight-bold">Por status</p>
+                                <div id="status_encaminhamento"></div>
+                            {% else %}
+                                <div class="card-header warning-color white-text text-center">
+                                    <strong>NÃO HÁ ENCAMINHAMENTOS</strong>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <!--OCORRÊNCIAS-->
+    <script type="text/javascript">
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Categoria');
+            data.addColumn('number', 'Ocorrências');
+            data.addRows({{ dados_grafico_ocorrencia_categoria|safe }});
+
+            var options = {
+                pieSliceText: 'percentage',
+                legend: {
+                    position: 'right',
+                    alignment: 'center'
+                },
+                chartArea: {
+                    left: 15,
+                    top: 15,
+                    right: 0,
+                    bottom: 10
+                }
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('grafico_ocorrencia_categoria'));
+
+            chart.draw(data, options);
+        }
+    </script>
+
+    <!--ENCAMINHAMENTOS-->
+    <script type="text/javascript">
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Categoria');
+            data.addColumn('number', 'Encaminhamentos');
+            data.addRows({{ dados_grafico_encaminhamento_categoria|safe }});
+
+            var options = {
+                chartArea: {
+                    top: 10,
+                    bottom: 10,
+                    widht: '100%',
+                },
+                legend: {
+                    position: 'right',
+                    alignment: 'center'
+                }
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('categoria_encaminhamento'));
+
+            chart.draw(data, options);
+        }
+    </script>
+
+    <script type="text/javascript">
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Status');
+            data.addColumn('number', 'Encaminhamentos');
+            data.addRows({{ dados_grafico_encaminhamento_status|safe }});
+
+            var options = {
+                chartArea: {
+                    top: 10,
+                    bottom: 10,
+                    widht: '100%',
+                },
+                legend: {
+                    position: 'right',
+                    alignment: 'center'
+                }
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('status_encaminhamento'));
+
+            chart.draw(data, options);
+        }
+    </script>
+
+    <!-- GRÁFICO OCORRÊNCIAS POR MÊS -->
+    <script type="text/javascript">
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Mês');
+            data.addColumn('number', 'Ocorrências');
+            data.addRows({{ dados_grafico_datas_ocorrencia|safe }});
+
+            var options = {
+                curveType: 'function',
+                legend: 'none',
+                pointSize: 7,
+                lineWidth: 3,
+                chartArea: {
+                    top: 10,
+                    bottom: 20,
+                    widht: '100%',
+                    height: '100%'
+                },
+                series: {
+                    0: {
+                        color: '#2f9e41'
+                    }
+                }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('ocorrencia_mes'));
+
+            chart.draw(data, options);
+        }
+    </script>
+{% endblock %}

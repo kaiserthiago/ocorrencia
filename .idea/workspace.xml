@@ -1,8 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/portal/templates/portal/curso.html" line="47" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/portal/templates/portal/aluno_perfil.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ocorrencia/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ocorrencia/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/aluno.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/aluno.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/aluno_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/aluno_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/aluno_new.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/aluno_new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/autorizacao.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/autorizacao.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/autorizacao_new.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/autorizacao_new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/autorizacao_relatorio.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/autorizacao_relatorio.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/categoria_servico.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/categoria_servico.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/categoria_servico_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/categoria_servico_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/categoria_servico_new.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/categoria_servico_new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/configuracao.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/configuracao.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/curso.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/curso.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/curso_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/curso_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/curso_new.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/curso_new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/encaminhamento.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/encaminhamento.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/encaminhamento_new.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/encaminhamento_new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/encaminhamento_pendente.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/encaminhamento_pendente.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/encaminhamento_relatorio.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/encaminhamento_relatorio.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/import_aluno.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/import_aluno.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/import_matricula.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/import_matricula.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/matricula.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/matricula.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/matricula_new.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/matricula_new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/report_general.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/report_general.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/servico.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/servico.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/servico_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/servico_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/servico_new.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/servico_new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/turma.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/turma.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/turma_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/turma_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/turma_new.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/turma_new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/user_account.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/user_account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/user_change_password.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/user_change_password.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/user_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/user_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,72 +62,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="464" column="58" selection-start-line="464" selection-start-column="58" selection-end-line="464" selection-end-column="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="confirma-usuario.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/emails/confirma-usuario.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="13" selection-start-column="13" selection-end-column="13" />
-              <folding>
-                <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#body#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="222" column="18" selection-start-line="222" selection-start-column="13" selection-end-line="222" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="responsavel-usuario.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/emails/responsavel-usuario.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="625" selection-start-line="625" selection-end-line="625" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ocorrencia/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="557">
-              <caret line="146" column="37" lean-forward="true" selection-start-line="146" selection-start-column="37" selection-end-line="146" selection-end-column="37" />
-            </state>
+            <state relative-caret-position="-3240" />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="639" column="81" selection-start-line="639" selection-start-column="81" selection-end-line="639" selection-end-column="81" />
+            <state relative-caret-position="216">
+              <caret line="1922" column="34" selection-start-line="1922" selection-start-column="4" selection-end-line="1922" selection-end-column="34" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -93,29 +81,79 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/style.css">
+      <file leaf-file-name="configuracao.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/configuracao.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="92" column="29" lean-forward="true" selection-start-line="92" selection-start-column="22" selection-end-line="92" selection-end-column="29" />
+            <state relative-caret-position="20">
+              <caret line="58" column="48" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
+              <caret line="59" column="59" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
+              <caret line="95" column="48" selection-start-line="95" selection-start-column="48" selection-end-line="95" selection-end-column="48" />
+              <caret line="96" column="59" selection-start-line="96" selection-start-column="59" selection-end-line="96" selection-end-column="59" />
+              <caret line="132" column="48" selection-start-line="132" selection-start-column="48" selection-end-line="132" selection-end-column="48" />
+              <caret line="133" column="59" selection-start-line="133" selection-start-column="59" selection-end-line="133" selection-end-column="59" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registra-ocorrencia.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia.html">
+      <file leaf-file-name="report_general.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/report_general.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="89" column="78" selection-start-line="89" selection-start-column="78" selection-end-line="89" selection-end-column="78" />
+            <state relative-caret-position="-120">
+              <caret line="102" column="14" lean-forward="true" selection-start-line="102" selection-start-column="14" selection-end-line="102" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registra-encaminhamento-providencias.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-encaminhamento-providencias.html">
+      <file leaf-file-name="aluno_perfil.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_perfil.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="117" column="229" selection-start-line="117" selection-start-column="229" selection-end-line="117" selection-end-column="229" />
+            <state relative-caret-position="80">
+              <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ocorrencia_relatorio.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="283">
+              <caret line="73" column="56" selection-start-line="73" selection-start-column="56" selection-end-line="73" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="encaminhamento_relatorio.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_relatorio.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="283">
+              <caret line="74" column="56" selection-start-line="74" selection-start-column="56" selection-end-line="74" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="autorizacao_relatorio.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_relatorio.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="383">
+              <caret line="75" column="56" selection-start-line="75" selection-start-column="56" selection-end-line="75" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="aluno_edit.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_edit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="76" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="autorizacao_new.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_new.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="18" column="124" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="124" />
             </state>
           </provider>
         </entry>
@@ -132,23 +170,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>widg</find>
-      <find>widget_tweaks</find>
-      <find>add</find>
-      <find>add_c</find>
-      <find>confi</find>
-      <find>mento_re</find>
-      <find>report_g</find>
-      <find>dropd</find>
-      <find>dropdown-</find>
-      <find>dropdown-s</find>
-      <find>dropdown-su</find>
-      <find>@staff_member_required</find>
-      <find>warning-color'</find>
       <find>btn-success</find>
       <find>empresa(</find>
       <find>profi</find>
-      <find>user_l</find>
       <find>dashb</find>
       <find>distribui</find>
       <find>encamin</find>
@@ -160,8 +184,22 @@
       <find>show</find>
       <find>relatorio</find>
       <find>cia(a</find>
-      <find>dash</find>
       <find>das</find>
+      <find>user_l</find>
+      <find>dash</find>
+      <find>no(</find>
+      <find>no_edit(</find>
+      <find>Novo registro</find>
+      <find>Novo</find>
+      <find>Novo\nRegistro</find>
+      <find>&lt;div class=&quot;card redonda&quot;&gt;                 &lt;div class=&quot;card-header lighten-1 font-weight-bold&quot;&gt;</find>
+      <find>\&lt;div class\=\&quot;card\&quot;\&gt;\n                \&lt;div class\=\&quot;card\-header gradient white\-text\&quot;\&gt;</find>
+      <find>\&lt;div class\=\&quot;card\&quot;\&gt;\n        \&lt;div class\=\&quot;card\-header gradient white\-text\&quot;\&gt;</find>
+      <find>\&lt;div class\=\&quot;card\&quot;\&gt;\n                    \&lt;div class\=\&quot;card\-header gradient white\-text\&quot;\&gt;</find>
+      <find>list(re</find>
+      <find>perfil</find>
+      <find>ocorrencia_relatorio_aluno</find>
+      <find>encaminhamento_relatorio_aluno</find>
     </findStrings>
     <replaceStrings>
       <replace>/</replace>
@@ -187,6 +225,11 @@
       <replace>primary-color-dark</replace>
       <replace>ifro-color</replace>
       <replace>lighten-1</replace>
+      <replace />
+      <replace>&lt;div class=&quot;card redonda&quot;&gt;                 &lt;div class=&quot;card-header grey li&quot;&gt;</replace>
+      <replace>&lt;div class=&quot;card redonda&quot;&gt;                 &lt;div class=&quot;card-header lighten-1 font-weight-bold&quot;&gt;</replace>
+      <replace>&lt;div class=&quot;card redonda&quot;&gt;                 &lt;div class=&quot;card-header grey lighten-1 font-weight-bold&quot;&gt;</replace>
+      <replace>&lt;div class=&quot;card redonda&quot;&gt;                 &lt;div class=&quot;card-header redonda grey lighten-1 font-weight-bold&quot;&gt;</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -195,30 +238,19 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/portal/templates/portal/report_autorizacao_saida_turma.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/report_encaminhamento_aluno.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/report_encaminhamento_curso.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/report_encaminhamento_turma.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/curso_new.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/curso_edit.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/turma_new.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/turma_edit.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/aluno_new.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/aluno_edit.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/categoria_servico.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/curso.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/turma.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/matricula.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/servico.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao_relatorio.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_relatorio.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/import_matricula_success.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/import_aluno_success.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/aluno.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_new.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/report_ocorrencia_curso.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/report_ocorrencia_aluno.html" />
@@ -230,22 +262,33 @@
         <option value="$PROJECT_DIR$/portal/templates/emails/registra-saida.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html" />
         <option value="$PROJECT_DIR$/portal/forms.py" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/report_general.html" />
         <option value="$PROJECT_DIR$/static/css/style.css" />
         <option value="$PROJECT_DIR$/portal/admin.py" />
         <option value="$PROJECT_DIR$/portal/templates/emails/confirma-usuario.html" />
         <option value="$PROJECT_DIR$/portal/templates/emails/responsavel-usuario.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_pendente.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/configuracao.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/user_list.html" />
         <option value="$PROJECT_DIR$/login/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/login/templates/registration/register_success.html" />
         <option value="$PROJECT_DIR$/portal/templates/base.html" />
         <option value="$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia.html" />
         <option value="$PROJECT_DIR$/ocorrencia/settings.py" />
-        <option value="$PROJECT_DIR$/portal/views.py" />
         <option value="$PROJECT_DIR$/portal/templates/portal/dashboard.html" />
+        <option value="$PROJECT_DIR$/ocorrencia/urls.py" />
+        <option value="$PROJECT_DIR$/portal/urls.py" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/aluno_edit.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/curso.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/aluno.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/aluno_new.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao_new.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/configuracao.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/report_general.html" />
+        <option value="$PROJECT_DIR$/portal/views.py" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_relatorio.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao_relatorio.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/aluno_perfil.html" />
       </list>
     </option>
   </component>
@@ -308,15 +351,15 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Dados\Desktop\Python\ocorrencia\login\templates\registration" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Dados\Desktop\Python\ocorrencia\portal\templates\emails" />
       <recent name="D:\Dados\Desktop\Python\ocorrencia\portal\templates\portal" />
+      <recent name="D:\Dados\Desktop\Python\ocorrencia\portal\templates\emails" />
       <recent name="D:\Dados\Desktop\Python\ocorrencia\login\templates\registration" />
       <recent name="D:\Dados\Desktop\Python\ocorrencia\login\templates" />
       <recent name="D:\Dados\Desktop\Python\ocorrencia\portal" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Dados\Desktop\Python\ocorrencia\login\templates\registration" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -429,17 +472,18 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" weight="0.32965517" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="8" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32965517" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2298177" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39955848" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39955848" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -447,7 +491,6 @@
       <window_info anchor="right" id="Data View" order="4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="12" weight="0.3281768" />
     </layout>
   </component>
@@ -463,74 +506,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_show.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-420" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="37" column="66" selection-start-line="37" selection-start-column="66" selection-end-line="37" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_relatorio.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="35" column="66" selection-start-line="35" selection-start-column="66" selection-end-line="35" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/import_aluno_success.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="39" column="34" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="35" column="66" selection-start-line="35" selection-start-column="66" selection-end-line="35" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/curso.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="940">
-          <caret line="47" column="94" selection-start-line="35" selection-start-column="24" selection-end-line="47" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Envs/ocorrencia/Lib/site-packages/tablib/core.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="158" column="8" selection-start-line="158" selection-start-column="8" selection-end-line="158" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="33" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_new.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="38" column="65" selection-start-line="38" selection-start-column="65" selection-end-line="38" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/report_ocorrencia_curso.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="39" column="42" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/report_ocorrencia_aluno.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="780">
@@ -657,20 +632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/report_general.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="102" selection-start-line="102" selection-end-line="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1280">
-          <caret line="66" column="4" selection-start-line="66" selection-start-column="4" selection-end-line="70" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="740">
@@ -689,13 +650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/configuracao.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="56" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
         </state>
       </provider>
     </entry>
@@ -731,10 +685,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4060">
           <caret line="203" column="40" selection-start-line="203" selection-start-column="40" selection-end-line="203" selection-end-column="40" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -755,7 +705,7 @@
     <entry file="file://$PROJECT_DIR$/portal/templates/emails/responsavel-usuario.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="13" />
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -763,37 +713,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="13" selection-start-column="13" selection-end-column="13" />
-          <folding>
-            <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#body#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
+        <state relative-caret-position="9280">
           <caret line="464" column="58" selection-start-line="464" selection-start-column="58" selection-end-line="464" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
+        <state relative-caret-position="1780">
           <caret line="89" column="78" selection-start-line="89" selection-start-column="78" selection-end-line="89" selection-end-column="78" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-encaminhamento-providencias.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
+        <state relative-caret-position="2340">
           <caret line="117" column="229" selection-start-line="117" selection-start-column="229" selection-end-line="117" selection-end-column="229" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
+        <state relative-caret-position="4360">
           <caret line="222" column="18" selection-start-line="222" selection-start-column="13" selection-end-line="222" selection-end-column="18" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
@@ -803,32 +749,126 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ocorrencia/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="146" column="37" lean-forward="true" selection-start-line="146" selection-start-column="37" selection-end-line="146" selection-end-column="37" />
+        <state relative-caret-position="2900">
+          <caret line="146" column="37" selection-start-line="146" selection-start-column="37" selection-end-line="146" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1840">
+          <caret line="92" column="29" selection-start-line="92" selection-start-column="22" selection-end-line="92" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ocorrencia/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="46" column="58" lean-forward="true" selection-start-line="46" selection-start-column="58" selection-end-line="46" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/curso.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="16" column="81" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="16" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="120" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_new.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="112" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_new.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" column="124" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="124" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/configuracao.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="58" column="48" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
+          <caret line="59" column="59" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
+          <caret line="95" column="48" selection-start-line="95" selection-start-column="48" selection-end-line="95" selection-end-column="48" />
+          <caret line="96" column="59" selection-start-line="96" selection-start-column="59" selection-end-line="96" selection-end-column="59" />
+          <caret line="132" column="48" selection-start-line="132" selection-start-column="48" selection-end-line="132" selection-end-column="48" />
+          <caret line="133" column="59" selection-start-line="133" selection-start-column="59" selection-end-line="133" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3240" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/report_general.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-120">
+          <caret line="102" column="14" lean-forward="true" selection-start-line="102" selection-start-column="14" selection-end-line="102" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="639" column="81" selection-start-line="639" selection-start-column="81" selection-end-line="639" selection-end-column="81" />
+        <state relative-caret-position="216">
+          <caret line="1922" column="34" selection-start-line="1922" selection-start-column="4" selection-end-line="1922" selection-end-column="34" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/style.css">
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="92" column="29" lean-forward="true" selection-start-line="92" selection-start-column="22" selection-end-line="92" selection-end-column="29" />
+        <state relative-caret-position="283">
+          <caret line="73" column="56" selection-start-line="73" selection-start-column="56" selection-end-line="73" selection-end-column="56" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_relatorio.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="625" selection-start-line="625" selection-end-line="625" />
+        <state relative-caret-position="283">
+          <caret line="74" column="56" selection-start-line="74" selection-start-column="56" selection-end-line="74" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_relatorio.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="75" column="56" selection-start-line="75" selection-start-column="56" selection-end-line="75" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_perfil.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
         </state>
       </provider>
     </entry>

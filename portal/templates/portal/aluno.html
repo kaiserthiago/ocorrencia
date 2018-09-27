@@ -13,8 +13,7 @@
 {% block content %}
     <div class="row">
         <div class="col-sm-12">
-            <div class="card">
-                <div class="card-header gradient white-text">
+            <div class="card redonda">                 <div class="card-header redonda grey lighten-1 font-weight-bold">
                     ALUNOS
                 </div>
                 <div class="card-body">
@@ -27,9 +26,11 @@
                         </div>
                         <div class="col">
                             <div class="float-right">
-                                <a href="{% url 'aluno_new' %}" class="btn btn-rounded btn-success"><i class="fa fa-plus"></i> Novo
+                                <a href="{% url 'aluno_new' %}" class="btn btn-rounded btn-success"><i
+                                        class="fa fa-plus"></i> Novo
                                     Registro</a>
-                                <a href="{% url 'import_aluno' %}" class="btn btn-rounded btn-info" data-toggle="tooltip"
+                                <a href="{% url 'import_aluno' %}" class="btn btn-rounded btn-info"
+                                   data-toggle="tooltip"
                                    data-placement="top" title="Importar XLS"><i
                                         class="fa fa-arrow-circle-down"></i> Importar</a>
                             </div>
@@ -53,32 +54,11 @@
                                     <td style="vertical-align: middle;">{{ aluno.responsavel }}</td>
                                     <td style="vertical-align: middle; text-align: right">{{ aluno.email_responsavel }}</td>
                                     <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
-                                        {% if aluno.autorizacoes_aluno %}
-                                            <i data-toggle="tooltip" data-placement="top" title="Autorizações de saída">
-                                                <a href="{% url 'autorizacao_relatorio' aluno.id %}"
-                                                   class="btn-floating btn-sm btn-purple"><i class="fa fa-search"></i>
-                                                </a>
-                                            </i>
-                                            <span class="counter">{{ aluno.autorizacoes_aluno.count }}</span>
-                                        {% endif %}
-
-                                        {% if aluno.encaminhamento_aluno %}
-                                            <i data-toggle="tooltip" data-placement="top" title="Encaminhamentos">
-                                                <a href="{% url 'encaminhamento_relatorio' aluno.id %}"
-                                                   class="btn-floating btn-sm blue"><i class="fa fa-search"></i>
-                                                </a>
-                                            </i>
-                                            <span class="counter">{{ aluno.encaminhamento_aluno.count }}</span>
-                                        {% endif %}
-
-                                        {% if aluno.ocorrencia_aluno %}
-                                            <i data-toggle="tooltip" data-placement="top" title="Ocorrências">
-                                                <a href="{% url 'ocorrencia_relatorio' aluno.id %}"
-                                                   class="btn-floating btn-sm green"><i class="fa fa-search"></i>
-                                                </a>
-                                            </i>
-                                            <span class="counter">{{ aluno.ocorrencia_aluno.count }}</span>
-                                        {% endif %}
+                                        <i data-toggle="tooltip" data-placement="top" title="Perfil">
+                                            <a href="{% url 'aluno_perfil' aluno.id %}"
+                                               class="btn-floating btn-sm ifro-color"><i class="fa fa-address-book"></i>
+                                            </a>
+                                        </i>
 
                                         <i data-toggle="tooltip" data-placement="top" title="Editar">
                                             <a href="{% url 'aluno_edit' aluno.id %}"
