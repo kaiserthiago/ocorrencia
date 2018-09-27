@@ -4,7 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/portal/templates/portal/curso.html" line="47" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="" />
+    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/portal/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/base.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +35,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="aluno_perfil.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="aluno_perfil.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_perfil.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="137">
@@ -61,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="523">
-              <caret line="362" column="8" lean-forward="true" selection-start-line="362" selection-start-column="8" selection-end-line="362" selection-end-column="8" />
+            <state relative-caret-position="260">
+              <caret line="13" column="60" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -82,7 +84,7 @@
       <file leaf-file-name="aluno.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-720" />
+            <state relative-caret-position="-840" />
           </provider>
         </entry>
       </file>
@@ -242,13 +244,13 @@
         <option value="$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia.html" />
         <option value="$PROJECT_DIR$/static/css/mdb.css" />
         <option value="$PROJECT_DIR$/static/css/style.css" />
-        <option value="$PROJECT_DIR$/portal/templates/base.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao_relatorio.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_relatorio.html" />
         <option value="$PROJECT_DIR$/portal/views.py" />
         <option value="$PROJECT_DIR$/portal/templates/portal/user_account.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/aluno_perfil.html" />
+        <option value="$PROJECT_DIR$/portal/templates/base.html" />
       </list>
     </option>
   </component>
@@ -762,18 +764,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="362" column="8" lean-forward="true" selection-start-line="362" selection-start-column="8" selection-end-line="362" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-720" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
@@ -827,6 +817,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
           <caret line="169" column="52" selection-start-line="169" selection-start-column="52" selection-end-line="169" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-840" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="60" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
         </state>
       </provider>
     </entry>
