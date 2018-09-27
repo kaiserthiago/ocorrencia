@@ -121,6 +121,7 @@ class Aluno(AuditoriaMixin):
     email = models.EmailField(blank=True, null=True)
     responsavel = models.CharField(max_length=255, blank=True, null=True)
     email_responsavel = models.EmailField(blank=True, null=True)
+    foto = models.ImageField(null=True, blank=True, upload_to='img_alunos')
 
     def __str__(self):
         return self.nome
@@ -274,8 +275,9 @@ class Encaminhamento(AuditoriaMixin):
     descricao = models.TextField(blank=True, null=True)
     providencias = models.TextField(blank=True, null=True)
     outras_informacoes = models.TextField(blank=True, null=True)
-    responsavel_providencias = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='responsavel_providencias',
-                                            blank=True, null=True)
+    responsavel_providencias = models.ForeignKey(User, on_delete=models.DO_NOTHING,
+                                                 related_name='responsavel_providencias',
+                                                 blank=True, null=True)
     status_choiches = (
         ('Encaminhado', 'Encaminhado'),
         ('Atendido', 'Atendido'),

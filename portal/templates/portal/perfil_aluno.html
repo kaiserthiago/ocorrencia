@@ -38,8 +38,12 @@
 
 
                         <div class="col-sm-4">
-                            <div class="border">
-                                <img src="{% static 'img/logo_ifro.png' %}" style="width: 100%">
+                            <div class="text-center" style="width: 200px">
+                                {% if aluno.foto %}
+                                    <img src="{{ aluno.foto.url }}" style="width: 80%">
+                                {% else %}
+                                    <img src="{% static 'img/avatar.png' %}" style="width: 80%">
+                                {% endif %}
                             </div>
                         </div>
                     </div>
