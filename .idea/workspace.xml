@@ -33,20 +33,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="aluno_perfil.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="aluno_perfil.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_perfil.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1457">
-              <caret line="97" column="60" selection-start-line="97" selection-start-column="60" selection-end-line="97" selection-end-column="60" />
+            <state relative-caret-position="137">
+              <caret line="169" column="52" selection-start-line="169" selection-start-column="52" selection-end-line="169" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_account.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user_account.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/user_account.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-300">
-              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+            <state relative-caret-position="400">
+              <caret line="40" column="53" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="53" />
+              <caret line="46" column="34" lean-forward="true" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -234,7 +235,6 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/turma.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/turma_edit.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/turma_new.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/user_account.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/user_change_password.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/user_list.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento.html" />
@@ -247,6 +247,7 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao_relatorio.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_relatorio.html" />
         <option value="$PROJECT_DIR$/portal/views.py" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/user_account.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/aluno_perfil.html" />
       </list>
     </option>
@@ -814,17 +815,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_perfil.html">
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/user_account.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1457">
-          <caret line="97" column="60" selection-start-line="97" selection-start-column="60" selection-end-line="97" selection-end-column="60" />
+        <state relative-caret-position="400">
+          <caret line="40" column="53" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="53" />
+          <caret line="46" column="34" lean-forward="true" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/user_account.html">
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_perfil.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-300">
-          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+        <state relative-caret-position="137">
+          <caret line="169" column="52" selection-start-line="169" selection-start-column="52" selection-end-line="169" selection-end-column="52" />
         </state>
       </provider>
     </entry>
