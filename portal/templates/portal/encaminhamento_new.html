@@ -16,7 +16,8 @@
     <form action="{% url 'encaminhamento_register' %}" method="POST">
         <div class="row mb-4">
             <div class="col-sm-6">
-                <div class="card redonda">                 <div class="card-header redonda grey lighten-1 font-weight-bold">
+                <div class="card redonda">
+                    <div class="card-header redonda grey lighten-1 font-weight-bold">
                         <div class="float-left">
                             Curso: {{ turma.curso.descricao|upper }}<br>
                             <span class="float-lg-left">Turma: {{ turma.descricao }}</span>
@@ -72,9 +73,8 @@
 
                         <div class="form-row">
                             <div class="col">
-                                <div class="md-form">
                                     <select name="SelectServico" id="SelectServico"
-                                            class="mdb-select colorful-select dropdown-ins" searchable="Pesquisar..."
+                                            class="mdb-select md-form colorful-select dropdown-ins" searchable="Pesquisar..."
                                             required>
                                         <option value="" disabled selected>Selecione o serviço</option>
                                         {% for c in servico_categorias %}
@@ -86,7 +86,6 @@
                                         {% endfor %}
                                     </select>
                                     <label for="SelectServico">Serviço</label>
-                                </div>
                             </div>
                         </div>
 
