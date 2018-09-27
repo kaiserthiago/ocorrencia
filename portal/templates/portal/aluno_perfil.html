@@ -4,6 +4,14 @@
 {% block class_cadastro_aluno_item %}collapsible-header active{% endblock %}
 {% load humanize %}
 {% load static %}
+
+{% block style %}
+    @media print {
+    #slide-out, #icon-bar, #div-menu, #breadcrumb, #footer, #bread, #div-buttons { display: none; }
+    a:link {text-decoration: none;}
+    }
+{% endblock %}
+
 {% block breadcrumb_base %}
     <ol class="breadcrumb blue-grey lighten-4">
         <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
@@ -28,7 +36,6 @@
                             <p><strong>E-mail: </strong>{{ aluno.email_responsavel }}</p>
                         </div>
 
-                        <hr class="w-100 clearfix d-md-none">
 
                         <div class="col-sm-4">
                             <div class="border">
@@ -39,6 +46,9 @@
                 </div>
             </div>
         </div>
+
+        <hr class="w-100 clearfix d-md-none">
+
         <div class="col-sm-3">
             <!--Card-->
             <div class="card redonda">
@@ -262,8 +272,8 @@
                 chartArea: {
                     top: 10,
                     bottom: 20,
-                    widht: '100%',
-                    height: '100%'
+                    {#widht: '100%',#}
+                    {#height: '100%'#}
                 },
                 series: {
                     0: {
