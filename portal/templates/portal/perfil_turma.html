@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}Perfil do Estudante - SGE - Gestão Estudantil{% endblock %}
+{% block class_cadastro_menu %}active{% endblock %}
+{% block class_cadastro_aluno_item %}collapsible-header active{% endblock %}
+{% load humanize %}
+{% load static %}
+
+{% block style %}
+    @media print {
+    #slide-out, #icon-bar, #div-menu, #breadcrumb, #footer, #bread, #div-buttons { display: none; }
+    a:link {text-decoration: none;}
+    }
+{% endblock %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb blue-grey lighten-4">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'perfil' %}">Perfil</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'perfil_turma' turma.id %}">{{ turma.curso.descricao }}
+            - {{ turma.descricao }}</a></li>
+        <li class="breadcrumb-item active">Listagem de alunos</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="row mb-4">
+        <div class="col-sm-12">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
+                    Lista de alunos - {{ turma.curso.descricao }} {{ turma.descricao }}
+                </div>
+                <div class="card-body">
+                    <table class="table table-sm table-striped">
+                        <thead>
+                        <tr>
+                            <th style="font-weight: bold">Nome</th>
+                            <th style="text-align: right; font-weight: bold">Ações</th>
+                        </tr>
+                        </thead>
+                        <tbody id="myTable">
+                        {% for aluno in alunos %}
+                            <tr>
+                                <td style="vertical-align: middle;">{{ aluno.aluno.nome }}</td>
+                                <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
+                                    <i data-toggle="tooltip" data-placement="top" title="Perfil">
+                                        <a href="{% url 'perfil_aluno' aluno.aluno.id %}"
+                                           target="_blank" class="btn-floating btn-sm ifro-color"><i
+                                                class="fa fa-address-book"></i>
+                                        </a>
+                                    </i>
+                                </td>
+                            </tr>
+                        {% empty %}
+                            <tr>
+                                <td colspan="2" class="card-header warning-color white-text text-center font-bold">
+                                    NÃO HÁ REGISTROS
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

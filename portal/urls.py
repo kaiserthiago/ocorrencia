@@ -41,7 +41,6 @@ urlpatterns = [
     url('^autorizacao/new$', views.autorizacao_new, name='autorizacao_new'),
     url('^autorizacao$', views.autorizacao, name='autorizacao'),
 
-    url('^aluno/perfil/(?P<aluno_id>\d+)$', views.aluno_perfil, name='aluno_perfil'),
     url('^aluno/delete/(?P<aluno_id>\d+)$', views.aluno_delete, name='aluno_delete'),
     url('^aluno/edit/(?P<aluno_id>\d+)$', views.aluno_edit, name='aluno_edit'),
     url('^aluno/new$', views.aluno_new, name='aluno_new'),
@@ -70,6 +69,10 @@ urlpatterns = [
     url(r'^user/account/change$', views.user_change_password, name='user_change_password'),
     url(r'^user/account$', views.user_account, name='user_account'),
     url(r'^user/list$', views.user_list, name='user_list'),
+
+    url('^perfil/aluno/(?P<aluno_id>\d+)$', views.perfil_aluno, name='perfil_aluno'),
+    url('^perfil/turma/(?P<turma_id>\d+)$', views.perfil_turma, name='perfil_turma'),
+    url('^perfil$', views.perfil, name='perfil'),
 
     url(r'^report/autorizacao/aluno/(?P<aluno_id>\d+)$', views.report_autorizacao_saida_aluno, name='report_autorizacao_saida_aluno'),
     url(r'^report/autorizacao/curso$', views.report_autorizacao_saida_curso, name='report_autorizacao_saida_curso'),

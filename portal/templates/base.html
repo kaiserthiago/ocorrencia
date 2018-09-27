@@ -70,6 +70,15 @@
                                 class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
 
+                    {% if request.user.is_staff %}
+                        <li>
+                            <a href="{% url 'perfil' %}"
+                               class="collapsible-header waves-effect arrow-r
+                                   {% block class_perfil_menu %}{% endblock %}"><i
+                                    class="fa fa-address-book-o"></i> Perfil</a>
+                        </li>
+                    {% endif %}
+
 
                     <li>
                         <a class="collapsible-header waves-effect arrow-r

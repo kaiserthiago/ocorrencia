@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Perfil - SGE - Gestão Estudantil{% endblock %}
+{% block class_perfil_menu %}active{% endblock %}
+{% load humanize %}
+{% load static %}
+
+{% block style %}
+    @media print {
+    #slide-out, #icon-bar, #div-menu, #breadcrumb, #footer, #bread, #div-buttons { display: none; }
+    a:link {text-decoration: none;}
+    }
+{% endblock %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb blue-grey lighten-4">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item active">Perfil</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    {% for curso in cursos %}
+        <div class="row mb-4">
+            <div class="col-sm-12">
+                <div class="card redonda">
+                    <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
+                        {{ curso.descricao }}
+                    </div>
+                    <div class="card-body">
+                        {% for turma in curso.retorna_turmas %}
+                            <a href="{% url 'perfil_turma' turma.id %}">{{ turma.descricao }}</a><br>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

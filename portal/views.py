@@ -404,7 +404,18 @@ def curso_delete(request, curso_id):
 
 
 @login_required
-def aluno_perfil(request, aluno_id):
+def perfil(request):
+    cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa)
+
+    context = {
+        'cursos': cursos
+    }
+
+    return render(request, 'portal/perfil.html', context)
+
+
+@login_required
+def perfil_aluno(request, aluno_id):
     aluno = get_object_or_404(Aluno, pk=aluno_id)
 
     # DADOS DOS INDICADORES
@@ -429,7 +440,6 @@ def aluno_perfil(request, aluno_id):
     status_encaminhamento = Encaminhamento.objects.filter(matricula__aluno=aluno).order_by().values_list(
         'status').annotate(qtde=Count('id')).distinct()
 
-
     dados_grafico_encaminhamento_status = json.dumps(list(status_encaminhamento))
 
     # DADOS OCORRÊNCIA POR MÊS
@@ -447,7 +457,7 @@ def aluno_perfil(request, aluno_id):
 
     # DADOS AUTORIZAÇÕES DE SAÍDAS POR MÊS
     datas_saida = Autorizacao.objects.filter(matricula__aluno=aluno,
-                                                 data__year=date.today().year).annotate(
+                                             data__year=date.today().year).annotate(
         month=TruncMonth('data')).values('month').annotate(c=Count('id')).values_list('month', 'c').order_by()
 
     mes_saida = [str(obj[0].strftime('%m/%Y')) for obj in datas_saida]
@@ -468,7 +478,6 @@ def aluno_perfil(request, aluno_id):
         'categorias_encaminhamentos': categorias_encaminhamentos,
         'status_encaminhamento': status_encaminhamento,
 
-
         'dados_grafico_ocorrencia_categoria': dados_grafico_ocorrencia_categoria,
         'dados_grafico_encaminhamento_categoria': dados_grafico_encaminhamento_categoria,
         'dados_grafico_encaminhamento_status': dados_grafico_encaminhamento_status,
@@ -477,7 +486,20 @@ def aluno_perfil(request, aluno_id):
         'dados_grafico_datas_saidas': dados_grafico_datas_saidas
     }
 
-    return render(request, 'portal/aluno_perfil.html', context)
+    return render(request, 'portal/perfil_aluno.html', context)
+
+
+@login_required
+def perfil_turma(request, turma_id):
+    turma = get_object_or_404(Turma, pk=turma_id)
+    alunos = Matricula.objects.filter(turma=turma)
+
+    context = {
+        'turma': turma,
+        'alunos': alunos
+    }
+    return render(request, 'portal/perfil_turma.html', context)
+
 
 @login_required
 def dashboard(request):
@@ -1116,8 +1138,10 @@ def user_account(request):
 
 @permission_required('is_superuser')
 def user_list(request):
-    usuarios_inativos = User.objects.filter(userprofile__empresa=request.user.userprofile.empresa, is_active=False).order_by('first_name')
-    usuarios_ativos = User.objects.filter(userprofile__empresa=request.user.userprofile.empresa, is_active=True).order_by('first_name')
+    usuarios_inativos = User.objects.filter(userprofile__empresa=request.user.userprofile.empresa,
+                                            is_active=False).order_by('first_name')
+    usuarios_ativos = User.objects.filter(userprofile__empresa=request.user.userprofile.empresa,
+                                          is_active=True).order_by('first_name')
 
     context = {
         'usuarios_inativos': usuarios_inativos,
