@@ -92,9 +92,6 @@ light-font .breadcrumb-item + .breadcrumb-item::before {
 .ifro-color{
     background-color: #2f9e41 !important;;
 }
-.ifro-color a:hover{
-    text-decoration: none;
-}
 .card.redonda{
     border-radius: 20px;
 }

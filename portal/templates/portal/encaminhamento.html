@@ -153,7 +153,6 @@
                 <div class="modal-body">
                     <form action="{% url 'encaminhamento_new' %}" method="POST">
                         {% csrf_token %}
-                        <div class="md-form">
                             <select name="SelectTurma" id="SelectTurma"
                                     class="mdb-select md-form colorful-select dropdown-success"
                                     searchable="Pesquisar..." required>
@@ -169,7 +168,6 @@
                                 {% endfor %}
                             </select>
                             <label for="SelectTurma">Turma</label>
-                        </div>
                         <br>
                         <!--Footer-->
                         <div class="text-center">
