@@ -492,7 +492,7 @@ def perfil_aluno(request, aluno_id):
 @login_required
 def perfil_turma(request, turma_id):
     turma = get_object_or_404(Turma, pk=turma_id)
-    alunos = Matricula.objects.filter(turma=turma)
+    alunos = Matricula.objects.filter(turma=turma, ano_letivo=date.today().year)
 
     context = {
         'turma': turma,
