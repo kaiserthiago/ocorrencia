@@ -16,9 +16,7 @@
     <ol class="breadcrumb blue-grey lighten-4">
         <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
         <li class="breadcrumb-item"><a href="{% url 'perfil' %}">Perfil</a></li>
-        <li class="breadcrumb-item"><a href="{% url 'perfil_turma' turma.id %}">{{ turma.curso.descricao }}
-            - {{ turma.descricao }}</a></li>
-        <li class="breadcrumb-item active">Listagem de alunos</li>
+        <li class="breadcrumb-item active">{{ turma.curso.descricao }} - {{ turma.descricao }}</li>
     </ol>
 {% endblock %}
 
