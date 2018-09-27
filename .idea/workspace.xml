@@ -4,13 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/portal/templates/portal/curso.html" line="47" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/aluno_perfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/aluno_perfil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/autorizacao_relatorio.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/autorizacao_relatorio.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/encaminhamento_relatorio.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/encaminhamento_relatorio.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,20 +33,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mdb.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/mdb.css">
+      <file leaf-file-name="aluno_perfil.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_perfil.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="12618" column="40" selection-start-line="12618" selection-start-column="33" selection-end-line="12618" selection-end-column="40" />
+            <state relative-caret-position="1457">
+              <caret line="97" column="60" selection-start-line="97" selection-start-column="60" selection-end-line="97" selection-end-column="60" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="aluno_perfil.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_perfil.html">
+      <file leaf-file-name="user_account.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/user_account.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="177" column="32" selection-start-line="177" selection-start-column="32" selection-end-line="177" selection-end-column="32" />
+            <state relative-caret-position="-300">
+              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="autorizacao.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1517">
+              <caret line="187" column="14" lean-forward="true" selection-start-line="187" selection-start-column="14" selection-end-line="187" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -108,15 +111,6 @@
               <folding>
                 <element signature="e#3263#3312#0#HTML" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="617">
-              <caret line="104" column="15" selection-start-line="104" selection-start-column="15" selection-end-line="104" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -471,13 +465,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/configuracao.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/contato.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -691,13 +678,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/user_account.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/user_change_password.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -827,10 +807,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1517">
+          <caret line="187" column="14" lean-forward="true" selection-start-line="187" selection-start-column="14" selection-end-line="187" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_perfil.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="177" column="32" selection-start-line="177" selection-start-column="32" selection-end-line="177" selection-end-column="32" />
+        <state relative-caret-position="1457">
+          <caret line="97" column="60" selection-start-line="97" selection-start-column="60" selection-end-line="97" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/user_account.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-300">
+          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
         </state>
       </provider>
     </entry>
