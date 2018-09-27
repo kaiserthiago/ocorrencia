@@ -73,7 +73,9 @@
                     <p class="float-left m-0">
                         Ocorrências
                     </p>
-                    <a href="{% url 'ocorrencia_relatorio' aluno.id %}" class="float-right m-0"> VER MAIS</a>
+                    {% if categorias_ocorrencias %}
+                        <a href="{% url 'ocorrencia_relatorio' aluno.id %}" class="float-right m-0"> VER MAIS</a>
+                    {% endif %}
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -114,7 +116,9 @@
                     <p class="float-left m-0">
                         Encaminhamentos
                     </p>
-                    <a href="{% url 'encaminhamento_relatorio' aluno.id %}" class="float-right m-0"> VER MAIS</a>
+                    {% if categorias_encaminhamentos %}
+                        <a href="{% url 'encaminhamento_relatorio' aluno.id %}" class="float-right m-0"> VER MAIS</a>
+                    {% endif %}
                 </div>
                 <div class="card-body">
                     <div class="row">

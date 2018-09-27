@@ -4,7 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/portal/templates/portal/curso.html" line="47" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="" />
+    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,38 +23,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="turma.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/turma.html">
+      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+            <state relative-caret-position="380">
+              <caret line="46" column="21" lean-forward="true" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="turma_edit.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/turma_edit.html">
+      <file leaf-file-name="mdb.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/mdb.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+            <state relative-caret-position="207">
+              <caret line="12618" column="40" selection-start-line="12618" selection-start-column="33" selection-end-line="12618" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="turma_new.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/turma_new.html">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user_account.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/user_account.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+            <state relative-caret-position="503">
+              <caret line="963" column="98" selection-start-line="963" selection-start-column="45" selection-end-line="963" selection-end-column="98" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -75,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="95" column="21" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="21" />
+            <state relative-caret-position="637">
+              <caret line="105" column="1" lean-forward="true" selection-start-line="105" selection-start-column="1" selection-end-line="105" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -103,11 +99,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registra-ocorrencia.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="registra-ocorrencia.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="67" column="33" selection-start-line="67" selection-start-column="23" selection-end-line="67" selection-end-column="33" />
+            <state relative-caret-position="503">
+              <caret line="89" column="209" selection-start-line="89" selection-start-column="209" selection-end-line="89" selection-end-column="209" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="registra-encaminhamento.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-encaminhamento.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1697">
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -127,9 +134,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>relatorio</find>
-      <find>cia(a</find>
-      <find>das</find>
       <find>user_l</find>
       <find>dash</find>
       <find>no(</find>
@@ -157,6 +161,9 @@
       <find>textarea</find>
       <find>danger-color</find>
       <find>jquery-3.2.1.min.js</find>
+      <find>ocorrencia_register</find>
+      <find>a:</find>
+      <find>a:hover</find>
     </findStrings>
     <replaceStrings>
       <replace>SGE</replace>
@@ -187,8 +194,8 @@
       <replace>btn-outline-secondary-modal</replace>
       <replace>btn-outline-primary</replace>
       <replace>form-control md-textarea</replace>
-      <replace>mdb-select md-form colorful-select dropdown-success</replace>
       <replace>btn-danger</replace>
+      <replace>mdb-select md-form colorful-select dropdown-success</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -197,8 +204,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/portal/templates/portal/home.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/aluno.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/aluno_edit.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/aluno_new.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao.html" />
@@ -245,9 +250,11 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/user_account.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/user_change_password.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/user_list.html" />
-        <option value="$PROJECT_DIR$/static/css/style.css" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_new.html" />
+        <option value="$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia.html" />
+        <option value="$PROJECT_DIR$/static/css/mdb.css" />
+        <option value="$PROJECT_DIR$/static/css/style.css" />
       </list>
     </option>
   </component>
@@ -294,14 +301,18 @@
               <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
               <item name="portal" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="emails" type="462c0819:PsiDirectoryNode" />
+              <item name="portal" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
               <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
-              <item name="portal" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="portal" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -472,34 +483,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_new.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_relatorio.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_show.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -557,11 +540,6 @@
         <state relative-caret-position="340">
           <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-420" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_pendente.html">
@@ -795,13 +773,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="95" column="21" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="563">
@@ -817,13 +788,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/portal/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="963" column="98" selection-start-line="963" selection-start-column="45" selection-end-line="963" selection-end-column="98" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="67" column="33" selection-start-line="67" selection-start-column="23" selection-end-line="67" selection-end-column="33" />
+        <state relative-caret-position="503">
+          <caret line="89" column="209" selection-start-line="89" selection-start-column="209" selection-end-line="89" selection-end-column="209" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-encaminhamento.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1697">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/pycharm.jar!/resources/html5-schema/html5/phrase.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-840">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="46" column="21" lean-forward="true" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/mdb.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="12618" column="40" selection-start-line="12618" selection-start-column="33" selection-end-line="12618" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="637">
+          <caret line="105" column="1" lean-forward="true" selection-start-line="105" selection-start-column="1" selection-end-line="105" selection-end-column="1" />
         </state>
       </provider>
     </entry>

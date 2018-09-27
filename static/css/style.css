@@ -100,3 +100,7 @@ light-font .breadcrumb-item + .breadcrumb-item::before {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
+
+.card-header.redonda a{
+    color: #4265f4;
+}
