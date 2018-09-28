@@ -141,123 +141,93 @@
                     </div>
                 </div>
 
-                <div class="row mb-4">
-                    <div class="col-sm-12">
-                        <div class="card redonda">
-                            <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
-                                <p class="float-left m-0">
-                                    Ocorrências
-                                </p>
-                                {% if aluno.aluno.perfil_ocorrencias_categoria %}
+                {% if aluno.aluno.perfil_ocorrencias_categoria %}
+                    <div class="row mb-4">
+                        <div class="col-sm-12">
+                            <div class="card redonda">
+                                <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
+                                    <p class="float-left m-0">
+                                        Ocorrências
+                                    </p>
                                     <a href="{% url 'ocorrencia_relatorio' aluno.aluno.id %}" class="float-right m-0">
                                         VER
                                         MAIS</a>
-                                {% endif %}
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        {% if aluno.aluno.perfil_ocorrencias_categoria %}
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-4">
                                             <p class="font-weight-bold">Por categoria</p>
                                             <div id="grafico_ocorrencia_categoria"></div>
-                                        {% else %}
-                                            <div class="card-header warning-color white-text text-center">
-                                                <strong>NÃO HÁ REGISTROS</strong>
-                                            </div>
-                                        {% endif %}
-                                    </div>
+                                        </div>
 
-                                    <hr class="w-100 clearfix d-md-none">
+                                        <hr class="w-100 clearfix d-md-none">
 
-                                    <div class="col-sm-8">
-                                        {% if aluno.aluno.perfil_ocorrencias_mes %}
+                                        <div class="col-sm-8">
                                             <p class="font-weight-bold">Por mês</p>
                                             <div id="ocorrencia_mes"></div>
-                                        {% else %}
-                                            <div class="card-header warning-color white-text text-center">
-                                                <strong>NÃO HÁ REGISTROS</strong>
-                                            </div>
-                                        {% endif %}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                {% endif %}
 
-                <!--ENCAMINHAMENTOS-->
-                <div class="row mb-4">
-                    <div class="col-sm-12">
-                        <div class="card redonda">
-                            <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
-                                <p class="float-left m-0">
-                                    Encaminhamentos
-                                </p>
-                                {% if aluno.aluno.perfil_encaminhamentos_categoria %}
+                {% if aluno.aluno.perfil_encaminhamentos_categoria %}
+                    <!--ENCAMINHAMENTOS-->
+                    <div class="row mb-4">
+                        <div class="col-sm-12">
+                            <div class="card redonda">
+                                <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
+                                    <p class="float-left m-0">
+                                        Encaminhamentos
+                                    </p>
                                     <a href="{% url 'encaminhamento_relatorio' aluno.aluno.id %}"
                                        class="float-right m-0"> VER
                                         MAIS</a>
-                                {% endif %}
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        {% if aluno.aluno.perfil_encaminhamentos_categoria %}
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-6">
                                             <p class="font-weight-bold">Por categoria</p>
                                             <div id="categoria_encaminhamento"></div>
-                                        {% else %}
-                                            <div class="card-header warning-color white-text text-center">
-                                                <strong>NÃO HÁ REGISTROS</strong>
-                                            </div>
-                                        {% endif %}
-                                    </div>
-                                    <hr class="w-100 clearfix d-md-none">
-                                    <div class="col-sm-6">
-                                        {% if aluno.aluno.perfil_encaminhamentos_status %}
+                                        </div>
+                                        <hr class="w-100 clearfix d-md-none">
+                                        <div class="col-sm-6">
                                             <p class="font-weight-bold">Por status</p>
                                             <div id="status_encaminhamento"></div>
-                                        {% else %}
-                                            <div class="card-header warning-color white-text text-center">
-                                                <strong>NÃO HÁ REGISTROS</strong>
-                                            </div>
-                                        {% endif %}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                {% endif %}
 
-                <!-- AUTORIZAÇÕES DE SAÍDA POR MÊS -->
-                <div class="row mb-4">
-                    <div class="col-sm-12">
-                        <div class="card redonda">
-                            <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
-                                <p class="float-left m-0">
-                                    Autorizações de saídas
-                                </p>
-                                {% if aluno.aluno.perfil_autorizacoes_mes %}
+                {% if aluno.aluno.perfil_autorizacoes_mes %}
+                    <!-- AUTORIZAÇÕES DE SAÍDA POR MÊS -->
+                    <div class="row mb-4">
+                        <div class="col-sm-12">
+                            <div class="card redonda">
+                                <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
+                                    <p class="float-left m-0">
+                                        Autorizações de saídas
+                                    </p>
                                     <a href="{% url 'autorizacao_relatorio' aluno.aluno.id %}" class="float-right m-0">
                                         VER
                                         MAIS</a>
-                                {% endif %}
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        {% if aluno.aluno.perfil_autorizacoes_mes %}
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-12">
                                             <div id="saida_mes"></div>
-                                        {% else %}
-                                            <div class="card-header warning-color white-text text-center">
-                                                <strong>NÃO HÁ REGISTROS</strong>
-                                            </div>
-                                        {% endif %}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                {% endif %}
             </div>
         </div>
     {% endfor %}
