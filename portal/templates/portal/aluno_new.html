@@ -38,27 +38,52 @@
                         </div>
 
                         <div class="row">
-                            <div class=" col-sm-6">
+                            <div class=" col-sm-4">
                                 <div class="md-form">
-                                    <label>{{ form.responsavel.label }}</label>
-                                    {{ form.responsavel }}
+                                    <label>{{ form.rg.label }}</label>
+                                    {{ form.rg }}
                                 </div>
                             </div>
-                            <div class=" col-sm-6">
+                            <div class=" col-sm-4">
                                 <div class="md-form">
-                                    <label>{{ form.email_responsavel.label }}</label>
-                                    {{ form.email_responsavel }}
+                                    <label>{{ form.emissor.label }}</label>
+                                    {{ form.emissor }}
+                                </div>
+                            </div>
+                            <div class=" col-sm-4">
+                                <div class="md-form">
+                                    <label>{{ form.cpf.label }}</label>
+                                    {{ form.cpf }}
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class=" col-sm-6">
-                                {{ form.empresa }}
-                                <label for="id_empresa">{{ form.empresa.label }}</label>
+                                <div class="md-form">
+                                    <label>{{ form.mae.label }}</label>
+                                    {{ form.mae }}
+                                </div>
                             </div>
-                            <div class="col-sm-6">
-                                {{ form.foto }}
+                            <div class=" col-sm-6">
+                                <div class="md-form">
+                                    <label>{{ form.pai.label }}</label>
+                                    {{ form.pai }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class=" col-sm-6">
+                                <div class="md-form">
+                                    <label>{{ form.email_responsavel.label }}</label>
+                                    {{ form.email_responsavel }}
+                                </div>
+                            </div>
+                            <div class=" col-sm-6">
+                                <div class="md-form">
+                                    {{ form.foto }}
+                                </div>
                             </div>
                         </div>
 

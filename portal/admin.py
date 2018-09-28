@@ -17,7 +17,7 @@ class UserAdmin(UserAdmin):
 
 
 class AlunoAdmin(ImportExportModelAdmin):
-    list_display = ('id', 'nome', 'email', 'responsavel', 'email_responsavel', 'empresa')
+    list_display = ('nome', 'email', 'cpf', 'rg', 'emissor', 'pai', 'mae', 'email_responsavel', 'empresa')
     list_filter = ['empresa']
     search_fields = ['nome']
 
@@ -41,7 +41,8 @@ class OcorrenciaAdmin(admin.ModelAdmin):
 
 
 class EncaminhamentoAdmin(admin.ModelAdmin):
-    list_display = ('id','created_at', 'update_at', 'matricula', 'data', 'descricao', 'providencias', 'servico', 'user')
+    list_display = (
+        'id', 'created_at', 'update_at', 'matricula', 'data', 'descricao', 'providencias', 'servico', 'user')
     list_filter = ['servico__categoria', 'matricula__ano_letivo', 'matricula__turma', 'matricula__turma__curso', 'user',
                    'empresa']
 

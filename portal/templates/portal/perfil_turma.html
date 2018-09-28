@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}Perfil do Estudante - SGE - Gestão Estudantil{% endblock %}
-{% block class_cadastro_menu %}active{% endblock %}
-{% block class_cadastro_aluno_item %}collapsible-header active{% endblock %}
+{% block class_perfil_menu %}active{% endblock %}
 {% load humanize %}
 {% load static %}
 
@@ -53,15 +52,22 @@
                     <div class="col-sm-9">
                         <div class="card redonda">
                             <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
-                                Dados do estudante
+                                <p class="float-left m-0">
+                                    Dados do estudante
+                                </p>
+                                <a href="{% url 'aluno_edit' aluno.aluno.id %}" class="float-right m-0">
+                                    EDITAR</a>
                             </div>
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-8">
-                                        <p><strong>Nome: </strong>{{ aluno.aluno.nome }}</p>
-                                        <p><strong>E-mail: </strong>{{ aluno.aluno.email }}</p>
-                                        <p><strong>Responsável: </strong>{{ aluno.aluno.responsavel }}</p>
-                                        <p><strong>E-mail: </strong>{{ aluno.aluno.email_responsavel }}</p>
+                                        <strong>Nome: </strong>{{ aluno.aluno.nome }}<br>
+                                        <strong>CPF: </strong>{{ aluno.aluno.cpf }}<br>
+                                        <strong>RG: </strong>{{ aluno.aluno.rg }} {{ aluno.aluno.emissor }}<br>
+                                        <strong>E-mail: </strong>{{ aluno.aluno.email }}<br>
+                                        <strong>Pai: </strong>{{ aluno.aluno.pai }}<br>
+                                        <strong>Mãe: </strong>{{ aluno.aluno.mae }}<br>
+                                        <strong>E-mail responsável: </strong>{{ aluno.aluno.email_responsavel }}<br>
                                     </div>
 
                                     <div class="col-sm-4">

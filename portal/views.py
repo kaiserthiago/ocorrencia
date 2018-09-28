@@ -95,6 +95,58 @@ def configuracao(request):
     return render(request, 'portal/configuracao.html', context)
 
 
+def import_aluno_atualizar(request):
+    lista_nome = []
+    lista_cpf = []
+    lista_rg = []
+    lista_emissor = []
+    lista_pai = []
+    lista_mae = []
+    lista_email = []
+
+    if request.method == 'POST':
+        dataset = Dataset()
+        new_persons = request.FILES['myfile']
+
+        imported_data = dataset.load(new_persons.read())
+
+        importado = 0
+        nao_importado = 0
+
+        # VERIFICA O ARQUIVO A PARTIR DA LINHA 2
+        for n in imported_data[2:]:
+            lista_nome.append(n[1])
+            lista_rg.append(str(n[3]))
+            lista_emissor.append(str(n[4]+'/'+n[5]))
+            lista_cpf.append(str(n[6]).lstrip(" "))
+            lista_pai.append(n[9])
+            lista_mae.append(n[10])
+            lista_email.append(lower(n[12]))
+
+        contador = 0
+
+        for teste in lista_nome:
+            aluno = get_object_or_404(Aluno, empresa=request.user.userprofile.empresa, nome=teste.rstrip(" "))
+
+            aluno.rg = lista_rg[contador]
+            aluno.emissor = lista_emissor[contador]
+            aluno.cpf = lista_cpf[contador]
+            aluno.pai = lista_pai[contador]
+            aluno.mae = lista_mae[contador]
+            aluno.email = lista_email[contador]
+
+            aluno.save()
+
+            contador += 1
+
+        messages.success(request, 'Dados importados')
+    context = {
+
+    }
+
+    return render(request, 'portal/import_aluno_atualizar.html', context)
+
+
 @permission_required('is_superuser')
 def import_matricula(request):
     if request.method == 'POST':
@@ -106,39 +158,41 @@ def import_matricula(request):
         id = request.POST['SelectTurma']
         turma = get_object_or_404(Turma, id=id)
 
-        lista = []
+        lista_aluno = []
+        lista_situacao = []
         lista_nao_importado = []
 
         importado = 0
         nao_importado = 0
-        # i=1
-        # for n in imported_data:
-        #     aluno = Aluno.objects.filter(nome=upper(n[0]))
-        #     if not aluno:
-        #         lista.append(str(i)+' - '+upper(n[0])+'<br>')
-        #     i+=1
-        # return HttpResponse(lista)
+        contador = 0
 
-        for n in imported_data:
-            lista.append(upper(n[0]))
+        # VERIFICA O ARQUIVO A PARTIR DA LINHA 11
+        for n in imported_data[11:]:
+            if n[4]:
+                lista_aluno.append(n[4])
+            lista_situacao.append(n[14])
 
-        for teste in lista:
+        for teste in lista_aluno:
             aluno = get_object_or_404(Aluno, empresa=request.user.userprofile.empresa, nome=teste.rstrip(" "))
-            matricula = Matricula.objects.filter(aluno=aluno, ano_letivo=int(date.today().year), turma=turma)
+            if lista_situacao[contador] == 'Matriculado':
+                matricula = Matricula.objects.filter(aluno=aluno, ano_letivo=int(date.today().year), turma=turma)
 
-            if (teste.rstrip(" ") == aluno.nome) and not matricula:
-                matricula = Matricula()
-                matricula.user = request.user
-                matricula.empresa = request.user.userprofile.empresa
-                matricula.aluno = aluno
-                matricula.turma = turma
-                matricula.ano_letivo = int(date.today().year)
+                if (teste.rstrip(" ") == aluno.nome) and not matricula:
+                    matricula = Matricula()
+                    matricula.user = request.user
+                    matricula.empresa = request.user.userprofile.empresa
+                    matricula.aluno = aluno
+                    matricula.turma = turma
+                    matricula.ano_letivo = int(date.today().year)
 
-                matricula.save()
-                importado += 1
+                    matricula.save()
+                    importado += 1
+                else:
+                    nao_importado += 1
+                    lista_nao_importado.append(teste)
+                contador += 1
             else:
-                nao_importado += 1
-                lista_nao_importado.append(teste)
+                contador += 1
 
         context = {
             'importado': importado,
@@ -174,27 +228,24 @@ def import_aluno(request):
         importado = 0
         nao_importado = 0
 
-        for n in imported_data:
-            aluno.append(upper(n[0]))
-            responsavel.append(upper(n[1]))
-            email.append(upper(n[2]))
+        for n in imported_data[2:]:
+            aluno.append(n[1])
 
         for a in aluno:
-            aluno = Aluno.objects.filter(empresa=request.user.userprofile.empresa, nome=a)
+            aluno = Aluno.objects.filter(empresa=request.user.userprofile.empresa, nome=a.rstrip(" "))
 
             if not aluno:
                 aluno = Aluno()
                 aluno.user = request.user
                 aluno.empresa = request.user.userprofile.empresa
                 aluno.nome = a.rstrip(" ")
-                aluno.email_responsavel = ''
 
                 if email:
                     aluno.email = lower(email[importado])
                 else:
                     aluno.email = ''
 
-                aluno.responsavel = responsavel[importado]
+                # aluno.responsavel = responsavel[importado]
 
                 aluno.save()
 
@@ -265,7 +316,6 @@ def aluno_new(request):
             messages.success(request, 'Aluno registrado.')
 
             return redirect('/aluno?qs=a')
-
 
     form = AlunoForm()
 

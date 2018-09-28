@@ -132,7 +132,7 @@ class TurmaForm(forms.ModelForm):
 class AlunoForm(forms.ModelForm):
     class Meta:
         model = Aluno
-        exclude = ('user',)
+        exclude = ('user', 'empresa')
 
         widgets = {
             'nome': forms.TextInput(attrs={
@@ -143,15 +143,23 @@ class AlunoForm(forms.ModelForm):
             'email': forms.EmailInput(attrs={
                 'class': 'form-control validate',
             }),
-            'responsavel': forms.TextInput(attrs={
+            'pai': forms.TextInput(attrs={
+                'class': 'form-control validate',
+            }),
+            'mae': forms.TextInput(attrs={
+                'class': 'form-control validate',
+            }),
+            'rg': forms.TextInput(attrs={
+                'class': 'form-control validate',
+            }),
+            'emissor': forms.TextInput(attrs={
+                'class': 'form-control validate',
+            }),
+            'cpf': forms.TextInput(attrs={
                 'class': 'form-control validate',
             }),
             'email_responsavel': forms.EmailInput(attrs={
                 'class': 'form-control validate',
-            }),
-            'empresa': forms.Select(attrs={
-                'class': 'mdb-select md-form colorful-select dropdown-success',
-                'required': ''
             }),
             'foto': forms.FileInput(attrs={
                 'class': 'file-path validate'
@@ -159,9 +167,12 @@ class AlunoForm(forms.ModelForm):
         }
 
         labels = {
-            'empresa': 'Câmpus',
             'email': 'E-mail aluno',
-            'responsavel': 'Responsável',
+            'pai': 'Nome do pai',
+            'mae': 'Nome da mãe',
+            'rg': 'RG',
+            'cpf': 'CPF',
+            'emissor': 'Órgão emissor',
             'email_responsavel': 'E-mail responsável',
         }
 

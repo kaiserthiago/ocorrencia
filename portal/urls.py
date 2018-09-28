@@ -62,6 +62,7 @@ urlpatterns = [
     url('^matricula$', views.matricula, name='matricula'),
 
     url('^import/matricula$', views.import_matricula, name='import_matricula'),
+    url('^import/aluno/atualizar', views.import_aluno_atualizar, name='import_aluno_atualizar'),
     url('^import/aluno$', views.import_aluno, name='import_aluno'),
 
     url(r'^usuario/desativar/(?P<user_id>\d+)$', views.usuario_desativar, name='usuario_desativar'),

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Importar Aluno - SGE - Gestão Estudantil{% endblock %}
+{% block class_cadastro_menu %}active{% endblock %}
+{% block class_cadastro_aluno_item %}collapsible-header active{% endblock %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb blue-grey lighten-4">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'aluno' %}?qs=a">Alunos</a></li>
+        <li class="breadcrumb-item active">Atualizar</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="card redonda mb-4">
+        <div class="card-header redonda grey lighten-1 font-weight-bold">
+            ATUALIZAR ALUNOS
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="POST" enctype="multipart/form-data" class="md-form">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="file-field">
+                                    <div class="btn btn-primary btn-rounded">
+                                        <span>Selecionar arquivo</span>
+                                        <input type="file" name="myfile">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input type="text" class="file-path validate" name="myfile"
+                                               placeholder="Escolha o arquivo">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="float-right">
+                                    <button type="submit" class="btn btn-rounded btn-success" data-toggle="tooltip"
+                                            data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
+                                    <a href="{% url 'aluno' %}?qs=a" class="btn btn-rounded btn-danger" data-toggle="tooltip"
+                                       data-placement="top" title="Cancelar"><i
+                                            class="fa fa-close"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

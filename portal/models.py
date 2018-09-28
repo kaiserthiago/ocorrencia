@@ -121,7 +121,12 @@ class Turma(AuditoriaMixin):
 class Aluno(AuditoriaMixin):
     nome = models.CharField(max_length=255)
     email = models.EmailField(blank=True, null=True)
-    responsavel = models.CharField(max_length=255, blank=True, null=True)
+    rg = models.CharField(max_length=255, blank=True, null=True)
+    emissor = models.CharField(max_length=255, blank=True, null=True)
+    cpf = models.CharField(max_length=255, blank=True, null=True)
+    nascimento = models.DateField(blank=True, null=True)
+    mae = models.CharField(max_length=255, blank=True, null=True)
+    pai = models.CharField(max_length=255, blank=True, null=True)
     email_responsavel = models.EmailField(blank=True, null=True)
     foto = models.ImageField(null=True, blank=True, upload_to='img_alunos')
 
