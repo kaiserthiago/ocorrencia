@@ -30,7 +30,7 @@
                             <a href="?page={{ alunos.previous_page_number }}" data-toggle="tooltip"
                                title="Anterior"><i class="fa fa-arrow-left fa-2x"></i></a>
                         {% else %}
-                            <a class="disabled"><i class="fa fa-arrow-left fa-2x"></i></a>
+                            <i class="fa fa-arrow-left fa-2x grey-text"></i>
                         {% endif %}
                     </div>
                     <div class="col-sm-8 text-center">
@@ -40,10 +40,9 @@
                     <div class="col-sm-2 text-right">
                         {% if alunos.has_next %}
                             <a href="?page={{ alunos.next_page_number }}" data-toggle="tooltip"
-                               title="Próximo"><i
-                                    class="fa fa-arrow-right fa-2x"></i></a>
+                               title="Próximo"><i class="fa fa-arrow-right fa-2x"></i></a>
                         {% else %}
-                            <a class="disabled"><i class="fa fa-arrow-right fa-2x"></i></a>
+                            <i class="fa fa-arrow-right fa-2x grey-text"></i>
                         {% endif %}
                     </div>
                 </div>
