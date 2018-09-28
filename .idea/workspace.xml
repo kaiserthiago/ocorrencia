@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/portal/templates/emails/confirma-usuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/emails/confirma-usuario.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/emails/registra-encaminhamento.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/emails/registra-encaminhamento.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/autorizacao.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/autorizacao.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/encaminhamento.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/encaminhamento.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,48 +25,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8460">
-              <caret line="448" column="5" selection-start-line="448" selection-start-column="5" selection-end-line="448" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4540">
-              <caret line="233" column="41" selection-start-line="233" selection-start-column="41" selection-end-line="233" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="perfil_turma.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/perfil_turma.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="18" column="44" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ocorrencia_relatorio.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="55" column="39" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ocorrencia/settings.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -87,40 +46,89 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registra-encaminhamento.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-encaminhamento.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="98" column="35" selection-start-line="98" selection-start-column="35" selection-end-line="98" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="aluno.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3040">
-              <caret line="152" column="14" selection-start-line="152" selection-start-column="14" selection-end-line="152" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ocorrencia.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ocorrencia.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+            <state relative-caret-position="417">
+              <caret line="52" column="111" selection-start-line="52" selection-start-column="111" selection-end-line="52" selection-end-column="111" />
+              <folding>
+                <element signature="e#2597#2628#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="perfil_individual.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/perfil_individual.html">
+      <file leaf-file-name="autorizacao.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2000">
-              <caret line="100" column="62" selection-start-line="100" selection-start-column="62" selection-end-line="100" selection-end-column="62" />
+            <state relative-caret-position="380">
+              <caret line="52" column="112" selection-start-line="52" selection-start-column="112" selection-end-line="52" selection-end-column="112" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="registra-encaminhamento.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-encaminhamento.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="97" column="16" selection-start-line="97" selection-start-column="16" selection-end-line="98" selection-end-column="67" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="registra-encaminhamento-providencias.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-encaminhamento-providencias.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="263">
+              <caret line="108" column="67" selection-start-line="108" selection-start-column="67" selection-end-line="108" selection-end-column="67" />
               <folding>
-                <element signature="e#1816#1834#0#HTML" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="registra-ocorrencia.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="263">
+              <caret line="80" column="67" selection-start-line="80" selection-start-column="67" selection-end-line="80" selection-end-column="67" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="registra-saida.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-saida.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="263">
+              <caret line="77" column="67" selection-start-line="77" selection-start-column="67" selection-end-line="77" selection-end-column="67" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="responsavel-usuario.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/emails/responsavel-usuario.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
+              <folding>
+                <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="encaminhamento.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="523">
+              <caret line="53" column="115" selection-start-line="53" selection-start-column="115" selection-end-line="53" selection-end-column="115" />
+              <folding>
+                <element signature="e#1861#1886#0#HTML" expanded="true" />
+                <element signature="e#2555#2586#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -208,11 +216,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/portal/templates/portal/matricula.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/matricula_new.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_show.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/report_autorizacao_saida_aluno.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/report_autorizacao_saida_curso.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/report_autorizacao_saida_turma.html" />
@@ -231,9 +234,7 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/turma_new.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/user_change_password.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/user_list.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_new.html" />
-        <option value="$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia.html" />
         <option value="$PROJECT_DIR$/static/css/mdb.css" />
         <option value="$PROJECT_DIR$/static/css/style.css" />
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html" />
@@ -259,6 +260,13 @@
         <option value="$PROJECT_DIR$/ocorrencia/settings.py" />
         <option value="$PROJECT_DIR$/portal/templates/emails/confirma-usuario.html" />
         <option value="$PROJECT_DIR$/portal/templates/emails/registra-encaminhamento.html" />
+        <option value="$PROJECT_DIR$/portal/templates/emails/registra-encaminhamento-providencias.html" />
+        <option value="$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia.html" />
+        <option value="$PROJECT_DIR$/portal/templates/emails/registra-saida.html" />
+        <option value="$PROJECT_DIR$/portal/templates/emails/responsavel-usuario.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" />
       </list>
     </option>
   </component>
@@ -300,13 +308,6 @@
               <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
               <item name="portal" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
-              <item name="portal" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="emails" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
@@ -484,27 +485,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/report_autorizacao_saida_aluno.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/report_encaminhamento_aluno.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/report_encaminhamento_curso.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/report_general.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
@@ -575,25 +555,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="155" column="45" selection-start-line="155" selection-start-column="45" selection-end-line="155" selection-end-column="45" />
-          <caret line="170" column="28" lean-forward="true" selection-start-line="170" selection-start-column="28" selection-end-line="170" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_new.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="76" column="102" selection-start-line="76" selection-start-column="102" selection-end-line="76" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="89" column="209" selection-start-line="89" selection-start-column="209" selection-end-line="89" selection-end-column="209" />
         </state>
       </provider>
     </entry>
@@ -622,13 +587,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="6" selection-start-line="6" selection-end-line="11" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3740">
-          <caret line="187" column="14" selection-start-line="187" selection-start-column="14" selection-end-line="187" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -696,6 +654,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3120">
           <caret line="156" column="26" selection-start-line="156" selection-start-column="26" selection-end-line="156" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -806,13 +767,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3040">
@@ -841,6 +795,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-encaminhamento.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="97" column="16" selection-start-line="97" selection-start-column="16" selection-end-line="98" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-encaminhamento-providencias.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="108" column="67" selection-start-line="108" selection-start-column="67" selection-end-line="108" selection-end-column="67" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="80" column="67" selection-start-line="80" selection-start-column="67" selection-end-line="80" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-saida.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="77" column="67" selection-start-line="77" selection-start-column="67" selection-end-line="77" selection-end-column="67" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/emails/confirma-usuario.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -851,10 +839,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-encaminhamento.html">
+    <entry file="file://$PROJECT_DIR$/portal/templates/emails/responsavel-usuario.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="98" column="35" selection-start-line="98" selection-start-column="35" selection-end-line="98" selection-end-column="35" />
+        <state relative-caret-position="437">
+          <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="52" column="112" selection-start-line="52" selection-start-column="112" selection-end-line="52" selection-end-column="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="523">
+          <caret line="53" column="115" selection-start-line="53" selection-start-column="115" selection-end-line="53" selection-end-column="115" />
+          <folding>
+            <element signature="e#1861#1886#0#HTML" expanded="true" />
+            <element signature="e#2555#2586#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="52" column="111" selection-start-line="52" selection-start-column="111" selection-end-line="52" selection-end-column="111" />
+          <folding>
+            <element signature="e#2597#2628#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
