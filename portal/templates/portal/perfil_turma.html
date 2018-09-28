@@ -16,53 +16,416 @@
     <ol class="breadcrumb blue-grey lighten-4">
         <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
         <li class="breadcrumb-item"><a href="{% url 'perfil' %}">Perfil</a></li>
-        <li class="breadcrumb-item active">{{ turma.curso.descricao }} - {{ turma.descricao }}</li>
+        <li class="breadcrumb-item active">Perfil turma - {{ turma.curso.descricao }} - {{ turma.descricao }}</li>
     </ol>
 {% endblock %}
 
 {% block content %}
-    <div class="row mb-4">
-        <div class="col-sm-12">
-            <div class="card redonda">
-                <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
-                    Lista de alunos - {{ turma.curso.descricao }} {{ turma.descricao }}
-                </div>
-                <div class="card-body">
-                    <div class="md-form">
-                        <input id="myInput" type="text" class="form-control form-control-sm" autofocus/>
-                        <label for="myInput">Pesquisar...</label>
+    {% for aluno in alunos %}
+        <div class="card redonda mb-4">
+            <div class="card-header redonda grey lighten-1 font-weight-bold">
+                <div class="row">
+                    <div class="col-sm-2 text-left">
+                        {% if alunos.has_previous %}
+                            <a href="?page={{ alunos.previous_page_number }}" data-toggle="tooltip"
+                               title="Anterior"><i class="fa fa-arrow-left fa-2x"></i></a>
+                        {% else %}
+                            <a class="disabled"><i class="fa fa-arrow-left fa-2x"></i></a>
+                        {% endif %}
                     </div>
-                    <table class="table table-sm table-striped">
-                        <thead>
-                        <tr>
-                            <th style="font-weight: bold">Nome</th>
-                            <th style="text-align: right; font-weight: bold">Ações</th>
-                        </tr>
-                        </thead>
-                        <tbody id="myTable">
-                        {% for aluno in alunos %}
-                            <tr>
-                                <td style="vertical-align: middle;">{{ aluno.aluno.nome }}</td>
-                                <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
-                                    <i data-toggle="tooltip" data-placement="top" title="Perfil">
-                                        <a href="{% url 'perfil_aluno' aluno.aluno.id %}"
-                                           target="_blank" class="btn-floating btn-sm ifro-color"><i
-                                                class="fa fa-address-book"></i>
-                                        </a>
-                                    </i>
-                                </td>
-                            </tr>
-                        {% empty %}
-                            <tr>
-                                <td colspan="2" class="card-header warning-color white-text text-center font-bold">
-                                    NÃO HÁ REGISTROS
-                                </td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
+                    <div class="col-sm-8 text-center">
+                        {{ turma.curso.descricao }} - {{ turma.descricao }}<br>
+                        Estudante {{ alunos.number }} de {{ alunos.paginator.num_pages }}
+                    </div>
+                    <div class="col-sm-2 text-right">
+                        {% if alunos.has_next %}
+                            <a href="?page={{ alunos.next_page_number }}" data-toggle="tooltip"
+                               title="Próximo"><i
+                                    class="fa fa-arrow-right fa-2x"></i></a>
+                        {% else %}
+                            <a class="disabled"><i class="fa fa-arrow-right fa-2x"></i></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-sm-9">
+                        <div class="card redonda">
+                            <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
+                                Dados do estudante
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <p><strong>Nome: </strong>{{ aluno.aluno.nome }}</p>
+                                        <p><strong>E-mail: </strong>{{ aluno.aluno.email }}</p>
+                                        <p><strong>Responsável: </strong>{{ aluno.aluno.responsavel }}</p>
+                                        <p><strong>E-mail: </strong>{{ aluno.aluno.email_responsavel }}</p>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <div class="text-center" style="width: 200px">
+                                            {% if aluno.aluno.foto %}
+                                                <img src="{{ aluno.aluno.foto.url }}" style="width: 80%">
+                                            {% else %}
+                                                <img src="{% static 'img/avatar.png' %}" style="width: 80%">
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="w-100 clearfix d-md-none">
+
+                    <div class="col-sm-3">
+                        <!--Card-->
+                        <div class="card redonda">
+                            <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
+                                <p class="float-left m-0">
+                                    Indicadores
+                                </p>
+                            </div>
+                            <div class="card-body">
+                                <p class="border-bottom">
+                                    Autorizações
+                                    <span class="badge badge-warning badge-pill pull-right">
+                                        {% if aluno.aluno.count_autorizacoes %}
+                                            {% for i in aluno.aluno.count_autorizacoes %}
+                                                {% if not i.qtde %}
+                                                    0
+                                                {% else %}
+                                                    {{ i.qtde }}
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% else %}
+                                            0
+                                        {% endif %}
+                                    </span>
+                                </p>
+                                <p class="border-bottom">
+                                    Encaminhamentos
+                                    <span class="badge badge-primary badge-pill pull-right">
+                                        {% if aluno.aluno.count_encaminhamento %}
+                                            {% for i in aluno.aluno.count_encaminhamento %}
+                                                {% if not i.qtde %}
+                                                    0
+                                                {% else %}
+                                                    {{ i.qtde }}
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% else %}
+                                            0
+                                        {% endif %}
+                                    </span>
+                                </p>
+                                <p class="border-bottom">
+                                    Ocorrências
+                                    <span class="badge ifro-color badge-pill pull-right">
+                                        {% if aluno.aluno.count_ocorrencia %}
+                                            {% for i in aluno.aluno.count_ocorrencia %}
+                                                {% if not i.qtde %}
+                                                    0
+                                                {% else %}
+                                                    {{ i.qtde }}
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% else %}
+                                            0
+                                        {% endif %}
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-sm-12">
+                        <div class="card redonda">
+                            <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
+                                <p class="float-left m-0">
+                                    Ocorrências
+                                </p>
+                                {% if aluno.aluno.perfil_ocorrencias_categoria %}
+                                    <a href="{% url 'ocorrencia_relatorio' aluno.aluno.id %}" class="float-right m-0">
+                                        VER
+                                        MAIS</a>
+                                {% endif %}
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        {% if aluno.aluno.perfil_ocorrencias_categoria %}
+                                            <p class="font-weight-bold">Por categoria</p>
+                                            <div id="grafico_ocorrencia_categoria"></div>
+                                        {% else %}
+                                            <div class="card-header warning-color white-text text-center">
+                                                <strong>NÃO HÁ REGISTROS</strong>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+
+                                    <hr class="w-100 clearfix d-md-none">
+
+                                    <div class="col-sm-8">
+                                        {% if aluno.aluno.perfil_ocorrencias_mes %}
+                                            <p class="font-weight-bold">Por mês</p>
+                                            <div id="ocorrencia_mes"></div>
+                                        {% else %}
+                                            <div class="card-header warning-color white-text text-center">
+                                                <strong>NÃO HÁ REGISTROS</strong>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--ENCAMINHAMENTOS-->
+                <div class="row mb-4">
+                    <div class="col-sm-12">
+                        <div class="card redonda">
+                            <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
+                                <p class="float-left m-0">
+                                    Encaminhamentos
+                                </p>
+                                {% if aluno.aluno.perfil_encaminhamentos_categoria %}
+                                    <a href="{% url 'encaminhamento_relatorio' aluno.aluno.id %}"
+                                       class="float-right m-0"> VER
+                                        MAIS</a>
+                                {% endif %}
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        {% if aluno.aluno.perfil_encaminhamentos_categoria %}
+                                            <p class="font-weight-bold">Por categoria</p>
+                                            <div id="categoria_encaminhamento"></div>
+                                        {% else %}
+                                            <div class="card-header warning-color white-text text-center">
+                                                <strong>NÃO HÁ REGISTROS</strong>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                    <hr class="w-100 clearfix d-md-none">
+                                    <div class="col-sm-6">
+                                        {% if aluno.aluno.perfil_encaminhamentos_status %}
+                                            <p class="font-weight-bold">Por status</p>
+                                            <div id="status_encaminhamento"></div>
+                                        {% else %}
+                                            <div class="card-header warning-color white-text text-center">
+                                                <strong>NÃO HÁ REGISTROS</strong>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AUTORIZAÇÕES DE SAÍDA POR MÊS -->
+                <div class="row mb-4">
+                    <div class="col-sm-12">
+                        <div class="card redonda">
+                            <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
+                                <p class="float-left m-0">
+                                    Autorizações de saídas
+                                </p>
+                                {% if aluno.aluno.perfil_autorizacoes_mes %}
+                                    <a href="{% url 'autorizacao_relatorio' aluno.aluno.id %}" class="float-right m-0">
+                                        VER
+                                        MAIS</a>
+                                {% endif %}
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        {% if aluno.aluno.perfil_autorizacoes_mes %}
+                                            <div id="saida_mes"></div>
+                                        {% else %}
+                                            <div class="card-header warning-color white-text text-center">
+                                                <strong>NÃO HÁ REGISTROS</strong>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    {% endfor %}
+{% endblock %}
+
+{% block script %}
+    {% for aluno in alunos %}
+        <!--OCORRÊNCIAS-->
+        <script type="text/javascript">
+            google.charts.load('current', {'packages': ['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Categoria');
+                data.addColumn('number', 'Ocorrências');
+                data.addRows({{ aluno.aluno.perfil_ocorrencias_categoria|safe }});
+
+                var options = {
+                    pieSliceText: 'percentage',
+                    legend: {
+                        position: 'right',
+                        alignment: 'center'
+                    },
+                    chartArea: {
+                        left: 15,
+                        top: 15,
+                        right: 0,
+                        bottom: 10
+                    }
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('grafico_ocorrencia_categoria'));
+
+                chart.draw(data, options);
+            }
+        </script>
+
+        <!--ENCAMINHAMENTOS-->
+        <script type="text/javascript">
+            google.charts.load('current', {'packages': ['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Categoria');
+                data.addColumn('number', 'Encaminhamentos');
+                data.addRows({{ aluno.aluno.perfil_encaminhamentos_categoria|safe }});
+
+                var options = {
+                    chartArea: {
+                        top: 10,
+                        bottom: 10,
+                        widht: '100%',
+                    },
+                    legend: {
+                        position: 'right',
+                        alignment: 'center'
+                    }
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('categoria_encaminhamento'));
+
+                chart.draw(data, options);
+            }
+        </script>
+
+        <!-- STATUS ENCAMINHAMENTO -->
+        <script type="text/javascript">
+            google.charts.load('current', {'packages': ['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Status');
+                data.addColumn('number', 'Encaminhamentos');
+                data.addRows({{ aluno.aluno.perfil_encaminhamentos_status|safe }});
+
+                var options = {
+                    chartArea: {
+                        top: 10,
+                        bottom: 10,
+                        widht: '100%',
+                    },
+                    legend: {
+                        position: 'right',
+                        alignment: 'center'
+                    }
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('status_encaminhamento'));
+
+                chart.draw(data, options);
+            }
+        </script>
+
+        <!-- GRÁFICO OCORRÊNCIAS POR MÊS -->
+        <script type="text/javascript">
+            google.charts.load('current', {'packages': ['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Mês');
+                data.addColumn('number', 'Ocorrências');
+                data.addRows({{ aluno.aluno.perfil_ocorrencias_mes|safe }});
+
+                var options = {
+                    curveType: 'function',
+                    legend: 'none',
+                    pointSize: 7,
+                    lineWidth: 3,
+                    chartArea: {
+                        top: 10,
+                        bottom: 20,
+                        {#widht: '100%',#}
+                        {#height: '100%'#}
+                    },
+                    series: {
+                        0: {
+                            color: '#2f9e41'
+                        }
+                    }
+                };
+
+                var chart = new google.visualization.LineChart(document.getElementById('ocorrencia_mes'));
+
+                chart.draw(data, options);
+            }
+        </script>
+
+        <!-- GRÁFICO AUTORIZAÇÕES DE SAÍDA POR MÊS -->
+        <script type="text/javascript">
+            google.charts.load('current', {'packages': ['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Mês');
+                data.addColumn('number', 'Saídas');
+                data.addRows({{ aluno.aluno.perfil_autorizacoes_mes|safe }});
+
+                var options = {
+                    curveType: 'function',
+                    legend: 'none',
+                    pointSize: 7,
+                    lineWidth: 3,
+                    chartArea: {
+                        top: 10,
+                        bottom: 20,
+                        {#widht: '100%',#}
+                        {#height: '100%'#}
+                    },
+                    series: {
+                        0: {
+                            color: '#2f9e41'
+                        }
+                    }
+                };
+
+                var chart = new google.visualization.LineChart(document.getElementById('saida_mes'));
+
+                chart.draw(data, options);
+            }
+        </script>
+    {% endfor %}
 {% endblock %}

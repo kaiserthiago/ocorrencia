@@ -62,20 +62,55 @@
                     </p>
                 </div>
                 <div class="card-body">
-                    <p class="border-bottom">
-                        Autorizações
-                        <span class="badge badge-warning badge-pill pull-right">{{ indicador_autorizacao.count }}</span>
-
-                    </p>
-                    <p class="border-bottom">
-                        Encaminhamentos
-                        <span class="badge badge-primary badge-pill pull-right">{{ indicador_encaminhamento.count }}</span>
-                    </p>
-                    <p class="border-bottom">
-                        Ocorrências
-                        <span class="badge ifro-color badge-pill pull-right">{{ indicador_ocorrencia.count }}</span>
-                    </p>
-                </div>
+                                <p class="border-bottom">
+                                    Autorizações
+                                    <span class="badge badge-warning badge-pill pull-right">
+                                        {% if aluno.count_autorizacoes %}
+                                            {% for i in aluno.count_autorizacoes %}
+                                                {% if not i.qtde %}
+                                                    0
+                                                {% else %}
+                                                    {{ i.qtde }}
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% else %}
+                                            0
+                                        {% endif %}
+                                    </span>
+                                </p>
+                                <p class="border-bottom">
+                                    Encaminhamentos
+                                    <span class="badge badge-primary badge-pill pull-right">
+                                        {% if aluno.count_encaminhamento %}
+                                            {% for i in aluno.count_encaminhamento %}
+                                                {% if not i.qtde %}
+                                                    0
+                                                {% else %}
+                                                    {{ i.qtde }}
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% else %}
+                                            0
+                                        {% endif %}
+                                    </span>
+                                </p>
+                                <p class="border-bottom">
+                                    Ocorrências
+                                    <span class="badge ifro-color badge-pill pull-right">
+                                        {% if aluno.count_ocorrencia %}
+                                            {% for i in aluno.count_ocorrencia %}
+                                                {% if not i.qtde %}
+                                                    0
+                                                {% else %}
+                                                    {{ i.qtde }}
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% else %}
+                                            0
+                                        {% endif %}
+                                    </span>
+                                </p>
+                            </div>
             </div>
         </div>
     </div>
@@ -87,14 +122,14 @@
                     <p class="float-left m-0">
                         Ocorrências
                     </p>
-                    {% if categorias_ocorrencias %}
+                    {% if aluno.perfil_ocorrencias_categoria %}
                         <a href="{% url 'ocorrencia_relatorio' aluno.id %}" class="float-right m-0"> VER MAIS</a>
                     {% endif %}
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-4">
-                            {% if categorias_ocorrencias %}
+                            {% if aluno.perfil_ocorrencias_categoria %}
                                 <p class="font-weight-bold">Por categoria</p>
                                 <div id="grafico_ocorrencia_categoria"></div>
                             {% else %}
@@ -107,7 +142,7 @@
                         <hr class="w-100 clearfix d-md-none">
 
                         <div class="col-sm-8">
-                            {% if dados_grafico_datas_ocorrencia %}
+                            {% if aluno.perfil_ocorrencias_mes %}
                                 <p class="font-weight-bold">Por mês</p>
                                 <div id="ocorrencia_mes"></div>
                             {% else %}
@@ -130,14 +165,14 @@
                     <p class="float-left m-0">
                         Encaminhamentos
                     </p>
-                    {% if categorias_encaminhamentos %}
+                    {% if aluno.perfil_encaminhamentos_categoria %}
                         <a href="{% url 'encaminhamento_relatorio' aluno.id %}" class="float-right m-0"> VER MAIS</a>
                     {% endif %}
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-6">
-                            {% if categorias_encaminhamentos %}
+                            {% if aluno.perfil_encaminhamentos_categoria %}
                                 <p class="font-weight-bold">Por categoria</p>
                                 <div id="categoria_encaminhamento"></div>
                             {% else %}
@@ -148,7 +183,7 @@
                         </div>
                         <hr class="w-100 clearfix d-md-none">
                         <div class="col-sm-6">
-                            {% if status_encaminhamento %}
+                            {% if aluno.perfil_encaminhamentos_status %}
                                 <p class="font-weight-bold">Por status</p>
                                 <div id="status_encaminhamento"></div>
                             {% else %}
@@ -171,14 +206,14 @@
                     <p class="float-left m-0">
                         Autorizações de saídas
                     </p>
-                    {% if dados_grafico_datas_saidas %}
+                    {% if aluno.perfil_autorizacoes_mes %}
                         <a href="{% url 'autorizacao_relatorio' aluno.id %}" class="float-right m-0"> VER MAIS</a>
                     {% endif %}
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-12">
-                            {% if dados_grafico_datas_saidas %}
+                            {% if aluno.perfil_autorizacoes_mes %}
                                 <div id="saida_mes"></div>
                             {% else %}
                                 <div class="card-header warning-color white-text text-center">
@@ -205,7 +240,7 @@
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Categoria');
             data.addColumn('number', 'Ocorrências');
-            data.addRows({{ dados_grafico_ocorrencia_categoria|safe }});
+            data.addRows({{ aluno.perfil_ocorrencias_categoria|safe }});
 
             var options = {
                 pieSliceText: 'percentage',
@@ -237,7 +272,7 @@
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Categoria');
             data.addColumn('number', 'Encaminhamentos');
-            data.addRows({{ dados_grafico_encaminhamento_categoria|safe }});
+            data.addRows({{ aluno.perfil_encaminhamentos_categoria|safe }});
 
             var options = {
                 chartArea: {
@@ -267,7 +302,7 @@
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Status');
             data.addColumn('number', 'Encaminhamentos');
-            data.addRows({{ dados_grafico_encaminhamento_status|safe }});
+            data.addRows({{ aluno.perfil_encaminhamentos_status|safe }});
 
             var options = {
                 chartArea: {
@@ -296,7 +331,7 @@
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Mês');
             data.addColumn('number', 'Ocorrências');
-            data.addRows({{ dados_grafico_datas_ocorrencia|safe }});
+            data.addRows({{ aluno.perfil_ocorrencias_mes|safe }});
 
             var options = {
                 curveType: 'function',
@@ -331,7 +366,7 @@
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Mês');
             data.addColumn('number', 'Saídas');
-            data.addRows({{ dados_grafico_datas_saidas|safe }});
+            data.addRows({{ aluno.perfil_autorizacoes_mes|safe }});
 
             var options = {
                 curveType: 'function',

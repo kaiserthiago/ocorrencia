@@ -1,4 +1,6 @@
+import json
 from datetime import date
+from django.db.models.functions import TruncMonth
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -170,6 +172,73 @@ class Aluno(AuditoriaMixin):
     def count_autorizacoes(self):
         return Autorizacao.objects.filter(data__year=date.today().year, matricula__aluno_id=self.id).order_by().values(
             'matricula__aluno__nome', 'matricula__aluno_id').annotate(qtde=Count('matricula__aluno__nome')).distinct()
+
+    @property
+    def perfil_ocorrencias_categoria(self):
+        ocorrencias = list(
+            Ocorrencia.objects.filter(data__year=date.today().year, matricula__aluno_id=self.id).order_by(
+                'falta__categoria__artigo').values_list('falta__categoria__descricao').annotate(
+                qtde=Count('id')).distinct())
+
+        if ocorrencias:
+            ocorrencias = json.dumps(ocorrencias)
+
+        return ocorrencias
+
+    @property
+    def perfil_encaminhamentos_categoria(self):
+        encaminhamentos = list(
+            Encaminhamento.objects.filter(data__year=date.today().year, matricula__aluno_id=self.id).order_by(
+                'servico__categoria__descricao').values_list(
+                'servico__categoria__descricao').annotate(qtde=Count('id')).distinct())
+
+        if encaminhamentos:
+            encaminhamentos = json.dumps(encaminhamentos)
+
+        return encaminhamentos
+
+    @property
+    def perfil_encaminhamentos_status(self):
+        encaminhamentos = list(Encaminhamento.objects.filter(data__year=date.today().year,
+                                                             matricula__aluno_id=self.id).order_by().values_list(
+            'status').annotate(qtde=Count('id')).distinct())
+
+        if encaminhamentos:
+            encaminhamentos = json.dumps(encaminhamentos)
+
+        return encaminhamentos
+
+    @property
+    def perfil_ocorrencias_mes(self):
+        datas_ocorrencia = Ocorrencia.objects.filter(matricula__aluno_id=self.id,
+                                                     data__year=date.today().year).annotate(
+            month=TruncMonth('data')).values('month').annotate(c=Count('id')).values_list('month', 'c').order_by()
+
+        mes_ocorrencia = [str(obj[0].strftime('%m/%Y')) for obj in datas_ocorrencia]
+        qtde_ocorrencia = [int(obj[1]) for obj in datas_ocorrencia]
+
+        dados_grafico_datas_ocorrencia = []
+
+        for i in range(0, datas_ocorrencia.count()):
+            dados_grafico_datas_ocorrencia.append([mes_ocorrencia[i], qtde_ocorrencia[i]])
+
+        return dados_grafico_datas_ocorrencia
+
+    @property
+    def perfil_autorizacoes_mes(self):
+        datas_saida = Autorizacao.objects.filter(matricula__aluno_id=self.id,
+                                                 data__year=date.today().year).annotate(
+            month=TruncMonth('data')).values('month').annotate(c=Count('id')).values_list('month', 'c').order_by()
+
+        mes_saida = [str(obj[0].strftime('%m/%Y')) for obj in datas_saida]
+        qtde_saida = [int(obj[1]) for obj in datas_saida]
+
+        dados_grafico_datas_saidas = []
+
+        for i in range(0, datas_saida.count()):
+            dados_grafico_datas_saidas.append([mes_saida[i], qtde_saida[i]])
+
+        return dados_grafico_datas_saidas
 
 
 class Matricula(AuditoriaMixin):
