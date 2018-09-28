@@ -137,8 +137,8 @@ LOGIN_URL = '/login'
 br_formats.DATE_FORMAT = 'd/m/Y'
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'sigef.cacoal@ifro.edu.br'
-EMAIL_HOST_PASSWORD = 'dahv80kaiser'
+EMAIL_HOST_USER = 'sge@ifro.edu.br'
+EMAIL_HOST_PASSWORD = 'sg3@ifr0'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 

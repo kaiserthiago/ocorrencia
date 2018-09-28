@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/perfil_turma.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/perfil_turma.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ocorrencia/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ocorrencia/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,7 +27,7 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="563">
+            <state relative-caret-position="8460">
               <caret line="448" column="5" selection-start-line="448" selection-start-column="5" selection-end-line="448" selection-end-column="5" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
@@ -38,7 +39,7 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
+            <state relative-caret-position="4540">
               <caret line="233" column="41" selection-start-line="233" selection-start-column="41" selection-end-line="233" selection-end-column="41" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
@@ -47,14 +48,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="perfil_turma.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="perfil_turma.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/perfil_turma.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="25" column="60" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
-              <folding>
-                <element signature="e#2020#2038#0#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="20">
+              <caret line="18" column="44" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ocorrencia_relatorio.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="55" column="39" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ocorrencia/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="140" column="31" selection-start-line="140" selection-start-column="31" selection-end-line="140" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -62,8 +78,8 @@
       <file leaf-file-name="aluno.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2597">
-              <caret line="152" column="14" lean-forward="true" selection-start-line="152" selection-start-column="14" selection-end-line="152" selection-end-column="14" />
+            <state relative-caret-position="3040">
+              <caret line="152" column="14" selection-start-line="152" selection-start-column="14" selection-end-line="152" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -80,7 +96,7 @@
       <file leaf-file-name="perfil_individual.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/perfil_individual.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
+            <state relative-caret-position="2000">
               <caret line="100" column="62" selection-start-line="100" selection-start-column="62" selection-end-line="100" selection-end-column="62" />
               <folding>
                 <element signature="e#1816#1834#0#HTML" expanded="true" />
@@ -92,7 +108,7 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
+            <state relative-caret-position="6960">
               <caret line="348" column="87" selection-start-line="347" selection-end-line="348" selection-end-column="87" />
             </state>
           </provider>
@@ -101,28 +117,8 @@
       <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
+            <state relative-caret-position="10660">
               <caret line="533" column="31" selection-start-line="533" selection-start-column="31" selection-end-line="533" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="encaminhamento_pendente.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_pendente.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="36" column="61" selection-start-line="36" selection-start-column="61" selection-end-line="36" selection-end-column="61" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/admin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -209,7 +205,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_show.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/import_aluno_success.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/import_matricula_success.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/matricula.html" />
@@ -260,6 +255,7 @@
         <option value="$PROJECT_DIR$/portal/views.py" />
         <option value="$PROJECT_DIR$/portal/templates/portal/perfil_individual.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/perfil_turma.html" />
+        <option value="$PROJECT_DIR$/ocorrencia/settings.py" />
       </list>
     </option>
   </component>
@@ -284,12 +280,16 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
               <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -314,6 +314,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -444,18 +445,17 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" weight="0.32965517" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="8" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32965517" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2298177" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39955848" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39955848" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -463,6 +463,7 @@
       <window_info anchor="right" id="Data View" order="4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="12" weight="0.3281768" />
     </layout>
   </component>
@@ -478,13 +479,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/matricula_new.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_show.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -638,13 +632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1100">
-          <caret line="55" column="39" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3740">
@@ -716,9 +703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3120">
           <caret line="156" column="26" selection-start-line="156" selection-start-column="26" selection-end-line="156" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -754,21 +738,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_pendente.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
+        <state relative-caret-position="720">
           <caret line="36" column="61" selection-start-line="36" selection-start-column="61" selection-end-line="36" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
+        <state relative-caret-position="6960">
           <caret line="348" column="87" selection-start-line="347" selection-end-line="348" selection-end-column="87" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
+        <state relative-caret-position="10660">
           <caret line="533" column="31" selection-start-line="533" selection-start-column="31" selection-end-line="533" selection-end-column="31" />
         </state>
       </provider>
@@ -801,7 +785,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
+        <state relative-caret-position="4540">
           <caret line="233" column="41" selection-start-line="233" selection-start-column="41" selection-end-line="233" selection-end-column="41" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
@@ -811,7 +795,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
+        <state relative-caret-position="8460">
           <caret line="448" column="5" selection-start-line="448" selection-start-column="5" selection-end-line="448" selection-end-column="5" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
@@ -821,7 +805,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/perfil_individual.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
+        <state relative-caret-position="2000">
           <caret line="100" column="62" selection-start-line="100" selection-start-column="62" selection-end-line="100" selection-end-column="62" />
           <folding>
             <element signature="e#1816#1834#0#HTML" expanded="true" />
@@ -838,18 +822,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2597">
-          <caret line="152" column="14" lean-forward="true" selection-start-line="152" selection-start-column="14" selection-end-line="152" selection-end-column="14" />
+        <state relative-caret-position="3040">
+          <caret line="152" column="14" selection-start-line="152" selection-start-column="14" selection-end-line="152" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/perfil_turma.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="25" column="60" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
-          <folding>
-            <element signature="e#2020#2038#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="20">
+          <caret line="18" column="44" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="55" column="39" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ocorrencia/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="140" column="31" selection-start-line="140" selection-start-column="31" selection-end-line="140" selection-end-column="31" />
         </state>
       </provider>
     </entry>
