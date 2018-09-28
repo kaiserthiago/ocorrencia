@@ -30,22 +30,21 @@
                             <thead>
                             <tr>
                                 <th style="font-weight: bold">#</th>
-                                <th style="font-weight: bold">Turma</th>
-                                <th style="font-weight: bold">Aluno</th>
                                 <th style="font-weight: bold">Data</th>
-                                <th style="font-weight: bold">Descrição</th>
-                                <th style="text-align: right; font-weight: bold">Ações</th>
+                                <th style="font-weight: bold">Categoria</th>
+                                <th style="font-weight: bold">Serviço</th>
+                                <th style="font-weight: bold">Aluno</th>
+                                <th style="text-align: center; font-weight: bold">Ações</th>
                             </tr>
                             </thead>
                             <tbody id="myTable">
                             {% for encaminhamento in encaminhamentos %}
                                 <tr>
                                     <td style="vertical-align: middle;">{{ encaminhamento.id }}/{{ encaminhamento.created_at|date:"Y" }}</td>
-                                    <td style="vertical-align: middle;">{{ encaminhamento.matricula.turma.descricao }}
-                                        - {{ encaminhamento.matricula.turma.curso.descricao|truncatechars:30 }}</td>
-                                    <td style="vertical-align: middle;">{{ encaminhamento.matricula.aluno }}</td>
                                     <td style="vertical-align: middle;">{{ encaminhamento.data }}</td>
-                                    <td style="vertical-align: middle;">{{ encaminhamento.descricao|truncatechars:30 }}</td>
+                                    <td style="vertical-align: middle;">{{ encaminhamento.servico.categoria }}</td>
+                                    <td style="vertical-align: middle;">{{ encaminhamento.servico }}</td>
+                                    <td style="vertical-align: middle;">{{ encaminhamento.matricula.aluno }}</td>
                                     <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
 
                                         <i data-toggle="tooltip" data-placement="top" title="Visualizar">
