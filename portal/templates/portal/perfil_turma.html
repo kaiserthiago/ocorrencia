@@ -24,8 +24,9 @@
     {% for aluno in alunos %}
         <div class="card redonda mb-4">
             <div class="card-header redonda grey lighten-1 font-weight-bold">
-                <div class="row">
-                    <div class="col-sm-2 text-left">
+
+                <div class="d-flex justify-content-center">
+                    <div>
                         {% if alunos.has_previous %}
                             <a href="?page={{ alunos.previous_page_number }}" data-toggle="tooltip"
                                title="Anterior"><i class="fa fa-arrow-left fa-2x"></i></a>
@@ -33,11 +34,11 @@
                             <i class="fa fa-arrow-left fa-2x grey-text"></i>
                         {% endif %}
                     </div>
-                    <div class="col-sm-8 text-center">
+                    <div class="flex-grow-1 flex-shrink-1 text-center">
                         {{ turma.curso.descricao }} - {{ turma.descricao }}<br>
-                        Estudante {{ alunos.number }} de {{ alunos.paginator.num_pages }}
+                        <span style="font-weight: normal">Estudante {{ alunos.number }} de {{ alunos.paginator.num_pages }}</span>
                     </div>
-                    <div class="col-sm-2 text-right">
+                    <div>
                         {% if alunos.has_next %}
                             <a href="?page={{ alunos.next_page_number }}" data-toggle="tooltip"
                                title="Próximo"><i class="fa fa-arrow-right fa-2x"></i></a>
