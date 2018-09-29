@@ -308,6 +308,7 @@ def aluno_new(request):
             aluno.email = form.cleaned_data['email']
             aluno.email_responsavel = form.cleaned_data['email_responsavel']
             aluno.foto = form.cleaned_data['foto']
+            aluno.empresa = request.user.userprofile.empresa
 
             aluno.save()
 
