@@ -36,6 +36,9 @@ def contato(request):
 
 @permission_required('is_superuser')
 def configuracao(request):
+    usuarios = User.objects.filter(userprofile__empresa=request.user.userprofile.empresa, is_active=False).order_by(
+        'first_name')
+
     try:
         configuracao = get_object_or_404(Configuracao, empresa=request.user.userprofile.empresa)
     except:
@@ -90,7 +93,8 @@ def configuracao(request):
 
     context = {
         'form': form,
-        'configuracao': configuracao
+        'configuracao': configuracao,
+        'usuarios': usuarios
     }
     return render(request, 'portal/configuracao.html', context)
 
@@ -1160,19 +1164,6 @@ def user_account(request):
     }
     return render(request, 'portal/user_account.html', context)
 
-
-@permission_required('is_superuser')
-def user_list(request):
-    usuarios_inativos = User.objects.filter(userprofile__empresa=request.user.userprofile.empresa,
-                                            is_active=False).order_by('first_name')
-    usuarios_ativos = User.objects.filter(userprofile__empresa=request.user.userprofile.empresa,
-                                          is_active=True).order_by('first_name')
-
-    context = {
-        'usuarios_inativos': usuarios_inativos,
-        'usuarios_ativos': usuarios_ativos,
-    }
-    return render(request, 'portal/user_list.html', context)
 
 
 @permission_required('is_superuser')

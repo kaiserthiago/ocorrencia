@@ -164,16 +164,113 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="float-right">
-                    <button type="submit" class="btn btn-rounded btn-success" data-toggle="tooltip"
-                            data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="float-right">
+                            <button type="submit" class="btn btn-rounded btn-success" data-toggle="tooltip"
+                                    data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
     </form>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card redonda mb-4">
+                <div class="card-header redonda grey lighten-1 font-weight-bold">
+                    USUÁRIOS INATIVOS
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped">
+                            <thead>
+                            <th style="font-weight: bold">Nome</th>
+                            <th style="font-weight: bold">Usuário</th>
+                            <th style="font-weight: bold">E-mail</th>
+                            <th style="text-align: right; font-weight: bold">Ações</th>
+                            </thead>
+                            <tbody>
+                            {% for usuario in usuarios %}
+                                <tr>
+                                    <td style="vertical-align: middle;">{{ usuario.first_name }}</td>
+                                    <td style="vertical-align: middle;">{{ usuario.username }}</td>
+                                    <td style="vertical-align: middle;">{{ usuario.email }}</td>
+                                    <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
+                                        <i data-toggle="tooltip" data-placement="top" title="Tornar ativo">
+                                            <a data-toggle="modal" href="#ConfirmarRegistro{{ usuario.id }}"
+                                               class="btn-floating btn-sm success-color"><i class="fa fa-check"></i>
+                                            </a>
+                                        </i>
+                                    </td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td colspan="5"
+                                        class="card-header warning-color white-text text-center font-weight-bold">NÃO HÁ
+                                        USUÁRIOS INATIVOS
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block modal %}
+    {% for usuario in usuarios %}
+        <!--Modal CONFIRMAR-->
+        <div class="modal fade" id="ConfirmarRegistro{{ usuario.id }}" tabindex="-1"
+             role="dialog"
+             aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-success" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title white-text w-100 font-bold py-2">
+                            Confirmar
+                            registro</h4>
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                                                                <span aria-hidden="true"
+                                                                      class="white-text">&times;</span>
+                        </button>
+                    </div>
+                    <!--Body-->
+                    <div class="modal-body">
+                        <form action="{% url 'usuario_ativar' usuario.id %}"
+                              method="POST">
+                            {% csrf_token %}
+                            <div class="row text-left">
+                                <div class="col-sm-12">
+                                    <p>Tem certeza que deseja ativar o usuário?</p>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit"
+                                        class="btn btn-rounded btn-success waves-effect">
+                                    Confirmar
+                                </button>
+                                <a type="button"
+                                   class="btn btn-rounded btn-outline-success"
+                                   data-dismiss="modal">
+                                    Voltar
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!--Fim Modal CONFIRMAR-->
+    {% endfor %}
 {% endblock %}
