@@ -124,7 +124,7 @@
                     </div>
                     <!--Body-->
                     <div class="modal-body">
-                        <form action="{% url 'aluno_delete' aluno.id %}"
+                        <form action="{% url 'aluno_delete' aluno.id %}?qs={{ qs }}"
                               method="POST">
                             {% csrf_token %}
                             <div class="row text-left">

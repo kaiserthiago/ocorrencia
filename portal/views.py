@@ -373,12 +373,14 @@ def aluno_edit(request, aluno_id):
 @permission_required('is_superuser')
 def aluno_delete(request, aluno_id):
     aluno = get_object_or_404(Aluno, pk=aluno_id)
+    qs = request.GET.get('qs', '')
 
     if request.method == 'POST':
         aluno.delete()
         messages.success(request, 'Aluno excluído.')
 
-    return redirect('/aluno?qs=a')
+
+    return redirect('/aluno?qs=' + qs)
 
 
 @permission_required('is_superuser')
