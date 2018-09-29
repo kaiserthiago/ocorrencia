@@ -71,7 +71,7 @@ urlpatterns = [
     url(r'^user/account$', views.user_account, name='user_account'),
     url(r'^user/list$', views.user_list, name='user_list'),
 
-    url('^perfil/aluno/(?P<aluno_id>\d+)$', views.perfil_aluno, name='perfil_aluno'),
+    url('^perfil/aluno/(?P<aluno_id>\d+)/edit/pagina/(?P<page>\d+)/turma/(?P<turma>\d+)$', views.aluno_perfil_edit, name='aluno_perfil_edit'),
     url('^perfil/turma/(?P<turma_id>\d+)$', views.perfil_turma, name='perfil_turma'),
     url('^perfil$', views.perfil, name='perfil'),
 

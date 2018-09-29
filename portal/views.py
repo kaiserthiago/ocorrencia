@@ -117,7 +117,7 @@ def import_aluno_atualizar(request):
         for n in imported_data[2:]:
             lista_nome.append(n[1])
             lista_rg.append(str(n[3]))
-            lista_emissor.append(str(n[4]+'/'+n[5]))
+            lista_emissor.append(str(n[4] + '/' + n[5]))
             lista_cpf.append(str(n[6]).lstrip(" "))
             lista_pai.append(n[9])
             lista_mae.append(n[10])
@@ -335,23 +335,13 @@ def aluno_edit(request, aluno_id):
         form = AlunoForm(request.POST, request.FILES)
         if form.is_valid():
             aluno.nome = form.cleaned_data['nome'].upper()
-
-            if form.cleaned_data['responsavel']:
-                aluno.responsavel = form.cleaned_data['responsavel'].upper()
-            else:
-                aluno.responsavel = ''
-
-            if form.cleaned_data['email']:
-                aluno.email = form.cleaned_data['email'].lower()
-            else:
-                aluno.email = ''
-
-            if form.cleaned_data['email_responsavel']:
-                aluno.email_responsavel = form.cleaned_data['email_responsavel'].lower()
-            else:
-                aluno.email_responsavel = ''
-
-            aluno.empresa = request.user.userprofile.empresa
+            aluno.pai = form.cleaned_data['pai'].upper()
+            aluno.mae = form.cleaned_data['mae'].upper()
+            aluno.cpf = form.cleaned_data['cpf'].upper()
+            aluno.rg = form.cleaned_data['rg'].upper()
+            aluno.emissor = form.cleaned_data['emissor'].upper()
+            aluno.email = form.cleaned_data['email'].lower()
+            aluno.email_responsavel = form.cleaned_data['email_responsavel'].lower()
             aluno.foto = form.cleaned_data['foto']
 
             aluno.save()
@@ -456,7 +446,7 @@ def curso_delete(request, curso_id):
     return redirect('curso')
 
 
-@login_required
+@staff_member_required
 def perfil(request):
     cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa)
 
@@ -467,7 +457,7 @@ def perfil(request):
     return render(request, 'portal/perfil.html', context)
 
 
-@login_required
+@staff_member_required
 def perfil_aluno(request, aluno_id):
     aluno = get_object_or_404(Aluno, pk=aluno_id)
 
@@ -478,7 +468,43 @@ def perfil_aluno(request, aluno_id):
     return render(request, 'portal/perfil_individual.html', context)
 
 
-@login_required
+@staff_member_required
+def aluno_perfil_edit(request, aluno_id, page, turma):
+    aluno = get_object_or_404(Aluno, pk=aluno_id)
+
+    if request.method == 'POST':
+        page = '/perfil/turma/' + str(turma) + '?page=' + str(page)
+        form = AlunoForm(request.POST, request.FILES)
+        if form.is_valid():
+            aluno.nome = form.cleaned_data['nome'].upper()
+            aluno.pai = form.cleaned_data['pai'].upper()
+            aluno.mae = form.cleaned_data['mae'].upper()
+            aluno.cpf = form.cleaned_data['cpf'].upper()
+            aluno.rg = form.cleaned_data['rg'].upper()
+            aluno.emissor = form.cleaned_data['emissor'].upper()
+            aluno.email = form.cleaned_data['email']
+            aluno.email_responsavel = form.cleaned_data['email_responsavel']
+            aluno.foto = form.cleaned_data['foto']
+
+            aluno.save()
+
+            messages.success(request, 'Aluno atualizado.')
+
+            return redirect(page)
+
+    form = AlunoForm(instance=aluno)
+
+    context = {
+        'form': form,
+        'aluno': aluno,
+        'turma': turma,
+        'page': page
+    }
+
+    return render(request, 'portal/aluno_edit_perfil.html', context)
+
+
+@staff_member_required
 def perfil_turma(request, turma_id):
     turma = get_object_or_404(Turma, pk=turma_id)
     alunos = Matricula.objects.filter(turma=turma, ano_letivo=date.today().year)

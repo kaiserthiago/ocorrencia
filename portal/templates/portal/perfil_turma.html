@@ -55,7 +55,7 @@
                                 <p class="float-left m-0">
                                     Dados do estudante
                                 </p>
-                                <a href="{% url 'aluno_edit' aluno.aluno.id %}" class="float-right m-0">
+                                <a href="{% url 'aluno_perfil_edit' aluno.aluno.id alunos.number turma.id %}" class="float-right m-0">
                                     EDITAR</a>
                             </div>
                             <div class="card-body">
