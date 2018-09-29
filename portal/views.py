@@ -300,24 +300,14 @@ def aluno_new(request):
             aluno = Aluno()
 
             aluno.nome = form.cleaned_data['nome'].upper()
-            if form.cleaned_data['responsavel']:
-                aluno.responsavel = form.cleaned_data['responsavel'].upper()
-            else:
-                aluno.responsavel = ''
-
-            if form.cleaned_data['email']:
-                aluno.email = form.cleaned_data['email'].lower()
-            else:
-                aluno.email = ''
-
-            if form.cleaned_data['email_responsavel']:
-                aluno.email_responsavel = form.cleaned_data['email_responsavel'].lower()
-            else:
-                aluno.email_responsavel = ''
-
-            aluno.user = request.user
+            aluno.pai = form.cleaned_data['pai'].upper()
+            aluno.mae = form.cleaned_data['mae'].upper()
+            aluno.cpf = form.cleaned_data['cpf'].upper()
+            aluno.rg = form.cleaned_data['rg'].upper()
+            aluno.emissor = form.cleaned_data['emissor'].upper()
+            aluno.email = form.cleaned_data['email']
+            aluno.email_responsavel = form.cleaned_data['email_responsavel']
             aluno.foto = form.cleaned_data['foto']
-            aluno.empresa = request.user.userprofile.empresa
 
             aluno.save()
 
