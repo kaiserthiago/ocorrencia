@@ -26,8 +26,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="309" column="50" selection-start-line="309" selection-start-column="50" selection-end-line="309" selection-end-column="50" />
+            <state relative-caret-position="403">
+              <caret line="148" lean-forward="true" selection-start-line="148" selection-end-line="148" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -164,9 +164,9 @@
       <find>user</find>
       <find>&lt;em&gt;Sistema de Gestão Estudantil&lt;/em&gt;</find>
       <find>user_</find>
-      <find>atualizar</find>
       <find>aluno_edit</find>
       <find>qs</find>
+      <find>atualizar</find>
     </findStrings>
     <replaceStrings>
       <replace>%}&quot; class=&quot;btn btn-rounded btn-danger&quot;</replace>
@@ -849,8 +849,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="309" column="50" selection-start-line="309" selection-start-column="50" selection-end-line="309" selection-end-column="50" />
+        <state relative-caret-position="403">
+          <caret line="148" lean-forward="true" selection-start-line="148" selection-end-line="148" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>

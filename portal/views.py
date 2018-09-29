@@ -144,6 +144,8 @@ def import_aluno_atualizar(request):
                     aluno.save()
 
                     contador += 1
+                else:
+                    contador += 1
 
             messages.success(request, 'Dados importados')
         context = {
@@ -314,7 +316,7 @@ def aluno_new(request):
 
             messages.success(request, 'Aluno registrado.')
 
-            return redirect('/aluno?qs='+qs)
+            return redirect('/aluno?qs=' + qs)
 
     form = AlunoForm()
 
@@ -348,7 +350,7 @@ def aluno_edit(request, aluno_id):
 
             messages.success(request, 'Aluno atualizado.')
 
-            return redirect('/aluno?qs='+qs)
+            return redirect('/aluno?qs=' + qs)
 
     form = AlunoForm(instance=aluno)
 
@@ -369,7 +371,6 @@ def aluno_delete(request, aluno_id):
     if request.method == 'POST':
         aluno.delete()
         messages.success(request, 'Aluno excluído.')
-
 
     return redirect('/aluno?qs=' + qs)
 
@@ -1162,7 +1163,6 @@ def user_account(request):
         'user': user,
     }
     return render(request, 'portal/user_account.html', context)
-
 
 
 @permission_required('is_superuser')
