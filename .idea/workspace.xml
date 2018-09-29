@@ -4,7 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/portal/templates/portal/curso.html" line="47" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="" />
+    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/portal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="1167" lean-forward="true" selection-start-line="1167" selection-end-line="1167" />
+            <state relative-caret-position="337">
+              <caret line="153" column="33" selection-start-line="153" selection-start-column="33" selection-end-line="153" selection-end-column="33" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -81,6 +83,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="186" selection-start-line="186" selection-end-line="186" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="registra-ocorrencia.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -105,11 +116,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="responsavel-usuario.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="responsavel-usuario.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/emails/responsavel-usuario.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="35" column="8" lean-forward="true" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+            <state relative-caret-position="97">
+              <caret line="18" column="66" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
               </folding>
@@ -117,20 +128,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register_success.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login/templates/registration/register_success.html">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="configuracao.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/configuracao.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="195" column="52" selection-start-line="195" selection-start-column="52" selection-end-line="195" selection-end-column="52" />
+            <state relative-caret-position="-120">
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -147,8 +151,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>aluno(a</find>
-      <find>count_autorizacoes</find>
       <find>list(</find>
       <find>perfil_a</find>
       <find>aluno.</find>
@@ -177,6 +179,8 @@
       <find>user_l</find>
       <find>user</find>
       <find>&lt;em&gt;Sistema de Gestão Estudantil&lt;/em&gt;</find>
+      <find>user_</find>
+      <find>atualizar</find>
     </findStrings>
     <replaceStrings>
       <replace>%}&quot; class=&quot;btn btn-rounded btn-danger&quot;</replace>
@@ -217,7 +221,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/portal/templates/portal/curso_new.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/dashboard.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_new.html" />
@@ -260,7 +263,6 @@
         <option value="$PROJECT_DIR$/login/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/login/templates/registration/register_success.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/configuracao.html" />
-        <option value="$PROJECT_DIR$/portal/views.py" />
         <option value="$PROJECT_DIR$/portal/urls.py" />
         <option value="$PROJECT_DIR$/portal/templates/emails/confirma-usuario.html" />
         <option value="$PROJECT_DIR$/portal/templates/emails/registra-encaminhamento.html" />
@@ -268,6 +270,8 @@
         <option value="$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia.html" />
         <option value="$PROJECT_DIR$/portal/templates/emails/registra-saida.html" />
         <option value="$PROJECT_DIR$/portal/templates/emails/responsavel-usuario.html" />
+        <option value="$PROJECT_DIR$/portal/templates/base.html" />
+        <option value="$PROJECT_DIR$/portal/views.py" />
       </list>
     </option>
   </component>
@@ -309,13 +313,6 @@
               <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
               <item name="portal" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
-              <item name="portal" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="emails" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
@@ -493,20 +490,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_new.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
@@ -797,32 +780,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="1167" lean-forward="true" selection-start-line="1167" selection-end-line="1167" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/emails/confirma-usuario.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
-          <folding>
-            <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -867,12 +830,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/portal/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-120">
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/emails/responsavel-usuario.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="35" column="8" lean-forward="true" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+        <state relative-caret-position="97">
+          <caret line="18" column="66" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
           <folding>
             <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/emails/confirma-usuario.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="186" selection-start-line="186" selection-end-line="186" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="153" column="33" selection-start-line="153" selection-start-column="33" selection-end-line="153" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>

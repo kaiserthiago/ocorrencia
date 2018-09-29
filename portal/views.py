@@ -100,55 +100,58 @@ def configuracao(request):
 
 
 def import_aluno_atualizar(request):
-    lista_nome = []
-    lista_cpf = []
-    lista_rg = []
-    lista_emissor = []
-    lista_pai = []
-    lista_mae = []
-    lista_email = []
+    try:
+        lista_nome = []
+        lista_cpf = []
+        lista_rg = []
+        lista_emissor = []
+        lista_pai = []
+        lista_mae = []
+        lista_email = []
 
-    if request.method == 'POST':
-        dataset = Dataset()
-        new_persons = request.FILES['myfile']
+        if request.method == 'POST':
+            dataset = Dataset()
+            new_persons = request.FILES['myfile']
 
-        imported_data = dataset.load(new_persons.read())
+            imported_data = dataset.load(new_persons.read())
 
-        importado = 0
-        nao_importado = 0
+            importado = 0
+            nao_importado = 0
 
-        # VERIFICA O ARQUIVO A PARTIR DA LINHA 2
-        for n in imported_data[2:]:
-            lista_nome.append(n[1])
-            lista_rg.append(str(n[3]))
-            lista_emissor.append(str(n[4] + '/' + n[5]))
-            lista_cpf.append(str(n[6]).lstrip(" "))
-            lista_pai.append(n[9])
-            lista_mae.append(n[10])
-            lista_email.append(lower(n[12]))
+            # VERIFICA O ARQUIVO A PARTIR DA LINHA 2
+            for n in imported_data[2:]:
+                lista_nome.append(n[1])
+                lista_rg.append(str(n[3]))
+                lista_emissor.append(str(n[4] + '/' + n[5]))
+                lista_cpf.append(str(n[6]).lstrip(" "))
+                lista_pai.append(n[9])
+                lista_mae.append(n[10])
+                lista_email.append(lower(n[12]))
 
-        contador = 0
+            contador = 0
 
-        for teste in lista_nome:
-            aluno = get_object_or_404(Aluno, empresa=request.user.userprofile.empresa, nome=teste.rstrip(" "))
+            for teste in lista_nome:
+                aluno = get_object_or_404(Aluno, empresa=request.user.userprofile.empresa, nome=teste.rstrip(" "))
 
-            aluno.rg = lista_rg[contador]
-            aluno.emissor = lista_emissor[contador]
-            aluno.cpf = lista_cpf[contador]
-            aluno.pai = lista_pai[contador]
-            aluno.mae = lista_mae[contador]
-            aluno.email = lista_email[contador]
+                aluno.rg = lista_rg[contador]
+                aluno.emissor = lista_emissor[contador]
+                aluno.cpf = lista_cpf[contador]
+                aluno.pai = lista_pai[contador]
+                aluno.mae = lista_mae[contador]
+                aluno.email = lista_email[contador]
 
-            aluno.save()
+                aluno.save()
 
-            contador += 1
+                contador += 1
 
-        messages.success(request, 'Dados importados')
-    context = {
+            messages.success(request, 'Dados importados')
+        context = {
 
-    }
+        }
 
-    return render(request, 'portal/import_aluno_atualizar.html', context)
+        return render(request, 'portal/import_aluno_atualizar.html', context)
+    except:
+        return HttpResponse(teste)
 
 
 @permission_required('is_superuser')
