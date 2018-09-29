@@ -323,12 +323,13 @@ def aluno_new(request):
 
             messages.success(request, 'Aluno registrado.')
 
-            return redirect('/aluno?qs=a')
+            return redirect('/aluno?qs='+qs)
 
     form = AlunoForm()
 
     context = {
-        'form': form
+        'form': form,
+        'qs': qs
     }
 
     return render(request, 'portal/aluno_new.html', context)
