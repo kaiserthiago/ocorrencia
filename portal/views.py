@@ -458,7 +458,7 @@ def perfil(request):
 
 
 @staff_member_required
-def perfil_aluno(request, aluno_id):
+def perfil_individual(request, aluno_id):
     aluno = get_object_or_404(Aluno, pk=aluno_id)
 
     context = {
