@@ -131,18 +131,19 @@ def import_aluno_atualizar(request):
             contador = 0
 
             for teste in lista_nome:
-                aluno = get_object_or_404(Aluno, empresa=request.user.userprofile.empresa, nome=teste.rstrip(" "))
+                if teste != '':
+                    aluno = get_object_or_404(Aluno, empresa=request.user.userprofile.empresa, nome=teste.rstrip(" "))
 
-                aluno.rg = lista_rg[contador]
-                aluno.emissor = lista_emissor[contador]
-                aluno.cpf = lista_cpf[contador]
-                aluno.pai = lista_pai[contador]
-                aluno.mae = lista_mae[contador]
-                aluno.email = lista_email[contador]
+                    aluno.rg = lista_rg[contador]
+                    aluno.emissor = lista_emissor[contador]
+                    aluno.cpf = lista_cpf[contador]
+                    aluno.pai = lista_pai[contador]
+                    aluno.mae = lista_mae[contador]
+                    aluno.email = lista_email[contador]
 
-                aluno.save()
+                    aluno.save()
 
-                contador += 1
+                    contador += 1
 
             messages.success(request, 'Dados importados')
         context = {
