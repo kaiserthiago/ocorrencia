@@ -348,21 +348,22 @@ def aluno_edit(request, aluno_id):
             aluno.cpf = form.cleaned_data['cpf'].upper()
             aluno.rg = form.cleaned_data['rg'].upper()
             aluno.emissor = form.cleaned_data['emissor'].upper()
-            aluno.email = form.cleaned_data['email'].lower()
-            aluno.email_responsavel = form.cleaned_data['email_responsavel'].lower()
+            aluno.email = form.cleaned_data['email']
+            aluno.email_responsavel = form.cleaned_data['email_responsavel']
             aluno.foto = form.cleaned_data['foto']
 
             aluno.save()
 
             messages.success(request, 'Aluno atualizado.')
 
-            return redirect('/aluno?qs=a')
+            return redirect('/aluno?qs='+qs)
 
     form = AlunoForm(instance=aluno)
 
     context = {
         'form': form,
         'aluno': aluno,
+        'qs': qs
     }
 
     return render(request, 'portal/aluno_edit.html', context)
