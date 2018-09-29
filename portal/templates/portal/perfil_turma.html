@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}Perfil do Estudante - SGE - Gestão Estudantil{% endblock %}
-{% block class_perfil_menu %}active{% endblock %}
+{% block class_conselho_menu %}active{% endblock %}
 {% load humanize %}
 {% load static %}
 
@@ -14,7 +14,7 @@
 {% block breadcrumb_base %}
     <ol class="breadcrumb blue-grey lighten-4">
         <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
-        <li class="breadcrumb-item"><a href="{% url 'perfil' %}">Perfil</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'perfil' %}">Conselho de classe</a></li>
         <li class="breadcrumb-item active">Por turma</li>
     </ol>
 {% endblock %}

@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block title %}Alunos - SGE - Gestão Estudantil{% endblock %}
-{% block class_perfil_menu %}active{% endblock %}
+{% block class_conselho_menu %}active{% endblock %}
 {% load widget_tweaks %}
 
 {% block breadcrumb_base %}
     <ol class="breadcrumb blue-grey lighten-4">
         <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
-        <li class="breadcrumb-item"><a href="{% url 'perfil' %}">Perfil</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'perfil' %}">Conselho de classe</a></li>
         <li class="breadcrumb-item"><a href="{% url 'perfil_turma' turma %}">Por turma</a></li>
         <li class="breadcrumb-item active">Editando aluno - {{ aluno.nome }}</li>
     </ol>
