@@ -1180,7 +1180,7 @@ def usuario_ativar(request, user_id):
 
         messages.success(request, 'Usuário ativo.')
 
-        return redirect('user_list')
+        return redirect('configuracao')
 
 
 @permission_required('is_superuser')
@@ -1193,7 +1193,7 @@ def usuario_desativar(request, user_id):
 
         messages.success(request, 'Usuário inativo.')
 
-        return redirect('user_list')
+        return redirect('configuracao')
 
 
 @login_required
