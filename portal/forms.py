@@ -312,23 +312,23 @@ class ConfiguracaoForm(forms.ModelForm):
             'ocorrencia_email_responsavel_aluno': 'Responsável',
             'ocorrencia_email_responsavel_user': 'Servidor',
             'ocorrencia_email_responsavel_setor': 'CAED/DEPAE',
-            'ocorrencia_email_coordenacao_curso': 'Coordenador de curso',
+            'ocorrencia_email_coordenacao_curso': 'Coordenador',
 
             'encaminhamento_email_aluno': 'Estudante',
             'encaminhamento_email_responsavel_aluno': 'Responsável',
             'encaminhamento_email_responsavel_user': 'Servidor',
             'encaminhamento_email_responsavel_setor': 'CAED/DEPAE',
-            'encaminhamento_email_coordenacao_curso': 'Coordenador de curso',
+            'encaminhamento_email_coordenacao_curso': 'Coordenador',
 
             'providencia_encaminhamento_email_aluno': 'Estudante',
             'providencia_encaminhamento_email_responsavel_aluno': 'Responsável',
             'providencia_encaminhamento_email_responsavel_user': 'Servidor',
             'providencia_encaminhamento_email_responsavel_setor': 'CAED/DEPAE',
-            'providencia_encaminhamento_email_coordenacao_curso': 'Coordenador de curso',
+            'providencia_encaminhamento_email_coordenacao_curso': 'Coordenador',
 
             'autorizacao_email_aluno': 'Estudante',
             'autorizacao_email_responsavel_aluno': 'Responsável',
             'autorizacao_email_responsavel_user': 'Servidor',
             'autorizacao_email_responsavel_setor': 'CAED/DEPAE',
-            'autorizacao_email_coordenacao_curso': 'Coordenador de curso',
+            'autorizacao_email_coordenacao_curso': 'Coordenador',
         }
