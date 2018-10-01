@@ -1,21 +1,36 @@
 <body style="background: #ededed;">
 <br><br>
-<div style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-        transition: 0.3s;
-        width: 80%;
-        max-width: 80%;
-        border-radius: 15px;
-        background: #fff;
-        font-family: 'Roboto', sans-serif;
-        font-size: 13px;
-        color:rgb(102,102,102);
-        overflow:hidden;
-        margin: auto;
-        padding: 10px;">
-    <h2 style="font-weight: bold; text-align: center;">
-        NOVO USUÁRIO CADASTRADO
-    </h2>
-    <div style="padding-top: 15px">
+<div style="min-width: 0;
+  word-wrap: break-word;
+  background-color: white;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 20px;
+  width: 80%;
+  max-width: 80%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  color: rgb(102,102,102);
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;">
+
+    <div style="padding: 0.75rem 1.25rem;
+      margin-bottom: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #2f9e41;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      color: white;
+      font-weight: bold;
+      text-align: center;">
+
+        <h2>NOVO USUÁRIO CADASTRADO</h2>
+
+    </div>
+
+    <div style="padding: 1.25rem;">
         <p>Olá, {{ usuario.userprofile.empresa.responsavel_sistema }}.<br>
             Tudo bem?</p>
         <p>
@@ -31,9 +46,14 @@
                                          target="_blank" style="font-weight: bold; text-decoration: none">configurações
             do sistema</a> para analisar a solicitação e tomar as providências necessárias.<br><br></p>
 
-        <p style="padding-top: 10px">Atenciosamente,</p>
-        <strong>IFRO - TRANSFORMANDO VIDAS ATRAVÉS DA EDUCAÇÃO<br></strong>
-        Sistema de Gestão Estudantil<br><br>
+        <p style="padding-top: 10px">Bom, por enquanto é isso. Até logo!</p><br>
+        <p><strong>IFRO - TRANSFORMANDO VIDAS ATRAVÉS DA EDUCAÇÃO<br></strong>
+            Sistema de Gestão Estudantil<br><br></p>
+    </div>
+
+    <div style="padding: 0.25rem 1.25rem;
+      background-color: rgba(0, 0, 0, 0.03);
+      border-top: 1px solid rgba(0, 0, 0, 0.125);">
 
         <p style="color: red"><strong>Essa é uma mensagem automática, não é necessário respondê-la.</strong></p>
     </div>
