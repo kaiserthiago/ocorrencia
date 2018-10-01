@@ -12,46 +12,47 @@
 
 {% block content %}
     <div class="row mb-4">
-    <div class="col-sm-12">
-        <div class="card redonda">
-            <div class="card-header redonda grey lighten-1 font-weight-bold">
-                ALUNOS
-            </div>
-            <div class="card-body">
-                <div class="form-row">
-                    <div class="col-sm-6">
-                        <div class="md-form">
-                            <input id="myInput" type="text" class="form-control form-control-sm" autofocus/>
-                            <label for="myInput">Pesquisar...</label>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="float-right">
-                            <a href="{% url 'aluno_new' %}?qs={{ qs }}" class="btn btn-rounded btn-success"><i
-                                    class="fa fa-plus"></i> Adicionar</a>
-                            <a href="{% url 'import_aluno' %}" class="btn btn-rounded btn-info"><i
-                                    class="fa fa-arrow-circle-down"></i> Importar</a>
-                            <a href="{% url 'import_aluno_atualizar' %}" class="btn btn-rounded btn-warning"><i
-                                    class="fa fa-refresh"></i> Atualizar</a>
-                        </div>
-                    </div>
+        <div class="col-sm-12">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-1 font-weight-bold">
+                    ALUNOS
                 </div>
-                <!--Pagination -->
-                <div class="table-responsive">
-                    <nav aria-label="pagination example">
-                        <ul class="pagination  justify-content-lg-center pagination-circle pg-blue mb-0">
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="col-sm-6">
+                            <div class="md-form">
+                                <input id="myInput" type="text" class="form-control form-control-sm" autofocus/>
+                                <label for="myInput">Pesquisar...</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="float-right">
+                                <a href="{% url 'aluno_new' %}?qs={{ qs }}" class="btn btn-rounded btn-success"><i
+                                        class="fa fa-plus"></i> Adicionar</a>
+                                <a href="{% url 'import_aluno' %}" class="btn btn-rounded btn-info"><i
+                                        class="fa fa-arrow-circle-down"></i> Importar</a>
+                                <a href="{% url 'import_aluno_atualizar' %}" class="btn btn-rounded btn-warning"><i
+                                        class="fa fa-refresh"></i> Atualizar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Pagination -->
+                    <div class="table-responsive">
+                        <nav aria-label="pagination example">
+                            <ul class="pagination  justify-content-lg-center pagination-circle pg-blue mb-0">
 
-                            <!--LETRAS INICIAIS-->
-                            {% for i in lista %}
-                                {% if qs|upper == i %}
-                                    <li class="page-item active"><a class="page-link">{{ i }}</a></li>
-                                {% else %}
-                                    <li class="page-item"><a href="?qs={{ i|lower }}" class="page-link">{{ i }}</a>
-                                    </li>
-                                {% endif %}
-                            {% endfor %}
-                        </ul>
-                    </nav>
+                                <!--LETRAS INICIAIS-->
+                                {% for i in lista %}
+                                    {% if qs|upper == i %}
+                                        <li class="page-item active"><a class="page-link">{{ i }}</a></li>
+                                    {% else %}
+                                        <li class="page-item"><a href="?qs={{ i|lower }}" class="page-link">{{ i }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </nav>
+                    </div>
                     <div class="table-responsive">
                         <table class="table table-sm table-striped">
                             <thead>
