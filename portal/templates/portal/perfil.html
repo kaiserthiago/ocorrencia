@@ -28,9 +28,10 @@
                     </div>
                     <div class="card-body">
                         <div class="d-flex flex-wrap">
-                        {% for turma in curso.retorna_turmas %}
-                            <a class="btn btn-outline-success btn-rounded waves-effect" type="button" href="{% url 'perfil_turma' turma.id %}">{{ turma.descricao }}</a><br>
-                        {% endfor %}
+                            {% for turma in curso.retorna_turmas %}
+                                <a class="btn btn-outline-success btn-rounded waves-effect" type="button"
+                                   href="{% url 'perfil_turma' turma.id %}">{{ turma.descricao }}</a><br>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

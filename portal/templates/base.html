@@ -289,20 +289,15 @@
 <!--Main layout-->
 <div class="content">
     <main>
-        {#        <div class="container-fluid">#}
-        {% if not request.user.is_authenticated %}
-            <div class="container-fluid">
-        {% endif %}
+        <div class="container-fluid">
 
-        {% block breadcrumb_base %}
-        {% endblock %}
+            {% block breadcrumb_base %}
+            {% endblock %}
 
-        {% block content %}
-        {% endblock %}
-        {% if request.user.is_authenticated %}
-            </div>
-        {% endif %}
-        {#        </div>#}
+            {% block content %}
+            {% endblock %}
+        
+        </div>
     </main>
 </div>
 <!--/Main layout-->

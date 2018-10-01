@@ -42,7 +42,7 @@
                                 <th style="font-weight: bold">Aluno</th>
                                 <th style="font-weight: bold">Descrição</th>
                                 <th style="font-weight: bold">Status</th>
-                                <th style="text-align: right; font-weight: bold">Ações</th>
+                                <th style="text-align: center; font-weight: bold">Ações</th>
                             </tr>
                             </thead>
                             <tbody id="myTable">
@@ -53,7 +53,7 @@
                                     <td style="vertical-align: middle;">{{ encaminhamento.matricula.aluno }}</td>
                                     <td style="vertical-align: middle;">{{ encaminhamento.descricao|truncatechars:40 }}</td>
                                     <td style="vertical-align: middle;">{{ encaminhamento.status }}</td>
-                                    <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
+                                    <td class="px-0 py-0" style="vertical-align: middle; text-align: right; min-width: 110px; width: 110px">
 
                                         <i data-toggle="tooltip" data-placement="top" title="Visualizar">
                                             <a href="{% url 'encaminhamento_show' encaminhamento.id %}"

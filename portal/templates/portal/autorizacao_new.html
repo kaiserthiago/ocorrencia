@@ -33,7 +33,7 @@
                                 <tbody id="myTable">
                                 {% for m in matriculas %}
                                     <tr>
-                                        <th scope="row" class="pr-md-3 pr-5">
+                                        <th scope="row" class="p-0" style="vertical-align: bottom; text-align: center">
                                             <input class="form-check-input" type="checkbox" id="id_{{ m.id }}"
                                                    value="{{ m.id }}"
                                                    name="mat_{{ m.aluno.id }}">
