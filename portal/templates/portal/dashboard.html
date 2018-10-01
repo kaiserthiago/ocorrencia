@@ -62,13 +62,7 @@
                     </p>
                     <p class="border-bottom">
                         Retorno encaminhamento (dias)
-                        <span class="badge badge-danger badge-pill pull-right">
-                            {% if indicador_encaminhamento_tempo.is_integer %}
-                                {{ indicador_encaminhamento_tempo|intword }}
-                            {% else %}
-                                0
-                            {% endif %}
-                        </span>
+                        <span class="badge badge-danger badge-pill pull-right">{{ indicador_encaminhamento_tempo|intword }}</span>
                     </p>
                 </div>
             </div>
