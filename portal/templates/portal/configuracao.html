@@ -244,29 +244,24 @@
                                                                       class="white-text">&times;</span>
                         </button>
                     </div>
-                    <!--Body-->
-                    <div class="modal-body">
-                        <form action="{% url 'usuario_ativar' usuario.id %}"
-                              method="POST">
+                    <form action="{% url 'usuario_ativar' usuario.id %}" method="POST">
+                        <!--Body-->
+                        <div class="modal-body text-center">
                             {% csrf_token %}
-                            <div class="row text-left">
-                                <div class="col-sm-12">
-                                    <p>Tem certeza que deseja ativar o usuário?</p>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <button type="submit"
-                                        class="btn btn-rounded btn-success waves-effect">
-                                    Confirmar
-                                </button>
-                                <a type="button"
-                                   class="btn btn-rounded btn-outline-success"
-                                   data-dismiss="modal">
-                                    Voltar
-                                </a>
-                            </div>
-                        </form>
-                    </div>
+                            Tem certeza que deseja ativar o usuário?
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="submit"
+                                    class="btn btn-rounded btn-success waves-effect">
+                                Confirmar
+                            </button>
+                            <a type="button"
+                               class="btn btn-rounded btn-outline-success"
+                               data-dismiss="modal">
+                                Voltar
+                            </a>
+                        </div>
+                    </form>
                 </div>
                 <!--/.Content-->
             </div>

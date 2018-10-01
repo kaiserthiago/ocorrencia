@@ -71,7 +71,8 @@
                                     <td style="vertical-align: middle;">{{ aluno.email }}</td>
                                     <td style="vertical-align: middle">{{ aluno.cpf }}</td>
                                     <td style="vertical-align: middle; text-align: right">{{ aluno.rg }} {{ aluno.emissor }}</td>
-                                    <td class="px-0 py-0" style="vertical-align: middle; text-align: right; min-width: 170px; width: 170px">
+                                    <td class="px-0 py-0"
+                                        style="vertical-align: middle; text-align: right; min-width: 170px; width: 170px">
                                         <i data-toggle="tooltip" data-placement="top" title="Perfil">
                                             <a href="{% url 'perfil_individual' aluno.id %}"
                                                class="btn-floating btn-sm ifro-color"><i class="fa fa-address-book"></i>
@@ -142,29 +143,24 @@
                             <span aria-hidden="true" class="white-text">&times;</span>
                         </button>
                     </div>
-                    <!--Body-->
-                    <div class="modal-body">
-                        <form action="{% url 'aluno_delete' aluno.id %}?qs={{ qs }}"
-                              method="POST">
+                    <form action="{% url 'aluno_delete' aluno.id %}?qs={{ qs }}" method="POST">
+                        <!--Body-->
+                        <div class="modal-body text-center">
                             {% csrf_token %}
-                            <div class="row text-left">
-                                <div class="col-sm-12">
-                                    <p>Tem certeza que deseja excluir?</p>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <button type="submit"
-                                        class="btn btn-rounded btn-danger waves-effect">
-                                    Confirmar
-                                </button>
-                                <a type="button"
-                                   class="btn btn-rounded btn-outline-danger waves-effect"
-                                   data-dismiss="modal">
-                                    Voltar
-                                </a>
-                            </div>
-                        </form>
-                    </div>
+                            Tem certeza que deseja excluir?
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="submit"
+                                    class="btn btn-rounded btn-danger waves-effect">
+                                Confirmar
+                            </button>
+                            <a type="button"
+                               class="btn btn-rounded btn-outline-danger waves-effect"
+                               data-dismiss="modal">
+                                Voltar
+                            </a>
+                        </div>
+                    </form>
                 </div>
                 <!--/.Content-->
             </div>

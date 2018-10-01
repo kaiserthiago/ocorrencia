@@ -53,7 +53,8 @@
                                     <td style="vertical-align: middle;">{{ encaminhamento.matricula.aluno }}</td>
                                     <td style="vertical-align: middle;">{{ encaminhamento.descricao|truncatechars:50 }}</td>
                                     <td style="vertical-align: middle;">{{ encaminhamento.status }}</td>
-                                    <td class="px-0 py-0" style="vertical-align: middle; text-align: right; min-width: 110px; width: 110px">
+                                    <td class="px-0 py-0"
+                                        style="vertical-align: middle; text-align: right; min-width: 110px; width: 110px">
 
                                         <i data-toggle="tooltip" data-placement="top" title="Visualizar">
                                             <a href="{% url 'encaminhamento_show' encaminhamento.id %}"
@@ -103,29 +104,24 @@
                                                                       class="white-text">&times;</span>
                         </button>
                     </div>
-                    <!--Body-->
-                    <div class="modal-body">
-                        <form action="{% url 'encaminhamento_delete' encaminhamento.id %}"
-                              method="POST">
+                    <form action="{% url 'encaminhamento_delete' encaminhamento.id %}" method="POST">
+                        <!--Body-->
+                        <div class="modal-body text-center">
                             {% csrf_token %}
-                            <div class="row text-left">
-                                <div class="col-sm-12">
-                                    <p>Tem certeza que deseja excluir?</p>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <button type="submit"
-                                        class="btn btn-rounded btn-danger waves-effect">
-                                    Confirmar
-                                </button>
-                                <a type="button"
-                                   class="btn btn-rounded btn-outline-danger waves-effect"
-                                   data-dismiss="modal">
-                                    Voltar
-                                </a>
-                            </div>
-                        </form>
-                    </div>
+                            Tem certeza que deseja excluir?
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="submit"
+                                    class="btn btn-rounded btn-danger waves-effect">
+                                Confirmar
+                            </button>
+                            <a type="button"
+                               class="btn btn-rounded btn-outline-danger waves-effect"
+                               data-dismiss="modal">
+                                Voltar
+                            </a>
+                        </div>
+                    </form>
                 </div>
                 <!--/.Content-->
             </div>
@@ -146,34 +142,33 @@
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                 </div>
-                <!--Body-->
-                <div class="modal-body">
-                    <form action="{% url 'encaminhamento_new' %}" method="POST">
+                <form action="{% url 'encaminhamento_new' %}" method="POST">
+                    <!--Body-->
+                    <div class="modal-body">
                         {% csrf_token %}
-                            <select name="SelectTurma" id="SelectTurma"
-                                    class="mdb-select md-form colorful-select dropdown-success"
-                                    searchable="Pesquisar..." required>
-                                <option value="" disabled selected>Selecione a turma</option>
-                                {% for c in cursos %}
-                                    {% if c.retorna_turmas %}
-                                        <optgroup label="{{ c.descricao }}">
-                                            {% for t in c.retorna_turmas %}
-                                                <option value={{ t.id }}>{{ t.descricao }}</option>
-                                            {% endfor %}
-                                        </optgroup>
-                                    {% endif %}
-                                {% endfor %}
-                            </select>
-                            <label for="SelectTurma">Turma</label>
-                        <br>
-                        <!--Footer-->
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-success waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-success"
-                               data-dismiss="modal">Voltar</a>
-                        </div>
-                    </form>
-                </div>
+                        <select name="SelectTurma" id="SelectTurma"
+                                class="mdb-select md-form colorful-select dropdown-success"
+                                searchable="Pesquisar..." required>
+                            <option value="" disabled selected>Selecione a turma</option>
+                            {% for c in cursos %}
+                                {% if c.retorna_turmas %}
+                                    <optgroup label="{{ c.descricao }}">
+                                        {% for t in c.retorna_turmas %}
+                                            <option value={{ t.id }}>{{ t.descricao }}</option>
+                                        {% endfor %}
+                                    </optgroup>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        <label for="SelectTurma">Turma</label>
+                    </div>
+                    <!--Footer-->
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-rounded btn-success waves-effect">Enviar</button>
+                        <a type="button" class="btn btn-rounded btn-outline-success"
+                           data-dismiss="modal">Voltar</a>
+                    </div>
+                </form>
             </div>
             <!--/.Content-->
         </div>

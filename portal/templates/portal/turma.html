@@ -28,7 +28,8 @@
                         </div>
                         <div class="col-sm-2">
                             <div class="float-right">
-                                <a href="{% url 'turma_new' %}" class="btn btn-rounded btn-block btn-success"><i class="fa fa-plus"></i> Adicionar</a>
+                                <a href="{% url 'turma_new' %}" class="btn btn-rounded btn-block btn-success"><i
+                                        class="fa fa-plus"></i> Adicionar</a>
                             </div>
                         </div>
                     </div>
@@ -60,49 +61,6 @@
                                                title="Excluir"><i class="fa fa-trash"></i>
                                             </a>
                                         </i>
-                                        <!--Modal EXCLUIR-->
-                                        <div class="modal fade" id="Excluir{{ turma.id }}" tabindex="-1" role="dialog"
-                                             aria-labelledby="myModalLabel"
-                                             aria-hidden="true">
-                                            <div class="modal-dialog modal-notify modal-danger" role="document">
-                                                <!--Content-->
-                                                <div class="modal-content">
-                                                    <!--Header-->
-                                                    <div class="modal-header text-center">
-                                                        <h4 class="heading lead">Excluir</h4>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close">
-                                                            <span aria-hidden="true" class="white-text">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <!--Body-->
-                                                    <div class="modal-body">
-                                                        <form action="{% url 'turma_delete' turma.id %}"
-                                                              method="POST">
-                                                            {% csrf_token %}
-                                                            <div class="row text-left">
-                                                                <div class="col-sm-12">
-                                                                    <p>Tem certeza que deseja excluir?</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="text-center">
-                                                                <button type="submit"
-                                                                        class="btn btn-rounded btn-danger waves-effect">
-                                                                    Confirmar
-                                                                </button>
-                                                                <a type="button"
-                                                                   class="btn btn-rounded btn-outline-danger waves-effect"
-                                                                   data-dismiss="modal">
-                                                                    Voltar
-                                                                </a>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                <!--/.Content-->
-                                            </div>
-                                        </div>
-                                        <!--Fim Modal EXCLUIR-->
                                     </td>
                                 </tr>
                             {% empty %}
@@ -119,4 +77,48 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block modal %}
+    {% for turma in turmas %}
+        <!--Modal EXCLUIR-->
+        <div class="modal fade" id="Excluir{{ turma.id }}" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-danger" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header text-center">
+                        <h4 class="heading lead">Excluir</h4>
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
+                    </div>
+                    <form action="{% url 'turma_delete' turma.id %}" method="POST">
+                        <!--Body-->
+                        <div class="modal-body text-center">
+                            {% csrf_token %}
+                            Tem certeza que deseja excluir?
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="submit"
+                                    class="btn btn-rounded btn-danger waves-effect">
+                                Confirmar
+                            </button>
+                            <a type="button"
+                               class="btn btn-rounded btn-outline-danger waves-effect"
+                               data-dismiss="modal">
+                                Voltar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!--Fim Modal EXCLUIR-->
+    {% endfor %}
+
 {% endblock %}

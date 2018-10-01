@@ -117,9 +117,9 @@
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                 </div>
-                <!--Body-->
-                <div class="modal-body">
-                    <form action="{% url 'ocorrencia_relatorio_aluno' %}" method="POST">
+                <form action="{% url 'ocorrencia_relatorio_aluno' %}" method="POST">
+                    <!--Body-->
+                    <div class="modal-body">
                         {% csrf_token %}
                         <select name="SelectAlunoOcorrencia" id="SelectAlunoOcorrencia"
                                 class="mdb-select md-form colorful-select dropdown-success"
@@ -130,15 +130,14 @@
                             {% endfor %}
                         </select>
                         <label for="SelectAlunoOcorrencia">Lista de alunos</label>
-                        <br>
-                        <!--Footer-->
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-success waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-success"
-                               data-dismiss="modal">Voltar</a>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <!--Footer-->
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-rounded btn-success waves-effect">Enviar</button>
+                        <a type="button" class="btn btn-rounded btn-outline-success"
+                           data-dismiss="modal">Voltar</a>
+                    </div>
+                </form>
             </div>
             <!--/.Content-->
         </div>
@@ -158,9 +157,9 @@
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                 </div>
-                <!--Body-->
-                <div class="modal-body">
-                    <form action="{% url 'report_ocorrencia_curso' %}" method="POST">
+                <form action="{% url 'report_ocorrencia_curso' %}" method="POST">
+                    <!--Body-->
+                    <div class="modal-body">
                         {% csrf_token %}
                         <select name="SelectCursoOcorrencia" id="SelectCursoOcorrencia"
                                 class="mdb-select md-form colorful-select dropdown-success"
@@ -171,15 +170,14 @@
                             {% endfor %}
                         </select>
                         <label for="SelectCursoOcorrencia">Curso</label>
-                        <br>
-                        <!--Footer-->
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-success waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-success"
-                               data-dismiss="modal">Voltar</a>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <!--Footer-->
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-rounded btn-success waves-effect">Enviar</button>
+                        <a type="button" class="btn btn-rounded btn-outline-success"
+                           data-dismiss="modal">Voltar</a>
+                    </div>
+                </form>
             </div>
             <!--/.Content-->
         </div>
@@ -199,9 +197,9 @@
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                 </div>
-                <!--Body-->
-                <div class="modal-body">
-                    <form action="{% url 'report_ocorrencia_turma' %}" method="POST">
+                <form action="{% url 'report_ocorrencia_turma' %}" method="POST">
+                    <!--Body-->
+                    <div class="modal-body">
                         {% csrf_token %}
                         <select name="SelectTurmaOcorrencia" id="SelectTurmaOcorrencia"
                                 class="mdb-select md-form colorful-select dropdown-success"
@@ -218,15 +216,14 @@
                             {% endfor %}
                         </select>
                         <label for="SelectTurmaOcorrencia">Turma</label>
-                        <br>
-                        <!--Footer-->
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-success waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-success "
-                               data-dismiss="modal">Voltar</a>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <!--Footer-->
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-rounded btn-success waves-effect">Enviar</button>
+                        <a type="button" class="btn btn-rounded btn-outline-success "
+                           data-dismiss="modal">Voltar</a>
+                    </div>
+                </form>
             </div>
             <!--/.Content-->
         </div>
@@ -246,9 +243,9 @@
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                 </div>
-                <!--Body-->
-                <div class="modal-body">
-                    <form action="{% url 'encaminhamento_relatorio_aluno' %}" method="POST">
+                <form action="{% url 'encaminhamento_relatorio_aluno' %}" method="POST">
+                    <!--Body-->
+                    <div class="modal-body">
                         {% csrf_token %}
                         <select name="SelectAlunoEncaminhamento" id="SelectAlunoEncaminhamento"
                                 class="mdb-select md-form colorful-select dropdown-success"
@@ -259,15 +256,13 @@
                             {% endfor %}
                         </select>
                         <label for="SelectAlunoEncaminhamento">Lista de alunos</label>
-                        <br>
-                        <!--Footer-->
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-primary waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-primary"
-                               data-dismiss="modal">Voltar</a>
-                        </div>
-                    </form>
-                </div>
+                    </div>  <!--Footer-->
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-rounded btn-primary waves-effect">Enviar</button>
+                        <a type="button" class="btn btn-rounded btn-outline-primary"
+                           data-dismiss="modal">Voltar</a>
+                    </div>
+                </form>
             </div>
             <!--/.Content-->
         </div>
@@ -286,9 +281,9 @@
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                 </div>
-                <!--Body-->
-                <div class="modal-body">
-                    <form action="{% url 'report_encaminhamento_curso' %}" method="POST">
+                <form action="{% url 'report_encaminhamento_curso' %}" method="POST">
+                    <!--Body-->
+                    <div class="modal-body">
                         {% csrf_token %}
                         <select name="SelectCursoEncaminhamento" id="SelectCursoEncaminhamento"
                                 class="mdb-select md-form colorful-select dropdown-success"
@@ -299,15 +294,14 @@
                             {% endfor %}
                         </select>
                         <label for="SelectCursoEncaminhamento">Curso</label>
-                        <br>
-                        <!--Footer-->
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-primary waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-primary"
-                               data-dismiss="modal">Voltar</a>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <!--Footer-->
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-rounded btn-primary waves-effect">Enviar</button>
+                        <a type="button" class="btn btn-rounded btn-outline-primary"
+                           data-dismiss="modal">Voltar</a>
+                    </div>
+                </form>
             </div>
             <!--/.Content-->
         </div>
@@ -326,9 +320,9 @@
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                 </div>
-                <!--Body-->
-                <div class="modal-body">
-                    <form action="{% url 'report_encaminhamento_turma' %}" method="POST">
+                <form action="{% url 'report_encaminhamento_turma' %}" method="POST">
+                    <!--Body-->
+                    <div class="modal-body">
                         {% csrf_token %}
                         <select name="SelectTurmaEncaminhamento" id="SelectTurmaEncaminhamento"
                                 class="mdb-select md-form colorful-select dropdown-success"
@@ -345,15 +339,14 @@
                             {% endfor %}
                         </select>
                         <label for="SelectTurmaEncaminhamento">Turma</label>
-                        <br>
-                        <!--Footer-->
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-primary waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-primary"
-                               data-dismiss="modal">Voltar</a>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <!--Footer-->
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-rounded btn-primary waves-effect">Enviar</button>
+                        <a type="button" class="btn btn-rounded btn-outline-primary"
+                           data-dismiss="modal">Voltar</a>
+                    </div>
+                </form>
             </div>
             <!--/.Content-->
         </div>
@@ -373,9 +366,9 @@
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                 </div>
-                <!--Body-->
-                <div class="modal-body">
-                    <form action="{% url 'autorizacao_relatorio_aluno' %}" method="POST">
+                <form action="{% url 'autorizacao_relatorio_aluno' %}" method="POST">
+                    <!--Body-->
+                    <div class="modal-body">
                         {% csrf_token %}
                         <select name="SelectAlunoAutorizacao" id="SelectAlunoAutorizacao"
                                 class="mdb-select md-form colorful-select dropdown-success"
@@ -386,15 +379,14 @@
                             {% endfor %}
                         </select>
                         <label for="SelectAlunoAutorizacao">Lista de alunos</label>
-                        <br>
-                        <!--Footer-->
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-warning waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-warning"
-                               data-dismiss="modal">Voltar</a>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <!--Footer-->
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-rounded btn-warning waves-effect">Enviar</button>
+                        <a type="button" class="btn btn-rounded btn-outline-warning"
+                           data-dismiss="modal">Voltar</a>
+                    </div>
+                </form>
             </div>
             <!--/.Content-->
         </div>
@@ -414,9 +406,9 @@
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                 </div>
-                <!--Body-->
-                <div class="modal-body">
-                    <form action="{% url 'report_autorizacao_saida_curso' %}" method="POST">
+                <form action="{% url 'report_autorizacao_saida_curso' %}" method="POST">
+                    <!--Body-->
+                    <div class="modal-body">
                         {% csrf_token %}
                         <select name="SelectCursoAutorizacaoSaida" id="SelectCursoAutorizacaoSaida"
                                 class="mdb-select md-form colorful-select dropdown-success"
@@ -427,15 +419,14 @@
                             {% endfor %}
                         </select>
                         <label for="SelectCursoAutorizacaoSaida">Curso</label>
-                        <br>
-                        <!--Footer-->
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-warning waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-warning"
-                               data-dismiss="modal">Voltar</a>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <!--Footer-->
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-rounded btn-warning waves-effect">Enviar</button>
+                        <a type="button" class="btn btn-rounded btn-outline-warning"
+                           data-dismiss="modal">Voltar</a>
+                    </div>
+                </form>
             </div>
             <!--/.Content-->
         </div>
@@ -455,9 +446,9 @@
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                 </div>
-                <!--Body-->
-                <div class="modal-body">
-                    <form action="{% url 'report_autorizacao_saida_turma' %}" method="POST">
+                <form action="{% url 'report_autorizacao_saida_turma' %}" method="POST">
+                    <!--Body-->
+                    <div class="modal-body">
                         {% csrf_token %}
                         <select name="SelectTurmaAutorizacaoSaida" id="SelectTurmaAutorizacaoSaida"
                                 class="mdb-select md-form colorful-select dropdown-success"
@@ -474,15 +465,14 @@
                             {% endfor %}
                         </select>
                         <label for="SelectTurmaAutorizacaoSaida">Turma</label>
-                        <br>
-                        <!--Footer-->
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-rounded btn-warning waves-effect">Enviar</button>
-                            <a type="button" class="btn btn-rounded btn-outline-warning"
-                               data-dismiss="modal">Voltar</a>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <!--Footer-->
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-rounded btn-warning waves-effect">Enviar</button>
+                        <a type="button" class="btn btn-rounded btn-outline-warning"
+                           data-dismiss="modal">Voltar</a>
+                    </div>
+                </form>
             </div>
             <!--/.Content-->
         </div>
