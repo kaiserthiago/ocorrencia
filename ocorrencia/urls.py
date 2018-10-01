@@ -27,5 +27,5 @@ urlpatterns = [
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-admin.site.site_header = 'SGE - Gestão Estudantil'
+admin.site.site_header = 'SGE - Gestão Educacional'
 admin.site.index_title = 'Administração'
