@@ -4,10 +4,13 @@
 {% block class_registros_ocorrencia_item %}collapsible-header active{% endblock %}
 
 {% block breadcrumb_base %}
-    <ol class="breadcrumb blue-grey lighten-4">
-        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
-        <li class="breadcrumb-item active">Ocorrências</li>
-    </ol>
+    {% if perms.portal.change_aluno and not request.user.is_staff and not request.user.is_superuser %}
+    {% else %}
+        <ol class="breadcrumb blue-grey lighten-4">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+            <li class="breadcrumb-item active">Ocorrências</li>
+        </ol>
+    {% endif %}
 {% endblock %}
 
 {% block content %}
@@ -27,7 +30,8 @@
                         </div>
                         <div class="col-sm-2">
                             <div class="float-right">
-                                <a href="{% url 'report_ocorrencia_aluno' aluno.id %}" class="btn btn-rounded btn-block btn-danger"><i
+                                <a href="{% url 'report_ocorrencia_aluno' aluno.id %}"
+                                   class="btn btn-rounded btn-block btn-danger"><i
                                         class="fa fa-print"></i> Imprimir</a>
                             </div>
                         </div>
@@ -56,8 +60,7 @@
                                     <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
 
                                         <a href="{% url 'ocorrencia_show' ocorrencia.id %}"
-                                           class="btn-floating btn-sm info-color"
-                                           data-toggle="tooltip" data-placement="top" title="Visualizar"><i
+                                           class="btn-floating btn-sm info-color"><i
                                                 class="fa fa-search"></i>
                                         </a>
                                     </td>
