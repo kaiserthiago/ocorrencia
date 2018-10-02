@@ -142,6 +142,7 @@ def import_aluno_atualizar(request):
                     aluno.pai = lista_pai[contador]
                     aluno.mae = lista_mae[contador]
                     aluno.email = lista_email[contador]
+                    aluno.empresa
 
                     aluno.save()
 
@@ -1317,7 +1318,12 @@ def user_change_password(request):
             user = form.save()
             update_session_auth_hash(request, user)  # Important!
             messages.success(request, 'Sua senha foi alterada!')
-            return redirect('user_account')
+
+            if request.user.has_perm(
+                    'portal.change_aluno') and not request.user.is_staff and not request.user.is_superuser:
+                return redirect('perfil_individual', aluno.id)
+            else:
+                return redirect('user_account')
         else:
             messages.error(request, 'Por favor, verifique as informações inseridas.')
     else:
