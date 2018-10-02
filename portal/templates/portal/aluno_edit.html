@@ -5,11 +5,14 @@
 {% load widget_tweaks %}
 
 {% block breadcrumb_base %}
-    <ol class="breadcrumb blue-grey lighten-4">
-        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
-        <li class="breadcrumb-item"><a href="{% url 'aluno' %}}?qs={{ qs }}">Alunos</a></li>
-        <li class="breadcrumb-item active">Editando aluno - {{ aluno.nome }}</li>
-    </ol>
+    {% if perms.portal.change_aluno and not request.user.is_staff and not request.user.is_superuser %}
+    {% else %}
+        <ol class="breadcrumb blue-grey lighten-4">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'aluno' %}}?qs={{ qs }}">Alunos</a></li>
+            <li class="breadcrumb-item active">Editando aluno - {{ aluno.nome }}</li>
+        </ol>
+    {% endif %}
 {% endblock %}
 
 {% block content %}
