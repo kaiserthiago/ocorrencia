@@ -79,10 +79,10 @@
                                 class="fa fa-lock"></i> Alterar senha</a>
                     </li>
                     <li>
-                        <a href="{% url 'aluno_edit' request.user.userprofile.aluno.id %}"
+                        <a href="{% url 'perfil_individual' request.user.userprofile.aluno.id %}"
                            class="collapsible-header waves-effect arrow-r
                                    {% block class_aluno_menu %}{% endblock %}"><i
-                                class="fa fa-user"></i> Atualizar dados</a>
+                                class="fa fa-user"></i> Meus dados</a>
                     </li>
                 {% else %}
                     <li>
@@ -251,9 +251,9 @@
                                 Início</a>
                             <a class="dropdown-item" href="{% url 'user_change_password' %}"><i class="fa fa-lock"></i>
                                 Alterar senha</a>
-                            <a class="dropdown-item" href="{% url 'aluno_edit' request.user.userprofile.aluno.id %}"><i
+                            <a class="dropdown-item" href="{% url 'perfil_individual' request.user.userprofile.aluno.id %}"><i
                                     class="fa fa-user"></i>
-                                Atualizar dados</a>
+                                Meus dados</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" data-toggle="modal" href="#ModalLogout"><i
                                     class="fa fa-power-off"></i> Sair</a>

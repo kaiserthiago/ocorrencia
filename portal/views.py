@@ -398,7 +398,6 @@ def aluno_edit(request, aluno_id):
             else:
                 aluno.mae = ''
 
-
             if form.cleaned_data['emissor']:
                 aluno.emissor = form.cleaned_data['emissor']
             else:
@@ -423,7 +422,7 @@ def aluno_edit(request, aluno_id):
                 usuario.save()
 
                 messages.success(request, 'Dados atualizados.')
-                return redirect('home')
+                return redirect('perfil_individual', aluno.id)
 
             else:
                 messages.success(request, 'Aluno atualizado.')
@@ -538,15 +537,32 @@ def perfil(request):
     return render(request, 'portal/perfil.html', context)
 
 
-@staff_member_required
+@login_required
 def perfil_individual(request, aluno_id):
-    aluno = get_object_or_404(Aluno, pk=aluno_id)
+    if request.user.has_perm('portal.change_aluno') and not request.user.is_staff and not request.user.is_superuser:
+        if int(aluno_id) == request.user.userprofile.aluno.id:
+            aluno = get_object_or_404(Aluno, pk=aluno_id)
+            qs = request.GET.get('qs', '')
 
-    context = {
-        'aluno': aluno,
-    }
+            context = {
+                'aluno': aluno,
+                'qs': qs
+            }
 
-    return render(request, 'portal/perfil_individual.html', context)
+            return render(request, 'portal/perfil_individual.html', context)
+        else:
+            erro = 'Você não tem permissão para acessar esses dados.'
+            return render(request, 'portal/erro.html', {'erro': erro})
+    else:
+        aluno = get_object_or_404(Aluno, pk=aluno_id)
+        qs = request.GET.get('qs', '')
+
+        context = {
+            'aluno': aluno,
+            'qs': qs
+        }
+
+        return render(request, 'portal/perfil_individual.html', context)
 
 
 @staff_member_required

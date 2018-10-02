@@ -13,11 +13,14 @@
 {% endblock %}
 
 {% block breadcrumb_base %}
-    <ol class="breadcrumb blue-grey lighten-4">
-        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
-        <li class="breadcrumb-item"><a href="{% url 'perfil' %}">Perfil</a></li>
-        <li class="breadcrumb-item active">Perfil aluno - {{ aluno.nome }}</li>
-    </ol>
+    {% if perms.portal.change_aluno and not request.user.is_staff and not request.user.is_superuser %}
+    {% else %}
+        <ol class="breadcrumb blue-grey lighten-4">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'perfil' %}">Perfil</a></li>
+            <li class="breadcrumb-item active">Perfil aluno - {{ aluno.nome }}</li>
+        </ol>
+    {% endif %}
 {% endblock %}
 
 {% block content %}
@@ -25,15 +28,23 @@
         <div class="col-sm-9">
             <div class="card redonda">
                 <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
-                    Dados do estudante
+                    <p class="float-left m-0">
+                        Dados do estudante
+                    </p>
+                    <a href="{% url 'aluno_edit' aluno.id %}?qs={{ qs }}" class="float-right m-0">EDITAR</a>
+
+
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-8">
-                            <p><strong>Nome: </strong>{{ aluno.nome }}</p>
-                            <p><strong>E-mail: </strong>{{ aluno.email }}</p>
-                            <p><strong>Responsável: </strong>{{ aluno.responsavel }}</p>
-                            <p><strong>E-mail: </strong>{{ aluno.email_responsavel }}</p>
+                            <strong>Nome: </strong>{{ aluno.nome }}<br>
+                            <strong>CPF: </strong>{{ aluno.cpf }}<br>
+                            <strong>RG: </strong>{{ aluno.rg }} {{ aluno.emissor }}<br>
+                            <strong>E-mail: </strong>{{ aluno.email }}<br>
+                            <strong>Pai: </strong>{{ aluno.pai }}<br>
+                            <strong>Mãe: </strong>{{ aluno.mae }}<br>
+                            <strong>E-mail responsável: </strong>{{ aluno.email_responsavel }}<br>
                         </div>
 
 
@@ -78,9 +89,11 @@
                             {% endif %}
                         </span>
                     </p>
-                    <p class="border-bottom">
-                        Encaminhamentos
-                        <span class="badge badge-primary badge-pill pull-right">
+                    {% if perms.portal.change_aluno and not request.user.is_staff and not request.user.is_superuser %}
+                    {% else %}
+                        <p class="border-bottom">
+                            Encaminhamentos
+                            <span class="badge badge-primary badge-pill pull-right">
                             {% if aluno.count_encaminhamento %}
                                 {% for i in aluno.count_encaminhamento %}
                                     {% if not i.qtde %}
@@ -93,7 +106,8 @@
                                 0
                             {% endif %}
                         </span>
-                    </p>
+                        </p>
+                    {% endif %}
                     <p class="border-bottom">
                         Ocorrências
                         <span class="badge ifro-color badge-pill pull-right">
@@ -145,33 +159,37 @@
         </div>
     {% endif %}
 
-    <!--ENCAMINHAMENTOS-->
-    {% if aluno.perfil_encaminhamentos_categoria %}
-        <div class="row mb-4">
-            <div class="col-sm-12">
-                <div class="card redonda">
-                    <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
-                        <p class="float-left m-0">
-                            Encaminhamentos
-                        </p>
-                        <a href="{% url 'encaminhamento_relatorio' aluno.id %}" class="float-right m-0"> VER MAIS</a>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <p class="font-weight-bold">Por categoria</p>
-                                <div id="categoria_encaminhamento"></div>
-                            </div>
-                            <hr class="w-100 clearfix d-md-none">
-                            <div class="col-sm-6">
-                                <p class="font-weight-bold">Por status</p>
-                                <div id="status_encaminhamento"></div>
+    {% if perms.portal.change_aluno and not request.user.is_staff and not request.user.is_superuser %}
+    {% else %}
+        <!--ENCAMINHAMENTOS-->
+        {% if aluno.perfil_encaminhamentos_categoria %}
+            <div class="row mb-4">
+                <div class="col-sm-12">
+                    <div class="card redonda">
+                        <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
+                            <p class="float-left m-0">
+                                Encaminhamentos
+                            </p>
+                            <a href="{% url 'encaminhamento_relatorio' aluno.id %}" class="float-right m-0"> VER
+                                MAIS</a>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p class="font-weight-bold">Por categoria</p>
+                                    <div id="categoria_encaminhamento"></div>
+                                </div>
+                                <hr class="w-100 clearfix d-md-none">
+                                <div class="col-sm-6">
+                                    <p class="font-weight-bold">Por status</p>
+                                    <div id="status_encaminhamento"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        {% endif %}
     {% endif %}
 
     <!-- AUTORIZAÇÕES DE SAÍDA POR MÊS -->

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Erro{% endblock %}
+
+
+{% block content %}
+        <div class="alert alert-danger mb-4">
+            <span class="font-weight-bold">Erro!</span> {{ erro }}
+        </div>
+        <a href="javascript:history.back()" class="btn btn-rounded btn-info">Voltar</a>
+{% endblock %}
