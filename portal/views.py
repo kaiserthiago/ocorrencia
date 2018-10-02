@@ -15,7 +15,7 @@ from django.db.models import Count, Sum, Avg, Func, F, ExpressionWrapper, Durati
 from django.db.models.functions import TruncMonth
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
-from django.template.defaultfilters import upper, lower
+from django.template.defaultfilters import lower
 from tablib import Dataset
 
 from portal.emails import RegistraOcorrenciaMail, ConfirmaUsuarioMail, RegistraEncaminhamentoMail, \
@@ -301,12 +301,12 @@ def aluno_new(request):
         if form.is_valid():
             aluno = Aluno()
 
-            aluno.nome = form.cleaned_data['nome'].upper()
-            aluno.pai = form.cleaned_data['pai'].upper()
-            aluno.mae = form.cleaned_data['mae'].upper()
-            aluno.cpf = form.cleaned_data['cpf'].upper()
-            aluno.rg = form.cleaned_data['rg'].upper()
-            aluno.emissor = form.cleaned_data['emissor'].upper()
+            aluno.nome = form.cleaned_data['nome']
+            aluno.pai = form.cleaned_data['pai']
+            aluno.mae = form.cleaned_data['mae']
+            aluno.cpf = form.cleaned_data['cpf']
+            aluno.rg = form.cleaned_data['rg']
+            aluno.emissor = form.cleaned_data['emissor']
             aluno.email = form.cleaned_data['email']
             aluno.email_responsavel = form.cleaned_data['email_responsavel']
             aluno.foto = form.cleaned_data['foto']
@@ -336,12 +336,12 @@ def aluno_edit(request, aluno_id):
     if request.method == 'POST':
         form = AlunoForm(request.POST, request.FILES)
         if form.is_valid():
-            aluno.nome = form.cleaned_data['nome'].upper()
-            aluno.pai = form.cleaned_data['pai'].upper()
-            aluno.mae = form.cleaned_data['mae'].upper()
-            aluno.cpf = form.cleaned_data['cpf'].upper()
-            aluno.rg = form.cleaned_data['rg'].upper()
-            aluno.emissor = form.cleaned_data['emissor'].upper()
+            aluno.nome = form.cleaned_data['nome']
+            aluno.pai = form.cleaned_data['pai']
+            aluno.mae = form.cleaned_data['mae']
+            aluno.cpf = form.cleaned_data['cpf']
+            aluno.rg = form.cleaned_data['rg']
+            aluno.emissor = form.cleaned_data['emissor']
             aluno.email = form.cleaned_data['email']
             aluno.email_responsavel = form.cleaned_data['email_responsavel']
             aluno.foto = form.cleaned_data['foto']
@@ -480,12 +480,12 @@ def aluno_perfil_edit(request, aluno_id, page, turma):
         page = '/perfil/turma/' + str(turma) + '?page=' + str(page)
         form = AlunoForm(request.POST, request.FILES)
         if form.is_valid():
-            aluno.nome = form.cleaned_data['nome'].upper()
-            aluno.pai = form.cleaned_data['pai'].upper()
-            aluno.mae = form.cleaned_data['mae'].upper()
-            aluno.cpf = form.cleaned_data['cpf'].upper()
-            aluno.rg = form.cleaned_data['rg'].upper()
-            aluno.emissor = form.cleaned_data['emissor'].upper()
+            aluno.nome = form.cleaned_data['nome']
+            aluno.pai = form.cleaned_data['pai']
+            aluno.mae = form.cleaned_data['mae']
+            aluno.cpf = form.cleaned_data['cpf']
+            aluno.rg = form.cleaned_data['rg']
+            aluno.emissor = form.cleaned_data['emissor']
             aluno.email = form.cleaned_data['email']
             aluno.email_responsavel = form.cleaned_data['email_responsavel']
             aluno.foto = form.cleaned_data['foto']

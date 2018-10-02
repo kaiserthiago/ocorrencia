@@ -39,7 +39,7 @@ class RegistraEncaminhamentoProvidenciasMail(Maiable):
         super().sendMail(
             from_email=MAIL_REPLY,
             to=to,
-            subject='SGE - Atualização do encaminhamento #' + str(self.encaminhamento.id),
+            subject='SGE - Atualização de encaminhamento #' + str(self.encaminhamento.id),
             template='emails/registra-encaminhamento-providencias.html',
             context={'encaminhamento': self.encaminhamento}
         )

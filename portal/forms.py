@@ -138,22 +138,27 @@ class AlunoForm(forms.ModelForm):
             'nome': forms.TextInput(attrs={
                 'class': 'form-control validate',
                 'required': '',
-                'autofocus': ''
+                'autofocus': '',
+                'style': 'text-transform:uppercase'
             }),
             'email': forms.EmailInput(attrs={
                 'class': 'form-control validate',
             }),
             'pai': forms.TextInput(attrs={
                 'class': 'form-control validate',
+                'style': 'text-transform:uppercase'
             }),
             'mae': forms.TextInput(attrs={
                 'class': 'form-control validate',
+                'style': 'text-transform:uppercase'
             }),
             'rg': forms.TextInput(attrs={
                 'class': 'form-control validate',
+                'style': 'text-transform:uppercase'
             }),
             'emissor': forms.TextInput(attrs={
                 'class': 'form-control validate',
+                'style': 'text-transform:uppercase'
             }),
             'cpf': forms.TextInput(attrs={
                 'class': 'form-control validate',
