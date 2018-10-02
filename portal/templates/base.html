@@ -224,12 +224,12 @@
 
         <!-- Navbar -->
         <nav id="slide-out" class="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav">
-                    {% if perms.portal.change_aluno and not request.user.is_staff and not request.user.is_superuser %}
-{% else %}<!-- SideNav slide-out button -->
-            <div class="float-left">
-                <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i></a>
-            </div>
-       {% endif %}     <!-- Breadcrumb-->
+            {% if perms.portal.change_aluno and not request.user.is_staff and not request.user.is_superuser %}
+                {% else %}<!-- SideNav slide-out button -->
+                <div class="float-left">
+                    <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i></a>
+                </div>
+            {% endif %}     <!-- Breadcrumb-->
             <div class="breadcrumb-dn mr-auto">
                 {% if request.user.is_authenticated %}
                     <p>Gestão Educacional - <em>Campus </em>{{ request.user.userprofile.empresa }}</p>
