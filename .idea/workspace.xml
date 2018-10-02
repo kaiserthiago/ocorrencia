@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/aluno_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/aluno_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/aluno_new.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/aluno_new.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,11 +33,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="aluno_edit.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="aluno_edit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-663">
-              <caret line="70" column="34" selection-start-line="70" selection-start-column="34" selection-end-line="70" selection-end-column="34" />
+            <state relative-caret-position="217">
+              <caret line="60" column="24" selection-start-line="60" selection-start-column="24" selection-end-line="77" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="aluno_new.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_new.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="637">
+              <caret line="78" selection-start-line="78" selection-end-line="78" />
             </state>
           </provider>
         </entry>
@@ -56,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-597">
-              <caret line="373" column="14" selection-start-line="373" selection-start-column="7" selection-end-line="373" selection-end-column="14" />
+            <state relative-caret-position="303">
+              <caret line="110" selection-start-line="110" selection-end-line="110" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -98,15 +102,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="47" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/forms.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -140,7 +135,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>aluno(request)</find>
       <find>text</find>
       <find>aluno_new</find>
       <find>courses</find>
@@ -157,7 +151,6 @@
       <find>upper</find>
       <find>lower</find>
       <find>profi</find>
-      <find>atualizar</find>
       <find>aluno_ed</find>
       <find>aluno_edit_p</find>
       <find>user</find>
@@ -170,6 +163,8 @@
       <find>edit_per</find>
       <find>o_edit</find>
       <find>no_edit</find>
+      <find>atuali</find>
+      <find>atualizar</find>
     </findStrings>
     <replaceStrings>
       <replace>@permission_required('is_superuser')</replace>
@@ -230,7 +225,6 @@
         <option value="$PROJECT_DIR$/portal/templates/emails/registra-encaminhamento-providencias.html" />
         <option value="$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia.html" />
         <option value="$PROJECT_DIR$/portal/templates/emails/registra-saida.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/aluno_new.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_new.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao_new.html" />
@@ -260,6 +254,7 @@
         <option value="$PROJECT_DIR$/portal/forms.py" />
         <option value="$PROJECT_DIR$/portal/admin.py" />
         <option value="$PROJECT_DIR$/portal/templates/portal/aluno_edit.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/aluno_new.html" />
         <option value="$PROJECT_DIR$/portal/views.py" />
       </list>
     </option>
@@ -556,13 +551,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_new.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="71" selection-start-line="9" selection-start-column="71" selection-end-line="9" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ocorrencia/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
@@ -840,20 +828,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/views.py">
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-597">
-          <caret line="373" column="14" selection-start-line="373" selection-start-column="7" selection-end-line="373" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="217">
+          <caret line="60" column="24" selection-start-line="60" selection-start-column="24" selection-end-line="77" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_edit.html">
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_new.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-663">
-          <caret line="70" column="34" selection-start-line="70" selection-start-column="34" selection-end-line="70" selection-end-column="34" />
+        <state relative-caret-position="637">
+          <caret line="78" selection-start-line="78" selection-end-line="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="110" selection-start-line="110" selection-end-line="110" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

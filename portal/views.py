@@ -143,27 +143,30 @@ def import_aluno_atualizar(request):
 
                     aluno.save()
 
-                    User.objects.create_user(
-                        username=aluno.cpf,
-                        password='ifro@cacoal',
-                        email=aluno.email,
-                        first_name=aluno.nome,
-                        is_active=True,
-                    )
+                    if aluno.cpf:
+                        try:
+                            User.objects.create_user(
+                                username=aluno.cpf,
+                                password='ifro@cacoal',
+                                email=aluno.email,
+                                first_name=aluno.nome,
+                                is_active=True,
+                            )
 
-                    usuario = get_object_or_404(User, username=aluno.cpf)
-                    permission = Permission.objects.get(name='Can change aluno')
-                    usuario.user_permissions.add(permission)
-                    usuario.save()
+                            usuario = get_object_or_404(User, username=aluno.cpf)
+                            permission = Permission.objects.get(name='Can change aluno')
+                            usuario.user_permissions.add(permission)
+                            usuario.save()
 
+                            profile = UserProfile()
+                            profile.user = usuario
+                            profile.empresa = request.user.userprofile.empresa
+                            profile.aluno = aluno
 
-                    profile = UserProfile()
-                    profile.user = usuario
-                    profile.empresa = request.user.userprofile.empresa
-                    profile.aluno = aluno
-
-                    profile.save()
-
+                            profile.save()
+                        except:
+                            pass
+                        
                     contador += 1
                 else:
                     contador += 1
