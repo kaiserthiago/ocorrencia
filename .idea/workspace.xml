@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/aluno_new.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/aluno_new.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,15 +23,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="231" column="112" selection-start-line="231" selection-start-column="112" selection-end-line="231" selection-end-column="112" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="aluno_edit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_edit.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -63,11 +53,29 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="110" selection-start-line="110" selection-end-line="110" />
+            <state relative-caret-position="100">
+              <caret line="29" column="133" selection-start-line="29" selection-start-column="133" selection-end-line="29" selection-end-column="133" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="237">
+              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_change_password.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/user_change_password.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-340">
+              <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -77,15 +85,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="840">
               <caret line="90" column="44" selection-start-line="90" selection-start-column="44" selection-end-line="90" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="38" column="26" selection-start-line="31" selection-start-column="12" selection-end-line="38" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -135,9 +134,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>text</find>
-      <find>aluno_new</find>
-      <find>courses</find>
       <find>perfil</find>
       <find>\&lt;div class\=\&quot;row text\-left\&quot;\&gt;\n                                \&lt;div class\=\&quot;col\-sm\-12\&quot;\&gt;\n                                    \&lt;p\&gt;Tem certeza que deseja excluir\?\&lt;\/p\&gt;\n                                \&lt;\/div\&gt;\n                            \&lt;\/div\&gt;</find>
       <find>&lt;div class=&quot;modal-body&quot;&gt;                             {% csrf_token %}                             Tem certeza que deseja excluir?                         &lt;/div&gt;</find>
@@ -153,7 +149,6 @@
       <find>profi</find>
       <find>aluno_ed</find>
       <find>aluno_edit_p</find>
-      <find>user</find>
       <find>aluno_edit</find>
       <find>aluno(</find>
       <find>status</find>
@@ -165,6 +160,10 @@
       <find>no_edit</find>
       <find>atuali</find>
       <find>atualizar</find>
+      <find>user</find>
+      <find>pass</find>
+      <find>passw</find>
+      <find>home(</find>
     </findStrings>
     <replaceStrings>
       <replace>@permission_required('is_superuser')</replace>
@@ -501,13 +500,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/user_change_password.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/login/templates/registration/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -773,13 +765,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="38" column="26" selection-start-line="31" selection-start-column="12" selection-end-line="38" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
@@ -842,10 +827,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/user_change_password.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-340">
+          <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/portal/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="110" selection-start-line="110" selection-end-line="110" />
+        <state relative-caret-position="100">
+          <caret line="29" column="133" selection-start-line="29" selection-start-column="133" selection-end-line="29" selection-end-column="133" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>

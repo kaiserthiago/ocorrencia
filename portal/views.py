@@ -100,7 +100,7 @@ def configuracao(request):
 
 
 def import_aluno_atualizar(request):
-    # try:
+    try:
         lista_nome = []
         lista_cpf = []
         lista_rg = []
@@ -166,7 +166,7 @@ def import_aluno_atualizar(request):
                             profile.save()
                         except:
                             pass
-                        
+
                     contador += 1
                 else:
                     contador += 1
@@ -177,8 +177,8 @@ def import_aluno_atualizar(request):
         }
 
         return render(request, 'portal/import_aluno_atualizar.html', context)
-    # except:
-        # return HttpResponse(teste)
+    except:
+        return HttpResponse(teste)
 
 
 @permission_required('is_superuser')
