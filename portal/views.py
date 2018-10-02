@@ -31,8 +31,8 @@ def home(request):
 
 
 def contato(request):
-    matricula = get_object_or_404(Matricula, pk=1009)
-    matricula.delete()
+    # matricula = get_object_or_404(Matricula, pk=1009)
+    # matricula.delete()
     return render(request, 'portal/contato.html', {})
 
 
