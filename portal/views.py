@@ -1321,7 +1321,7 @@ def user_change_password(request):
 
             if request.user.has_perm(
                     'portal.change_aluno') and not request.user.is_staff and not request.user.is_superuser:
-                return redirect('perfil_individual', aluno.id)
+                return redirect('perfil_individual', request.user.userprofile.aluno.id)
             else:
                 return redirect('user_account')
         else:

@@ -53,11 +53,20 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="144" column="33" selection-start-line="144" selection-start-column="33" selection-end-line="144" selection-end-column="33" />
+            <state relative-caret-position="463">
+              <caret line="1324" column="17" lean-forward="true" selection-start-line="1324" selection-start-column="17" selection-end-line="1324" selection-end-column="17" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_change_password.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/user_change_password.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="9" column="14" selection-start-line="8" selection-start-column="4" selection-end-line="9" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -105,15 +114,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -126,8 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>profi</find>
-      <find>aluno_ed</find>
       <find>aluno_edit_p</find>
       <find>aluno(</find>
       <find>status</find>
@@ -156,6 +154,8 @@
       <find>indi</find>
       <find>back</find>
       <find>javascript</find>
+      <find>indivi</find>
+      <find>change</find>
     </findStrings>
     <replaceStrings>
       <replace>primary-color-dark</replace>
@@ -732,13 +732,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/user_change_password.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="14" selection-start-line="8" selection-start-column="4" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/perfil_turma.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -835,10 +828,17 @@
         <state relative-caret-position="-420" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/user_change_password.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="14" selection-start-line="8" selection-start-column="4" selection-end-line="9" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/portal/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="144" column="33" selection-start-line="144" selection-start-column="33" selection-end-line="144" selection-end-column="33" />
+        <state relative-caret-position="463">
+          <caret line="1324" column="17" lean-forward="true" selection-start-line="1324" selection-start-column="17" selection-end-line="1324" selection-end-column="17" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
