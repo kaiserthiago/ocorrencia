@@ -63,127 +63,136 @@
                             Início</a>
                     </li>
 
-                    <li>
-                        <a href="{% url 'dashboard' %}"
-                           class="collapsible-header waves-effect arrow-r
+                    {% if perms.portal.change_aluno and not request.user.is_staff and not request.user.is_superuser %}
+                        <li>
+                            <a href="{% url 'aluno_edit' request.user.userprofile.aluno.id %}"
+                               class="collapsible-header waves-effect arrow-r
+                                   {% block class_aluno_menu %}{% endblock %}"><i
+                                    class="fa fa-user"></i> Meus dados</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{% url 'dashboard' %}"
+                               class="collapsible-header waves-effect arrow-r
                                    {% block class_dashboard_menu %}{% endblock %}"><i
-                                class="fa fa-dashboard"></i> Dashboard</a>
-                    </li>
+                                    class="fa fa-dashboard"></i> Dashboard</a>
+                        </li>
 
-                    {% if request.user.is_staff %}
-                        <li>
-                            <a href="{% url 'perfil' %}"
-                               class="collapsible-header waves-effect arrow-r
+                        {% if request.user.is_staff %}
+                            <li>
+                                <a href="{% url 'perfil' %}"
+                                   class="collapsible-header waves-effect arrow-r
                                    {% block class_conselho_menu %}{% endblock %}"><i
-                                    class="fa fa-graduation-cap"></i> Conselho de classe</a>
-                        </li>
-                    {% endif %}
-
-
-                    <li>
-                        <a class="collapsible-header waves-effect arrow-r
-                                {% block class_registros_menu %}{% endblock %}"><i
-                                class="fa fa-sign-out"></i> Registros<i
-                                class="fa fa-angle-down rotate-icon"></i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li>
-                                    {% if request.user.is_staff %}
-                                        <a href="{% url 'autorizacao' %}"
-                                           class="waves-effect
-                                                   {% block class_registros_autorizacao_item %}{% endblock %}"><i
-                                                class="fa fa-sign-out"></i> Autorização de saída</a>
-                                    {% endif %}
-
-                                    <a href="{% url 'encaminhamento' %}"
-                                       class="waves-effect
-                                               {% block class_registros_encaminhamento_item %}{% endblock %}"><i
-                                            class="fa fa-book"></i> Encaminhamento</a>
-
-                                    <a href="{% url 'ocorrencia' %}"
-                                       class="waves-effect
-                                                   {% block class_registros_ocorrencia_item %}{% endblock %}"><i
-                                            class="fa fa-pencil"></i> Ocorrência disciplinar</a>
-
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="{% url 'report_general' %}"
-                           class="collapsible-header waves-effect arrow-r
-                                   {% block class_relatorio_menu %}{% endblock %}"><i
-                                class="fa fa-file"></i> Relatórios</a>
-                    </li>
-
-                    {% if request.user.is_superuser or perms.portal.change_autorizacao %}
-                        <ul class="social"></ul>
-                        <li>
-                            <a href="{% url 'autorizacao_pendente' %}"
-                               class="collapsible-header waves-effect arrow-r
-                                   {% block class_autorizacao_pendente_menu %}{% endblock %}"><i
-                                    class="fa fa-check-square-o"></i>
-                                Confirmar saída</a>
-                        </li>
-                    {% endif %}
-
-                    {% if request.user.is_superuser or perms.portal.change_encaminhamento %}
-                        {% if not request.user.is_superuser %}
-                            <ul class="social"></ul>
+                                        class="fa fa-graduation-cap"></i> Conselho de classe</a>
+                            </li>
                         {% endif %}
-                        <li>
-                            <a href="{% url 'encaminhamento_pendente' %}"
-                               class="collapsible-header waves-effect arrow-r
-                                   {% block class_retorno_encaminhamento_menu %}{% endblock %}"><i
-                                    class="fa fa-book"></i>
-                                Retorno encaminhamento</a>
-                        </li>
-                    {% endif %}
 
-                    {% if request.user.is_superuser %}
-                        <ul class="social"></ul>
+
                         <li>
                             <a class="collapsible-header waves-effect arrow-r
-                                {% block class_cadastro_menu %}{% endblock %}"><i
-                                    class="fa fa-address-card"></i> Cadastros<i
+                                {% block class_registros_menu %}{% endblock %}"><i
+                                    class="fa fa-sign-out"></i> Registros<i
                                     class="fa fa-angle-down rotate-icon"></i></a>
                             <div class="collapsible-body">
                                 <ul>
                                     <li>
-                                        <a href="{% url 'aluno' %}?qs=a"
+                                        {% if request.user.is_staff %}
+                                            <a href="{% url 'autorizacao' %}"
+                                               class="waves-effect
+                                                   {% block class_registros_autorizacao_item %}{% endblock %}"><i
+                                                    class="fa fa-sign-out"></i> Autorização de saída</a>
+                                        {% endif %}
+
+                                        <a href="{% url 'encaminhamento' %}"
                                            class="waves-effect
-                                               {% block class_cadastro_aluno_item %}{% endblock %}"><i
-                                                class="fa fa-user"></i> Aluno</a>
-                                        <a href="{% url 'servico_categoria' %}"
+                                               {% block class_registros_encaminhamento_item %}{% endblock %}"><i
+                                                class="fa fa-book"></i> Encaminhamento</a>
+
+                                        <a href="{% url 'ocorrencia' %}"
                                            class="waves-effect
-                                               {% block class_cadastro_servicos_categoria_item %}{% endblock %}"><i
-                                                class="fa fa-cog"></i> Categoria
-                                            de serviço</a>
-                                        <a href="{% url 'curso' %}"
-                                           class="waves-effect
-                                               {% block class_cadastro_curso_item %}{% endblock %}"><i
-                                                class="fa fa-industry"></i> Curso</a>
-                                        <a href="{% url 'turma' %}"
-                                           class="waves-effect
-                                               {% block class_cadastro_turma_item %}{% endblock %}"><i
-                                                class="fa fa-graduation-cap"></i> Turma</a>
-                                        <a href="{% url 'matricula' %}"
-                                           class="waves-effect
-                                                       {% block class_cadastro_matricula_item %}{% endblock %}"><i
-                                                class="fa fa-users"></i> Matrícula</a>
-                                        <a href="{% url 'servico' %}"
-                                           class="waves-effect
-                                                       {% block class_cadastro_servicos_item %}{% endblock %}"><i
-                                                class="fa fa-cog"></i> Serviço</a>
+                                                   {% block class_registros_ocorrencia_item %}{% endblock %}"><i
+                                                class="fa fa-pencil"></i> Ocorrência disciplinar</a>
+
                                     </li>
                                 </ul>
                             </div>
                         </li>
                         <li>
-                            <a href="{% url 'configuracao' %}" class="collapsible-header waves-effect arrow-r
-                                    {% block class_configuracoes_menu %}{% endblock %}"><i class="fa fa-cogs"></i>
-                                Configurações</a>
+                            <a href="{% url 'report_general' %}"
+                               class="collapsible-header waves-effect arrow-r
+                                   {% block class_relatorio_menu %}{% endblock %}"><i
+                                    class="fa fa-file"></i> Relatórios</a>
                         </li>
+
+                        {% if request.user.is_superuser or perms.portal.change_autorizacao %}
+                            <ul class="social"></ul>
+                            <li>
+                                <a href="{% url 'autorizacao_pendente' %}"
+                                   class="collapsible-header waves-effect arrow-r
+                                   {% block class_autorizacao_pendente_menu %}{% endblock %}"><i
+                                        class="fa fa-check-square-o"></i>
+                                    Confirmar saída</a>
+                            </li>
+                        {% endif %}
+
+                        {% if request.user.is_superuser or perms.portal.change_encaminhamento %}
+                            {% if not request.user.is_superuser %}
+                                <ul class="social"></ul>
+                            {% endif %}
+                            <li>
+                                <a href="{% url 'encaminhamento_pendente' %}"
+                                   class="collapsible-header waves-effect arrow-r
+                                   {% block class_retorno_encaminhamento_menu %}{% endblock %}"><i
+                                        class="fa fa-book"></i>
+                                    Retorno encaminhamento</a>
+                            </li>
+                        {% endif %}
+
+                        {% if request.user.is_superuser %}
+                            <ul class="social"></ul>
+                            <li>
+                                <a class="collapsible-header waves-effect arrow-r
+                                {% block class_cadastro_menu %}{% endblock %}"><i
+                                        class="fa fa-address-card"></i> Cadastros<i
+                                        class="fa fa-angle-down rotate-icon"></i></a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li>
+                                            <a href="{% url 'aluno' %}?qs=a"
+                                               class="waves-effect
+                                               {% block class_cadastro_aluno_item %}{% endblock %}"><i
+                                                    class="fa fa-user"></i> Aluno</a>
+                                            <a href="{% url 'servico_categoria' %}"
+                                               class="waves-effect
+                                               {% block class_cadastro_servicos_categoria_item %}{% endblock %}"><i
+                                                    class="fa fa-cog"></i> Categoria
+                                                de serviço</a>
+                                            <a href="{% url 'curso' %}"
+                                               class="waves-effect
+                                               {% block class_cadastro_curso_item %}{% endblock %}"><i
+                                                    class="fa fa-industry"></i> Curso</a>
+                                            <a href="{% url 'turma' %}"
+                                               class="waves-effect
+                                               {% block class_cadastro_turma_item %}{% endblock %}"><i
+                                                    class="fa fa-graduation-cap"></i> Turma</a>
+                                            <a href="{% url 'matricula' %}"
+                                               class="waves-effect
+                                                       {% block class_cadastro_matricula_item %}{% endblock %}"><i
+                                                    class="fa fa-users"></i> Matrícula</a>
+                                            <a href="{% url 'servico' %}"
+                                               class="waves-effect
+                                                       {% block class_cadastro_servicos_item %}{% endblock %}"><i
+                                                    class="fa fa-cog"></i> Serviço</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="{% url 'configuracao' %}" class="collapsible-header waves-effect arrow-r
+                                    {% block class_configuracoes_menu %}{% endblock %}"><i class="fa fa-cogs"></i>
+                                    Configurações</a>
+                            </li>
+                        {% endif %}
                     {% endif %}
 
 
@@ -214,39 +223,60 @@
                 {% endif %}
             </div>
             <ul class="nav navbar-nav nav-flex-icons ml-auto">
-                {% if request.user.is_authenticated %}
-                    <!-- Dropdown -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i><span
-                                class="clearfix d-none d-sm-inline-block"> {{ request.user }}</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-success">
-                            <a class="dropdown-item" href="{% url 'dashboard' %}"><i class="fa fa-dashboard"></i>
-                                Dashboard</a>
+                {% if perms.portal.change_aluno and not request.user.is_staff and not request.user.is_superuser %}
+                <!-- Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                               data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i><span
+                                    class="clearfix d-none d-sm-inline-block"> {{ request.user.userprofile.aluno }}</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-success">
+                                <a class="dropdown-item" href="{% url 'aluno_edit' request.user.userprofile.aluno.id %}"><i class="fa fa-user"></i>
+                                    Meus dados</a>
+                                <a class="dropdown-item" data-toggle="modal" href="#ModalLogout"><i
+                                        class="fa fa-power-off"></i> Sair</a>
+                            </div>
+                        </li>
 
-                            {% if request.user.is_staff %}
-                                <a class="dropdown-item" href="{% url 'autorizacao' %}"><i class="fa fa-sign-out"></i>
-                                    Autorizações de saída</a>
-                            {% endif %}
-
-                            <a class="dropdown-item" href="{% url 'encaminhamento' %}"><i class="fa fa-book"></i>
-                                Encaminhamentos</a>
-                            <a class="dropdown-item" href="{% url 'ocorrencia' %}"><i class="fa fa-pencil"></i>
-                                Ocorrências
-                                disciplinares</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{% url 'user_account' %}"><i class="fa fa-user"></i> Minha
-                                conta</a>
-                            <a class="dropdown-item" data-toggle="modal" href="#ModalLogout"><i
-                                    class="fa fa-power-off"></i> Sair</a>
-                        </div>
-                    </li>
                 {% else %}
-                    <li class="nav-item">
-                        <a href="{% url 'login' %}" class="nav-link"><i class="fa fa-lock"></i> <span
-                                class="clearfix d-none d-sm-inline-block">Login</span></a>
-                    </li>
+                    {% if request.user.is_authenticated %}
+                        <!-- Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                               data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i><span
+                                    class="clearfix d-none d-sm-inline-block"> {{ request.user }}</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-success">
+                                <a class="dropdown-item" href="{% url 'dashboard' %}"><i class="fa fa-dashboard"></i>
+                                    Dashboard</a>
+
+                                {% if request.user.is_staff %}
+                                    <a class="dropdown-item" href="{% url 'autorizacao' %}"><i
+                                            class="fa fa-sign-out"></i>
+                                        Autorizações de saída</a>
+                                {% endif %}
+
+                                <a class="dropdown-item" href="{% url 'encaminhamento' %}"><i class="fa fa-book"></i>
+                                    Encaminhamentos</a>
+                                <a class="dropdown-item" href="{% url 'ocorrencia' %}"><i class="fa fa-pencil"></i>
+                                    Ocorrências
+                                    disciplinares</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url 'user_account' %}"><i class="fa fa-user"></i>
+                                    Minha
+                                    conta</a>
+                                <a class="dropdown-item" data-toggle="modal" href="#ModalLogout"><i
+                                        class="fa fa-power-off"></i> Sair</a>
+                            </div>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a href="{% url 'login' %}" class="nav-link"><i class="fa fa-lock"></i> <span
+                                    class="clearfix d-none d-sm-inline-block">Login</span></a>
+                        </li>
+                    {% endif %}
                 {% endif %}
             </ul>
         </nav>

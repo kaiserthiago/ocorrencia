@@ -3,7 +3,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 
 from portal.models import Empresa, Curso, Aluno, Ocorrencia, Turma, UserProfile, Matricula, Falta, CategoriaFalta, \
-    Servico, ServicoCategoria, Encaminhamento, Autorizacao, Configuracao
+    Servico, ServicoCategoria, Encaminhamento, Autorizacao, Configuracao, Banco
 from import_export.admin import ImportExportModelAdmin
 
 
@@ -21,6 +21,10 @@ class AlunoAdmin(ImportExportModelAdmin):
     list_filter = ['empresa']
     search_fields = ['nome']
 
+class BancoAdmin(ImportExportModelAdmin):
+    list_display = ('id', 'nome', 'numero')
+    list_filter = ['empresa']
+    search_fields = ['nome', 'numero']
 
 class MatriculaAdmin(ImportExportModelAdmin):
     list_display = ('id', 'aluno', 'turma', 'ano_letivo')
@@ -94,6 +98,7 @@ admin.site.register(Empresa, EmpresaAdmin)
 admin.site.register(Curso, CursoAdmin)
 admin.site.register(Turma, TurmaAdmin)
 admin.site.register(Aluno, AlunoAdmin)
+admin.site.register(Banco, BancoAdmin)
 admin.site.register(Ocorrencia, OcorrenciaAdmin)
 admin.site.register(Encaminhamento, EncaminhamentoAdmin)
 admin.site.register(Matricula, MatriculaAdmin)

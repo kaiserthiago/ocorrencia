@@ -9,7 +9,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.forms import PasswordChangeForm
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Permission
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Count, Sum, Avg, Func, F, ExpressionWrapper, DurationField
 from django.db.models.functions import TruncMonth
@@ -100,7 +100,7 @@ def configuracao(request):
 
 
 def import_aluno_atualizar(request):
-    try:
+    # try:
         lista_nome = []
         lista_cpf = []
         lista_rg = []
@@ -143,6 +143,27 @@ def import_aluno_atualizar(request):
 
                     aluno.save()
 
+                    User.objects.create_user(
+                        username=aluno.cpf,
+                        password='ifro@cacoal',
+                        email=aluno.email,
+                        first_name=aluno.nome,
+                        is_active=True,
+                    )
+
+                    usuario = get_object_or_404(User, username=aluno.cpf)
+                    permission = Permission.objects.get(name='Can change aluno')
+                    usuario.user_permissions.add(permission)
+                    usuario.save()
+
+
+                    profile = UserProfile()
+                    profile.user = usuario
+                    profile.empresa = request.user.userprofile.empresa
+                    profile.aluno = aluno
+
+                    profile.save()
+
                     contador += 1
                 else:
                     contador += 1
@@ -153,8 +174,8 @@ def import_aluno_atualizar(request):
         }
 
         return render(request, 'portal/import_aluno_atualizar.html', context)
-    except:
-        return HttpResponse(teste)
+    # except:
+        # return HttpResponse(teste)
 
 
 @permission_required('is_superuser')
@@ -301,15 +322,36 @@ def aluno_new(request):
         if form.is_valid():
             aluno = Aluno()
 
-            aluno.nome = form.cleaned_data['nome']
-            aluno.pai = form.cleaned_data['pai']
-            aluno.mae = form.cleaned_data['mae']
+            if form.cleaned_data['nome']:
+                aluno.nome = form.cleaned_data['nome'].upper()
+            else:
+                aluno.nome = ''
+
+            if form.cleaned_data['pai']:
+                aluno.pai = form.cleaned_data['pai'].upper()
+            else:
+                aluno.pai = ''
+
+            if form.cleaned_data['mae']:
+                aluno.mae = form.cleaned_data['mae']
+            else:
+                aluno.mae = ''
+
+            if form.cleaned_data['emissor']:
+                aluno.emissor = form.cleaned_data['emissor']
+            else:
+                aluno.emissor = ''
+
             aluno.cpf = form.cleaned_data['cpf']
             aluno.rg = form.cleaned_data['rg']
-            aluno.emissor = form.cleaned_data['emissor']
             aluno.email = form.cleaned_data['email']
             aluno.email_responsavel = form.cleaned_data['email_responsavel']
             aluno.foto = form.cleaned_data['foto']
+
+            aluno.banco = form.cleaned_data['banco']
+            aluno.agencia = form.cleaned_data['agencia']
+            aluno.conta = form.cleaned_data['conta']
+
             aluno.empresa = request.user.userprofile.empresa
 
             aluno.save()
@@ -328,7 +370,7 @@ def aluno_new(request):
     return render(request, 'portal/aluno_new.html', context)
 
 
-@permission_required('is_superuser')
+@login_required
 def aluno_edit(request, aluno_id):
     aluno = get_object_or_404(Aluno, pk=aluno_id)
     qs = request.GET.get('qs', '')
@@ -336,21 +378,51 @@ def aluno_edit(request, aluno_id):
     if request.method == 'POST':
         form = AlunoForm(request.POST, request.FILES)
         if form.is_valid():
-            aluno.nome = form.cleaned_data['nome']
-            aluno.pai = form.cleaned_data['pai']
-            aluno.mae = form.cleaned_data['mae']
+            if form.cleaned_data['nome']:
+                aluno.nome = form.cleaned_data['nome'].upper()
+            else:
+                aluno.nome = ''
+
+            if form.cleaned_data['pai']:
+                aluno.pai = form.cleaned_data['pai'].upper()
+            else:
+                aluno.pai = ''
+
+            if form.cleaned_data['mae']:
+                aluno.mae = form.cleaned_data['mae']
+            else:
+                aluno.mae = ''
+
+
+            if form.cleaned_data['emissor']:
+                aluno.emissor = form.cleaned_data['emissor']
+            else:
+                aluno.emissor = ''
+
             aluno.cpf = form.cleaned_data['cpf']
             aluno.rg = form.cleaned_data['rg']
-            aluno.emissor = form.cleaned_data['emissor']
             aluno.email = form.cleaned_data['email']
             aluno.email_responsavel = form.cleaned_data['email_responsavel']
             aluno.foto = form.cleaned_data['foto']
 
+            aluno.banco = form.cleaned_data['banco']
+            aluno.agencia = form.cleaned_data['agencia']
+            aluno.conta = form.cleaned_data['conta']
+
             aluno.save()
 
-            messages.success(request, 'Aluno atualizado.')
+            if request.user.has_perm(
+                    'portal.change_aluno') and not request.user.is_staff and not request.user.is_superuser:
+                usuario = get_object_or_404(User, pk=request.user.id)
+                usuario.first_name = aluno.nome
+                usuario.save()
 
-            return redirect('/aluno?qs=' + qs)
+                messages.success(request, 'Dados atualizados.')
+                return redirect('home')
+
+            else:
+                messages.success(request, 'Aluno atualizado.')
+                return redirect('/aluno?qs=' + qs)
 
     form = AlunoForm(instance=aluno)
 
@@ -480,15 +552,35 @@ def aluno_perfil_edit(request, aluno_id, page, turma):
         page = '/perfil/turma/' + str(turma) + '?page=' + str(page)
         form = AlunoForm(request.POST, request.FILES)
         if form.is_valid():
-            aluno.nome = form.cleaned_data['nome']
-            aluno.pai = form.cleaned_data['pai']
-            aluno.mae = form.cleaned_data['mae']
+            if form.cleaned_data['nome']:
+                aluno.nome = form.cleaned_data['nome'].upper()
+            else:
+                aluno.nome = ''
+
+            if form.cleaned_data['pai']:
+                aluno.pai = form.cleaned_data['pai'].upper()
+            else:
+                aluno.pai = ''
+
+            if form.cleaned_data['mae']:
+                aluno.mae = form.cleaned_data['mae']
+            else:
+                aluno.mae = ''
+
+            if form.cleaned_data['emissor']:
+                aluno.emissor = form.cleaned_data['emissor']
+            else:
+                aluno.emissor = ''
+
             aluno.cpf = form.cleaned_data['cpf']
             aluno.rg = form.cleaned_data['rg']
-            aluno.emissor = form.cleaned_data['emissor']
             aluno.email = form.cleaned_data['email']
             aluno.email_responsavel = form.cleaned_data['email_responsavel']
             aluno.foto = form.cleaned_data['foto']
+
+            aluno.banco = form.cleaned_data['banco']
+            aluno.agencia = form.cleaned_data['agencia']
+            aluno.conta = form.cleaned_data['conta']
 
             aluno.save()
 

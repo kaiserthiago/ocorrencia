@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 
 from portal.models import UserProfile, Ocorrencia, Curso, Turma, Aluno, ServicoCategoria, Servico, Encaminhamento, \
-    Autorizacao, Configuracao
+    Autorizacao, Configuracao, Banco
 
 
 class UserForm(forms.ModelForm):
@@ -129,6 +129,27 @@ class TurmaForm(forms.ModelForm):
         }
 
 
+class BancoForm(forms.ModelForm):
+    class Meta:
+        model = Banco
+        exclude = ('user', 'empresa')
+
+        widgets = {
+            'nome': forms.TextInput(attrs={
+                'class': 'form-control validate',
+                'required': '',
+                'autofocus': ''
+            }),
+            'numero': forms.NumberInput(attrs={
+                'class': 'form-control validate'
+            })
+        }
+
+        labels = {
+            'numero': 'Número'
+        }
+
+
 class AlunoForm(forms.ModelForm):
     class Meta:
         model = Aluno
@@ -168,7 +189,17 @@ class AlunoForm(forms.ModelForm):
             }),
             'foto': forms.FileInput(attrs={
                 'class': 'file-path validate'
-            })
+            }),
+            'banco': forms.Select(attrs={
+                'class': 'mdb-select md-form colorful-select dropdown-success'
+            }),
+            'agencia': forms.TextInput(attrs={
+                'class': 'form-control validate',
+            }),
+            'conta': forms.TextInput(attrs={
+                'class': 'form-control validate',
+            }),
+
         }
 
         labels = {
@@ -179,6 +210,7 @@ class AlunoForm(forms.ModelForm):
             'cpf': 'CPF',
             'emissor': 'Órgão emissor',
             'email_responsavel': 'E-mail responsável',
+            'agencia': 'Agência'
         }
 
 
@@ -240,7 +272,6 @@ class AutorizacaoForm(forms.ModelForm):
 
 
 class ConfiguracaoForm(forms.ModelForm):
-
     class Meta:
         model = Configuracao
         exclude = ('user', 'empresa')
@@ -310,7 +341,6 @@ class ConfiguracaoForm(forms.ModelForm):
                 'class': 'form-check-input',
             }),
         }
-
 
         labels = {
             'ocorrencia_email_aluno': 'Estudante',

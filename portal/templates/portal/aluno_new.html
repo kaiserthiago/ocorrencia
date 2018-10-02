@@ -59,6 +59,25 @@
                         </div>
 
                         <div class="row">
+                            <div class=" col-sm-4">
+                                {{ form.banco }}
+                                <label>{{ form.banco.label }}</label>
+                            </div>
+                            <div class=" col-sm-4">
+                                <div class="md-form">
+                                    <label>{{ form.agencia.label }}</label>
+                                    {{ form.agencia }}
+                                </div>
+                            </div>
+                            <div class=" col-sm-4">
+                                <div class="md-form">
+                                    <label>{{ form.conta.label }}</label>
+                                    {{ form.conta }}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
                             <div class=" col-sm-6">
                                 <div class="md-form">
                                     <label>{{ form.mae.label }}</label>

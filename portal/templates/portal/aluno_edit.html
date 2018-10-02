@@ -59,6 +59,25 @@
                         </div>
 
                         <div class="row">
+                            <div class=" col-sm-4">
+                                {{ form.banco }}
+                                <label>{{ form.banco.label }}</label>
+                            </div>
+                            <div class=" col-sm-4">
+                                <div class="md-form">
+                                    <label>{{ form.agencia.label }}</label>
+                                    {{ form.agencia }}
+                                </div>
+                            </div>
+                            <div class=" col-sm-4">
+                                <div class="md-form">
+                                    <label>{{ form.conta.label }}</label>
+                                    {{ form.conta }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
                             <div class=" col-sm-6">
                                 <div class="md-form">
                                     <label>{{ form.mae.label }}</label>
@@ -92,9 +111,16 @@
                                 <div class="float-right">
                                     <button type="submit" class="btn btn-rounded btn-success" data-toggle="tooltip"
                                             data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
-                                    <a href="{% url 'aluno' %}?qs={{ qs }}" class="btn btn-rounded btn-danger"
-                                       data-toggle="tooltip" data-placement="top" title="Cancelar"><i
-                                            class="fa fa-close"></i></a>
+                                    {% if perms.portal.change_aluno and not request.user.is_staff and not request.user.is_superuser %}
+                                        <a href="{% url 'home' %}" class="btn btn-rounded btn-danger"
+                                           data-toggle="tooltip" data-placement="top" title="Cancelar"><i
+                                                class="fa fa-close"></i></a>
+                                    {% else %}
+                                        <a href="{% url 'aluno' %}?qs={{ qs }}" class="btn btn-rounded btn-danger"
+                                           data-toggle="tooltip" data-placement="top" title="Cancelar"><i
+                                                class="fa fa-close"></i></a>
+                                    {% endif %}
+
                                 </div>
                             </div>
                         </div>
