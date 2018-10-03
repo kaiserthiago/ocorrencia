@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, render_to_response, redirect, get_object_or_404
 
 from login.forms import RegistroForm
-from portal.emails import ResponsavelUsuarioMail
+from portal.emails import ResponsavelUsuarioMail, RegistraUsuarioMail
 from portal.forms import UserProfileForm
 from portal.models import UserProfile, Empresa
 
@@ -39,10 +39,13 @@ def register(request):
             profile.save()
 
             email = []
+            email_user = []
 
             email.append(empresa.email_responsavel_sistema)
+            email_user.append(usuario.email)
 
             ResponsavelUsuarioMail(usuario).send(email)
+            RegistraUsuarioMail(usuario).send(email_user)
 
             return redirect('login_register_success')
     else:

@@ -4,7 +4,6 @@ from django.template.loader import render_to_string
 from ocorrencia.settings import DEFAULT_FROM_EMAIL as MAIL_REPLY
 
 
-
 class Maiable:
     def sendMail(self, from_email, to, subject, template, context=None):
         if context is None:
@@ -31,6 +30,7 @@ class RegistraEncaminhamentoMail(Maiable):
             context={'encaminhamento': self.encaminhamento}
         )
 
+
 class RegistraEncaminhamentoProvidenciasMail(Maiable):
     def __init__(self, encaminhamento):
         self.encaminhamento = encaminhamento
@@ -43,6 +43,7 @@ class RegistraEncaminhamentoProvidenciasMail(Maiable):
             template='emails/registra-encaminhamento-providencias.html',
             context={'encaminhamento': self.encaminhamento}
         )
+
 
 class RegistraOcorrenciaMail(Maiable):
     def __init__(self, ocorrencia):
@@ -66,8 +67,22 @@ class ResponsavelUsuarioMail(Maiable):
         super().sendMail(
             from_email=MAIL_REPLY,
             to=to,
-            subject='SGE - Nova solicitação usuário',
+            subject='SGE - Novo usuário cadastrado',
             template='emails/responsavel-usuario.html',
+            context={'usuario': self.usuario}
+        )
+
+
+class RegistraUsuarioMail(Maiable):
+    def __init__(self, usuario):
+        self.usuario = usuario
+
+    def send(self, to):
+        super().sendMail(
+            from_email=MAIL_REPLY,
+            to=to,
+            subject='SGE - Confirmação de cadastro',
+            template='emails/registra-usuario.html',
             context={'usuario': self.usuario}
         )
 
@@ -84,6 +99,7 @@ class ConfirmaUsuarioMail(Maiable):
             template='emails/confirma-usuario.html',
             context={'usuario': self.usuario}
         )
+
 
 class RegistraAutorizacaoSaidaMail(Maiable):
     def __init__(self, autorizacao):
