@@ -1598,6 +1598,7 @@ def report_ocorrencia_turma(request):
 
     return render(request, 'portal/report_ocorrencia_turma.html', context)
 
+
 @login_required
 def report_dados_bancarios_turma(request):
     id = request.POST['SelectTurmaDadosBancarios']
@@ -1614,6 +1615,7 @@ def report_dados_bancarios_turma(request):
 
     return render(request, 'portal/report_diversos_dados_bancarios_turma.html', context)
 
+
 @login_required
 def report_lista_aluno_turma(request):
     id = request.POST['SelectListaAlunosTurma']
@@ -1629,6 +1631,7 @@ def report_lista_aluno_turma(request):
     }
 
     return render(request, 'portal/report_diversos_lista_aluno_turma.html', context)
+
 
 @permission_required('is_superuser')
 def servico_categoria(request):
