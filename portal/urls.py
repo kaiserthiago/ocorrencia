@@ -88,6 +88,7 @@ urlpatterns = [
     url(r'^report/ocorrencia/turma$', views.report_ocorrencia_turma, name='report_ocorrencia_turma'),
 
     url(r'^report/diversos/financeiro/turma$', views.report_dados_bancarios_turma, name='report_dados_bancarios_turma'),
+    url(r'^report/diversos/lista/turma$', views.report_lista_aluno_turma, name='report_lista_aluno_turma'),
 
     url(r'^report/general$', views.report_general, name='report_general'),
 

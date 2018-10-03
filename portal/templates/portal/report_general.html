@@ -117,7 +117,7 @@
                                 <i class="fa fa-dollar"></i> Financeiro
                             </button>
 
-                            <button data-toggle="modal" href="#"
+                            <button data-toggle="modal" href="ModalListaAlunos"
                                     class="btn btn-rounded btn-primary btn-block mb-2">
                                 <i class="fa fa-users"></i> Lista de alunos
                             </button>
@@ -556,4 +556,51 @@
         </div>
     </div>
     <!-- FIM MODAL DADOS BANCÁRIOS -->
+
+    <!-- MODAL LISTA ALUNOS -->
+    <div class="modal fade" id="ModalListaAlunos" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-info" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header text-center">
+                    <h4 class="modal-title white-text w-100 font-bold py-2">Lista de alunos por turma</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                </div>
+                <form action="{% url 'report_lista_aluno_turma' %}" method="POST">
+                    <!--Body-->
+                    <div class="modal-body">
+                        {% csrf_token %}
+                        <select name="SelectListaAlunosTurma" id="SelectListaAlunosTurma"
+                                class="mdb-select md-form colorful-select dropdown-success"
+                                searchable="Pesquisar..." required>
+                            <option value="" disabled selected>Selecione a turma</option>
+                            {% for c in cursos %}
+                                {% if c.retorna_turmas %}
+                                    <optgroup label="{{ c.descricao }}">
+                                        {% for t in c.retorna_turmas %}
+                                            <option value={{ t.id }}>{{ t.descricao }}</option>
+                                        {% endfor %}
+                                    </optgroup>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        <label for="SelectListaAlunosTurma">Turma</label>
+                    </div>
+                    <!--Footer-->
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-rounded btn-info waves-effect">Enviar</button>
+                        <a type="button" class="btn btn-rounded btn-outline-info"
+                           data-dismiss="modal">Voltar</a>
+                    </div>
+                </form>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!-- FIM MODAL LISTA ALUNOS -->
 {% endblock %}

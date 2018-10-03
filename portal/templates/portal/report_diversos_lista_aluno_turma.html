@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block title %}Relatórios{% endblock %}
+{% block class_relatorio_menu %}active{% endblock %}
+{% load static %}
+{% load humanize %}
+
+{% block style %}
+    @media print {
+    #slide-out, #icon-bar, #div-menu, #breadcrumb, #footer, #bread, #div-buttons { display: none; }
+    a:link {text-decoration: none;}
+    }
+{% endblock %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb blue-grey lighten-4" id="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'report_general' %}">Relatório Geral</a></li>
+        <li class="breadcrumb-item active">Lista de alunos por Turma</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div id="div-buttons" class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+        <a href="#" onclick="window.print(); return false;" class="btn-floating btn-lg btn-danger">
+            <i class="fa fa-print"></i>
+        </a>
+    </div>
+    <div class="row mb-4">
+        <div class="col-sm-12">
+            <div class="card redonda">
+                <div class="card-body">
+                    <table class="table table-sm">
+                        <tbody>
+                        <tr>
+                            <td class="text-center align-middle">
+                                <img src="{% static 'img/logo_ifro.png' %}" width="100">
+                            </td>
+                            <td colspan="2" class="text-center font-weight-bold align-middle">
+                                MINISTÉRIO DA EDUCAÇÃO<br>
+                                {{ request.user.userprofile.empresa.razao_social|upper }}<br>
+                                <em>CAMPUS </em>{{ request.user.userprofile.empresa|upper }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="text-center font-weight-bold align-middle">
+                                <br>
+                                LISTA DE ALUNOS POR TURMA - {{ ano }}<br>
+                                {{ turma }}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm">
+                        <tbody>
+                        {% if alunos %}
+                            <tr>
+                                <td colspan="3">
+                                    <table class="table table-sm table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th style="font-weight: bold">Aluno</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for aluno in alunos %}
+                                            <tr>
+                                                <td>{{ aluno.aluno.nome }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <div class="card redonda">
+                                <div class="card-header warning-color white-text text-center">
+                                    <strong>NÃO HÁ INFORMAÇÕES</strong>
+                                </div>
+                            </div>
+                        {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
