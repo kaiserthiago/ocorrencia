@@ -48,14 +48,14 @@ def register(request):
             RegistraUsuarioMail(usuario).send(email_user)
 
             return redirect('login_register_success')
-    else:
-        user_form = RegistroForm()
+
+    user_form = RegistroForm()
 
     context = {
         'user_form': user_form,
         'unidades': unidades
     }
-    return render(request, 'registration/register.html', context)
+    return render(request, 'registration/login.html', context)
 
 
 def register_success(request):
