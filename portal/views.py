@@ -1598,6 +1598,21 @@ def report_ocorrencia_turma(request):
 
     return render(request, 'portal/report_ocorrencia_turma.html', context)
 
+@login_required
+def report_dados_bancarios_turma(request):
+    id = request.POST['SelectTurmaDadosBancarios']
+    turma = get_object_or_404(Turma, id=id)
+    ano = date.today().year
+
+    alunos = Matricula.objects.filter(turma=turma, ano_letivo=date.today().year).order_by('aluno')
+
+    context = {
+        'turma': turma,
+        'ano': ano,
+        'alunos': alunos
+    }
+
+    return render(request, 'portal/report_dados_bancarios_turma.html', context)
 
 @permission_required('is_superuser')
 def servico_categoria(request):

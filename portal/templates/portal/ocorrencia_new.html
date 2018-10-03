@@ -16,7 +16,8 @@
     <form action="{% url 'ocorrencia_register' %}" method="POST">
         <div class="row mb-4">
             <div class="col-sm-6">
-                <div class="card redonda">                 <div class="card-header redonda grey lighten-1 font-weight-bold">
+                <div class="card redonda">
+                    <div class="card-header redonda grey lighten-1 font-weight-bold">
                         <div class="float-left">
                             Curso: {{ turma.curso.descricao|upper }}<br>
                             <span class="float-lg-left">Turma: {{ turma.descricao }}</span>
