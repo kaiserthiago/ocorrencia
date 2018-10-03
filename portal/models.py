@@ -117,6 +117,7 @@ class Turma(AuditoriaMixin):
             'matricula__turma__descricao').annotate(
             qtde=Count('matricula__turma__descricao')).distinct()
 
+
 class Banco(AuditoriaMixin):
     nome = models.CharField(max_length=255)
     numero = models.IntegerField(blank=True, null=True)
@@ -126,6 +127,7 @@ class Banco(AuditoriaMixin):
 
     def __str__(self):
         return self.nome
+
 
 class Aluno(AuditoriaMixin):
     nome = models.CharField(max_length=255)
@@ -326,7 +328,10 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, unique=True, on_delete=models.CASCADE)
     aluno = models.OneToOneField(Aluno, blank=True, null=True, unique=True, on_delete=models.CASCADE)
     empresa = models.ForeignKey(Empresa, blank=True, null=True, on_delete=models.DO_NOTHING)
-    siape = models.IntegerField(blank=True, null=True,)
+    siape = models.IntegerField(blank=True, null=True, )
+
+    def __str__(self):
+        return str(self.empresa)
 
 
 class ServicoCategoria(AuditoriaMixin):

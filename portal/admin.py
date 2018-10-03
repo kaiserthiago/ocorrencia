@@ -14,12 +14,17 @@ class UserProfileInline(admin.StackedInline):
 
 class UserAdmin(UserAdmin):
     inlines = (UserProfileInline,)
+    list_display = ('username', 'first_name', 'email')
+    list_filter = ['userprofile__empresa', 'is_superuser', 'is_staff', 'is_active', 'groups']
+    ordering = ['first_name', 'username']
+
 
 
 class AlunoAdmin(ImportExportModelAdmin):
     list_display = ('nome', 'email', 'cpf', 'rg', 'emissor', 'pai', 'mae', 'email_responsavel', 'empresa')
     list_filter = ['empresa']
     search_fields = ['nome']
+
 
 class BancoAdmin(ImportExportModelAdmin):
     list_display = ('id', 'nome', 'numero')
