@@ -43,22 +43,30 @@
                         <tr>
                             <td colspan="2" class="text-center font-weight-bold align-middle">
                                 <br>
-                                DECLARAÇÃO DE MATRÍCULA<br>
+                                <h3 class="font-weight-bold">DECLARAÇÃO</h3>
                             </td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                <p class="m-4" style="text-align: justify">Declaramos que {{ aluno.nome }}, portador(a) do
-                    RGº {{ aluno.rg }} {{ aluno.emissor }}, CPF
-                    nº {{ aluno.cpf }} está MATRICULADO(A), nesta Instituição Federal de Ensino,
-                    na turma {{ matricula.turma.descricao }} do
-                    curso {{ matricula.turma.curso.descricao|upper }}.</p>
-                <br><br>
-                <p class="m-4" style="text-align: right">{{ request.user.userprofile.empresa.cidade }}/{{ request.user.userprofile.empresa.uf }}, {{ data }}.</p>
-                <br><br>
-                <p class="m-4" style="text-align: center">
-                    <strong>{{ request.user.first_name }}</strong><br>{{ request.user.userprofile.siape }}</p>
+                <p style="text-align: justify; margin: 5em; margin-bottom: 0em; text-indent: 50px">
+                    Declaramos que {{ aluno.nome }}, nascido(a) em {{ aluno.nascimento }}, portador(a) do
+                    RGº {{ aluno.rg }} {{ aluno.emissor }}, CPF nº {{ aluno.cpf }}, matrícula
+                    nº {{ aluno.numero_matricula }} está devidamente MATRICULADO, nesta Instituição Federal de Ensino, na
+                    turma {{ matricula.turma.descricao }} do curso {{ matricula.turma.curso.descricao|upper }}.
+                </p>
+
+                <p style="text-align: justify; margin-left: 5em;margin-right: 5em; text-indent: 50px">
+                    Essa declaração tem validade de 90 (noventa) dias a contar da sua data de emissão.
+                </p>
+
+                <p style="text-align: right; margin: 5em; margin-bottom: 2em">
+                    {{ request.user.userprofile.empresa.cidade }}/{{ request.user.userprofile.empresa.uf }}, {{ data }}.
+                </p>
+
+                <p style="text-align: center; margin: 5em; margin-bottom: 2em">
+                    <strong>{{ request.user.first_name }}</strong><br>{{ request.user.userprofile.siape }}
+                </p>
 
             </div>
         </div>
