@@ -199,6 +199,13 @@ class AlunoForm(forms.ModelForm):
             'conta': forms.TextInput(attrs={
                 'class': 'form-control validate',
             }),
+            'numero_matricula': forms.TextInput(attrs={
+                'class': 'form-control validate',
+            }),
+            'contato': forms.Textarea(attrs={
+                'class': 'form-control md-textarea validate',
+                'rows': '2'
+            })
 
         }
 
@@ -210,7 +217,8 @@ class AlunoForm(forms.ModelForm):
             'cpf': 'CPF',
             'emissor': 'Órgão emissor',
             'email_responsavel': 'E-mail responsável',
-            'agencia': 'Agência'
+            'agencia': 'Agência',
+            'numero_matricula': 'Nº Matrícula'
         }
 
 

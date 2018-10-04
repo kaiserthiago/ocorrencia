@@ -110,6 +110,8 @@ def import_aluno_atualizar(request):
         lista_pai = []
         lista_mae = []
         lista_email = []
+        lista_contato = []
+        lista_numero_matricula = []
 
         if request.method == 'POST':
             dataset = Dataset()
@@ -129,6 +131,9 @@ def import_aluno_atualizar(request):
                 lista_pai.append(n[9])
                 lista_mae.append(n[10])
                 lista_email.append(lower(n[12]))
+                lista_contato.append(n[13])
+                lista_numero_matricula.append(n[14])
+
 
             contador = 0
 
@@ -142,7 +147,7 @@ def import_aluno_atualizar(request):
                     aluno.pai = lista_pai[contador]
                     aluno.mae = lista_mae[contador]
                     aluno.email = lista_email[contador]
-                    aluno.empresa
+                    aluno.empresa = request.user.userprofile.empresa
 
                     aluno.save()
 
@@ -1600,7 +1605,7 @@ def report_ocorrencia_turma(request):
 
 
 @login_required
-def report_dados_bancarios_turma(request):
+def report_diversos_dados_bancarios_turma(request):
     id = request.POST['SelectTurmaDadosBancarios']
     turma = get_object_or_404(Turma, id=id)
     ano = date.today().year
@@ -1615,9 +1620,24 @@ def report_dados_bancarios_turma(request):
 
     return render(request, 'portal/report_diversos_dados_bancarios_turma.html', context)
 
+@login_required
+def report_diversos_declaracao_matricula_aluno(request):
+    id = request.POST['SelectDeclaraoMatriculaAluno']
+    aluno = get_object_or_404(Aluno, id=id)
+    data = date.today()
+
+    matricula = get_object_or_404(Matricula, aluno=aluno, ano_letivo=data.year)
+
+    context = {
+        'matricula': matricula,
+        'aluno': aluno,
+        'data': data,
+    }
+
+    return render(request, 'portal/report_diversos_declaracao_matricula.html', context)
 
 @login_required
-def report_lista_aluno_turma(request):
+def report_diversos_lista_aluno_turma(request):
     id = request.POST['SelectListaAlunosTurma']
     turma = get_object_or_404(Turma, id=id)
     ano = date.today().year

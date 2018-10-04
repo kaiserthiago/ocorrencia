@@ -145,6 +145,9 @@ class Aluno(AuditoriaMixin):
     agencia = models.CharField(max_length=50, blank=True, null=True)
     conta = models.CharField(max_length=50, blank=True, null=True)
 
+    numero_matricula = models.CharField(max_length=50, blank=True, null=True)
+    contato = models.TextField(blank=True, null=True)
+
     def __str__(self):
         return self.nome
 

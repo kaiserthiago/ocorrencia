@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}Relatórios{% endblock %}
+{% block class_relatorio_menu %}active{% endblock %}
+{% load static %}
+{% load humanize %}
+
+{% block style %}
+    @media print {
+    #slide-out, #icon-bar, #div-menu, #breadcrumb, #footer, #bread, #div-buttons { display: none; }
+    }
+{% endblock %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb blue-grey lighten-4" id="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'report_general' %}">Relatório Geral</a></li>
+        <li class="breadcrumb-item active">Declaração de matrícula</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div id="div-buttons" class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+        <a href="#" onclick="window.print(); return false;" class="btn-floating btn-lg btn-danger">
+            <i class="fa fa-print"></i>
+        </a>
+    </div>
+    <div class="row mb-4">
+        <div class="col-sm-12">
+            <div class="card redonda">
+                <div class="card-body">
+                    <table class="table table-sm">
+                        <tbody>
+                        <tr>
+                            <td class="text-center align-middle">
+                                <img src="{% static 'img/logo_ifro.png' %}" width="100">
+                            </td>
+                            <td colspan="2" class="text-center font-weight-bold align-middle">
+                                MINISTÉRIO DA EDUCAÇÃO<br>
+                                {{ request.user.userprofile.empresa.razao_social|upper }}<br>
+                                <em>CAMPUS </em>{{ request.user.userprofile.empresa|upper }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="text-center font-weight-bold align-middle">
+                                <br>
+                                DECLARAÇÃO DE MATRÍCULA<br>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="m-4" style="text-align: justify">Declaramos que {{ aluno.nome }}, portador(a) do
+                    RGº {{ aluno.rg }} {{ aluno.emissor }}, CPF
+                    nº {{ aluno.cpf }} está MATRICULADO(A), nesta Instituição Federal de Ensino,
+                    na turma {{ matricula.turma.descricao }} do
+                    curso {{ matricula.turma.curso.descricao|upper }}.</p>
+                <br><br>
+                <p class="m-4" style="text-align: right">{{ request.user.userprofile.empresa.cidade }}/{{ request.user.userprofile.empresa.uf }}, {{ data }}.</p>
+                <br><br>
+                <p class="m-4" style="text-align: center">
+                    <strong>{{ request.user.first_name }}</strong><br>{{ request.user.userprofile.siape }}</p>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

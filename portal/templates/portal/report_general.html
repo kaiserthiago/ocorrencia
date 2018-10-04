@@ -121,11 +121,12 @@
                                     class="btn btn-rounded btn-primary btn-block mb-2">
                                 <i class="fa fa-users"></i> Lista de alunos
                             </button>
-
-                            {#                        <button data-toggle="modal" href="#ModalRegistrarAutorizacaoSaidaTurma"#}
-                            {#                                class="btn btn-rounded btn-primary btn-block">#}
-                            {#                            <i class="fa fa-graduation-cap"></i> Turma#}
-                            {#                        </button>#}
+                            {% if request.user.is_staff or request.user.is_superuser %}
+                                <button data-toggle="modal" href="#ModalMatriculaAluno"
+                                        class="btn btn-rounded btn-primary btn-block">
+                                    <i class="fa fa-graduation-cap"></i> Matrícula
+                                </button>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -384,45 +385,7 @@
         </div>
     </div>
 
-    <!--Modal ALUNO AUTORIZAÇÃO DE SAÍDA-->
-    <div class="modal fade" id="ModalRegistrarAutorizacaoSaidaAluno" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog modal-notify modal-warning" role="document">
-            <!--Content-->
-            <div class="modal-content">
-                <!--Header-->
-                <div class="modal-header text-center">
-                    <h4 class="modal-title white-text w-100 font-bold py-2">Autorizações de saída por Aluno</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" class="white-text">&times;</span>
-                    </button>
-                </div>
-                <form action="{% url 'autorizacao_relatorio_aluno' %}" method="POST">
-                    <!--Body-->
-                    <div class="modal-body">
-                        {% csrf_token %}
-                        <select name="SelectAlunoAutorizacao" id="SelectAlunoAutorizacao"
-                                class="mdb-select md-form colorful-select dropdown-success"
-                                searchable="Pesquisar..." required>
-                            <option value="" disabled selected>Selecione o aluno</option>
-                            {% for a in alunos %}
-                                <option value={{ a.id }}>{{ a.nome }}</option>
-                            {% endfor %}
-                        </select>
-                        <label for="SelectAlunoAutorizacao">Lista de alunos</label>
-                    </div>
-                    <!--Footer-->
-                    <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-rounded btn-warning waves-effect">Enviar</button>
-                        <a type="button" class="btn btn-rounded btn-outline-warning"
-                           data-dismiss="modal">Voltar</a>
-                    </div>
-                </form>
-            </div>
-            <!--/.Content-->
-        </div>
-    </div>
+
 
     <!--Modal CURSO AUTORIZAÇÃO SAÍDA-->
     <div class="modal fade" id="ModalRegistrarAutorizacaoSaidaCurso" tabindex="-1" role="dialog"
@@ -524,7 +487,7 @@
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                 </div>
-                <form action="{% url 'report_dados_bancarios_turma' %}" method="POST">
+                <form action="{% url 'report_diversos_dados_bancarios_turma' %}" method="POST">
                     <!--Body-->
                     <div class="modal-body">
                         {% csrf_token %}
@@ -571,7 +534,7 @@
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                 </div>
-                <form action="{% url 'report_lista_aluno_turma' %}" method="POST">
+                <form action="{% url 'report_diversos_lista_aluno_turma' %}" method="POST">
                     <!--Body-->
                     <div class="modal-body">
                         {% csrf_token %}
@@ -603,4 +566,45 @@
         </div>
     </div>
     <!-- FIM MODAL LISTA ALUNOS -->
+
+    <!-- MODAL DECLARAÇÃO MATRÍCULA ALUNO -->
+    <div class="modal fade" id="ModalMatriculaAluno" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-info" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header text-center">
+                    <h4 class="modal-title white-text w-100 font-bold py-2">Declaração de matrícula</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                </div>
+                <form action="{% url 'report_diversos_declaracao_matricula_aluno' %}" method="POST">
+                    <!--Body-->
+                    <div class="modal-body">
+                        {% csrf_token %}
+                        <select name="SelectDeclaraoMatriculaAluno" id="SelectDeclaraoMatriculaAluno"
+                                class="mdb-select md-form colorful-select dropdown-success"
+                                searchable="Pesquisar..." required>
+                            <option value="" disabled selected>Selecione o aluno</option>
+                            {% for a in alunos %}
+                                <option value={{ a.id }}>{{ a.nome }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="SelectDeclaraoMatriculaAluno">Lista de alunos</label>
+                    </div>
+                    <!--Footer-->
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-rounded btn-info waves-effect">Enviar</button>
+                        <a type="button" class="btn btn-rounded btn-outline-info"
+                           data-dismiss="modal">Voltar</a>
+                    </div>
+                </form>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!-- FIM MODAL DECLARAÇÃO MATRÍCULA ALUNO -->
 {% endblock %}
