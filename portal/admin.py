@@ -19,7 +19,6 @@ class UserAdmin(UserAdmin):
     ordering = ['first_name', 'username']
 
 
-
 class AlunoAdmin(ImportExportModelAdmin):
     list_display = ('nome', 'email', 'cpf', 'rg', 'emissor', 'pai', 'mae', 'email_responsavel', 'empresa')
     list_filter = ['empresa']
@@ -31,10 +30,11 @@ class BancoAdmin(ImportExportModelAdmin):
     list_filter = ['empresa']
     search_fields = ['nome', 'numero']
 
+
 class MatriculaAdmin(ImportExportModelAdmin):
     list_display = ('id', 'aluno', 'turma', 'ano_letivo')
-    list_filter = ['turma', 'ano_letivo', 'empresa']
-    search_fields = ['aluno__nome']
+    list_filter = ['ano_letivo', 'empresa']
+    search_fields = ['aluno__nome', 'turma']
 
 
 class CursoAdmin(admin.ModelAdmin):
@@ -45,21 +45,22 @@ class CursoAdmin(admin.ModelAdmin):
 
 class OcorrenciaAdmin(admin.ModelAdmin):
     list_display = ('id', 'matricula', 'data', 'descricao', 'falta', 'user')
-    list_filter = ['falta__categoria', 'matricula__ano_letivo', 'user', 'empresa']
-    search_fields = ['matricula__aluno__nome', ]
+    list_filter = ['falta__categoria', 'matricula__ano_letivo', 'empresa']
+    search_fields = ['matricula__aluno__nome', 'user']
 
 
 class EncaminhamentoAdmin(admin.ModelAdmin):
     list_display = (
         'id', 'created_at', 'update_at', 'matricula', 'data', 'descricao', 'providencias', 'servico', 'user')
-    list_filter = ['servico__categoria', 'matricula__ano_letivo', 'matricula__turma', 'matricula__turma__curso', 'user',
+    list_filter = ['servico__categoria', 'matricula__ano_letivo', 'matricula__turma', 'matricula__turma__curso',
                    'empresa']
+    search_fields = ['matricula__aluno__nome', 'user']
 
 
 class AutorizacaoAdmin(admin.ModelAdmin):
     list_display = ('id', 'matricula', 'data', 'descricao', 'status', 'user')
-    list_filter = ['matricula__ano_letivo', 'user', 'empresa']
-    search_fields = ['matricula__aluno__nome', ]
+    list_filter = ['matricula__ano_letivo', 'empresa']
+    search_fields = ['matricula__aluno__nome', 'user']
 
 
 class TurmaAdmin(admin.ModelAdmin):
