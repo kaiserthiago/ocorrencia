@@ -104,6 +104,7 @@ def configuracao(request):
 def import_aluno_atualizar(request):
     try:
         lista_nome = []
+        lista_nascimento = []
         lista_cpf = []
         lista_rg = []
         lista_emissor = []
@@ -125,6 +126,7 @@ def import_aluno_atualizar(request):
             # VERIFICA O ARQUIVO A PARTIR DA LINHA 2
             for n in imported_data[2:]:
                 lista_nome.append(n[1])
+                lista_nascimento.append(n[2])
                 lista_rg.append(str(n[3]))
                 lista_emissor.append(str(n[4] + '/' + n[5]))
                 lista_cpf.append(str(n[6]).lstrip(" "))
@@ -134,20 +136,45 @@ def import_aluno_atualizar(request):
                 lista_contato.append(n[13])
                 lista_numero_matricula.append(n[14])
 
-
             contador = 0
 
             for teste in lista_nome:
                 if teste != '':
                     aluno = get_object_or_404(Aluno, empresa=request.user.userprofile.empresa, nome=teste.rstrip(" "))
 
-                    aluno.rg = lista_rg[contador]
-                    aluno.emissor = lista_emissor[contador]
-                    aluno.cpf = lista_cpf[contador]
-                    aluno.pai = lista_pai[contador]
-                    aluno.mae = lista_mae[contador]
-                    aluno.email = lista_email[contador]
-                    aluno.empresa = request.user.userprofile.empresa
+                    if lista_nascimento[contador]:
+                        data = lista_nascimento[contador]
+                        data = (data[6:10] + '-' + data[3:5] + '-' + data[0:2])
+
+                        if aluno.nascimento != data:
+                            aluno.nascimento = data
+
+                    if aluno.rg != lista_rg[contador]:
+                        aluno.rg = lista_rg[contador]
+
+                    if aluno.emissor != lista_emissor[contador]:
+                        aluno.emissor = lista_emissor[contador]
+
+                    if aluno.cpf != lista_cpf[contador]:
+                        aluno.cpf = lista_cpf[contador]
+
+                    if aluno.pai != lista_pai[contador]:
+                        aluno.pai = lista_pai[contador]
+
+                    if aluno.mae != lista_mae[contador]:
+                        aluno.mae = lista_mae[contador]
+
+                    if aluno.email != lista_email[contador]:
+                        aluno.email = lista_email[contador]
+
+                    if aluno.contato != lista_contato[contador]:
+                        aluno.contato = lista_contato[contador]
+
+                    if aluno.numero_matricula != lista_numero_matricula[contador]:
+                        aluno.numero_matricula = lista_numero_matricula[contador]
+
+                    if aluno.empresa != request.user.userprofile.empresa:
+                        aluno.empresa = request.user.userprofile.empresa
 
                     aluno.save()
 
@@ -185,8 +212,9 @@ def import_aluno_atualizar(request):
         }
 
         return render(request, 'portal/import_aluno_atualizar.html', context)
+
     except:
-        return HttpResponse(teste)
+        return HttpResponse('#' + str(contador) + ' - ' + teste)
 
 
 @permission_required('is_superuser')
@@ -1620,6 +1648,7 @@ def report_diversos_dados_bancarios_turma(request):
 
     return render(request, 'portal/report_diversos_dados_bancarios_turma.html', context)
 
+
 @login_required
 def report_diversos_declaracao_matricula_aluno(request):
     id = request.POST['SelectDeclaraoMatriculaAluno']
@@ -1635,6 +1664,7 @@ def report_diversos_declaracao_matricula_aluno(request):
     }
 
     return render(request, 'portal/report_diversos_declaracao_matricula.html', context)
+
 
 @login_required
 def report_diversos_lista_aluno_turma(request):

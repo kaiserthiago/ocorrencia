@@ -20,7 +20,7 @@ class UserAdmin(UserAdmin):
 
 
 class AlunoAdmin(ImportExportModelAdmin):
-    list_display = ('nome', 'email', 'cpf', 'rg', 'emissor', 'pai', 'mae', 'email_responsavel', 'empresa')
+    list_display = ('nome', 'email', 'nascimento', 'cpf', 'rg', 'emissor', 'numero_matricula')
     list_filter = ['empresa']
     search_fields = ['nome']
 
