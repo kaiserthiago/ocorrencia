@@ -23,13 +23,13 @@
                     <form action="" method="post">
                         {% csrf_token %}
                         <div class="form-row">
-                            <div class="col-col-sm-6">
+                            <div class="col-sm-6">
                                 <div class="md-form">
                                     <label>{{ user_form.first_name.label }}</label>
                                     {{ user_form.first_name }}
                                 </div>
                             </div>
-                            <div class="col-col-sm-6">
+                            <div class="col-sm-6">
                                 <div class="md-form">
                                     <label>{{ user_form.email.label }}</label>
                                     {{ user_form.email }}
