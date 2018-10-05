@@ -31,7 +31,11 @@
         <div class="col-sm-12">
             <div class="card redonda mb-3">
                 <div class="card-header redonda grey lighten-1 font-weight-bold" id="card">
-                    ENCAMINHAMENTO {{ encaminhamento.id }}/{{ ano }}
+                    <p class="float-left m-0">
+                        ENCAMINHAMENTO {{ encaminhamento.id }}/{{ ano }}
+                    </p>
+                    <a href="{% url 'report_pdf_encaminhamento' encaminhamento.id %}"
+                       class="float-right m-0">IMPRIMIR</a>
                 </div>
                 <div class="card-body border-primary">
                     <table class="table table-bordered table-sm">

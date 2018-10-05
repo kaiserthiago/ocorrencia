@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Encaminhamento Disciplinar - {{ encaminhamento.id }}/{{ encaminhamento.matricula.ano_letivo }}</title>
+
+    <style type="text/css">
+        @page {
+            size: {{ pagesize|default:"A4" }};
+            margin-left: 2cm;
+            margin-right: 2cm;
+            margin-top: 0.7cm;
+            margin-bottom: 2cm;
+
+            @frame header {
+            -pdf-frame-content: page-header;
+            margin-top: 0.7cm;
+        {#margin-right: 2mm;#}
+        {#margin-bottom: 0cm;#}
+        {#margin-left: 2cm;#}
+        }
+
+        @frame footer {
+        -pdf-frame-content:page-footer;
+        bottom: 0cm;
+        margin-left: 1cm;
+        margin-right: 1cm;
+        height: 1.5cm;
+        }
+        }
+    </style>
+
+</head>
+<body>
+<div style="font-weight: bold; font-size: 14px; text-align: center; vertical-align: middle">
+    <img src="{{ encaminhamento.user.userprofile.empresa.logo.url }}" width="150px"><br>
+    MINISTÉRIO DA EDUCAÇÃO<br>
+    SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA<br>
+    {{ encaminhamento.user.userprofile.empresa.razao_social|upper }}<br>
+    <em>CAMPUS </em>{{ encaminhamento.user.userprofile.empresa|upper }}
+</div>
+<br>
+<br>
+<br>
+<table border="1" cellpadding="5" cellspacing="0" width="100%" style="font-size: 12px; vertical-align: middle">
+    <tr>
+        <td colspan="2" style="text-align: center; vertical-align: middle">
+            <strong>REGISTRO DE
+                ENCAMINHAMENTO {{ encaminhamento.id }}/{{ encaminhamento.matricula.ano_letivo }}</strong>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: left">
+            <p>
+                <strong>DATA</strong><br>
+                {{ encaminhamento.data }}
+            </p>
+        </td>
+        <td>
+            <p>
+                <strong>CURSO</strong><br>
+                {{ encaminhamento.matricula.turma|upper }}
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <p>
+                <strong>ESTUDANTE</strong><br>
+                {{ encaminhamento.matricula.aluno }}
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <p>
+                <strong>CATEGORIA DO ENCAMINHAMENTO</strong><br>
+                {{ encaminhamento.servico.categoria.descricao|upper }}<br>
+                {{ encaminhamento.servico.descricao }}
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <p>
+                <strong>DESCRIÇÃO DO ENCAMINHAMENTO</strong><br>
+                {{ encaminhamento.descricao }}
+            </p>
+        </td>
+    </tr>
+    {% if encaminhamento.providencias %}
+        <tr>
+            <td colspan="2">
+                <p>
+                    <strong>PROVIDÊNCIAS ADOTADAS</strong><br>
+                    {{ encaminhamento.providencias }}
+                </p>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="2">
+                <p>
+                    <strong>PROVIDÊNCIAS ADOTADAS</strong><br>
+                    Aguardando posicionamento do setor responsável.
+                </p>
+            </td>
+        </tr>
+    {% endif %}
+    {% if encaminhamento.outras_informacoes %}
+        <tr>
+            <td colspan="2">
+                <p><strong>OUTRAS INFORMAÇÕES</strong><br>
+                    {{ encaminhamento.outras_informacoes }}</p>
+            </td>
+        </tr>
+    {% endif %}
+    {% if encaminhamento.providencias %}
+        <tr>
+            <td colspan="2">
+                <p>
+                    <strong>PROVIDÊNCIAS ADOTADAS</strong><br>
+                    {{ encaminhamento.providencias }}
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; width: 50%">
+                <p>
+                    <strong>ENCAMINHADO POR</strong>
+                </p>
+
+                <p>
+                    <strong>{{ encaminhamento.user|upper }}</strong><br>
+                    {{ encaminhamento.user.userprofile.siape }}
+                </p>
+            </td>
+            <td style="text-align: center; width: 50%">
+                <p>
+                    <strong>ENCAMINHAMENTO ATENDIDO POR</strong>
+                </p>
+                <p>
+                    <strong>{{ encaminhamento.responsavel_providencias|upper }}</strong><br>
+                    {{ encaminhamento.responsavel_providencias.userprofile.siape }}
+                </p>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td style="text-align: center; width: 50%">
+                <p>
+                    <strong>ENCAMINHADO POR</strong>
+                </p>
+
+                <p>
+                    <strong>{{ encaminhamento.user|upper }}</strong><br>
+                    {{ encaminhamento.user.userprofile.siape }}
+                </p>
+            </td>
+            <td style="text-align: center; width: 50%">
+                <p>
+                    <strong>ENCAMINHAMENTO ATENDIDO POR</strong>
+                </p>
+                <p>
+                    Aguardando posicionamento do setor responsável.
+                </p>
+            </td>
+        </tr>
+    {% endif %}
+</table>
+
+<div id="page-footer" style="text-align: center; font-size: 11px; border-top: 1px solid">
+    <div style="padding-top: 2px">
+        {{ encaminhamento.user.userprofile.empresa.razao_social }} -
+        <em>Campus</em> {{ encaminhamento.user.userprofile.empresa }}<br>
+        {{ encaminhamento.user.userprofile.empresa.endereco }}, {{ encaminhamento.user.userprofile.empresa.bairro }},{{ encaminhamento.user.userprofile.empresa.cidade }}/{{ encaminhamento.user.userprofile.empresa.uf }},
+        CEP {{ encaminhamento.user.userprofile.empresa.cep }}<br>
+        Fone: {{ encaminhamento.user.userprofile.empresa.fone }} /
+        E-mail: {{ encaminhamento.user.userprofile.empresa.email }} /
+        Site: {{ encaminhamento.user.userprofile.empresa.site }}
+    </div>
+    {% comment %}
+                <pdf:pagenumber />
+            {% endcomment %}
+</div>
+</body>
+</html>
