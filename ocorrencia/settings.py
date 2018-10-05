@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'portal',
     'login',
-    'import_export'
+    'import_export',
+    'easy_pdf'
 ]
 
 MIDDLEWARE = [

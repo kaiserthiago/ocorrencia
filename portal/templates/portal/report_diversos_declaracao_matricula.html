@@ -1,74 +1,51 @@
-{% extends 'base.html' %}
-{% block title %}Relatórios{% endblock %}
-{% block class_relatorio_menu %}active{% endblock %}
-{% load static %}
-{% load humanize %}
+<!DOCTYPE html>
+{% load  static %}
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<table cellpadding="0" cellspacing="0" width="100%" style="padding: 10px;">
+    <tbody>
+    <tr style="font-weight: bold; font-size: 14px">
+        <td colspan="3" style="text-align: center; vertical-align: middle">
+            <img src="{{ aluno.empresa.logo.url }}" width="100px"><br>
+            MINISTÉRIO DA EDUCAÇÃO<br>
+            SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA<br>
+            {{ aluno.empresa.razao_social|upper }}<br>
+            <em>CAMPUS </em>{{ aluno.empresa|upper }}
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align: center; font-weight: bold; font-size: 12px">
+            <br>
+            <h1 class="font-weight-bold">DECLARAÇÃO</h1>
+            <br>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" style="font-size: 14px">
+            <p style="text-align: justify; text-indent: 50px">
+                Declaramos que {{ aluno.nome }}, nascido(a) em {{ aluno.nascimento }}, portador(a) do
+                RGº {{ aluno.rg }} {{ aluno.emissor }}, CPF nº {{ aluno.cpf }}, matrícula
+                nº {{ aluno.numero_matricula }} está devidamente MATRICULADO(A), nesta Instituição Federal de Ensino, na
+                turma {{ matricula.turma.descricao }} do curso {{ matricula.turma.curso.descricao|upper }}.
+            </p>
 
-{% block style %}
-    @media print {
-    #slide-out, #icon-bar, #div-menu, #breadcrumb, #footer, #bread, #div-buttons { display: none; }
-    }
-{% endblock %}
-
-{% block breadcrumb_base %}
-    <ol class="breadcrumb blue-grey lighten-4" id="breadcrumb">
-        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
-        <li class="breadcrumb-item"><a href="{% url 'report_general' %}">Relatório Geral</a></li>
-        <li class="breadcrumb-item active">Declaração de matrícula</li>
-    </ol>
-{% endblock %}
-
-{% block content %}
-    <div id="div-buttons" class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-        <a href="#" onclick="window.print(); return false;" class="btn-floating btn-lg btn-danger">
-            <i class="fa fa-print"></i>
-        </a>
-    </div>
-    <div class="row mb-4">
-        <div class="col-sm-12">
-            <div class="card redonda">
-                <div class="card-body">
-                    <table class="table table-sm">
-                        <tbody>
-                        <tr>
-                            <td class="text-center align-middle">
-                                <img src="{% static 'img/logo_ifro.png' %}" width="100">
-                            </td>
-                            <td colspan="2" class="text-center font-weight-bold align-middle">
-                                MINISTÉRIO DA EDUCAÇÃO<br>
-                                {{ request.user.userprofile.empresa.razao_social|upper }}<br>
-                                <em>CAMPUS </em>{{ request.user.userprofile.empresa|upper }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="text-center font-weight-bold align-middle">
-                                <br>
-                                <h3 class="font-weight-bold">DECLARAÇÃO</h3>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p style="text-align: justify; margin: 5em; margin-bottom: 0em; text-indent: 50px">
-                    Declaramos que {{ aluno.nome }}, nascido(a) em {{ aluno.nascimento }}, portador(a) do
-                    RGº {{ aluno.rg }} {{ aluno.emissor }}, CPF nº {{ aluno.cpf }}, matrícula
-                    nº {{ aluno.numero_matricula }} está devidamente MATRICULADO(A), nesta Instituição Federal de Ensino, na
-                    turma {{ matricula.turma.descricao }} do curso {{ matricula.turma.curso.descricao|upper }}.
-                </p>
-
-                <p style="text-align: justify; margin-left: 5em;margin-right: 5em; text-indent: 50px">
-                    Essa declaração tem validade de 90 (noventa) dias a contar da sua data de emissão.
-                </p>
-
-                <p style="text-align: right; margin: 5em; margin-bottom: 2em">
-                    {{ request.user.userprofile.empresa.cidade }}/{{ request.user.userprofile.empresa.uf }}, {{ data }}.
-                </p>
-
-                <p style="text-align: center; margin: 5em; margin-bottom: 2em">
-                    <strong>{{ request.user.first_name }}</strong><br>{{ request.user.userprofile.siape }}
-                </p>
-
-            </div>
-        </div>
-    </div>
-{% endblock %}
+            <p style="text-align: justify; text-indent: 50px">
+                Essa declaração tem validade de 90 (noventa) dias a contar da sua data de emissão.
+            </p>
+            <br>
+            <p style="text-align: right;">
+                {{ aluno.empresa.cidade }}/{{ aluno.empresa.uf }}, {{ data }}.
+            </p>
+            <br>
+            <p style="text-align: center;">
+                <strong>{{ usuario.first_name }}</strong><br>SIAPE:{{ usuario.userprofile.siape }}
+            </p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -3,6 +3,7 @@ import string
 import types
 from datetime import date
 
+import easy_pdf
 import numpy
 from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
@@ -10,14 +11,20 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.models import User, Permission
+from django.core.files.storage import FileSystemStorage
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Count, Sum, Avg, Func, F, ExpressionWrapper, DurationField
 from django.db.models.functions import TruncMonth
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template.defaultfilters import lower
+from django.template.loader import render_to_string
+from easy_pdf.views import PDFTemplateView
+from reportlab.pdfgen import canvas
+from reportlab.platypus import SimpleDocTemplate
 from tablib import Dataset
 
+from ocorrencia import settings
 from portal.emails import RegistraOcorrenciaMail, ConfirmaUsuarioMail, RegistraEncaminhamentoMail, \
     RegistraAutorizacaoSaidaMail, RegistraEncaminhamentoProvidenciasMail
 from portal.forms import OcorrenciaForm, CursoForm, TurmaForm, AlunoForm, UserForm, UserProfileForm, \
@@ -1654,6 +1661,7 @@ def report_diversos_declaracao_matricula_aluno(request):
     id = request.POST['SelectDeclaraoMatriculaAluno']
     aluno = get_object_or_404(Aluno, id=id)
     data = date.today()
+    usuario = get_object_or_404(User, id=request.user.id)
 
     matricula = get_object_or_404(Matricula, aluno=aluno, ano_letivo=data.year)
 
@@ -1661,9 +1669,13 @@ def report_diversos_declaracao_matricula_aluno(request):
         'matricula': matricula,
         'aluno': aluno,
         'data': data,
+        'usuario': usuario
     }
 
-    return render(request, 'portal/report_diversos_declaracao_matricula.html', context)
+    return easy_pdf.rendering.render_to_pdf_response(request, 'portal/report_diversos_declaracao_matricula.html', context,
+                                              using=None, download_filename=None,
+                                              content_type='application/pdf', response_class=HttpResponse)
+    # return render(request, 'portal/report_diversos_declaracao_matricula.html', context)
 
 
 @login_required
