@@ -1678,7 +1678,8 @@ def report_diversos_declaracao_matricula_aluno(request):
                                                          using=None, download_filename=None,
                                                          content_type='application/pdf', response_class=HttpResponse)
     except:
-        return HttpResponse('Aluno não possui vínculo ativo com a Instituição.')
+        erro = 'Não há matrícula vigente para o(a) aluno(a) selecionado.'
+        return render(request, 'portal/erro.html', {'erro': erro})
 
 
 @login_required
