@@ -78,14 +78,25 @@
         </tr>
         <tr>
             <td style="text-align: center; width: 50%">
-                <p>
-                    <strong>ENCAMINHADO POR</strong>
-                </p>
+                {% if encaminhamento.user.userprofile.siape %}
+                    <p>
+                        <strong>ENCAMINHADO POR</strong>
+                    </p>
 
-                <p>
-                    <strong>{{ encaminhamento.user|upper }}</strong><br>
-                    {{ encaminhamento.user.userprofile.siape }}
-                </p>
+                    <p>
+                        <strong>{{ encaminhamento.user|upper }}</strong><br>
+                        {{ encaminhamento.user.userprofile.siape }}
+                    </p>
+                {% else %}
+                    <p>
+                        <strong>SOLICITADO POR</strong>
+                    </p>
+
+                    <p>
+                        <strong>{{ encaminhamento.user|upper }}</strong><br>
+                        {{ encaminhamento.user.userprofile.aluno.cpf }}
+                    </p>
+                {% endif %}
             </td>
             <td style="text-align: center; width: 50%">
                 <p>
@@ -115,7 +126,9 @@
         <tr>
             <td colspan="2" style="font-size: 7pt">
                 <p style="color: red"><strong>Essa é uma mensagem automática, não é necessário respondê-la.</strong><br>
-                    Para contato envie um e-mail para: <a href="mailto:{{ encaminhamento.user.userprofile.empresa.email_responsavel_ocorrencia }}">{{ encaminhamento.user.userprofile.empresa.email_responsavel_ocorrencia }}</a></p>
+                    Para contato envie um e-mail para: <a
+                            href="mailto:{{ encaminhamento.user.userprofile.empresa.email_responsavel_ocorrencia }}">{{ encaminhamento.user.userprofile.empresa.email_responsavel_ocorrencia }}</a>
+                </p>
             </td>
         </tr>
     </table>

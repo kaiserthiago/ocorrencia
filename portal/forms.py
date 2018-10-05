@@ -66,11 +66,13 @@ class EncaminhamentoForm(forms.ModelForm):
         widgets = {
             'data': forms.TextInput(attrs={
                 'class': 'form-control datepicker',
-                'placeholder': 'Clique para selecionar'
+                'placeholder': 'Clique para selecionar',
+                'required': ''
             }),
             'descricao': forms.Textarea(attrs={
                 'class': 'form-control md-textarea validate',
-                'rows': '3'
+                'rows': '3',
+                'required': ''
             }),
             'providencias': forms.Textarea(attrs={
                 'class': 'form-control md-textarea validate',
@@ -365,7 +367,7 @@ class ConfiguracaoForm(forms.ModelForm):
 
             'providencia_encaminhamento_email_aluno': 'Estudante',
             'providencia_encaminhamento_email_responsavel_aluno': 'Responsável',
-            'providencia_encaminhamento_email_responsavel_user': 'Servidor',
+            'providencia_encaminhamento_email_responsavel_user': 'Servidor/Aluno',
             'providencia_encaminhamento_email_responsavel_setor': 'CAED/DEPAE',
             'providencia_encaminhamento_email_coordenacao_curso': 'Coordenador',
 

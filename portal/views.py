@@ -585,10 +585,19 @@ def perfil_individual(request, aluno_id):
         if int(aluno_id) == request.user.userprofile.aluno.id:
             aluno = get_object_or_404(Aluno, pk=aluno_id)
             qs = request.GET.get('qs', '')
+            matriculas = Matricula.objects.filter(ano_letivo=date.today().year)
+            aluno = get_object_or_404(Aluno, id=request.user.userprofile.aluno.id)
+
+            matricula = False
+
+            for m in matriculas:
+                if aluno.id == m.aluno.id:
+                    matricula = get_object_or_404(Matricula, id=m.id)
 
             context = {
                 'aluno': aluno,
-                'qs': qs
+                'qs': qs,
+                'matricula': matricula
             }
 
             return render(request, 'portal/perfil_individual.html', context)
@@ -1707,6 +1716,7 @@ def report_pdf_ocorrencia(request, ocorrencia_id):
         erro = 'Não foi possível imprimir a ocorrência. Por favor contate o suporte.'
         return render(request, 'portal/erro.html', {'erro': erro})
 
+
 @login_required
 def report_pdf_encaminhamento(request, encaminhamento_id):
     try:
@@ -1723,6 +1733,7 @@ def report_pdf_encaminhamento(request, encaminhamento_id):
     except:
         erro = 'Não foi possível imprimir o encaminhamento. Por favor contate o suporte.'
         return render(request, 'portal/erro.html', {'erro': erro})
+
 
 @login_required
 def report_pdf_lista_aluno_turma(request):
@@ -1958,30 +1969,30 @@ def encaminhamento_providencia(request, encaminhamento_id):
         email = []
         configuracao = get_object_or_404(Configuracao, empresa=request.user.userprofile.empresa)
 
+        # VERIFICA SE TEM EMAIL DO ALUNO
         if configuracao.providencia_encaminhamento_email_aluno:
-            # VERIFICA SE TEM EMAIL DO ALUNO
             if encaminhamento.matricula.aluno.email:
                 email.append(encaminhamento.matricula.aluno.email)
 
+        # VERIFICA SE TEM EMAIL DO RESPONSÁVEL
         if configuracao.providencia_encaminhamento_email_responsavel_aluno:
-            # VERIFICA SE TEM EMAIL DO RESPONSÁVEL
             if encaminhamento.matricula.aluno.email_responsavel:
                 email.append(encaminhamento.matricula.aluno.email_responsavel)
 
+        # EMAIL DO SERVIDOR QUE REGISTROU A OCORRÊNCIA
         if configuracao.providencia_encaminhamento_email_responsavel_user:
-            # EMAIL DO SERVIDOR QUE REGISTROU A OCORRÊNCIA
-            email.append(request.user.email)
+            email.append(encaminhamento.user.email)
 
+        # EMAIL DA COORDENAÇÃO DE CURSO
         if configuracao.providencia_encaminhamento_email_coordenacao_curso:
-            # EMAIL DA COORDENAÇÃO DE CURSO
             email.append(encaminhamento.matricula.turma.curso.email)
 
+        # EMAIL DO SETOR RESPONSÁVEL PELAS OCORRÊNCIAS
         if configuracao.providencia_encaminhamento_email_responsavel_setor:
-            # EMAIL DO SETOR RESPONSÁVEL PELAS OCORRÊNCIAS
-            email.append(request.user.userprofile.empresa.email_responsavel_ocorrencia)
+            email.append(encaminhamento.user.userprofile.empresa.email_responsavel_ocorrencia)
 
+        # ENVIA OS E-MAILS
         if email:
-            # ENVIA OS E-MAILS
             RegistraEncaminhamentoProvidenciasMail(encaminhamento).send(email)
 
         messages.success(request, 'Providências adotadas registradas.')
@@ -2012,13 +2023,12 @@ def encaminhamento_new(request):
             turma = get_object_or_404(Turma, id=id)
             matriculas = Matricula.objects.filter(turma=turma, ano_letivo=int(date.today().year))
 
-            servico_categorias = ServicoCategoria.objects.filter(empresa=request.user.userprofile.empresa).order_by(
-                'descricao')
+            categorias = CategoriaFalta.objects.all().order_by('artigo')
 
             form = EncaminhamentoForm()
 
             context = {
-                'servico_categorias': servico_categorias,
+                'categorias': categorias,
                 'matriculas': matriculas,
                 'turma': turma,
                 'ano': int(date.today().year),
@@ -2026,6 +2036,85 @@ def encaminhamento_new(request):
             }
 
     return render(request, 'portal/encaminhamento_new.html', context)
+
+
+@login_required
+def encaminhamento_solicitar(request, matricula_id):
+    try:
+        matricula = get_object_or_404(Matricula, id=matricula_id)
+        if matricula.aluno.id == request.user.userprofile.aluno.id:
+            if request.method == 'POST':
+                form = EncaminhamentoForm(request.POST)
+
+                if form.is_valid():
+
+                    encaminhamento = Encaminhamento()
+
+                    servico_id = request.POST['SelectServico']
+                    servico = get_object_or_404(Servico, id=servico_id)
+
+                    encaminhamento.matricula = matricula
+                    encaminhamento.servico = servico
+                    encaminhamento.data = date.today()
+                    encaminhamento.descricao = form.cleaned_data['descricao']
+                    encaminhamento.outras_informacoes = form.cleaned_data['outras_informacoes']
+
+                    encaminhamento.user = request.user
+                    encaminhamento.empresa = request.user.userprofile.empresa
+
+                    encaminhamento.save()
+
+                    email = []
+                    configuracao = get_object_or_404(Configuracao, empresa=request.user.userprofile.empresa)
+
+                    if configuracao.encaminhamento_email_coordenacao_curso:
+                        # EMAIL DA COORDENAÇÃO DE CURSO
+                        email.append(encaminhamento.matricula.turma.curso.email)
+
+                    if configuracao.encaminhamento_email_responsavel_setor:
+                        # EMAIL DO SETOR RESPONSÁVEL PELAS OCORRÊNCIAS
+                        email.append(request.user.userprofile.empresa.email_responsavel_ocorrencia)
+
+                    if email:
+                        # ENVIA OS E-MAILS
+                        RegistraEncaminhamentoMail(encaminhamento).send(email)
+
+                    messages.success(request, 'Encaminhamento solicitado.')
+
+                    return redirect('perfil_individual', matricula.aluno.id)
+                else:
+                    form = EncaminhamentoForm(request.POST)
+                    aluno = get_object_or_404(Aluno, id=request.user.userprofile.aluno.id)
+                    servico_categorias = ServicoCategoria.objects.filter(
+                        empresa=request.user.userprofile.empresa).order_by(
+                        'descricao')
+
+                    context = {
+                        'servico_categorias': servico_categorias,
+                        'aluno': aluno,
+                        'form': form,
+                    }
+
+                    return render(request, 'portal/encaminhamento_solicitar.html', context)
+            else:
+                form = EncaminhamentoForm()
+                aluno = get_object_or_404(Aluno, id=request.user.userprofile.aluno.id)
+                servico_categorias = ServicoCategoria.objects.filter(empresa=request.user.userprofile.empresa).order_by(
+                    'descricao')
+
+                context = {
+                    'servico_categorias': servico_categorias,
+                    'aluno': aluno,
+                    'form': form,
+                }
+
+                return render(request, 'portal/encaminhamento_solicitar.html', context)
+        else:
+            erro = 'Você não tem permissão para acessar esses dados.'
+            return render(request, 'portal/erro.html', {'erro': erro})
+    except:
+        erro = 'Você não tem permissão para acessar esses dados.'
+        return render(request, 'portal/erro.html', {'erro': erro})
 
 
 @login_required

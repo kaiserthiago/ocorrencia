@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block title %}Encaminhamentos{% endblock %}
+{% block class_registros_menu %}active{% endblock %}
+{% block class_registros_encaminhamento_item %}collapsible-header active{% endblock %}
+{% load widget_tweaks %}
+
+{#{% block breadcrumb_base %}#}
+{#    <ol class="breadcrumb blue-grey lighten-4">#}
+{#        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>#}
+{#        <li class="breadcrumb-item"><a href="{% url 'encaminhamento' %}">Encaminhamentos</a></li>#}
+{#        <li class="breadcrumb-item active">Solicitar encaminhamento</li>#}
+{#    </ol>#}
+{#{% endblock %}#}
+
+{% block content %}
+    {% if form.errors %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <form action="" method="POST">
+        <div class="row mb-4">
+            <div class="col-sm-12">
+                <div class="card redonda">
+                    <div class="card-header redonda grey lighten-1 font-weight-bold">
+                        DADOS DA SOLICITAÇÃO
+                    </div>
+                    <div class="card-body">
+                        <input type="hidden" value="{{ matricula.id }}" name="matricula">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-sm-12">
+                                <select name="SelectServico" id="SelectServico"
+                                        class="mdb-select md-form colorful-select dropdown-success"
+                                        searchable="Pesquisar..."
+                                        required>
+                                    <option value="" disabled selected>Selecione o serviço</option>
+                                    {% for c in servico_categorias %}
+                                        <optgroup label="{{ c.descricao|upper }}">
+                                            {% for s in c.retorna_servicos %}
+                                                <option value={{ s.id }}>{{ s.descricao }}</option>
+                                            {% endfor %}
+                                        </optgroup>
+                                    {% endfor %}
+                                </select>
+                                <label for="SelectServico">Serviço</label>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-sm-6">
+                                <div class="md-form">
+                                    <label>{{ form.descricao.label }}</label>
+                                    {{ form.descricao }}
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="md-form">
+                                    <label>{{ form.outras_informacoes.label }}</label>
+                                    {{ form.outras_informacoes }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-sm-12">
+                                <div class="float-right">
+                                    <button type="submit" class="btn btn-rounded btn-success" data-toggle="tooltip"
+                                            data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
+                                    <a href="{% url 'encaminhamento' %}" class="btn btn-rounded btn-danger"
+                                       data-toggle="tooltip"
+                                       data-placement="top" title="Cancelar"><i
+                                            class="fa fa-close"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}
