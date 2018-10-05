@@ -1658,24 +1658,27 @@ def report_diversos_dados_bancarios_turma(request):
 
 @login_required
 def report_diversos_declaracao_matricula_aluno(request):
-    id = request.POST['SelectDeclaraoMatriculaAluno']
-    aluno = get_object_or_404(Aluno, id=id)
-    data = date.today()
-    usuario = get_object_or_404(User, id=request.user.id)
+    try:
+        id = request.POST['SelectDeclaraoMatriculaAluno']
+        aluno = get_object_or_404(Aluno, id=id)
+        data = date.today()
+        usuario = get_object_or_404(User, id=request.user.id)
 
-    matricula = get_object_or_404(Matricula, aluno=aluno, ano_letivo=data.year)
+        matricula = get_object_or_404(Matricula, aluno=aluno, ano_letivo=data.year)
 
-    context = {
-        'matricula': matricula,
-        'aluno': aluno,
-        'data': data,
-        'usuario': usuario
-    }
+        context = {
+            'matricula': matricula,
+            'aluno': aluno,
+            'data': data,
+            'usuario': usuario
+        }
 
-    return easy_pdf.rendering.render_to_pdf_response(request, 'portal/report_diversos_declaracao_matricula.html', context,
-                                              using=None, download_filename=None,
-                                              content_type='application/pdf', response_class=HttpResponse)
-    # return render(request, 'portal/report_diversos_declaracao_matricula.html', context)
+        return easy_pdf.rendering.render_to_pdf_response(request, 'portal/report_diversos_declaracao_matricula.html',
+                                                         context,
+                                                         using=None, download_filename=None,
+                                                         content_type='application/pdf', response_class=HttpResponse)
+    except:
+        return HttpResponse('Aluno não possui vínculo ativo com a Instituição.')
 
 
 @login_required
