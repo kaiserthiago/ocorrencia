@@ -67,7 +67,6 @@ class EncaminhamentoForm(forms.ModelForm):
             'data': forms.TextInput(attrs={
                 'class': 'form-control datepicker',
                 'placeholder': 'Clique para selecionar',
-                'required': ''
             }),
             'descricao': forms.Textarea(attrs={
                 'class': 'form-control md-textarea validate',
