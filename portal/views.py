@@ -1657,8 +1657,8 @@ def report_diversos_dados_bancarios_turma(request):
 
 
 @login_required
-def report_diversos_declaracao_matricula_aluno(request):
-    # try:
+def report_pdf_declaracao_matricula(request):
+    try:
         id = request.POST['SelectDeclaraoMatriculaAluno']
         aluno = get_object_or_404(Aluno, id=id)
         data = date.today()
@@ -1673,13 +1673,39 @@ def report_diversos_declaracao_matricula_aluno(request):
             'usuario': usuario
         }
 
-        return easy_pdf.rendering.render_to_pdf_response(request, 'portal/report_diversos_declaracao_matricula.html',
+        return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_diversos_declaracao_matricula.html',
                                                          context,
                                                          using=None, download_filename=None,
                                                          content_type='application/pdf', response_class=HttpResponse)
-    # except:
-    #     erro = 'Não há matrícula vigente para o(a) aluno(a) selecionado.'
-    #     return render(request, 'portal/erro.html', {'erro': erro})
+    except:
+        erro = 'Não há matrícula vigente para o(a) aluno(a) selecionado.'
+        return render(request, 'portal/erro.html', {'erro': erro})
+
+
+@login_required
+def report_pdf_ocorrencia(request):
+    try:
+        id = request.POST['SelectDeclaraoMatriculaAluno']
+        aluno = get_object_or_404(Aluno, id=id)
+        data = date.today()
+        usuario = get_object_or_404(User, id=request.user.id)
+
+        matricula = get_object_or_404(Matricula, aluno=aluno, ano_letivo=data.year)
+
+        context = {
+            'aluno': aluno,
+            'matricula': matricula,
+            'data': data,
+            'usuario': usuario
+        }
+
+        return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_diversos_declaracao_matricula.html',
+                                                         context,
+                                                         using=None, download_filename=None,
+                                                         content_type='application/pdf', response_class=HttpResponse)
+    except:
+        erro = 'Não há matrícula vigente para o(a) aluno(a) selecionado.'
+        return render(request, 'portal/erro.html', {'erro': erro})
 
 
 @login_required

@@ -581,7 +581,7 @@
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                 </div>
-                <form action="{% url 'report_diversos_declaracao_matricula_aluno' %}" target="_blank" method="POST">
+                <form action="{% url 'report_pdf_declaracao_matricula' %}" target="_blank" method="POST">
                     <!--Body-->
                     <div class="modal-body">
                         {% csrf_token %}
