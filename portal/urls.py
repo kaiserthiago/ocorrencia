@@ -79,18 +79,19 @@ urlpatterns = [
     url(r'^report/autorizacao/turma$', views.report_autorizacao_saida_turma, name='report_autorizacao_saida_turma'),
 
     url(r'^report/encaminhamento/aluno/(?P<aluno_id>\d+)$', views.report_encaminhamento_aluno, name='report_encaminhamento_aluno'),
-    url(r'^report/ocorrencia/pdf/(?P<encaminhamento_id>\d+)$', views.report_pdf_encaminhamento, name='report_pdf_encaminhamento'),
     url(r'^report/encaminhamento/curso', views.report_encaminhamento_curso, name='report_encaminhamento_curso'),
     url(r'^report/encaminhamento/turma$', views.report_encaminhamento_turma, name='report_encaminhamento_turma'),
 
     url(r'^report/ocorrencia/aluno/(?P<aluno_id>\d+)$', views.report_ocorrencia_aluno, name='report_ocorrencia_aluno'),
-    url(r'^report/ocorrencia/pdf/(?P<ocorrencia_id>\d+)$', views.report_pdf_ocorrencia, name='report_pdf_ocorrencia'),
     url(r'^report/ocorrencia/curso', views.report_ocorrencia_curso, name='report_ocorrencia_curso'),
     url(r'^report/ocorrencia/turma$', views.report_ocorrencia_turma, name='report_ocorrencia_turma'),
 
-    url(r'^report/diversos/matricula/pdf$', views.report_pdf_declaracao_matricula, name='report_pdf_declaracao_matricula'),
-    url(r'^report/diversos/financeiro/turma$', views.report_diversos_dados_bancarios_turma, name='report_diversos_dados_bancarios_turma'),
+    url(r'^report/diversos/financeiro/turma$', views.report_pdf_dados_bancarios, name='report_pdf_dados_bancarios'),
     url(r'^report/diversos/lista/turma$', views.report_pdf_lista_aluno_turma, name='report_pdf_lista_aluno_turma'),
+
+    url(r'^report/pdf/encaminhamento/(?P<encaminhamento_id>\d+)$', views.report_pdf_encaminhamento, name='report_pdf_encaminhamento'),
+    url(r'^report/pdf/ocorrencia/(?P<ocorrencia_id>\d+)$', views.report_pdf_ocorrencia, name='report_pdf_ocorrencia'),
+    url(r'^report/pdf/matricula$', views.report_pdf_declaracao_matricula, name='report_pdf_declaracao_matricula'),
 
     url(r'^report/general$', views.report_general, name='report_general'),
 

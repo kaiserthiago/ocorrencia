@@ -25,7 +25,7 @@
         bottom: 0cm;
         margin-left: 1cm;
         margin-right: 1cm;
-        height: 1.5cm;
+        height: 2cm;
         }
         }
     </style>
@@ -83,16 +83,16 @@
     </tr>
     </tbody>
 </table>
-<div id="page-footer" style="text-align: center; font-size: 11px; border-top: 1px solid">
-    <div style="padding-top: 2px">
-        {{ aluno.empresa.razao_social }} - <em>Campus</em> {{ aluno.empresa }}<br>
-        {{ aluno.empresa.endereco }}, {{ aluno.empresa.bairro }},{{ aluno.empresa.cidade }}/{{ aluno.empresa.uf }},
-        CEP {{ aluno.empresa.cep }}<br>
-        Fone: {{ aluno.empresa.fone }} / E-mail: {{ aluno.empresa.email }} / Site: {{ aluno.empresa.site }}
+<div id="page-footer" style="text-align: right; font-size: 11px">
+    Página <pdf:pagenumber/>
+    <div style="text-align:center;padding-top: 2px; border-top: 1px solid">
+        {{ turma.empresa.razao_social }} -
+        <em>Campus</em> {{ turma.empresa }}<br>
+        {{ turma.empresa.endereco }}, {{ turma.empresa.bairro }},{{ turma.empresa.cidade }}/{{ turma.empresa.uf }},
+        CEP {{ turma.empresa.cep }}<br>
+        Fone: {{ turma.empresa.fone }} / E-mail: {{ turma.empresa.email }} /
+        Site: {{ turma.empresa.site }}
     </div>
-    {% comment %}
-                <pdf:pagenumber />
-            {% endcomment %}
 </div>
 </body>
 </html>

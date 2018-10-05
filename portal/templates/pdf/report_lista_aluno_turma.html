@@ -9,7 +9,7 @@
             size: {{ pagesize|default:"A4" }};
             margin-left: 2cm;
             margin-right: 2cm;
-            margin-top: 0.7cm;
+            margin-top: 8cm;
             margin-bottom: 2cm;
 
             @frame header {
@@ -25,7 +25,7 @@
         bottom: 0cm;
         margin-left: 1cm;
         margin-right: 1cm;
-        height: 1.5cm;
+        height: 2cm;
         }
         }
     </style>
@@ -53,18 +53,20 @@
     </style>
 </head>
 <body>
-<div style="font-weight: bold; font-size: 14px; text-align: center; vertical-align: middle">
-    <img src="{{ turma.empresa.logo.url }}" width="150px"><br>
-    MINISTÉRIO DA EDUCAÇÃO<br>
-    SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA<br>
-    {{ turma.empresa.razao_social|upper }}<br>
-    <em>CAMPUS </em>{{ turma.empresa|upper }}
-    <br>
-    <br>
-    <h3 class="font-weight-bold">Lista de Aluno - {{ turma.curso.descricao }} - {{ turma.descricao }}
-    </h3>
+<div id="page-header">
+    <div style="font-weight: bold; font-size: 14px; text-align: center; vertical-align: middle">
+        <img src="{{ turma.empresa.logo.url }}" width="150px"><br>
+        MINISTÉRIO DA EDUCAÇÃO<br>
+        SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA<br>
+        {{ turma.empresa.razao_social|upper }}<br>
+        <em>CAMPUS </em>{{ turma.empresa|upper }}
+        <br>
+        <br>
+        <h3 class="font-weight-bold">Lista de Aluno - {{ turma.curso.descricao }} - {{ turma.descricao }}
+        </h3>
+    </div>
 </div>
-<table border="1" width="100%">
+<table style="border: 1px solid #ddd; width: 100%">
     <thead>
     <tr>
         <th style="text-align: center">#</th>
@@ -80,8 +82,9 @@
     {% endfor %}
     </tbody>
 </table>
-<div id="page-footer" style="text-align: center; font-size: 11px; border-top: 1px solid">
-    <div style="padding-top: 2px">
+<div id="page-footer" style="text-align: right; font-size: 11px">
+    Página <pdf:pagenumber/>
+    <div style="text-align:center;padding-top: 2px; border-top: 1px solid">
         {{ turma.empresa.razao_social }} -
         <em>Campus</em> {{ turma.empresa }}<br>
         {{ turma.empresa.endereco }}, {{ turma.empresa.bairro }},{{ turma.empresa.cidade }}/{{ turma.empresa.uf }},
@@ -89,7 +92,4 @@
         Fone: {{ turma.empresa.fone }} / E-mail: {{ turma.empresa.email }} /
         Site: {{ turma.empresa.site }}
     </div>
-    {% comment %}
-                <pdf:pagenumber />
-            {% endcomment %}
 </div>

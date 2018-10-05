@@ -9,7 +9,7 @@
             size: {{ pagesize|default:"A4" }};
             margin-left: 2cm;
             margin-right: 2cm;
-            margin-top: 0.7cm;
+            margin-top: 8cm;
             margin-bottom: 2cm;
 
             @frame header {
@@ -25,30 +25,31 @@
         bottom: 0cm;
         margin-left: 1cm;
         margin-right: 1cm;
-        height: 1.5cm;
+        height: 2cm;
         }
         }
     </style>
 
 </head>
 <body>
-<div style="font-weight: bold; font-size: 14px; text-align: center; vertical-align: middle">
-    <img src="{{ ocorrencia.user.userprofile.empresa.logo.url }}" width="150px"><br>
-    MINISTÉRIO DA EDUCAÇÃO<br>
-    SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA<br>
-    {{ ocorrencia.user.userprofile.empresa.razao_social|upper }}<br>
-    <em>CAMPUS </em>{{ ocorrencia.user.userprofile.empresa|upper }}
+<div id="page-header">
+
+    <div style="font-weight: bold; font-size: 14px; text-align: center; vertical-align: middle">
+        <img src="{{ ocorrencia.user.userprofile.empresa.logo.url }}" width="150px"><br>
+        MINISTÉRIO DA EDUCAÇÃO<br>
+        SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA<br>
+        {{ ocorrencia.user.userprofile.empresa.razao_social|upper }}<br>
+        <em>CAMPUS </em>{{ ocorrencia.user.userprofile.empresa|upper }}
+        <br>
+        <br>
+        <h3>REGISTRO DE OCORRÊNCIA {{ ocorrencia.id }}/{{ ocorrencia.matricula.ano_letivo }}</h3>
+    </div>
 </div>
-<br>
-<br>
-<br>
-<table border="1" cellpadding="5" cellspacing="0" width="100%" style="font-size: 12px; vertical-align: middle">
-    <tr>
-        <td colspan="2" style="text-align: center; vertical-align: middle">
-            <strong>REGISTRO DE OCORRÊNCIA {{ ocorrencia.id }}/{{ ocorrencia.matricula.ano_letivo }}</strong>
-        </td>
-    </tr>
-    <tr>
+
+
+<table cellpadding="5" cellspacing="0"
+       style="border: 1px solid #ddd; width: 100%; font-size: 12px; vertical-align: middle">
+      <tr>
         <td style="text-align: left">
             <p>
                 <strong>DATA</strong><br>
@@ -99,8 +100,10 @@
     </tr>
 </table>
 
-<div id="page-footer" style="text-align: center; font-size: 11px; border-top: 1px solid">
-    <div style="padding-top: 2px">
+<div id="page-footer" style="text-align: right; font-size: 11px">
+    Página
+    <pdf:pagenumber/>
+    <div style="text-align:center;padding-top: 2px; border-top: 1px solid">
         {{ ocorrencia.user.userprofile.empresa.razao_social }} -
         <em>Campus</em> {{ ocorrencia.user.userprofile.empresa }}<br>
         {{ ocorrencia.user.userprofile.empresa.endereco }}, {{ ocorrencia.user.userprofile.empresa.bairro }},{{ ocorrencia.user.userprofile.empresa.cidade }}/{{ ocorrencia.user.userprofile.empresa.uf }},
@@ -108,9 +111,6 @@
         Fone: {{ ocorrencia.user.userprofile.empresa.fone }} / E-mail: {{ ocorrencia.user.userprofile.empresa.email }} /
         Site: {{ ocorrencia.user.userprofile.empresa.site }}
     </div>
-    {% comment %}
-                <pdf:pagenumber />
-            {% endcomment %}
 </div>
 </body>
 </html>
