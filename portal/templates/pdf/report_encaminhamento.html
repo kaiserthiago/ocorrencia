@@ -7,17 +7,17 @@
     <style type="text/css">
         @page {
             size: {{ pagesize|default:"A4" }};
-            margin-left: 2cm;
-            margin-right: 2cm;
-            margin-top: 8cm;
+            margin-left: 1cm;
+            margin-right: 1cm;
+            margin-top: 6.5cm;
             margin-bottom: 2cm;
 
             @frame header {
             -pdf-frame-content: page-header;
             margin-top: 0.7cm;
-        {#margin-right: 2mm;#}
+            margin-right: 1cm;
         {#margin-bottom: 0cm;#}
-        {#margin-left: 2cm;#}
+            margin-left: 1cm;
         }
 
         @frame footer {
@@ -33,14 +33,14 @@
 </head>
 <body>
 <div id="page-header">
-    <div style="font-weight: bold; font-size: 14px; text-align: center; vertical-align: middle">
-        <img src="{{ encaminhamento.user.userprofile.empresa.logo.url }}" width="150px"><br>
+    <div style="font-weight: bold; font-size: 12px; text-align: center; vertical-align: middle; border-bottom: 1px solid">
+        <img src="{{ encaminhamento.user.userprofile.empresa.logo.url }}" width="120px"><br>
         MINISTÉRIO DA EDUCAÇÃO<br>
         SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA<br>
         {{ encaminhamento.user.userprofile.empresa.razao_social|upper }}<br>
         <em>CAMPUS </em>{{ encaminhamento.user.userprofile.empresa|upper }}
-        <br>
-        <br>
+    </div>
+    <div style="padding-top:5px; font-weight: bold; font-size: 12px; text-align: center; vertical-align: middle">
         <h3>REGISTRO DE ENCAMINHAMENTO {{ encaminhamento.id }}/{{ encaminhamento.matricula.ano_letivo }}</h3>
     </div>
 </div>

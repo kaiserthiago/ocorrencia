@@ -9,15 +9,15 @@
             size: {{ pagesize|default:"A4" }};
             margin-left: 1cm;
             margin-right: 1cm;
-            margin-top: 8cm;
+            margin-top: 6.5cm;
             margin-bottom: 2cm;
 
             @frame header {
             -pdf-frame-content: page-header;
             margin-top: 0.7cm;
-        {#margin-right: 2mm;#}
-        {#margin-bottom: 0cm;#}
-        {#margin-left: 2cm;#}
+            margin-right: 1cm;
+            margin-left: 1cm;
+            margin-bottom: 0cm;
         }
 
         @frame footer {
@@ -52,16 +52,15 @@
 </head>
 <body>
 <div id="page-header">
-    <div style="font-weight: bold; font-size: 14px; text-align: center; vertical-align: middle">
-        <img src="{{ turma.empresa.logo.url }}" width="150px"><br>
+    <div style="font-weight: bold; font-size: 12px; text-align: center; vertical-align: middle; border-bottom: 1px solid">
+        <img src="{{ turma.empresa.logo.url }}" width="120px"><br>
         MINISTÉRIO DA EDUCAÇÃO<br>
         SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA<br>
         {{ turma.empresa.razao_social|upper }}<br>
         <em>CAMPUS </em>{{ turma.empresa|upper }}
-        <br>
-        <br>
-        <h3 class="font-weight-bold">Lista de Aluno - {{ turma.curso.descricao }} - {{ turma.descricao }}
-        </h3>
+    </div>
+    <div style="padding-top:5px; font-weight: bold; font-size: 12px; text-align: center; vertical-align: middle;">
+        <h3 class="font-weight-bold">Dados Bancários - {{ turma.curso.descricao }} - {{ turma.descricao }}</h3>
     </div>
 </div>
 <table style="border: 1px solid #ddd; width: 100%">

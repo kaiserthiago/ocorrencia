@@ -7,17 +7,17 @@
     <style type="text/css">
         @page {
             size: {{ pagesize|default:"A4" }};
-            margin-left: 2cm;
-            margin-right: 2cm;
-            margin-top: 2.5cm;
+            margin-left: 1cm;
+            margin-right: 1cm;
+            margin-top: 6.5cm;
             margin-bottom: 2cm;
 
             @frame header {
             -pdf-frame-content: page-header;
             margin-top: 0.7cm;
-            {#margin-right: 2mm;#}
+            margin-right: 1cm;
             {#margin-bottom: 0cm;#}
-            {#margin-left: 2cm;#}
+            margin-left: 1cm;
         }
 
         @frame footer {
@@ -33,32 +33,21 @@
 </head>
 <body>
 <div id="page-header">
-    <table cellpadding="0" cellspacing="0" width="100%">
-        <tbody>
-        <tr style="font-weight: bold; font-size: 14px">
-            <td colspan="3" style="text-align: center; vertical-align: middle">
-                <img src="{{ aluno.empresa.logo.url }}" width="150px"><br>
-                MINISTÉRIO DA EDUCAÇÃO<br>
-                SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA<br>
-                {{ aluno.empresa.razao_social|upper }}<br>
-                <em>CAMPUS </em>{{ aluno.empresa|upper }}
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <div style="font-weight: bold; font-size: 12px; text-align: center; vertical-align: middle; border-bottom: 1px solid">
+        <img src="{{ aluno.empresa.logo.url }}" width="120px"><br>
+        MINISTÉRIO DA EDUCAÇÃO<br>
+        SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA<br>
+        {{ aluno.empresa.razao_social|upper }}<br>
+        <em>CAMPUS </em>{{ aluno.empresa|upper }}
+    </div>
+    <div style="padding-top:5px; font-weight: bold; font-size: 12px; text-align: center; vertical-align: middle">
+        <br>
+        <h1>DECLARAÇÃO</h1>
+    </div>
 </div>
+
 <table cellpadding="0" cellspacing="0" width="100%" style="padding-top: 30px;">
     <tbody>
-    <tr>
-        <td colspan="3" style="text-align: center; font-weight: bold; font-size: 12px">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <h1 class="font-weight-bold">DECLARAÇÃO</h1>
-        </td>
-    </tr>
     <tr>
         <td colspan="3" style="font-size: 14px">
             <p style="text-align: justify; text-indent: 50px">
@@ -86,12 +75,12 @@
 <div id="page-footer" style="text-align: right; font-size: 11px">
     Página <pdf:pagenumber/>
     <div style="text-align:center;padding-top: 2px; border-top: 1px solid">
-        {{ turma.empresa.razao_social }} -
-        <em>Campus</em> {{ turma.empresa }}<br>
-        {{ turma.empresa.endereco }}, {{ turma.empresa.bairro }},{{ turma.empresa.cidade }}/{{ turma.empresa.uf }},
-        CEP {{ turma.empresa.cep }}<br>
-        Fone: {{ turma.empresa.fone }} / E-mail: {{ turma.empresa.email }} /
-        Site: {{ turma.empresa.site }}
+        {{ aluno.empresa.razao_social }} -
+        <em>Campus</em> {{ aluno.empresa }}<br>
+        {{ aluno.empresa.endereco }}, {{ aluno.empresa.bairro }},{{ aluno.empresa.cidade }}/{{ aluno.empresa.uf }},
+        CEP {{ aluno.empresa.cep }}<br>
+        Fone: {{ aluno.empresa.fone }} / E-mail: {{ aluno.empresa.email }} /
+        Site: {{ aluno.empresa.site }}
     </div>
 </div>
 </body>
