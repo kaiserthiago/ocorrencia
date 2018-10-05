@@ -581,7 +581,7 @@
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                 </div>
-                <form action="{% url 'report_diversos_declaracao_matricula_aluno' %}" method="POST">
+                <form action="{% url 'report_diversos_declaracao_matricula_aluno' %}" target="_blank" method="POST">
                     <!--Body-->
                     <div class="modal-body">
                         {% csrf_token %}
@@ -597,7 +597,7 @@
                     </div>
                     <!--Footer-->
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-rounded btn-info waves-effect">Enviar</button>
+                        <button type="submit" class="btn btn-rounded btn-info waves-effect" onclick="$('#ModalMatriculaAluno').modal('hide')">Enviar</button>
                         <a type="button" class="btn btn-rounded btn-outline-info"
                            data-dismiss="modal">Voltar</a>
                     </div>
