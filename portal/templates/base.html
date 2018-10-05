@@ -163,7 +163,7 @@
                         </li>
                     {% endif %}
 
-                    {% if request.user.is_superuser %}
+                    {% if request.user.is_superuser or request.user|has_group:'CAED' %}
                         <ul class="social"></ul>
                         <li>
                             <a class="collapsible-header waves-effect arrow-r
@@ -173,40 +173,45 @@
                             <div class="collapsible-body">
                                 <ul>
                                     <li>
+
                                         <a href="{% url 'aluno' %}?qs=a"
                                            class="waves-effect
                                                {% block class_cadastro_aluno_item %}{% endblock %}"><i
                                                 class="fa fa-user"></i> Aluno</a>
-                                        <a href="{% url 'servico_categoria' %}"
-                                           class="waves-effect
+                                        {% if request.user.is_superuser %}
+                                            <a href="{% url 'servico_categoria' %}"
+                                               class="waves-effect
                                                {% block class_cadastro_servicos_categoria_item %}{% endblock %}"><i
-                                                class="fa fa-cog"></i> Categoria
-                                            de serviço</a>
-                                        <a href="{% url 'curso' %}"
-                                           class="waves-effect
+                                                    class="fa fa-cog"></i> Categoria
+                                                de serviço</a>
+                                            <a href="{% url 'curso' %}"
+                                               class="waves-effect
                                                {% block class_cadastro_curso_item %}{% endblock %}"><i
-                                                class="fa fa-industry"></i> Curso</a>
-                                        <a href="{% url 'turma' %}"
-                                           class="waves-effect
+                                                    class="fa fa-industry"></i> Curso</a>
+                                            <a href="{% url 'turma' %}"
+                                               class="waves-effect
                                                {% block class_cadastro_turma_item %}{% endblock %}"><i
-                                                class="fa fa-graduation-cap"></i> Turma</a>
-                                        <a href="{% url 'matricula' %}"
-                                           class="waves-effect
+                                                    class="fa fa-graduation-cap"></i> Turma</a>
+                                            <a href="{% url 'matricula' %}"
+                                               class="waves-effect
                                                        {% block class_cadastro_matricula_item %}{% endblock %}"><i
-                                                class="fa fa-users"></i> Matrícula</a>
-                                        <a href="{% url 'servico' %}"
-                                           class="waves-effect
+                                                    class="fa fa-users"></i> Matrícula</a>
+                                            <a href="{% url 'servico' %}"
+                                               class="waves-effect
                                                        {% block class_cadastro_servicos_item %}{% endblock %}"><i
-                                                class="fa fa-cog"></i> Serviço</a>
+                                                    class="fa fa-cog"></i> Serviço</a>
+                                        {% endif %}
                                     </li>
                                 </ul>
                             </div>
                         </li>
-                        <li>
-                            <a href="{% url 'configuracao' %}" class="collapsible-header waves-effect arrow-r
+                        {% if request.user.is_superuser %}
+                            <li>
+                                <a href="{% url 'configuracao' %}" class="collapsible-header waves-effect arrow-r
                                     {% block class_configuracoes_menu %}{% endblock %}"><i class="fa fa-cogs"></i>
-                                Configurações</a>
-                        </li>
+                                    Configurações</a>
+                            </li>
+                        {% endif %}
                     {% endif %}
                 {% endif %}
 
@@ -252,7 +257,8 @@
                                 Início</a>
                             <a class="dropdown-item" href="{% url 'user_change_password' %}"><i class="fa fa-lock"></i>
                                 Alterar senha</a>
-                            <a class="dropdown-item" href="{% url 'perfil_individual' request.user.userprofile.aluno.id %}"><i
+                            <a class="dropdown-item"
+                               href="{% url 'perfil_individual' request.user.userprofile.aluno.id %}"><i
                                     class="fa fa-user"></i>
                                 Meus dados</a>
                             <div class="dropdown-divider"></div>

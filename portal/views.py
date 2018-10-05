@@ -107,7 +107,7 @@ def configuracao(request):
     }
     return render(request, 'portal/configuracao.html', context)
 
-
+@permission_required('is_superuser')
 def import_aluno_atualizar(request):
     try:
         lista_nome = []
@@ -343,7 +343,7 @@ def import_aluno(request):
     return render(request, 'portal/import_aluno.html', {})
 
 
-@permission_required('is_superuser')
+@login_required
 def aluno(request):
     qs = request.GET.get('qs', '')
     alunos = Aluno.objects.filter(empresa=request.user.userprofile.empresa, nome__istartswith=str(qs)).order_by('nome')

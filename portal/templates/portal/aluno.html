@@ -12,113 +12,129 @@
 
 {% block content %}
     <div class="row mb-4">
-        <div class="col-sm-12">
-            <div class="card redonda">
-                <div class="card-header redonda grey lighten-1 font-weight-bold">
-                    ALUNOS
-                </div>
+    <div class="col-sm-12">
+        <div class="card redonda">
+            <div class="card-header redonda grey lighten-1 font-weight-bold">
+                ALUNOS
+            </div>
+            {% if request.user.is_superuser %}
                 <div class="card-body">
-                    <div class="form-row">
-                        <div class="col-sm-6">
-                            <div class="md-form">
-                                <input id="myInput" type="text" class="form-control form-control-sm" autofocus/>
-                                <label for="myInput">Pesquisar...</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="float-right">
-                                <a href="{% url 'aluno_new' %}?qs={{ qs }}" class="btn btn-rounded btn-success"><i
-                                        class="fa fa-plus"></i> Adicionar</a>
-                                <a href="{% url 'import_aluno' %}" class="btn btn-rounded btn-info"><i
-                                        class="fa fa-arrow-circle-down"></i> Importar</a>
-                                <a href="{% url 'import_aluno_atualizar' %}" class="btn btn-rounded btn-warning"><i
-                                        class="fa fa-refresh"></i> Atualizar</a>
-                            </div>
+                <div class="form-row">
+                    <div class="col-sm-6">
+                        <div class="md-form">
+                            <input id="myInput" type="text" class="form-control form-control-sm" autofocus/>
+                            <label for="myInput">Pesquisar...</label>
                         </div>
                     </div>
-                    <!--Pagination -->
-                    <div class="table-responsive">
-                        <nav aria-label="pagination example">
-                            <ul class="pagination  justify-content-lg-center pagination-circle pg-blue mb-0">
-
-                                <!--LETRAS INICIAIS-->
-                                {% for i in lista %}
-                                    {% if qs|upper == i %}
-                                        <li class="page-item active"><a class="page-link">{{ i }}</a></li>
-                                    {% else %}
-                                        <li class="page-item"><a href="?qs={{ i|lower }}" class="page-link">{{ i }}</a>
-                                        </li>
-                                    {% endif %}
-                                {% endfor %}
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table table-sm table-striped">
-                            <thead>
-                            <tr>
-                                <th style="font-weight: bold">Nome</th>
-                                <th style="font-weight: bold">E-mail</th>
-                                <th style="font-weight: bold; text-align: right">Contato</th>
-                                <th style="text-align: center; font-weight: bold">Ações</th>
-                            </tr>
-                            </thead>
-                            <tbody id="myTable">
-                            {% for aluno in alunos %}
-                                <tr>
-                                    <td style="vertical-align: middle;">{{ aluno.nome }}</td>
-                                    <td style="vertical-align: middle;">{{ aluno.email }}</td>
-                                    <td style="vertical-align: middle">{{ aluno.contato }}</td>
-                                    <td class="px-0 py-0"
-                                        style="vertical-align: middle; text-align: right; min-width: 170px; width: 170px">
-                                        <i data-toggle="tooltip" data-placement="top" title="Perfil">
-                                            <a href="{% url 'perfil_individual' aluno.id %}?qs={{ qs }}"
-                                               class="btn-floating btn-sm ifro-color"><i class="fa fa-address-book"></i>
-                                            </a>
-                                        </i>
-
-                                        <i data-toggle="tooltip" data-placement="top" title="Editar">
-                                            <a href="{% url 'aluno_edit' aluno.id %}?qs={{ qs }}"
-                                               class="btn-floating btn-sm btn-warning"><i
-                                                    class="fa fa-pencil"></i>
-                                            </a>
-                                        </i>
-                                        <i data-toggle="tooltip" data-placement="top" title="Excluir">
-                                            <a data-toggle="modal" href="#Excluir{{ aluno.id }}"
-                                               class="btn-floating btn-sm btn-danger"><i class="fa fa-trash"></i>
-                                            </a>
-                                        </i>
-                                    </td>
-                                </tr>
-                            {% empty %}
-                                <tr>
-                                    <td colspan="5" class="card-header warning-color white-text text-center font-bold">
-                                        Sem estudantes cadastrados
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!--Pagination -->
-                    <div class="table-responsive">
-                        <nav aria-label="pagination example">
-                            <ul class="pagination  justify-content-lg-center pagination-circle pg-blue mb-0">
-
-                                <!--LETRAS INICIAIS-->
-                                {% for i in lista %}
-                                    {% if qs|upper == i %}
-                                        <li class="page-item active"><a class="page-link">{{ i }}</a></li>
-                                    {% else %}
-                                        <li class="page-item"><a href="?qs={{ i|lower }}" class="page-link">{{ i }}</a>
-                                        </li>
-                                    {% endif %}
-                                {% endfor %}
-                            </ul>
-                        </nav>
+                    <div class="col-sm-6">
+                        <div class="float-right">
+                            <a href="{% url 'aluno_new' %}?qs={{ qs }}" class="btn btn-rounded btn-success"><i
+                                    class="fa fa-plus"></i> Adicionar</a>
+                            <a href="{% url 'import_aluno' %}" class="btn btn-rounded btn-info"><i
+                                    class="fa fa-arrow-circle-down"></i> Importar</a>
+                            <a href="{% url 'import_aluno_atualizar' %}" class="btn btn-rounded btn-warning"><i
+                                    class="fa fa-refresh"></i> Atualizar</a>
+                        </div>
                     </div>
                 </div>
+            {% else %}
+                <div class="card-body">
+                <div class="form-row">
+                    <div class="col-sm-12">
+                        <div class="md-form">
+                            <input id="myInput" type="text" class="form-control form-control-sm" autofocus/>
+                            <label for="myInput">Pesquisar...</label>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            <!--Pagination -->
+            <div class="table-responsive">
+                <nav aria-label="pagination example">
+                    <ul class="pagination  justify-content-lg-center pagination-circle pg-blue mb-0">
+
+                        <!--LETRAS INICIAIS-->
+                        {% for i in lista %}
+                            {% if qs|upper == i %}
+                                <li class="page-item active"><a class="page-link">{{ i }}</a></li>
+                            {% else %}
+                                <li class="page-item"><a href="?qs={{ i|lower }}" class="page-link">{{ i }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-sm table-striped">
+                    <thead>
+                    <tr>
+                        <th style="font-weight: bold">Nome</th>
+                        <th style="font-weight: bold">Contato</th>
+                        <th style="text-align: center; font-weight: bold">Ações</th>
+                    </tr>
+                    </thead>
+                    <tbody id="myTable">
+                    {% for aluno in alunos %}
+                        <tr>
+                            <td style="vertical-align: middle;">{{ aluno.nome }}</td>
+                            <td style="vertical-align: middle">{{ aluno.contato }}</td>
+                            <td class="px-0 py-0"
+                                style="vertical-align: middle; text-align: right; min-width: 170px; width: 170px">
+
+                                <i data-toggle="tooltip" data-placement="top" title="Perfil">
+                                    <a href="{% url 'perfil_individual' aluno.id %}?qs={{ qs }}"
+                                       class="btn-floating btn-sm ifro-color"><i class="fa fa-address-book"></i>
+                                    </a>
+                                </i>
+                                {% if aluno.count_autorizacoes or aluno.count_encaminhamento or aluno.count_ocorrencia %}
+                                    <span class="counter">!</span>
+                                {% endif %}
+
+                                <i data-toggle="tooltip" data-placement="top" title="Editar">
+                                    <a href="{% url 'aluno_edit' aluno.id %}?qs={{ qs }}"
+                                       class="btn-floating btn-sm btn-warning"><i
+                                            class="fa fa-pencil"></i>
+                                    </a>
+                                </i>
+                                {% if request.user.is_superuser %}
+                                    <i data-toggle="tooltip" data-placement="top" title="Excluir">
+                                        <a data-toggle="modal" href="#Excluir{{ aluno.id }}"
+                                           class="btn-floating btn-sm btn-danger"><i class="fa fa-trash"></i>
+                                        </a>
+                                    </i>
+                                    </td>
+                                {% endif %}
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="5" class="card-header warning-color white-text text-center font-bold">
+                                Sem estudantes cadastrados
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!--Pagination -->
+            <div class="table-responsive">
+                <nav aria-label="pagination example">
+                    <ul class="pagination  justify-content-lg-center pagination-circle pg-blue mb-0">
+
+                        <!--LETRAS INICIAIS-->
+                        {% for i in lista %}
+                            {% if qs|upper == i %}
+                                <li class="page-item active"><a class="page-link">{{ i }}</a></li>
+                            {% else %}
+                                <li class="page-item"><a href="?qs={{ i|lower }}" class="page-link">{{ i }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+            </div>
             </div>
         </div>
     </div>
