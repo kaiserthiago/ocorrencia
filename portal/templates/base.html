@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load  static %}
+{% load has_group %}
 <html lang="pt-br">
 <head>
     <meta charset="utf-8">
@@ -138,7 +139,7 @@
                                 class="fa fa-file"></i> Relatórios</a>
                     </li>
 
-                    {% if request.user.is_superuser or perms.portal.change_autorizacao %}
+                    {% if request.user.is_superuser or request.user|has_group:'Vigia' %}
                         <ul class="social"></ul>
                         <li>
                             <a href="{% url 'autorizacao_pendente' %}"
@@ -149,7 +150,7 @@
                         </li>
                     {% endif %}
 
-                    {% if request.user.is_superuser or perms.portal.change_encaminhamento %}
+                    {% if request.user.is_superuser or request.user|has_group:'CAED' %}
                         {% if not request.user.is_superuser %}
                             <ul class="social"></ul>
                         {% endif %}

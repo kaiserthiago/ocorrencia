@@ -1658,7 +1658,7 @@ def report_diversos_dados_bancarios_turma(request):
 
 @login_required
 def report_diversos_declaracao_matricula_aluno(request):
-    try:
+    # try:
         id = request.POST['SelectDeclaraoMatriculaAluno']
         aluno = get_object_or_404(Aluno, id=id)
         data = date.today()
@@ -1667,8 +1667,8 @@ def report_diversos_declaracao_matricula_aluno(request):
         matricula = get_object_or_404(Matricula, aluno=aluno, ano_letivo=data.year)
 
         context = {
-            'matricula': matricula,
             'aluno': aluno,
+            'matricula': matricula,
             'data': data,
             'usuario': usuario
         }
@@ -1677,9 +1677,9 @@ def report_diversos_declaracao_matricula_aluno(request):
                                                          context,
                                                          using=None, download_filename=None,
                                                          content_type='application/pdf', response_class=HttpResponse)
-    except:
-        erro = 'Não há matrícula vigente para o(a) aluno(a) selecionado.'
-        return render(request, 'portal/erro.html', {'erro': erro})
+    # except:
+    #     erro = 'Não há matrícula vigente para o(a) aluno(a) selecionado.'
+    #     return render(request, 'portal/erro.html', {'erro': erro})
 
 
 @login_required

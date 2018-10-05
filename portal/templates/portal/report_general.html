@@ -16,6 +16,37 @@
     <div class="row mb-4">
         <div class="col-sm-3">
             <div class="card redonda">
+                <div class="card-header redonda btn-primary white-text">
+                    ADMINISTRATIVO
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="col">
+                            <button data-toggle="modal" href="#ModalDadosBancarios"
+                                    class="btn btn-rounded btn-primary btn-block mb-2">
+                                <i class="fa fa-dollar"></i> Financeiro
+                            </button>
+
+                            <button data-toggle="modal" href="#ModalListaAlunos"
+                                    class="btn btn-rounded btn-primary btn-block mb-2">
+                                <i class="fa fa-users"></i> Lista de alunos
+                            </button>
+                            {% if request.user.is_staff or request.user.is_superuser %}
+                                <button data-toggle="modal" href="#ModalMatriculaAluno"
+                                        class="btn btn-rounded btn-primary btn-block">
+                                    <i class="fa fa-graduation-cap"></i> Matrícula
+                                </button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="w-100 clearfix d-md-none">
+
+        </div>
+        <div class="col-sm-3">
+            <div class="card redonda">
                 <div class="card-header redonda btn-warning white-text">
                     AUTORIZAÇÕES DE SAÍDAS
                 </div>
@@ -96,37 +127,6 @@
                                     class="btn btn-rounded ifro-color btn-block">
                                 <i class="fa fa-graduation-cap"></i> Turma
                             </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <hr class="w-100 clearfix d-md-none">
-
-        <div class="col-sm-3">
-            <div class="card redonda">
-                <div class="card-header redonda btn-primary white-text">
-                    DIVERSOS
-                </div>
-                <div class="card-body">
-                    <div class="form-row">
-                        <div class="col">
-                            <button data-toggle="modal" href="#ModalDadosBancarios"
-                                    class="btn btn-rounded btn-primary btn-block mb-2">
-                                <i class="fa fa-dollar"></i> Financeiro
-                            </button>
-
-                            <button data-toggle="modal" href="#ModalListaAlunos"
-                                    class="btn btn-rounded btn-primary btn-block mb-2">
-                                <i class="fa fa-users"></i> Lista de alunos
-                            </button>
-                            {% if request.user.is_staff or request.user.is_superuser %}
-                                <button data-toggle="modal" href="#ModalMatriculaAluno"
-                                        class="btn btn-rounded btn-primary btn-block">
-                                    <i class="fa fa-graduation-cap"></i> Matrícula
-                                </button>
-                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -597,7 +597,9 @@
                     </div>
                     <!--Footer-->
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-rounded btn-info waves-effect" onclick="$('#ModalMatriculaAluno').modal('hide')">Enviar</button>
+                        <button type="submit" class="btn btn-rounded btn-info waves-effect"
+                                onclick="$('#ModalMatriculaAluno').modal('hide')">Enviar
+                        </button>
                         <a type="button" class="btn btn-rounded btn-outline-info"
                            data-dismiss="modal">Voltar</a>
                     </div>
