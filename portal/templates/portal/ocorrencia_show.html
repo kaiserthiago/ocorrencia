@@ -22,16 +22,20 @@
 
 {% block content %}
     <div id="div-buttons" class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-        <a href="#" onclick="window.print(); return false;" class="btn-floating btn-lg btn-danger">
-            <i class="fa fa-print"></i>
-        </a>
+        {#        <a href="#" onclick="window.print(); return false;" class="btn-floating btn-lg btn-danger">#}
+        {#            <i class="fa fa-print"></i>#}
+        {#        </a>#}
+
     </div>
     <br>
     <div class="row mb-4">
         <div class="col-sm-12">
             <div class="card redonda mb-3">
                 <div class="card-header redonda grey lighten-1 font-weight-bold" id="card">
-                    OCORRÊNCIA DISCIPLINAR {{ ocorrencia.id }}/{{ ano }}
+                    <p class="float-left m-0">
+                        OCORRÊNCIA DISCIPLINAR {{ ocorrencia.id }}/{{ ano }}
+                    </p>
+                    <a href="{% url 'report_pdf_ocorrencia' ocorrencia.id %}" class="float-right m-0">IMPRIMIR</a>
                 </div>
                 <div class="card-body border-primary">
                     <table class="table table-bordered table-sm">

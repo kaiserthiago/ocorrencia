@@ -2,22 +2,22 @@
 <html lang="pt-br">
 <head>
     <meta charset="utf-8">
-    <title>Declaração de Matrícula</title>
+    <title>Ocorrência Disciplinar - {{ ocorrencia.id }}/{{ ocorrencia.matricula.ano_letivo }}</title>
 
     <style type="text/css">
         @page {
             size: {{ pagesize|default:"A4" }};
-            margin-left: 2.5cm;
-            margin-right: 2.5cm;
-            margin-top: 2.5cm;
+            margin-left: 2cm;
+            margin-right: 2cm;
+            margin-top: 0.7cm;
             margin-bottom: 2cm;
 
             @frame header {
             -pdf-frame-content: page-header;
             margin-top: 0.7cm;
-            {#margin-right: 2mm;#}
-            {#margin-bottom: 0cm;#}
-            {#margin-left: 2cm;#}
+        {#margin-right: 2mm;#}
+        {#margin-bottom: 0cm;#}
+        {#margin-left: 2cm;#}
         }
 
         @frame footer {
@@ -32,98 +32,81 @@
 
 </head>
 <body>
-<div id="page-header">
-    <table cellpadding="0" cellspacing="0" width="100%">
-        <tbody>
-        <tr style="font-weight: bold; font-size: 14px">
-            <td colspan="3" style="text-align: center; vertical-align: middle">
-                <img src="{{ ocorrencia.user.userprofile.empresa.logo.url }}" width="150px"><br>
-                MINISTÉRIO DA EDUCAÇÃO<br>
-                SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA<br>
-                {{ ocorrencia.user.userprofile.empresa.razao_social|upper }}<br>
-                <em>CAMPUS </em>{{ ocorrencia.user.userprofile.empresa|upper }}
-            </td>
-        </tr>
-        </tbody>
-    </table>
+<div style="font-weight: bold; font-size: 14px; text-align: center; vertical-align: middle">
+    <img src="{{ ocorrencia.user.userprofile.empresa.logo.url }}" width="150px"><br>
+    MINISTÉRIO DA EDUCAÇÃO<br>
+    SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA<br>
+    {{ ocorrencia.user.userprofile.empresa.razao_social|upper }}<br>
+    <em>CAMPUS </em>{{ ocorrencia.user.userprofile.empresa|upper }}
 </div>
-<table border="1" cellpadding="5" cellspacing="0" width="100%">
-        <tr>
-            <td style="text-align: center">
-                <img src="http://frota.pythonanywhere.com/static/img/logo_ifro.png" width="120">
-            </td>
-            <td style="text-align: center; padding: 20px">
-                <p>
-                    <strong>
-                        MINISTÉRIO DA EDUCAÇÃO<br>
-                        {{ ocorrencia.user.userprofile.empresa.razao_social|upper }}<br>
-                        <em>CAMPUS </em>{{ ocorrencia.user.userprofile.empresa|upper }}
-                    </strong>
-                    <br>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" style="text-align: center; vertical-align: middle">
-                <strong>REGISTRO DE OCORRÊNCIA {{ ocorrencia.id }}/{{ ocorrencia.matricula.ano_letivo }}</strong>
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: left">
-                <p>
-                    <strong>DATA</strong><br>
-                    {{ ocorrencia.data }}
-                </p>
-            </td>
-            <td>
-                <p>
-                    <strong>CURSO</strong><br>
-                    {{ ocorrencia.matricula.turma|upper }}
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <p>
-                    <strong>ESTUDANTE</strong><br>
-                    {{ ocorrencia.matricula.ocorrencia.user.userprofile }}
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <p>
-                    <strong>DESCRIÇÃO DA FALTA</strong><br>
-                    ART. {{ ocorrencia.falta.categoria.artigo }} -
-                    {{ ocorrencia.falta.categoria.descricao|upper }}<br>
-                    {{ ocorrencia.falta.inciso }} - {{ ocorrencia.falta.descricao }}
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <p>
-                    <strong>DESCRIÇÃO DA OCORRÊNCIA</strong><br>
-                    {{ ocorrencia.descricao }}
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" style="text-align: center">
-                <p>
-                    <br>
-                    <strong>{{ ocorrencia.user|upper }}</strong><br>
-                    {{ ocorrencia.user.userprofile.siape }}
-                </p>
-            </td>
-        </tr>
-    </table>
+<br>
+<br>
+<br>
+<table border="1" cellpadding="5" cellspacing="0" width="100%" style="font-size: 12px; vertical-align: middle">
+    <tr>
+        <td colspan="2" style="text-align: center; vertical-align: middle">
+            <strong>REGISTRO DE OCORRÊNCIA {{ ocorrencia.id }}/{{ ocorrencia.matricula.ano_letivo }}</strong>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: left">
+            <p>
+                <strong>DATA</strong><br>
+                {{ ocorrencia.data }}
+            </p>
+        </td>
+        <td>
+            <p>
+                <strong>CURSO</strong><br>
+                {{ ocorrencia.matricula.turma|upper }}
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <p>
+                <strong>ESTUDANTE</strong><br>
+                {{ ocorrencia.matricula.aluno }}
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <p>
+                <strong>DESCRIÇÃO DA FALTA</strong><br>
+                ART. {{ ocorrencia.falta.categoria.artigo }} -
+                {{ ocorrencia.falta.categoria.descricao|upper }}<br>
+                {{ ocorrencia.falta.inciso }} - {{ ocorrencia.falta.descricao }}
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <p>
+                <strong>DESCRIÇÃO DA OCORRÊNCIA</strong><br>
+                {{ ocorrencia.descricao }}
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: center">
+            <p>
+                <br>
+                <strong>{{ ocorrencia.user|upper }}</strong><br>
+                {{ ocorrencia.user.userprofile.siape }}
+            </p>
+        </td>
+    </tr>
+</table>
+
 <div id="page-footer" style="text-align: center; font-size: 11px; border-top: 1px solid">
     <div style="padding-top: 2px">
-        {{ ocorrencia.user.userprofile.empresa.razao_social }} - <em>Campus</em> {{ ocorrencia.user.userprofile.empresa }}<br>
+        {{ ocorrencia.user.userprofile.empresa.razao_social }} -
+        <em>Campus</em> {{ ocorrencia.user.userprofile.empresa }}<br>
         {{ ocorrencia.user.userprofile.empresa.endereco }}, {{ ocorrencia.user.userprofile.empresa.bairro }},{{ ocorrencia.user.userprofile.empresa.cidade }}/{{ ocorrencia.user.userprofile.empresa.uf }},
         CEP {{ ocorrencia.user.userprofile.empresa.cep }}<br>
-        Fone: {{ ocorrencia.user.userprofile.empresa.fone }} / E-mail: {{ ocorrencia.user.userprofile.empresa.email }} / Site: {{ ocorrencia.user.userprofile.empresa.site }}
+        Fone: {{ ocorrencia.user.userprofile.empresa.fone }} / E-mail: {{ ocorrencia.user.userprofile.empresa.email }} /
+        Site: {{ ocorrencia.user.userprofile.empresa.site }}
     </div>
     {% comment %}
                 <pdf:pagenumber />
