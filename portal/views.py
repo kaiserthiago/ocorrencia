@@ -1718,20 +1718,27 @@ def report_pdf_encaminhamento(request, encaminhamento_id):
         return render(request, 'portal/erro.html', {'erro': erro})
 
 @login_required
-def report_diversos_lista_aluno_turma(request):
-    id = request.POST['SelectListaAlunosTurma']
-    turma = get_object_or_404(Turma, id=id)
-    ano = date.today().year
+def report_pdf_lista_aluno_turma(request):
+    # try:
+        id = request.POST['SelectListaAlunosTurma']
+        turma = get_object_or_404(Turma, id=id)
+        ano = date.today().year
 
-    alunos = Matricula.objects.filter(turma=turma, ano_letivo=date.today().year).order_by('aluno')
+        alunos = Matricula.objects.filter(turma=turma, ano_letivo=date.today().year).order_by('aluno')
 
-    context = {
-        'turma': turma,
-        'ano': ano,
-        'alunos': alunos
-    }
+        context = {
+            'turma': turma,
+            'ano': ano,
+            'alunos': alunos
+        }
 
-    return render(request, 'portal/report_diversos_lista_aluno_turma.html', context)
+        return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_lista_aluno_turma.html',
+                                                         context,
+                                                         using=None, download_filename=None,
+                                                         content_type='application/pdf', response_class=HttpResponse)
+    # except:
+    #     erro = 'Não existem dados para gerar o relatório solicitado.'
+    #     return render(request, 'portal/erro.html', {'erro': erro})
 
 
 @permission_required('is_superuser')

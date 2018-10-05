@@ -90,7 +90,7 @@ urlpatterns = [
 
     url(r'^report/diversos/matricula/pdf$', views.report_pdf_declaracao_matricula, name='report_pdf_declaracao_matricula'),
     url(r'^report/diversos/financeiro/turma$', views.report_diversos_dados_bancarios_turma, name='report_diversos_dados_bancarios_turma'),
-    url(r'^report/diversos/lista/turma$', views.report_diversos_lista_aluno_turma, name='report_diversos_lista_aluno_turma'),
+    url(r'^report/diversos/lista/turma$', views.report_pdf_lista_aluno_turma, name='report_pdf_lista_aluno_turma'),
 
     url(r'^report/general$', views.report_general, name='report_general'),
 
