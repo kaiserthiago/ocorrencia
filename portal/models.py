@@ -79,9 +79,10 @@ class Curso(AuditoriaMixin):
 class Turma(AuditoriaMixin):
     descricao = models.CharField(max_length=150)
     curso = models.ForeignKey(Curso, on_delete=models.DO_NOTHING)
+    turno = models.CharField(max_length=150)
 
     def __str__(self):
-        return self.curso.descricao + ' - ' + self.descricao
+        return self.curso.descricao + ' - ' + self.descricao + ' - ' + self.turno
 
     class Meta:
         ordering = ['descricao']

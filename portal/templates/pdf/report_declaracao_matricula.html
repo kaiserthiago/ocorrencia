@@ -16,7 +16,7 @@
             -pdf-frame-content: page-header;
             margin-top: 0.7cm;
             margin-right: 1cm;
-            {#margin-bottom: 0cm;#}
+        {#margin-bottom: 0cm;#}
             margin-left: 1cm;
         }
 
@@ -54,7 +54,8 @@
                 Declaramos que {{ aluno.nome }}, nascido(a) em {{ aluno.nascimento }}, portador(a) do
                 RGº {{ aluno.rg }} {{ aluno.emissor }}, CPF nº {{ aluno.cpf }}, matrícula
                 nº {{ aluno.numero_matricula }} está devidamente MATRICULADO(A), nesta Instituição Federal de Ensino, na
-                turma {{ matricula.turma.descricao }} do curso {{ matricula.turma.curso.descricao|upper }}.
+                turma {{ matricula.turma.descricao }} do curso {{ matricula.turma.curso.descricao|upper }} no
+                turno {{ matricula.turma.turno }}.
             </p>
 
             <p style="text-align: justify; text-indent: 50px">
@@ -73,7 +74,8 @@
     </tbody>
 </table>
 <div id="page-footer" style="text-align: right; font-size: 11px">
-    Página <pdf:pagenumber/>
+    Página
+    <pdf:pagenumber/>
     <div style="text-align:center;padding-top: 2px; border-top: 1px solid">
         {{ aluno.empresa.razao_social }} -
         <em>Campus</em> {{ aluno.empresa }}<br>
