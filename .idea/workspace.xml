@@ -4,7 +4,16 @@
     <bookmark url="file://$PROJECT_DIR$/portal/templates/portal/curso.html" line="47" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="" />
+    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/portal/templates/pdf/report_declaracao_conclusao_integrado.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/templates/pdf/report_declaracao_sabado_letivo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/templates/pdf/report_declaracao_transferencia.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/report_general.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/report_general.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,8 +36,10 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3">
-              <caret line="2041" column="28" selection-start-line="2041" selection-start-column="19" selection-end-line="2041" selection-end-column="28" />
+            <state relative-caret-position="217">
+              <caret line="1770" column="23" selection-start-line="1770" selection-start-column="23" selection-end-line="1770" selection-end-column="23" />
+              <caret line="1770" column="36" selection-start-line="1770" selection-start-column="36" selection-end-line="1770" selection-end-column="36" />
+              <caret line="1766" column="18" selection-start-line="1766" selection-start-column="18" selection-end-line="1766" selection-end-column="18" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -36,20 +47,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/urls.py">
+      <file leaf-file-name="report_declaracao_transferencia.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/pdf/report_declaracao_transferencia.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="20">
+              <caret line="61" column="87" selection-start-line="61" selection-start-column="87" selection-end-line="61" selection-end-column="87" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="encaminhamento_solicitar.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_solicitar.html">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="37" column="65" selection-start-line="37" selection-start-column="65" selection-end-line="37" selection-end-column="65" />
+            <state relative-caret-position="420">
+              <caret line="92" column="140" selection-start-line="92" selection-start-column="140" selection-end-line="92" selection-end-column="140" />
             </state>
           </provider>
         </entry>
@@ -57,42 +68,70 @@
       <file leaf-file-name="ocorrencia_new.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="63" selection-start-line="63" selection-end-line="64" />
+            <state relative-caret-position="225">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="encaminhamento_pendente.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_pendente.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="encaminhamento.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento.html">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="637">
-              <caret line="170" column="23" selection-start-line="170" selection-start-column="23" selection-end-line="170" selection-end-column="23" />
+            <state relative-caret-position="223">
+              <caret line="385" column="14" selection-start-line="385" selection-start-column="14" selection-end-line="385" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ocorrencia.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia.html">
+      <file leaf-file-name="report_declaracao_matricula.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/pdf/report_declaracao_matricula.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="737">
-              <caret line="171" column="14" selection-start-line="171" selection-start-column="14" selection-end-line="171" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="368" column="28" selection-start-line="368" selection-start-column="28" selection-end-line="368" selection-end-column="28" />
+            <state relative-caret-position="900">
+              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="report_declaracao_sabado_letivo.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/pdf/report_declaracao_sabado_letivo.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="65" selection-start-line="65" selection-end-line="65" />
+              <folding>
+                <element signature="n#style#0;n#p#1;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="report_general.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/report_general.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="237">
+              <caret line="739" column="79" selection-start-line="739" selection-start-column="79" selection-end-line="739" selection-end-column="79" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="report_declaracao_conclusao_integrado.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/portal/templates/pdf/report_declaracao_conclusao_integrado.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="277">
+              <caret line="55" column="83" selection-start-line="55" selection-start-column="83" selection-end-line="55" selection-end-column="83" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#1;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#2;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#3;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -110,15 +149,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="aluno_edit.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_edit.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="119" column="76" selection-start-line="117" selection-start-column="40" selection-end-line="119" selection-end-column="76" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -131,10 +161,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>aluno</find>
-      <find>Ocorrência</find>
-      <find>lista_al</find>
-      <find>table-sm</find>
       <find>table-striped</find>
       <find>aluno.aluno</find>
       <find>report_pdf_o</find>
@@ -161,30 +187,30 @@
       <find>tofor</find>
       <find>type=&quot;hidd</find>
       <find>solicitar</find>
+      <find>turma(a</find>
+      <find>declarao</find>
+      <find>matricula.aluno.</find>
+      <find>aluno.</find>
     </findStrings>
     <replaceStrings>
-      <replace />
-      <replace />
       <replace>btn-primary-modal</replace>
       <replace>btn-primary</replace>
       <replace>btn-outline-secondary-modal</replace>
       <replace>btn-outline-primary</replace>
-      <replace />
+      <replace>form-control md-textarea</replace>
       <replace>btn-danger</replace>
-      <replace />
+      <replace>mdb-select md-form colorful-select dropdown-success</replace>
       <replace>aluno.aluno</replace>
-      <replace>aluno.aluno.</replace>
-      <replace>aluno.</replace>
       <replace>class_conselho_menu</replace>
-      <replace />
-      <replace />
-      <replace />
-      <replace />
-      <replace />
+      <replace>Conselho de classe</replace>
+      <replace>{% endblock %}</replace>
+      <replace>SGE - Sistema de Gestão Estudantil</replace>
+      <replace>Tem certeza que deseja excluir?</replace>
+      <replace>&lt;div class=&quot;modal-body text-center&quot;&gt;</replace>
       <replace>Coordenador</replace>
       <replace>Educacional</replace>
       <replace>form-row</replace>
-      <replace />
+      <replace>class=&quot;card redonda&quot;</replace>
       <replace>Encaminhamento</replace>
       <replace>ENCAMINHAMENTO</replace>
       <replace>turma</replace>
@@ -193,6 +219,10 @@
       <replace>encaminhamentof.user.userprofile</replace>
       <replace>ocorrencia.user.userprofile</replace>
       <replace>aluno</replace>
+      <replace>matricula.aluno.</replace>
+      <replace>aluno.</replace>
+      <replace>turma.</replace>
+      <replace>aluno.aluno.</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -201,9 +231,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/portal/templates/portal/turma.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/matricula.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/categoria_servico.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/configuracao.html" />
@@ -227,7 +254,6 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/user_account.html" />
         <option value="$PROJECT_DIR$/ocorrencia/settings.py" />
         <option value="$PROJECT_DIR$/portal/templatetags/has_group.py" />
-        <option value="$PROJECT_DIR$/portal/templates/base.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/aluno.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/report_diversos_declaracao_matricula.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/erro.html" />
@@ -236,22 +262,26 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_relatorio.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao_relatorio.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/report_general.html" />
         <option value="$PROJECT_DIR$/portal/templates/pdf/report_dados_bancarios.html" />
         <option value="$PROJECT_DIR$/portal/templates/pdf/report_lista_aluno_turma.html" />
         <option value="$PROJECT_DIR$/portal/templates/pdf/report_encaminhamento.html" />
         <option value="$PROJECT_DIR$/portal/templates/pdf/report_ocorrencia.html" />
-        <option value="$PROJECT_DIR$/portal/templates/pdf/report_declaracao_matricula.html" />
         <option value="$PROJECT_DIR$/login/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/perfil_individual.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_show.html" />
         <option value="$PROJECT_DIR$/portal/templates/emails/registra-encaminhamento-providencias.html" />
         <option value="$PROJECT_DIR$/portal/templates/emails/registra-encaminhamento.html" />
-        <option value="$PROJECT_DIR$/portal/urls.py" />
-        <option value="$PROJECT_DIR$/portal/views.py" />
-        <option value="$PROJECT_DIR$/portal/models.py" />
         <option value="$PROJECT_DIR$/portal/forms.py" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_solicitar.html" />
+        <option value="$PROJECT_DIR$/portal/models.py" />
+        <option value="$PROJECT_DIR$/portal/templates/pdf/report_declaracao_matricula.html" />
+        <option value="$PROJECT_DIR$/portal/templates/base.html" />
+        <option value="$PROJECT_DIR$/portal/templates/pdf/report_declaracao_sabado_letivo.html" />
+        <option value="$PROJECT_DIR$/portal/templates/pdf/report_declaracao_transferencia.html" />
+        <option value="$PROJECT_DIR$/portal/urls.py" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/report_general.html" />
+        <option value="$PROJECT_DIR$/portal/views.py" />
+        <option value="$PROJECT_DIR$/portal/templates/pdf/report_declaracao_conclusao_integrado.html" />
       </list>
     </option>
   </component>
@@ -266,7 +296,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
-    <option name="width" value="979" />
+    <option name="width" value="980" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -299,6 +329,13 @@
               <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
               <item name="portal" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="pdf" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
+              <item name="portal" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="portal" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -314,16 +351,16 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Dados\Desktop\Python\ocorrencia\portal\templates\pdf" />
-      <recent name="D:\Dados\Desktop\Python\ocorrencia\login\templates\registration" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Dados\Desktop\Python\ocorrencia\portal\templates\portal" />
       <recent name="D:\Dados\Desktop\Python\ocorrencia\portal\templates\pdf" />
+      <recent name="D:\Dados\Desktop\Python\ocorrencia\portal\templates\portal" />
       <recent name="D:\Dados\Desktop\Python\ocorrencia\portal\templatetags" />
       <recent name="D:\Dados\Desktop\Python\ocorrencia\portal" />
       <recent name="D:\Dados\Desktop\Python\ocorrencia\portal\templates\emails" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Dados\Desktop\Python\ocorrencia\portal\templates\pdf" />
+      <recent name="D:\Dados\Desktop\Python\ocorrencia\login\templates\registration" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -443,7 +480,6 @@
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49931034" visible="true" weight="0.2298177" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32965517" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5006896" side_tool="true" weight="0.2298177" />
@@ -455,6 +491,7 @@
       <window_info anchor="right" id="Data View" order="4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32965517" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="12" weight="0.3281768" />
     </layout>
   </component>
@@ -470,16 +507,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/portal/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40720">
-          <caret line="2036" column="13" lean-forward="true" selection-start-line="2036" selection-start-column="13" selection-end-line="2036" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/login/templates/registration/register_success.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1520">
@@ -571,13 +598,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="214" selection-start-line="214" selection-end-line="214" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templatetags/index.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -664,13 +684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/report_general.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="489" column="48" selection-start-line="489" selection-start-column="48" selection-end-line="489" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_show.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="337">
@@ -706,13 +719,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/pdf/report_declaracao_matricula.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="48" column="73" selection-start-line="48" selection-start-column="73" selection-end-line="48" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/login/templates/registration/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -733,9 +739,6 @@
           <caret line="127" column="63" selection-start-line="127" selection-start-column="63" selection-end-line="127" selection-end-column="63" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/configuracao.html">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-encaminhamento-providencias.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -758,61 +761,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_pendente.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="737">
+        <state relative-caret-position="3420">
           <caret line="171" column="14" selection-start-line="171" selection-start-column="14" selection-end-line="171" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
+        <state relative-caret-position="3400">
           <caret line="170" column="23" selection-start-line="170" selection-start-column="23" selection-end-line="170" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="368" column="28" selection-start-line="368" selection-start-column="28" selection-end-line="368" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="63" selection-start-line="63" selection-end-line="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3">
-          <caret line="2041" column="28" selection-start-line="2041" selection-start-column="19" selection-end-line="2041" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
+        <state relative-caret-position="2380">
           <caret line="119" column="76" selection-start-line="117" selection-start-column="40" selection-end-line="119" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_solicitar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="37" column="65" selection-start-line="37" selection-start-column="65" selection-end-line="37" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="84" column="81" selection-start-line="84" selection-start-column="81" selection-end-line="84" selection-end-column="81" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/pdf/report_declaracao_matricula.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+          <folding>
+            <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -826,10 +819,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_solicitar.html">
+    <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="385" column="14" selection-start-line="385" selection-start-column="14" selection-end-line="385" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/pdf/report_declaracao_sabado_letivo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+          <folding>
+            <element signature="n#style#0;n#p#1;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/pdf/report_declaracao_transferencia.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="61" column="87" selection-start-line="61" selection-start-column="87" selection-end-line="61" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/report_general.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="739" column="79" selection-start-line="739" selection-start-column="79" selection-end-line="739" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="92" column="140" selection-start-line="92" selection-start-column="140" selection-end-line="92" selection-end-column="140" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="1770" column="23" selection-start-line="1770" selection-start-column="23" selection-end-line="1770" selection-end-column="23" />
+          <caret line="1770" column="36" selection-start-line="1770" selection-start-column="36" selection-end-line="1770" selection-end-column="36" />
+          <caret line="1766" column="18" selection-start-line="1766" selection-start-column="18" selection-end-line="1766" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/pdf/report_declaracao_conclusao_integrado.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
-          <caret line="37" column="65" selection-start-line="37" selection-start-column="65" selection-end-line="37" selection-end-column="65" />
+          <caret line="55" column="83" selection-start-line="55" selection-start-column="83" selection-end-line="55" selection-end-column="83" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#2;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#3;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

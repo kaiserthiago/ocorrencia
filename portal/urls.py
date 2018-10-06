@@ -90,7 +90,10 @@ urlpatterns = [
 
     url(r'^report/pdf/encaminhamento/(?P<encaminhamento_id>\d+)$', views.report_pdf_encaminhamento, name='report_pdf_encaminhamento'),
     url(r'^report/pdf/ocorrencia/(?P<ocorrencia_id>\d+)$', views.report_pdf_ocorrencia, name='report_pdf_ocorrencia'),
+    url(r'^report/pdf/conclusao/integrado', views.report_pdf_declaracao_conclusao_integrado, name='report_pdf_declaracao_conclusao_integrado'),
+    url(r'^report/pdf/transferencia$', views.report_pdf_declaracao_transferencia, name='report_pdf_declaracao_transferencia'),
     url(r'^report/pdf/matricula$', views.report_pdf_declaracao_matricula, name='report_pdf_declaracao_matricula'),
+    url(r'^report/pdf/sabado$', views.report_pdf_declaracao_sabado_letivo, name='report_pdf_declaracao_sabado_letivo'),
 
     url(r'^report/general$', views.report_general, name='report_general'),
 

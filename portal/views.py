@@ -1700,6 +1700,90 @@ def report_pdf_declaracao_matricula(request):
 
 
 @login_required
+def report_pdf_declaracao_transferencia(request):
+    try:
+        id = request.POST['SelectDeclaraoTransferenciaAluno']
+        aluno = get_object_or_404(Aluno, id=id)
+        data = date.today()
+        usuario = get_object_or_404(User, id=request.user.id)
+
+        matricula = get_object_or_404(Matricula, aluno=aluno, ano_letivo=data.year)
+
+        context = {
+            'aluno': aluno,
+            'matricula': matricula,
+            'data': data,
+            'usuario': usuario
+        }
+
+        return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_declaracao_transferencia.html',
+                                                         context,
+                                                         using=None, download_filename=None,
+                                                         content_type='application/pdf', response_class=HttpResponse)
+    except:
+        erro = 'Não há matrícula vigente para o(a) aluno(a) selecionado.'
+        return render(request, 'portal/erro.html', {'erro': erro})
+
+
+@login_required
+def report_pdf_declaracao_sabado_letivo(request):
+    try:
+        id = request.POST['SelectSabadoLetivoAluno']
+        aluno = get_object_or_404(Aluno, id=id)
+        dia = request.POST['data_sabado']
+        dia = dia[8:10] + '/' + dia[5:7] + '/' + dia[0:4]
+        data = date.today()
+        usuario = get_object_or_404(User, id=request.user.id)
+
+        matricula = get_object_or_404(Matricula, aluno=aluno, ano_letivo=data.year)
+
+        context = {
+            'aluno': aluno,
+            'matricula': matricula,
+            'data': data,
+            'dia': dia,
+            'usuario': usuario
+        }
+
+        return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_declaracao_sabado_letivo.html',
+                                                         context,
+                                                         using=None, download_filename=None,
+                                                         content_type='application/pdf', response_class=HttpResponse)
+    except:
+        erro = 'Não há matrícula vigente para o(a) aluno(a) selecionado.'
+        return render(request, 'portal/erro.html', {'erro': erro})
+
+@login_required
+def report_pdf_declaracao_conclusao_integrado(request):
+    # try:
+        id = request.POST['SelectConclusaoIntegradoTurma']
+        turma = get_object_or_404(Turma, id=id)
+
+        dia = request.POST['data_colacao']
+        dia = dia[8:10] + '/' + dia[5:7] + '/' + dia[0:4]
+        data = date.today()
+        usuario = get_object_or_404(User, id=request.user.id)
+
+        matriculas = Matricula.objects.filter(turma=turma, ano_letivo=data.year, empresa=request.user.userprofile.empresa)
+
+        context = {
+            'turma': turma,
+            'matriculas': matriculas,
+            'data': data,
+            'dia': dia,
+            'usuario': usuario
+        }
+
+        return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_declaracao_conclusao_integrado.html',
+                                                         context,
+                                                         using=None, download_filename=None,
+                                                         content_type='application/pdf', response_class=HttpResponse)
+    # except:
+    #     erro = 'Não foi possível imprimir as declarações. Por favor contate o suporte.'
+    #     return render(request, 'portal/erro.html', {'erro': erro})
+
+
+@login_required
 def report_pdf_ocorrencia(request, ocorrencia_id):
     try:
         ocorrencia = get_object_or_404(Ocorrencia, id=ocorrencia_id)
