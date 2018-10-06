@@ -399,6 +399,8 @@ def aluno_new(request):
             aluno.agencia = form.cleaned_data['agencia']
             aluno.conta = form.cleaned_data['conta']
 
+            aluno.contato = form.cleaned_data['contato']
+
             aluno.empresa = request.user.userprofile.empresa
 
             aluno.save()
@@ -454,6 +456,8 @@ def aluno_edit(request, aluno_id):
             aluno.banco = form.cleaned_data['banco']
             aluno.agencia = form.cleaned_data['agencia']
             aluno.conta = form.cleaned_data['conta']
+
+            aluno.contato = form.cleaned_data['contato']
 
             aluno.save()
 
@@ -653,6 +657,8 @@ def aluno_perfil_edit(request, aluno_id, page, turma):
             aluno.banco = form.cleaned_data['banco']
             aluno.agencia = form.cleaned_data['agencia']
             aluno.conta = form.cleaned_data['conta']
+
+            aluno.contato = form.cleaned_data['contato']
 
             aluno.save()
 

@@ -17,7 +17,7 @@
     {% else %}
         <ol class="breadcrumb blue-grey lighten-4">
             <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
-            <li class="breadcrumb-item"><a href="{% url 'perfil' %}">Perfil</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'aluno' %}?qs={{ qs }}">Alunos</a></li>
             <li class="breadcrumb-item active">Perfil aluno - {{ aluno.nome }}</li>
         </ol>
     {% endif %}
