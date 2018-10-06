@@ -4,12 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/portal/templates/portal/curso.html" line="47" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/aluno_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/aluno_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/perfil_individual.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/perfil_individual.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +24,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="243">
@@ -98,7 +93,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="forms.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/forms.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-477">
@@ -831,16 +826,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-477">
-          <caret line="153" column="12" selection-start-line="153" selection-start-column="6" selection-end-line="153" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_edit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
@@ -854,6 +839,16 @@
           <caret line="418" column="44" selection-start-line="418" selection-start-column="35" selection-end-line="418" selection-end-column="44" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-477">
+          <caret line="153" column="12" selection-start-line="153" selection-start-column="6" selection-end-line="153" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
           </folding>
         </state>
       </provider>

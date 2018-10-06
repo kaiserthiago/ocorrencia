@@ -63,7 +63,7 @@ class AutorizacaoAdmin(admin.ModelAdmin):
 
 
 class TurmaAdmin(admin.ModelAdmin):
-    list_display = ('id', 'curso', 'descricao', 'empresa')
+    list_display = ('id', 'curso', 'descricao', 'turno', 'empresa')
     list_filter = ['curso', 'empresa']
     search_fields = ['descricao']
 
