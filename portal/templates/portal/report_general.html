@@ -502,7 +502,7 @@
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                 </div>
-                <form action="{% url 'report_pdf_dados_bancarios' %}" method="POST">
+                <form action="{% url 'report_pdf_dados_bancarios' %}" method="POST" target="_blank">
                     <!--Body-->
                     <div class="modal-body">
                         {% csrf_token %}
@@ -524,7 +524,8 @@
                     </div>
                     <!--Footer-->
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-rounded btn-info waves-effect">Enviar</button>
+                        <button type="submit" class="btn btn-rounded btn-info waves-effect"
+                        onclick="$('#ModalDadosBancarios').modal('hide')">Enviar</button>
                         <a type="button" class="btn btn-rounded btn-outline-info"
                            data-dismiss="modal">Voltar</a>
                     </div>
@@ -549,7 +550,7 @@
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                 </div>
-                <form action="{% url 'report_pdf_lista_aluno_turma' %}" method="POST">
+                <form action="{% url 'report_pdf_lista_aluno_turma' %}" method="POST" target="_blank">
                     <!--Body-->
                     <div class="modal-body">
                         {% csrf_token %}
@@ -571,7 +572,8 @@
                     </div>
                     <!--Footer-->
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-rounded btn-info waves-effect">Enviar</button>
+                        <button type="submit" class="btn btn-rounded btn-info waves-effect"
+                        onclick="$('#ModalListaAlunos').modal('hide')">Enviar</button>
                         <a type="button" class="btn btn-rounded btn-outline-info"
                            data-dismiss="modal">Voltar</a>
                     </div>
