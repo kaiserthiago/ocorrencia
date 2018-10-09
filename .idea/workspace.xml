@@ -4,9 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/portal/templates/portal/curso.html" line="47" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="2119" column="23" selection-start-line="2119" selection-start-column="23" selection-end-line="2119" selection-end-column="23" />
+            <state relative-caret-position="456">
+              <caret line="2124" column="46" lean-forward="true" selection-start-line="2124" selection-start-column="46" selection-end-line="2124" selection-end-column="46" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -55,11 +53,11 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="encaminhamento_new.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="encaminhamento_new.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_new.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="280">
-              <caret line="80" column="67" lean-forward="true" selection-start-line="80" selection-start-column="67" selection-end-line="80" selection-end-column="67" />
+              <caret line="80" column="60" lean-forward="true" selection-start-line="80" selection-start-column="60" selection-end-line="80" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -156,7 +154,7 @@
       <find>declarao</find>
       <find>matricula.aluno.</find>
       <find>aluno.</find>
-      <find>def aluno(re</find>
+      <find />
       <find>perfil_indi</find>
       <find>alunof</find>
       <find>aluno_edit(</find>
@@ -169,20 +167,20 @@
       <replace>btn-primary</replace>
       <replace>btn-outline-secondary-modal</replace>
       <replace>btn-outline-primary</replace>
-      <replace>form-control md-textarea</replace>
+      <replace />
       <replace>btn-danger</replace>
-      <replace>mdb-select md-form colorful-select dropdown-success</replace>
+      <replace />
       <replace>aluno.aluno</replace>
       <replace>class_conselho_menu</replace>
-      <replace>Conselho de classe</replace>
-      <replace>{% endblock %}</replace>
-      <replace>SGE - Sistema de Gestão Estudantil</replace>
-      <replace>Tem certeza que deseja excluir?</replace>
-      <replace>&lt;div class=&quot;modal-body text-center&quot;&gt;</replace>
+      <replace />
+      <replace />
+      <replace />
+      <replace />
+      <replace />
       <replace>Coordenador</replace>
       <replace>Educacional</replace>
       <replace>form-row</replace>
-      <replace>class=&quot;card redonda&quot;</replace>
+      <replace />
       <replace>Encaminhamento</replace>
       <replace>ENCAMINHAMENTO</replace>
       <replace>turma</replace>
@@ -252,8 +250,8 @@
         <option value="$PROJECT_DIR$/portal/templates/pdf/report_declaracao_transferencia.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/perfil_individual.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/aluno_edit.html" />
-        <option value="$PROJECT_DIR$/portal/views.py" />
         <option value="$PROJECT_DIR$/portal/admin.py" />
+        <option value="$PROJECT_DIR$/portal/views.py" />
       </list>
     </option>
   </component>
@@ -444,7 +442,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" weight="0.32965517" />
@@ -826,20 +823,20 @@
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/report_general.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="2119" column="23" selection-start-line="2119" selection-start-column="23" selection-end-line="2119" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_new.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
-          <caret line="80" column="67" lean-forward="true" selection-start-line="80" selection-start-column="67" selection-end-line="80" selection-end-column="67" />
+          <caret line="80" column="60" lean-forward="true" selection-start-line="80" selection-start-column="60" selection-end-line="80" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="2124" column="46" lean-forward="true" selection-start-line="2124" selection-start-column="46" selection-end-line="2124" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
