@@ -2113,12 +2113,13 @@ def encaminhamento_new(request):
             turma = get_object_or_404(Turma, id=id)
             matriculas = Matricula.objects.filter(turma=turma, ano_letivo=int(date.today().year))
 
-            categorias = CategoriaFalta.objects.all().order_by('artigo')
+            servico_categorias = ServicoCategoria.objects.filter(empresa=request.user.userprofile.empresa).order_by(
+                'descricao')
 
             form = EncaminhamentoForm()
 
             context = {
-                'categorias': categorias,
+                'servico_categorias': servico_categorias,
                 'matriculas': matriculas,
                 'turma': turma,
                 'ano': int(date.today().year),
