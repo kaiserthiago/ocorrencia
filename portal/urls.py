@@ -89,6 +89,7 @@ urlpatterns = [
     url(r'^report/diversos/lista/turma$', views.report_pdf_lista_aluno_turma, name='report_pdf_lista_aluno_turma'),
 
     url(r'^report/pdf/encaminhamento/(?P<encaminhamento_id>\d+)$', views.report_pdf_encaminhamento, name='report_pdf_encaminhamento'),
+    url(r'^report/pdf/autorizacao/(?P<autorizacao_id>\d+)$', views.report_pdf_autorizacao, name='report_pdf_autorizacao'),
     url(r'^report/pdf/ocorrencia/(?P<ocorrencia_id>\d+)$', views.report_pdf_ocorrencia, name='report_pdf_ocorrencia'),
     url(r'^report/pdf/conclusao/integrado', views.report_pdf_declaracao_conclusao_integrado, name='report_pdf_declaracao_conclusao_integrado'),
     url(r'^report/pdf/transferencia$', views.report_pdf_declaracao_transferencia, name='report_pdf_declaracao_transferencia'),

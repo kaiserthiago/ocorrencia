@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="utf-8">
-    <title>Ocorrência Disciplinar - {{ ocorrencia.id }}/{{ ocorrencia.matricula.ano_letivo }}</title>
+    <title>Autorização de Saída - {{ autorizacao.id }}/{{ autorizacao.matricula.ano_letivo }}</title>
 
     <style type="text/css">
         @page {
@@ -34,17 +34,16 @@
 <body>
 <div id="page-header">
     <div style="font-weight: bold; font-size: 12px; text-align: center; vertical-align: middle; border-bottom: 1px solid">
-        <img src="{{ ocorrencia.user.userprofile.empresa.logo.url }}" width="120px"><br>
+        <img src="{{ autorizacao.user.userprofile.empresa.logo.url }}" width="120px"><br>
         MINISTÉRIO DA EDUCAÇÃO<br>
         SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA<br>
-        {{ ocorrencia.user.userprofile.empresa.razao_social|upper }}<br>
-        <em>CAMPUS </em>{{ ocorrencia.user.userprofile.empresa|upper }}
+        {{ autorizacao.user.userprofile.empresa.razao_social|upper }}<br>
+        <em>CAMPUS </em>{{ autorizacao.user.userprofile.empresa|upper }}
     </div>
     <div style="padding-top:5px; font-weight: bold; font-size: 12px; text-align: center; vertical-align: middle">
-        <h3>REGISTRO DE OCORRÊNCIA {{ ocorrencia.id }}/{{ ocorrencia.matricula.ano_letivo }}</h3>
+        <h3>REGISTRO DE AUTORIZAÇÃO DE SAÍDA {{ autorizacao.id }}/{{ autorizacao.matricula.ano_letivo }}</h3>
     </div>
 </div>
-
 
 <table cellpadding="5" cellspacing="0"
        style="border: 1px solid #ddd; width: 100%; font-size: 12px; vertical-align: middle">
@@ -52,13 +51,13 @@
         <td style="text-align: left">
             <p>
                 <strong>DATA</strong><br>
-                {{ ocorrencia.data }}
+                {{ autorizacao.data }}
             </p>
         </td>
         <td>
             <p>
                 <strong>CURSO</strong><br>
-                {{ ocorrencia.matricula.turma|upper }}
+                {{ autorizacao.matricula.turma|upper }}
             </p>
         </td>
     </tr>
@@ -66,38 +65,43 @@
         <td colspan="2">
             <p>
                 <strong>ESTUDANTE</strong><br>
-                {{ ocorrencia.matricula.aluno }}
+                {{ autorizacao.matricula.aluno }}
             </p>
         </td>
     </tr>
+    {#    <tr>#}
+    {#        <td colspan="2">#}
+    {#            <p>#}
+    {#                <strong>CATEGORIA DO autorizacao</strong><br>#}
+    {#                {{ autorizacao.servico.categoria.descricao|upper }}<br>#}
+    {#                {{ autorizacao.servico.descricao }}#}
+    {#            </p>#}
+    {#        </td>#}
+    {#    </tr>#}
     <tr>
-        <td colspan="2">
+        <td>
             <p>
-                <strong>DESCRIÇÃO DA FALTA</strong><br>
-                ART. {{ ocorrencia.falta.categoria.artigo }} -
-                {{ ocorrencia.falta.categoria.descricao|upper }}<br>
-                {{ ocorrencia.falta.inciso }} - {{ ocorrencia.falta.descricao }}
+                <strong>DESCRIÇÃO DA AUTORIZAÇÃO DE SAÍDA</strong><br>
+                {{ autorizacao.descricao }}
             </p>
         </td>
-    </tr>
-    <tr>
-        <td colspan="2">
+        <td>
             <p>
-                <strong>DESCRIÇÃO DA OCORRÊNCIA</strong><br>
-                {{ ocorrencia.descricao }}
+                <strong>DATA E HORA DA SAÍDA</strong><br>
+                {{ autorizacao.update_at }}
             </p>
         </td>
     </tr>
     <tr>
         <td colspan="2" style="text-align: center">
             <p style="text-align: left">
-                    <strong>REGISTRADO POR</strong>
-                </p>
-                <br>
-            <p>
+                <strong>AUTORIZADO POR</strong>
+            </p>
 
-                <strong>{{ ocorrencia.user|upper }}</strong><br>
-                {{ ocorrencia.user.userprofile.siape }}
+            <p>
+                <br>
+                <strong>{{ autorizacao.user|upper }}</strong><br>
+                {{ autorizacao.user.userprofile.siape }}
             </p>
         </td>
     </tr>
@@ -107,12 +111,13 @@
 {#    Página#}
 {#    <pdf:pagenumber/>#}
     <div style="text-align:center;padding-top: 2px; border-top: 1px solid">
-        {{ ocorrencia.user.userprofile.empresa.razao_social }} -
-        <em>Campus</em> {{ ocorrencia.user.userprofile.empresa }}<br>
-        {{ ocorrencia.user.userprofile.empresa.endereco }}, {{ ocorrencia.user.userprofile.empresa.bairro }},{{ ocorrencia.user.userprofile.empresa.cidade }}/{{ ocorrencia.user.userprofile.empresa.uf }},
-        CEP {{ ocorrencia.user.userprofile.empresa.cep }}<br>
-        Fone: {{ ocorrencia.user.userprofile.empresa.fone }} / E-mail: {{ ocorrencia.user.userprofile.empresa.email }} /
-        Site: {{ ocorrencia.user.userprofile.empresa.site }}
+        {{ autorizacao.user.userprofile.empresa.razao_social }} -
+        <em>Campus</em> {{ autorizacao.user.userprofile.empresa }}<br>
+        {{ autorizacao.user.userprofile.empresa.endereco }}, {{ autorizacao.user.userprofile.empresa.bairro }},{{ autorizacao.user.userprofile.empresa.cidade }}/{{ autorizacao.user.userprofile.empresa.uf }},
+        CEP {{ autorizacao.user.userprofile.empresa.cep }}<br>
+        Fone: {{ autorizacao.user.userprofile.empresa.fone }} /
+        E-mail: {{ autorizacao.user.userprofile.empresa.email }} /
+        Site: {{ autorizacao.user.userprofile.empresa.site }}
     </div>
 </div>
 </body>

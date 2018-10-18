@@ -124,19 +124,20 @@
         </tr>
         <tr>
             <td style="text-align: center; width: 50%">
-                <p>
+                <p style="text-align: left">
                     <strong>ENCAMINHADO POR</strong>
                 </p>
-
+                <br>
                 <p>
                     <strong>{{ encaminhamento.user|upper }}</strong><br>
                     {{ encaminhamento.user.userprofile.siape }}
                 </p>
             </td>
             <td style="text-align: center; width: 50%">
-                <p>
+                <p style="text-align: left">
                     <strong>ENCAMINHAMENTO ATENDIDO POR</strong>
                 </p>
+                <br>
                 <p>
                     <strong>{{ encaminhamento.responsavel_providencias|upper }}</strong><br>
                     {{ encaminhamento.responsavel_providencias.userprofile.siape }}
@@ -146,19 +147,20 @@
     {% else %}
         <tr>
             <td style="text-align: center; width: 50%">
-                <p>
+                <p style="text-align: left">
                     <strong>ENCAMINHADO POR</strong>
                 </p>
-
+                <br>
                 <p>
                     <strong>{{ encaminhamento.user|upper }}</strong><br>
                     {{ encaminhamento.user.userprofile.siape }}
                 </p>
             </td>
             <td style="text-align: center; width: 50%">
-                <p>
+                <p style="text-align: left">
                     <strong>ENCAMINHAMENTO ATENDIDO POR</strong>
                 </p>
+                <br>
                 <p>
                     Aguardando posicionamento do setor responsável.
                 </p>
@@ -168,8 +170,8 @@
 </table>
 
 <div id="page-footer" style="text-align: right; font-size: 11px">
-    Página
-    <pdf:pagenumber/>
+    {#    Página#}
+    {#    <pdf:pagenumber/>#}
     <div style="text-align:center;padding-top: 2px; border-top: 1px solid">
         {{ encaminhamento.user.userprofile.empresa.razao_social }} -
         <em>Campus</em> {{ encaminhamento.user.userprofile.empresa }}<br>

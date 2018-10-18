@@ -1,4 +1,4 @@
-  {% extends 'base.html' %}
+{% extends 'base.html' %}
 {% block title %}Autorizações de saída{% endblock %}
 {% block class_registros_menu %}active{% endblock %}
 {% block class_registros_autorizacao_item %}collapsible-header active{% endblock %}
@@ -21,17 +21,21 @@
 {% endblock %}
 
 {% block content %}
-    <div id="div-buttons" class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-        <a href="#" onclick="window.print(); return false;" class="btn-floating btn-lg btn-danger">
-            <i class="fa fa-print"></i>
-        </a>
-    </div>
-    <br>
+{#    <div id="div-buttons" class="fixed-action-btn" style="bottom: 45px; right: 24px;">#}
+{#        <a href="#" onclick="window.print(); return false;" class="btn-floating btn-lg btn-danger">#}
+{#            <i class="fa fa-print"></i>#}
+{#        </a>#}
+{#    </div>#}
+{#    <br>#}
     <div class="row mb-4">
         <div class="col-sm-12">
             <div class="card redonda mb-3">
                 <div class="card-header redonda grey lighten-1 font-weight-bold" id="card">
-                    AUTORIZAÇÃO {{ autorizacao.id }}/{{ ano }}
+                    <p class="float-left m-0">
+                        AUTORIZAÇÃO {{ autorizacao.id }}/{{ ano }}
+                    </p>
+                    <a href="{% url 'report_pdf_autorizacao' autorizacao.id %}" class="float-right m-0" target="_blank">IMPRIMIR</a>
+
                 </div>
                 <div class="card-body border-primary">
                     <table class="table table-bordered table-sm">

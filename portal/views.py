@@ -1806,6 +1806,22 @@ def report_pdf_ocorrencia(request, ocorrencia_id):
         erro = 'Não foi possível imprimir a ocorrência. Por favor contate o suporte.'
         return render(request, 'portal/erro.html', {'erro': erro})
 
+@login_required
+def report_pdf_autorizacao(request, autorizacao_id):
+    try:
+        autorizacao = get_object_or_404(Autorizacao, id=autorizacao_id)
+
+        context = {
+            'autorizacao': autorizacao,
+        }
+
+        return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_autorizacao.html',
+                                                         context,
+                                                         using=None, download_filename=None,
+                                                         content_type='application/pdf', response_class=HttpResponse)
+    except:
+        erro = 'Não foi possível imprimir a autorização de saída. Por favor contate o suporte.'
+        return render(request, 'portal/erro.html', {'erro': erro})
 
 @login_required
 def report_pdf_encaminhamento(request, encaminhamento_id):
