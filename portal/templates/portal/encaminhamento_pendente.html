@@ -43,7 +43,8 @@
                                     <td style="vertical-align: middle;">{{ encaminhamento.servico.categoria }}</td>
                                     <td style="vertical-align: middle;">{{ encaminhamento.servico }}</td>
                                     <td style="vertical-align: middle;">{{ encaminhamento.matricula.aluno }}</td>
-                                    <td class="px-0 py-0" style="vertical-align: middle; text-align: right; min-width: 110px; width: 110px">
+                                    <td class="px-0 py-0"
+                                        style="vertical-align: middle; text-align: right; min-width: 110px; width: 110px">
 
                                         <i data-toggle="tooltip" data-placement="top" title="Visualizar">
                                             <a href="{% url 'encaminhamento_show' encaminhamento.id %}"
@@ -100,13 +101,10 @@
                             <div class="row text-left">
                                 <div class="col-sm-12">
                                     <div class="md-form">
-                                                                        <textarea type="text" id="id_providencias"
-                                                                                  name="providencias"
-                                                                                  class="md-textarea md-textarea-auto form-control validate"
-                                                                                  rows="5"
-                                                                                  required></textarea>
-                                        <label for="id_providencias">Providências
-                                            adotadas</label>
+                                        <textarea type="text" id="id_providencias" name="providencias"
+                                                  class="md-textarea form-control validate" rows="3"
+                                                  required></textarea>
+                                        <label for="id_providencias">Providências adotadas</label>
                                     </div>
                                 </div>
                             </div>
