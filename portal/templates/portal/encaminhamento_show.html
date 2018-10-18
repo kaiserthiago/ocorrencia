@@ -21,12 +21,12 @@
 {% endblock %}
 
 {% block content %}
-    <div id="div-buttons" class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-        <a href="#" onclick="window.print(); return false;" class="btn-floating btn-lg btn-danger">
-            <i class="fa fa-print"></i>
-        </a>
-    </div>
-    <br>
+    {# <div id="div-buttons" class="fixed-action-btn" style="bottom: 45px; right: 24px;"> #}
+        {# <a href="#" onclick="window.print(); return false;" class="btn-floating btn-lg btn-danger"> #}
+            {# <i class="fa fa-print"></i> #}
+        {# </a> #}
+    {# </div> #}
+    {# <br> #}
     <div class="row mb-4">
         <div class="col-sm-12">
             <div class="card redonda mb-3">
@@ -35,7 +35,7 @@
                         ENCAMINHAMENTO {{ encaminhamento.id }}/{{ ano }}
                     </p>
                     <a href="{% url 'report_pdf_encaminhamento' encaminhamento.id %}"
-                       class="float-right m-0">IMPRIMIR</a>
+                       class="float-right m-0" target="_blank">IMPRIMIR</a>
                 </div>
                 <div class="card-body border-primary">
                     <table class="table table-bordered table-sm">
