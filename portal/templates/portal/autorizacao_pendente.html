@@ -15,6 +15,14 @@
     <div class="card redonda mb-4">
         <div class="card-header redonda grey lighten-1 font-weight-bold">SAÍDAS AUTORIZADAS PENDENTES</div>
         <div class="card-body">
+            <div class="form-row">
+                <div class="col-sm-12">
+                    <div class="md-form">
+                        <input id="myInput" type="text" class="form-control form-control-sm" autofocus/>
+                        <label for="myInput">Pesquisar...</label>
+                    </div>
+                </div>
+            </div>
             <div class="table-responsive">
                 <table class="table table-sm table-striped btn-table">
                     <thead>
@@ -76,8 +84,8 @@
                         <!--Body-->
                         <div class="modal-body">
                             {% csrf_token %}
-                                Tem certeza que registrar essa saída de
-                                <strong>{{ autorizacao.matricula.aluno }}</strong>?
+                            Tem certeza que registrar essa saída de
+                            <strong>{{ autorizacao.matricula.aluno }}</strong>?
                         </div>
                         <div class="modal-footer justify-content-center">
                             <button type="submit"
