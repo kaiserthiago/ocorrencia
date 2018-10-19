@@ -1850,10 +1850,16 @@ def report_pdf_lista_aluno_turma(request):
 
         alunos = Matricula.objects.filter(turma=turma, ano_letivo=date.today().year).order_by('aluno')
 
+        if 'Dados' in request.POST:
+            dados = True
+        else:
+            dados = False
+
         context = {
             'turma': turma,
             'ano': ano,
-            'alunos': alunos
+            'alunos': alunos,
+            'dados': dados
         }
 
         return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_lista_aluno_turma.html',

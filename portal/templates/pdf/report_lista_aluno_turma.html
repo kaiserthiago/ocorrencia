@@ -71,24 +71,28 @@
     <tr>
         <th style="text-align: center">#</th>
         <th>ALUNO</th>
-        <th>E-MAIL</th>
-        <th>CPF</th>
+        {% if dados %}
+            <th>E-MAIL</th>
+            <th>CPF</th>
+        {% endif %}
     </tr>
     </thead>
     <tbody>
     {% for aluno in alunos %}
         <tr>
             <td style="text-align: center; width: 40px">{{ forloop.counter }}</td>
-            <td style="width: 350px;">{{ aluno.aluno.nome }}</td>
-            <td style="width: 250px;">{{ aluno.aluno.email }}</td>
-            <td style="width: 100px">{{ aluno.aluno.cpf }}</td>
+            <td style="width: {% if dados %}350px{% else %}700px{% endif %};">{{ aluno.aluno.nome }}</td>
+            {% if dados %}
+                <td style="width: 250px;">{{ aluno.aluno.email }}</td>
+                <td style="width: 100px">{{ aluno.aluno.cpf }}</td>
+            {% endif %}
         </tr>
     {% endfor %}
     </tbody>
 </table>
 <div id="page-footer" style="text-align: right; font-size: 11px">
-{#    Página#}
-{#    <pdf:pagenumber/>#}
+    {#    Página#}
+    {#    <pdf:pagenumber/>#}
     <div style="text-align:center;padding-top: 2px; border-top: 1px solid">
         {{ turma.empresa.razao_social }} -
         <em>Campus</em> {{ turma.empresa }}<br>
