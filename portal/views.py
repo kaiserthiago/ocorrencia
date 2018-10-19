@@ -401,6 +401,11 @@ def aluno_new(request):
 
             aluno.contato = form.cleaned_data['contato']
 
+            aluno.pcd = form.cleaned_data['pcd']
+            aluno.cid = form.cleaned_data['cid']
+            aluno.pcd_descricao = form.cleaned_data['pcd_descricao']
+
+
             aluno.empresa = request.user.userprofile.empresa
 
             aluno.save()
@@ -458,6 +463,10 @@ def aluno_edit(request, aluno_id):
             aluno.conta = form.cleaned_data['conta']
 
             aluno.contato = form.cleaned_data['contato']
+
+            aluno.pcd = form.cleaned_data['pcd']
+            aluno.cid = form.cleaned_data['cid']
+            aluno.pcd_descricao = form.cleaned_data['pcd_descricao']
 
             aluno.save()
 
@@ -659,6 +668,10 @@ def aluno_perfil_edit(request, aluno_id, page, turma):
             aluno.conta = form.cleaned_data['conta']
 
             aluno.contato = form.cleaned_data['contato']
+
+            aluno.pcd = form.cleaned_data['pcd']
+            aluno.cid = form.cleaned_data['cid']
+            aluno.pcd_descricao = form.cleaned_data['pcd_descricao']
 
             aluno.save()
 
@@ -1759,34 +1772,37 @@ def report_pdf_declaracao_sabado_letivo(request):
         erro = 'Não há matrícula vigente para o(a) aluno(a) selecionado.'
         return render(request, 'portal/erro.html', {'erro': erro})
 
+
 @login_required
 def report_pdf_declaracao_conclusao_integrado(request):
     # try:
-        id = request.POST['SelectConclusaoIntegradoTurma']
-        turma = get_object_or_404(Turma, id=id)
+    id = request.POST['SelectConclusaoIntegradoTurma']
+    turma = get_object_or_404(Turma, id=id)
 
-        dia = request.POST['data_colacao']
-        dia = dia[8:10] + '/' + dia[5:7] + '/' + dia[0:4]
-        data = date.today()
-        usuario = get_object_or_404(User, id=request.user.id)
+    dia = request.POST['data_colacao']
+    dia = dia[8:10] + '/' + dia[5:7] + '/' + dia[0:4]
+    data = date.today()
+    usuario = get_object_or_404(User, id=request.user.id)
 
-        matriculas = Matricula.objects.filter(turma=turma, ano_letivo=data.year, empresa=request.user.userprofile.empresa)
+    matriculas = Matricula.objects.filter(turma=turma, ano_letivo=data.year, empresa=request.user.userprofile.empresa)
 
-        context = {
-            'turma': turma,
-            'matriculas': matriculas,
-            'data': data,
-            'dia': dia,
-            'usuario': usuario
-        }
+    context = {
+        'turma': turma,
+        'matriculas': matriculas,
+        'data': data,
+        'dia': dia,
+        'usuario': usuario
+    }
 
-        return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_declaracao_conclusao_integrado.html',
-                                                         context,
-                                                         using=None, download_filename=None,
-                                                         content_type='application/pdf', response_class=HttpResponse)
-    # except:
-    #     erro = 'Não foi possível imprimir as declarações. Por favor contate o suporte.'
-    #     return render(request, 'portal/erro.html', {'erro': erro})
+    return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_declaracao_conclusao_integrado.html',
+                                                     context,
+                                                     using=None, download_filename=None,
+                                                     content_type='application/pdf', response_class=HttpResponse)
+
+
+# except:
+#     erro = 'Não foi possível imprimir as declarações. Por favor contate o suporte.'
+#     return render(request, 'portal/erro.html', {'erro': erro})
 
 
 @login_required
@@ -1806,6 +1822,7 @@ def report_pdf_ocorrencia(request, ocorrencia_id):
         erro = 'Não foi possível imprimir a ocorrência. Por favor contate o suporte.'
         return render(request, 'portal/erro.html', {'erro': erro})
 
+
 @login_required
 def report_pdf_autorizacao(request, autorizacao_id):
     try:
@@ -1822,6 +1839,7 @@ def report_pdf_autorizacao(request, autorizacao_id):
     except:
         erro = 'Não foi possível imprimir a autorização de saída. Por favor contate o suporte.'
         return render(request, 'portal/erro.html', {'erro': erro})
+
 
 @login_required
 def report_pdf_encaminhamento(request, encaminhamento_id):

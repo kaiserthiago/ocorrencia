@@ -118,6 +118,27 @@
                             </div>
                         </div>
 
+                        {% if not perms.portal.change_aluno and request.user.is_staff or request.user.is_superuser %}
+                            <div class="row">
+                                <div class=" col-sm-2">
+                                    {{ form.pcd }}
+                                    <label for="id_pcd" class="form-check-label">{{ form.pcd.label|upper }}</label>
+                                </div>
+                                <div class=" col-sm-2">
+                                    <div class="md-form">
+                                        {{ form.cid }}
+                                        <label>{{ form.cid.label|upper }}</label>
+                                    </div>
+                                </div>
+                                <div class=" col-sm-8">
+                                    <div class="md-form">
+                                        {{ form.pcd_descricao }}
+                                        <label>{{ form.pcd_descricao.label }}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="float-right">

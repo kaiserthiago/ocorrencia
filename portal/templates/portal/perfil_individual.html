@@ -43,6 +43,11 @@
                             <strong>Pai: </strong>{{ aluno.pai }}<br>
                             <strong>Mãe: </strong>{{ aluno.mae }}<br>
                             <strong>E-mail responsável: </strong>{{ aluno.email_responsavel }}<br>
+                            {% if aluno.pcd %}
+                                <strong>PCD: </strong>{{ aluno.pcd_descricao }}<br>
+                                <strong>CID: </strong>{{ aluno.cid }}<br>
+                            {% endif %}
+
                         </div>
 
 
@@ -125,7 +130,8 @@
                 </div>
             </div>
             {% if matricula %}
-                <a data-toggle="tooltip" data-placement="bottom" title="Solicite atendimento da equipe multiprofissional com absoluto sigilo."
+                <a data-toggle="tooltip" data-placement="bottom"
+                   title="Solicite atendimento da equipe multiprofissional com absoluto sigilo."
                    href="{% url 'encaminhamento_solicitar' matricula.id %}"
                    class="btn btn-success btn-rounded btn-block mt-3"><i
                         class="fa fa-book"></i> Solicitar atendimento</a>

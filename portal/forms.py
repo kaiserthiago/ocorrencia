@@ -206,6 +206,15 @@ class AlunoForm(forms.ModelForm):
             'contato': forms.Textarea(attrs={
                 'class': 'form-control md-textarea validate',
                 'rows': '2'
+            }),
+            'pcd': forms.CheckboxInput(attrs={
+                'class': 'form-check-input'
+            }),
+            'cid': forms.TextInput(attrs={
+                'class': 'form-control validate'
+            }),
+            'pcd_descricao': forms.TextInput(attrs={
+                'class': 'form-control validate'
             })
 
         }
@@ -219,7 +228,8 @@ class AlunoForm(forms.ModelForm):
             'emissor': 'Órgão emissor',
             'email_responsavel': 'E-mail responsável',
             'agencia': 'Agência',
-            'numero_matricula': 'Nº Matrícula'
+            'numero_matricula': 'Nº Matrícula',
+            'pcd_descricao': 'Descrição da deficiência'
         }
 
 
