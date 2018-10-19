@@ -85,8 +85,9 @@ urlpatterns = [
     url(r'^report/ocorrencia/curso', views.report_ocorrencia_curso, name='report_ocorrencia_curso'),
     url(r'^report/ocorrencia/turma$', views.report_ocorrencia_turma, name='report_ocorrencia_turma'),
 
-    url(r'^report/diversos/financeiro/turma$', views.report_pdf_dados_bancarios, name='report_pdf_dados_bancarios'),
-    url(r'^report/diversos/lista/turma$', views.report_pdf_lista_aluno_turma, name='report_pdf_lista_aluno_turma'),
+    url(r'^report/pdf/financeiro/turma$', views.report_pdf_dados_bancarios, name='report_pdf_dados_bancarios'),
+    url(r'^report/pdf/lista/turma$', views.report_pdf_lista_aluno_turma, name='report_pdf_lista_aluno_turma'),
+    url(r'^report/pdf/aluno/pcd', views.report_pdf_lista_aluno_pcd, name='report_pdf_lista_aluno_pcd'),
 
     url(r'^report/pdf/encaminhamento/(?P<encaminhamento_id>\d+)$', views.report_pdf_encaminhamento, name='report_pdf_encaminhamento'),
     url(r'^report/pdf/autorizacao/(?P<autorizacao_id>\d+)$', views.report_pdf_autorizacao, name='report_pdf_autorizacao'),

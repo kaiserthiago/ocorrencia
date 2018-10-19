@@ -32,9 +32,15 @@
                                 <i class="fa fa-users"></i> Lista de alunos
                             </button>
                             {% if request.user.is_staff or request.user.is_superuser %}
+                                <a href="{% url 'report_pdf_lista_aluno_pcd' %}"
+                                   class="btn btn-rounded btn-primary btn-block mb-2"
+                                   target="_blank">
+                                    <i class="fa fa-users"></i> Alunos PCD
+                                </a>
+
                                 <button data-toggle="modal" href="#ModalConclusaoIntegrado"
                                         class="btn btn-rounded btn-primary btn-block mb-2">
-                                    <i class="fa fa-check"></i> Conclusão curso
+                                    <i class="fa fa-check"></i> Conclusão
                                 </button>
 
                                 <button data-toggle="modal" href="#ModalMatriculaAluno"

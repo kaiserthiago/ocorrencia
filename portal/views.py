@@ -405,7 +405,6 @@ def aluno_new(request):
             aluno.cid = form.cleaned_data['cid']
             aluno.pcd_descricao = form.cleaned_data['pcd_descricao']
 
-
             aluno.empresa = request.user.userprofile.empresa
 
             aluno.save()
@@ -1881,6 +1880,29 @@ def report_pdf_lista_aluno_turma(request):
         }
 
         return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_lista_aluno_turma.html',
+                                                         context,
+                                                         using=None, download_filename=None,
+                                                         content_type='application/pdf', response_class=HttpResponse)
+    except:
+        erro = 'Não existem dados para gerar o relatório solicitado.'
+        return render(request, 'portal/erro.html', {'erro': erro})
+
+
+@login_required
+def report_pdf_lista_aluno_pcd(request):
+    try:
+        ano = date.today().year
+        empresa = request.user.userprofile.empresa
+        alunos = Matricula.objects.filter(aluno__pcd=True, ano_letivo=date.today().year).order_by(
+            'aluno')
+
+        context = {
+            'empresa': empresa,
+            'ano': ano,
+            'alunos': alunos,
+        }
+
+        return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_lista_aluno_pcd.html',
                                                          context,
                                                          using=None, download_filename=None,
                                                          content_type='application/pdf', response_class=HttpResponse)
