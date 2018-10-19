@@ -1,10 +1,14 @@
 import json
+import threading
 from datetime import date
 from django.db.models.functions import TruncMonth
 
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Count
+from django.shortcuts import get_object_or_404
+
+from portal.emails import RegistraOcorrenciaMail, RegistraEncaminhamentoMail, RegistraAutorizacaoSaidaMail
 
 
 def get_user_name(self):
@@ -441,3 +445,123 @@ class Configuracao(AuditoriaMixin):
 
     class Meta:
         verbose_name_plural = 'Configurações do sistema'
+
+def post_email_autorizacao(**kwargs):
+    criado = kwargs['created']
+
+    if criado:
+        autorizacao = kwargs['instance']
+
+        email = []
+        configuracao = get_object_or_404(Configuracao, empresa=autorizacao.user.userprofile.empresa)
+
+        if configuracao.autorizacao_email_aluno:
+            # VERIFICA SE TEM EMAIL DO ALUNO
+            if autorizacao.matricula.aluno.email:
+                email.append(autorizacao.matricula.aluno.email)
+
+        if configuracao.autorizacao_email_responsavel_aluno:
+            # VERIFICA SE TEM EMAIL DO RESPONSÁVEL
+            if autorizacao.matricula.aluno.email_responsavel:
+                email.append(autorizacao.matricula.aluno.email_responsavel)
+
+        if configuracao.autorizacao_email_responsavel_user:
+            # EMAIL DO SERVIDOR QUE REGISTROU A OCORRÊNCIA
+            email.append(autorizacao.user.email)
+
+        if configuracao.autorizacao_email_coordenacao_curso:
+            # EMAIL DA COORDENAÇÃO DE CURSO
+            email.append(autorizacao.matricula.turma.curso.email)
+
+        if configuracao.autorizacao_email_responsavel_setor:
+            # EMAIL DO SETOR RESPONSÁVEL PELAS OCORRÊNCIAS
+            email.append(autorizacao.user.userprofile.empresa.email_responsavel_ocorrencia)
+
+        if email:
+            # ENVIA OS E-MAILS
+            def enviar():
+                RegistraAutorizacaoSaidaMail(autorizacao).send(email)
+
+            threading.Thread(target=enviar).start()
+
+def post_email_encaminhamento(**kwargs):
+    criado = kwargs['created']
+
+    if criado:
+        encaminhamento = kwargs['instance']
+
+        email = []
+        configuracao = get_object_or_404(Configuracao, empresa=encaminhamento.user.userprofile.empresa)
+
+        if configuracao.encaminhamento_email_aluno:
+            # VERIFICA SE TEM EMAIL DO ALUNO
+            if encaminhamento.matricula.aluno.email:
+                email.append(encaminhamento.matricula.aluno.email)
+
+        if configuracao.encaminhamento_email_responsavel_aluno:
+            # VERIFICA SE TEM EMAIL DO RESPONSÁVEL
+            if encaminhamento.matricula.aluno.email_responsavel:
+                email.append(encaminhamento.matricula.aluno.email_responsavel)
+
+        if configuracao.encaminhamento_email_responsavel_user:
+            # EMAIL DO SERVIDOR QUE REGISTROU A OCORRÊNCIA
+            email.append(encaminhamento.user.email)
+
+        if configuracao.encaminhamento_email_coordenacao_curso:
+            # EMAIL DA COORDENAÇÃO DE CURSO
+            email.append(encaminhamento.matricula.turma.curso.email)
+
+        if configuracao.encaminhamento_email_responsavel_setor:
+            # EMAIL DO SETOR RESPONSÁVEL PELAS OCORRÊNCIAS
+            email.append(encaminhamento.userprofile.empresa.email_responsavel_ocorrencia)
+
+        if email:
+            # ENVIA OS E-MAILS
+            def enviar():
+                RegistraEncaminhamentoMail(encaminhamento).send(email)
+
+            threading.Thread(target=enviar).start()
+
+def post_email_ocorrencia(**kwargs):
+    criado = kwargs['created']
+
+    if criado:
+        ocorrencia = kwargs['instance']
+
+        email = []
+        configuracao = get_object_or_404(Configuracao, empresa=ocorrencia.user.userprofile.empresa)
+
+        if configuracao.ocorrencia_email_aluno:
+            # VERIFICA SE TEM EMAIL DO ALUNO
+            if ocorrencia.matricula.aluno.email:
+                email.append(ocorrencia.matricula.aluno.email)
+
+        if configuracao.ocorrencia_email_responsavel_aluno:
+            # VERIFICA SE TEM EMAIL DO RESPONSÁVEL
+            if ocorrencia.matricula.aluno.email_responsavel:
+                email.append(ocorrencia.matricula.aluno.email_responsavel)
+
+        if configuracao.ocorrencia_email_responsavel_user:
+            # EMAIL DO SERVIDOR QUE REGISTROU A OCORRÊNCIA
+            email.append(ocorrencia.user.email)
+
+        if configuracao.ocorrencia_email_coordenacao_curso:
+            # EMAIL DA COORDENAÇÃO DE CURSO
+            email.append(ocorrencia.matricula.turma.curso.email)
+
+        if configuracao.ocorrencia_email_responsavel_setor:
+            # EMAIL DO SETOR RESPONSÁVEL PELAS OCORRÊNCIAS
+            email.append(ocorrencia.user.userprofile.empresa.email_responsavel_ocorrencia)
+
+        if email:
+            # ENVIA OS E-MAILS
+            def enviar():
+                RegistraOcorrenciaMail(ocorrencia).send(email)
+
+            threading.Thread(target=enviar).start()
+
+
+
+models.signals.post_save.connect(post_email_autorizacao, sender=Autorizacao)
+models.signals.post_save.connect(post_email_encaminhamento, sender=Encaminhamento)
+models.signals.post_save.connect(post_email_ocorrencia, sender=Ocorrencia)
