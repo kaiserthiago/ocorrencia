@@ -6,7 +6,7 @@
 {% block breadcrumb_base %}
     <ol class="breadcrumb blue-grey lighten-4" id="breadcrumb">
         <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
-        <li class="breadcrumb-item active">Relatório Geral</li>
+        <li class="breadcrumb-item active">Relatórios Gerais</li>
     </ol>
 {% endblock %}
 
@@ -60,93 +60,96 @@
             <hr class="w-100 clearfix d-md-none">
 
         </div>
-        <div class="col-sm-3">
-            <div class="card redonda">
-                <div class="card-header redonda btn-warning white-text">
-                    AUTORIZAÇÕES DE SAÍDAS
-                </div>
-                <div class="card-body">
-                    <div class="form-row">
-                        <div class="col">
-                            <button data-toggle="modal" href="#ModalRegistrarAutorizacaoSaidaAluno"
-                                    class="btn btn-rounded btn-warning btn-block mb-2">
-                                <i class="fa fa-user"></i> Aluno
-                            </button>
+        {% if request.user.is_staff or request.user.is_superuser %}
+            <div class="col-sm-3">
+                <div class="card redonda">
+                    <div class="card-header redonda btn-warning white-text">
+                        AUTORIZAÇÕES DE SAÍDAS
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="col">
+                                <button data-toggle="modal" href="#ModalRegistrarAutorizacaoSaidaAluno"
+                                        class="btn btn-rounded btn-warning btn-block mb-2">
+                                    <i class="fa fa-user"></i> Aluno
+                                </button>
 
-                            <button data-toggle="modal" href="#ModalRegistrarAutorizacaoSaidaCurso"
-                                    class="btn btn-rounded btn-warning btn-block mb-2">
-                                <i class="fa fa-industry"></i> Curso
-                            </button>
+                                <button data-toggle="modal" href="#ModalRegistrarAutorizacaoSaidaCurso"
+                                        class="btn btn-rounded btn-warning btn-block mb-2">
+                                    <i class="fa fa-industry"></i> Curso
+                                </button>
 
-                            <button data-toggle="modal" href="#ModalRegistrarAutorizacaoSaidaTurma"
-                                    class="btn btn-rounded btn-warning btn-block">
-                                <i class="fa fa-graduation-cap"></i> Turma
-                            </button>
+                                <button data-toggle="modal" href="#ModalRegistrarAutorizacaoSaidaTurma"
+                                        class="btn btn-rounded btn-warning btn-block">
+                                    <i class="fa fa-graduation-cap"></i> Turma
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <hr class="w-100 clearfix d-md-none">
+            <hr class="w-100 clearfix d-md-none">
 
-        <div class="col-sm-3">
-            <div class="card redonda">
-                <div class="card-header redonda primary-color-dark white-text">
-                    ENCAMINHAMENTOS
-                </div>
-                <div class="card-body">
-                    <div class="form-row">
-                        <div class="col-sm-12">
-                            <button data-toggle="modal" href="#ModalRegistrarEncaminhamentoAluno"
-                                    class="btn btn-rounded primary-color-dark btn-block mb-2">
-                                <i class="fa fa-user"></i> Aluno
-                            </button>
+            <div class="col-sm-3">
+                <div class="card redonda">
+                    <div class="card-header redonda primary-color-dark white-text">
+                        ENCAMINHAMENTOS
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="col-sm-12">
+                                <button data-toggle="modal" href="#ModalRegistrarEncaminhamentoAluno"
+                                        class="btn btn-rounded primary-color-dark btn-block mb-2">
+                                    <i class="fa fa-user"></i> Aluno
+                                </button>
 
-                            <button data-toggle="modal" href="#ModalRegistrarEncaminhamentoCurso"
-                                    class="btn btn-rounded primary-color-dark btn-block mb-2">
-                                <i class="fa fa-industry"></i> Curso
-                            </button>
+                                <button data-toggle="modal" href="#ModalRegistrarEncaminhamentoCurso"
+                                        class="btn btn-rounded primary-color-dark btn-block mb-2">
+                                    <i class="fa fa-industry"></i> Curso
+                                </button>
 
-                            <button data-toggle="modal" href="#ModalRegistrarEncaminhamentoTurma"
-                                    class="btn btn-rounded primary-color-dark btn-block">
-                                <i class="fa fa-graduation-cap"></i> Turma
-                            </button>
+                                <button data-toggle="modal" href="#ModalRegistrarEncaminhamentoTurma"
+                                        class="btn btn-rounded primary-color-dark btn-block">
+                                    <i class="fa fa-graduation-cap"></i> Turma
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <hr class="w-100 clearfix d-md-none">
+            <hr class="w-100 clearfix d-md-none">
 
-        <div class="col-sm-3">
-            <div class="card redonda">
-                <div class="card-header redonda ifro-color white-text">
-                    OCORRÊNCIAS
-                </div>
-                <div class="card-body">
-                    <div class="form-row">
-                        <div class="col">
-                            <button data-toggle="modal" href="#ModalRegistrarOcorrenciaAluno"
-                                    class="btn btn-rounded ifro-color btn-block mb-2">
-                                <i class="fa fa-user"></i> Aluno
-                            </button>
+            <div class="col-sm-3">
+                <div class="card redonda">
+                    <div class="card-header redonda ifro-color white-text">
+                        OCORRÊNCIAS
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="col">
+                                <button data-toggle="modal" href="#ModalRegistrarOcorrenciaAluno"
+                                        class="btn btn-rounded ifro-color btn-block mb-2">
+                                    <i class="fa fa-user"></i> Aluno
+                                </button>
 
-                            <button data-toggle="modal" href="#ModalRegistrarOcorrenciaCurso"
-                                    class="btn btn-rounded ifro-color btn-block mb-2">
-                                <i class="fa fa-industry"></i> Curso
-                            </button>
+                                <button data-toggle="modal" href="#ModalRegistrarOcorrenciaCurso"
+                                        class="btn btn-rounded ifro-color btn-block mb-2">
+                                    <i class="fa fa-industry"></i> Curso
+                                </button>
 
-                            <button data-toggle="modal" href="#ModalRegistrarOcorrenciaTurma"
-                                    class="btn btn-rounded ifro-color btn-block">
-                                <i class="fa fa-graduation-cap"></i> Turma
-                            </button>
+                                <button data-toggle="modal" href="#ModalRegistrarOcorrenciaTurma"
+                                        class="btn btn-rounded ifro-color btn-block">
+                                    <i class="fa fa-graduation-cap"></i> Turma
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        {% endif %}
+
     </div>
 {% endblock %}
 
@@ -525,7 +528,8 @@
                     <!--Footer-->
                     <div class="modal-footer justify-content-center">
                         <button type="submit" class="btn btn-rounded btn-info waves-effect"
-                        onclick="$('#ModalDadosBancarios').modal('hide')">Enviar</button>
+                                onclick="$('#ModalDadosBancarios').modal('hide')">Enviar
+                        </button>
                         <a type="button" class="btn btn-rounded btn-outline-info"
                            data-dismiss="modal">Voltar</a>
                     </div>
@@ -573,7 +577,8 @@
                     <!--Footer-->
                     <div class="modal-footer justify-content-center">
                         <button type="submit" class="btn btn-rounded btn-info waves-effect"
-                        onclick="$('#ModalListaAlunos').modal('hide')">Enviar</button>
+                                onclick="$('#ModalListaAlunos').modal('hide')">Enviar
+                        </button>
                         <a type="button" class="btn btn-rounded btn-outline-info"
                            data-dismiss="modal">Voltar</a>
                     </div>
