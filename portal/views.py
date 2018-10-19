@@ -402,8 +402,13 @@ def aluno_new(request):
             aluno.contato = form.cleaned_data['contato']
 
             aluno.pcd = form.cleaned_data['pcd']
-            aluno.cid = form.cleaned_data['cid']
-            aluno.pcd_descricao = form.cleaned_data['pcd_descricao']
+
+            if aluno.pcd:
+                aluno.cid = form.cleaned_data['cid']
+                aluno.pcd_descricao = form.cleaned_data['pcd_descricao']
+            else:
+                aluno.cid = ''
+                aluno.pcd_descricao = ''
 
             aluno.empresa = request.user.userprofile.empresa
 
@@ -464,8 +469,13 @@ def aluno_edit(request, aluno_id):
             aluno.contato = form.cleaned_data['contato']
 
             aluno.pcd = form.cleaned_data['pcd']
-            aluno.cid = form.cleaned_data['cid']
-            aluno.pcd_descricao = form.cleaned_data['pcd_descricao']
+
+            if aluno.pcd:
+                aluno.cid = form.cleaned_data['cid']
+                aluno.pcd_descricao = form.cleaned_data['pcd_descricao']
+            else:
+                aluno.cid = ''
+                aluno.pcd_descricao = ''
 
             aluno.save()
 
@@ -669,8 +679,13 @@ def aluno_perfil_edit(request, aluno_id, page, turma):
             aluno.contato = form.cleaned_data['contato']
 
             aluno.pcd = form.cleaned_data['pcd']
-            aluno.cid = form.cleaned_data['cid']
-            aluno.pcd_descricao = form.cleaned_data['pcd_descricao']
+
+            if aluno.pcd:
+                aluno.cid = form.cleaned_data['cid']
+                aluno.pcd_descricao = form.cleaned_data['pcd_descricao']
+            else:
+                aluno.cid = ''
+                aluno.pcd_descricao = ''
 
             aluno.save()
 

@@ -69,11 +69,11 @@
 <table style="border: 1px solid #ddd; width: 100%">
     <thead>
     <tr>
-        <th style="text-align: center">#</th>
-        <th>ALUNO</th>
-        <th>TURMA</th>
-        <th>CID</th>
-        <th>DESCRICAÇÃO</th>
+        <th style="text-align: center; width: 40px">#</th>
+        <th style="width: 300px;">ALUNO</th>
+        <th style="width: 200px;">TURMA</th>
+        <th style="width: 50px;">CID</th>
+        <th style="width: 250px;">DESCRICAÇÃO</th>
     </tr>
     </thead>
     <tbody>
@@ -84,6 +84,10 @@
             <td style="width: 200px;">{{ aluno.turma.curso.descricao }} - {{ aluno.turma.descricao }}</td>
             <td style="width: 50px">{{ aluno.aluno.cid }}</td>
             <td style="width: 250px">{{ aluno.aluno.pcd_descricao }}</td>
+        </tr>
+    {% empty %}
+        <tr>
+        <td colspan="5" style="width: 840px; text-align: center">NÃO HÁ ALUNOS PCD PARA O ANO LETIVO ATUAL</td>
         </tr>
     {% endfor %}
     </tbody>
