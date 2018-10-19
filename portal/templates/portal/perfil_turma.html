@@ -55,7 +55,8 @@
                                 <p class="float-left m-0">
                                     Dados do estudante
                                 </p>
-                                <a href="{% url 'aluno_perfil_edit' aluno.aluno.id alunos.number turma.id %}" class="float-right m-0">
+                                <a href="{% url 'aluno_perfil_edit' aluno.aluno.id alunos.number turma.id %}"
+                                   class="float-right m-0">
                                     EDITAR</a>
                             </div>
                             <div class="card-body">
@@ -68,6 +69,10 @@
                                         <strong>Pai: </strong>{{ aluno.aluno.pai }}<br>
                                         <strong>Mãe: </strong>{{ aluno.aluno.mae }}<br>
                                         <strong>E-mail responsável: </strong>{{ aluno.aluno.email_responsavel }}<br>
+                                        {% if aluno.pcd %}
+                                            <strong>PCD: </strong>{{ aluno.pcd_descricao }}<br>
+                                            <strong>CID: </strong>{{ aluno.cid }}<br>
+                                        {% endif %}
                                     </div>
 
                                     <div class="col-sm-4">
