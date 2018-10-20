@@ -1709,7 +1709,11 @@ def report_pdf_dados_bancarios(request):
 @login_required
 def report_pdf_declaracao_matricula(request):
     try:
-        id = request.POST['SelectDeclaraoMatriculaAluno']
+        if 'id' in request.POST:
+            id = request.POST['SelectDeclaraoMatriculaAluno']
+        else:
+            id = request.user.userprofile.aluno_id
+
         aluno = get_object_or_404(Aluno, id=id)
         data = date.today()
         usuario = get_object_or_404(User, id=request.user.id)
@@ -2596,7 +2600,6 @@ def validar_declaracao_matricula(request):
             matricula = get_object_or_404(Matricula, token=token)
 
             if matricula.token_limite > date.today():
-                print('entrou no IF')
                 aluno = get_object_or_404(Aluno, id=matricula.aluno_id)
                 data = date.today()
                 usuario = get_object_or_404(User, id=request.user.id)
