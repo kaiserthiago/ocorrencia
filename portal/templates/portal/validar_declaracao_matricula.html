@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Validação de Declaração de Matrícula{% endblock %}
+
+
+{% block content %}
+    {% if erro %}
+        <div class="alert alert-danger">
+        Não é possível validar a declaração de matrícula. <br>
+        O código de controle informado é inválido
+        </div>
+    {% endif %}
+    <div class="card redonda">
+        <div class="card-header redonda grey lighten-1 font-weight-bold text-uppercase">
+            VALIDAR DECLARAÇÃO DE MATRÍCULA
+        </div>
+        <div class="card-body">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="col-sm-10">
+                        <div class="md-form">
+                            <input type="text" class="form-control" name="token" id="token" value="" required autofocus
+                                   placeholder="Digite o código de controle" style="text-transform: uppercase">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="submit" class="btn btn-rounded btn-success">Validar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

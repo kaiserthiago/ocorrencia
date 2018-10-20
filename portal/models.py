@@ -278,6 +278,9 @@ class Matricula(AuditoriaMixin):
     turma = models.ForeignKey(Turma, on_delete=models.DO_NOTHING)
     ano_letivo = models.IntegerField(default=date.today().year)
 
+    token = models.CharField(max_length=9, blank=True, null=True)
+    token_limite = models.DateField(blank=True, null=True)
+
     class Meta:
         verbose_name_plural = 'Matrículas'
         ordering = ['-ano_letivo', 'turma', 'aluno']

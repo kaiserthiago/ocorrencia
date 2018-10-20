@@ -7,25 +7,25 @@
     <style type="text/css">
         @page {
             size: {{ pagesize|default:"A4" }};
-            margin-left: 1cm;
-            margin-right: 1cm;
+            margin-left: 2cm;
+            margin-right: 2cm;
             margin-top: 6.5cm;
             margin-bottom: 2cm;
 
             @frame header {
             -pdf-frame-content: page-header;
             margin-top: 0.7cm;
-            margin-right: 1cm;
+            margin-right: 2cm;
         {#margin-bottom: 0cm;#}
-            margin-left: 1cm;
+            margin-left: 2cm;
         }
 
         @frame footer {
         -pdf-frame-content:page-footer;
         bottom: 0cm;
-        margin-left: 1cm;
-        margin-right: 1cm;
-        height: 2cm;
+        margin-left: 2cm;
+        margin-right: 2cm;
+        height: 3.4cm;
         }
         }
     </style>
@@ -33,7 +33,7 @@
 </head>
 <body>
 <div id="page-header">
-    <div style="font-weight: bold; font-size: 12px; text-align: center; vertical-align: middle; border-bottom: 1px solid">
+    <div style="    font-weight: bold; font-size: 12px; text-align: center; vertical-align: middle; border-bottom: 1px solid">
         <img src="{{ aluno.empresa.logo.url }}" width="120px"><br>
         MINISTÉRIO DA EDUCAÇÃO<br>
         SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA<br>
@@ -49,8 +49,8 @@
 <table cellpadding="0" cellspacing="0" width="100%" style="padding-top: 30px;">
     <tbody>
     <tr>
-        <td colspan="3" style="font-size: 14px">
-            <p style="text-align: justify; text-indent: 50px">
+        <td colspan="3" style="font-size: 14px; text-align: justify; line-height: 30px">
+            <p>
                 Declaramos que {{ aluno.nome }}, nascido(a) em {{ aluno.nascimento }}, portador(a) do
                 RGº {{ aluno.rg }} {{ aluno.emissor }}, CPF nº {{ aluno.cpf }}, matrícula
                 nº {{ aluno.numero_matricula }} está devidamente MATRICULADO(A), nesta Instituição Federal de Ensino, na
@@ -58,24 +58,37 @@
                 turno {{ matricula.turma.turno }}.
             </p>
 
-            <p style="text-align: justify; text-indent: 50px">
-                Essa declaração tem validade de 90 (noventa) dias a contar da sua data de emissão.
-            </p>
-
-            <p style="text-align: right;">
-                {{ aluno.empresa.cidade }}/{{ aluno.empresa.uf }}, {{ data }}.
-            </p>
+            {#            <p style="text-align: justify; text-indent: 50px">#}
+            {#                Essa declaração tem validade de 90 (noventa) dias a contar da sua data de emissão.#}
+            {#            </p>#}
+            {##}
+            {#            <p style="text-align: right;">#}
+            {#                {{ aluno.empresa.cidade }}/{{ aluno.empresa.uf }}, {{ data }}.#}
+            {#            </p>#}
+            {#            <br>#}
+            {#            <p style="text-align: center;">#}
+            {#                <strong>Coordenação de Registros Acadêmicos</strong>#}
+            {#            </p>#}
             <br>
-            <p style="text-align: center;">
-                <strong>Coordenação de Registros Acadêmicos</strong>
+            <p>
+                Este documento eletrônico dispensa carimbo e assinatura. Sua autenticidade pode ser comprovada
+                fornecendo-se o código de controle na seguinte página do Instituto Federal de Rondônia:
+                http://bit.ly/sgeifro
             </p>
         </td>
     </tr>
     </tbody>
 </table>
-<div id="page-footer" style="text-align: right; font-size: 11px">
-{#    Página#}
-{#    <pdf:pagenumber/>#}
+
+
+
+<div id="page-footer" style="text-align: left; font-size: 12px">
+   <p>
+    Documento emitido às {{ matricula.update_at|time:'H:i:s' }} do dia {{ matricula.update_at|date:'d/m/Y' }}.<br>
+    Código de controle: {{ matricula.token|upper }}<br>
+    Código de controle válido até: {{ matricula.token_limite|date:'d/m/Y' }}
+</p> {#    Página#}
+    {#    <pdf:pagenumber/>#}
     <div style="text-align:center;padding-top: 2px; border-top: 1px solid">
         {{ aluno.empresa.razao_social }} -
         <em>Campus</em> {{ aluno.empresa }}<br>

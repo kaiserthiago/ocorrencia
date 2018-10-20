@@ -1,7 +1,7 @@
 import json
 import string
 import types
-from datetime import date
+from datetime import date, timedelta
 
 import easy_pdf
 import numpy
@@ -17,7 +17,7 @@ from django.db.models import Count, Sum, Avg, Func, F, ExpressionWrapper, Durati
 from django.db.models.functions import TruncMonth
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, get_object_or_404, redirect
-from django.template.defaultfilters import lower
+from django.template.defaultfilters import lower, upper
 from django.template.loader import render_to_string
 from easy_pdf.views import PDFTemplateView
 from reportlab.pdfgen import canvas
@@ -1716,6 +1716,14 @@ def report_pdf_declaracao_matricula(request):
 
         matricula = get_object_or_404(Matricula, aluno=aluno, ano_letivo=data.year)
 
+        token = aluno.cpf[:3] + str(matricula.id) + str(data.year)
+        token = hex(int(token))
+
+        matricula.token = upper(str(token))
+        matricula.token_limite = data + timedelta(90)
+
+        matricula.save()
+
         context = {
             'aluno': aluno,
             'matricula': matricula,
@@ -2579,3 +2587,34 @@ def autorizacao_confirmar(request, autorizacao_id):
         messages.success(request, 'Saída confirmada.')
 
         return redirect('autorizacao_pendente')
+
+
+def validar_declaracao_matricula(request):
+    if request.method == 'POST':
+        try:
+            token = upper(str(request.POST['token']))
+            matricula = get_object_or_404(Matricula, token=token)
+
+            if matricula.token_limite > date.today():
+                print('entrou no IF')
+                aluno = get_object_or_404(Aluno, id=matricula.aluno_id)
+                data = date.today()
+                usuario = get_object_or_404(User, id=request.user.id)
+
+                context = {
+                    'aluno': aluno,
+                    'matricula': matricula,
+                    'data': data,
+                    'usuario': usuario,
+                }
+
+                return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_declaracao_matricula.html',
+                                                                 context,
+                                                                 using=None, download_filename=None,
+                                                                 content_type='application/pdf',
+                                                                 response_class=HttpResponse)
+        except:
+            return render(request, 'portal/validar_declaracao_matricula.html', {'erro': True})
+
+    else:
+        return render(request, 'portal/validar_declaracao_matricula.html', {})
