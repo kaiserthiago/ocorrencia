@@ -1,12 +1,16 @@
-/* SCROLLING NAVBAR */
-const OFFSET_TOP = 50
+"use strict";
 
-$(window).scroll(function () {
-    if($('.navbar').length) {
-      if ($('.navbar').offset().top > OFFSET_TOP) {
-        $('.scrolling-navbar').addClass("top-nav-collapse");
+(function ($) {
+  let SCROLLING_NAVBAR_OFFSET_TOP = 50;
+  $(window).on('scroll', function () {
+    let $navbar = $('.navbar');
+
+    if ($navbar.length) {
+      if ($navbar.offset().top > SCROLLING_NAVBAR_OFFSET_TOP) {
+        $('.scrolling-navbar').addClass('top-nav-collapse');
       } else {
-        $('.scrolling-navbar').removeClass("top-nav-collapse");
+        $('.scrolling-navbar').removeClass('top-nav-collapse');
       }
     }
-});
+  });
+})(jQuery);

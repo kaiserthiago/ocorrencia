@@ -81,13 +81,13 @@
 </table>
 
 
-
 <div id="page-footer" style="text-align: left; font-size: 12px">
-   <p>
-    Documento emitido às {{ matricula.update_at|time:'H:i:s' }} do dia {{ matricula.update_at|date:'d/m/Y' }}.<br>
-    Código de controle: {{ matricula.token|upper }}<br>
-    Código de controle válido até: {{ matricula.token_limite|date:'d/m/Y' }}
-</p> {#    Página#}
+    <p>
+        Documento emitido às {{ matricula.update_at|time:'H:i:s' }} do dia {{ matricula.update_at|date:'d/m/Y' }}.<br>
+        Código de controle: {{ matricula.token|slice:'0:4' }} - {{ matricula.token|slice:'4:8' }}
+        - {{ matricula.token|slice:'8:12' }} - {{ matricula.token|slice:'12:16' }}<br>
+        Código de controle válido até: {{ matricula.token_limite|date:'d/m/Y' }}
+    </p> {#    Página#}
     {#    <pdf:pagenumber/>#}
     <div style="text-align:center;padding-top: 2px; border-top: 1px solid">
         {{ aluno.empresa.razao_social }} -

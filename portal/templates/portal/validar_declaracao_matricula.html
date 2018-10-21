@@ -5,8 +5,8 @@
 {% block content %}
     {% if erro %}
         <div class="alert alert-danger">
-        Não é possível validar a declaração de matrícula. <br>
-        O código de controle informado é inválido
+            Não é possível validar a declaração de matrícula. <br>
+            O código de controle informado é inválido
         </div>
     {% endif %}
     <div class="card redonda">
@@ -14,20 +14,45 @@
             VALIDAR DECLARAÇÃO DE MATRÍCULA
         </div>
         <div class="card-body">
-            <form action="" method="POST">
-                {% csrf_token %}
-                <div class="form-row">
-                    <div class="col-sm-10">
+            <div class="row">
+                <div class="col-sm-12">
+                    <form action="" method="POST" class="form-inline">
+                        {% csrf_token %}
                         <div class="md-form">
-                            <input type="text" class="form-control" name="token" id="token" value="" required autofocus
-                                   placeholder="Digite o código de controle" style="text-transform: uppercase">
+                            <input type="text" class="form-control mr-2" name="token1" id="token1" value=""
+                                   required
+                                   autofocus placeholder="1 parte do código" style="text-transform: uppercase"
+                                   maxlength="4">
+
+                            <input type="text" class="form-control mr-2" name="token2" id="token2" value=""
+                                   required
+                                   placeholder="2 parte do código" style="text-transform: uppercase"
+                                   maxlength="4">
+                            <input type="text" class="form-control mr-2" name="token3" id="token3" value=""
+                                   required
+                                   placeholder="3 parte do código" style="text-transform: uppercase"
+                                   maxlength="4">
+                            <input type="text" class="form-control mr-2" name="token4" id="token4" value=""
+                                   required
+                                   placeholder="4 parte do código" style="text-transform: uppercase"
+                                   maxlength="4">
+                            <button type="submit" class="btn btn-rounded btn-success">Validar</button>
                         </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <button type="submit" class="btn btn-rounded btn-success">Validar</button>
-                    </div>
+
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
+{% endblock %}
+{% block script %}
+    <script>
+        $(document).ready(function () {
+            $('input').keyup(function () {
+                if ($(this).val().length == $(this).attr("maxlength")) {
+                    $(this).next().focus();
+                }
+            });
+        });
+    </script>
 {% endblock %}

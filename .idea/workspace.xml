@@ -1,10 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="Correção endereço de validação de declaração de matrícula.">
+    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="Emissão de declaração de matrícula no acesso do aluno.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/perfil_individual.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/perfil_individual.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/pdf/report_declaracao_matricula.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/pdf/report_declaracao_matricula.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/validar_declaracao_matricula.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/validar_declaracao_matricula.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/addons/datatables.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/addons/datatables.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/mdb.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/mdb.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/mdb.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/mdb.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/svg/arrow_left.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/svg/arrow_left.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/svg/arrow_right.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/svg/arrow_right.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/addons/datatables.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/addons/datatables.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/addons/datatables.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/addons/datatables.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/jquery-3.3.1.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/jquery-3.3.1.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/mdb.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/mdb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/mdb.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/mdb.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/modules/buttons.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/modules/buttons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/modules/cards.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/modules/cards.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/modules/character-counter.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/modules/character-counter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/modules/chips.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/modules/chips.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/modules/collapsible.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/modules/collapsible.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/modules/dropdown.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/modules/dropdown.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/modules/file-input.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/modules/file-input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/modules/forms-free.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/modules/forms-free.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/modules/material-select.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/modules/material-select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/modules/mdb-autocomplete.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/modules/mdb-autocomplete.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/modules/preloading.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/modules/preloading.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/modules/range-input.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/modules/range-input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/modules/scrolling-navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/modules/scrolling-navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/modules/sidenav.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/modules/sidenav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/modules/smooth-scroll.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/modules/smooth-scroll.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/popper.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/popper.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/mdb-addons/mdb-lightbox-ui.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/mdb-addons/mdb-lightbox-ui.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/mdb-addons/preloader.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/mdb-addons/preloader.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,35 +56,37 @@
     <session id="687865539">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Django Console" value="260" />
-          <entry key="html" value="1272" />
-          <entry key="py" value="968" />
-          <entry key="txt" value="161" />
+          <entry key="html" value="1822" />
+          <entry key="py" value="1123" />
+          <entry key="txt" value="219" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="1272" />
-          <entry key="PLAIN_TEXT" value="161" />
-          <entry key="Python" value="1228" />
+          <entry key="HTML" value="1822" />
+          <entry key="PLAIN_TEXT" value="219" />
+          <entry key="Python" value="1383" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="css" value="2" />
           <entry key="html" value="7" />
           <entry key="py" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="CSS" value="2" />
           <entry key="HTML" value="7" />
           <entry key="Python" value="4" />
         </counts>
@@ -63,29 +98,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="1745" lean-forward="true" selection-start-line="1745" selection-end-line="1745" />
+            <state relative-caret-position="-61">
+              <caret line="1709" column="18" selection-start-line="1709" selection-start-column="11" selection-end-line="1709" selection-end-column="18" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <marker date="1540044433235" expanded="true" signature="94735:94736" ph="..." />
+                <marker date="1540161107974" expanded="true" signature="94769:94770" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/migrations/0048_auto_20181019_2146.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/admin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -93,11 +114,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/pdf/report_declaracao_matricula.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="75" column="40" selection-start-line="75" selection-start-column="40" selection-end-line="75" selection-end-column="40" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="400">
+              <caret line="87" column="86" selection-start-line="87" selection-start-column="86" selection-end-line="87" selection-end-column="86" />
             </state>
           </provider>
         </entry>
@@ -105,13 +123,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/validar_declaracao_matricula.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
+            <state relative-caret-position="140">
+              <caret line="20" column="46" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
               <folding>
-                <element signature="e#932#965#0#HTML" expanded="true" />
+                <element signature="e#1033#1066#0#HTML" expanded="true" />
+                <element signature="e#1288#1321#0#HTML" expanded="true" />
+                <element signature="e#1680#1713#0#HTML" expanded="true" />
+                <element signature="e#1994#2027#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/bootstrap.css">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/mdb.css">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -124,11 +155,11 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="257" column="39" selection-start-line="257" selection-start-column="32" selection-end-line="257" selection-end-column="39" />
+            <state relative-caret-position="-2681">
+              <caret line="246" column="37" selection-start-line="246" selection-start-column="37" selection-end-line="246" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -136,7 +167,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/perfil_individual.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
+            <state relative-caret-position="2780">
               <caret line="139" column="81" selection-start-line="139" selection-start-column="81" selection-end-line="139" selection-end-column="81" />
             </state>
           </provider>
@@ -193,9 +224,9 @@
       <find>pendente</find>
       <find>matricula(</find>
       <find>pdf_de</find>
-      <find>pdf_dec</find>
       <find>alterar</find>
       <find>solicitar</find>
+      <find>pdf_dec</find>
     </findStrings>
     <replaceStrings>
       <replace>btn-primary-modal</replace>
@@ -278,11 +309,11 @@
         <option value="$PROJECT_DIR$/portal/models.py" />
         <option value="$PROJECT_DIR$/portal/templates/portal/check_declaracao_matricula.html" />
         <option value="$PROJECT_DIR$/portal/urls.py" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/validar_declaracao_matricula.html" />
         <option value="$PROJECT_DIR$/portal/admin.py" />
-        <option value="$PROJECT_DIR$/portal/templates/pdf/report_declaracao_matricula.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/perfil_individual.html" />
+        <option value="$PROJECT_DIR$/portal/templates/pdf/report_declaracao_matricula.html" />
         <option value="$PROJECT_DIR$/portal/views.py" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/validar_declaracao_matricula.html" />
       </list>
     </option>
   </component>
@@ -303,7 +334,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -327,12 +357,20 @@
               <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
               <item name="portal" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="pdf" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
+              <item name="portal" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="portal" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -568,7 +606,14 @@
       <option name="project" value="LOCAL" />
       <updated>1540043871058</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Emissão de declaração de matrícula no acesso do aluno.">
+      <created>1540044482960</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1540044482960</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -589,7 +634,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49931034" visible="true" weight="0.24697986" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49931034" visible="true" weight="0.25033557" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5006896" side_tool="true" weight="0.2298177" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -635,23 +680,10 @@
     <MESSAGE value="Envio de e-mail de forma síncronoma...normal" />
     <MESSAGE value="Emissão de declaração de matrícula com código de verificação e sistema de validação." />
     <MESSAGE value="Correção endereço de validação de declaração de matrícula." />
-    <option name="LAST_COMMIT_MESSAGE" value="Correção endereço de validação de declaração de matrícula." />
+    <MESSAGE value="Emissão de declaração de matrícula no acesso do aluno." />
+    <option name="LAST_COMMIT_MESSAGE" value="Emissão de declaração de matrícula no acesso do aluno." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3400">
-          <caret line="170" column="23" selection-start-line="170" selection-start-column="23" selection-end-line="170" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_solicitar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="37" column="65" selection-start-line="37" selection-start-column="65" selection-end-line="37" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/login/templates/registration/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4422">
@@ -916,13 +948,13 @@
     <entry file="file://$PROJECT_DIR$/portal/apps.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/validar_declaracao_matricula.html">
+    <entry file="file://$PROJECT_DIR$/portal/migrations/0048_auto_20181019_2146.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
-          <folding>
-            <element signature="e#932#965#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="600">
+          <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -931,6 +963,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/home.html">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/perfil_individual.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2780">
+          <caret line="139" column="81" selection-start-line="139" selection-start-column="81" selection-end-line="139" selection-end-column="81" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/urls.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -942,48 +981,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/migrations/0048_auto_20181019_2146.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/pdf/report_declaracao_matricula.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="75" column="40" selection-start-line="75" selection-start-column="40" selection-end-line="75" selection-end-column="40" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="257" column="39" selection-start-line="257" selection-start-column="32" selection-end-line="257" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/perfil_individual.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="139" column="81" selection-start-line="139" selection-start-column="81" selection-end-line="139" selection-end-column="81" />
+        <state relative-caret-position="400">
+          <caret line="87" column="86" selection-start-line="87" selection-start-column="86" selection-end-line="87" selection-end-column="86" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="1745" lean-forward="true" selection-start-line="1745" selection-end-line="1745" />
+        <state relative-caret-position="-61">
+          <caret line="1709" column="18" selection-start-line="1709" selection-start-column="11" selection-end-line="1709" selection-end-column="18" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <marker date="1540044433235" expanded="true" signature="94735:94736" ph="..." />
+            <marker date="1540161107974" expanded="true" signature="94769:94770" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/validar_declaracao_matricula.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="20" column="46" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
+          <folding>
+            <element signature="e#1033#1066#0#HTML" expanded="true" />
+            <element signature="e#1288#1321#0#HTML" expanded="true" />
+            <element signature="e#1680#1713#0#HTML" expanded="true" />
+            <element signature="e#1994#2027#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/mdb.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2681">
+          <caret line="246" column="37" selection-start-line="246" selection-start-column="37" selection-end-line="246" selection-end-column="37" />
         </state>
       </provider>
     </entry>

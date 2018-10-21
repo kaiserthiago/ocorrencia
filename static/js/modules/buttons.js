@@ -1,90 +1,75 @@
+"use strict";
+
 (function ($) {
+  var _this = this;
 
-  $(document).ready(() => {
-
+  $(document).ready(function () {
     $(document).on('mouseenter', '.fixed-action-btn', function () {
-
-      const $this = $(this);
+      let $this = $(this);
       openFABMenu($this);
     });
-
     $(document).on('mouseleave', '.fixed-action-btn', function () {
-
-      const $this = $(this);
+      let $this = $(this);
       closeFABMenu($this);
     });
-
     $(document).on('click', '.fixed-action-btn > a', function () {
-
-      const $this = $(this);
-      const $menu = $this.parent();
-
+      let $this = $(this);
+      let $menu = $this.parent();
       $menu.hasClass('active') ? openFABMenu($menu) : closeFABMenu($menu);
 
       if ($menu.hasClass('active')) {
-
         closeFABMenu($menu);
       } else {
-
         openFABMenu($menu);
       }
     });
   });
-
   $.fn.extend({
     openFAB() {
-
       openFABMenu($(this));
     },
-    closeFAB() {
 
+    closeFAB() {
       closeFABMenu($(this));
     }
+
   });
 
-  const openFABMenu = btn => {
+  let openFABMenu = function openFABMenu(btn) {
+    let fab = btn;
 
-    const fab = btn;
     if (!fab.hasClass('active')) {
-
       fab.addClass('active');
-      const btnList = document.querySelectorAll('ul .btn-floating');
-      btnList.forEach(el => {
-
+      let btnList = document.querySelectorAll('ul .btn-floating');
+      btnList.forEach(function (el) {
         el.classList.add('shown');
       });
     }
   };
 
-  const closeFABMenu = btn => {
-
-    const fab = btn;
-
+  let closeFABMenu = function closeFABMenu(btn) {
+    let fab = btn;
     fab.removeClass('active');
-    const btnList = document.querySelectorAll('ul .btn-floating');
-    btnList.forEach(el => {
-
+    let btnList = document.querySelectorAll('ul .btn-floating');
+    btnList.forEach(function (el) {
       el.classList.remove('shown');
     });
   };
 
-  $('.fixed-action-btn > .btn-floating').on('click', e => {
-
-    e.preventDefault();
-    toggleFABMenu($('.fixed-action-btn'));
-
-    return false;
+  $('.fixed-action-btn:not(.smooth-scroll) > .btn-floating').on('click', function (e) {
+    if (!$(_this).hasClass('smooth-scroll')) {
+      e.preventDefault();
+      toggleFABMenu($('.fixed-action-btn'));
+      return false;
+    }
   });
 
   function toggleFABMenu(btn) {
-
-    const elem = btn;
+    let elem = btn;
 
     if (elem.hasClass('active')) {
-
       closeFABMenu(elem);
     } else {
-
       openFABMenu(elem);
     }
   }
