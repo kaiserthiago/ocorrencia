@@ -1706,7 +1706,6 @@ def report_pdf_dados_bancarios(request):
         return render(request, 'portal/erro.html', {'erro': erro})
 
 
-@login_required
 def report_pdf_declaracao_matricula(request):
     # try:
     if 'SelectDeclaraoMatriculaAluno' in request.POST:
@@ -2599,7 +2598,8 @@ def autorizacao_confirmar(request, autorizacao_id):
 def validar_declaracao_matricula(request):
     if request.method == 'POST':
         try:
-            token = upper(str(request.POST['token1'])+str(request.POST['token2'])+str(request.POST['token3'])+str(request.POST['token4']))
+            token = upper(str(request.POST['token1']) + str(request.POST['token2']) + str(request.POST['token3']) + str(
+                request.POST['token4']))
             matricula = get_object_or_404(Matricula, token=token)
 
             if matricula.token_limite > date.today():
