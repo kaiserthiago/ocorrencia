@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Autorizações de saída{% endblock %}
 {% block class_autorizacao_pendente_menu %}active{% endblock %}
 
@@ -11,6 +12,30 @@
 {% endblock %}
 
 {% block content %}
+    <div class="card redonda mb-4">
+        <div class="card-header redonda grey lighten-1 font-weight-bold">
+            Leitor de QrCode
+        </div>
+        <div class="card-body text-center">
+            <canvas></canvas>
+            <form action="" id="formcpf" method="POST">
+                {% csrf_token %}
+                <input type="text" id="cpf" name="cpf" onchange="this.form.submit();" style="display: none">
+            </form>
+{#            {% if aluno %}#}
+{#                <strong>Aluno: </strong> {{ aluno.nome }}<br>#}
+{#                <strong>Nascimento: </strong> {{ aluno.nascimento }}<br>#}
+{#                <strong>CPF: </strong> {{ aluno.cpf }}<br>#}
+{#                <strong>Matrícula: </strong> {{ aluno.numero_matricula }}#}
+{#            {% endif %}#}
+{#            {% if matricula %}#}
+{#                <hr>#}
+{#                <strong>Curso: </strong>{{ matricula.turma.curso.descricao }}<br>#}
+{#                <strong>Turma: </strong>{{ matricula.turma.descricao }}<br>#}
+{#                <strong>Ano Letivo: </strong>{{ matricula.ano_letivo }}#}
+{#            {% endif %}#}
+        </div>
+    </div>
     <!--Panel PENDENTES-->
     <div class="card redonda mb-4">
         <div class="card-header redonda grey lighten-1 font-weight-bold">SAÍDAS AUTORIZADAS PENDENTES</div>
@@ -61,6 +86,26 @@
     </div>
     <!--/.Panel PENDENTES-->
 {% endblock %}
+
+{% block script %}
+    <script type="text/javascript" src="{% static 'js/qrcode/qrcodelib.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/qrcode/webcodecamjs.js' %}"></script>
+    <script type="text/javascript">
+        var txt = "innerText" in HTMLElement.prototype ? "innerText" : "textContent";
+        var arg = {
+            resultFunction: function (result) {
+                {#var aChild = document.createElement('li');#}
+                {#aChild[txt] = result.format + ': ' + result.code;#}
+                {#document.querySelector('body').appendChild(aChild);#}
+                document.getElementById("cpf").value = '';
+                document.getElementById("cpf").value = result.code;
+                document.getElementById("formcpf").submit();
+            }
+        };
+        new WebCodeCamJS("canvas").init(arg).play();
+    </script>
+{% endblock %}
+
 {% block modal %}
     {% for autorizacao in autorizacoes %}
         <!--Modal CONFIRMAR-->

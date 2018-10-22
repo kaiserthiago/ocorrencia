@@ -2547,9 +2547,25 @@ def autorizacao_relatorio(request, aluno_id):
 def autorizacao_pendente(request):
     autorizacoes = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa, data__year=date.today().year,
                                               status='Autorizado')
-    context = {
-        'autorizacoes': autorizacoes
-    }
+    if request.method == 'POST':
+        cpf = request.POST['cpf']
+        cpf = cpf[0:3] + '.' + cpf[3:6] + '.' + cpf[6:9] + '-' + cpf[9:11]
+
+        aluno = get_object_or_404(Aluno, cpf=cpf)
+        try:
+            saida_pendente = get_object_or_404(Autorizacao, matricula__aluno=aluno, status='Autorizado')
+            return autorizacao_confirmar(request, saida_pendente.id)
+        except:
+            saida_pendente = ''
+
+        context = {
+            'saida_pendente': saida_pendente,
+            'autorizacoes': autorizacoes
+        }
+    else:
+        context = {
+            'autorizacoes': autorizacoes
+        }
     return render(request, 'portal/autorizacao_pendente.html', context)
 
 
@@ -2599,7 +2615,8 @@ def autorizacao_confirmar(request, autorizacao_id):
 def validar_declaracao_matricula(request):
     if request.method == 'POST':
         try:
-            token = upper(str(request.POST['token1'])+str(request.POST['token2'])+str(request.POST['token3'])+str(request.POST['token4']))
+            token = upper(str(request.POST['token1']) + str(request.POST['token2']) + str(request.POST['token3']) + str(
+                request.POST['token4']))
             matricula = get_object_or_404(Matricula, token=token)
 
             if matricula.token_limite > date.today():
