@@ -2547,7 +2547,6 @@ def autorizacao_relatorio(request, aluno_id):
 def autorizacao_pendente(request):
     autorizacoes = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa, data__year=date.today().year,
                                               status='Autorizado')
-    aluno = ''
 
     if request.method == 'POST':
         cpf = request.POST['cpf']
@@ -2568,7 +2567,6 @@ def autorizacao_pendente(request):
     else:
         context = {
             'autorizacoes': autorizacoes,
-            'aluno': aluno
         }
     return render(request, 'portal/autorizacao_pendente.html', context)
 
