@@ -2551,8 +2551,8 @@ def autorizacao_pendente(request):
         cpf = request.POST['cpf']
         cpf = cpf[0:3] + '.' + cpf[3:6] + '.' + cpf[6:9] + '-' + cpf[9:11]
 
-        aluno = get_object_or_404(Aluno, cpf=cpf)
         try:
+            aluno = get_object_or_404(Aluno, cpf=cpf)
             saida_pendente = get_object_or_404(Autorizacao, matricula__aluno=aluno, status='Autorizado')
             return autorizacao_confirmar(request, saida_pendente.id)
         except:

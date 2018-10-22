@@ -22,18 +22,18 @@
                 {% csrf_token %}
                 <input type="text" id="cpf" name="cpf" onchange="this.form.submit();" style="display: none">
             </form>
-{#            {% if aluno %}#}
-{#                <strong>Aluno: </strong> {{ aluno.nome }}<br>#}
-{#                <strong>Nascimento: </strong> {{ aluno.nascimento }}<br>#}
-{#                <strong>CPF: </strong> {{ aluno.cpf }}<br>#}
-{#                <strong>Matrícula: </strong> {{ aluno.numero_matricula }}#}
-{#            {% endif %}#}
-{#            {% if matricula %}#}
-{#                <hr>#}
-{#                <strong>Curso: </strong>{{ matricula.turma.curso.descricao }}<br>#}
-{#                <strong>Turma: </strong>{{ matricula.turma.descricao }}<br>#}
-{#                <strong>Ano Letivo: </strong>{{ matricula.ano_letivo }}#}
-{#            {% endif %}#}
+            {#            {% if aluno %}#}
+            {#                <strong>Aluno: </strong> {{ aluno.nome }}<br>#}
+            {#                <strong>Nascimento: </strong> {{ aluno.nascimento }}<br>#}
+            {#                <strong>CPF: </strong> {{ aluno.cpf }}<br>#}
+            {#                <strong>Matrícula: </strong> {{ aluno.numero_matricula }}#}
+            {#            {% endif %}#}
+            {#            {% if matricula %}#}
+            {#                <hr>#}
+            {#                <strong>Curso: </strong>{{ matricula.turma.curso.descricao }}<br>#}
+            {#                <strong>Turma: </strong>{{ matricula.turma.descricao }}<br>#}
+            {#                <strong>Ano Letivo: </strong>{{ matricula.ano_letivo }}#}
+            {#            {% endif %}#}
         </div>
     </div>
     <!--Panel PENDENTES-->
@@ -103,6 +103,8 @@
             }
         };
         new WebCodeCamJS("canvas").init(arg).play();
+        {#new WebCodeCamJS("canvas").options(opcoes).init(arg).play();#}
+
     </script>
 {% endblock %}
 
