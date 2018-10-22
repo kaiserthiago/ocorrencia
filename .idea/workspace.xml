@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="grava user que registrou a saída">
+    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="erro se não encontrar aluno">
       <change beforePath="$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,18 +31,18 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Django Console" value="260" />
-          <entry key="html" value="3141" />
+          <entry key="html" value="3159" />
           <entry key="js" value="64" />
-          <entry key="py" value="1821" />
-          <entry key="txt" value="449" />
+          <entry key="py" value="1835" />
+          <entry key="txt" value="476" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="3141" />
+          <entry key="HTML" value="3159" />
           <entry key="JavaScript" value="64" />
-          <entry key="PLAIN_TEXT" value="449" />
-          <entry key="Python" value="2081" />
+          <entry key="PLAIN_TEXT" value="476" />
+          <entry key="Python" value="2095" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -72,11 +71,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="2572" column="4" selection-start-line="2572" selection-start-column="4" selection-end-line="2572" selection-end-column="4" />
+            <state relative-caret-position="328">
+              <caret line="2561" column="18" selection-start-line="2561" selection-start-column="18" selection-end-line="2561" selection-end-column="18" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <marker date="1540233479815" expanded="true" signature="95367:95368" ph="..." />
+                <marker date="1540233663476" expanded="true" signature="95391:95392" ph="..." />
               </folding>
             </state>
           </provider>
@@ -97,8 +96,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            <state relative-caret-position="280">
+              <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
               <folding>
                 <element signature="e#850#871#0#HTML" expanded="true" />
               </folding>
@@ -636,7 +635,21 @@
       <option name="project" value="LOCAL" />
       <updated>1540233204532</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="erro se não encontrar aluno">
+      <created>1540233572346</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1540233572346</updated>
+    </task>
+    <task id="LOCAL-00030" summary="erro se não encontrar aluno">
+      <created>1540233669063</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1540233669063</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -709,7 +722,8 @@
     <MESSAGE value="leitor qrcode confirmação de saída inseguro" />
     <MESSAGE value="leitor qrcode confirmação de saída" />
     <MESSAGE value="grava user que registrou a saída" />
-    <option name="LAST_COMMIT_MESSAGE" value="grava user que registrou a saída" />
+    <MESSAGE value="erro se não encontrar aluno" />
+    <option name="LAST_COMMIT_MESSAGE" value="erro se não encontrar aluno" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/ocorrencia/settings.py">
@@ -1047,19 +1061,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="2572" column="4" selection-start-line="2572" selection-start-column="4" selection-end-line="2572" selection-end-column="4" />
+        <state relative-caret-position="328">
+          <caret line="2561" column="18" selection-start-line="2561" selection-start-column="18" selection-end-line="2561" selection-end-column="18" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <marker date="1540233479815" expanded="true" signature="95367:95368" ph="..." />
+            <marker date="1540233663476" expanded="true" signature="95391:95392" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        <state relative-caret-position="280">
+          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
           <folding>
             <element signature="e#850#871#0#HTML" expanded="true" />
           </folding>
