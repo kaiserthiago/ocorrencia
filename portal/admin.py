@@ -58,7 +58,7 @@ class EncaminhamentoAdmin(admin.ModelAdmin):
 
 class AutorizacaoAdmin(admin.ModelAdmin):
     list_display = ('id', 'matricula', 'data', 'descricao', 'status', 'user')
-    list_filter = ['matricula__ano_letivo', 'empresa']
+    list_filter = ['matricula__ano_letivo', 'status', 'empresa']
     search_fields = ['matricula__aluno__nome', 'user']
 
 
