@@ -409,7 +409,7 @@ class Autorizacao(AuditoriaMixin):
     matricula = models.ForeignKey(Matricula, on_delete=models.DO_NOTHING)
     data = models.DateField()
     descricao = models.TextField()
-    user_confirma = models.ForeignKey(User, on_delete=models.DO_NOTHING, blank=True, null=True)
+    user_confirma = models.ForeignKey(User, on_delete=models.DO_NOTHING, blank=True, null=True, related_name='user_confirma')
 
     def __str__(self):
         return str(self.id)
