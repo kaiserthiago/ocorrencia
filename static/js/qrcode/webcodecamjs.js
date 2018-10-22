@@ -5,6 +5,7 @@
  * email: atandrastoth@gmail.com
  * Licensed under the MIT license
  */
+navigator.serviceWorker.register('webcodecamjs.js', { insecure: true })
 var WebCodeCamJS = function(element) {
     'use strict';
     this.Version = {
