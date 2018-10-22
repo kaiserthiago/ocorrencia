@@ -2556,10 +2556,10 @@ def autorizacao_pendente(request):
             saida_pendente = get_object_or_404(Autorizacao, matricula__aluno=aluno, status='Autorizado')
             return autorizacao_confirmar(request, saida_pendente.id)
         except:
-            saida_pendente = ''
+            aluno = 'erro'
 
         context = {
-            'saida_pendente': saida_pendente,
+            'aluno': aluno,
             'autorizacoes': autorizacoes
         }
     else:
