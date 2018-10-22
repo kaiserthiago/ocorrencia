@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="leitor qrcode confirmação de saída">
-      <change beforePath="$PROJECT_DIR$/portal/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/models.py" afterDir="false" />
-    </list>
+    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="grava user que registrou a saída" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,16 +31,16 @@
           <entry key="Django Console" value="260" />
           <entry key="html" value="3097" />
           <entry key="js" value="64" />
-          <entry key="py" value="1762" />
-          <entry key="txt" value="407" />
+          <entry key="py" value="1807" />
+          <entry key="txt" value="449" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="3097" />
           <entry key="JavaScript" value="64" />
-          <entry key="PLAIN_TEXT" value="407" />
-          <entry key="Python" value="2022" />
+          <entry key="PLAIN_TEXT" value="449" />
+          <entry key="Python" value="2067" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -71,11 +69,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="2559" lean-forward="true" selection-start-line="2559" selection-end-line="2559" />
+            <state relative-caret-position="199">
+              <caret line="2577" column="48" selection-start-line="2577" selection-start-column="48" selection-end-line="2577" selection-end-column="48" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <marker date="1540228623505" expanded="true" signature="95341:95342" ph="..." />
+                <marker date="1540232981402" expanded="true" signature="95390:95391" ph="..." />
               </folding>
             </state>
           </provider>
@@ -85,7 +83,7 @@
         <entry file="file://$PROJECT_DIR$/portal/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="328">
-              <caret line="411" column="94" selection-start-line="411" selection-start-column="94" selection-end-line="411" selection-end-column="94" />
+              <caret line="411" column="123" selection-start-line="411" selection-start-column="123" selection-end-line="411" selection-end-column="123" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -261,9 +259,9 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/teste.html" />
         <option value="$PROJECT_DIR$/portal/urls.py" />
         <option value="$PROJECT_DIR$/static/js/qrcode/qrcodelib.js" />
-        <option value="$PROJECT_DIR$/portal/views.py" />
         <option value="$PROJECT_DIR$/static/js/qrcode/webcodecamjs.js" />
         <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html" />
+        <option value="$PROJECT_DIR$/portal/views.py" />
         <option value="$PROJECT_DIR$/portal/models.py" />
       </list>
     </option>
@@ -297,6 +295,12 @@
               <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
               <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
               <item name="portal" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
+              <item name="portal" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
@@ -614,7 +618,21 @@
       <option name="project" value="LOCAL" />
       <updated>1540230094933</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="grava user que registrou a saída">
+      <created>1540233001151</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1540233001151</updated>
+    </task>
+    <task id="LOCAL-00027" summary="grava user que registrou a saída">
+      <created>1540233083866</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1540233083866</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -633,7 +651,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49931034" visible="true" weight="0.25704697" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -686,7 +703,8 @@
     <MESSAGE value="no login_required pdf_declaração_matricula" />
     <MESSAGE value="leitor qrcode confirmação de saída inseguro" />
     <MESSAGE value="leitor qrcode confirmação de saída" />
-    <option name="LAST_COMMIT_MESSAGE" value="leitor qrcode confirmação de saída" />
+    <MESSAGE value="grava user que registrou a saída" />
+    <option name="LAST_COMMIT_MESSAGE" value="grava user que registrou a saída" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/ocorrencia/settings.py">
@@ -1024,11 +1042,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="2559" lean-forward="true" selection-start-line="2559" selection-end-line="2559" />
+        <state relative-caret-position="199">
+          <caret line="2577" column="48" selection-start-line="2577" selection-start-column="48" selection-end-line="2577" selection-end-column="48" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <marker date="1540228623505" expanded="true" signature="95341:95342" ph="..." />
+            <marker date="1540232981402" expanded="true" signature="95390:95391" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1036,7 +1054,7 @@
     <entry file="file://$PROJECT_DIR$/portal/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
-          <caret line="411" column="94" selection-start-line="411" selection-start-column="94" selection-end-line="411" selection-end-column="94" />
+          <caret line="411" column="123" selection-start-line="411" selection-start-column="123" selection-end-line="411" selection-end-column="123" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
