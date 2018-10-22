@@ -2575,6 +2575,7 @@ def autorizacao_confirmar(request, autorizacao_id):
 
     if request.method == 'POST':
         autorizacao.status = 'Efetuado'
+        autorizacao.user_confirma = request.user
 
         autorizacao.save()
 
