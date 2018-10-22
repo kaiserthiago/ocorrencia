@@ -16,8 +16,8 @@
         <div class="alert alert-danger">
         Erro! Não foi possível identificar o aluno com o CPF {{ cpf }}
         </div>
-    {% else %}
-        <div class="alert alert-danger">
+    {% elif aluno != '' %}
+        <div class="alert alert-success">
         Sucesso! Saída do aluno {{ aluno.nome }} registrada!
         </div>
     {% endif %}
