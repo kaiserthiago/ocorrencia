@@ -2560,6 +2560,7 @@ def autorizacao_pendente(request):
 
         context = {
             'aluno': aluno,
+            'cpf': cpf,
             'autorizacoes': autorizacoes
         }
     else:
