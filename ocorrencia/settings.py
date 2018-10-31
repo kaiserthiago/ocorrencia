@@ -146,3 +146,6 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'Gestão Educacional <SGE>'
 
 IMPORT_EXPORT_USE_TRANSACTIONS = True
+
+DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
+DBBACKUP_STORAGE_OPTIONS = {'location': os.path.join(BASE_DIR, 'static/backups')}
