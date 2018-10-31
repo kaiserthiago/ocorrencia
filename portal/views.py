@@ -1,9 +1,8 @@
 import json
 import string
-import types
 from datetime import date, timedelta
 
-import easy_pdf
+from easy_pdf import rendering
 import numpy
 from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
@@ -11,20 +10,14 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.models import User, Permission
-from django.core.files.storage import FileSystemStorage
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Count, Sum, Avg, Func, F, ExpressionWrapper, DurationField
 from django.db.models.functions import TruncMonth
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template.defaultfilters import lower, upper
-from django.template.loader import render_to_string
-from easy_pdf.views import PDFTemplateView
-from reportlab.pdfgen import canvas
-from reportlab.platypus import SimpleDocTemplate
 from tablib import Dataset
 
-from ocorrencia import settings
 from portal.emails import RegistraOcorrenciaMail, ConfirmaUsuarioMail, RegistraEncaminhamentoMail, \
     RegistraAutorizacaoSaidaMail, RegistraEncaminhamentoProvidenciasMail
 from portal.forms import OcorrenciaForm, CursoForm, TurmaForm, AlunoForm, UserForm, UserProfileForm, \
@@ -1697,7 +1690,7 @@ def report_pdf_dados_bancarios(request):
             'alunos': alunos
         }
 
-        return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_dados_bancarios.html',
+        return rendering.render_to_pdf_response(request, 'pdf/report_dados_bancarios.html',
                                                          context,
                                                          using=None, download_filename=None,
                                                          content_type='application/pdf', response_class=HttpResponse)
@@ -1708,43 +1701,43 @@ def report_pdf_dados_bancarios(request):
 
 @login_required
 def report_pdf_declaracao_matricula(request):
-    # try:
-    if 'SelectDeclaraoMatriculaAluno' in request.POST:
-        id = request.POST['SelectDeclaraoMatriculaAluno']
-    else:
-        id = request.user.userprofile.aluno_id
+    try:
+        if 'SelectDeclaraoMatriculaAluno' in request.POST:
+            id = request.POST['SelectDeclaraoMatriculaAluno']
+        else:
+            id = request.user.userprofile.aluno_id
 
-    aluno = get_object_or_404(Aluno, id=id)
-    data = date.today()
-    usuario = get_object_or_404(User, id=request.user.id)
+        aluno = get_object_or_404(Aluno, id=id)
+        data = date.today()
+        usuario = get_object_or_404(User, id=request.user.id)
 
-    matricula = get_object_or_404(Matricula, aluno=aluno, ano_letivo=data.year)
+        matricula = get_object_or_404(Matricula, aluno=aluno, ano_letivo=data.year)
 
-    token = aluno.cpf[:3] + aluno.cpf[4:7] + aluno.cpf[8:11] + str(matricula.id) + str(
-        matricula.turma.curso_id) + str(matricula.turma_id) + str(data.year)
-    token = hex(int(token))
+        token = aluno.cpf[:3] + aluno.cpf[4:7] + aluno.cpf[8:11] + str(matricula.id) + str(
+            matricula.turma.curso_id) + str(matricula.turma_id) + str(data.year)
+        token = hex(int(token))
 
-    matricula.token = upper(str(token))
-    matricula.token_limite = data + timedelta(90)
+        matricula.token = upper(str(token))
+        matricula.token_limite = data + timedelta(90)
 
-    matricula.save()
+        matricula.save()
 
-    context = {
-        'aluno': aluno,
-        'matricula': matricula,
-        'data': data,
-        'usuario': usuario
-    }
+        context = {
+            'aluno': aluno,
+            'matricula': matricula,
+            'data': data,
+            'usuario': usuario
+        }
 
-    return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_declaracao_matricula.html',
-                                                     context,
-                                                     using=None, download_filename=None,
-                                                     content_type='application/pdf', response_class=HttpResponse)
+        return rendering.render_to_pdf_response(request, 'pdf/report_declaracao_matricula.html',
+                                                         context,
+                                                         using=None, download_filename=None,
+                                                         content_type='application/pdf', response_class=HttpResponse)
 
 
-# except:
-#     erro = 'Não há matrícula vigente para o(a) aluno(a) selecionado.'
-#     return render(request, 'portal/erro.html', {'erro': erro})
+    except:
+        erro = 'Não há matrícula vigente para o(a) aluno(a) selecionado.'
+        return render(request, 'portal/erro.html', {'erro': erro})
 
 
 @login_required
@@ -1764,7 +1757,7 @@ def report_pdf_declaracao_transferencia(request):
             'usuario': usuario
         }
 
-        return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_declaracao_transferencia.html',
+        return rendering.render_to_pdf_response(request, 'pdf/report_declaracao_transferencia.html',
                                                          context,
                                                          using=None, download_filename=None,
                                                          content_type='application/pdf', response_class=HttpResponse)
@@ -1793,7 +1786,7 @@ def report_pdf_declaracao_sabado_letivo(request):
             'usuario': usuario
         }
 
-        return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_declaracao_sabado_letivo.html',
+        return rendering.render_to_pdf_response(request, 'pdf/report_declaracao_sabado_letivo.html',
                                                          context,
                                                          using=None, download_filename=None,
                                                          content_type='application/pdf', response_class=HttpResponse)
@@ -1823,7 +1816,7 @@ def report_pdf_declaracao_conclusao_integrado(request):
         'usuario': usuario
     }
 
-    return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_declaracao_conclusao_integrado.html',
+    return rendering.render_to_pdf_response(request, 'pdf/report_declaracao_conclusao_integrado.html',
                                                      context,
                                                      using=None, download_filename=None,
                                                      content_type='application/pdf', response_class=HttpResponse)
@@ -1836,20 +1829,20 @@ def report_pdf_declaracao_conclusao_integrado(request):
 
 @login_required
 def report_pdf_ocorrencia(request, ocorrencia_id):
-    try:
+    # try:
         ocorrencia = get_object_or_404(Ocorrencia, id=ocorrencia_id)
 
         context = {
             'ocorrencia': ocorrencia,
         }
 
-        return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_ocorrencia.html',
+        return rendering.render_to_pdf_response(request, 'pdf/report_ocorrencia.html',
                                                          context,
                                                          using=None, download_filename=None,
                                                          content_type='application/pdf', response_class=HttpResponse)
-    except:
-        erro = 'Não foi possível imprimir a ocorrência. Por favor contate o suporte.'
-        return render(request, 'portal/erro.html', {'erro': erro})
+    # except:
+    #     erro = 'Não foi possível imprimir a ocorrência. Por favor contate o suporte.'
+    #     return render(request, 'portal/erro.html', {'erro': erro})
 
 
 @login_required
@@ -1861,7 +1854,7 @@ def report_pdf_autorizacao(request, autorizacao_id):
             'autorizacao': autorizacao,
         }
 
-        return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_autorizacao.html',
+        return rendering.render_to_pdf_response(request, 'pdf/report_autorizacao.html',
                                                          context,
                                                          using=None, download_filename=None,
                                                          content_type='application/pdf', response_class=HttpResponse)
@@ -1879,7 +1872,7 @@ def report_pdf_encaminhamento(request, encaminhamento_id):
             'encaminhamento': encaminhamento,
         }
 
-        return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_encaminhamento.html',
+        return rendering.render_to_pdf_response(request, 'pdf/report_encaminhamento.html',
                                                          context,
                                                          using=None, download_filename=None,
                                                          content_type='application/pdf', response_class=HttpResponse)
@@ -1909,7 +1902,7 @@ def report_pdf_lista_aluno_turma(request):
             'dados': dados
         }
 
-        return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_lista_aluno_turma.html',
+        return rendering.render_to_pdf_response(request, 'pdf/report_lista_aluno_turma.html',
                                                          context,
                                                          using=None, download_filename=None,
                                                          content_type='application/pdf', response_class=HttpResponse)
@@ -1932,7 +1925,7 @@ def report_pdf_lista_aluno_pcd(request):
             'alunos': alunos,
         }
 
-        return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_lista_aluno_pcd.html',
+        return rendering.render_to_pdf_response(request, 'pdf/report_lista_aluno_pcd.html',
                                                          context,
                                                          using=None, download_filename=None,
                                                          content_type='application/pdf', response_class=HttpResponse)
@@ -2632,7 +2625,7 @@ def validar_declaracao_matricula(request):
                     'data': data,
                 }
 
-                return easy_pdf.rendering.render_to_pdf_response(request, 'pdf/report_declaracao_matricula.html',
+                return rendering.render_to_pdf_response(request, 'pdf/report_declaracao_matricula.html',
                                                                  context,
                                                                  using=None, download_filename=None,
                                                                  content_type='application/pdf',

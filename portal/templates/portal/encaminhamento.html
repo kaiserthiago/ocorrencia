@@ -54,20 +54,20 @@
                                     <td style="vertical-align: middle;">{{ encaminhamento.descricao|truncatechars:50 }}</td>
                                     <td style="vertical-align: middle;">{{ encaminhamento.status }}</td>
                                     <td class="px-0 py-0"
-                                        style="vertical-align: middle; text-align: right; min-width: 110px; width: 110px">
+                                        style="vertical-align: middle; text-align: right; min-width: 170px; width: 170px">
 
-                                        <i data-toggle="tooltip" data-placement="top" title="Visualizar">
-                                            <a href="{% url 'encaminhamento_show' encaminhamento.id %}"
-                                               class="btn-floating btn-sm info-color"><i class="fa fa-search"></i>
-                                            </a>
-                                        </i>
+                                        <a href="{% url 'encaminhamento_show' encaminhamento.id %}"
+                                           class="btn-floating btn-sm info-color"><i class="fa fa-search"></i>
+                                        </a>
 
-                                        <i data-toggle="tooltip" data-placement="top" title="Excluir">
-                                            <a data-toggle="modal" href="#Excluir{{ encaminhamento.id }}"
-                                               class="btn-floating btn-sm btn-danger"
-                                               title="Excluir"><i class="fa fa-trash"></i>
-                                            </a>
-                                        </i>
+                                        <a href="{% url 'report_pdf_encaminhamento' encaminhamento.id %}"
+                                           target="_blank"
+                                           class="btn-floating btn-sm btn-indigo"><i class="fa fa-print"></i>
+                                        </a>
+
+                                        <a data-toggle="modal" href="#Excluir{{ encaminhamento.id }}"
+                                           class="btn-floating btn-sm btn-danger"><i class="fa fa-trash"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             {% empty %}

@@ -59,20 +59,21 @@
                                         {% endif %}
                                     </td>
                                     <td class="px-0 py-0"
-                                        style="vertical-align: middle; text-align: right; min-width: 110px; width: 110px">
+                                        style="vertical-align: middle; text-align: right; min-width: 170px; width: 170px">
 
                                         <a href="{% url 'autorizacao_show' autorizacao.id %}"
-                                           class="btn-floating btn-sm info-color"
-                                           data-toggle="tooltip" data-placement="top" title="Visualizar"><i
+                                           class="btn-floating btn-sm info-color"><i
                                                 class="fa fa-search"></i>
                                         </a>
 
-                                        <i data-toggle="tooltip" data-placement="top" title="Excluir">
-                                            <a data-toggle="modal" href="#Excluir{{ autorizacao.id }}"
-                                               class="btn-floating btn-sm btn-danger"
-                                               title="Excluir"><i class="fa fa-trash"></i>
-                                            </a>
-                                        </i>
+                                        <a href="{% url 'report_pdf_autorizacao' autorizacao.id %}"
+                                           target="_blank"
+                                           class="btn-floating btn-sm btn-indigo"><i class="fa fa-print"></i>
+                                        </a>
+
+                                        <a data-toggle="modal" href="#Excluir{{ autorizacao.id }}"
+                                           class="btn-floating btn-sm btn-danger"><i class="fa fa-trash"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             {% empty %}

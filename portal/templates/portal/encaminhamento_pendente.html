@@ -44,19 +44,20 @@
                                     <td style="vertical-align: middle;">{{ encaminhamento.servico }}</td>
                                     <td style="vertical-align: middle;">{{ encaminhamento.matricula.aluno }}</td>
                                     <td class="px-0 py-0"
-                                        style="vertical-align: middle; text-align: right; min-width: 110px; width: 110px">
+                                        style="vertical-align: middle; text-align: right; min-width: 170px; width: 170px">
 
-                                        <i data-toggle="tooltip" data-placement="top" title="Visualizar">
-                                            <a href="{% url 'encaminhamento_show' encaminhamento.id %}"
-                                               class="btn-floating btn-sm btn-info"><i class="fa fa-search"></i>
-                                            </a>
-                                        </i>
+                                        <a href="{% url 'encaminhamento_show' encaminhamento.id %}"
+                                           class="btn-floating btn-sm btn-info"><i class="fa fa-search"></i>
+                                        </a>
 
-                                        <i data-toggle="tooltip" data-placement="top" title="Informar providências">
-                                            <a data-toggle="modal" href="#Providencia{{ encaminhamento.id }}"
-                                               class="btn-floating btn-sm btn-success"><i class="fa fa-check"></i>
-                                            </a>
-                                        </i>
+                                        <a href="{% url 'report_pdf_encaminhamento' encaminhamento.id %}"
+                                           target="_blank"
+                                           class="btn-floating btn-sm btn-indigo"><i class="fa fa-print"></i>
+                                        </a>
+
+                                        <a data-toggle="modal" href="#Providencia{{ encaminhamento.id }}"
+                                           class="btn-floating btn-sm btn-success"><i class="fa fa-check"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             {% empty %}
