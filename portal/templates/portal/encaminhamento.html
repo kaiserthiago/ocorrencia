@@ -37,7 +37,6 @@
                         <table class="table table-sm table-striped btn-table">
                             <thead>
                             <tr>
-                                <th style="font-weight: bold">#</th>
                                 <th style="font-weight: bold">Data</th>
                                 <th style="font-weight: bold">Aluno</th>
                                 <th style="font-weight: bold">Descrição</th>
@@ -48,7 +47,6 @@
                             <tbody id="myTable">
                             {% for encaminhamento in encaminhamentos %}
                                 <tr>
-                                    <td style="vertical-align: middle;">{{ encaminhamento.id }}/{{ encaminhamento.created_at|date:"Y" }}</td>
                                     <td style="vertical-align: middle;">{{ encaminhamento.data }}</td>
                                     <td style="vertical-align: middle;">{{ encaminhamento.matricula.aluno }}</td>
                                     <td style="vertical-align: middle;">{{ encaminhamento.descricao|truncatechars:50 }}</td>
