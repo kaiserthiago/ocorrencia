@@ -4,7 +4,7 @@
             <td style="text-align: center">
                 <img src="http://frota.pythonanywhere.com/static/img/logo_ifro.png" width="120">
             </td>
-            <td style="text-align: center; padding: 20px">
+            <td colspan="2" style="text-align: center; padding: 20px">
                 <p>
                     <strong>
                         MINISTÉRIO DA EDUCAÇÃO<br>
@@ -16,26 +16,36 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2" style="text-align: center; vertical-align: middle">
-                <strong>REGISTRO DE OCORRÊNCIA {{ ocorrencia.id }}/{{ ocorrencia.matricula.ano_letivo }}</strong>
+            <td colspan="3" style="text-align: center; vertical-align: middle">
+                <strong>OCORRÊNCIA DISCIPLINAR - {{ ocorrencia.id }}/{{ ocorrencia.matricula.ano_letivo }}</strong>
             </td>
         </tr>
         <tr>
-            <td style="text-align: left">
+            <td style="width: 15%">
                 <p>
                     <strong>DATA</strong><br>
                     {{ ocorrencia.data }}
                 </p>
             </td>
-            <td>
+            <td style="width: 45%">
                 <p>
-                    <strong>CURSO</strong><br>
+                    <strong>CURSO E TURMA</strong><br>
                     {{ ocorrencia.matricula.turma|upper }}
+                </p>
+            </td>
+            <td style="width: 40%">
+                <p>
+                    <strong>DISCIPLINA</strong><br>
+                    {% if ocorrencia.disciplina %}
+                        {{ ocorrencia.disciplina|upper }}
+                    {% else %}
+                        NÃO INFORMADO
+                    {% endif %}
                 </p>
             </td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td colspan="3">
                 <p>
                     <strong>ESTUDANTE</strong><br>
                     {{ ocorrencia.matricula.aluno }}
@@ -43,7 +53,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td colspan="3">
                 <p>
                     <strong>DESCRIÇÃO DA FALTA</strong><br>
                     ART. {{ ocorrencia.falta.categoria.artigo }} -
@@ -53,7 +63,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td colspan="3">
                 <p>
                     <strong>DESCRIÇÃO DA OCORRÊNCIA</strong><br>
                     {{ ocorrencia.descricao }}
@@ -61,7 +71,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2" style="text-align: center">
+            <td colspan="3" style="text-align: center">
                 <p>
                     <br>
                     <strong>{{ ocorrencia.user|upper }}</strong><br>
@@ -73,21 +83,23 @@
     <br><br>
     <table border="0" cellpadding="5" cellspacing="0" width="60%" style="font-size: 8.5pt">
         <tr>
-{#            <td style="text-align: center">#}
-{#                <img src="http://frota.pythonanywhere.com/static/img/logo.png" style="margin-top: 1em;width:130px;">#}
-{#            </td>#}
+            {#            <td style="text-align: center">#}
+            {#                <img src="http://frota.pythonanywhere.com/static/img/logo.png" style="margin-top: 1em;width:130px;">#}
+            {#            </td>#}
             <td style="text-align: left">
                 <p><strong>IFRO - TRANSFORMANDO VIDAS ATRAVÉS DA EDUCAÇÃO<br></strong>
                     Sistema de Gestão Educacional</p>
-{#                <p>(69) 3443-2445&nbsp;<br><a href="mailto:ocorrencia@ifro.edu.br"#}
-{#                                              style="margin-top:0.5em;color:rgb(102,102,102);text-decoration:none">ocorrencia@ifro.edu.br</a>&nbsp;<br>#}
-{#                </p>#}
+                {#                <p>(69) 3443-2445&nbsp;<br><a href="mailto:ocorrencia@ifro.edu.br"#}
+                {#                                              style="margin-top:0.5em;color:rgb(102,102,102);text-decoration:none">ocorrencia@ifro.edu.br</a>&nbsp;<br>#}
+                {#                </p>#}
             </td>
         </tr>
         <tr>
             <td colspan="2" style="font-size: 7pt">
                 <p style="color: red"><strong>Essa é uma mensagem automática, não é necessário respondê-la.</strong><br>
-                   Para contato envie um e-mail para: <a href="mailto:{{ ocorrencia.user.userprofile.empresa.email_responsavel_ocorrencia }}">{{ ocorrencia.user.userprofile.empresa.email_responsavel_ocorrencia }}</a></p>
+                    Para contato envie um e-mail para: <a
+                            href="mailto:{{ ocorrencia.user.userprofile.empresa.email_responsavel_ocorrencia }}">{{ ocorrencia.user.userprofile.empresa.email_responsavel_ocorrencia }}</a>
+                </p>
             </td>
         </tr>
     </table>

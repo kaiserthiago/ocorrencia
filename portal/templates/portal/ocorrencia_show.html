@@ -55,23 +55,35 @@
                     <table class="table table-bordered table-sm">
                         <tbody>
                         <tr>
-                            <td>
-                                <div class="font-weight-bold">
-                                    CURSO
-                                </div>
-                                {{ ocorrencia.matricula.turma }}
+                            <td colspan="3" class="text-center">
+                                <span class="font-weight-bold">
+                                    OCORRÊNCIA DISCIPLINAR - {{ ocorrencia.id }}/{{ ano }}
+                                </span>
+
                             </td>
-                            <td class="text-right">
+                        </tr>
+                        <tr>
+                            <td>
                                 <div class="font-weight-bold">
                                     DATA
                                 </div>
                                 {{ ocorrencia.data }}
                             </td>
-                            <td class="text-right">
+                            <td>
                                 <div class="font-weight-bold">
-                                    OCORRÊNCIA
+                                    CURSO E TURMA
                                 </div>
-                                {{ ocorrencia.id }}/{{ ano }}
+                                {{ ocorrencia.matricula.turma|upper }}
+                            </td>
+                            <td>
+                                <div class="font-weight-bold">
+                                    DISCIPLINA
+                                </div>
+                                {% if ocorrencia.disciplina %}
+                                    {{ ocorrencia.disciplina|upper }}
+                                {% else %}
+                                    NÃO INFORMADO
+                                {% endif %}
                             </td>
                         </tr>
                         <tr>

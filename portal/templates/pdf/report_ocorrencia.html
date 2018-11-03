@@ -41,7 +41,7 @@
         <em>CAMPUS </em>{{ ocorrencia.user.userprofile.empresa|upper }}
     </div>
     <div style="padding-top:5px; font-weight: bold; font-size: 12px; text-align: center; vertical-align: middle">
-        <h3>REGISTRO DE OCORRÊNCIA {{ ocorrencia.id }}/{{ ocorrencia.matricula.ano_letivo }}</h3>
+        <h3>OCORRÊNCIA DISCIPLINAR - {{ ocorrencia.id }}/{{ ocorrencia.matricula.ano_letivo }}</h3>
     </div>
 </div>
 
@@ -49,21 +49,31 @@
 <table cellpadding="5" cellspacing="0"
        style="border: 1px solid #ddd; width: 100%; font-size: 12px; vertical-align: middle">
     <tr>
-        <td style="text-align: left">
+        <td style="width: 15%;">
             <p>
                 <strong>DATA</strong><br>
                 {{ ocorrencia.data }}
             </p>
         </td>
-        <td>
+        <td style="width: 45%;">
             <p>
-                <strong>CURSO</strong><br>
+                <strong>CURSO E TURMA</strong><br>
                 {{ ocorrencia.matricula.turma|upper }}
+            </p>
+        </td>
+        <td style="width: 40%;">
+            <p>
+                <strong>DISCIPLINA</strong><br>
+                {% if ocorrencia.disciplina %}
+                    {{ ocorrencia.disciplina|upper }}
+                {% else %}
+                    NÃO INFORMADO
+                {% endif %}
             </p>
         </td>
     </tr>
     <tr>
-        <td colspan="2">
+        <td colspan="3">
             <p>
                 <strong>ESTUDANTE</strong><br>
                 {{ ocorrencia.matricula.aluno }}
@@ -71,7 +81,7 @@
         </td>
     </tr>
     <tr>
-        <td colspan="2">
+        <td colspan="3">
             <p>
                 <strong>DESCRIÇÃO DA FALTA</strong><br>
                 ART. {{ ocorrencia.falta.categoria.artigo }} -
@@ -81,7 +91,7 @@
         </td>
     </tr>
     <tr>
-        <td colspan="2">
+        <td colspan="3">
             <p>
                 <strong>DESCRIÇÃO DA OCORRÊNCIA</strong><br>
                 {{ ocorrencia.descricao }}
@@ -89,11 +99,11 @@
         </td>
     </tr>
     <tr>
-        <td colspan="2" style="text-align: center">
+        <td colspan="3" style="text-align: center">
             <p style="text-align: left">
-                    <strong>REGISTRADO POR</strong>
-                </p>
-                <br>
+                <strong>REGISTRADO POR</strong>
+            </p>
+            <br>
             <p>
 
                 <strong>{{ ocorrencia.user|upper }}</strong><br>
@@ -104,8 +114,8 @@
 </table>
 
 <div id="page-footer" style="text-align: right; font-size: 11px">
-{#    Página#}
-{#    <pdf:pagenumber/>#}
+    {#    Página#}
+    {#    <pdf:pagenumber/>#}
     <div style="text-align:center;padding-top: 2px; border-top: 1px solid">
         {{ ocorrencia.user.userprofile.empresa.razao_social }} -
         <em>Campus</em> {{ ocorrencia.user.userprofile.empresa }}<br>

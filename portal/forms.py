@@ -40,7 +40,7 @@ class UserProfileForm(forms.ModelForm):
 class OcorrenciaForm(forms.ModelForm):
     class Meta:
         model = Ocorrencia
-        fields = ('data', 'descricao')
+        fields = ('data', 'descricao', 'disciplina')
 
         widgets = {
             'data': forms.TextInput(attrs={
@@ -50,6 +50,9 @@ class OcorrenciaForm(forms.ModelForm):
             'descricao': forms.Textarea(attrs={
                 'class': 'form-control md-textarea validate',
                 'rows': '3'
+            }),
+            'disciplina': forms.TextInput(attrs={
+                'class': 'form-control'
             })
         }
 

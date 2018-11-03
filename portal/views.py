@@ -1187,6 +1187,7 @@ def ocorrencia_register(request):
                     ocorrencia.falta = falta
                     ocorrencia.data = form.cleaned_data['data']
                     ocorrencia.descricao = form.cleaned_data['descricao']
+                    ocorrencia.disciplina = form.cleaned_data['disciplina']
 
                     ocorrencia.user = request.user
                     ocorrencia.empresa = request.user.userprofile.empresa
@@ -1691,9 +1692,9 @@ def report_pdf_dados_bancarios(request):
         }
 
         return rendering.render_to_pdf_response(request, 'pdf/report_dados_bancarios.html',
-                                                         context,
-                                                         using=None, download_filename=None,
-                                                         content_type='application/pdf', response_class=HttpResponse)
+                                                context,
+                                                using=None, download_filename=None,
+                                                content_type='application/pdf', response_class=HttpResponse)
     except:
         erro = 'Não existem dados para gerar o relatório solicitado.'
         return render(request, 'portal/erro.html', {'erro': erro})
@@ -1730,9 +1731,9 @@ def report_pdf_declaracao_matricula(request):
         }
 
         return rendering.render_to_pdf_response(request, 'pdf/report_declaracao_matricula.html',
-                                                         context,
-                                                         using=None, download_filename=None,
-                                                         content_type='application/pdf', response_class=HttpResponse)
+                                                context,
+                                                using=None, download_filename=None,
+                                                content_type='application/pdf', response_class=HttpResponse)
 
 
     except:
@@ -1758,9 +1759,9 @@ def report_pdf_declaracao_transferencia(request):
         }
 
         return rendering.render_to_pdf_response(request, 'pdf/report_declaracao_transferencia.html',
-                                                         context,
-                                                         using=None, download_filename=None,
-                                                         content_type='application/pdf', response_class=HttpResponse)
+                                                context,
+                                                using=None, download_filename=None,
+                                                content_type='application/pdf', response_class=HttpResponse)
     except:
         erro = 'Não há matrícula vigente para o(a) aluno(a) selecionado.'
         return render(request, 'portal/erro.html', {'erro': erro})
@@ -1787,9 +1788,9 @@ def report_pdf_declaracao_sabado_letivo(request):
         }
 
         return rendering.render_to_pdf_response(request, 'pdf/report_declaracao_sabado_letivo.html',
-                                                         context,
-                                                         using=None, download_filename=None,
-                                                         content_type='application/pdf', response_class=HttpResponse)
+                                                context,
+                                                using=None, download_filename=None,
+                                                content_type='application/pdf', response_class=HttpResponse)
     except:
         erro = 'Não há matrícula vigente para o(a) aluno(a) selecionado.'
         return render(request, 'portal/erro.html', {'erro': erro})
@@ -1817,9 +1818,9 @@ def report_pdf_declaracao_conclusao_integrado(request):
     }
 
     return rendering.render_to_pdf_response(request, 'pdf/report_declaracao_conclusao_integrado.html',
-                                                     context,
-                                                     using=None, download_filename=None,
-                                                     content_type='application/pdf', response_class=HttpResponse)
+                                            context,
+                                            using=None, download_filename=None,
+                                            content_type='application/pdf', response_class=HttpResponse)
 
 
 # except:
@@ -1829,7 +1830,7 @@ def report_pdf_declaracao_conclusao_integrado(request):
 
 @login_required
 def report_pdf_ocorrencia(request, ocorrencia_id):
-    # try:
+    try:
         ocorrencia = get_object_or_404(Ocorrencia, id=ocorrencia_id)
 
         context = {
@@ -1837,12 +1838,12 @@ def report_pdf_ocorrencia(request, ocorrencia_id):
         }
 
         return rendering.render_to_pdf_response(request, 'pdf/report_ocorrencia.html',
-                                                         context,
-                                                         using=None, download_filename=None,
-                                                         content_type='application/pdf', response_class=HttpResponse)
-    # except:
-    #     erro = 'Não foi possível imprimir a ocorrência. Por favor contate o suporte.'
-    #     return render(request, 'portal/erro.html', {'erro': erro})
+                                                context,
+                                                using=None, download_filename=None,
+                                                content_type='application/pdf', response_class=HttpResponse)
+    except:
+        erro = 'Não foi possível imprimir a ocorrência. Por favor contate o suporte.'
+        return render(request, 'portal/erro.html', {'erro': erro})
 
 
 @login_required
@@ -1855,9 +1856,9 @@ def report_pdf_autorizacao(request, autorizacao_id):
         }
 
         return rendering.render_to_pdf_response(request, 'pdf/report_autorizacao.html',
-                                                         context,
-                                                         using=None, download_filename=None,
-                                                         content_type='application/pdf', response_class=HttpResponse)
+                                                context,
+                                                using=None, download_filename=None,
+                                                content_type='application/pdf', response_class=HttpResponse)
     except:
         erro = 'Não foi possível imprimir a autorização de saída. Por favor contate o suporte.'
         return render(request, 'portal/erro.html', {'erro': erro})
@@ -1873,9 +1874,9 @@ def report_pdf_encaminhamento(request, encaminhamento_id):
         }
 
         return rendering.render_to_pdf_response(request, 'pdf/report_encaminhamento.html',
-                                                         context,
-                                                         using=None, download_filename=None,
-                                                         content_type='application/pdf', response_class=HttpResponse)
+                                                context,
+                                                using=None, download_filename=None,
+                                                content_type='application/pdf', response_class=HttpResponse)
     except:
         erro = 'Não foi possível imprimir o encaminhamento. Por favor contate o suporte.'
         return render(request, 'portal/erro.html', {'erro': erro})
@@ -1903,9 +1904,9 @@ def report_pdf_lista_aluno_turma(request):
         }
 
         return rendering.render_to_pdf_response(request, 'pdf/report_lista_aluno_turma.html',
-                                                         context,
-                                                         using=None, download_filename=None,
-                                                         content_type='application/pdf', response_class=HttpResponse)
+                                                context,
+                                                using=None, download_filename=None,
+                                                content_type='application/pdf', response_class=HttpResponse)
     except:
         erro = 'Não existem dados para gerar o relatório solicitado.'
         return render(request, 'portal/erro.html', {'erro': erro})
@@ -1926,9 +1927,9 @@ def report_pdf_lista_aluno_pcd(request):
         }
 
         return rendering.render_to_pdf_response(request, 'pdf/report_lista_aluno_pcd.html',
-                                                         context,
-                                                         using=None, download_filename=None,
-                                                         content_type='application/pdf', response_class=HttpResponse)
+                                                context,
+                                                using=None, download_filename=None,
+                                                content_type='application/pdf', response_class=HttpResponse)
     except:
         erro = 'Não existem dados para gerar o relatório solicitado.'
         return render(request, 'portal/erro.html', {'erro': erro})
@@ -2626,10 +2627,10 @@ def validar_declaracao_matricula(request):
                 }
 
                 return rendering.render_to_pdf_response(request, 'pdf/report_declaracao_matricula.html',
-                                                                 context,
-                                                                 using=None, download_filename=None,
-                                                                 content_type='application/pdf',
-                                                                 response_class=HttpResponse)
+                                                        context,
+                                                        using=None, download_filename=None,
+                                                        content_type='application/pdf',
+                                                        response_class=HttpResponse)
         except:
             return render(request, 'portal/validar_declaracao_matricula.html', {'erro': True})
 

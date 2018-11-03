@@ -330,6 +330,7 @@ class Ocorrencia(AuditoriaMixin):
     data = models.DateField()
     descricao = models.TextField(verbose_name='Descrição')
     falta = models.ForeignKey(Falta, on_delete=models.DO_NOTHING)
+    disciplina = models.CharField(max_length=150, null=True, blank=True)
 
     def __str__(self):
         return str(self.id)
