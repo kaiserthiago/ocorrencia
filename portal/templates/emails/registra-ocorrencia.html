@@ -71,11 +71,24 @@
             </td>
         </tr>
         <tr>
-            <td colspan="3" style="text-align: center">
+            <td colspan="2" style="text-align: center; width: 50%">
+                <p style="text-align: left">
+                    <strong>REGISTRADO POR</strong>
+                </p>
+                <br>
                 <p>
-                    <br>
                     <strong>{{ ocorrencia.user|upper }}</strong><br>
-                    {{ ocorrencia.user.userprofile.siape }}
+                    SIAPE: {{ ocorrencia.user.userprofile.siape }}
+                </p>
+            </td>
+            <td style="text-align: center; width: 50%">
+                <p style="text-align: left">
+                    <strong>CIENTE DO ESTUDANTE</strong>
+                </p>
+                <br>
+                <p>
+                    <strong>{{ ocorrencia.matricula.aluno|upper }}</strong><br>
+                    CPF: {{ ocorrencia.matricula.aluno.cpf }}
                 </p>
             </td>
         </tr>
