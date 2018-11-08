@@ -86,25 +86,6 @@
             </p>
         </td>
     </tr>
-    {% if encaminhamento.providencias %}
-        <tr>
-            <td colspan="2">
-                <p>
-                    <strong>PROVIDÊNCIAS ADOTADAS</strong><br>
-                    {{ encaminhamento.providencias }}
-                </p>
-            </td>
-        </tr>
-    {% else %}
-        <tr>
-            <td colspan="2">
-                <p>
-                    <strong>PROVIDÊNCIAS ADOTADAS</strong><br>
-                    Aguardando posicionamento do setor responsável.
-                </p>
-            </td>
-        </tr>
-    {% endif %}
     {% if encaminhamento.outras_informacoes %}
         <tr>
             <td colspan="2">
