@@ -183,7 +183,7 @@ def import_aluno_atualizar(request):
                         try:
                             User.objects.create_user(
                                 username=aluno.cpf,
-                                password='ifro@cacoal',
+                                password='ifro@ifro',
                                 email=aluno.email,
                                 first_name=aluno.nome,
                                 is_active=True,
