@@ -752,13 +752,17 @@ def dashboard(request):
     #     dados_grafico_datas_ocorrencia.append([i[0], i[1]])
 
     # DADOS DOS INDICADORES
-    indicador_autorizacao = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa)
-    indicador_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa)
-    indicador_ocorrencia = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa)
+    indicador_autorizacao = Autorizacao.objects.filter(empresa=request.user.userprofile.empresa,
+                                                       data__year=date.today().year)
+    indicador_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
+                                                             data__year=date.today().year)
+    indicador_ocorrencia = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
+                                                     data__year=date.today().year)
 
     dados_encaminhamentos = Encaminhamento.objects.filter(
-        empresa=request.user.userprofile.empresa, status='Atendido').order_by().annotate(tempo=ExpressionWrapper(
-        F('update_at') - F('created_at'), output_field=DurationField()))
+        empresa=request.user.userprofile.empresa, status='Atendido', data__year=date.today().year).order_by().annotate(
+        tempo=ExpressionWrapper(
+            F('update_at') - F('created_at'), output_field=DurationField()))
 
     indicador_encaminhamento_tempo = []
 
@@ -768,7 +772,8 @@ def dashboard(request):
     indicador_encaminhamento_tempo = round(numpy.mean(indicador_encaminhamento_tempo))
 
     # DADOS GRÁFICO DE OCORRÊNCIAS POR CATEGORIA
-    categorias = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa).order_by(
+    categorias = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
+                                           data__year=date.today().year).order_by(
         'falta__categoria__artigo').values_list('falta__categoria__descricao').annotate(qtde=Count('id')).distinct()
 
     # categorias_faltas = [obj[0] for obj in categorias]
@@ -777,7 +782,8 @@ def dashboard(request):
     dados_grafico_ocorrencia_categoria = json.dumps(list(categorias))
 
     # DADOS GRÁFICO DE OCORRÊNCIAS POR CURSO
-    cursos = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa).order_by().values_list(
+    cursos = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
+                                       data__year=date.today().year).order_by().values_list(
         'matricula__turma__curso__descricao').annotate(qtde=Count('id')).distinct()
 
     # cursos_ocorrencia = [obj[0] for obj in cursos]
@@ -785,7 +791,7 @@ def dashboard(request):
 
     dados_grafico_ocorrencia_curso = json.dumps(list(cursos))
 
-    courses = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
+    courses = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa, data__year=date.today().year,
                                         matricula__turma__curso__in=Curso.objects.all()).order_by(
         'matricula__turma__curso__descricao').values('matricula__turma__curso__id',
                                                      'matricula__turma__curso__descricao').distinct()
@@ -797,17 +803,17 @@ def dashboard(request):
             c = get_object_or_404(Curso, id=id)
 
             detalhamento = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
-                                                     matricula__turma__curso=c).order_by(
+                                                     matricula__turma__curso=c, data__year=date.today().year).order_by(
                 'servico__categoria__descricao').values(
                 'falta__categoria__descricao').annotate(qtde=Count('id')).distinct()
 
             total = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
-                                              matricula__turma__curso=c).order_by(
+                                              matricula__turma__curso=c, data__year=date.today().year).order_by(
                 'falta__categoria__artigo').values().aggregate(qtde=Count('id'))
 
             # DADOS GRÁFICO CATEGORIA DE OCORRÊNCIAS POR CURSO
             distribuicao = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
-                                                     matricula__turma__curso=c).order_by(
+                                                     matricula__turma__curso=c, data__year=date.today().year).order_by(
                 'falta__categoria__artigo').values_list('falta__categoria__descricao').annotate(
                 qtde=Count('id')).distinct()
 
@@ -816,7 +822,7 @@ def dashboard(request):
 
             # DADOS GRÁFICO DE OCORRÊNCIAS POR TURMA
             turmas = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
-                                               matricula__turma__curso=c).order_by(
+                                               matricula__turma__curso=c, data__year=date.today().year).order_by(
                 'matricula__turma__descricao').values_list(
                 'matricula__turma__descricao').annotate(qtde=Count('id')).distinct()
 
@@ -844,17 +850,20 @@ def dashboard(request):
             c_encaminhamento = get_object_or_404(Curso, id=id)
 
             detalhamento_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
-                                                                        matricula__turma__curso=c_encaminhamento).order_by(
+                                                                        matricula__turma__curso=c_encaminhamento,
+                                                                        data__year=date.today().year).order_by(
                 'servico__categoria__descricao').values(
                 'servico__categoria__descricao').annotate(qtde=Count('id')).distinct()
 
             total_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
-                                                                 matricula__turma__curso=c_encaminhamento).order_by(
+                                                                 matricula__turma__curso=c_encaminhamento,
+                                                                 data__year=date.today().year).order_by(
                 'servico__categoria__descricao').values().aggregate(qtde=Count('id'))
 
             # DADOS GRÁFICO CATEGORIA DE ENCAMINHAMENTOS POR CURSO
             distribuicao_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
-                                                                        matricula__turma__curso=c_encaminhamento).order_by(
+                                                                        matricula__turma__curso=c_encaminhamento,
+                                                                        data__year=date.today().year).order_by(
                 'servico__categoria__descricao').values_list('servico__categoria__descricao').annotate(
                 qtde=Count('id')).distinct()
 
@@ -865,7 +874,8 @@ def dashboard(request):
 
             # DADOS GRÁFICO DE ENCAMINHAMENTOS POR TURMA
             turmas_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
-                                                                  matricula__turma__curso=c_encaminhamento).order_by(
+                                                                  matricula__turma__curso=c_encaminhamento,
+                                                                  data__year=date.today().year).order_by(
                 'matricula__turma__descricao').values_list(
                 'matricula__turma__descricao').annotate(qtde=Count('id')).distinct()
 
@@ -917,7 +927,7 @@ def dashboard(request):
         dados_grafico_encaminhamento_distribuicao = ''
 
     # DADOS GRÁFICO DE ENCAMINHAMENTOS POR CATEGORIA
-    servico_categorias = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa).order_by(
+    servico_categorias = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa, data__year=date.today().year).order_by(
         'servico__categoria__descricao').values_list('servico__categoria__descricao').annotate(
         qtde=Count('id')).distinct()
 
@@ -928,7 +938,7 @@ def dashboard(request):
 
     # DADOS GRÁFICO DE ENCAMINHAMENTOS POR CURSO
     cursos_encaminhamento = Encaminhamento.objects.filter(
-        empresa=request.user.userprofile.empresa).order_by().values_list(
+        empresa=request.user.userprofile.empresa, data__year=date.today().year).order_by().values_list(
         'matricula__turma__curso__descricao').annotate(qtde=Count('id')).distinct()
 
     # cursos_ocorrencia_encaminhamento = [obj[0] for obj in cursos_encaminhamento]
@@ -936,14 +946,14 @@ def dashboard(request):
 
     # dados_grafico_encaminhamento_curso = json.dumps(list(cursos_encaminhamento))
 
-    courses_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
+    courses_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa, data__year=date.today().year,
                                                            matricula__turma__curso__in=Curso.objects.all()).order_by(
         'matricula__turma__curso__descricao').values('matricula__turma__curso__id',
                                                      'matricula__turma__curso__descricao').distinct()
 
     # DADOS GRÁFICO DE ENCAMINHAMENTOS POR STATUS
     status_encaminhamento = Encaminhamento.objects.filter(
-        empresa=request.user.userprofile.empresa).order_by().values_list(
+        empresa=request.user.userprofile.empresa, data__year=date.today().year).order_by().values_list(
         'status').annotate(qtde=Count('id')).distinct()
 
     # status_ocorrencia_encaminhamento = [obj[0] for obj in status_encaminhamento]
