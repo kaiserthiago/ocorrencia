@@ -1280,7 +1280,7 @@ def ocorrencia_delete(request, ocorrencia_id):
 
 @permission_required('is_superuser')
 def matricula(request):
-    matriculas = Matricula.objects.filter(empresa=request.user.userprofile.empresa).order_by('-ano_letivo', 'turma',
+    matriculas = Matricula.objects.filter(empresa=request.user.userprofile.empresa, ano_letivo=date.today().year).order_by('-ano_letivo', 'turma',
                                                                                              'aluno')
 
     paginator = Paginator(matriculas, 30)
