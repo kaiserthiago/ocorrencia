@@ -118,13 +118,17 @@ class CursoForm(forms.ModelForm):
 class TurmaForm(forms.ModelForm):
     class Meta:
         model = Turma
-        fields = ('descricao',)
+        fields = ('descricao', 'turno')
 
         widgets = {
             'descricao': forms.TextInput(attrs={
                 'class': 'form-control validate',
                 'required': '',
                 'autofocus': ''
+            }),
+            'turno': forms.TextInput(attrs={
+                'class': 'form-control validate',
+                'required': ''
             })
         }
 

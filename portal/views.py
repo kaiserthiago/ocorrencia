@@ -1061,6 +1061,7 @@ def turma_new(request):
             turma = Turma()
 
             turma.descricao = form.cleaned_data['descricao']
+            turma.turno = form.cleaned_data['turno']
             turma.curso = curso
             turma.user = request.user
             turma.empresa = request.user.userprofile.empresa
@@ -1091,6 +1092,7 @@ def turma_edit(request, turma_id):
         form = TurmaForm(request.POST)
         if form.is_valid():
             turma.descricao = form.cleaned_data['descricao']
+            turma.turno = form.cleaned_data['turno']
 
             id = request.POST['SelectCurso']
             c = get_object_or_404(Curso, id=id)

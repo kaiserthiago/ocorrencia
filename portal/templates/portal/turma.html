@@ -39,6 +39,7 @@
                             <tr>
                                 <th style="font-weight: bold">Curso</th>
                                 <th style="font-weight: bold">Turma</th>
+                                <th style="font-weight: bold">Turno</th>
                                 <th style="text-align: right; font-weight: bold">Ações</th>
                             </tr>
                             </thead>
@@ -47,6 +48,7 @@
                                 <tr>
                                     <td style="vertical-align: middle;">{{ turma.curso }}</td>
                                     <td style="vertical-align: middle;">{{ turma.descricao }}</td>
+                                    <td style="vertical-align: middle;">{{ turma.turno }}</td>
                                     <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
                                         <i data-toggle="tooltip" data-placement="top" title="Editar">
                                             <a href="{% url 'turma_edit' turma.id %}"
