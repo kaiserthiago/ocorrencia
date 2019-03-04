@@ -239,7 +239,7 @@
             {% endif %}     <!-- Breadcrumb-->
             <div class="breadcrumb-dn mr-auto">
                 {% if request.user.is_authenticated %}
-                    <p>Gestão Educacional - <strong>AMBIENTE DE TESTES </strong></p>
+                    <p>Gestão Educacional - <em>Campus </em>{{ request.user.userprofile.empresa }}</p>
                 {% else %}
                     <p>Gestão Educacional</p>
                 {% endif %}
