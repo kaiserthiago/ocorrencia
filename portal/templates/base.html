@@ -206,7 +206,7 @@
                                 </ul>
                             </div>
                         </li>
-                        {% if request.user.is_superuser %}
+                        {% if request.user.is_superuser or request.user|has_group:'CAED' %}
                             <li>
                                 <a href="{% url 'configuracao' %}" class="collapsible-header waves-effect arrow-r
                                     {% block class_configuracoes_menu %}{% endblock %}"><i class="fa fa-cogs"></i>
