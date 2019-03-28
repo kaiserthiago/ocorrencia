@@ -36,7 +36,7 @@ def contato(request):
     return render(request, 'portal/contato.html', {})
 
 
-@permission_required('is_superuser')
+@login_required
 def configuracao(request):
     usuarios = User.objects.filter(userprofile__empresa=request.user.userprofile.empresa, is_active=False).order_by(
         'first_name')
