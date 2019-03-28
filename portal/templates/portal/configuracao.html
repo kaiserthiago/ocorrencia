@@ -1,4 +1,4 @@
-    {% extends 'base.html' %}
+{% extends 'base.html' %}
 {% block title %}Configurações{% endblock %}
 {% block class_configuracoes_menu %}active{% endblock %}
 
@@ -152,51 +152,53 @@
         </div>
 
     </form>
-
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="card redonda mb-4">
-                <div class="card-header redonda grey lighten-1 font-weight-bold">
-                    SOLICITAÇÕES DE ACESSO
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-sm table-striped">
-                            <thead>
-                            <th style="font-weight: bold">Nome</th>
-                            <th style="font-weight: bold">Usuário</th>
-                            <th style="font-weight: bold">E-mail</th>
-                            <th style="text-align: right; font-weight: bold">Ações</th>
-                            </thead>
-                            <tbody>
-                            {% for usuario in usuarios %}
-                                <tr>
-                                    <td style="vertical-align: middle;">{{ usuario.first_name }}</td>
-                                    <td style="vertical-align: middle;">{{ usuario.username }}</td>
-                                    <td style="vertical-align: middle;">{{ usuario.email }}</td>
-                                    <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
-                                        <i data-toggle="tooltip" data-placement="top" title="Tornar ativo">
-                                            <a data-toggle="modal" href="#ConfirmarRegistro{{ usuario.id }}"
-                                               class="btn-floating btn-sm success-color"><i class="fa fa-check"></i>
-                                            </a>
-                                        </i>
-                                    </td>
-                                </tr>
-                            {% empty %}
-                                <tr>
-                                    <td colspan="5"
-                                        class="card-header warning-color white-text text-center font-weight-bold">SEM
-                                        NOVAS SOLICITAÇÕES DE ACESSO
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                            </tbody>
-                        </table>
+    {% if request.user.is_superuser %}
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card redonda mb-4">
+                    <div class="card-header redonda grey lighten-1 font-weight-bold">
+                        SOLICITAÇÕES DE ACESSO
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-sm table-striped">
+                                <thead>
+                                <th style="font-weight: bold">Nome</th>
+                                <th style="font-weight: bold">Usuário</th>
+                                <th style="font-weight: bold">E-mail</th>
+                                <th style="text-align: right; font-weight: bold">Ações</th>
+                                </thead>
+                                <tbody>
+                                {% for usuario in usuarios %}
+                                    <tr>
+                                        <td style="vertical-align: middle;">{{ usuario.first_name }}</td>
+                                        <td style="vertical-align: middle;">{{ usuario.username }}</td>
+                                        <td style="vertical-align: middle;">{{ usuario.email }}</td>
+                                        <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
+                                            <i data-toggle="tooltip" data-placement="top" title="Tornar ativo">
+                                                <a data-toggle="modal" href="#ConfirmarRegistro{{ usuario.id }}"
+                                                   class="btn-floating btn-sm success-color"><i class="fa fa-check"></i>
+                                                </a>
+                                            </i>
+                                        </td>
+                                    </tr>
+                                {% empty %}
+                                    <tr>
+                                        <td colspan="5"
+                                            class="card-header warning-color white-text text-center font-weight-bold">
+                                            SEM
+                                            NOVAS SOLICITAÇÕES DE ACESSO
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    {% endif %}
 {% endblock %}
 
 {% block modal %}
