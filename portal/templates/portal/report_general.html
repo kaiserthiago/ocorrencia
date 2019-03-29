@@ -266,7 +266,7 @@
                                 {% if c.retorna_turmas %}
                                     <optgroup label="{{ c.descricao }}">
                                         {% for t in c.retorna_turmas %}
-                                            <option value={{ t.id }}>{{ t.descricao }}</option>
+                                            <option value={{ t.id }}>{{ t.descricao }} - {{ t.turno }}</option>
                                         {% endfor %}
                                     </optgroup>
                                 {% endif %}
@@ -389,7 +389,7 @@
                                 {% if c.retorna_turmas %}
                                     <optgroup label="{{ c.descricao }}">
                                         {% for t in c.retorna_turmas %}
-                                            <option value={{ t.id }}>{{ t.descricao }}</option>
+                                            <option value={{ t.id }}>{{ t.descricao }} - {{ t.turno }}</option>
                                         {% endfor %}
                                     </optgroup>
                                 {% endif %}
@@ -477,7 +477,7 @@
                                 {% if c.retorna_turmas %}
                                     <optgroup label="{{ c.descricao }}">
                                         {% for t in c.retorna_turmas %}
-                                            <option value={{ t.id }}>{{ t.descricao }}</option>
+                                            <option value={{ t.id }}>{{ t.descricao }} - {{ t.turno }}</option>
                                         {% endfor %}
                                     </optgroup>
                                 {% endif %}
@@ -523,7 +523,7 @@
                                 {% if c.retorna_turmas %}
                                     <optgroup label="{{ c.descricao }}">
                                         {% for t in c.retorna_turmas %}
-                                            <option value={{ t.id }}>{{ t.descricao }}</option>
+                                            <option value={{ t.id }}>{{ t.descricao }} - {{ t.turno }}</option>
                                         {% endfor %}
                                     </optgroup>
                                 {% endif %}
@@ -572,7 +572,7 @@
                                 {% if c.retorna_turmas %}
                                     <optgroup label="{{ c.descricao }}">
                                         {% for t in c.retorna_turmas %}
-                                            <option value={{ t.id }}>{{ t.descricao }}</option>
+                                            <option value={{ t.id }}>{{ t.descricao }} - {{ t.turno }}</option>
                                         {% endfor %}
                                     </optgroup>
                                 {% endif %}
@@ -769,7 +769,7 @@
                                         {% if c.retorna_turmas %}
                                             <optgroup label="{{ c.descricao }}">
                                                 {% for t in c.retorna_turmas %}
-                                                    <option value={{ t.id }}>{{ t.descricao }}</option>
+                                                    <option value={{ t.id }}>{{ t.descricao }} - {{ t.turno }}</option>
                                                 {% endfor %}
                                             </optgroup>
                                         {% endif %}
