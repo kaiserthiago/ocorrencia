@@ -51,7 +51,7 @@ class OcorrenciaAdmin(admin.ModelAdmin):
 
 class EncaminhamentoAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'created_at', 'update_at', 'matricula', 'data', 'descricao', 'providencias', 'servico', 'user')
+        'id', 'created_at', 'update_at', 'matricula', 'descricao', 'status')
     list_filter = ['status', 'servico__categoria', 'matricula__ano_letivo', 'empresa']
     search_fields = ['matricula__aluno__nome', 'user']
 
