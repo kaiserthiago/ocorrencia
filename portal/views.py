@@ -19,7 +19,7 @@ from django.template.defaultfilters import lower, upper
 from tablib import Dataset
 
 from portal.emails import RegistraOcorrenciaMail, ConfirmaUsuarioMail, RegistraEncaminhamentoMail, \
-    RegistraAutorizacaoSaidaMail, RegistraEncaminhamentoProvidenciasMail
+    RegistraAutorizacaoSaidaMail, RegistraEncaminhamentoProvidenciasMail, NegaUsuarioMail
 from portal.forms import OcorrenciaForm, CursoForm, TurmaForm, AlunoForm, UserForm, UserProfileForm, \
     ServicoCategoriaForm, ServicoForm, EncaminhamentoForm, AutorizacaoForm, ConfiguracaoForm
 from portal.models import Curso, Aluno, Turma, Ocorrencia, Matricula, CategoriaFalta, Falta, UserProfile, \
@@ -1387,14 +1387,17 @@ def usuario_ativar(request, user_id):
 
 
 @permission_required('is_superuser')
-def usuario_desativar(request, user_id):
+def usuario_negar(request, user_id):
     usuario = get_object_or_404(User, id=user_id)
 
     if request.method == 'POST':
-        usuario.is_active = False
-        usuario.save()
+        email = []
+        email.append(usuario.email)
 
-        messages.success(request, 'Usuário inativo.')
+        NegaUsuarioMail(usuario).send(email)
+        usuario.delete()
+
+        messages.success(request, 'Acesso negado ao usuário.')
 
         return redirect('configuracao')
 

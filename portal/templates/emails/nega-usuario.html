@@ -1,0 +1,62 @@
+<body style="background: #ededed;">
+<br><br>
+<div style="min-width: 0;
+  word-wrap: break-word;
+  background-color: white;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 20px;
+  width: 80%;
+  max-width: 80%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  color: rgb(102,102,102);
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;">
+
+    <div style="padding: 0.75rem 1.25rem;
+      margin-bottom: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #2f9e41;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      color: white;
+      font-weight: bold;
+      text-align: center;">
+
+        <h2>ACESSO NEGADO</h2>
+
+    </div>
+
+    <div style="padding: 1.25rem;">
+        <p>Olá, {{ usuario.first_name }}.<br>
+            Tudo bem?</p>
+        <p>
+            Olha só, analisei alguns dados e o seu acesso ao sistema foi <strong>negado!</strong> =(<br>
+            Logo abaixo seguem, somente para fins de confirmação, seus dados cadastrais.
+        </p>
+
+        <strong>Nome: </strong> {{ usuario.first_name }}<br>
+        <strong>E-mail: </strong> {{ usuario.email }}<br>
+        <strong>Usuário: </strong> {{ usuario.username }}<br>
+        <p>
+            Então, por questões de segurança, solicitamos que compareça à CGTI para maiores esclarecimentos, ok?
+        </p>
+
+
+        <p style="padding-top: 10px">Bom, por enquanto é isso. Até logo!</p><br>
+        <p><strong>IFRO - TRANSFORMANDO VIDAS ATRAVÉS DA EDUCAÇÃO<br></strong>
+            Sistema de Gestão Educacional<br><br></p>
+    </div>
+
+    <div style="padding: 0.25rem 1.25rem;
+      background-color: rgba(0, 0, 0, 0.03);
+      border-top: 1px solid rgba(0, 0, 0, 0.125);">
+
+        <p style="color: red"><strong>Essa é uma mensagem automática, não é necessário respondê-la.</strong></p>
+    </div>
+</div>
+<br><br>
+</body>

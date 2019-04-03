@@ -101,6 +101,20 @@ class ConfirmaUsuarioMail(Maiable):
         )
 
 
+class NegaUsuarioMail(Maiable):
+    def __init__(self, usuario):
+        self.usuario = usuario
+
+    def send(self, to):
+        super().sendMail(
+            from_email=MAIL_REPLY,
+            to=to,
+            subject='SGE - Acesso negado',
+            template='emails/nega-usuario.html',
+            context={'usuario': self.usuario}
+        )
+
+
 class RegistraAutorizacaoSaidaMail(Maiable):
     def __init__(self, autorizacao):
         self.autorizacao = autorizacao

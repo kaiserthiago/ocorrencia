@@ -63,8 +63,8 @@ urlpatterns = [
     url(r'^import/aluno/atualizar', views.import_aluno_atualizar, name='import_aluno_atualizar'),
     url(r'^import/aluno$', views.import_aluno, name='import_aluno'),
 
-    url(r'^usuario/desativar/(?P<user_id>\d+)$', views.usuario_desativar, name='usuario_desativar'),
     url(r'^usuario/ativar/(?P<user_id>\d+)$', views.usuario_ativar, name='usuario_ativar'),
+    url(r'^usuario/negar/(?P<user_id>\d+)$', views.usuario_negar, name='usuario_negar'),
     url(r'^user/account/change$', views.user_change_password, name='user_change_password'),
     url(r'^user/account$', views.user_account, name='user_account'),
 

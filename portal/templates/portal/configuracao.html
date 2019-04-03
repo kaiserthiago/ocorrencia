@@ -175,7 +175,13 @@
                                         <td style="vertical-align: middle;">{{ usuario.username }}</td>
                                         <td style="vertical-align: middle;">{{ usuario.email }}</td>
                                         <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
-                                            <i data-toggle="tooltip" data-placement="top" title="Tornar ativo">
+                                            <i data-toggle="tooltip" data-placement="top" title="Negar acesso">
+                                                <a data-toggle="modal" href="#NegarRegistro{{ usuario.id }}"
+                                                   class="btn-floating btn-sm danger-color"><i class="fa fa-close"></i>
+                                                </a>
+                                            </i>
+
+                                            <i data-toggle="tooltip" data-placement="top" title="Confirmar acesso">
                                                 <a data-toggle="modal" href="#ConfirmarRegistro{{ usuario.id }}"
                                                    class="btn-floating btn-sm success-color"><i class="fa fa-check"></i>
                                                 </a>
@@ -203,6 +209,48 @@
 
 {% block modal %}
     {% for usuario in usuarios %}
+        <!--Modal NEGAR-->
+        <div class="modal fade" id="NegarRegistro{{ usuario.id }}" tabindex="-1"
+             role="dialog"
+             aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-danger" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title white-text w-100 font-bold py-2">
+                            Negar registro</h4>
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                                                                <span aria-hidden="true"
+                                                                      class="white-text">&times;</span>
+                        </button>
+                    </div>
+                    <form action="{% url 'usuario_negar' usuario.id %}" method="POST">
+                        <!--Body-->
+                        <div class="modal-body text-center">
+                            {% csrf_token %}
+                            Tem certeza que deseja negar o acesso?<br>Essa ação irá <strong>excluir</strong> o registro.
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="submit"
+                                    class="btn btn-rounded btn-danger waves-effect">
+                                Confirmar
+                            </button>
+                            <a type="button"
+                               class="btn btn-rounded btn-outline-danger"
+                               data-dismiss="modal">
+                                Voltar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!--Fim Modal NEGAR-->
+
         <!--Modal CONFIRMAR-->
         <div class="modal fade" id="ConfirmarRegistro{{ usuario.id }}" tabindex="-1"
              role="dialog"
