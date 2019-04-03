@@ -2,11 +2,11 @@
 
 (function ($) {
   $(document).on('change', '.file-field input[type="file"]', function (e) {
-    let $this = $(e.target);
-    let $fileField = $this.closest('.file-field');
-    let $pathInput = $fileField.find('input.file-path');
-    let files = $this[0].files;
-    let fileNames = []; // files.forEach((file) => fileNames.push(file.name));
+    var $this = $(e.target);
+    var $fileField = $this.closest('.file-field');
+    var $pathInput = $fileField.find('input.file-path');
+    var files = $this[0].files;
+    var fileNames = []; // files.forEach((file) => fileNames.push(file.name));
 
     if (Array.isArray(files)) {
       files.forEach(function (file) {

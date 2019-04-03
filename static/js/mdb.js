@@ -1,27 +1,27 @@
 /*!
  * Material Design for Bootstrap 4
- * Version: MDB Pro 4.5.12
+ * Version: MDB Pro 4.7.6
  *
  *
  * Copyright: Material Design for Bootstrap
- * http://mdbootstrap.com/
+ * https://mdbootstrap.com/
  *
- * Read the license: http://mdbootstrap.com/license/
+ * Read the license: https://mdbootstrap.com/license/
  *
  *
- * Documentation: http://mdbootstrap.com/
+ * Documentation: https://mdbootstrap.com/
  *
- * Getting started: http://mdbootstrap.com/getting-started/
+ * Getting started: https://mdbootstrap.com/getting-started/
  *
- * Tutorials: http://mdbootstrap.com/bootstrap-tutorial/
+ * Tutorials: https://mdbootstrap.com/bootstrap-tutorial/
  *
- * Templates: http://mdbootstrap.com/templates/
+ * Templates: https://mdbootstrap.com/templates/
  *
- * Support: http://mdbootstrap.com/forums/forum/support/
+ * Support: https://mdbootstrap.com/forums/forum/support/
  *
  * Contact: office@mdbootstrap.com
  *
- * Atribution: Animate CSS, Twitter Bootstrap, Materialize CSS, Normalize CSS, Waves JS, WOW JS, Toastr, Chart.js , Hammer.js
+ * Attribution: Animate CSS, Twitter Bootstrap, Materialize CSS, Normalize CSS, Waves JS, WOW JS, Toastr, Chart.js ,
  *
  */
 
@@ -42,8 +42,6 @@
   smooth-scroll.js
   dropdown.js
   buttons.js
-  hammer.js
-  jquery.hammer.js
   sidenav.js
   collapsible.js
   jquery.easypiechart.js
@@ -62,9 +60,9 @@
   jarallax-video.js
   mdb-autocomplete.js
   enhanced-modals.js
+  treeview.js
 
 */
-
 
 /*
  * jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
@@ -280,13 +278,13 @@ m.isFunction(t)&&t(null,!0)}),f.queue(a,m.isString(v)?v:"",[])),"stop"===y?(i(a)
 /*!
  * Chart.js
  * http://chartjs.org/
- * Version: 2.7.2
+ * Version: 2.7.3
  *
  * Copyright 2018 Chart.js Contributors
  * Released under the MIT license
  * https://github.com/chartjs/Chart.js/blob/master/LICENSE.md
  */
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Chart = f()}})(function(){var define,module,exports;return (function(){function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s}return e})()({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Chart = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 
 },{}],2:[function(require,module,exports){
 /* MIT license */
@@ -1723,11 +1721,11 @@ for (var func in conversions) {
   // export rgb2hsl and ["rgb"]["hsl"]
   convert[from] = convert[from] || {};
 
-  convert[from][to] = convert[func] = (function(func) { 
+  convert[from][to] = convert[func] = (function(func) {
     return function(arg) {
       if (typeof arg == "number")
         arg = Array.prototype.slice.call(arguments);
-      
+
       var val = conversions[func](arg);
       if (typeof val == "string" || val === undefined)
         return val; // keyword
@@ -1755,12 +1753,12 @@ Converter.prototype.routeSpace = function(space, args) {
    }
    // color.rgb(10, 10, 10)
    if (typeof values == "number") {
-      values = Array.prototype.slice.call(args);        
+      values = Array.prototype.slice.call(args);
    }
 
    return this.setValues(space, values);
 };
-  
+
 /* Set the values for a space, invalidating cache */
 Converter.prototype.setValues = function(space, values) {
    this.space = space;
@@ -1949,35 +1947,36 @@ module.exports = {
 /**
  * @namespace Chart
  */
-var Chart = require(29)();
+var Chart = require(30)();
 
-Chart.helpers = require(45);
+Chart.helpers = require(46);
 
 // @todo dispatch these helpers into appropriated helpers/helpers.* file and write unit tests!
-require(27)(Chart);
+require(28)(Chart);
 
-Chart.defaults = require(25);
-Chart.Element = require(26);
-Chart.elements = require(40);
-Chart.Interaction = require(28);
-Chart.layouts = require(30);
-Chart.platform = require(48);
-Chart.plugins = require(31);
-Chart.Ticks = require(34);
+Chart.Animation = require(22);
+Chart.animationService = require(23);
+Chart.defaults = require(26);
+Chart.Element = require(27);
+Chart.elements = require(41);
+Chart.Interaction = require(29);
+Chart.layouts = require(31);
+Chart.platform = require(49);
+Chart.plugins = require(32);
+Chart.Scale = require(33);
+Chart.scaleService = require(34);
+Chart.Ticks = require(35);
+Chart.Tooltip = require(36);
 
-require(22)(Chart);
-require(23)(Chart);
 require(24)(Chart);
-require(33)(Chart);
-require(32)(Chart);
-require(35)(Chart);
+require(25)(Chart);
 
-require(55)(Chart);
-require(53)(Chart);
-require(54)(Chart);
 require(56)(Chart);
+require(54)(Chart);
+require(55)(Chart);
 require(57)(Chart);
 require(58)(Chart);
+require(59)(Chart);
 
 // Controllers must be loaded after elements
 // See Chart.core.datasetController.dataElementType
@@ -1997,8 +1996,8 @@ require(12)(Chart);
 require(13)(Chart);
 require(14)(Chart);
 
-// Loading built-it plugins
-var plugins = require(49);
+// Loading built-in plugins
+var plugins = require(50);
 for (var k in plugins) {
 	if (plugins.hasOwnProperty(k)) {
 		Chart.plugins.register(plugins[k]);
@@ -2069,7 +2068,7 @@ Chart.canvasHelpers = Chart.helpers.canvas;
  */
 Chart.layoutService = Chart.layouts;
 
-},{"10":10,"11":11,"12":12,"13":13,"14":14,"15":15,"16":16,"17":17,"18":18,"19":19,"20":20,"21":21,"22":22,"23":23,"24":24,"25":25,"26":26,"27":27,"28":28,"29":29,"30":30,"31":31,"32":32,"33":33,"34":34,"35":35,"40":40,"45":45,"48":48,"49":49,"53":53,"54":54,"55":55,"56":56,"57":57,"58":58,"8":8,"9":9}],8:[function(require,module,exports){
+},{"10":10,"11":11,"12":12,"13":13,"14":14,"15":15,"16":16,"17":17,"18":18,"19":19,"20":20,"21":21,"22":22,"23":23,"24":24,"25":25,"26":26,"27":27,"28":28,"29":29,"30":30,"31":31,"32":32,"33":33,"34":34,"35":35,"36":36,"41":41,"46":46,"49":49,"50":50,"54":54,"55":55,"56":56,"57":57,"58":58,"59":59,"8":8,"9":9}],8:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -2159,9 +2158,9 @@ module.exports = function(Chart) {
 },{}],15:[function(require,module,exports){
 'use strict';
 
-var defaults = require(25);
-var elements = require(40);
-var helpers = require(45);
+var defaults = require(26);
+var elements = require(41);
+var helpers = require(46);
 
 defaults._set('bar', {
 	hover: {
@@ -2620,29 +2619,6 @@ module.exports = function(Chart) {
 
 			helpers.canvas.unclipArea(chart.ctx);
 		},
-
-		setHoverStyle: function(rectangle) {
-			var dataset = this.chart.data.datasets[rectangle._datasetIndex];
-			var index = rectangle._index;
-			var custom = rectangle.custom || {};
-			var model = rectangle._model;
-
-			model.backgroundColor = custom.hoverBackgroundColor ? custom.hoverBackgroundColor : helpers.valueAtIndexOrDefault(dataset.hoverBackgroundColor, index, helpers.getHoverColor(model.backgroundColor));
-			model.borderColor = custom.hoverBorderColor ? custom.hoverBorderColor : helpers.valueAtIndexOrDefault(dataset.hoverBorderColor, index, helpers.getHoverColor(model.borderColor));
-			model.borderWidth = custom.hoverBorderWidth ? custom.hoverBorderWidth : helpers.valueAtIndexOrDefault(dataset.hoverBorderWidth, index, model.borderWidth);
-		},
-
-		removeHoverStyle: function(rectangle) {
-			var dataset = this.chart.data.datasets[rectangle._datasetIndex];
-			var index = rectangle._index;
-			var custom = rectangle.custom || {};
-			var model = rectangle._model;
-			var rectangleElementOptions = this.chart.options.elements.rectangle;
-
-			model.backgroundColor = custom.backgroundColor ? custom.backgroundColor : helpers.valueAtIndexOrDefault(dataset.backgroundColor, index, rectangleElementOptions.backgroundColor);
-			model.borderColor = custom.borderColor ? custom.borderColor : helpers.valueAtIndexOrDefault(dataset.borderColor, index, rectangleElementOptions.borderColor);
-			model.borderWidth = custom.borderWidth ? custom.borderWidth : helpers.valueAtIndexOrDefault(dataset.borderWidth, index, rectangleElementOptions.borderWidth);
-		}
 	});
 
 	Chart.controllers.horizontalBar = Chart.controllers.bar.extend({
@@ -2662,12 +2638,12 @@ module.exports = function(Chart) {
 	});
 };
 
-},{"25":25,"40":40,"45":45}],16:[function(require,module,exports){
+},{"26":26,"41":41,"46":46}],16:[function(require,module,exports){
 'use strict';
 
-var defaults = require(25);
-var elements = require(40);
-var helpers = require(45);
+var defaults = require(26);
+var elements = require(41);
+var helpers = require(46);
 
 defaults._set('bubble', {
 	hover: {
@@ -2752,6 +2728,7 @@ module.exports = function(Chart) {
 				borderWidth: options.borderWidth,
 				hitRadius: options.hitRadius,
 				pointStyle: options.pointStyle,
+				rotation: options.rotation,
 				radius: reset ? 0 : options.radius,
 				skip: custom.skip || isNaN(x) || isNaN(y),
 				x: x,
@@ -2767,24 +2744,16 @@ module.exports = function(Chart) {
 		setHoverStyle: function(point) {
 			var model = point._model;
 			var options = point._options;
-
+			point.$previousStyle = {
+				backgroundColor: model.backgroundColor,
+				borderColor: model.borderColor,
+				borderWidth: model.borderWidth,
+				radius: model.radius
+			};
 			model.backgroundColor = helpers.valueOrDefault(options.hoverBackgroundColor, helpers.getHoverColor(options.backgroundColor));
 			model.borderColor = helpers.valueOrDefault(options.hoverBorderColor, helpers.getHoverColor(options.borderColor));
 			model.borderWidth = helpers.valueOrDefault(options.hoverBorderWidth, options.borderWidth);
 			model.radius = options.radius + options.hoverRadius;
-		},
-
-		/**
-		 * @protected
-		 */
-		removeHoverStyle: function(point) {
-			var model = point._model;
-			var options = point._options;
-
-			model.backgroundColor = options.backgroundColor;
-			model.borderColor = options.borderColor;
-			model.borderWidth = options.borderWidth;
-			model.radius = options.radius;
 		},
 
 		/**
@@ -2819,7 +2788,8 @@ module.exports = function(Chart) {
 				'hoverBorderWidth',
 				'hoverRadius',
 				'hitRadius',
-				'pointStyle'
+				'pointStyle',
+				'rotation'
 			];
 
 			for (i = 0, ilen = keys.length; i < ilen; ++i) {
@@ -2838,18 +2808,17 @@ module.exports = function(Chart) {
 				dataset.radius,
 				options.radius
 			], context, index);
-
 			return values;
 		}
 	});
 };
 
-},{"25":25,"40":40,"45":45}],17:[function(require,module,exports){
+},{"26":26,"41":41,"46":46}],17:[function(require,module,exports){
 'use strict';
 
-var defaults = require(25);
-var elements = require(40);
-var helpers = require(45);
+var defaults = require(26);
+var elements = require(41);
+var helpers = require(46);
 
 defaults._set('doughnut', {
 	animation: {
@@ -3076,8 +3045,14 @@ module.exports = function(Chart) {
 			});
 
 			var model = arc._model;
+
 			// Resets the visual styles
-			this.removeHoverStyle(arc);
+			var custom = arc.custom || {};
+			var valueOrDefault = helpers.valueAtIndexOrDefault;
+			var elementOpts = this.chart.options.elements.arc;
+			model.backgroundColor = custom.backgroundColor ? custom.backgroundColor : valueOrDefault(dataset.backgroundColor, index, elementOpts.backgroundColor);
+			model.borderColor = custom.borderColor ? custom.borderColor : valueOrDefault(dataset.borderColor, index, elementOpts.borderColor);
+			model.borderWidth = custom.borderWidth ? custom.borderWidth : valueOrDefault(dataset.borderWidth, index, elementOpts.borderWidth);
 
 			// Set correct angles if not resetting
 			if (!reset || !animationOpts.animateRotate) {
@@ -3091,10 +3066,6 @@ module.exports = function(Chart) {
 			}
 
 			arc.pivot();
-		},
-
-		removeHoverStyle: function(arc) {
-			Chart.DatasetController.prototype.removeHoverStyle.call(this, arc, this.chart.options.elements.arc);
 		},
 
 		calculateTotal: function() {
@@ -3145,12 +3116,12 @@ module.exports = function(Chart) {
 	});
 };
 
-},{"25":25,"40":40,"45":45}],18:[function(require,module,exports){
+},{"26":26,"41":41,"46":46}],18:[function(require,module,exports){
 'use strict';
 
-var defaults = require(25);
-var elements = require(40);
-var helpers = require(45);
+var defaults = require(26);
+var elements = require(41);
+var helpers = require(46);
 
 defaults._set('line', {
 	showLines: true,
@@ -3296,6 +3267,19 @@ module.exports = function(Chart) {
 			return borderWidth;
 		},
 
+		getPointRotation: function(point, index) {
+			var pointRotation = this.chart.options.elements.point.rotation;
+			var dataset = this.getDataset();
+			var custom = point.custom || {};
+
+			if (!isNaN(custom.rotation)) {
+				pointRotation = custom.rotation;
+			} else if (!isNaN(dataset.pointRotation) || helpers.isArray(dataset.pointRotation)) {
+				pointRotation = helpers.valueAtIndexOrDefault(dataset.pointRotation, index, pointRotation);
+			}
+			return pointRotation;
+		},
+
 		updateElement: function(point, index, reset) {
 			var me = this;
 			var meta = me.getMeta();
@@ -3333,6 +3317,7 @@ module.exports = function(Chart) {
 				// Appearance
 				radius: custom.radius || helpers.valueAtIndexOrDefault(dataset.pointRadius, index, pointOptions.radius),
 				pointStyle: custom.pointStyle || helpers.valueAtIndexOrDefault(dataset.pointStyle, index, pointOptions.pointStyle),
+				rotation: me.getPointRotation(point, index),
 				backgroundColor: me.getPointBackgroundColor(point, index),
 				borderColor: me.getPointBorderColor(point, index),
 				borderWidth: me.getPointBorderWidth(point, index),
@@ -3431,15 +3416,23 @@ module.exports = function(Chart) {
 			var points = meta.data || [];
 			var area = chart.chartArea;
 			var ilen = points.length;
+			var halfBorderWidth;
 			var i = 0;
 
-			helpers.canvas.clipArea(chart.ctx, area);
-
 			if (lineEnabled(me.getDataset(), chart.options)) {
-				meta.dataset.draw();
-			}
+				halfBorderWidth = (meta.dataset._model.borderWidth || 0) / 2;
 
-			helpers.canvas.unclipArea(chart.ctx);
+				helpers.canvas.clipArea(chart.ctx, {
+					left: area.left,
+					right: area.right,
+					top: area.top - halfBorderWidth,
+					bottom: area.bottom + halfBorderWidth
+				});
+
+				meta.dataset.draw();
+
+				helpers.canvas.unclipArea(chart.ctx);
+			}
 
 			// Draw the points
 			for (; i < ilen; ++i) {
@@ -3447,45 +3440,34 @@ module.exports = function(Chart) {
 			}
 		},
 
-		setHoverStyle: function(point) {
+		setHoverStyle: function(element) {
 			// Point
-			var dataset = this.chart.data.datasets[point._datasetIndex];
-			var index = point._index;
-			var custom = point.custom || {};
-			var model = point._model;
+			var dataset = this.chart.data.datasets[element._datasetIndex];
+			var index = element._index;
+			var custom = element.custom || {};
+			var model = element._model;
 
-			model.radius = custom.hoverRadius || helpers.valueAtIndexOrDefault(dataset.pointHoverRadius, index, this.chart.options.elements.point.hoverRadius);
+			element.$previousStyle = {
+				backgroundColor: model.backgroundColor,
+				borderColor: model.borderColor,
+				borderWidth: model.borderWidth,
+				radius: model.radius
+			};
+
 			model.backgroundColor = custom.hoverBackgroundColor || helpers.valueAtIndexOrDefault(dataset.pointHoverBackgroundColor, index, helpers.getHoverColor(model.backgroundColor));
 			model.borderColor = custom.hoverBorderColor || helpers.valueAtIndexOrDefault(dataset.pointHoverBorderColor, index, helpers.getHoverColor(model.borderColor));
 			model.borderWidth = custom.hoverBorderWidth || helpers.valueAtIndexOrDefault(dataset.pointHoverBorderWidth, index, model.borderWidth);
+			model.radius = custom.hoverRadius || helpers.valueAtIndexOrDefault(dataset.pointHoverRadius, index, this.chart.options.elements.point.hoverRadius);
 		},
-
-		removeHoverStyle: function(point) {
-			var me = this;
-			var dataset = me.chart.data.datasets[point._datasetIndex];
-			var index = point._index;
-			var custom = point.custom || {};
-			var model = point._model;
-
-			// Compatibility: If the properties are defined with only the old name, use those values
-			if ((dataset.radius !== undefined) && (dataset.pointRadius === undefined)) {
-				dataset.pointRadius = dataset.radius;
-			}
-
-			model.radius = custom.radius || helpers.valueAtIndexOrDefault(dataset.pointRadius, index, me.chart.options.elements.point.radius);
-			model.backgroundColor = me.getPointBackgroundColor(point, index);
-			model.borderColor = me.getPointBorderColor(point, index);
-			model.borderWidth = me.getPointBorderWidth(point, index);
-		}
 	});
 };
 
-},{"25":25,"40":40,"45":45}],19:[function(require,module,exports){
+},{"26":26,"41":41,"46":46}],19:[function(require,module,exports){
 'use strict';
 
-var defaults = require(25);
-var elements = require(40);
-var helpers = require(45);
+var defaults = require(26);
+var elements = require(41);
+var helpers = require(46);
 
 defaults._set('polarArea', {
 	scale: {
@@ -3601,24 +3583,46 @@ module.exports = function(Chart) {
 
 		update: function(reset) {
 			var me = this;
+			var dataset = me.getDataset();
+			var meta = me.getMeta();
+			var start = me.chart.options.startAngle || 0;
+			var starts = me._starts = [];
+			var angles = me._angles = [];
+			var i, ilen, angle;
+
+			me._updateRadius();
+
+			meta.count = me.countVisibleElements();
+
+			for (i = 0, ilen = dataset.data.length; i < ilen; i++) {
+				starts[i] = start;
+				angle = me._computeAngle(i);
+				angles[i] = angle;
+				start += angle;
+			}
+
+			helpers.each(meta.data, function(arc, index) {
+				me.updateElement(arc, index, reset);
+			});
+		},
+
+		/**
+		 * @private
+		 */
+		_updateRadius: function() {
+			var me = this;
 			var chart = me.chart;
 			var chartArea = chart.chartArea;
-			var meta = me.getMeta();
 			var opts = chart.options;
 			var arcOpts = opts.elements.arc;
 			var minSize = Math.min(chartArea.right - chartArea.left, chartArea.bottom - chartArea.top);
+
 			chart.outerRadius = Math.max((minSize - arcOpts.borderWidth / 2) / 2, 0);
 			chart.innerRadius = Math.max(opts.cutoutPercentage ? (chart.outerRadius / 100) * (opts.cutoutPercentage) : 1, 0);
 			chart.radiusLength = (chart.outerRadius - chart.innerRadius) / chart.getVisibleDatasetCount();
 
 			me.outerRadius = chart.outerRadius - (chart.radiusLength * me.index);
 			me.innerRadius = me.outerRadius - chart.radiusLength;
-
-			meta.count = me.countVisibleElements();
-
-			helpers.each(meta.data, function(arc, index) {
-				me.updateElement(arc, index, reset);
-			});
 		},
 
 		updateElement: function(arc, index, reset) {
@@ -3630,25 +3634,14 @@ module.exports = function(Chart) {
 			var scale = chart.scale;
 			var labels = chart.data.labels;
 
-			var circumference = me.calculateCircumference(dataset.data[index]);
 			var centerX = scale.xCenter;
 			var centerY = scale.yCenter;
-
-			// If there is NaN data before us, we need to calculate the starting angle correctly.
-			// We could be way more efficient here, but its unlikely that the polar area chart will have a lot of data
-			var visibleCount = 0;
-			var meta = me.getMeta();
-			for (var i = 0; i < index; ++i) {
-				if (!isNaN(dataset.data[i]) && !meta.data[i].hidden) {
-					++visibleCount;
-				}
-			}
 
 			// var negHalfPI = -0.5 * Math.PI;
 			var datasetStartAngle = opts.startAngle;
 			var distance = arc.hidden ? 0 : scale.getDistanceFromCenterForValue(dataset.data[index]);
-			var startAngle = datasetStartAngle + (circumference * visibleCount);
-			var endAngle = startAngle + (arc.hidden ? 0 : circumference);
+			var startAngle = me._starts[index];
+			var endAngle = startAngle + (arc.hidden ? 0 : me._angles[index]);
 
 			var resetRadius = animationOpts.animateScale ? 0 : scale.getDistanceFromCenterForValue(dataset.data[index]);
 
@@ -3671,13 +3664,16 @@ module.exports = function(Chart) {
 			});
 
 			// Apply border and fill style
-			me.removeHoverStyle(arc);
+			var elementOpts = this.chart.options.elements.arc;
+			var custom = arc.custom || {};
+			var valueOrDefault = helpers.valueAtIndexOrDefault;
+			var model = arc._model;
+
+			model.backgroundColor = custom.backgroundColor ? custom.backgroundColor : valueOrDefault(dataset.backgroundColor, index, elementOpts.backgroundColor);
+			model.borderColor = custom.borderColor ? custom.borderColor : valueOrDefault(dataset.borderColor, index, elementOpts.borderColor);
+			model.borderWidth = custom.borderWidth ? custom.borderWidth : valueOrDefault(dataset.borderWidth, index, elementOpts.borderWidth);
 
 			arc.pivot();
-		},
-
-		removeHoverStyle: function(arc) {
-			Chart.DatasetController.prototype.removeHoverStyle.call(this, arc, this.chart.options.elements.arc);
 		},
 
 		countVisibleElements: function() {
@@ -3694,22 +3690,41 @@ module.exports = function(Chart) {
 			return count;
 		},
 
-		calculateCircumference: function(value) {
+		/**
+		 * @private
+		 */
+		_computeAngle: function(index) {
+			var me = this;
 			var count = this.getMeta().count;
-			if (count > 0 && !isNaN(value)) {
-				return (2 * Math.PI) / count;
+			var dataset = me.getDataset();
+			var meta = me.getMeta();
+
+			if (isNaN(dataset.data[index]) || meta.data[index].hidden) {
+				return 0;
 			}
-			return 0;
+
+			// Scriptable options
+			var context = {
+				chart: me.chart,
+				dataIndex: index,
+				dataset: dataset,
+				datasetIndex: me.index
+			};
+
+			return helpers.options.resolve([
+				me.chart.options.elements.arc.angle,
+				(2 * Math.PI) / count
+			], context, index);
 		}
 	});
 };
 
-},{"25":25,"40":40,"45":45}],20:[function(require,module,exports){
+},{"26":26,"41":41,"46":46}],20:[function(require,module,exports){
 'use strict';
 
-var defaults = require(25);
-var elements = require(40);
-var helpers = require(45);
+var defaults = require(26);
+var elements = require(41);
+var helpers = require(46);
 
 defaults._set('radar', {
 	scale: {
@@ -3813,6 +3828,7 @@ module.exports = function(Chart) {
 					borderColor: custom.borderColor ? custom.borderColor : helpers.valueAtIndexOrDefault(dataset.pointBorderColor, index, pointElementOptions.borderColor),
 					borderWidth: custom.borderWidth ? custom.borderWidth : helpers.valueAtIndexOrDefault(dataset.pointBorderWidth, index, pointElementOptions.borderWidth),
 					pointStyle: custom.pointStyle ? custom.pointStyle : helpers.valueAtIndexOrDefault(dataset.pointStyle, index, pointElementOptions.pointStyle),
+					rotation: custom.rotation ? custom.rotation : helpers.valueAtIndexOrDefault(dataset.pointRotation, index, pointElementOptions.rotation),
 
 					// Tooltip
 					hitRadius: custom.hitRadius ? custom.hitRadius : helpers.valueAtIndexOrDefault(dataset.pointHitRadius, index, pointElementOptions.hitRadius)
@@ -3853,31 +3869,25 @@ module.exports = function(Chart) {
 			var index = point._index;
 			var model = point._model;
 
+			point.$previousStyle = {
+				backgroundColor: model.backgroundColor,
+				borderColor: model.borderColor,
+				borderWidth: model.borderWidth,
+				radius: model.radius
+			};
+
 			model.radius = custom.hoverRadius ? custom.hoverRadius : helpers.valueAtIndexOrDefault(dataset.pointHoverRadius, index, this.chart.options.elements.point.hoverRadius);
 			model.backgroundColor = custom.hoverBackgroundColor ? custom.hoverBackgroundColor : helpers.valueAtIndexOrDefault(dataset.pointHoverBackgroundColor, index, helpers.getHoverColor(model.backgroundColor));
 			model.borderColor = custom.hoverBorderColor ? custom.hoverBorderColor : helpers.valueAtIndexOrDefault(dataset.pointHoverBorderColor, index, helpers.getHoverColor(model.borderColor));
 			model.borderWidth = custom.hoverBorderWidth ? custom.hoverBorderWidth : helpers.valueAtIndexOrDefault(dataset.pointHoverBorderWidth, index, model.borderWidth);
 		},
-
-		removeHoverStyle: function(point) {
-			var dataset = this.chart.data.datasets[point._datasetIndex];
-			var custom = point.custom || {};
-			var index = point._index;
-			var model = point._model;
-			var pointElementOptions = this.chart.options.elements.point;
-
-			model.radius = custom.radius ? custom.radius : helpers.valueAtIndexOrDefault(dataset.pointRadius, index, pointElementOptions.radius);
-			model.backgroundColor = custom.backgroundColor ? custom.backgroundColor : helpers.valueAtIndexOrDefault(dataset.pointBackgroundColor, index, pointElementOptions.backgroundColor);
-			model.borderColor = custom.borderColor ? custom.borderColor : helpers.valueAtIndexOrDefault(dataset.pointBorderColor, index, pointElementOptions.borderColor);
-			model.borderWidth = custom.borderWidth ? custom.borderWidth : helpers.valueAtIndexOrDefault(dataset.pointBorderWidth, index, pointElementOptions.borderWidth);
-		}
 	});
 };
 
-},{"25":25,"40":40,"45":45}],21:[function(require,module,exports){
+},{"26":26,"41":41,"46":46}],21:[function(require,module,exports){
 'use strict';
 
-var defaults = require(25);
+var defaults = require(26);
 
 defaults._set('scatter', {
 	hover: {
@@ -3918,13 +3928,57 @@ module.exports = function(Chart) {
 
 };
 
-},{"25":25}],22:[function(require,module,exports){
+},{"26":26}],22:[function(require,module,exports){
+'use strict';
+
+var Element = require(27);
+
+var exports = module.exports = Element.extend({
+	chart: null, // the animation associated chart instance
+	currentStep: 0, // the current animation step
+	numSteps: 60, // default number of steps
+	easing: '', // the easing to use for this animation
+	render: null, // render function used by the animation service
+
+	onAnimationProgress: null, // user specified callback to fire on each step of the animation
+	onAnimationComplete: null, // user specified callback to fire when the animation finishes
+});
+
+// DEPRECATIONS
+
+/**
+ * Provided for backward compatibility, use Chart.Animation instead
+ * @prop Chart.Animation#animationObject
+ * @deprecated since version 2.6.0
+ * @todo remove at version 3
+ */
+Object.defineProperty(exports.prototype, 'animationObject', {
+	get: function() {
+		return this;
+	}
+});
+
+/**
+ * Provided for backward compatibility, use Chart.Animation#chart instead
+ * @prop Chart.Animation#chartInstance
+ * @deprecated since version 2.6.0
+ * @todo remove at version 3
+ */
+Object.defineProperty(exports.prototype, 'chartInstance', {
+	get: function() {
+		return this.chart;
+	},
+	set: function(value) {
+		this.chart = value;
+	}
+});
+
+},{"27":27}],23:[function(require,module,exports){
 /* global window: false */
 'use strict';
 
-var defaults = require(25);
-var Element = require(26);
-var helpers = require(45);
+var defaults = require(26);
+var helpers = require(46);
 
 defaults._set('global', {
 	animation: {
@@ -3935,172 +3989,134 @@ defaults._set('global', {
 	}
 });
 
-module.exports = function(Chart) {
+module.exports = {
+	frameDuration: 17,
+	animations: [],
+	dropFrames: 0,
+	request: null,
 
-	Chart.Animation = Element.extend({
-		chart: null, // the animation associated chart instance
-		currentStep: 0, // the current animation step
-		numSteps: 60, // default number of steps
-		easing: '', // the easing to use for this animation
-		render: null, // render function used by the animation service
+	/**
+	 * @param {Chart} chart - The chart to animate.
+	 * @param {Chart.Animation} animation - The animation that we will animate.
+	 * @param {Number} duration - The animation duration in ms.
+	 * @param {Boolean} lazy - if true, the chart is not marked as animating to enable more responsive interactions
+	 */
+	addAnimation: function(chart, animation, duration, lazy) {
+		var animations = this.animations;
+		var i, ilen;
 
-		onAnimationProgress: null, // user specified callback to fire on each step of the animation
-		onAnimationComplete: null, // user specified callback to fire when the animation finishes
-	});
+		animation.chart = chart;
 
-	Chart.animationService = {
-		frameDuration: 17,
-		animations: [],
-		dropFrames: 0,
-		request: null,
+		if (!lazy) {
+			chart.animating = true;
+		}
 
-		/**
-		 * @param {Chart} chart - The chart to animate.
-		 * @param {Chart.Animation} animation - The animation that we will animate.
-		 * @param {Number} duration - The animation duration in ms.
-		 * @param {Boolean} lazy - if true, the chart is not marked as animating to enable more responsive interactions
-		 */
-		addAnimation: function(chart, animation, duration, lazy) {
-			var animations = this.animations;
-			var i, ilen;
-
-			animation.chart = chart;
-
-			if (!lazy) {
-				chart.animating = true;
+		for (i = 0, ilen = animations.length; i < ilen; ++i) {
+			if (animations[i].chart === chart) {
+				animations[i] = animation;
+				return;
 			}
+		}
 
-			for (i = 0, ilen = animations.length; i < ilen; ++i) {
-				if (animations[i].chart === chart) {
-					animations[i] = animation;
-					return;
-				}
-			}
+		animations.push(animation);
 
-			animations.push(animation);
+		// If there are no animations queued, manually kickstart a digest, for lack of a better word
+		if (animations.length === 1) {
+			this.requestAnimationFrame();
+		}
+	},
 
-			// If there are no animations queued, manually kickstart a digest, for lack of a better word
-			if (animations.length === 1) {
-				this.requestAnimationFrame();
-			}
-		},
+	cancelAnimation: function(chart) {
+		var index = helpers.findIndex(this.animations, function(animation) {
+			return animation.chart === chart;
+		});
 
-		cancelAnimation: function(chart) {
-			var index = helpers.findIndex(this.animations, function(animation) {
-				return animation.chart === chart;
+		if (index !== -1) {
+			this.animations.splice(index, 1);
+			chart.animating = false;
+		}
+	},
+
+	requestAnimationFrame: function() {
+		var me = this;
+		if (me.request === null) {
+			// Skip animation frame requests until the active one is executed.
+			// This can happen when processing mouse events, e.g. 'mousemove'
+			// and 'mouseout' events will trigger multiple renders.
+			me.request = helpers.requestAnimFrame.call(window, function() {
+				me.request = null;
+				me.startDigest();
 			});
+		}
+	},
 
-			if (index !== -1) {
-				this.animations.splice(index, 1);
+	/**
+	 * @private
+	 */
+	startDigest: function() {
+		var me = this;
+		var startTime = Date.now();
+		var framesToDrop = 0;
+
+		if (me.dropFrames > 1) {
+			framesToDrop = Math.floor(me.dropFrames);
+			me.dropFrames = me.dropFrames % 1;
+		}
+
+		me.advance(1 + framesToDrop);
+
+		var endTime = Date.now();
+
+		me.dropFrames += (endTime - startTime) / me.frameDuration;
+
+		// Do we have more stuff to animate?
+		if (me.animations.length > 0) {
+			me.requestAnimationFrame();
+		}
+	},
+
+	/**
+	 * @private
+	 */
+	advance: function(count) {
+		var animations = this.animations;
+		var animation, chart;
+		var i = 0;
+
+		while (i < animations.length) {
+			animation = animations[i];
+			chart = animation.chart;
+
+			animation.currentStep = (animation.currentStep || 0) + count;
+			animation.currentStep = Math.min(animation.currentStep, animation.numSteps);
+
+			helpers.callback(animation.render, [chart, animation], chart);
+			helpers.callback(animation.onAnimationProgress, [animation], chart);
+
+			if (animation.currentStep >= animation.numSteps) {
+				helpers.callback(animation.onAnimationComplete, [animation], chart);
 				chart.animating = false;
-			}
-		},
-
-		requestAnimationFrame: function() {
-			var me = this;
-			if (me.request === null) {
-				// Skip animation frame requests until the active one is executed.
-				// This can happen when processing mouse events, e.g. 'mousemove'
-				// and 'mouseout' events will trigger multiple renders.
-				me.request = helpers.requestAnimFrame.call(window, function() {
-					me.request = null;
-					me.startDigest();
-				});
-			}
-		},
-
-		/**
-		 * @private
-		 */
-		startDigest: function() {
-			var me = this;
-			var startTime = Date.now();
-			var framesToDrop = 0;
-
-			if (me.dropFrames > 1) {
-				framesToDrop = Math.floor(me.dropFrames);
-				me.dropFrames = me.dropFrames % 1;
-			}
-
-			me.advance(1 + framesToDrop);
-
-			var endTime = Date.now();
-
-			me.dropFrames += (endTime - startTime) / me.frameDuration;
-
-			// Do we have more stuff to animate?
-			if (me.animations.length > 0) {
-				me.requestAnimationFrame();
-			}
-		},
-
-		/**
-		 * @private
-		 */
-		advance: function(count) {
-			var animations = this.animations;
-			var animation, chart;
-			var i = 0;
-
-			while (i < animations.length) {
-				animation = animations[i];
-				chart = animation.chart;
-
-				animation.currentStep = (animation.currentStep || 0) + count;
-				animation.currentStep = Math.min(animation.currentStep, animation.numSteps);
-
-				helpers.callback(animation.render, [chart, animation], chart);
-				helpers.callback(animation.onAnimationProgress, [animation], chart);
-
-				if (animation.currentStep >= animation.numSteps) {
-					helpers.callback(animation.onAnimationComplete, [animation], chart);
-					chart.animating = false;
-					animations.splice(i, 1);
-				} else {
-					++i;
-				}
+				animations.splice(i, 1);
+			} else {
+				++i;
 			}
 		}
-	};
-
-	/**
-	 * Provided for backward compatibility, use Chart.Animation instead
-	 * @prop Chart.Animation#animationObject
-	 * @deprecated since version 2.6.0
-	 * @todo remove at version 3
-	 */
-	Object.defineProperty(Chart.Animation.prototype, 'animationObject', {
-		get: function() {
-			return this;
-		}
-	});
-
-	/**
-	 * Provided for backward compatibility, use Chart.Animation#chart instead
-	 * @prop Chart.Animation#chartInstance
-	 * @deprecated since version 2.6.0
-	 * @todo remove at version 3
-	 */
-	Object.defineProperty(Chart.Animation.prototype, 'chartInstance', {
-		get: function() {
-			return this.chart;
-		},
-		set: function(value) {
-			this.chart = value;
-		}
-	});
-
+	}
 };
 
-},{"25":25,"26":26,"45":45}],23:[function(require,module,exports){
+},{"26":26,"46":46}],24:[function(require,module,exports){
 'use strict';
 
-var defaults = require(25);
-var helpers = require(45);
-var Interaction = require(28);
-var layouts = require(30);
-var platform = require(48);
-var plugins = require(31);
+var Animation = require(22);
+var animations = require(23);
+var defaults = require(26);
+var helpers = require(46);
+var Interaction = require(29);
+var layouts = require(31);
+var platform = require(49);
+var plugins = require(32);
+var scaleService = require(34);
+var Tooltip = require(36);
 
 module.exports = function(Chart) {
 
@@ -4259,7 +4275,7 @@ module.exports = function(Chart) {
 
 		stop: function() {
 			// Stops any current animation loop occurring
-			Chart.animationService.cancelAnimation(this);
+			animations.cancelAnimation(this);
 			return this;
 		},
 
@@ -4272,7 +4288,7 @@ module.exports = function(Chart) {
 			// the canvas render width and height will be casted to integers so make sure that
 			// the canvas display style uses the same integer values to avoid blurring effect.
 
-			// Set to 0 instead of canvas.size because the size defaults to 300x150 if the element is collased
+			// Set to 0 instead of canvas.size because the size defaults to 300x150 if the element is collapsed
 			var newWidth = Math.max(0, Math.floor(helpers.getMaximumWidth(canvas)));
 			var newHeight = Math.max(0, Math.floor(aspectRatio ? newWidth / aspectRatio : helpers.getMaximumHeight(canvas)));
 
@@ -4298,7 +4314,9 @@ module.exports = function(Chart) {
 				}
 
 				me.stop();
-				me.update(me.options.responsiveAnimationDuration);
+				me.update({
+					duration: me.options.responsiveAnimationDuration
+				});
 			}
 		},
 
@@ -4370,7 +4388,7 @@ module.exports = function(Chart) {
 					scale.ctx = me.ctx;
 					scale.chart = me;
 				} else {
-					var scaleClass = Chart.scaleService.getScaleConstructor(scaleType);
+					var scaleClass = scaleService.getScaleConstructor(scaleType);
 					if (!scaleClass) {
 						return;
 					}
@@ -4402,7 +4420,7 @@ module.exports = function(Chart) {
 
 			me.scales = scales;
 
-			Chart.scaleService.addScalesToLayout(this);
+			scaleService.addScalesToLayout(this);
 		},
 
 		buildOrUpdateControllers: function() {
@@ -4614,7 +4632,7 @@ module.exports = function(Chart) {
 			};
 
 			if (animationOptions && ((typeof duration !== 'undefined' && duration !== 0) || (typeof duration === 'undefined' && animationOptions.duration !== 0))) {
-				var animation = new Chart.Animation({
+				var animation = new Animation({
 					numSteps: (duration || animationOptions.duration) / 16.66, // 60 fps
 					easing: config.easing || animationOptions.easing,
 
@@ -4630,12 +4648,12 @@ module.exports = function(Chart) {
 					onAnimationComplete: onComplete
 				});
 
-				Chart.animationService.addAnimation(me, animation, duration, lazy);
+				animations.addAnimation(me, animation, duration, lazy);
 			} else {
 				me.draw();
 
 				// See https://github.com/chartjs/Chart.js/issues/3781
-				onComplete(new Chart.Animation({numSteps: 0, chart: me}));
+				onComplete(new Animation({numSteps: 0, chart: me}));
 			}
 
 			return me;
@@ -4651,6 +4669,10 @@ module.exports = function(Chart) {
 			}
 
 			me.transition(easingValue);
+
+			if (me.width <= 0 || me.height <= 0) {
+				return;
+			}
 
 			if (plugins.notify(me, 'beforeDraw', [easingValue]) === false) {
 				return;
@@ -4870,7 +4892,7 @@ module.exports = function(Chart) {
 
 		initToolTip: function() {
 			var me = this;
-			me.tooltip = new Chart.Tooltip({
+			me.tooltip = new Tooltip({
 				_chart: me,
 				_chartInstance: me, // deprecated, backward compatibility
 				_data: me.data,
@@ -4971,7 +4993,10 @@ module.exports = function(Chart) {
 
 				// We only need to render at this point. Updating will cause scales to be
 				// recomputed generating flicker & using more memory than necessary.
-				me.render(me.options.hover.animationDuration, true);
+				me.render({
+					duration: me.options.hover.animationDuration,
+					lazy: true
+				});
 			}
 
 			me._bufferedRender = false;
@@ -5041,10 +5066,10 @@ module.exports = function(Chart) {
 	Chart.Controller = Chart;
 };
 
-},{"25":25,"28":28,"30":30,"31":31,"45":45,"48":48}],24:[function(require,module,exports){
+},{"22":22,"23":23,"26":26,"29":29,"31":31,"32":32,"34":34,"36":36,"46":46,"49":49}],25:[function(require,module,exports){
 'use strict';
 
-var helpers = require(45);
+var helpers = require(46);
 
 module.exports = function(Chart) {
 
@@ -5282,16 +5307,9 @@ module.exports = function(Chart) {
 			}
 		},
 
-		removeHoverStyle: function(element, elementOpts) {
-			var dataset = this.chart.data.datasets[element._datasetIndex];
-			var index = element._index;
-			var custom = element.custom || {};
-			var valueOrDefault = helpers.valueAtIndexOrDefault;
-			var model = element._model;
-
-			model.backgroundColor = custom.backgroundColor ? custom.backgroundColor : valueOrDefault(dataset.backgroundColor, index, elementOpts.backgroundColor);
-			model.borderColor = custom.borderColor ? custom.borderColor : valueOrDefault(dataset.borderColor, index, elementOpts.borderColor);
-			model.borderWidth = custom.borderWidth ? custom.borderWidth : valueOrDefault(dataset.borderWidth, index, elementOpts.borderWidth);
+		removeHoverStyle: function(element) {
+			helpers.merge(element._model, element.$previousStyle || {});
+			delete element.$previousStyle;
 		},
 
 		setHoverStyle: function(element) {
@@ -5301,6 +5319,12 @@ module.exports = function(Chart) {
 			var valueOrDefault = helpers.valueAtIndexOrDefault;
 			var getHoverColor = helpers.getHoverColor;
 			var model = element._model;
+
+			element.$previousStyle = {
+				backgroundColor: model.backgroundColor,
+				borderColor: model.borderColor,
+				borderWidth: model.borderWidth
+			};
 
 			model.backgroundColor = custom.hoverBackgroundColor ? custom.hoverBackgroundColor : valueOrDefault(dataset.hoverBackgroundColor, index, getHoverColor(model.backgroundColor));
 			model.borderColor = custom.hoverBorderColor ? custom.hoverBorderColor : valueOrDefault(dataset.hoverBorderColor, index, getHoverColor(model.borderColor));
@@ -5373,10 +5397,10 @@ module.exports = function(Chart) {
 	Chart.DatasetController.extend = helpers.inherits;
 };
 
-},{"45":45}],25:[function(require,module,exports){
+},{"46":46}],26:[function(require,module,exports){
 'use strict';
 
-var helpers = require(45);
+var helpers = require(46);
 
 module.exports = {
 	/**
@@ -5387,11 +5411,11 @@ module.exports = {
 	}
 };
 
-},{"45":45}],26:[function(require,module,exports){
+},{"46":46}],27:[function(require,module,exports){
 'use strict';
 
 var color = require(3);
-var helpers = require(45);
+var helpers = require(46);
 
 function interpolate(start, view, model, ease) {
 	var keys = Object.keys(model);
@@ -5504,16 +5528,17 @@ Element.extend = helpers.inherits;
 
 module.exports = Element;
 
-},{"3":3,"45":45}],27:[function(require,module,exports){
+},{"3":3,"46":46}],28:[function(require,module,exports){
 /* global window: false */
 /* global document: false */
 'use strict';
 
 var color = require(3);
-var defaults = require(25);
-var helpers = require(45);
+var defaults = require(26);
+var helpers = require(46);
+var scaleService = require(34);
 
-module.exports = function(Chart) {
+module.exports = function() {
 
 	// -- Basic js utility methods
 
@@ -5528,7 +5553,7 @@ module.exports = function(Chart) {
 					target[key] = helpers.scaleMerge(tval, sval);
 				} else if (key === 'scale') {
 					// used in polar area & radar charts since there is only one scale
-					target[key] = helpers.merge(tval, [Chart.scaleService.getScaleDefaults(sval.type), sval]);
+					target[key] = helpers.merge(tval, [scaleService.getScaleDefaults(sval.type), sval]);
 				} else {
 					helpers._merger(key, target, source, options);
 				}
@@ -5558,7 +5583,7 @@ module.exports = function(Chart) {
 						if (!target[key][i].type || (scale.type && scale.type !== target[key][i].type)) {
 							// new/untyped scale or type changed: let's apply the new defaults
 							// then merge source scale to correctly overwrite the defaults.
-							helpers.merge(target[key][i], [Chart.scaleService.getScaleDefaults(type), scale]);
+							helpers.merge(target[key][i], [scaleService.getScaleDefaults(type), scale]);
 						} else {
 							// scales type are the same
 							helpers.merge(target[key][i], scale);
@@ -5739,7 +5764,7 @@ module.exports = function(Chart) {
 	};
 	helpers.EPSILON = Number.EPSILON || 1e-14;
 	helpers.splineCurveMonotone = function(points) {
-		// This function calculates Bézier control points in a similar way than |splineCurve|,
+		// This function calculates BÃ©zier control points in a similar way than |splineCurve|,
 		// but preserves monotonicity of the provided data and ensures no local extremums are added
 		// between the dataset discrete points due to the interpolation.
 		// See : https://en.wikipedia.org/wiki/Monotone_cubic_interpolation
@@ -5889,7 +5914,7 @@ module.exports = function(Chart) {
 	helpers.getRelativePosition = function(evt, chart) {
 		var mouseX, mouseY;
 		var e = evt.originalEvent || evt;
-		var canvas = evt.currentTarget || evt.srcElement;
+		var canvas = evt.target || evt.srcElement;
 		var boundingRect = canvas.getBoundingClientRect();
 
 		var touches = e.touches;
@@ -5956,7 +5981,7 @@ module.exports = function(Chart) {
 	// @see http://www.nathanaeljones.com/blog/2013/reading-max-width-cross-browser
 	function getConstraintDimension(domNode, maxStyle, percentageProperty) {
 		var view = document.defaultView;
-		var parentNode = domNode.parentNode;
+		var parentNode = helpers._getParentNode(domNode);
 		var constrainedNode = view.getComputedStyle(domNode)[maxStyle];
 		var constrainedContainer = view.getComputedStyle(parentNode)[maxStyle];
 		var hasCNode = isConstrainedValue(constrainedNode);
@@ -5979,27 +6004,49 @@ module.exports = function(Chart) {
 	helpers.getConstraintHeight = function(domNode) {
 		return getConstraintDimension(domNode, 'max-height', 'clientHeight');
 	};
+	/**
+	 * @private
+ 	 */
+	helpers._calculatePadding = function(container, padding, parentDimension) {
+		padding = helpers.getStyle(container, padding);
+
+		return padding.indexOf('%') > -1 ? parentDimension / parseInt(padding, 10) : parseInt(padding, 10);
+	};
+	/**
+	 * @private
+	 */
+	helpers._getParentNode = function(domNode) {
+		var parent = domNode.parentNode;
+		if (parent && parent.host) {
+			parent = parent.host;
+		}
+		return parent;
+	};
 	helpers.getMaximumWidth = function(domNode) {
-		var container = domNode.parentNode;
+		var container = helpers._getParentNode(domNode);
 		if (!container) {
 			return domNode.clientWidth;
 		}
 
-		var paddingLeft = parseInt(helpers.getStyle(container, 'padding-left'), 10);
-		var paddingRight = parseInt(helpers.getStyle(container, 'padding-right'), 10);
-		var w = container.clientWidth - paddingLeft - paddingRight;
+		var clientWidth = container.clientWidth;
+		var paddingLeft = helpers._calculatePadding(container, 'padding-left', clientWidth);
+		var paddingRight = helpers._calculatePadding(container, 'padding-right', clientWidth);
+
+		var w = clientWidth - paddingLeft - paddingRight;
 		var cw = helpers.getConstraintWidth(domNode);
 		return isNaN(cw) ? w : Math.min(w, cw);
 	};
 	helpers.getMaximumHeight = function(domNode) {
-		var container = domNode.parentNode;
+		var container = helpers._getParentNode(domNode);
 		if (!container) {
 			return domNode.clientHeight;
 		}
 
-		var paddingTop = parseInt(helpers.getStyle(container, 'padding-top'), 10);
-		var paddingBottom = parseInt(helpers.getStyle(container, 'padding-bottom'), 10);
-		var h = container.clientHeight - paddingTop - paddingBottom;
+		var clientHeight = container.clientHeight;
+		var paddingTop = helpers._calculatePadding(container, 'padding-top', clientHeight);
+		var paddingBottom = helpers._calculatePadding(container, 'padding-bottom', clientHeight);
+
+		var h = clientHeight - paddingTop - paddingBottom;
 		var ch = helpers.getConstraintHeight(domNode);
 		return isNaN(ch) ? h : Math.min(h, ch);
 	};
@@ -6009,7 +6056,7 @@ module.exports = function(Chart) {
 			document.defaultView.getComputedStyle(el, null).getPropertyValue(property);
 	};
 	helpers.retinaScale = function(chart, forceRatio) {
-		var pixelRatio = chart.currentDevicePixelRatio = forceRatio || window.devicePixelRatio || 1;
+		var pixelRatio = chart.currentDevicePixelRatio = forceRatio || (typeof window !== 'undefined' && window.devicePixelRatio) || 1;
 		if (pixelRatio === 1) {
 			return;
 		}
@@ -6117,10 +6164,10 @@ module.exports = function(Chart) {
 	};
 };
 
-},{"25":25,"3":3,"45":45}],28:[function(require,module,exports){
+},{"26":26,"3":3,"34":34,"46":46}],29:[function(require,module,exports){
 'use strict';
 
-var helpers = require(45);
+var helpers = require(46);
 
 /**
  * Helper function to get relative position for an event
@@ -6449,10 +6496,10 @@ module.exports = {
 	}
 };
 
-},{"45":45}],29:[function(require,module,exports){
+},{"46":46}],30:[function(require,module,exports){
 'use strict';
 
-var defaults = require(25);
+var defaults = require(26);
 
 defaults._set('global', {
 	responsive: true,
@@ -6500,10 +6547,10 @@ module.exports = function() {
 	return Chart;
 };
 
-},{"25":25}],30:[function(require,module,exports){
+},{"26":26}],31:[function(require,module,exports){
 'use strict';
 
-var helpers = require(45);
+var helpers = require(46);
 
 function filterByPosition(array, position) {
 	return helpers.where(array, function(v) {
@@ -6921,11 +6968,11 @@ module.exports = {
 	}
 };
 
-},{"45":45}],31:[function(require,module,exports){
+},{"46":46}],32:[function(require,module,exports){
 'use strict';
 
-var defaults = require(25);
-var helpers = require(45);
+var defaults = require(26);
+var helpers = require(46);
 
 defaults._set('global', {
 	plugins: {}
@@ -7305,13 +7352,13 @@ module.exports = {
  * @param {Object} options - The plugin options.
  */
 
-},{"25":25,"45":45}],32:[function(require,module,exports){
+},{"26":26,"46":46}],33:[function(require,module,exports){
 'use strict';
 
-var defaults = require(25);
-var Element = require(26);
-var helpers = require(45);
-var Ticks = require(34);
+var defaults = require(26);
+var Element = require(27);
+var helpers = require(46);
+var Ticks = require(35);
 
 defaults._set('scale', {
 	display: true,
@@ -7397,904 +7444,899 @@ function getLineValue(scale, index, offsetGridLines) {
 	return lineValue;
 }
 
-module.exports = function(Chart) {
+function computeTextSize(context, tick, font) {
+	return helpers.isArray(tick) ?
+		helpers.longestText(context, font, tick) :
+		context.measureText(tick).width;
+}
 
-	function computeTextSize(context, tick, font) {
-		return helpers.isArray(tick) ?
-			helpers.longestText(context, font, tick) :
-			context.measureText(tick).width;
-	}
+function parseFontOptions(options) {
+	var valueOrDefault = helpers.valueOrDefault;
+	var globalDefaults = defaults.global;
+	var size = valueOrDefault(options.fontSize, globalDefaults.defaultFontSize);
+	var style = valueOrDefault(options.fontStyle, globalDefaults.defaultFontStyle);
+	var family = valueOrDefault(options.fontFamily, globalDefaults.defaultFontFamily);
 
-	function parseFontOptions(options) {
-		var valueOrDefault = helpers.valueOrDefault;
-		var globalDefaults = defaults.global;
-		var size = valueOrDefault(options.fontSize, globalDefaults.defaultFontSize);
-		var style = valueOrDefault(options.fontStyle, globalDefaults.defaultFontStyle);
-		var family = valueOrDefault(options.fontFamily, globalDefaults.defaultFontFamily);
+	return {
+		size: size,
+		style: style,
+		family: family,
+		font: helpers.fontString(size, style, family)
+	};
+}
 
+function parseLineHeight(options) {
+	return helpers.options.toLineHeight(
+		helpers.valueOrDefault(options.lineHeight, 1.2),
+		helpers.valueOrDefault(options.fontSize, defaults.global.defaultFontSize));
+}
+
+module.exports = Element.extend({
+	/**
+	 * Get the padding needed for the scale
+	 * @method getPadding
+	 * @private
+	 * @returns {Padding} the necessary padding
+	 */
+	getPadding: function() {
+		var me = this;
 		return {
-			size: size,
-			style: style,
-			family: family,
-			font: helpers.fontString(size, style, family)
+			left: me.paddingLeft || 0,
+			top: me.paddingTop || 0,
+			right: me.paddingRight || 0,
+			bottom: me.paddingBottom || 0
 		};
-	}
+	},
 
-	function parseLineHeight(options) {
-		return helpers.options.toLineHeight(
-			helpers.valueOrDefault(options.lineHeight, 1.2),
-			helpers.valueOrDefault(options.fontSize, defaults.global.defaultFontSize));
-	}
+	/**
+	 * Returns the scale tick objects ({label, major})
+	 * @since 2.7
+	 */
+	getTicks: function() {
+		return this._ticks;
+	},
 
-	Chart.Scale = Element.extend({
-		/**
-		 * Get the padding needed for the scale
-		 * @method getPadding
-		 * @private
-		 * @returns {Padding} the necessary padding
-		 */
-		getPadding: function() {
-			var me = this;
-			return {
-				left: me.paddingLeft || 0,
-				top: me.paddingTop || 0,
-				right: me.paddingRight || 0,
-				bottom: me.paddingBottom || 0
+	// These methods are ordered by lifecyle. Utilities then follow.
+	// Any function defined here is inherited by all scale types.
+	// Any function can be extended by the scale type
+
+	mergeTicksOptions: function() {
+		var ticks = this.options.ticks;
+		if (ticks.minor === false) {
+			ticks.minor = {
+				display: false
 			};
-		},
-
-		/**
-		 * Returns the scale tick objects ({label, major})
-		 * @since 2.7
-		 */
-		getTicks: function() {
-			return this._ticks;
-		},
-
-		// These methods are ordered by lifecyle. Utilities then follow.
-		// Any function defined here is inherited by all scale types.
-		// Any function can be extended by the scale type
-
-		mergeTicksOptions: function() {
-			var ticks = this.options.ticks;
-			if (ticks.minor === false) {
-				ticks.minor = {
-					display: false
-				};
-			}
-			if (ticks.major === false) {
-				ticks.major = {
-					display: false
-				};
-			}
-			for (var key in ticks) {
-				if (key !== 'major' && key !== 'minor') {
-					if (typeof ticks.minor[key] === 'undefined') {
-						ticks.minor[key] = ticks[key];
-					}
-					if (typeof ticks.major[key] === 'undefined') {
-						ticks.major[key] = ticks[key];
-					}
-				}
-			}
-		},
-		beforeUpdate: function() {
-			helpers.callback(this.options.beforeUpdate, [this]);
-		},
-		update: function(maxWidth, maxHeight, margins) {
-			var me = this;
-			var i, ilen, labels, label, ticks, tick;
-
-			// Update Lifecycle - Probably don't want to ever extend or overwrite this function ;)
-			me.beforeUpdate();
-
-			// Absorb the master measurements
-			me.maxWidth = maxWidth;
-			me.maxHeight = maxHeight;
-			me.margins = helpers.extend({
-				left: 0,
-				right: 0,
-				top: 0,
-				bottom: 0
-			}, margins);
-			me.longestTextCache = me.longestTextCache || {};
-
-			// Dimensions
-			me.beforeSetDimensions();
-			me.setDimensions();
-			me.afterSetDimensions();
-
-			// Data min/max
-			me.beforeDataLimits();
-			me.determineDataLimits();
-			me.afterDataLimits();
-
-			// Ticks - `this.ticks` is now DEPRECATED!
-			// Internal ticks are now stored as objects in the PRIVATE `this._ticks` member
-			// and must not be accessed directly from outside this class. `this.ticks` being
-			// around for long time and not marked as private, we can't change its structure
-			// without unexpected breaking changes. If you need to access the scale ticks,
-			// use scale.getTicks() instead.
-
-			me.beforeBuildTicks();
-
-			// New implementations should return an array of objects but for BACKWARD COMPAT,
-			// we still support no return (`this.ticks` internally set by calling this method).
-			ticks = me.buildTicks() || [];
-
-			me.afterBuildTicks();
-
-			me.beforeTickToLabelConversion();
-
-			// New implementations should return the formatted tick labels but for BACKWARD
-			// COMPAT, we still support no return (`this.ticks` internally changed by calling
-			// this method and supposed to contain only string values).
-			labels = me.convertTicksToLabels(ticks) || me.ticks;
-
-			me.afterTickToLabelConversion();
-
-			me.ticks = labels;   // BACKWARD COMPATIBILITY
-
-			// IMPORTANT: from this point, we consider that `this.ticks` will NEVER change!
-
-			// BACKWARD COMPAT: synchronize `_ticks` with labels (so potentially `this.ticks`)
-			for (i = 0, ilen = labels.length; i < ilen; ++i) {
-				label = labels[i];
-				tick = ticks[i];
-				if (!tick) {
-					ticks.push(tick = {
-						label: label,
-						major: false
-					});
-				} else {
-					tick.label = label;
-				}
-			}
-
-			me._ticks = ticks;
-
-			// Tick Rotation
-			me.beforeCalculateTickRotation();
-			me.calculateTickRotation();
-			me.afterCalculateTickRotation();
-			// Fit
-			me.beforeFit();
-			me.fit();
-			me.afterFit();
-			//
-			me.afterUpdate();
-
-			return me.minSize;
-
-		},
-		afterUpdate: function() {
-			helpers.callback(this.options.afterUpdate, [this]);
-		},
-
-		//
-
-		beforeSetDimensions: function() {
-			helpers.callback(this.options.beforeSetDimensions, [this]);
-		},
-		setDimensions: function() {
-			var me = this;
-			// Set the unconstrained dimension before label rotation
-			if (me.isHorizontal()) {
-				// Reset position before calculating rotation
-				me.width = me.maxWidth;
-				me.left = 0;
-				me.right = me.width;
-			} else {
-				me.height = me.maxHeight;
-
-				// Reset position before calculating rotation
-				me.top = 0;
-				me.bottom = me.height;
-			}
-
-			// Reset padding
-			me.paddingLeft = 0;
-			me.paddingTop = 0;
-			me.paddingRight = 0;
-			me.paddingBottom = 0;
-		},
-		afterSetDimensions: function() {
-			helpers.callback(this.options.afterSetDimensions, [this]);
-		},
-
-		// Data limits
-		beforeDataLimits: function() {
-			helpers.callback(this.options.beforeDataLimits, [this]);
-		},
-		determineDataLimits: helpers.noop,
-		afterDataLimits: function() {
-			helpers.callback(this.options.afterDataLimits, [this]);
-		},
-
-		//
-		beforeBuildTicks: function() {
-			helpers.callback(this.options.beforeBuildTicks, [this]);
-		},
-		buildTicks: helpers.noop,
-		afterBuildTicks: function() {
-			helpers.callback(this.options.afterBuildTicks, [this]);
-		},
-
-		beforeTickToLabelConversion: function() {
-			helpers.callback(this.options.beforeTickToLabelConversion, [this]);
-		},
-		convertTicksToLabels: function() {
-			var me = this;
-			// Convert ticks to strings
-			var tickOpts = me.options.ticks;
-			me.ticks = me.ticks.map(tickOpts.userCallback || tickOpts.callback, this);
-		},
-		afterTickToLabelConversion: function() {
-			helpers.callback(this.options.afterTickToLabelConversion, [this]);
-		},
-
-		//
-
-		beforeCalculateTickRotation: function() {
-			helpers.callback(this.options.beforeCalculateTickRotation, [this]);
-		},
-		calculateTickRotation: function() {
-			var me = this;
-			var context = me.ctx;
-			var tickOpts = me.options.ticks;
-			var labels = labelsFromTicks(me._ticks);
-
-			// Get the width of each grid by calculating the difference
-			// between x offsets between 0 and 1.
-			var tickFont = parseFontOptions(tickOpts);
-			context.font = tickFont.font;
-
-			var labelRotation = tickOpts.minRotation || 0;
-
-			if (labels.length && me.options.display && me.isHorizontal()) {
-				var originalLabelWidth = helpers.longestText(context, tickFont.font, labels, me.longestTextCache);
-				var labelWidth = originalLabelWidth;
-				var cosRotation, sinRotation;
-
-				// Allow 3 pixels x2 padding either side for label readability
-				var tickWidth = me.getPixelForTick(1) - me.getPixelForTick(0) - 6;
-
-				// Max label rotation can be set or default to 90 - also act as a loop counter
-				while (labelWidth > tickWidth && labelRotation < tickOpts.maxRotation) {
-					var angleRadians = helpers.toRadians(labelRotation);
-					cosRotation = Math.cos(angleRadians);
-					sinRotation = Math.sin(angleRadians);
-
-					if (sinRotation * originalLabelWidth > me.maxHeight) {
-						// go back one step
-						labelRotation--;
-						break;
-					}
-
-					labelRotation++;
-					labelWidth = cosRotation * originalLabelWidth;
-				}
-			}
-
-			me.labelRotation = labelRotation;
-		},
-		afterCalculateTickRotation: function() {
-			helpers.callback(this.options.afterCalculateTickRotation, [this]);
-		},
-
-		//
-
-		beforeFit: function() {
-			helpers.callback(this.options.beforeFit, [this]);
-		},
-		fit: function() {
-			var me = this;
-			// Reset
-			var minSize = me.minSize = {
-				width: 0,
-				height: 0
+		}
+		if (ticks.major === false) {
+			ticks.major = {
+				display: false
 			};
+		}
+		for (var key in ticks) {
+			if (key !== 'major' && key !== 'minor') {
+				if (typeof ticks.minor[key] === 'undefined') {
+					ticks.minor[key] = ticks[key];
+				}
+				if (typeof ticks.major[key] === 'undefined') {
+					ticks.major[key] = ticks[key];
+				}
+			}
+		}
+	},
+	beforeUpdate: function() {
+		helpers.callback(this.options.beforeUpdate, [this]);
+	},
 
-			var labels = labelsFromTicks(me._ticks);
+	update: function(maxWidth, maxHeight, margins) {
+		var me = this;
+		var i, ilen, labels, label, ticks, tick;
 
-			var opts = me.options;
-			var tickOpts = opts.ticks;
-			var scaleLabelOpts = opts.scaleLabel;
-			var gridLineOpts = opts.gridLines;
-			var display = opts.display;
-			var isHorizontal = me.isHorizontal();
+		// Update Lifecycle - Probably don't want to ever extend or overwrite this function ;)
+		me.beforeUpdate();
 
-			var tickFont = parseFontOptions(tickOpts);
-			var tickMarkLength = opts.gridLines.tickMarkLength;
+		// Absorb the master measurements
+		me.maxWidth = maxWidth;
+		me.maxHeight = maxHeight;
+		me.margins = helpers.extend({
+			left: 0,
+			right: 0,
+			top: 0,
+			bottom: 0
+		}, margins);
+		me.longestTextCache = me.longestTextCache || {};
 
-			// Width
-			if (isHorizontal) {
-				// subtract the margins to line up with the chartArea if we are a full width scale
-				minSize.width = me.isFullWidth() ? me.maxWidth - me.margins.left - me.margins.right : me.maxWidth;
+		// Dimensions
+		me.beforeSetDimensions();
+		me.setDimensions();
+		me.afterSetDimensions();
+
+		// Data min/max
+		me.beforeDataLimits();
+		me.determineDataLimits();
+		me.afterDataLimits();
+
+		// Ticks - `this.ticks` is now DEPRECATED!
+		// Internal ticks are now stored as objects in the PRIVATE `this._ticks` member
+		// and must not be accessed directly from outside this class. `this.ticks` being
+		// around for long time and not marked as private, we can't change its structure
+		// without unexpected breaking changes. If you need to access the scale ticks,
+		// use scale.getTicks() instead.
+
+		me.beforeBuildTicks();
+
+		// New implementations should return an array of objects but for BACKWARD COMPAT,
+		// we still support no return (`this.ticks` internally set by calling this method).
+		ticks = me.buildTicks() || [];
+
+		me.afterBuildTicks();
+
+		me.beforeTickToLabelConversion();
+
+		// New implementations should return the formatted tick labels but for BACKWARD
+		// COMPAT, we still support no return (`this.ticks` internally changed by calling
+		// this method and supposed to contain only string values).
+		labels = me.convertTicksToLabels(ticks) || me.ticks;
+
+		me.afterTickToLabelConversion();
+
+		me.ticks = labels;   // BACKWARD COMPATIBILITY
+
+		// IMPORTANT: from this point, we consider that `this.ticks` will NEVER change!
+
+		// BACKWARD COMPAT: synchronize `_ticks` with labels (so potentially `this.ticks`)
+		for (i = 0, ilen = labels.length; i < ilen; ++i) {
+			label = labels[i];
+			tick = ticks[i];
+			if (!tick) {
+				ticks.push(tick = {
+					label: label,
+					major: false
+				});
 			} else {
-				minSize.width = display && gridLineOpts.drawTicks ? tickMarkLength : 0;
+				tick.label = label;
 			}
+		}
 
-			// height
+		me._ticks = ticks;
+
+		// Tick Rotation
+		me.beforeCalculateTickRotation();
+		me.calculateTickRotation();
+		me.afterCalculateTickRotation();
+		// Fit
+		me.beforeFit();
+		me.fit();
+		me.afterFit();
+		//
+		me.afterUpdate();
+
+		return me.minSize;
+
+	},
+	afterUpdate: function() {
+		helpers.callback(this.options.afterUpdate, [this]);
+	},
+
+	//
+
+	beforeSetDimensions: function() {
+		helpers.callback(this.options.beforeSetDimensions, [this]);
+	},
+	setDimensions: function() {
+		var me = this;
+		// Set the unconstrained dimension before label rotation
+		if (me.isHorizontal()) {
+			// Reset position before calculating rotation
+			me.width = me.maxWidth;
+			me.left = 0;
+			me.right = me.width;
+		} else {
+			me.height = me.maxHeight;
+
+			// Reset position before calculating rotation
+			me.top = 0;
+			me.bottom = me.height;
+		}
+
+		// Reset padding
+		me.paddingLeft = 0;
+		me.paddingTop = 0;
+		me.paddingRight = 0;
+		me.paddingBottom = 0;
+	},
+	afterSetDimensions: function() {
+		helpers.callback(this.options.afterSetDimensions, [this]);
+	},
+
+	// Data limits
+	beforeDataLimits: function() {
+		helpers.callback(this.options.beforeDataLimits, [this]);
+	},
+	determineDataLimits: helpers.noop,
+	afterDataLimits: function() {
+		helpers.callback(this.options.afterDataLimits, [this]);
+	},
+
+	//
+	beforeBuildTicks: function() {
+		helpers.callback(this.options.beforeBuildTicks, [this]);
+	},
+	buildTicks: helpers.noop,
+	afterBuildTicks: function() {
+		helpers.callback(this.options.afterBuildTicks, [this]);
+	},
+
+	beforeTickToLabelConversion: function() {
+		helpers.callback(this.options.beforeTickToLabelConversion, [this]);
+	},
+	convertTicksToLabels: function() {
+		var me = this;
+		// Convert ticks to strings
+		var tickOpts = me.options.ticks;
+		me.ticks = me.ticks.map(tickOpts.userCallback || tickOpts.callback, this);
+	},
+	afterTickToLabelConversion: function() {
+		helpers.callback(this.options.afterTickToLabelConversion, [this]);
+	},
+
+	//
+
+	beforeCalculateTickRotation: function() {
+		helpers.callback(this.options.beforeCalculateTickRotation, [this]);
+	},
+	calculateTickRotation: function() {
+		var me = this;
+		var context = me.ctx;
+		var tickOpts = me.options.ticks;
+		var labels = labelsFromTicks(me._ticks);
+
+		// Get the width of each grid by calculating the difference
+		// between x offsets between 0 and 1.
+		var tickFont = parseFontOptions(tickOpts);
+		context.font = tickFont.font;
+
+		var labelRotation = tickOpts.minRotation || 0;
+
+		if (labels.length && me.options.display && me.isHorizontal()) {
+			var originalLabelWidth = helpers.longestText(context, tickFont.font, labels, me.longestTextCache);
+			var labelWidth = originalLabelWidth;
+			var cosRotation, sinRotation;
+
+			// Allow 3 pixels x2 padding either side for label readability
+			var tickWidth = me.getPixelForTick(1) - me.getPixelForTick(0) - 6;
+
+			// Max label rotation can be set or default to 90 - also act as a loop counter
+			while (labelWidth > tickWidth && labelRotation < tickOpts.maxRotation) {
+				var angleRadians = helpers.toRadians(labelRotation);
+				cosRotation = Math.cos(angleRadians);
+				sinRotation = Math.sin(angleRadians);
+
+				if (sinRotation * originalLabelWidth > me.maxHeight) {
+					// go back one step
+					labelRotation--;
+					break;
+				}
+
+				labelRotation++;
+				labelWidth = cosRotation * originalLabelWidth;
+			}
+		}
+
+		me.labelRotation = labelRotation;
+	},
+	afterCalculateTickRotation: function() {
+		helpers.callback(this.options.afterCalculateTickRotation, [this]);
+	},
+
+	//
+
+	beforeFit: function() {
+		helpers.callback(this.options.beforeFit, [this]);
+	},
+	fit: function() {
+		var me = this;
+		// Reset
+		var minSize = me.minSize = {
+			width: 0,
+			height: 0
+		};
+
+		var labels = labelsFromTicks(me._ticks);
+
+		var opts = me.options;
+		var tickOpts = opts.ticks;
+		var scaleLabelOpts = opts.scaleLabel;
+		var gridLineOpts = opts.gridLines;
+		var display = opts.display;
+		var isHorizontal = me.isHorizontal();
+
+		var tickFont = parseFontOptions(tickOpts);
+		var tickMarkLength = opts.gridLines.tickMarkLength;
+
+		// Width
+		if (isHorizontal) {
+			// subtract the margins to line up with the chartArea if we are a full width scale
+			minSize.width = me.isFullWidth() ? me.maxWidth - me.margins.left - me.margins.right : me.maxWidth;
+		} else {
+			minSize.width = display && gridLineOpts.drawTicks ? tickMarkLength : 0;
+		}
+
+		// height
+		if (isHorizontal) {
+			minSize.height = display && gridLineOpts.drawTicks ? tickMarkLength : 0;
+		} else {
+			minSize.height = me.maxHeight; // fill all the height
+		}
+
+		// Are we showing a title for the scale?
+		if (scaleLabelOpts.display && display) {
+			var scaleLabelLineHeight = parseLineHeight(scaleLabelOpts);
+			var scaleLabelPadding = helpers.options.toPadding(scaleLabelOpts.padding);
+			var deltaHeight = scaleLabelLineHeight + scaleLabelPadding.height;
+
 			if (isHorizontal) {
-				minSize.height = display && gridLineOpts.drawTicks ? tickMarkLength : 0;
+				minSize.height += deltaHeight;
 			} else {
-				minSize.height = me.maxHeight; // fill all the height
+				minSize.width += deltaHeight;
 			}
+		}
 
-			// Are we showing a title for the scale?
-			if (scaleLabelOpts.display && display) {
-				var scaleLabelLineHeight = parseLineHeight(scaleLabelOpts);
-				var scaleLabelPadding = helpers.options.toPadding(scaleLabelOpts.padding);
-				var deltaHeight = scaleLabelLineHeight + scaleLabelPadding.height;
-
-				if (isHorizontal) {
-					minSize.height += deltaHeight;
-				} else {
-					minSize.width += deltaHeight;
-				}
-			}
-
-			// Don't bother fitting the ticks if we are not showing them
-			if (tickOpts.display && display) {
-				var largestTextWidth = helpers.longestText(me.ctx, tickFont.font, labels, me.longestTextCache);
-				var tallestLabelHeightInLines = helpers.numberOfLabelLines(labels);
-				var lineSpace = tickFont.size * 0.5;
-				var tickPadding = me.options.ticks.padding;
-
-				if (isHorizontal) {
-					// A horizontal axis is more constrained by the height.
-					me.longestLabelWidth = largestTextWidth;
-
-					var angleRadians = helpers.toRadians(me.labelRotation);
-					var cosRotation = Math.cos(angleRadians);
-					var sinRotation = Math.sin(angleRadians);
-
-					// TODO - improve this calculation
-					var labelHeight = (sinRotation * largestTextWidth)
-						+ (tickFont.size * tallestLabelHeightInLines)
-						+ (lineSpace * (tallestLabelHeightInLines - 1))
-						+ lineSpace; // padding
-
-					minSize.height = Math.min(me.maxHeight, minSize.height + labelHeight + tickPadding);
-
-					me.ctx.font = tickFont.font;
-					var firstLabelWidth = computeTextSize(me.ctx, labels[0], tickFont.font);
-					var lastLabelWidth = computeTextSize(me.ctx, labels[labels.length - 1], tickFont.font);
-
-					// Ensure that our ticks are always inside the canvas. When rotated, ticks are right aligned
-					// which means that the right padding is dominated by the font height
-					if (me.labelRotation !== 0) {
-						me.paddingLeft = opts.position === 'bottom' ? (cosRotation * firstLabelWidth) + 3 : (cosRotation * lineSpace) + 3; // add 3 px to move away from canvas edges
-						me.paddingRight = opts.position === 'bottom' ? (cosRotation * lineSpace) + 3 : (cosRotation * lastLabelWidth) + 3;
-					} else {
-						me.paddingLeft = firstLabelWidth / 2 + 3; // add 3 px to move away from canvas edges
-						me.paddingRight = lastLabelWidth / 2 + 3;
-					}
-				} else {
-					// A vertical axis is more constrained by the width. Labels are the
-					// dominant factor here, so get that length first and account for padding
-					if (tickOpts.mirror) {
-						largestTextWidth = 0;
-					} else {
-						// use lineSpace for consistency with horizontal axis
-						// tickPadding is not implemented for horizontal
-						largestTextWidth += tickPadding + lineSpace;
-					}
-
-					minSize.width = Math.min(me.maxWidth, minSize.width + largestTextWidth);
-
-					me.paddingTop = tickFont.size / 2;
-					me.paddingBottom = tickFont.size / 2;
-				}
-			}
-
-			me.handleMargins();
-
-			me.width = minSize.width;
-			me.height = minSize.height;
-		},
-
-		/**
-		 * Handle margins and padding interactions
-		 * @private
-		 */
-		handleMargins: function() {
-			var me = this;
-			if (me.margins) {
-				me.paddingLeft = Math.max(me.paddingLeft - me.margins.left, 0);
-				me.paddingTop = Math.max(me.paddingTop - me.margins.top, 0);
-				me.paddingRight = Math.max(me.paddingRight - me.margins.right, 0);
-				me.paddingBottom = Math.max(me.paddingBottom - me.margins.bottom, 0);
-			}
-		},
-
-		afterFit: function() {
-			helpers.callback(this.options.afterFit, [this]);
-		},
-
-		// Shared Methods
-		isHorizontal: function() {
-			return this.options.position === 'top' || this.options.position === 'bottom';
-		},
-		isFullWidth: function() {
-			return (this.options.fullWidth);
-		},
-
-		// Get the correct value. NaN bad inputs, If the value type is object get the x or y based on whether we are horizontal or not
-		getRightValue: function(rawValue) {
-			// Null and undefined values first
-			if (helpers.isNullOrUndef(rawValue)) {
-				return NaN;
-			}
-			// isNaN(object) returns true, so make sure NaN is checking for a number; Discard Infinite values
-			if (typeof rawValue === 'number' && !isFinite(rawValue)) {
-				return NaN;
-			}
-			// If it is in fact an object, dive in one more level
-			if (rawValue) {
-				if (this.isHorizontal()) {
-					if (rawValue.x !== undefined) {
-						return this.getRightValue(rawValue.x);
-					}
-				} else if (rawValue.y !== undefined) {
-					return this.getRightValue(rawValue.y);
-				}
-			}
-
-			// Value is good, return it
-			return rawValue;
-		},
-
-		/**
-		 * Used to get the value to display in the tooltip for the data at the given index
-		 * @param index
-		 * @param datasetIndex
-		 */
-		getLabelForIndex: helpers.noop,
-
-		/**
-		 * Returns the location of the given data point. Value can either be an index or a numerical value
-		 * The coordinate (0, 0) is at the upper-left corner of the canvas
-		 * @param value
-		 * @param index
-		 * @param datasetIndex
-		 */
-		getPixelForValue: helpers.noop,
-
-		/**
-		 * Used to get the data value from a given pixel. This is the inverse of getPixelForValue
-		 * The coordinate (0, 0) is at the upper-left corner of the canvas
-		 * @param pixel
-		 */
-		getValueForPixel: helpers.noop,
-
-		/**
-		 * Returns the location of the tick at the given index
-		 * The coordinate (0, 0) is at the upper-left corner of the canvas
-		 */
-		getPixelForTick: function(index) {
-			var me = this;
-			var offset = me.options.offset;
-			if (me.isHorizontal()) {
-				var innerWidth = me.width - (me.paddingLeft + me.paddingRight);
-				var tickWidth = innerWidth / Math.max((me._ticks.length - (offset ? 0 : 1)), 1);
-				var pixel = (tickWidth * index) + me.paddingLeft;
-
-				if (offset) {
-					pixel += tickWidth / 2;
-				}
-
-				var finalVal = me.left + Math.round(pixel);
-				finalVal += me.isFullWidth() ? me.margins.left : 0;
-				return finalVal;
-			}
-			var innerHeight = me.height - (me.paddingTop + me.paddingBottom);
-			return me.top + (index * (innerHeight / (me._ticks.length - 1)));
-		},
-
-		/**
-		 * Utility for getting the pixel location of a percentage of scale
-		 * The coordinate (0, 0) is at the upper-left corner of the canvas
-		 */
-		getPixelForDecimal: function(decimal) {
-			var me = this;
-			if (me.isHorizontal()) {
-				var innerWidth = me.width - (me.paddingLeft + me.paddingRight);
-				var valueOffset = (innerWidth * decimal) + me.paddingLeft;
-
-				var finalVal = me.left + Math.round(valueOffset);
-				finalVal += me.isFullWidth() ? me.margins.left : 0;
-				return finalVal;
-			}
-			return me.top + (decimal * me.height);
-		},
-
-		/**
-		 * Returns the pixel for the minimum chart value
-		 * The coordinate (0, 0) is at the upper-left corner of the canvas
-		 */
-		getBasePixel: function() {
-			return this.getPixelForValue(this.getBaseValue());
-		},
-
-		getBaseValue: function() {
-			var me = this;
-			var min = me.min;
-			var max = me.max;
-
-			return me.beginAtZero ? 0 :
-				min < 0 && max < 0 ? max :
-				min > 0 && max > 0 ? min :
-				0;
-		},
-
-		/**
-		 * Returns a subset of ticks to be plotted to avoid overlapping labels.
-		 * @private
-		 */
-		_autoSkip: function(ticks) {
-			var skipRatio;
-			var me = this;
-			var isHorizontal = me.isHorizontal();
-			var optionTicks = me.options.ticks.minor;
-			var tickCount = ticks.length;
-			var labelRotationRadians = helpers.toRadians(me.labelRotation);
-			var cosRotation = Math.cos(labelRotationRadians);
-			var longestRotatedLabel = me.longestLabelWidth * cosRotation;
-			var result = [];
-			var i, tick, shouldSkip;
-
-			// figure out the maximum number of gridlines to show
-			var maxTicks;
-			if (optionTicks.maxTicksLimit) {
-				maxTicks = optionTicks.maxTicksLimit;
-			}
+		// Don't bother fitting the ticks if we are not showing them
+		if (tickOpts.display && display) {
+			var largestTextWidth = helpers.longestText(me.ctx, tickFont.font, labels, me.longestTextCache);
+			var tallestLabelHeightInLines = helpers.numberOfLabelLines(labels);
+			var lineSpace = tickFont.size * 0.5;
+			var tickPadding = me.options.ticks.padding;
 
 			if (isHorizontal) {
-				skipRatio = false;
+				// A horizontal axis is more constrained by the height.
+				me.longestLabelWidth = largestTextWidth;
 
-				if ((longestRotatedLabel + optionTicks.autoSkipPadding) * tickCount > (me.width - (me.paddingLeft + me.paddingRight))) {
-					skipRatio = 1 + Math.floor(((longestRotatedLabel + optionTicks.autoSkipPadding) * tickCount) / (me.width - (me.paddingLeft + me.paddingRight)));
+				var angleRadians = helpers.toRadians(me.labelRotation);
+				var cosRotation = Math.cos(angleRadians);
+				var sinRotation = Math.sin(angleRadians);
+
+				// TODO - improve this calculation
+				var labelHeight = (sinRotation * largestTextWidth)
+					+ (tickFont.size * tallestLabelHeightInLines)
+					+ (lineSpace * (tallestLabelHeightInLines - 1))
+					+ lineSpace; // padding
+
+				minSize.height = Math.min(me.maxHeight, minSize.height + labelHeight + tickPadding);
+
+				me.ctx.font = tickFont.font;
+				var firstLabelWidth = computeTextSize(me.ctx, labels[0], tickFont.font);
+				var lastLabelWidth = computeTextSize(me.ctx, labels[labels.length - 1], tickFont.font);
+
+				// Ensure that our ticks are always inside the canvas. When rotated, ticks are right aligned
+				// which means that the right padding is dominated by the font height
+				if (me.labelRotation !== 0) {
+					me.paddingLeft = opts.position === 'bottom' ? (cosRotation * firstLabelWidth) + 3 : (cosRotation * lineSpace) + 3; // add 3 px to move away from canvas edges
+					me.paddingRight = opts.position === 'bottom' ? (cosRotation * lineSpace) + 3 : (cosRotation * lastLabelWidth) + 3;
+				} else {
+					me.paddingLeft = firstLabelWidth / 2 + 3; // add 3 px to move away from canvas edges
+					me.paddingRight = lastLabelWidth / 2 + 3;
+				}
+			} else {
+				// A vertical axis is more constrained by the width. Labels are the
+				// dominant factor here, so get that length first and account for padding
+				if (tickOpts.mirror) {
+					largestTextWidth = 0;
+				} else {
+					// use lineSpace for consistency with horizontal axis
+					// tickPadding is not implemented for horizontal
+					largestTextWidth += tickPadding + lineSpace;
 				}
 
-				// if they defined a max number of optionTicks,
-				// increase skipRatio until that number is met
-				if (maxTicks && tickCount > maxTicks) {
-					skipRatio = Math.max(skipRatio, Math.floor(tickCount / maxTicks));
+				minSize.width = Math.min(me.maxWidth, minSize.width + largestTextWidth);
+
+				me.paddingTop = tickFont.size / 2;
+				me.paddingBottom = tickFont.size / 2;
+			}
+		}
+
+		me.handleMargins();
+
+		me.width = minSize.width;
+		me.height = minSize.height;
+	},
+
+	/**
+	 * Handle margins and padding interactions
+	 * @private
+	 */
+	handleMargins: function() {
+		var me = this;
+		if (me.margins) {
+			me.paddingLeft = Math.max(me.paddingLeft - me.margins.left, 0);
+			me.paddingTop = Math.max(me.paddingTop - me.margins.top, 0);
+			me.paddingRight = Math.max(me.paddingRight - me.margins.right, 0);
+			me.paddingBottom = Math.max(me.paddingBottom - me.margins.bottom, 0);
+		}
+	},
+
+	afterFit: function() {
+		helpers.callback(this.options.afterFit, [this]);
+	},
+
+	// Shared Methods
+	isHorizontal: function() {
+		return this.options.position === 'top' || this.options.position === 'bottom';
+	},
+	isFullWidth: function() {
+		return (this.options.fullWidth);
+	},
+
+	// Get the correct value. NaN bad inputs, If the value type is object get the x or y based on whether we are horizontal or not
+	getRightValue: function(rawValue) {
+		// Null and undefined values first
+		if (helpers.isNullOrUndef(rawValue)) {
+			return NaN;
+		}
+		// isNaN(object) returns true, so make sure NaN is checking for a number; Discard Infinite values
+		if (typeof rawValue === 'number' && !isFinite(rawValue)) {
+			return NaN;
+		}
+		// If it is in fact an object, dive in one more level
+		if (rawValue) {
+			if (this.isHorizontal()) {
+				if (rawValue.x !== undefined) {
+					return this.getRightValue(rawValue.x);
 				}
+			} else if (rawValue.y !== undefined) {
+				return this.getRightValue(rawValue.y);
+			}
+		}
+
+		// Value is good, return it
+		return rawValue;
+	},
+
+	/**
+	 * Used to get the value to display in the tooltip for the data at the given index
+	 * @param index
+	 * @param datasetIndex
+	 */
+	getLabelForIndex: helpers.noop,
+
+	/**
+	 * Returns the location of the given data point. Value can either be an index or a numerical value
+	 * The coordinate (0, 0) is at the upper-left corner of the canvas
+	 * @param value
+	 * @param index
+	 * @param datasetIndex
+	 */
+	getPixelForValue: helpers.noop,
+
+	/**
+	 * Used to get the data value from a given pixel. This is the inverse of getPixelForValue
+	 * The coordinate (0, 0) is at the upper-left corner of the canvas
+	 * @param pixel
+	 */
+	getValueForPixel: helpers.noop,
+
+	/**
+	 * Returns the location of the tick at the given index
+	 * The coordinate (0, 0) is at the upper-left corner of the canvas
+	 */
+	getPixelForTick: function(index) {
+		var me = this;
+		var offset = me.options.offset;
+		if (me.isHorizontal()) {
+			var innerWidth = me.width - (me.paddingLeft + me.paddingRight);
+			var tickWidth = innerWidth / Math.max((me._ticks.length - (offset ? 0 : 1)), 1);
+			var pixel = (tickWidth * index) + me.paddingLeft;
+
+			if (offset) {
+				pixel += tickWidth / 2;
 			}
 
-			for (i = 0; i < tickCount; i++) {
-				tick = ticks[i];
+			var finalVal = me.left + Math.round(pixel);
+			finalVal += me.isFullWidth() ? me.margins.left : 0;
+			return finalVal;
+		}
+		var innerHeight = me.height - (me.paddingTop + me.paddingBottom);
+		return me.top + (index * (innerHeight / (me._ticks.length - 1)));
+	},
 
-				// Since we always show the last tick,we need may need to hide the last shown one before
-				shouldSkip = (skipRatio > 1 && i % skipRatio > 0) || (i % skipRatio === 0 && i + skipRatio >= tickCount);
-				if (shouldSkip && i !== tickCount - 1) {
-					// leave tick in place but make sure it's not displayed (#4635)
-					delete tick.label;
-				}
-				result.push(tick);
+	/**
+	 * Utility for getting the pixel location of a percentage of scale
+	 * The coordinate (0, 0) is at the upper-left corner of the canvas
+	 */
+	getPixelForDecimal: function(decimal) {
+		var me = this;
+		if (me.isHorizontal()) {
+			var innerWidth = me.width - (me.paddingLeft + me.paddingRight);
+			var valueOffset = (innerWidth * decimal) + me.paddingLeft;
+
+			var finalVal = me.left + Math.round(valueOffset);
+			finalVal += me.isFullWidth() ? me.margins.left : 0;
+			return finalVal;
+		}
+		return me.top + (decimal * me.height);
+	},
+
+	/**
+	 * Returns the pixel for the minimum chart value
+	 * The coordinate (0, 0) is at the upper-left corner of the canvas
+	 */
+	getBasePixel: function() {
+		return this.getPixelForValue(this.getBaseValue());
+	},
+
+	getBaseValue: function() {
+		var me = this;
+		var min = me.min;
+		var max = me.max;
+
+		return me.beginAtZero ? 0 :
+			min < 0 && max < 0 ? max :
+			min > 0 && max > 0 ? min :
+			0;
+	},
+
+	/**
+	 * Returns a subset of ticks to be plotted to avoid overlapping labels.
+	 * @private
+	 */
+	_autoSkip: function(ticks) {
+		var skipRatio;
+		var me = this;
+		var isHorizontal = me.isHorizontal();
+		var optionTicks = me.options.ticks.minor;
+		var tickCount = ticks.length;
+		var labelRotationRadians = helpers.toRadians(me.labelRotation);
+		var cosRotation = Math.cos(labelRotationRadians);
+		var longestRotatedLabel = me.longestLabelWidth * cosRotation;
+		var result = [];
+		var i, tick, shouldSkip;
+
+		// figure out the maximum number of gridlines to show
+		var maxTicks;
+		if (optionTicks.maxTicksLimit) {
+			maxTicks = optionTicks.maxTicksLimit;
+		}
+
+		if (isHorizontal) {
+			skipRatio = false;
+
+			if ((longestRotatedLabel + optionTicks.autoSkipPadding) * tickCount > (me.width - (me.paddingLeft + me.paddingRight))) {
+				skipRatio = 1 + Math.floor(((longestRotatedLabel + optionTicks.autoSkipPadding) * tickCount) / (me.width - (me.paddingLeft + me.paddingRight)));
 			}
-			return result;
-		},
 
-		// Actually draw the scale on the canvas
-		// @param {rectangle} chartArea : the area of the chart to draw full grid lines on
-		draw: function(chartArea) {
-			var me = this;
-			var options = me.options;
-			if (!options.display) {
+			// if they defined a max number of optionTicks,
+			// increase skipRatio until that number is met
+			if (maxTicks && tickCount > maxTicks) {
+				skipRatio = Math.max(skipRatio, Math.floor(tickCount / maxTicks));
+			}
+		}
+
+		for (i = 0; i < tickCount; i++) {
+			tick = ticks[i];
+
+			// Since we always show the last tick,we need may need to hide the last shown one before
+			shouldSkip = (skipRatio > 1 && i % skipRatio > 0) || (i % skipRatio === 0 && i + skipRatio >= tickCount);
+			if (shouldSkip && i !== tickCount - 1) {
+				// leave tick in place but make sure it's not displayed (#4635)
+				delete tick.label;
+			}
+			result.push(tick);
+		}
+		return result;
+	},
+
+	// Actually draw the scale on the canvas
+	// @param {rectangle} chartArea : the area of the chart to draw full grid lines on
+	draw: function(chartArea) {
+		var me = this;
+		var options = me.options;
+		if (!options.display) {
+			return;
+		}
+
+		var context = me.ctx;
+		var globalDefaults = defaults.global;
+		var optionTicks = options.ticks.minor;
+		var optionMajorTicks = options.ticks.major || optionTicks;
+		var gridLines = options.gridLines;
+		var scaleLabel = options.scaleLabel;
+
+		var isRotated = me.labelRotation !== 0;
+		var isHorizontal = me.isHorizontal();
+
+		var ticks = optionTicks.autoSkip ? me._autoSkip(me.getTicks()) : me.getTicks();
+		var tickFontColor = helpers.valueOrDefault(optionTicks.fontColor, globalDefaults.defaultFontColor);
+		var tickFont = parseFontOptions(optionTicks);
+		var majorTickFontColor = helpers.valueOrDefault(optionMajorTicks.fontColor, globalDefaults.defaultFontColor);
+		var majorTickFont = parseFontOptions(optionMajorTicks);
+
+		var tl = gridLines.drawTicks ? gridLines.tickMarkLength : 0;
+
+		var scaleLabelFontColor = helpers.valueOrDefault(scaleLabel.fontColor, globalDefaults.defaultFontColor);
+		var scaleLabelFont = parseFontOptions(scaleLabel);
+		var scaleLabelPadding = helpers.options.toPadding(scaleLabel.padding);
+		var labelRotationRadians = helpers.toRadians(me.labelRotation);
+
+		var itemsToDraw = [];
+
+		var axisWidth = me.options.gridLines.lineWidth;
+		var xTickStart = options.position === 'right' ? me.left : me.right - axisWidth - tl;
+		var xTickEnd = options.position === 'right' ? me.left + tl : me.right;
+		var yTickStart = options.position === 'bottom' ? me.top + axisWidth : me.bottom - tl - axisWidth;
+		var yTickEnd = options.position === 'bottom' ? me.top + axisWidth + tl : me.bottom + axisWidth;
+
+		helpers.each(ticks, function(tick, index) {
+			// autoskipper skipped this tick (#4635)
+			if (helpers.isNullOrUndef(tick.label)) {
 				return;
 			}
 
-			var context = me.ctx;
-			var globalDefaults = defaults.global;
-			var optionTicks = options.ticks.minor;
-			var optionMajorTicks = options.ticks.major || optionTicks;
-			var gridLines = options.gridLines;
-			var scaleLabel = options.scaleLabel;
-
-			var isRotated = me.labelRotation !== 0;
-			var isHorizontal = me.isHorizontal();
-
-			var ticks = optionTicks.autoSkip ? me._autoSkip(me.getTicks()) : me.getTicks();
-			var tickFontColor = helpers.valueOrDefault(optionTicks.fontColor, globalDefaults.defaultFontColor);
-			var tickFont = parseFontOptions(optionTicks);
-			var majorTickFontColor = helpers.valueOrDefault(optionMajorTicks.fontColor, globalDefaults.defaultFontColor);
-			var majorTickFont = parseFontOptions(optionMajorTicks);
-
-			var tl = gridLines.drawTicks ? gridLines.tickMarkLength : 0;
-
-			var scaleLabelFontColor = helpers.valueOrDefault(scaleLabel.fontColor, globalDefaults.defaultFontColor);
-			var scaleLabelFont = parseFontOptions(scaleLabel);
-			var scaleLabelPadding = helpers.options.toPadding(scaleLabel.padding);
-			var labelRotationRadians = helpers.toRadians(me.labelRotation);
-
-			var itemsToDraw = [];
-
-			var axisWidth = me.options.gridLines.lineWidth;
-			var xTickStart = options.position === 'right' ? me.right : me.right - axisWidth - tl;
-			var xTickEnd = options.position === 'right' ? me.right + tl : me.right;
-			var yTickStart = options.position === 'bottom' ? me.top + axisWidth : me.bottom - tl - axisWidth;
-			var yTickEnd = options.position === 'bottom' ? me.top + axisWidth + tl : me.bottom + axisWidth;
-
-			helpers.each(ticks, function(tick, index) {
-				// autoskipper skipped this tick (#4635)
-				if (helpers.isNullOrUndef(tick.label)) {
-					return;
-				}
-
-				var label = tick.label;
-				var lineWidth, lineColor, borderDash, borderDashOffset;
-				if (index === me.zeroLineIndex && options.offset === gridLines.offsetGridLines) {
-					// Draw the first index specially
-					lineWidth = gridLines.zeroLineWidth;
-					lineColor = gridLines.zeroLineColor;
-					borderDash = gridLines.zeroLineBorderDash;
-					borderDashOffset = gridLines.zeroLineBorderDashOffset;
-				} else {
-					lineWidth = helpers.valueAtIndexOrDefault(gridLines.lineWidth, index);
-					lineColor = helpers.valueAtIndexOrDefault(gridLines.color, index);
-					borderDash = helpers.valueOrDefault(gridLines.borderDash, globalDefaults.borderDash);
-					borderDashOffset = helpers.valueOrDefault(gridLines.borderDashOffset, globalDefaults.borderDashOffset);
-				}
-
-				// Common properties
-				var tx1, ty1, tx2, ty2, x1, y1, x2, y2, labelX, labelY;
-				var textAlign = 'middle';
-				var textBaseline = 'middle';
-				var tickPadding = optionTicks.padding;
-
-				if (isHorizontal) {
-					var labelYOffset = tl + tickPadding;
-
-					if (options.position === 'bottom') {
-						// bottom
-						textBaseline = !isRotated ? 'top' : 'middle';
-						textAlign = !isRotated ? 'center' : 'right';
-						labelY = me.top + labelYOffset;
-					} else {
-						// top
-						textBaseline = !isRotated ? 'bottom' : 'middle';
-						textAlign = !isRotated ? 'center' : 'left';
-						labelY = me.bottom - labelYOffset;
-					}
-
-					var xLineValue = getLineValue(me, index, gridLines.offsetGridLines && ticks.length > 1);
-					if (xLineValue < me.left) {
-						lineColor = 'rgba(0,0,0,0)';
-					}
-					xLineValue += helpers.aliasPixel(lineWidth);
-
-					labelX = me.getPixelForTick(index) + optionTicks.labelOffset; // x values for optionTicks (need to consider offsetLabel option)
-
-					tx1 = tx2 = x1 = x2 = xLineValue;
-					ty1 = yTickStart;
-					ty2 = yTickEnd;
-					y1 = chartArea.top;
-					y2 = chartArea.bottom + axisWidth;
-				} else {
-					var isLeft = options.position === 'left';
-					var labelXOffset;
-
-					if (optionTicks.mirror) {
-						textAlign = isLeft ? 'left' : 'right';
-						labelXOffset = tickPadding;
-					} else {
-						textAlign = isLeft ? 'right' : 'left';
-						labelXOffset = tl + tickPadding;
-					}
-
-					labelX = isLeft ? me.right - labelXOffset : me.left + labelXOffset;
-
-					var yLineValue = getLineValue(me, index, gridLines.offsetGridLines && ticks.length > 1);
-					if (yLineValue < me.top) {
-						lineColor = 'rgba(0,0,0,0)';
-					}
-					yLineValue += helpers.aliasPixel(lineWidth);
-
-					labelY = me.getPixelForTick(index) + optionTicks.labelOffset;
-
-					tx1 = xTickStart;
-					tx2 = xTickEnd;
-					x1 = chartArea.left;
-					x2 = chartArea.right + axisWidth;
-					ty1 = ty2 = y1 = y2 = yLineValue;
-				}
-
-				itemsToDraw.push({
-					tx1: tx1,
-					ty1: ty1,
-					tx2: tx2,
-					ty2: ty2,
-					x1: x1,
-					y1: y1,
-					x2: x2,
-					y2: y2,
-					labelX: labelX,
-					labelY: labelY,
-					glWidth: lineWidth,
-					glColor: lineColor,
-					glBorderDash: borderDash,
-					glBorderDashOffset: borderDashOffset,
-					rotation: -1 * labelRotationRadians,
-					label: label,
-					major: tick.major,
-					textBaseline: textBaseline,
-					textAlign: textAlign
-				});
-			});
-
-			// Draw all of the tick labels, tick marks, and grid lines at the correct places
-			helpers.each(itemsToDraw, function(itemToDraw) {
-				if (gridLines.display) {
-					context.save();
-					context.lineWidth = itemToDraw.glWidth;
-					context.strokeStyle = itemToDraw.glColor;
-					if (context.setLineDash) {
-						context.setLineDash(itemToDraw.glBorderDash);
-						context.lineDashOffset = itemToDraw.glBorderDashOffset;
-					}
-
-					context.beginPath();
-
-					if (gridLines.drawTicks) {
-						context.moveTo(itemToDraw.tx1, itemToDraw.ty1);
-						context.lineTo(itemToDraw.tx2, itemToDraw.ty2);
-					}
-
-					if (gridLines.drawOnChartArea) {
-						context.moveTo(itemToDraw.x1, itemToDraw.y1);
-						context.lineTo(itemToDraw.x2, itemToDraw.y2);
-					}
-
-					context.stroke();
-					context.restore();
-				}
-
-				if (optionTicks.display) {
-					// Make sure we draw text in the correct color and font
-					context.save();
-					context.translate(itemToDraw.labelX, itemToDraw.labelY);
-					context.rotate(itemToDraw.rotation);
-					context.font = itemToDraw.major ? majorTickFont.font : tickFont.font;
-					context.fillStyle = itemToDraw.major ? majorTickFontColor : tickFontColor;
-					context.textBaseline = itemToDraw.textBaseline;
-					context.textAlign = itemToDraw.textAlign;
-
-					var label = itemToDraw.label;
-					if (helpers.isArray(label)) {
-						var lineCount = label.length;
-						var lineHeight = tickFont.size * 1.5;
-						var y = me.isHorizontal() ? 0 : -lineHeight * (lineCount - 1) / 2;
-
-						for (var i = 0; i < lineCount; ++i) {
-							// We just make sure the multiline element is a string here..
-							context.fillText('' + label[i], 0, y);
-							// apply same lineSpacing as calculated @ L#320
-							y += lineHeight;
-						}
-					} else {
-						context.fillText(label, 0, 0);
-					}
-					context.restore();
-				}
-			});
-
-			if (scaleLabel.display) {
-				// Draw the scale label
-				var scaleLabelX;
-				var scaleLabelY;
-				var rotation = 0;
-				var halfLineHeight = parseLineHeight(scaleLabel) / 2;
-
-				if (isHorizontal) {
-					scaleLabelX = me.left + ((me.right - me.left) / 2); // midpoint of the width
-					scaleLabelY = options.position === 'bottom'
-						? me.bottom - halfLineHeight - scaleLabelPadding.bottom
-						: me.top + halfLineHeight + scaleLabelPadding.top;
-				} else {
-					var isLeft = options.position === 'left';
-					scaleLabelX = isLeft
-						? me.left + halfLineHeight + scaleLabelPadding.top
-						: me.right - halfLineHeight - scaleLabelPadding.top;
-					scaleLabelY = me.top + ((me.bottom - me.top) / 2);
-					rotation = isLeft ? -0.5 * Math.PI : 0.5 * Math.PI;
-				}
-
-				context.save();
-				context.translate(scaleLabelX, scaleLabelY);
-				context.rotate(rotation);
-				context.textAlign = 'center';
-				context.textBaseline = 'middle';
-				context.fillStyle = scaleLabelFontColor; // render in correct colour
-				context.font = scaleLabelFont.font;
-				context.fillText(scaleLabel.labelString, 0, 0);
-				context.restore();
+			var label = tick.label;
+			var lineWidth, lineColor, borderDash, borderDashOffset;
+			if (index === me.zeroLineIndex && options.offset === gridLines.offsetGridLines) {
+				// Draw the first index specially
+				lineWidth = gridLines.zeroLineWidth;
+				lineColor = gridLines.zeroLineColor;
+				borderDash = gridLines.zeroLineBorderDash;
+				borderDashOffset = gridLines.zeroLineBorderDashOffset;
+			} else {
+				lineWidth = helpers.valueAtIndexOrDefault(gridLines.lineWidth, index);
+				lineColor = helpers.valueAtIndexOrDefault(gridLines.color, index);
+				borderDash = helpers.valueOrDefault(gridLines.borderDash, globalDefaults.borderDash);
+				borderDashOffset = helpers.valueOrDefault(gridLines.borderDashOffset, globalDefaults.borderDashOffset);
 			}
 
-			if (gridLines.drawBorder) {
-				// Draw the line at the edge of the axis
-				context.lineWidth = helpers.valueAtIndexOrDefault(gridLines.lineWidth, 0);
-				context.strokeStyle = helpers.valueAtIndexOrDefault(gridLines.color, 0);
-				var x1 = me.left;
-				var x2 = me.right + axisWidth;
-				var y1 = me.top;
-				var y2 = me.bottom + axisWidth;
+			// Common properties
+			var tx1, ty1, tx2, ty2, x1, y1, x2, y2, labelX, labelY;
+			var textAlign = 'middle';
+			var textBaseline = 'middle';
+			var tickPadding = optionTicks.padding;
 
-				var aliasPixel = helpers.aliasPixel(context.lineWidth);
-				if (isHorizontal) {
-					y1 = y2 = options.position === 'top' ? me.bottom : me.top;
-					y1 += aliasPixel;
-					y2 += aliasPixel;
+			if (isHorizontal) {
+				var labelYOffset = tl + tickPadding;
+
+				if (options.position === 'bottom') {
+					// bottom
+					textBaseline = !isRotated ? 'top' : 'middle';
+					textAlign = !isRotated ? 'center' : 'right';
+					labelY = me.top + labelYOffset;
 				} else {
-					x1 = x2 = options.position === 'left' ? me.right : me.left;
-					x1 += aliasPixel;
-					x2 += aliasPixel;
+					// top
+					textBaseline = !isRotated ? 'bottom' : 'middle';
+					textAlign = !isRotated ? 'center' : 'left';
+					labelY = me.bottom - labelYOffset;
+				}
+
+				var xLineValue = getLineValue(me, index, gridLines.offsetGridLines && ticks.length > 1);
+				if (xLineValue < me.left) {
+					lineColor = 'rgba(0,0,0,0)';
+				}
+				xLineValue += helpers.aliasPixel(lineWidth);
+
+				labelX = me.getPixelForTick(index) + optionTicks.labelOffset; // x values for optionTicks (need to consider offsetLabel option)
+
+				tx1 = tx2 = x1 = x2 = xLineValue;
+				ty1 = yTickStart;
+				ty2 = yTickEnd;
+				y1 = chartArea.top;
+				y2 = chartArea.bottom + axisWidth;
+			} else {
+				var isLeft = options.position === 'left';
+				var labelXOffset;
+
+				if (optionTicks.mirror) {
+					textAlign = isLeft ? 'left' : 'right';
+					labelXOffset = tickPadding;
+				} else {
+					textAlign = isLeft ? 'right' : 'left';
+					labelXOffset = tl + tickPadding;
+				}
+
+				labelX = isLeft ? me.right - labelXOffset : me.left + labelXOffset;
+
+				var yLineValue = getLineValue(me, index, gridLines.offsetGridLines && ticks.length > 1);
+				if (yLineValue < me.top) {
+					lineColor = 'rgba(0,0,0,0)';
+				}
+				yLineValue += helpers.aliasPixel(lineWidth);
+
+				labelY = me.getPixelForTick(index) + optionTicks.labelOffset;
+
+				tx1 = xTickStart;
+				tx2 = xTickEnd;
+				x1 = chartArea.left;
+				x2 = chartArea.right + axisWidth;
+				ty1 = ty2 = y1 = y2 = yLineValue;
+			}
+
+			itemsToDraw.push({
+				tx1: tx1,
+				ty1: ty1,
+				tx2: tx2,
+				ty2: ty2,
+				x1: x1,
+				y1: y1,
+				x2: x2,
+				y2: y2,
+				labelX: labelX,
+				labelY: labelY,
+				glWidth: lineWidth,
+				glColor: lineColor,
+				glBorderDash: borderDash,
+				glBorderDashOffset: borderDashOffset,
+				rotation: -1 * labelRotationRadians,
+				label: label,
+				major: tick.major,
+				textBaseline: textBaseline,
+				textAlign: textAlign
+			});
+		});
+
+		// Draw all of the tick labels, tick marks, and grid lines at the correct places
+		helpers.each(itemsToDraw, function(itemToDraw) {
+			if (gridLines.display) {
+				context.save();
+				context.lineWidth = itemToDraw.glWidth;
+				context.strokeStyle = itemToDraw.glColor;
+				if (context.setLineDash) {
+					context.setLineDash(itemToDraw.glBorderDash);
+					context.lineDashOffset = itemToDraw.glBorderDashOffset;
 				}
 
 				context.beginPath();
-				context.moveTo(x1, y1);
-				context.lineTo(x2, y2);
+
+				if (gridLines.drawTicks) {
+					context.moveTo(itemToDraw.tx1, itemToDraw.ty1);
+					context.lineTo(itemToDraw.tx2, itemToDraw.ty2);
+				}
+
+				if (gridLines.drawOnChartArea) {
+					context.moveTo(itemToDraw.x1, itemToDraw.y1);
+					context.lineTo(itemToDraw.x2, itemToDraw.y2);
+				}
+
 				context.stroke();
+				context.restore();
 			}
-		}
-	});
-};
 
-},{"25":25,"26":26,"34":34,"45":45}],33:[function(require,module,exports){
+			if (optionTicks.display) {
+				// Make sure we draw text in the correct color and font
+				context.save();
+				context.translate(itemToDraw.labelX, itemToDraw.labelY);
+				context.rotate(itemToDraw.rotation);
+				context.font = itemToDraw.major ? majorTickFont.font : tickFont.font;
+				context.fillStyle = itemToDraw.major ? majorTickFontColor : tickFontColor;
+				context.textBaseline = itemToDraw.textBaseline;
+				context.textAlign = itemToDraw.textAlign;
+
+				var label = itemToDraw.label;
+				if (helpers.isArray(label)) {
+					var lineCount = label.length;
+					var lineHeight = tickFont.size * 1.5;
+					var y = me.isHorizontal() ? 0 : -lineHeight * (lineCount - 1) / 2;
+
+					for (var i = 0; i < lineCount; ++i) {
+						// We just make sure the multiline element is a string here..
+						context.fillText('' + label[i], 0, y);
+						// apply same lineSpacing as calculated @ L#320
+						y += lineHeight;
+					}
+				} else {
+					context.fillText(label, 0, 0);
+				}
+				context.restore();
+			}
+		});
+
+		if (scaleLabel.display) {
+			// Draw the scale label
+			var scaleLabelX;
+			var scaleLabelY;
+			var rotation = 0;
+			var halfLineHeight = parseLineHeight(scaleLabel) / 2;
+
+			if (isHorizontal) {
+				scaleLabelX = me.left + ((me.right - me.left) / 2); // midpoint of the width
+				scaleLabelY = options.position === 'bottom'
+					? me.bottom - halfLineHeight - scaleLabelPadding.bottom
+					: me.top + halfLineHeight + scaleLabelPadding.top;
+			} else {
+				var isLeft = options.position === 'left';
+				scaleLabelX = isLeft
+					? me.left + halfLineHeight + scaleLabelPadding.top
+					: me.right - halfLineHeight - scaleLabelPadding.top;
+				scaleLabelY = me.top + ((me.bottom - me.top) / 2);
+				rotation = isLeft ? -0.5 * Math.PI : 0.5 * Math.PI;
+			}
+
+			context.save();
+			context.translate(scaleLabelX, scaleLabelY);
+			context.rotate(rotation);
+			context.textAlign = 'center';
+			context.textBaseline = 'middle';
+			context.fillStyle = scaleLabelFontColor; // render in correct colour
+			context.font = scaleLabelFont.font;
+			context.fillText(scaleLabel.labelString, 0, 0);
+			context.restore();
+		}
+
+		if (gridLines.drawBorder) {
+			// Draw the line at the edge of the axis
+			context.lineWidth = helpers.valueAtIndexOrDefault(gridLines.lineWidth, 0);
+			context.strokeStyle = helpers.valueAtIndexOrDefault(gridLines.color, 0);
+			var x1 = me.left;
+			var x2 = me.right + axisWidth;
+			var y1 = me.top;
+			var y2 = me.bottom + axisWidth;
+
+			var aliasPixel = helpers.aliasPixel(context.lineWidth);
+			if (isHorizontal) {
+				y1 = y2 = options.position === 'top' ? me.bottom : me.top;
+				y1 += aliasPixel;
+				y2 += aliasPixel;
+			} else {
+				x1 = x2 = options.position === 'left' ? me.right : me.left;
+				x1 += aliasPixel;
+				x2 += aliasPixel;
+			}
+
+			context.beginPath();
+			context.moveTo(x1, y1);
+			context.lineTo(x2, y2);
+			context.stroke();
+		}
+	}
+});
+
+},{"26":26,"27":27,"35":35,"46":46}],34:[function(require,module,exports){
 'use strict';
 
-var defaults = require(25);
-var helpers = require(45);
-var layouts = require(30);
+var defaults = require(26);
+var helpers = require(46);
+var layouts = require(31);
 
-module.exports = function(Chart) {
+module.exports = {
+	// Scale registration object. Extensions can register new scale types (such as log or DB scales) and then
+	// use the new chart options to grab the correct scale
+	constructors: {},
+	// Use a registration function so that we can move to an ES6 map when we no longer need to support
+	// old browsers
 
-	Chart.scaleService = {
-		// Scale registration object. Extensions can register new scale types (such as log or DB scales) and then
-		// use the new chart options to grab the correct scale
-		constructors: {},
-		// Use a registration function so that we can move to an ES6 map when we no longer need to support
-		// old browsers
-
-		// Scale config defaults
-		defaults: {},
-		registerScaleType: function(type, scaleConstructor, scaleDefaults) {
-			this.constructors[type] = scaleConstructor;
-			this.defaults[type] = helpers.clone(scaleDefaults);
-		},
-		getScaleConstructor: function(type) {
-			return this.constructors.hasOwnProperty(type) ? this.constructors[type] : undefined;
-		},
-		getScaleDefaults: function(type) {
-			// Return the scale defaults merged with the global settings so that we always use the latest ones
-			return this.defaults.hasOwnProperty(type) ? helpers.merge({}, [defaults.scale, this.defaults[type]]) : {};
-		},
-		updateScaleDefaults: function(type, additions) {
-			var me = this;
-			if (me.defaults.hasOwnProperty(type)) {
-				me.defaults[type] = helpers.extend(me.defaults[type], additions);
-			}
-		},
-		addScalesToLayout: function(chart) {
-			// Adds each scale to the chart.boxes array to be sized accordingly
-			helpers.each(chart.scales, function(scale) {
-				// Set ILayoutItem parameters for backwards compatibility
-				scale.fullWidth = scale.options.fullWidth;
-				scale.position = scale.options.position;
-				scale.weight = scale.options.weight;
-				layouts.addBox(chart, scale);
-			});
+	// Scale config defaults
+	defaults: {},
+	registerScaleType: function(type, scaleConstructor, scaleDefaults) {
+		this.constructors[type] = scaleConstructor;
+		this.defaults[type] = helpers.clone(scaleDefaults);
+	},
+	getScaleConstructor: function(type) {
+		return this.constructors.hasOwnProperty(type) ? this.constructors[type] : undefined;
+	},
+	getScaleDefaults: function(type) {
+		// Return the scale defaults merged with the global settings so that we always use the latest ones
+		return this.defaults.hasOwnProperty(type) ? helpers.merge({}, [defaults.scale, this.defaults[type]]) : {};
+	},
+	updateScaleDefaults: function(type, additions) {
+		var me = this;
+		if (me.defaults.hasOwnProperty(type)) {
+			me.defaults[type] = helpers.extend(me.defaults[type], additions);
 		}
-	};
+	},
+	addScalesToLayout: function(chart) {
+		// Adds each scale to the chart.boxes array to be sized accordingly
+		helpers.each(chart.scales, function(scale) {
+			// Set ILayoutItem parameters for backwards compatibility
+			scale.fullWidth = scale.options.fullWidth;
+			scale.position = scale.options.position;
+			scale.weight = scale.options.weight;
+			layouts.addBox(chart, scale);
+		});
+	}
 };
 
-},{"25":25,"30":30,"45":45}],34:[function(require,module,exports){
+},{"26":26,"31":31,"46":46}],35:[function(require,module,exports){
 'use strict';
 
-var helpers = require(45);
+var helpers = require(46);
 
 /**
  * Namespace to hold static tick generation functions
@@ -8340,9 +8382,15 @@ module.exports = {
 			var tickString = '';
 
 			if (tickValue !== 0) {
-				var numDecimal = -1 * Math.floor(logDelta);
-				numDecimal = Math.max(Math.min(numDecimal, 20), 0); // toFixed has a max of 20 decimal places
-				tickString = tickValue.toFixed(numDecimal);
+				var maxTick = Math.max(Math.abs(ticks[0]), Math.abs(ticks[ticks.length - 1]));
+				if (maxTick < 1e-4) { // all ticks are small numbers; use scientific notation
+					var logTick = helpers.log10(Math.abs(tickValue));
+					tickString = tickValue.toExponential(Math.floor(logTick) - Math.floor(logDelta));
+				} else {
+					var numDecimal = -1 * Math.floor(logDelta);
+					numDecimal = Math.max(Math.min(numDecimal, 20), 0); // toFixed has a max of 20 decimal places
+					tickString = tickValue.toFixed(numDecimal);
+				}
 			} else {
 				tickString = '0'; // never show decimal places for 0
 			}
@@ -8363,12 +8411,12 @@ module.exports = {
 	}
 };
 
-},{"45":45}],35:[function(require,module,exports){
+},{"46":46}],36:[function(require,module,exports){
 'use strict';
 
-var defaults = require(25);
-var Element = require(26);
-var helpers = require(45);
+var defaults = require(26);
+var Element = require(27);
+var helpers = require(46);
 
 defaults._set('global', {
 	tooltips: {
@@ -8462,289 +8510,69 @@ defaults._set('global', {
 	}
 });
 
-module.exports = function(Chart) {
-
+var positioners = {
 	/**
- 	 * Helper method to merge the opacity into a color
- 	 */
-	function mergeOpacity(colorString, opacity) {
-		var color = helpers.color(colorString);
-		return color.alpha(opacity * color.alpha()).rgbaString();
-	}
-
-	// Helper to push or concat based on if the 2nd parameter is an array or not
-	function pushOrConcat(base, toPush) {
-		if (toPush) {
-			if (helpers.isArray(toPush)) {
-				// base = base.concat(toPush);
-				Array.prototype.push.apply(base, toPush);
-			} else {
-				base.push(toPush);
-			}
+	 * Average mode places the tooltip at the average position of the elements shown
+	 * @function Chart.Tooltip.positioners.average
+	 * @param elements {ChartElement[]} the elements being displayed in the tooltip
+	 * @returns {Point} tooltip position
+	 */
+	average: function(elements) {
+		if (!elements.length) {
+			return false;
 		}
 
-		return base;
-	}
+		var i, len;
+		var x = 0;
+		var y = 0;
+		var count = 0;
 
-	// Private helper to create a tooltip item model
-	// @param element : the chart element (point, arc, bar) to create the tooltip item for
-	// @return : new tooltip item
-	function createTooltipItem(element) {
-		var xScale = element._xScale;
-		var yScale = element._yScale || element._scale; // handle radar || polarArea charts
-		var index = element._index;
-		var datasetIndex = element._datasetIndex;
+		for (i = 0, len = elements.length; i < len; ++i) {
+			var el = elements[i];
+			if (el && el.hasValue()) {
+				var pos = el.tooltipPosition();
+				x += pos.x;
+				y += pos.y;
+				++count;
+			}
+		}
 
 		return {
-			xLabel: xScale ? xScale.getLabelForIndex(index, datasetIndex) : '',
-			yLabel: yScale ? yScale.getLabelForIndex(index, datasetIndex) : '',
-			index: index,
-			datasetIndex: datasetIndex,
-			x: element._model.x,
-			y: element._model.y
+			x: Math.round(x / count),
+			y: Math.round(y / count)
 		};
-	}
+	},
 
 	/**
-	 * Helper to get the reset model for the tooltip
-	 * @param tooltipOpts {Object} the tooltip options
+	 * Gets the tooltip position nearest of the item nearest to the event position
+	 * @function Chart.Tooltip.positioners.nearest
+	 * @param elements {Chart.Element[]} the tooltip elements
+	 * @param eventPosition {Point} the position of the event in canvas coordinates
+	 * @returns {Point} the tooltip position
 	 */
-	function getBaseModel(tooltipOpts) {
-		var globalDefaults = defaults.global;
-		var valueOrDefault = helpers.valueOrDefault;
+	nearest: function(elements, eventPosition) {
+		var x = eventPosition.x;
+		var y = eventPosition.y;
+		var minDistance = Number.POSITIVE_INFINITY;
+		var i, len, nearestElement;
 
-		return {
-			// Positioning
-			xPadding: tooltipOpts.xPadding,
-			yPadding: tooltipOpts.yPadding,
-			xAlign: tooltipOpts.xAlign,
-			yAlign: tooltipOpts.yAlign,
+		for (i = 0, len = elements.length; i < len; ++i) {
+			var el = elements[i];
+			if (el && el.hasValue()) {
+				var center = el.getCenterPoint();
+				var d = helpers.distanceBetweenPoints(eventPosition, center);
 
-			// Body
-			bodyFontColor: tooltipOpts.bodyFontColor,
-			_bodyFontFamily: valueOrDefault(tooltipOpts.bodyFontFamily, globalDefaults.defaultFontFamily),
-			_bodyFontStyle: valueOrDefault(tooltipOpts.bodyFontStyle, globalDefaults.defaultFontStyle),
-			_bodyAlign: tooltipOpts.bodyAlign,
-			bodyFontSize: valueOrDefault(tooltipOpts.bodyFontSize, globalDefaults.defaultFontSize),
-			bodySpacing: tooltipOpts.bodySpacing,
-
-			// Title
-			titleFontColor: tooltipOpts.titleFontColor,
-			_titleFontFamily: valueOrDefault(tooltipOpts.titleFontFamily, globalDefaults.defaultFontFamily),
-			_titleFontStyle: valueOrDefault(tooltipOpts.titleFontStyle, globalDefaults.defaultFontStyle),
-			titleFontSize: valueOrDefault(tooltipOpts.titleFontSize, globalDefaults.defaultFontSize),
-			_titleAlign: tooltipOpts.titleAlign,
-			titleSpacing: tooltipOpts.titleSpacing,
-			titleMarginBottom: tooltipOpts.titleMarginBottom,
-
-			// Footer
-			footerFontColor: tooltipOpts.footerFontColor,
-			_footerFontFamily: valueOrDefault(tooltipOpts.footerFontFamily, globalDefaults.defaultFontFamily),
-			_footerFontStyle: valueOrDefault(tooltipOpts.footerFontStyle, globalDefaults.defaultFontStyle),
-			footerFontSize: valueOrDefault(tooltipOpts.footerFontSize, globalDefaults.defaultFontSize),
-			_footerAlign: tooltipOpts.footerAlign,
-			footerSpacing: tooltipOpts.footerSpacing,
-			footerMarginTop: tooltipOpts.footerMarginTop,
-
-			// Appearance
-			caretSize: tooltipOpts.caretSize,
-			cornerRadius: tooltipOpts.cornerRadius,
-			backgroundColor: tooltipOpts.backgroundColor,
-			opacity: 0,
-			legendColorBackground: tooltipOpts.multiKeyBackground,
-			displayColors: tooltipOpts.displayColors,
-			borderColor: tooltipOpts.borderColor,
-			borderWidth: tooltipOpts.borderWidth
-		};
-	}
-
-	/**
-	 * Get the size of the tooltip
-	 */
-	function getTooltipSize(tooltip, model) {
-		var ctx = tooltip._chart.ctx;
-
-		var height = model.yPadding * 2; // Tooltip Padding
-		var width = 0;
-
-		// Count of all lines in the body
-		var body = model.body;
-		var combinedBodyLength = body.reduce(function(count, bodyItem) {
-			return count + bodyItem.before.length + bodyItem.lines.length + bodyItem.after.length;
-		}, 0);
-		combinedBodyLength += model.beforeBody.length + model.afterBody.length;
-
-		var titleLineCount = model.title.length;
-		var footerLineCount = model.footer.length;
-		var titleFontSize = model.titleFontSize;
-		var bodyFontSize = model.bodyFontSize;
-		var footerFontSize = model.footerFontSize;
-
-		height += titleLineCount * titleFontSize; // Title Lines
-		height += titleLineCount ? (titleLineCount - 1) * model.titleSpacing : 0; // Title Line Spacing
-		height += titleLineCount ? model.titleMarginBottom : 0; // Title's bottom Margin
-		height += combinedBodyLength * bodyFontSize; // Body Lines
-		height += combinedBodyLength ? (combinedBodyLength - 1) * model.bodySpacing : 0; // Body Line Spacing
-		height += footerLineCount ? model.footerMarginTop : 0; // Footer Margin
-		height += footerLineCount * (footerFontSize); // Footer Lines
-		height += footerLineCount ? (footerLineCount - 1) * model.footerSpacing : 0; // Footer Line Spacing
-
-		// Title width
-		var widthPadding = 0;
-		var maxLineWidth = function(line) {
-			width = Math.max(width, ctx.measureText(line).width + widthPadding);
-		};
-
-		ctx.font = helpers.fontString(titleFontSize, model._titleFontStyle, model._titleFontFamily);
-		helpers.each(model.title, maxLineWidth);
-
-		// Body width
-		ctx.font = helpers.fontString(bodyFontSize, model._bodyFontStyle, model._bodyFontFamily);
-		helpers.each(model.beforeBody.concat(model.afterBody), maxLineWidth);
-
-		// Body lines may include some extra width due to the color box
-		widthPadding = model.displayColors ? (bodyFontSize + 2) : 0;
-		helpers.each(body, function(bodyItem) {
-			helpers.each(bodyItem.before, maxLineWidth);
-			helpers.each(bodyItem.lines, maxLineWidth);
-			helpers.each(bodyItem.after, maxLineWidth);
-		});
-
-		// Reset back to 0
-		widthPadding = 0;
-
-		// Footer width
-		ctx.font = helpers.fontString(footerFontSize, model._footerFontStyle, model._footerFontFamily);
-		helpers.each(model.footer, maxLineWidth);
-
-		// Add padding
-		width += 2 * model.xPadding;
-
-		return {
-			width: width,
-			height: height
-		};
-	}
-
-	/**
-	 * Helper to get the alignment of a tooltip given the size
-	 */
-	function determineAlignment(tooltip, size) {
-		var model = tooltip._model;
-		var chart = tooltip._chart;
-		var chartArea = tooltip._chart.chartArea;
-		var xAlign = 'center';
-		var yAlign = 'center';
-
-		if (model.y < size.height) {
-			yAlign = 'top';
-		} else if (model.y > (chart.height - size.height)) {
-			yAlign = 'bottom';
-		}
-
-		var lf, rf; // functions to determine left, right alignment
-		var olf, orf; // functions to determine if left/right alignment causes tooltip to go outside chart
-		var yf; // function to get the y alignment if the tooltip goes outside of the left or right edges
-		var midX = (chartArea.left + chartArea.right) / 2;
-		var midY = (chartArea.top + chartArea.bottom) / 2;
-
-		if (yAlign === 'center') {
-			lf = function(x) {
-				return x <= midX;
-			};
-			rf = function(x) {
-				return x > midX;
-			};
-		} else {
-			lf = function(x) {
-				return x <= (size.width / 2);
-			};
-			rf = function(x) {
-				return x >= (chart.width - (size.width / 2));
-			};
-		}
-
-		olf = function(x) {
-			return x + size.width + model.caretSize + model.caretPadding > chart.width;
-		};
-		orf = function(x) {
-			return x - size.width - model.caretSize - model.caretPadding < 0;
-		};
-		yf = function(y) {
-			return y <= midY ? 'top' : 'bottom';
-		};
-
-		if (lf(model.x)) {
-			xAlign = 'left';
-
-			// Is tooltip too wide and goes over the right side of the chart.?
-			if (olf(model.x)) {
-				xAlign = 'center';
-				yAlign = yf(model.y);
-			}
-		} else if (rf(model.x)) {
-			xAlign = 'right';
-
-			// Is tooltip too wide and goes outside left edge of canvas?
-			if (orf(model.x)) {
-				xAlign = 'center';
-				yAlign = yf(model.y);
+				if (d < minDistance) {
+					minDistance = d;
+					nearestElement = el;
+				}
 			}
 		}
 
-		var opts = tooltip._options;
-		return {
-			xAlign: opts.xAlign ? opts.xAlign : xAlign,
-			yAlign: opts.yAlign ? opts.yAlign : yAlign
-		};
-	}
-
-	/**
-	 * @Helper to get the location a tooltip needs to be placed at given the initial position (via the vm) and the size and alignment
-	 */
-	function getBackgroundPoint(vm, size, alignment, chart) {
-		// Background Position
-		var x = vm.x;
-		var y = vm.y;
-
-		var caretSize = vm.caretSize;
-		var caretPadding = vm.caretPadding;
-		var cornerRadius = vm.cornerRadius;
-		var xAlign = alignment.xAlign;
-		var yAlign = alignment.yAlign;
-		var paddingAndSize = caretSize + caretPadding;
-		var radiusAndPadding = cornerRadius + caretPadding;
-
-		if (xAlign === 'right') {
-			x -= size.width;
-		} else if (xAlign === 'center') {
-			x -= (size.width / 2);
-			if (x + size.width > chart.width) {
-				x = chart.width - size.width;
-			}
-			if (x < 0) {
-				x = 0;
-			}
-		}
-
-		if (yAlign === 'top') {
-			y += paddingAndSize;
-		} else if (yAlign === 'bottom') {
-			y -= size.height + paddingAndSize;
-		} else {
-			y -= (size.height / 2);
-		}
-
-		if (yAlign === 'center') {
-			if (xAlign === 'left') {
-				x += paddingAndSize;
-			} else if (xAlign === 'right') {
-				x -= paddingAndSize;
-			}
-		} else if (xAlign === 'left') {
-			x -= radiusAndPadding;
-		} else if (xAlign === 'right') {
-			x += radiusAndPadding;
+		if (nearestElement) {
+			var tp = nearestElement.tooltipPosition();
+			x = tp.x;
+			y = tp.y;
 		}
 
 		return {
@@ -8752,573 +8580,818 @@ module.exports = function(Chart) {
 			y: y
 		};
 	}
-
-	Chart.Tooltip = Element.extend({
-		initialize: function() {
-			this._model = getBaseModel(this._options);
-			this._lastActive = [];
-		},
-
-		// Get the title
-		// Args are: (tooltipItem, data)
-		getTitle: function() {
-			var me = this;
-			var opts = me._options;
-			var callbacks = opts.callbacks;
-
-			var beforeTitle = callbacks.beforeTitle.apply(me, arguments);
-			var title = callbacks.title.apply(me, arguments);
-			var afterTitle = callbacks.afterTitle.apply(me, arguments);
-
-			var lines = [];
-			lines = pushOrConcat(lines, beforeTitle);
-			lines = pushOrConcat(lines, title);
-			lines = pushOrConcat(lines, afterTitle);
-
-			return lines;
-		},
-
-		// Args are: (tooltipItem, data)
-		getBeforeBody: function() {
-			var lines = this._options.callbacks.beforeBody.apply(this, arguments);
-			return helpers.isArray(lines) ? lines : lines !== undefined ? [lines] : [];
-		},
-
-		// Args are: (tooltipItem, data)
-		getBody: function(tooltipItems, data) {
-			var me = this;
-			var callbacks = me._options.callbacks;
-			var bodyItems = [];
-
-			helpers.each(tooltipItems, function(tooltipItem) {
-				var bodyItem = {
-					before: [],
-					lines: [],
-					after: []
-				};
-				pushOrConcat(bodyItem.before, callbacks.beforeLabel.call(me, tooltipItem, data));
-				pushOrConcat(bodyItem.lines, callbacks.label.call(me, tooltipItem, data));
-				pushOrConcat(bodyItem.after, callbacks.afterLabel.call(me, tooltipItem, data));
-
-				bodyItems.push(bodyItem);
-			});
-
-			return bodyItems;
-		},
-
-		// Args are: (tooltipItem, data)
-		getAfterBody: function() {
-			var lines = this._options.callbacks.afterBody.apply(this, arguments);
-			return helpers.isArray(lines) ? lines : lines !== undefined ? [lines] : [];
-		},
-
-		// Get the footer and beforeFooter and afterFooter lines
-		// Args are: (tooltipItem, data)
-		getFooter: function() {
-			var me = this;
-			var callbacks = me._options.callbacks;
-
-			var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
-			var footer = callbacks.footer.apply(me, arguments);
-			var afterFooter = callbacks.afterFooter.apply(me, arguments);
-
-			var lines = [];
-			lines = pushOrConcat(lines, beforeFooter);
-			lines = pushOrConcat(lines, footer);
-			lines = pushOrConcat(lines, afterFooter);
-
-			return lines;
-		},
-
-		update: function(changed) {
-			var me = this;
-			var opts = me._options;
-
-			// Need to regenerate the model because its faster than using extend and it is necessary due to the optimization in Chart.Element.transition
-			// that does _view = _model if ease === 1. This causes the 2nd tooltip update to set properties in both the view and model at the same time
-			// which breaks any animations.
-			var existingModel = me._model;
-			var model = me._model = getBaseModel(opts);
-			var active = me._active;
-
-			var data = me._data;
-
-			// In the case where active.length === 0 we need to keep these at existing values for good animations
-			var alignment = {
-				xAlign: existingModel.xAlign,
-				yAlign: existingModel.yAlign
-			};
-			var backgroundPoint = {
-				x: existingModel.x,
-				y: existingModel.y
-			};
-			var tooltipSize = {
-				width: existingModel.width,
-				height: existingModel.height
-			};
-			var tooltipPosition = {
-				x: existingModel.caretX,
-				y: existingModel.caretY
-			};
-
-			var i, len;
-
-			if (active.length) {
-				model.opacity = 1;
-
-				var labelColors = [];
-				var labelTextColors = [];
-				tooltipPosition = Chart.Tooltip.positioners[opts.position].call(me, active, me._eventPosition);
-
-				var tooltipItems = [];
-				for (i = 0, len = active.length; i < len; ++i) {
-					tooltipItems.push(createTooltipItem(active[i]));
-				}
-
-				// If the user provided a filter function, use it to modify the tooltip items
-				if (opts.filter) {
-					tooltipItems = tooltipItems.filter(function(a) {
-						return opts.filter(a, data);
-					});
-				}
-
-				// If the user provided a sorting function, use it to modify the tooltip items
-				if (opts.itemSort) {
-					tooltipItems = tooltipItems.sort(function(a, b) {
-						return opts.itemSort(a, b, data);
-					});
-				}
-
-				// Determine colors for boxes
-				helpers.each(tooltipItems, function(tooltipItem) {
-					labelColors.push(opts.callbacks.labelColor.call(me, tooltipItem, me._chart));
-					labelTextColors.push(opts.callbacks.labelTextColor.call(me, tooltipItem, me._chart));
-				});
-
-
-				// Build the Text Lines
-				model.title = me.getTitle(tooltipItems, data);
-				model.beforeBody = me.getBeforeBody(tooltipItems, data);
-				model.body = me.getBody(tooltipItems, data);
-				model.afterBody = me.getAfterBody(tooltipItems, data);
-				model.footer = me.getFooter(tooltipItems, data);
-
-				// Initial positioning and colors
-				model.x = Math.round(tooltipPosition.x);
-				model.y = Math.round(tooltipPosition.y);
-				model.caretPadding = opts.caretPadding;
-				model.labelColors = labelColors;
-				model.labelTextColors = labelTextColors;
-
-				// data points
-				model.dataPoints = tooltipItems;
-
-				// We need to determine alignment of the tooltip
-				tooltipSize = getTooltipSize(this, model);
-				alignment = determineAlignment(this, tooltipSize);
-				// Final Size and Position
-				backgroundPoint = getBackgroundPoint(model, tooltipSize, alignment, me._chart);
-			} else {
-				model.opacity = 0;
-			}
-
-			model.xAlign = alignment.xAlign;
-			model.yAlign = alignment.yAlign;
-			model.x = backgroundPoint.x;
-			model.y = backgroundPoint.y;
-			model.width = tooltipSize.width;
-			model.height = tooltipSize.height;
-
-			// Point where the caret on the tooltip points to
-			model.caretX = tooltipPosition.x;
-			model.caretY = tooltipPosition.y;
-
-			me._model = model;
-
-			if (changed && opts.custom) {
-				opts.custom.call(me, model);
-			}
-
-			return me;
-		},
-		drawCaret: function(tooltipPoint, size) {
-			var ctx = this._chart.ctx;
-			var vm = this._view;
-			var caretPosition = this.getCaretPosition(tooltipPoint, size, vm);
-
-			ctx.lineTo(caretPosition.x1, caretPosition.y1);
-			ctx.lineTo(caretPosition.x2, caretPosition.y2);
-			ctx.lineTo(caretPosition.x3, caretPosition.y3);
-		},
-		getCaretPosition: function(tooltipPoint, size, vm) {
-			var x1, x2, x3, y1, y2, y3;
-			var caretSize = vm.caretSize;
-			var cornerRadius = vm.cornerRadius;
-			var xAlign = vm.xAlign;
-			var yAlign = vm.yAlign;
-			var ptX = tooltipPoint.x;
-			var ptY = tooltipPoint.y;
-			var width = size.width;
-			var height = size.height;
-
-			if (yAlign === 'center') {
-				y2 = ptY + (height / 2);
-
-				if (xAlign === 'left') {
-					x1 = ptX;
-					x2 = x1 - caretSize;
-					x3 = x1;
-
-					y1 = y2 + caretSize;
-					y3 = y2 - caretSize;
-				} else {
-					x1 = ptX + width;
-					x2 = x1 + caretSize;
-					x3 = x1;
-
-					y1 = y2 - caretSize;
-					y3 = y2 + caretSize;
-				}
-			} else {
-				if (xAlign === 'left') {
-					x2 = ptX + cornerRadius + (caretSize);
-					x1 = x2 - caretSize;
-					x3 = x2 + caretSize;
-				} else if (xAlign === 'right') {
-					x2 = ptX + width - cornerRadius - caretSize;
-					x1 = x2 - caretSize;
-					x3 = x2 + caretSize;
-				} else {
-					x2 = vm.caretX;
-					x1 = x2 - caretSize;
-					x3 = x2 + caretSize;
-				}
-				if (yAlign === 'top') {
-					y1 = ptY;
-					y2 = y1 - caretSize;
-					y3 = y1;
-				} else {
-					y1 = ptY + height;
-					y2 = y1 + caretSize;
-					y3 = y1;
-					// invert drawing order
-					var tmp = x3;
-					x3 = x1;
-					x1 = tmp;
-				}
-			}
-			return {x1: x1, x2: x2, x3: x3, y1: y1, y2: y2, y3: y3};
-		},
-		drawTitle: function(pt, vm, ctx, opacity) {
-			var title = vm.title;
-
-			if (title.length) {
-				ctx.textAlign = vm._titleAlign;
-				ctx.textBaseline = 'top';
-
-				var titleFontSize = vm.titleFontSize;
-				var titleSpacing = vm.titleSpacing;
-
-				ctx.fillStyle = mergeOpacity(vm.titleFontColor, opacity);
-				ctx.font = helpers.fontString(titleFontSize, vm._titleFontStyle, vm._titleFontFamily);
-
-				var i, len;
-				for (i = 0, len = title.length; i < len; ++i) {
-					ctx.fillText(title[i], pt.x, pt.y);
-					pt.y += titleFontSize + titleSpacing; // Line Height and spacing
-
-					if (i + 1 === title.length) {
-						pt.y += vm.titleMarginBottom - titleSpacing; // If Last, add margin, remove spacing
-					}
-				}
-			}
-		},
-		drawBody: function(pt, vm, ctx, opacity) {
-			var bodyFontSize = vm.bodyFontSize;
-			var bodySpacing = vm.bodySpacing;
-			var body = vm.body;
-
-			ctx.textAlign = vm._bodyAlign;
-			ctx.textBaseline = 'top';
-			ctx.font = helpers.fontString(bodyFontSize, vm._bodyFontStyle, vm._bodyFontFamily);
-
-			// Before Body
-			var xLinePadding = 0;
-			var fillLineOfText = function(line) {
-				ctx.fillText(line, pt.x + xLinePadding, pt.y);
-				pt.y += bodyFontSize + bodySpacing;
-			};
-
-			// Before body lines
-			ctx.fillStyle = mergeOpacity(vm.bodyFontColor, opacity);
-			helpers.each(vm.beforeBody, fillLineOfText);
-
-			var drawColorBoxes = vm.displayColors;
-			xLinePadding = drawColorBoxes ? (bodyFontSize + 2) : 0;
-
-			// Draw body lines now
-			helpers.each(body, function(bodyItem, i) {
-				var textColor = mergeOpacity(vm.labelTextColors[i], opacity);
-				ctx.fillStyle = textColor;
-				helpers.each(bodyItem.before, fillLineOfText);
-
-				helpers.each(bodyItem.lines, function(line) {
-					// Draw Legend-like boxes if needed
-					if (drawColorBoxes) {
-						// Fill a white rect so that colours merge nicely if the opacity is < 1
-						ctx.fillStyle = mergeOpacity(vm.legendColorBackground, opacity);
-						ctx.fillRect(pt.x, pt.y, bodyFontSize, bodyFontSize);
-
-						// Border
-						ctx.lineWidth = 1;
-						ctx.strokeStyle = mergeOpacity(vm.labelColors[i].borderColor, opacity);
-						ctx.strokeRect(pt.x, pt.y, bodyFontSize, bodyFontSize);
-
-						// Inner square
-						ctx.fillStyle = mergeOpacity(vm.labelColors[i].backgroundColor, opacity);
-						ctx.fillRect(pt.x + 1, pt.y + 1, bodyFontSize - 2, bodyFontSize - 2);
-						ctx.fillStyle = textColor;
-					}
-
-					fillLineOfText(line);
-				});
-
-				helpers.each(bodyItem.after, fillLineOfText);
-			});
-
-			// Reset back to 0 for after body
-			xLinePadding = 0;
-
-			// After body lines
-			helpers.each(vm.afterBody, fillLineOfText);
-			pt.y -= bodySpacing; // Remove last body spacing
-		},
-		drawFooter: function(pt, vm, ctx, opacity) {
-			var footer = vm.footer;
-
-			if (footer.length) {
-				pt.y += vm.footerMarginTop;
-
-				ctx.textAlign = vm._footerAlign;
-				ctx.textBaseline = 'top';
-
-				ctx.fillStyle = mergeOpacity(vm.footerFontColor, opacity);
-				ctx.font = helpers.fontString(vm.footerFontSize, vm._footerFontStyle, vm._footerFontFamily);
-
-				helpers.each(footer, function(line) {
-					ctx.fillText(line, pt.x, pt.y);
-					pt.y += vm.footerFontSize + vm.footerSpacing;
-				});
-			}
-		},
-		drawBackground: function(pt, vm, ctx, tooltipSize, opacity) {
-			ctx.fillStyle = mergeOpacity(vm.backgroundColor, opacity);
-			ctx.strokeStyle = mergeOpacity(vm.borderColor, opacity);
-			ctx.lineWidth = vm.borderWidth;
-			var xAlign = vm.xAlign;
-			var yAlign = vm.yAlign;
-			var x = pt.x;
-			var y = pt.y;
-			var width = tooltipSize.width;
-			var height = tooltipSize.height;
-			var radius = vm.cornerRadius;
-
-			ctx.beginPath();
-			ctx.moveTo(x + radius, y);
-			if (yAlign === 'top') {
-				this.drawCaret(pt, tooltipSize);
-			}
-			ctx.lineTo(x + width - radius, y);
-			ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
-			if (yAlign === 'center' && xAlign === 'right') {
-				this.drawCaret(pt, tooltipSize);
-			}
-			ctx.lineTo(x + width, y + height - radius);
-			ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
-			if (yAlign === 'bottom') {
-				this.drawCaret(pt, tooltipSize);
-			}
-			ctx.lineTo(x + radius, y + height);
-			ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
-			if (yAlign === 'center' && xAlign === 'left') {
-				this.drawCaret(pt, tooltipSize);
-			}
-			ctx.lineTo(x, y + radius);
-			ctx.quadraticCurveTo(x, y, x + radius, y);
-			ctx.closePath();
-
-			ctx.fill();
-
-			if (vm.borderWidth > 0) {
-				ctx.stroke();
-			}
-		},
-		draw: function() {
-			var ctx = this._chart.ctx;
-			var vm = this._view;
-
-			if (vm.opacity === 0) {
-				return;
-			}
-
-			var tooltipSize = {
-				width: vm.width,
-				height: vm.height
-			};
-			var pt = {
-				x: vm.x,
-				y: vm.y
-			};
-
-			// IE11/Edge does not like very small opacities, so snap to 0
-			var opacity = Math.abs(vm.opacity < 1e-3) ? 0 : vm.opacity;
-
-			// Truthy/falsey value for empty tooltip
-			var hasTooltipContent = vm.title.length || vm.beforeBody.length || vm.body.length || vm.afterBody.length || vm.footer.length;
-
-			if (this._options.enabled && hasTooltipContent) {
-				// Draw Background
-				this.drawBackground(pt, vm, ctx, tooltipSize, opacity);
-
-				// Draw Title, Body, and Footer
-				pt.x += vm.xPadding;
-				pt.y += vm.yPadding;
-
-				// Titles
-				this.drawTitle(pt, vm, ctx, opacity);
-
-				// Body
-				this.drawBody(pt, vm, ctx, opacity);
-
-				// Footer
-				this.drawFooter(pt, vm, ctx, opacity);
-			}
-		},
-
-		/**
-		 * Handle an event
-		 * @private
-		 * @param {IEvent} event - The event to handle
-		 * @returns {Boolean} true if the tooltip changed
-		 */
-		handleEvent: function(e) {
-			var me = this;
-			var options = me._options;
-			var changed = false;
-
-			me._lastActive = me._lastActive || [];
-
-			// Find Active Elements for tooltips
-			if (e.type === 'mouseout') {
-				me._active = [];
-			} else {
-				me._active = me._chart.getElementsAtEventForMode(e, options.mode, options);
-			}
-
-			// Remember Last Actives
-			changed = !helpers.arrayEquals(me._active, me._lastActive);
-
-			// Only handle target event on tooltip change
-			if (changed) {
-				me._lastActive = me._active;
-
-				if (options.enabled || options.custom) {
-					me._eventPosition = {
-						x: e.x,
-						y: e.y
-					};
-
-					me.update(true);
-					me.pivot();
-				}
-			}
-
-			return changed;
-		}
-	});
-
-	/**
-	 * @namespace Chart.Tooltip.positioners
-	 */
-	Chart.Tooltip.positioners = {
-		/**
-		 * Average mode places the tooltip at the average position of the elements shown
-		 * @function Chart.Tooltip.positioners.average
-		 * @param elements {ChartElement[]} the elements being displayed in the tooltip
-		 * @returns {Point} tooltip position
-		 */
-		average: function(elements) {
-			if (!elements.length) {
-				return false;
-			}
-
-			var i, len;
-			var x = 0;
-			var y = 0;
-			var count = 0;
-
-			for (i = 0, len = elements.length; i < len; ++i) {
-				var el = elements[i];
-				if (el && el.hasValue()) {
-					var pos = el.tooltipPosition();
-					x += pos.x;
-					y += pos.y;
-					++count;
-				}
-			}
-
-			return {
-				x: Math.round(x / count),
-				y: Math.round(y / count)
-			};
-		},
-
-		/**
-		 * Gets the tooltip position nearest of the item nearest to the event position
-		 * @function Chart.Tooltip.positioners.nearest
-		 * @param elements {Chart.Element[]} the tooltip elements
-		 * @param eventPosition {Point} the position of the event in canvas coordinates
-		 * @returns {Point} the tooltip position
-		 */
-		nearest: function(elements, eventPosition) {
-			var x = eventPosition.x;
-			var y = eventPosition.y;
-			var minDistance = Number.POSITIVE_INFINITY;
-			var i, len, nearestElement;
-
-			for (i = 0, len = elements.length; i < len; ++i) {
-				var el = elements[i];
-				if (el && el.hasValue()) {
-					var center = el.getCenterPoint();
-					var d = helpers.distanceBetweenPoints(eventPosition, center);
-
-					if (d < minDistance) {
-						minDistance = d;
-						nearestElement = el;
-					}
-				}
-			}
-
-			if (nearestElement) {
-				var tp = nearestElement.tooltipPosition();
-				x = tp.x;
-				y = tp.y;
-			}
-
-			return {
-				x: x,
-				y: y
-			};
-		}
-	};
 };
 
-},{"25":25,"26":26,"45":45}],36:[function(require,module,exports){
+/**
+ * Helper method to merge the opacity into a color
+ */
+function mergeOpacity(colorString, opacity) {
+	var color = helpers.color(colorString);
+	return color.alpha(opacity * color.alpha()).rgbaString();
+}
+
+// Helper to push or concat based on if the 2nd parameter is an array or not
+function pushOrConcat(base, toPush) {
+	if (toPush) {
+		if (helpers.isArray(toPush)) {
+			// base = base.concat(toPush);
+			Array.prototype.push.apply(base, toPush);
+		} else {
+			base.push(toPush);
+		}
+	}
+
+	return base;
+}
+
+/**
+ * Returns array of strings split by newline
+ * @param {String} value - The value to split by newline.
+ * @returns {Array} value if newline present - Returned from String split() method
+ * @function
+ */
+function splitNewlines(str) {
+	if ((typeof str === 'string' || str instanceof String) && str.indexOf('\n') > -1) {
+		return str.split('\n');
+	}
+	return str;
+}
+
+
+// Private helper to create a tooltip item model
+// @param element : the chart element (point, arc, bar) to create the tooltip item for
+// @return : new tooltip item
+function createTooltipItem(element) {
+	var xScale = element._xScale;
+	var yScale = element._yScale || element._scale; // handle radar || polarArea charts
+	var index = element._index;
+	var datasetIndex = element._datasetIndex;
+
+	return {
+		xLabel: xScale ? xScale.getLabelForIndex(index, datasetIndex) : '',
+		yLabel: yScale ? yScale.getLabelForIndex(index, datasetIndex) : '',
+		index: index,
+		datasetIndex: datasetIndex,
+		x: element._model.x,
+		y: element._model.y
+	};
+}
+
+/**
+ * Helper to get the reset model for the tooltip
+ * @param tooltipOpts {Object} the tooltip options
+ */
+function getBaseModel(tooltipOpts) {
+	var globalDefaults = defaults.global;
+	var valueOrDefault = helpers.valueOrDefault;
+
+	return {
+		// Positioning
+		xPadding: tooltipOpts.xPadding,
+		yPadding: tooltipOpts.yPadding,
+		xAlign: tooltipOpts.xAlign,
+		yAlign: tooltipOpts.yAlign,
+
+		// Body
+		bodyFontColor: tooltipOpts.bodyFontColor,
+		_bodyFontFamily: valueOrDefault(tooltipOpts.bodyFontFamily, globalDefaults.defaultFontFamily),
+		_bodyFontStyle: valueOrDefault(tooltipOpts.bodyFontStyle, globalDefaults.defaultFontStyle),
+		_bodyAlign: tooltipOpts.bodyAlign,
+		bodyFontSize: valueOrDefault(tooltipOpts.bodyFontSize, globalDefaults.defaultFontSize),
+		bodySpacing: tooltipOpts.bodySpacing,
+
+		// Title
+		titleFontColor: tooltipOpts.titleFontColor,
+		_titleFontFamily: valueOrDefault(tooltipOpts.titleFontFamily, globalDefaults.defaultFontFamily),
+		_titleFontStyle: valueOrDefault(tooltipOpts.titleFontStyle, globalDefaults.defaultFontStyle),
+		titleFontSize: valueOrDefault(tooltipOpts.titleFontSize, globalDefaults.defaultFontSize),
+		_titleAlign: tooltipOpts.titleAlign,
+		titleSpacing: tooltipOpts.titleSpacing,
+		titleMarginBottom: tooltipOpts.titleMarginBottom,
+
+		// Footer
+		footerFontColor: tooltipOpts.footerFontColor,
+		_footerFontFamily: valueOrDefault(tooltipOpts.footerFontFamily, globalDefaults.defaultFontFamily),
+		_footerFontStyle: valueOrDefault(tooltipOpts.footerFontStyle, globalDefaults.defaultFontStyle),
+		footerFontSize: valueOrDefault(tooltipOpts.footerFontSize, globalDefaults.defaultFontSize),
+		_footerAlign: tooltipOpts.footerAlign,
+		footerSpacing: tooltipOpts.footerSpacing,
+		footerMarginTop: tooltipOpts.footerMarginTop,
+
+		// Appearance
+		caretSize: tooltipOpts.caretSize,
+		cornerRadius: tooltipOpts.cornerRadius,
+		backgroundColor: tooltipOpts.backgroundColor,
+		opacity: 0,
+		legendColorBackground: tooltipOpts.multiKeyBackground,
+		displayColors: tooltipOpts.displayColors,
+		borderColor: tooltipOpts.borderColor,
+		borderWidth: tooltipOpts.borderWidth
+	};
+}
+
+/**
+ * Get the size of the tooltip
+ */
+function getTooltipSize(tooltip, model) {
+	var ctx = tooltip._chart.ctx;
+
+	var height = model.yPadding * 2; // Tooltip Padding
+	var width = 0;
+
+	// Count of all lines in the body
+	var body = model.body;
+	var combinedBodyLength = body.reduce(function(count, bodyItem) {
+		return count + bodyItem.before.length + bodyItem.lines.length + bodyItem.after.length;
+	}, 0);
+	combinedBodyLength += model.beforeBody.length + model.afterBody.length;
+
+	var titleLineCount = model.title.length;
+	var footerLineCount = model.footer.length;
+	var titleFontSize = model.titleFontSize;
+	var bodyFontSize = model.bodyFontSize;
+	var footerFontSize = model.footerFontSize;
+
+	height += titleLineCount * titleFontSize; // Title Lines
+	height += titleLineCount ? (titleLineCount - 1) * model.titleSpacing : 0; // Title Line Spacing
+	height += titleLineCount ? model.titleMarginBottom : 0; // Title's bottom Margin
+	height += combinedBodyLength * bodyFontSize; // Body Lines
+	height += combinedBodyLength ? (combinedBodyLength - 1) * model.bodySpacing : 0; // Body Line Spacing
+	height += footerLineCount ? model.footerMarginTop : 0; // Footer Margin
+	height += footerLineCount * (footerFontSize); // Footer Lines
+	height += footerLineCount ? (footerLineCount - 1) * model.footerSpacing : 0; // Footer Line Spacing
+
+	// Title width
+	var widthPadding = 0;
+	var maxLineWidth = function(line) {
+		width = Math.max(width, ctx.measureText(line).width + widthPadding);
+	};
+
+	ctx.font = helpers.fontString(titleFontSize, model._titleFontStyle, model._titleFontFamily);
+	helpers.each(model.title, maxLineWidth);
+
+	// Body width
+	ctx.font = helpers.fontString(bodyFontSize, model._bodyFontStyle, model._bodyFontFamily);
+	helpers.each(model.beforeBody.concat(model.afterBody), maxLineWidth);
+
+	// Body lines may include some extra width due to the color box
+	widthPadding = model.displayColors ? (bodyFontSize + 2) : 0;
+	helpers.each(body, function(bodyItem) {
+		helpers.each(bodyItem.before, maxLineWidth);
+		helpers.each(bodyItem.lines, maxLineWidth);
+		helpers.each(bodyItem.after, maxLineWidth);
+	});
+
+	// Reset back to 0
+	widthPadding = 0;
+
+	// Footer width
+	ctx.font = helpers.fontString(footerFontSize, model._footerFontStyle, model._footerFontFamily);
+	helpers.each(model.footer, maxLineWidth);
+
+	// Add padding
+	width += 2 * model.xPadding;
+
+	return {
+		width: width,
+		height: height
+	};
+}
+
+/**
+ * Helper to get the alignment of a tooltip given the size
+ */
+function determineAlignment(tooltip, size) {
+	var model = tooltip._model;
+	var chart = tooltip._chart;
+	var chartArea = tooltip._chart.chartArea;
+	var xAlign = 'center';
+	var yAlign = 'center';
+
+	if (model.y < size.height) {
+		yAlign = 'top';
+	} else if (model.y > (chart.height - size.height)) {
+		yAlign = 'bottom';
+	}
+
+	var lf, rf; // functions to determine left, right alignment
+	var olf, orf; // functions to determine if left/right alignment causes tooltip to go outside chart
+	var yf; // function to get the y alignment if the tooltip goes outside of the left or right edges
+	var midX = (chartArea.left + chartArea.right) / 2;
+	var midY = (chartArea.top + chartArea.bottom) / 2;
+
+	if (yAlign === 'center') {
+		lf = function(x) {
+			return x <= midX;
+		};
+		rf = function(x) {
+			return x > midX;
+		};
+	} else {
+		lf = function(x) {
+			return x <= (size.width / 2);
+		};
+		rf = function(x) {
+			return x >= (chart.width - (size.width / 2));
+		};
+	}
+
+	olf = function(x) {
+		return x + size.width + model.caretSize + model.caretPadding > chart.width;
+	};
+	orf = function(x) {
+		return x - size.width - model.caretSize - model.caretPadding < 0;
+	};
+	yf = function(y) {
+		return y <= midY ? 'top' : 'bottom';
+	};
+
+	if (lf(model.x)) {
+		xAlign = 'left';
+
+		// Is tooltip too wide and goes over the right side of the chart.?
+		if (olf(model.x)) {
+			xAlign = 'center';
+			yAlign = yf(model.y);
+		}
+	} else if (rf(model.x)) {
+		xAlign = 'right';
+
+		// Is tooltip too wide and goes outside left edge of canvas?
+		if (orf(model.x)) {
+			xAlign = 'center';
+			yAlign = yf(model.y);
+		}
+	}
+
+	var opts = tooltip._options;
+	return {
+		xAlign: opts.xAlign ? opts.xAlign : xAlign,
+		yAlign: opts.yAlign ? opts.yAlign : yAlign
+	};
+}
+
+/**
+ * Helper to get the location a tooltip needs to be placed at given the initial position (via the vm) and the size and alignment
+ */
+function getBackgroundPoint(vm, size, alignment, chart) {
+	// Background Position
+	var x = vm.x;
+	var y = vm.y;
+
+	var caretSize = vm.caretSize;
+	var caretPadding = vm.caretPadding;
+	var cornerRadius = vm.cornerRadius;
+	var xAlign = alignment.xAlign;
+	var yAlign = alignment.yAlign;
+	var paddingAndSize = caretSize + caretPadding;
+	var radiusAndPadding = cornerRadius + caretPadding;
+
+	if (xAlign === 'right') {
+		x -= size.width;
+	} else if (xAlign === 'center') {
+		x -= (size.width / 2);
+		if (x + size.width > chart.width) {
+			x = chart.width - size.width;
+		}
+		if (x < 0) {
+			x = 0;
+		}
+	}
+
+	if (yAlign === 'top') {
+		y += paddingAndSize;
+	} else if (yAlign === 'bottom') {
+		y -= size.height + paddingAndSize;
+	} else {
+		y -= (size.height / 2);
+	}
+
+	if (yAlign === 'center') {
+		if (xAlign === 'left') {
+			x += paddingAndSize;
+		} else if (xAlign === 'right') {
+			x -= paddingAndSize;
+		}
+	} else if (xAlign === 'left') {
+		x -= radiusAndPadding;
+	} else if (xAlign === 'right') {
+		x += radiusAndPadding;
+	}
+
+	return {
+		x: x,
+		y: y
+	};
+}
+
+/**
+ * Helper to build before and after body lines
+ */
+function getBeforeAfterBodyLines(callback) {
+	return pushOrConcat([], splitNewlines(callback));
+}
+
+var exports = module.exports = Element.extend({
+	initialize: function() {
+		this._model = getBaseModel(this._options);
+		this._lastActive = [];
+	},
+
+	// Get the title
+	// Args are: (tooltipItem, data)
+	getTitle: function() {
+		var me = this;
+		var opts = me._options;
+		var callbacks = opts.callbacks;
+
+		var beforeTitle = callbacks.beforeTitle.apply(me, arguments);
+		var title = callbacks.title.apply(me, arguments);
+		var afterTitle = callbacks.afterTitle.apply(me, arguments);
+
+		var lines = [];
+		lines = pushOrConcat(lines, splitNewlines(beforeTitle));
+		lines = pushOrConcat(lines, splitNewlines(title));
+		lines = pushOrConcat(lines, splitNewlines(afterTitle));
+
+		return lines;
+	},
+
+	// Args are: (tooltipItem, data)
+	getBeforeBody: function() {
+		return getBeforeAfterBodyLines(this._options.callbacks.beforeBody.apply(this, arguments));
+	},
+
+	// Args are: (tooltipItem, data)
+	getBody: function(tooltipItems, data) {
+		var me = this;
+		var callbacks = me._options.callbacks;
+		var bodyItems = [];
+
+		helpers.each(tooltipItems, function(tooltipItem) {
+			var bodyItem = {
+				before: [],
+				lines: [],
+				after: []
+			};
+			pushOrConcat(bodyItem.before, splitNewlines(callbacks.beforeLabel.call(me, tooltipItem, data)));
+			pushOrConcat(bodyItem.lines, callbacks.label.call(me, tooltipItem, data));
+			pushOrConcat(bodyItem.after, splitNewlines(callbacks.afterLabel.call(me, tooltipItem, data)));
+
+			bodyItems.push(bodyItem);
+		});
+
+		return bodyItems;
+	},
+
+	// Args are: (tooltipItem, data)
+	getAfterBody: function() {
+		return getBeforeAfterBodyLines(this._options.callbacks.afterBody.apply(this, arguments));
+	},
+
+	// Get the footer and beforeFooter and afterFooter lines
+	// Args are: (tooltipItem, data)
+	getFooter: function() {
+		var me = this;
+		var callbacks = me._options.callbacks;
+
+		var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+		var footer = callbacks.footer.apply(me, arguments);
+		var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+		var lines = [];
+		lines = pushOrConcat(lines, splitNewlines(beforeFooter));
+		lines = pushOrConcat(lines, splitNewlines(footer));
+		lines = pushOrConcat(lines, splitNewlines(afterFooter));
+
+		return lines;
+	},
+
+	update: function(changed) {
+		var me = this;
+		var opts = me._options;
+
+		// Need to regenerate the model because its faster than using extend and it is necessary due to the optimization in Chart.Element.transition
+		// that does _view = _model if ease === 1. This causes the 2nd tooltip update to set properties in both the view and model at the same time
+		// which breaks any animations.
+		var existingModel = me._model;
+		var model = me._model = getBaseModel(opts);
+		var active = me._active;
+
+		var data = me._data;
+
+		// In the case where active.length === 0 we need to keep these at existing values for good animations
+		var alignment = {
+			xAlign: existingModel.xAlign,
+			yAlign: existingModel.yAlign
+		};
+		var backgroundPoint = {
+			x: existingModel.x,
+			y: existingModel.y
+		};
+		var tooltipSize = {
+			width: existingModel.width,
+			height: existingModel.height
+		};
+		var tooltipPosition = {
+			x: existingModel.caretX,
+			y: existingModel.caretY
+		};
+
+		var i, len;
+
+		if (active.length) {
+			model.opacity = 1;
+
+			var labelColors = [];
+			var labelTextColors = [];
+			tooltipPosition = positioners[opts.position].call(me, active, me._eventPosition);
+
+			var tooltipItems = [];
+			for (i = 0, len = active.length; i < len; ++i) {
+				tooltipItems.push(createTooltipItem(active[i]));
+			}
+
+			// If the user provided a filter function, use it to modify the tooltip items
+			if (opts.filter) {
+				tooltipItems = tooltipItems.filter(function(a) {
+					return opts.filter(a, data);
+				});
+			}
+
+			// If the user provided a sorting function, use it to modify the tooltip items
+			if (opts.itemSort) {
+				tooltipItems = tooltipItems.sort(function(a, b) {
+					return opts.itemSort(a, b, data);
+				});
+			}
+
+			// Determine colors for boxes
+			helpers.each(tooltipItems, function(tooltipItem) {
+				labelColors.push(opts.callbacks.labelColor.call(me, tooltipItem, me._chart));
+				labelTextColors.push(opts.callbacks.labelTextColor.call(me, tooltipItem, me._chart));
+			});
+
+
+			// Build the Text Lines
+			model.title = me.getTitle(tooltipItems, data);
+			model.beforeBody = me.getBeforeBody(tooltipItems, data);
+			model.body = me.getBody(tooltipItems, data);
+			model.afterBody = me.getAfterBody(tooltipItems, data);
+			model.footer = me.getFooter(tooltipItems, data);
+
+			// Initial positioning and colors
+			model.x = Math.round(tooltipPosition.x);
+			model.y = Math.round(tooltipPosition.y);
+			model.caretPadding = opts.caretPadding;
+			model.labelColors = labelColors;
+			model.labelTextColors = labelTextColors;
+
+			// data points
+			model.dataPoints = tooltipItems;
+
+			// We need to determine alignment of the tooltip
+			tooltipSize = getTooltipSize(this, model);
+			alignment = determineAlignment(this, tooltipSize);
+			// Final Size and Position
+			backgroundPoint = getBackgroundPoint(model, tooltipSize, alignment, me._chart);
+		} else {
+			model.opacity = 0;
+		}
+
+		model.xAlign = alignment.xAlign;
+		model.yAlign = alignment.yAlign;
+		model.x = backgroundPoint.x;
+		model.y = backgroundPoint.y;
+		model.width = tooltipSize.width;
+		model.height = tooltipSize.height;
+
+		// Point where the caret on the tooltip points to
+		model.caretX = tooltipPosition.x;
+		model.caretY = tooltipPosition.y;
+
+		me._model = model;
+
+		if (changed && opts.custom) {
+			opts.custom.call(me, model);
+		}
+
+		return me;
+	},
+
+	drawCaret: function(tooltipPoint, size) {
+		var ctx = this._chart.ctx;
+		var vm = this._view;
+		var caretPosition = this.getCaretPosition(tooltipPoint, size, vm);
+
+		ctx.lineTo(caretPosition.x1, caretPosition.y1);
+		ctx.lineTo(caretPosition.x2, caretPosition.y2);
+		ctx.lineTo(caretPosition.x3, caretPosition.y3);
+	},
+	getCaretPosition: function(tooltipPoint, size, vm) {
+		var x1, x2, x3, y1, y2, y3;
+		var caretSize = vm.caretSize;
+		var cornerRadius = vm.cornerRadius;
+		var xAlign = vm.xAlign;
+		var yAlign = vm.yAlign;
+		var ptX = tooltipPoint.x;
+		var ptY = tooltipPoint.y;
+		var width = size.width;
+		var height = size.height;
+
+		if (yAlign === 'center') {
+			y2 = ptY + (height / 2);
+
+			if (xAlign === 'left') {
+				x1 = ptX;
+				x2 = x1 - caretSize;
+				x3 = x1;
+
+				y1 = y2 + caretSize;
+				y3 = y2 - caretSize;
+			} else {
+				x1 = ptX + width;
+				x2 = x1 + caretSize;
+				x3 = x1;
+
+				y1 = y2 - caretSize;
+				y3 = y2 + caretSize;
+			}
+		} else {
+			if (xAlign === 'left') {
+				x2 = ptX + cornerRadius + (caretSize);
+				x1 = x2 - caretSize;
+				x3 = x2 + caretSize;
+			} else if (xAlign === 'right') {
+				x2 = ptX + width - cornerRadius - caretSize;
+				x1 = x2 - caretSize;
+				x3 = x2 + caretSize;
+			} else {
+				x2 = vm.caretX;
+				x1 = x2 - caretSize;
+				x3 = x2 + caretSize;
+			}
+			if (yAlign === 'top') {
+				y1 = ptY;
+				y2 = y1 - caretSize;
+				y3 = y1;
+			} else {
+				y1 = ptY + height;
+				y2 = y1 + caretSize;
+				y3 = y1;
+				// invert drawing order
+				var tmp = x3;
+				x3 = x1;
+				x1 = tmp;
+			}
+		}
+		return {x1: x1, x2: x2, x3: x3, y1: y1, y2: y2, y3: y3};
+	},
+
+	drawTitle: function(pt, vm, ctx, opacity) {
+		var title = vm.title;
+
+		if (title.length) {
+			ctx.textAlign = vm._titleAlign;
+			ctx.textBaseline = 'top';
+
+			var titleFontSize = vm.titleFontSize;
+			var titleSpacing = vm.titleSpacing;
+
+			ctx.fillStyle = mergeOpacity(vm.titleFontColor, opacity);
+			ctx.font = helpers.fontString(titleFontSize, vm._titleFontStyle, vm._titleFontFamily);
+
+			var i, len;
+			for (i = 0, len = title.length; i < len; ++i) {
+				ctx.fillText(title[i], pt.x, pt.y);
+				pt.y += titleFontSize + titleSpacing; // Line Height and spacing
+
+				if (i + 1 === title.length) {
+					pt.y += vm.titleMarginBottom - titleSpacing; // If Last, add margin, remove spacing
+				}
+			}
+		}
+	},
+
+	drawBody: function(pt, vm, ctx, opacity) {
+		var bodyFontSize = vm.bodyFontSize;
+		var bodySpacing = vm.bodySpacing;
+		var body = vm.body;
+
+		ctx.textAlign = vm._bodyAlign;
+		ctx.textBaseline = 'top';
+		ctx.font = helpers.fontString(bodyFontSize, vm._bodyFontStyle, vm._bodyFontFamily);
+
+		// Before Body
+		var xLinePadding = 0;
+		var fillLineOfText = function(line) {
+			ctx.fillText(line, pt.x + xLinePadding, pt.y);
+			pt.y += bodyFontSize + bodySpacing;
+		};
+
+		// Before body lines
+		ctx.fillStyle = mergeOpacity(vm.bodyFontColor, opacity);
+		helpers.each(vm.beforeBody, fillLineOfText);
+
+		var drawColorBoxes = vm.displayColors;
+		xLinePadding = drawColorBoxes ? (bodyFontSize + 2) : 0;
+
+		// Draw body lines now
+		helpers.each(body, function(bodyItem, i) {
+			var textColor = mergeOpacity(vm.labelTextColors[i], opacity);
+			ctx.fillStyle = textColor;
+			helpers.each(bodyItem.before, fillLineOfText);
+
+			helpers.each(bodyItem.lines, function(line) {
+				// Draw Legend-like boxes if needed
+				if (drawColorBoxes) {
+					// Fill a white rect so that colours merge nicely if the opacity is < 1
+					ctx.fillStyle = mergeOpacity(vm.legendColorBackground, opacity);
+					ctx.fillRect(pt.x, pt.y, bodyFontSize, bodyFontSize);
+
+					// Border
+					ctx.lineWidth = 1;
+					ctx.strokeStyle = mergeOpacity(vm.labelColors[i].borderColor, opacity);
+					ctx.strokeRect(pt.x, pt.y, bodyFontSize, bodyFontSize);
+
+					// Inner square
+					ctx.fillStyle = mergeOpacity(vm.labelColors[i].backgroundColor, opacity);
+					ctx.fillRect(pt.x + 1, pt.y + 1, bodyFontSize - 2, bodyFontSize - 2);
+					ctx.fillStyle = textColor;
+				}
+
+				fillLineOfText(line);
+			});
+
+			helpers.each(bodyItem.after, fillLineOfText);
+		});
+
+		// Reset back to 0 for after body
+		xLinePadding = 0;
+
+		// After body lines
+		helpers.each(vm.afterBody, fillLineOfText);
+		pt.y -= bodySpacing; // Remove last body spacing
+	},
+
+	drawFooter: function(pt, vm, ctx, opacity) {
+		var footer = vm.footer;
+
+		if (footer.length) {
+			pt.y += vm.footerMarginTop;
+
+			ctx.textAlign = vm._footerAlign;
+			ctx.textBaseline = 'top';
+
+			ctx.fillStyle = mergeOpacity(vm.footerFontColor, opacity);
+			ctx.font = helpers.fontString(vm.footerFontSize, vm._footerFontStyle, vm._footerFontFamily);
+
+			helpers.each(footer, function(line) {
+				ctx.fillText(line, pt.x, pt.y);
+				pt.y += vm.footerFontSize + vm.footerSpacing;
+			});
+		}
+	},
+
+	drawBackground: function(pt, vm, ctx, tooltipSize, opacity) {
+		ctx.fillStyle = mergeOpacity(vm.backgroundColor, opacity);
+		ctx.strokeStyle = mergeOpacity(vm.borderColor, opacity);
+		ctx.lineWidth = vm.borderWidth;
+		var xAlign = vm.xAlign;
+		var yAlign = vm.yAlign;
+		var x = pt.x;
+		var y = pt.y;
+		var width = tooltipSize.width;
+		var height = tooltipSize.height;
+		var radius = vm.cornerRadius;
+
+		ctx.beginPath();
+		ctx.moveTo(x + radius, y);
+		if (yAlign === 'top') {
+			this.drawCaret(pt, tooltipSize);
+		}
+		ctx.lineTo(x + width - radius, y);
+		ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+		if (yAlign === 'center' && xAlign === 'right') {
+			this.drawCaret(pt, tooltipSize);
+		}
+		ctx.lineTo(x + width, y + height - radius);
+		ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+		if (yAlign === 'bottom') {
+			this.drawCaret(pt, tooltipSize);
+		}
+		ctx.lineTo(x + radius, y + height);
+		ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+		if (yAlign === 'center' && xAlign === 'left') {
+			this.drawCaret(pt, tooltipSize);
+		}
+		ctx.lineTo(x, y + radius);
+		ctx.quadraticCurveTo(x, y, x + radius, y);
+		ctx.closePath();
+
+		ctx.fill();
+
+		if (vm.borderWidth > 0) {
+			ctx.stroke();
+		}
+	},
+
+	draw: function() {
+		var ctx = this._chart.ctx;
+		var vm = this._view;
+
+		if (vm.opacity === 0) {
+			return;
+		}
+
+		var tooltipSize = {
+			width: vm.width,
+			height: vm.height
+		};
+		var pt = {
+			x: vm.x,
+			y: vm.y
+		};
+
+		// IE11/Edge does not like very small opacities, so snap to 0
+		var opacity = Math.abs(vm.opacity < 1e-3) ? 0 : vm.opacity;
+
+		// Truthy/falsey value for empty tooltip
+		var hasTooltipContent = vm.title.length || vm.beforeBody.length || vm.body.length || vm.afterBody.length || vm.footer.length;
+
+		if (this._options.enabled && hasTooltipContent) {
+			// Draw Background
+			this.drawBackground(pt, vm, ctx, tooltipSize, opacity);
+
+			// Draw Title, Body, and Footer
+			pt.x += vm.xPadding;
+			pt.y += vm.yPadding;
+
+			// Titles
+			this.drawTitle(pt, vm, ctx, opacity);
+
+			// Body
+			this.drawBody(pt, vm, ctx, opacity);
+
+			// Footer
+			this.drawFooter(pt, vm, ctx, opacity);
+		}
+	},
+
+	/**
+	 * Handle an event
+	 * @private
+	 * @param {IEvent} event - The event to handle
+	 * @returns {Boolean} true if the tooltip changed
+	 */
+	handleEvent: function(e) {
+		var me = this;
+		var options = me._options;
+		var changed = false;
+
+		me._lastActive = me._lastActive || [];
+
+		// Find Active Elements for tooltips
+		if (e.type === 'mouseout') {
+			me._active = [];
+		} else {
+			me._active = me._chart.getElementsAtEventForMode(e, options.mode, options);
+		}
+
+		// Remember Last Actives
+		changed = !helpers.arrayEquals(me._active, me._lastActive);
+
+		// Only handle target event on tooltip change
+		if (changed) {
+			me._lastActive = me._active;
+
+			if (options.enabled || options.custom) {
+				me._eventPosition = {
+					x: e.x,
+					y: e.y
+				};
+
+				me.update(true);
+				me.pivot();
+			}
+		}
+
+		return changed;
+	}
+});
+
+/**
+ * @namespace Chart.Tooltip.positioners
+ */
+exports.positioners = positioners;
+
+
+},{"26":26,"27":27,"46":46}],37:[function(require,module,exports){
 'use strict';
 
-var defaults = require(25);
-var Element = require(26);
-var helpers = require(45);
+var defaults = require(26);
+var Element = require(27);
+var helpers = require(46);
 
 defaults._set('global', {
 	elements: {
@@ -9422,12 +9495,12 @@ module.exports = Element.extend({
 	}
 });
 
-},{"25":25,"26":26,"45":45}],37:[function(require,module,exports){
+},{"26":26,"27":27,"46":46}],38:[function(require,module,exports){
 'use strict';
 
-var defaults = require(25);
-var Element = require(26);
-var helpers = require(45);
+var defaults = require(26);
+var Element = require(27);
+var helpers = require(46);
 
 var globalDefaults = defaults.global;
 
@@ -9515,12 +9588,12 @@ module.exports = Element.extend({
 	}
 });
 
-},{"25":25,"26":26,"45":45}],38:[function(require,module,exports){
+},{"26":26,"27":27,"46":46}],39:[function(require,module,exports){
 'use strict';
 
-var defaults = require(25);
-var Element = require(26);
-var helpers = require(45);
+var defaults = require(26);
+var Element = require(27);
+var helpers = require(46);
 
 var defaultColor = defaults.global.defaultColor;
 
@@ -9586,48 +9659,31 @@ module.exports = Element.extend({
 		var model = this._model;
 		var ctx = this._chart.ctx;
 		var pointStyle = vm.pointStyle;
+		var rotation = vm.rotation;
 		var radius = vm.radius;
 		var x = vm.x;
 		var y = vm.y;
-		var color = helpers.color;
 		var errMargin = 1.01; // 1.01 is margin for Accumulated error. (Especially Edge, IE.)
-		var ratio = 0;
 
 		if (vm.skip) {
 			return;
 		}
 
-		ctx.strokeStyle = vm.borderColor || defaultColor;
-		ctx.lineWidth = helpers.valueOrDefault(vm.borderWidth, defaults.global.elements.point.borderWidth);
-		ctx.fillStyle = vm.backgroundColor || defaultColor;
-
-		// Cliping for Points.
-		// going out from inner charArea?
-		if ((chartArea !== undefined) && ((model.x < chartArea.left) || (chartArea.right * errMargin < model.x) || (model.y < chartArea.top) || (chartArea.bottom * errMargin < model.y))) {
-			// Point fade out
-			if (model.x < chartArea.left) {
-				ratio = (x - model.x) / (chartArea.left - model.x);
-			} else if (chartArea.right * errMargin < model.x) {
-				ratio = (model.x - x) / (model.x - chartArea.right);
-			} else if (model.y < chartArea.top) {
-				ratio = (y - model.y) / (chartArea.top - model.y);
-			} else if (chartArea.bottom * errMargin < model.y) {
-				ratio = (model.y - y) / (model.y - chartArea.bottom);
-			}
-			ratio = Math.round(ratio * 100) / 100;
-			ctx.strokeStyle = color(ctx.strokeStyle).alpha(ratio).rgbString();
-			ctx.fillStyle = color(ctx.fillStyle).alpha(ratio).rgbString();
+		// Clipping for Points.
+		if (chartArea === undefined || (model.x >= chartArea.left && chartArea.right * errMargin >= model.x && model.y >= chartArea.top && chartArea.bottom * errMargin >= model.y)) {
+			ctx.strokeStyle = vm.borderColor || defaultColor;
+			ctx.lineWidth = helpers.valueOrDefault(vm.borderWidth, defaults.global.elements.point.borderWidth);
+			ctx.fillStyle = vm.backgroundColor || defaultColor;
+			helpers.canvas.drawPoint(ctx, pointStyle, radius, x, y, rotation);
 		}
-
-		helpers.canvas.drawPoint(ctx, pointStyle, radius, x, y);
 	}
 });
 
-},{"25":25,"26":26,"45":45}],39:[function(require,module,exports){
+},{"26":26,"27":27,"46":46}],40:[function(require,module,exports){
 'use strict';
 
-var defaults = require(25);
-var Element = require(26);
+var defaults = require(26);
+var Element = require(27);
 
 defaults._set('global', {
 	elements: {
@@ -9842,19 +9898,19 @@ module.exports = Element.extend({
 	}
 });
 
-},{"25":25,"26":26}],40:[function(require,module,exports){
+},{"26":26,"27":27}],41:[function(require,module,exports){
 'use strict';
 
 module.exports = {};
-module.exports.Arc = require(36);
-module.exports.Line = require(37);
-module.exports.Point = require(38);
-module.exports.Rectangle = require(39);
+module.exports.Arc = require(37);
+module.exports.Line = require(38);
+module.exports.Point = require(39);
+module.exports.Rectangle = require(40);
 
-},{"36":36,"37":37,"38":38,"39":39}],41:[function(require,module,exports){
+},{"37":37,"38":38,"39":39,"40":40}],42:[function(require,module,exports){
 'use strict';
 
-var helpers = require(42);
+var helpers = require(43);
 
 /**
  * @namespace Chart.helpers.canvas
@@ -9881,25 +9937,30 @@ var exports = module.exports = {
 	 */
 	roundedRect: function(ctx, x, y, width, height, radius) {
 		if (radius) {
-			var rx = Math.min(radius, width / 2);
-			var ry = Math.min(radius, height / 2);
+			// NOTE(SB) `epsilon` helps to prevent minor artifacts appearing
+			// on Chrome when `r` is exactly half the height or the width.
+			var epsilon = 0.0000001;
+			var r = Math.min(radius, (height / 2) - epsilon, (width / 2) - epsilon);
 
-			ctx.moveTo(x + rx, y);
-			ctx.lineTo(x + width - rx, y);
-			ctx.quadraticCurveTo(x + width, y, x + width, y + ry);
-			ctx.lineTo(x + width, y + height - ry);
-			ctx.quadraticCurveTo(x + width, y + height, x + width - rx, y + height);
-			ctx.lineTo(x + rx, y + height);
-			ctx.quadraticCurveTo(x, y + height, x, y + height - ry);
-			ctx.lineTo(x, y + ry);
-			ctx.quadraticCurveTo(x, y, x + rx, y);
+			ctx.moveTo(x + r, y);
+			ctx.lineTo(x + width - r, y);
+			ctx.arcTo(x + width, y, x + width, y + r, r);
+			ctx.lineTo(x + width, y + height - r);
+			ctx.arcTo(x + width, y + height, x + width - r, y + height, r);
+			ctx.lineTo(x + r, y + height);
+			ctx.arcTo(x, y + height, x, y + height - r, r);
+			ctx.lineTo(x, y + r);
+			ctx.arcTo(x, y, x + r, y, r);
+			ctx.closePath();
+			ctx.moveTo(x, y);
 		} else {
 			ctx.rect(x, y, width, height);
 		}
 	},
 
-	drawPoint: function(ctx, style, radius, x, y) {
+	drawPoint: function(ctx, style, radius, x, y, rotation) {
 		var type, edgeLength, xOffset, yOffset, height, size;
+		rotation = rotation || 0;
 
 		if (style && typeof style === 'object') {
 			type = style.toString();
@@ -9913,97 +9974,88 @@ var exports = module.exports = {
 			return;
 		}
 
+		ctx.save();
+		ctx.translate(x, y);
+		ctx.rotate(rotation * Math.PI / 180);
+		ctx.beginPath();
+
 		switch (style) {
 		// Default includes circle
 		default:
-			ctx.beginPath();
-			ctx.arc(x, y, radius, 0, Math.PI * 2);
+			ctx.arc(0, 0, radius, 0, Math.PI * 2);
 			ctx.closePath();
-			ctx.fill();
 			break;
 		case 'triangle':
-			ctx.beginPath();
 			edgeLength = 3 * radius / Math.sqrt(3);
 			height = edgeLength * Math.sqrt(3) / 2;
-			ctx.moveTo(x - edgeLength / 2, y + height / 3);
-			ctx.lineTo(x + edgeLength / 2, y + height / 3);
-			ctx.lineTo(x, y - 2 * height / 3);
+			ctx.moveTo(-edgeLength / 2, height / 3);
+			ctx.lineTo(edgeLength / 2, height / 3);
+			ctx.lineTo(0, -2 * height / 3);
 			ctx.closePath();
-			ctx.fill();
 			break;
 		case 'rect':
 			size = 1 / Math.SQRT2 * radius;
-			ctx.beginPath();
-			ctx.fillRect(x - size, y - size, 2 * size, 2 * size);
-			ctx.strokeRect(x - size, y - size, 2 * size, 2 * size);
+			ctx.rect(-size, -size, 2 * size, 2 * size);
 			break;
 		case 'rectRounded':
 			var offset = radius / Math.SQRT2;
-			var leftX = x - offset;
-			var topY = y - offset;
+			var leftX = -offset;
+			var topY = -offset;
 			var sideSize = Math.SQRT2 * radius;
-			ctx.beginPath();
-			this.roundedRect(ctx, leftX, topY, sideSize, sideSize, radius / 2);
-			ctx.closePath();
-			ctx.fill();
+
+			// NOTE(SB) the rounded rect implementation changed to use `arcTo`
+			// instead of `quadraticCurveTo` since it generates better results
+			// when rect is almost a circle. 0.425 (instead of 0.5) produces
+			// results visually closer to the previous impl.
+			this.roundedRect(ctx, leftX, topY, sideSize, sideSize, radius * 0.425);
 			break;
 		case 'rectRot':
 			size = 1 / Math.SQRT2 * radius;
-			ctx.beginPath();
-			ctx.moveTo(x - size, y);
-			ctx.lineTo(x, y + size);
-			ctx.lineTo(x + size, y);
-			ctx.lineTo(x, y - size);
+			ctx.moveTo(-size, 0);
+			ctx.lineTo(0, size);
+			ctx.lineTo(size, 0);
+			ctx.lineTo(0, -size);
 			ctx.closePath();
-			ctx.fill();
 			break;
 		case 'cross':
-			ctx.beginPath();
-			ctx.moveTo(x, y + radius);
-			ctx.lineTo(x, y - radius);
-			ctx.moveTo(x - radius, y);
-			ctx.lineTo(x + radius, y);
-			ctx.closePath();
+			ctx.moveTo(0, radius);
+			ctx.lineTo(0, -radius);
+			ctx.moveTo(-radius, 0);
+			ctx.lineTo(radius, 0);
 			break;
 		case 'crossRot':
-			ctx.beginPath();
 			xOffset = Math.cos(Math.PI / 4) * radius;
 			yOffset = Math.sin(Math.PI / 4) * radius;
-			ctx.moveTo(x - xOffset, y - yOffset);
-			ctx.lineTo(x + xOffset, y + yOffset);
-			ctx.moveTo(x - xOffset, y + yOffset);
-			ctx.lineTo(x + xOffset, y - yOffset);
-			ctx.closePath();
+			ctx.moveTo(-xOffset, -yOffset);
+			ctx.lineTo(xOffset, yOffset);
+			ctx.moveTo(-xOffset, yOffset);
+			ctx.lineTo(xOffset, -yOffset);
 			break;
 		case 'star':
-			ctx.beginPath();
-			ctx.moveTo(x, y + radius);
-			ctx.lineTo(x, y - radius);
-			ctx.moveTo(x - radius, y);
-			ctx.lineTo(x + radius, y);
+			ctx.moveTo(0, radius);
+			ctx.lineTo(0, -radius);
+			ctx.moveTo(-radius, 0);
+			ctx.lineTo(radius, 0);
 			xOffset = Math.cos(Math.PI / 4) * radius;
 			yOffset = Math.sin(Math.PI / 4) * radius;
-			ctx.moveTo(x - xOffset, y - yOffset);
-			ctx.lineTo(x + xOffset, y + yOffset);
-			ctx.moveTo(x - xOffset, y + yOffset);
-			ctx.lineTo(x + xOffset, y - yOffset);
-			ctx.closePath();
+			ctx.moveTo(-xOffset, -yOffset);
+			ctx.lineTo(xOffset, yOffset);
+			ctx.moveTo(-xOffset, yOffset);
+			ctx.lineTo(xOffset, -yOffset);
 			break;
 		case 'line':
-			ctx.beginPath();
-			ctx.moveTo(x - radius, y);
-			ctx.lineTo(x + radius, y);
-			ctx.closePath();
+			ctx.moveTo(-radius, 0);
+			ctx.lineTo(radius, 0);
 			break;
 		case 'dash':
-			ctx.beginPath();
-			ctx.moveTo(x, y);
-			ctx.lineTo(x + radius, y);
-			ctx.closePath();
+			ctx.moveTo(0, 0);
+			ctx.lineTo(radius, 0);
 			break;
 		}
 
+		ctx.fill();
 		ctx.stroke();
+		ctx.restore();
 	},
 
 	clipArea: function(ctx, area) {
@@ -10064,10 +10116,9 @@ helpers.clear = exports.clear;
 helpers.drawRoundedRectangle = function(ctx) {
 	ctx.beginPath();
 	exports.roundedRect.apply(exports, arguments);
-	ctx.closePath();
 };
 
-},{"42":42}],42:[function(require,module,exports){
+},{"43":43}],43:[function(require,module,exports){
 'use strict';
 
 /**
@@ -10408,10 +10459,10 @@ helpers.getValueOrDefault = helpers.valueOrDefault;
  */
 helpers.getValueAtIndexOrDefault = helpers.valueAtIndexOrDefault;
 
-},{}],43:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 'use strict';
 
-var helpers = require(42);
+var helpers = require(43);
 
 /**
  * Easing functions adapted from Robert Penner's easing equations.
@@ -10660,10 +10711,10 @@ module.exports = {
  */
 helpers.easingEffects = effects;
 
-},{"42":42}],44:[function(require,module,exports){
+},{"43":43}],45:[function(require,module,exports){
 'use strict';
 
-var helpers = require(42);
+var helpers = require(43);
 
 /**
  * @alias Chart.helpers.options
@@ -10758,15 +10809,15 @@ module.exports = {
 	}
 };
 
-},{"42":42}],45:[function(require,module,exports){
+},{"43":43}],46:[function(require,module,exports){
 'use strict';
 
-module.exports = require(42);
-module.exports.easing = require(43);
-module.exports.canvas = require(41);
-module.exports.options = require(44);
+module.exports = require(43);
+module.exports.easing = require(44);
+module.exports.canvas = require(42);
+module.exports.options = require(45);
 
-},{"41":41,"42":42,"43":43,"44":44}],46:[function(require,module,exports){
+},{"42":42,"43":43,"44":44,"45":45}],47:[function(require,module,exports){
 /**
  * Platform fallback implementation (minimal).
  * @see https://github.com/chartjs/Chart.js/pull/4591#issuecomment-319575939
@@ -10783,14 +10834,14 @@ module.exports = {
 	}
 };
 
-},{}],47:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 /**
  * Chart.Platform implementation for targeting a web browser
  */
 
 'use strict';
 
-var helpers = require(45);
+var helpers = require(46);
 
 var EXPANDO_KEY = '$chartjs';
 var CSS_PREFIX = 'chartjs-';
@@ -11242,12 +11293,12 @@ helpers.addEvent = addEventListener;
  */
 helpers.removeEvent = removeEventListener;
 
-},{"45":45}],48:[function(require,module,exports){
+},{"46":46}],49:[function(require,module,exports){
 'use strict';
 
-var helpers = require(45);
-var basic = require(46);
-var dom = require(47);
+var helpers = require(46);
+var basic = require(47);
+var dom = require(48);
 
 // @TODO Make possible to select another platform at build time.
 var implementation = dom._enabled ? dom : basic;
@@ -11318,15 +11369,15 @@ module.exports = helpers.extend({
  * @prop {Number} y - The mouse y position, relative to the canvas (null for incompatible events)
  */
 
-},{"45":45,"46":46,"47":47}],49:[function(require,module,exports){
+},{"46":46,"47":47,"48":48}],50:[function(require,module,exports){
 'use strict';
 
 module.exports = {};
-module.exports.filler = require(50);
-module.exports.legend = require(51);
-module.exports.title = require(52);
+module.exports.filler = require(51);
+module.exports.legend = require(52);
+module.exports.title = require(53);
 
-},{"50":50,"51":51,"52":52}],50:[function(require,module,exports){
+},{"51":51,"52":52,"53":53}],51:[function(require,module,exports){
 /**
  * Plugin based on discussion from the following Chart.js issues:
  * @see https://github.com/chartjs/Chart.js/issues/2380#issuecomment-279961569
@@ -11335,9 +11386,9 @@ module.exports.title = require(52);
 
 'use strict';
 
-var defaults = require(25);
-var elements = require(40);
-var helpers = require(45);
+var defaults = require(26);
+var elements = require(41);
+var helpers = require(46);
 
 defaults._set('global', {
 	plugins: {
@@ -11646,13 +11697,13 @@ module.exports = {
 	}
 };
 
-},{"25":25,"40":40,"45":45}],51:[function(require,module,exports){
+},{"26":26,"41":41,"46":46}],52:[function(require,module,exports){
 'use strict';
 
-var defaults = require(25);
-var Element = require(26);
-var helpers = require(45);
-var layouts = require(30);
+var defaults = require(26);
+var Element = require(27);
+var helpers = require(46);
+var layouts = require(31);
 
 var noop = helpers.noop;
 
@@ -12224,13 +12275,13 @@ module.exports = {
 	}
 };
 
-},{"25":25,"26":26,"30":30,"45":45}],52:[function(require,module,exports){
+},{"26":26,"27":27,"31":31,"46":46}],53:[function(require,module,exports){
 'use strict';
 
-var defaults = require(25);
-var Element = require(26);
-var helpers = require(45);
-var layouts = require(30);
+var defaults = require(26);
+var Element = require(27);
+var helpers = require(46);
+var layouts = require(31);
 
 var noop = helpers.noop;
 
@@ -12478,17 +12529,20 @@ module.exports = {
 	}
 };
 
-},{"25":25,"26":26,"30":30,"45":45}],53:[function(require,module,exports){
+},{"26":26,"27":27,"31":31,"46":46}],54:[function(require,module,exports){
 'use strict';
 
-module.exports = function(Chart) {
+var Scale = require(33);
+var scaleService = require(34);
+
+module.exports = function() {
 
 	// Default config for a category scale
 	var defaultConfig = {
 		position: 'bottom'
 	};
 
-	var DatasetScale = Chart.Scale.extend({
+	var DatasetScale = Scale.extend({
 		/**
 		* Internal function to get the correct labels. If data.xLabels or data.yLabels are defined, use those
 		* else fall back to data.labels
@@ -12609,16 +12663,16 @@ module.exports = function(Chart) {
 		}
 	});
 
-	Chart.scaleService.registerScaleType('category', DatasetScale, defaultConfig);
-
+	scaleService.registerScaleType('category', DatasetScale, defaultConfig);
 };
 
-},{}],54:[function(require,module,exports){
+},{"33":33,"34":34}],55:[function(require,module,exports){
 'use strict';
 
-var defaults = require(25);
-var helpers = require(45);
-var Ticks = require(34);
+var defaults = require(26);
+var helpers = require(46);
+var scaleService = require(34);
+var Ticks = require(35);
 
 module.exports = function(Chart) {
 
@@ -12802,14 +12856,15 @@ module.exports = function(Chart) {
 			return this.getPixelForValue(this.ticksAsNumbers[index]);
 		}
 	});
-	Chart.scaleService.registerScaleType('linear', LinearScale, defaultConfig);
 
+	scaleService.registerScaleType('linear', LinearScale, defaultConfig);
 };
 
-},{"25":25,"34":34,"45":45}],55:[function(require,module,exports){
+},{"26":26,"34":34,"35":35,"46":46}],56:[function(require,module,exports){
 'use strict';
 
-var helpers = require(45);
+var helpers = require(46);
+var Scale = require(33);
 
 /**
  * Generate a set of linear ticks
@@ -12823,18 +12878,28 @@ function generateTicks(generationOptions, dataRange) {
 	// "nice number" algorithm. See http://stackoverflow.com/questions/8506881/nice-label-algorithm-for-charts-with-minimum-ticks
 	// for details.
 
+	var factor;
+	var precision;
 	var spacing;
+
 	if (generationOptions.stepSize && generationOptions.stepSize > 0) {
 		spacing = generationOptions.stepSize;
 	} else {
 		var niceRange = helpers.niceNum(dataRange.max - dataRange.min, false);
 		spacing = helpers.niceNum(niceRange / (generationOptions.maxTicks - 1), true);
+
+		precision = generationOptions.precision;
+		if (precision !== undefined) {
+			// If the user specified a precision, round to that number of decimal places
+			factor = Math.pow(10, precision);
+			spacing = Math.ceil(spacing * factor) / factor;
+		}
 	}
 	var niceMin = Math.floor(dataRange.min / spacing) * spacing;
 	var niceMax = Math.ceil(dataRange.max / spacing) * spacing;
 
 	// If min, max and stepSize is set and they make an evenly spaced scale use it.
-	if (generationOptions.min && generationOptions.max && generationOptions.stepSize) {
+	if (!helpers.isNullOrUndef(generationOptions.min) && !helpers.isNullOrUndef(generationOptions.max) && generationOptions.stepSize) {
 		// If very close to our whole number, use it.
 		if (helpers.almostWhole((generationOptions.max - generationOptions.min) / generationOptions.stepSize, spacing / 1000)) {
 			niceMin = generationOptions.min;
@@ -12850,9 +12915,9 @@ function generateTicks(generationOptions, dataRange) {
 		numSpaces = Math.ceil(numSpaces);
 	}
 
-	var precision = 1;
+	precision = 1;
 	if (spacing < 1) {
-		precision = Math.pow(10, spacing.toString().length - 2);
+		precision = Math.pow(10, 1 - Math.floor(helpers.log10(spacing)));
 		niceMin = Math.round(niceMin * precision) / precision;
 		niceMax = Math.round(niceMax * precision) / precision;
 	}
@@ -12865,17 +12930,16 @@ function generateTicks(generationOptions, dataRange) {
 	return ticks;
 }
 
-
 module.exports = function(Chart) {
 
 	var noop = helpers.noop;
 
-	Chart.LinearScaleBase = Chart.Scale.extend({
+	Chart.LinearScaleBase = Scale.extend({
 		getRightValue: function(value) {
 			if (typeof value === 'string') {
 				return +value;
 			}
-			return Chart.Scale.prototype.getRightValue.call(this, value);
+			return Scale.prototype.getRightValue.call(this, value);
 		},
 
 		handleTickRangeOptions: function() {
@@ -12963,6 +13027,7 @@ module.exports = function(Chart) {
 				maxTicks: maxTicks,
 				min: tickOpts.min,
 				max: tickOpts.max,
+				precision: tickOpts.precision,
 				stepSize: helpers.valueOrDefault(tickOpts.fixedStepSize, tickOpts.stepSize)
 			};
 			var ticks = me.ticks = generateTicks(numericGeneratorOptions, me);
@@ -12989,16 +13054,18 @@ module.exports = function(Chart) {
 			me.ticksAsNumbers = me.ticks.slice();
 			me.zeroLineIndex = me.ticks.indexOf(0);
 
-			Chart.Scale.prototype.convertTicksToLabels.call(me);
+			Scale.prototype.convertTicksToLabels.call(me);
 		}
 	});
 };
 
-},{"45":45}],56:[function(require,module,exports){
+},{"33":33,"46":46}],57:[function(require,module,exports){
 'use strict';
 
-var helpers = require(45);
-var Ticks = require(34);
+var helpers = require(46);
+var Scale = require(33);
+var scaleService = require(34);
+var Ticks = require(35);
 
 /**
  * Generate a set of logarithmic ticks
@@ -13063,7 +13130,7 @@ module.exports = function(Chart) {
 		}
 	};
 
-	var LogarithmicScale = Chart.Scale.extend({
+	var LogarithmicScale = Scale.extend({
 		determineDataLimits: function() {
 			var me = this;
 			var opts = me.options;
@@ -13238,7 +13305,7 @@ module.exports = function(Chart) {
 		convertTicksToLabels: function() {
 			this.tickValues = this.ticks.slice();
 
-			Chart.Scale.prototype.convertTicksToLabels.call(this);
+			Scale.prototype.convertTicksToLabels.call(this);
 		},
 		// Get the correct tooltip label
 		getLabelForIndex: function(index, datasetIndex) {
@@ -13339,16 +13406,17 @@ module.exports = function(Chart) {
 			return value;
 		}
 	});
-	Chart.scaleService.registerScaleType('logarithmic', LogarithmicScale, defaultConfig);
 
+	scaleService.registerScaleType('logarithmic', LogarithmicScale, defaultConfig);
 };
 
-},{"34":34,"45":45}],57:[function(require,module,exports){
+},{"33":33,"34":34,"35":35,"46":46}],58:[function(require,module,exports){
 'use strict';
 
-var defaults = require(25);
-var helpers = require(45);
-var Ticks = require(34);
+var defaults = require(26);
+var helpers = require(46);
+var scaleService = require(34);
+var Ticks = require(35);
 
 module.exports = function(Chart) {
 
@@ -13870,19 +13938,21 @@ module.exports = function(Chart) {
 			}
 		}
 	});
-	Chart.scaleService.registerScaleType('radialLinear', LinearRadialScale, defaultConfig);
 
+	scaleService.registerScaleType('radialLinear', LinearRadialScale, defaultConfig);
 };
 
-},{"25":25,"34":34,"45":45}],58:[function(require,module,exports){
+},{"26":26,"34":34,"35":35,"46":46}],59:[function(require,module,exports){
 /* global window: false */
 'use strict';
 
 var moment = require(1);
 moment = typeof moment === 'function' ? moment : window.moment;
 
-var defaults = require(25);
-var helpers = require(45);
+var defaults = require(26);
+var helpers = require(46);
+var Scale = require(33);
+var scaleService = require(34);
 
 // Integer constants are from the ES6 spec.
 var MIN_INTEGER = Number.MIN_SAFE_INTEGER || -9007199254740991;
@@ -13897,12 +13967,12 @@ var INTERVALS = {
 	second: {
 		common: true,
 		size: 1000,
-		steps: [1, 2, 5, 10, 30]
+		steps: [1, 2, 5, 10, 15, 30]
 	},
 	minute: {
 		common: true,
 		size: 60000,
-		steps: [1, 2, 5, 10, 30]
+		steps: [1, 2, 5, 10, 15, 30]
 	},
 	hour: {
 		common: true,
@@ -14301,7 +14371,7 @@ function determineLabelFormat(data, timeOpts) {
 	return 'MMM D, YYYY';
 }
 
-module.exports = function(Chart) {
+module.exports = function() {
 
 	var defaultConfig = {
 		position: 'bottom',
@@ -14365,7 +14435,7 @@ module.exports = function(Chart) {
 		}
 	};
 
-	var TimeScale = Chart.Scale.extend({
+	var TimeScale = Scale.extend({
 		initialize: function() {
 			if (!moment) {
 				throw new Error('Chart.js - Moment.js could not be found! You must include it before Chart.js to use the time scale. Download at https://momentjs.com');
@@ -14373,7 +14443,7 @@ module.exports = function(Chart) {
 
 			this.mergeTicksOptions();
 
-			Chart.Scale.prototype.initialize.call(this);
+			Scale.prototype.initialize.call(this);
 		},
 
 		update: function() {
@@ -14385,7 +14455,7 @@ module.exports = function(Chart) {
 				console.warn('options.time.format is deprecated and replaced by options.time.parser.');
 			}
 
-			return Chart.Scale.prototype.update.apply(me, arguments);
+			return Scale.prototype.update.apply(me, arguments);
 		},
 
 		/**
@@ -14395,7 +14465,7 @@ module.exports = function(Chart) {
 			if (rawValue && rawValue.t !== undefined) {
 				rawValue = rawValue.t;
 			}
-			return Chart.Scale.prototype.getRightValue.call(this, rawValue);
+			return Scale.prototype.getRightValue.call(this, rawValue);
 		},
 
 		determineDataLimits: function() {
@@ -14656,198 +14726,227 @@ module.exports = function(Chart) {
 		}
 	});
 
-	Chart.scaleService.registerScaleType('time', TimeScale, defaultConfig);
+	scaleService.registerScaleType('time', TimeScale, defaultConfig);
 };
 
-},{"1":1,"25":25,"45":45}]},{},[7])(7)
+},{"1":1,"26":26,"33":33,"34":34,"46":46}]},{},[7])(7)
 });
+
 'use strict';
 
 var WOW;
 
-(function($) {
+(function ($) {
 
-    WOW = function WOW() {
+  WOW = function WOW() {
 
-        return {
+    return {
 
-            init: function init() {
+      init: function init() {
 
-                var animationName = [];
+        var animationName = [];
 
-                var once = 1;
+        var once = 1;
 
-                function mdbWow() {
+        function mdbWow() {
 
-                    var windowHeight = window.innerHeight;
-                    var scroll = window.scrollY;
+          var windowHeight = window.innerHeight;
+          var scroll = window.scrollY;
 
-                    $('.wow').each(function() {
+          $('.wow').each(function () {
 
-                        if ($(this).css('visibility') == 'visible') {
-                            return;
-                        }
-
-                        if (windowHeight + scroll - 100 > getOffset(this) && scroll < getOffset(this) || windowHeight + scroll - 100 > getOffset(this) + $(this).height() && scroll < getOffset(this) + $(this).height() || windowHeight + scroll == $(document).height() && getOffset(this) + 100 > $(document).height()) {
-
-                            var index = $(this).index('.wow');
-
-                            var delay = $(this).attr('data-wow-delay');
-
-                            if (delay) {
-
-                                delay = $(this).attr('data-wow-delay').slice(0, -1
-
-                                );
-                                var self = this;
-
-                                var timeout = parseFloat(delay) * 1000;
-
-                                $(self).addClass('animated');
-                                $(self).css({ 'visibility': 'visible' });
-                                $(self).css({ 'animation-delay': delay });
-                                $(self).css({ 'animation-name': animationName[index] });
-
-                                var removeTime = $(this).css('animation-duration').slice(0, -1) * 1000;
-
-                                if ($(this).attr('data-wow-delay')) {
-
-                                    removeTime += $(this).attr('data-wow-delay').slice(0, -1) * 1000;
-                                }
-
-                                var self = this;
-
-                                setTimeout(function() {
-
-                                    $(self).removeClass('animated');
-                                }, removeTime);
-                            } else {
-
-                                $(this).addClass('animated');
-                                $(this).css({ 'visibility': 'visible' });
-                                $(this).css({ 'animation-name': animationName[index] });
-
-                                var removeTime = $(this).css('animation-duration').slice(0, -1) * 1000;
-
-                                var self = this;
-
-                                setTimeout(function() {
-
-                                    $(self).removeClass('animated');
-                                }, removeTime);
-                            }
-                        }
-                    });
-                }
-
-                function appear() {
-
-                    $('.wow').each(function() {
-
-                        var index = $(this).index('.wow');
-
-                        var delay = $(this).attr('data-wow-delay');
-
-                        if (delay) {
-
-                            delay = $(this).attr('data-wow-delay').slice(0, -1);
-
-                            var timeout = parseFloat(delay) * 1000;
-
-                            $(this).addClass('animated');
-                            $(this).css({ 'visibility': 'visible' });
-                            $(this).css({ 'animation-delay': delay + 's' });
-                            $(this).css({ 'animation-name': animationName[index] });
-                        } else {
-
-                            $(this).addClass('animated');
-                            $(this).css({ 'visibility': 'visible' });
-                            $(this).css({ 'animation-name': animationName[index] });
-                        }
-                    });
-                }
-
-                function hide() {
-
-                    var windowHeight = window.innerHeight;
-                    var scroll = window.scrollY;
-
-                    $('.wow.animated').each(function() {
-
-                        if (windowHeight + scroll - 100 > getOffset(this) && scroll > getOffset(this) + 100 || windowHeight + scroll - 100 < getOffset(this) && scroll < getOffset(this) + 100 || getOffset(this) + $(this).height > $(document).height() - 100) {
-
-                            $(this).removeClass('animated');
-                            $(this).css({ 'animation-name': 'none' });
-                            $(this).css({ 'visibility': 'hidden' });
-                        } else {
-
-                            var removeTime = $(this).css('animation-duration').slice(0, -1) * 1000;
-
-                            if ($(this).attr('data-wow-delay')) {
-
-                                removeTime += $(this).attr('data-wow-delay').slice(0, -1) * 1000;
-                            }
-
-                            var self = this;
-
-                            setTimeout(function() {
-
-                                $(self).removeClass('animated');
-                            }, removeTime);
-                        }
-                    });
-
-                    mdbWow();
-
-                    once--;
-                }
-
-                function getOffset(elem) {
-
-                    var box = elem.getBoundingClientRect();
-
-                    var body = document.body;
-                    var docEl = document.documentElement;
-
-                    var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
-
-                    var clientTop = docEl.clientTop || body.clientTop || 0;
-
-                    var top = box.top + scrollTop - clientTop;
-
-                    return Math.round(top);
-                }
-
-                $('.wow').each(function() {
-
-                    $(this).css({ 'visibility': 'hidden' });
-                    animationName[$(this).index('.wow')] = $(this).css('animation-name');
-                    $(this).css({ 'animation-name': 'none' });
-                });
-
-                $(window).scroll(function() {
-
-                    if (once) {
-
-                        hide();
-                    } else {
-
-                        mdbWow();
-                    }
-                });
-
-                appear();
+            if ($(this).css('visibility') == 'visible') {
+              return;
             }
-        };
+
+            if (windowHeight + scroll - 100 > getOffset(this) && scroll < getOffset(this) || windowHeight + scroll - 100 > getOffset(this) + $(this).height() && scroll < getOffset(this) + $(this).height() || windowHeight + scroll == $(document).height() && getOffset(this) + 100 > $(document).height()) {
+
+              var index = $(this).index('.wow');
+
+              var delay = $(this).attr('data-wow-delay');
+
+              if (delay) {
+
+                delay = $(this).attr('data-wow-delay').slice(0, -1
+
+                );
+                var self = this;
+
+                var timeout = parseFloat(delay) * 1000;
+
+                $(self).addClass('animated');
+                $(self).css({
+                  'visibility': 'visible'
+                });
+                $(self).css({
+                  'animation-delay': delay
+                });
+                $(self).css({
+                  'animation-name': animationName[index]
+                });
+
+                var removeTime = $(this).css('animation-duration').slice(0, -1) * 1000;
+
+                if ($(this).attr('data-wow-delay')) {
+
+                  removeTime += $(this).attr('data-wow-delay').slice(0, -1) * 1000;
+                }
+
+                var self = this;
+
+                setTimeout(function () {
+
+                  $(self).removeClass('animated');
+                }, removeTime);
+              } else {
+
+                $(this).addClass('animated');
+                $(this).css({
+                  'visibility': 'visible'
+                });
+                $(this).css({
+                  'animation-name': animationName[index]
+                });
+
+                var removeTime = $(this).css('animation-duration').slice(0, -1) * 1000;
+
+                var self = this;
+
+                setTimeout(function () {
+
+                  $(self).removeClass('animated');
+                }, removeTime);
+              }
+            }
+          });
+        }
+
+        function appear() {
+
+          $('.wow').each(function () {
+
+            var index = $(this).index('.wow');
+
+            var delay = $(this).attr('data-wow-delay');
+
+            if (delay) {
+
+              delay = $(this).attr('data-wow-delay').slice(0, -1);
+
+              var timeout = parseFloat(delay) * 1000;
+
+              $(this).addClass('animated');
+              $(this).css({
+                'visibility': 'visible'
+              });
+              $(this).css({
+                'animation-delay': delay + 's'
+              });
+              $(this).css({
+                'animation-name': animationName[index]
+              });
+            } else {
+
+              $(this).addClass('animated');
+              $(this).css({
+                'visibility': 'visible'
+              });
+              $(this).css({
+                'animation-name': animationName[index]
+              });
+            }
+          });
+        }
+
+        function hide() {
+
+          var windowHeight = window.innerHeight;
+          var scroll = window.scrollY;
+
+          $('.wow.animated').each(function () {
+
+            if (windowHeight + scroll - 100 > getOffset(this) && scroll > getOffset(this) + 100 || windowHeight + scroll - 100 < getOffset(this) && scroll < getOffset(this) + 100 || getOffset(this) + $(this).height > $(document).height() - 100) {
+
+              $(this).removeClass('animated');
+              $(this).css({
+                'animation-name': 'none'
+              });
+              $(this).css({
+                'visibility': 'hidden'
+              });
+            } else {
+
+              var removeTime = $(this).css('animation-duration').slice(0, -1) * 1000;
+
+              if ($(this).attr('data-wow-delay')) {
+
+                removeTime += $(this).attr('data-wow-delay').slice(0, -1) * 1000;
+              }
+
+              var self = this;
+
+              setTimeout(function () {
+
+                $(self).removeClass('animated');
+              }, removeTime);
+            }
+          });
+
+          mdbWow();
+
+          once--;
+        }
+
+        function getOffset(elem) {
+
+          var box = elem.getBoundingClientRect();
+
+          var body = document.body;
+          var docEl = document.documentElement;
+
+          var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
+
+          var clientTop = docEl.clientTop || body.clientTop || 0;
+
+          var top = box.top + scrollTop - clientTop;
+
+          return Math.round(top);
+        }
+
+        $('.wow').each(function () {
+
+          $(this).css({
+            'visibility': 'hidden'
+          });
+          animationName[$(this).index('.wow')] = $(this).css('animation-name');
+          $(this).css({
+            'animation-name': 'none'
+          });
+        });
+
+        $(window).scroll(function () {
+
+          if (once) {
+
+            hide();
+          } else {
+
+            mdbWow();
+          }
+        });
+
+        appear();
+      }
     };
+  };
 })(jQuery);
 
 "use strict";
 
 (function ($) {
-  let SCROLLING_NAVBAR_OFFSET_TOP = 50;
+  var SCROLLING_NAVBAR_OFFSET_TOP = 50;
   $(window).on('scroll', function () {
-    let $navbar = $('.navbar');
+    var $navbar = $('.navbar');
 
     if ($navbar.length) {
       if ($navbar.offset().top > SCROLLING_NAVBAR_OFFSET_TOP) {
@@ -15071,26 +15170,18 @@ var WOW;
             var parent = element.parentNode;
 
             // If input already have parent just pass through
-            if (parent.tagName.toLowerCase() === 'i' && parent.classList.contains('waves-effect')) {
+            if (parent.tagName.toLowerCase() === 'span' && parent.classList.contains('waves-effect')) {
                 return;
             }
 
             // Put element class and style to the specified parent
-            var wrapper       = document.createElement('i');
-            wrapper.className = element.className + ' waves-input-wrapper';
-            element.className = 'waves-button-input';
+            var wrapper       = document.createElement('span');
+            wrapper.className = 'waves-input-wrapper';
+            // element.className = 'waves-button-input';
 
             // Put element as child
             parent.replaceChild(wrapper, element);
             wrapper.appendChild(element);
-
-            // Apply element color and background color to wrapper
-            var elementStyle    = window.getComputedStyle(element, null);
-            var color           = elementStyle.color;
-            var backgroundColor = elementStyle.backgroundColor;
-
-            wrapper.setAttribute('style', 'color:' + color + ';background:' + backgroundColor);
-            element.setAttribute('style', 'background-color:rgba(0,0,0,0);');
 
         },
 
@@ -15474,30 +15565,30 @@ Waves.init();
 var _this = void 0;
 
 (function ($) {
-  let inputSelector = `${['text', 'password', 'email', 'url', 'tel', 'number', 'search', 'search-md'].map(function (selector) {
-    return `input[type=${selector}]`;
-  }).join(', ')}, textarea`;
-  let textAreaSelector = '.materialize-textarea';
+  var inputSelector = "".concat(['text', 'password', 'email', 'url', 'tel', 'number', 'search', 'search-md'].map(function (selector) {
+    return "input[type=".concat(selector, "]");
+  }).join(', '), ", textarea");
+  var textAreaSelector = '.materialize-textarea';
 
-  let updateTextFields = function updateTextFields($input) {
-    let $labelAndIcon = $input.siblings('label, i');
-    let hasValue = $input.val().length;
-    let hasPlaceholder = $input.attr('placeholder');
-    let addOrRemove = `${hasValue || hasPlaceholder ? 'add' : 'remove'}Class`;
+  var updateTextFields = function updateTextFields($input) {
+    var $labelAndIcon = $input.siblings('label, i');
+    var hasValue = $input.val().length;
+    var hasPlaceholder = $input.attr('placeholder');
+    var addOrRemove = "".concat(hasValue || hasPlaceholder ? 'add' : 'remove', "Class");
     $labelAndIcon[addOrRemove]('active');
   };
 
-  let validateField = function validateField($input) {
+  var validateField = function validateField($input) {
     if ($input.hasClass('validate')) {
-      let value = $input.val();
-      let noValue = !value.length;
-      let isValid = !$input[0].validity.badInput;
+      var value = $input.val();
+      var noValue = !value.length;
+      var isValid = !$input[0].validity.badInput;
 
       if (noValue && isValid) {
         $input.removeClass('valid').removeClass('invalid');
       } else {
-        let valid = $input.is(':valid');
-        let length = Number($input.attr('length')) || 0;
+        var valid = $input.is(':valid');
+        var length = Number($input.attr('length')) || 0;
 
         if (valid && (!length || length > value.length)) {
           $input.removeClass('invalid').addClass('valid');
@@ -15508,13 +15599,13 @@ var _this = void 0;
     }
   };
 
-  let textAreaAutoResize = function textAreaAutoResize() {
-    let $textarea = $(_this);
+  var textAreaAutoResize = function textAreaAutoResize() {
+    var $textarea = $(_this);
 
     if ($textarea.val().length) {
-      let $hiddenDiv = $('.hiddendiv');
-      let fontFamily = $textarea.css('font-family');
-      let fontSize = $textarea.css('font-size');
+      var $hiddenDiv = $('.hiddendiv');
+      var fontFamily = $textarea.css('font-family');
+      var fontSize = $textarea.css('font-size');
 
       if (fontSize) {
         $hiddenDiv.css('font-size', fontSize);
@@ -15528,8 +15619,8 @@ var _this = void 0;
         $hiddenDiv.css('overflow-wrap', 'normal').css('white-space', 'pre');
       }
 
-      $hiddenDiv.text(`${$textarea.val()}\n`);
-      let content = $hiddenDiv.html().replace(/\n/g, '<br>');
+      $hiddenDiv.text("".concat($textarea.val(), "\n"));
+      var content = $hiddenDiv.html().replace(/\n/g, '<br>');
       $hiddenDiv.html(content); // When textarea is hidden, width goes crazy.
       // Approximate with half of window size
 
@@ -15539,10 +15630,10 @@ var _this = void 0;
   };
 
   $(inputSelector).each(function (index, input) {
-    let $this = $(input);
-    let $labelAndIcon = $this.siblings('label, i');
+    var $this = $(input);
+    var $labelAndIcon = $this.siblings('label, i');
     updateTextFields($this);
-    let isValid = input.validity.badInput;
+    var isValid = input.validity.badInput;
 
     if (isValid) {
       $labelAndIcon.addClass('active');
@@ -15552,10 +15643,10 @@ var _this = void 0;
     $(e.target).siblings('label, i').addClass('active');
   });
   $(document).on('blur', inputSelector, function (e) {
-    let $this = $(e.target);
-    let noValue = !$this.val();
-    let invalid = !e.target.validity.badInput;
-    let noPlaceholder = $this.attr('placeholder') === undefined;
+    var $this = $(e.target);
+    var noValue = !$this.val();
+    var invalid = !e.target.validity.badInput;
+    var noPlaceholder = $this.attr('placeholder') === undefined;
 
     if (noValue && invalid && noPlaceholder) {
       $this.siblings('label, i').removeClass('active');
@@ -15564,29 +15655,29 @@ var _this = void 0;
     validateField($this);
   });
   $(document).on('change', inputSelector, function (e) {
-    let $this = $(e.target);
+    var $this = $(e.target);
     updateTextFields($this);
     validateField($this);
   });
   $('input[autofocus]').siblings('label, i').addClass('active');
   $(document).on('reset', function (e) {
-    let $formReset = $(e.target);
+    var $formReset = $(e.target);
 
     if ($formReset.is('form')) {
-      let $formInputs = $formReset.find(inputSelector);
+      var $formInputs = $formReset.find(inputSelector);
       $formInputs.removeClass('valid').removeClass('invalid').each(function (index, input) {
-        let $this = $(input);
-        let noDefaultValue = !$this.val();
-        let noPlaceholder = !$this.attr('placeholder');
+        var $this = $(input);
+        var noDefaultValue = !$this.val();
+        var noPlaceholder = !$this.attr('placeholder');
 
         if (noDefaultValue && noPlaceholder) {
           $this.siblings('label, i').removeClass('active');
         }
       });
       $formReset.find('select.initialized').each(function (index, select) {
-        let $select = $(select);
-        let $visibleInput = $select.siblings('input.select-dropdown');
-        let defaultValue = $select.children('[selected]').val();
+        var $select = $(select);
+        var $visibleInput = $select.siblings('input.select-dropdown');
+        var defaultValue = $select.children('[selected]').val();
         $select.val(defaultValue);
         $visibleInput.val(defaultValue);
       });
@@ -15594,14 +15685,14 @@ var _this = void 0;
   });
 
   function init() {
-    let $text = $('.md-textarea-auto');
+    var $text = $('.md-textarea-auto');
 
     if ($text.length) {
-      let observe;
+      var observe;
 
       if (window.attachEvent) {
         observe = function observe(element, event, handler) {
-          element.attachEvent(`on${event}`, handler);
+          element.attachEvent("on".concat(event), handler);
         };
       } else {
         observe = function observe(element, event, handler) {
@@ -15610,11 +15701,11 @@ var _this = void 0;
       }
 
       $text.each(function () {
-        let self = this;
+        var self = this;
 
         function resize() {
           self.style.height = 'auto';
-          self.style.height = `${self.scrollHeight}px`;
+          self.style.height = "".concat(self.scrollHeight, "px");
         }
 
         function delayedResize() {
@@ -15632,10 +15723,10 @@ var _this = void 0;
   }
 
   init();
-  let $body = $('body');
+  var $body = $('body');
 
   if (!$('.hiddendiv').first().length) {
-    let $hiddenDiv = $('<div class="hiddendiv common"></div>');
+    var $hiddenDiv = $('<div class="hiddendiv common"></div>');
     $body.append($hiddenDiv);
   }
 
@@ -15657,14 +15748,14 @@ $(document).ready(function () {
 
 (function ($) {
   $(document).on('click.card', '.card', function (e) {
-    let $reveal = $(this).find('.card-reveal');
+    var $reveal = $(this).find('.card-reveal');
 
     if ($reveal.length) {
-      let $clicked = $(e.target);
-      let isTitle = $clicked.is('.card-reveal .card-title');
-      let isTitleIcon = $clicked.is('.card-reveal .card-title i');
-      let isActivator = $clicked.is('.card .activator');
-      let isActivatorIcon = $clicked.is('.card .activator i');
+      var $clicked = $(e.target);
+      var isTitle = $clicked.is('.card-reveal .card-title');
+      var isTitleIcon = $clicked.is('.card-reveal .card-title i');
+      var isActivator = $clicked.is('.card .activator');
+      var isActivatorIcon = $clicked.is('.card .activator i');
 
       if (isTitle || isTitleIcon) {
         // down
@@ -15695,31 +15786,36 @@ $(document).ready(function () {
     }
   });
   $('.rotate-btn').on('click', function () {
-    let cardId = $(this).attr('data-card');
-    $(`#${cardId}`).toggleClass('flipped');
+    var cardId = $(this).attr('data-card');
+    $("#".concat(cardId)).toggleClass('flipped');
   });
-  var frontHeight = $('.front').outerHeight();
-  var backHeight = $('.back').outerHeight();
+  $(window).on('load', function () {
+    var frontHeight = $('.front').outerHeight();
+    var backHeight = $('.back').outerHeight();
 
-  if (frontHeight > backHeight) {
-    $('.card-wrapper, .back').height(frontHeight);
-  } else if (frontHeight > backHeight) {
-    $('.card-wrapper, .front').height(backHeight);
-  } else {
-    $('.card-wrapper').height(backHeight);
-  }
-
+    if (frontHeight > backHeight) {
+      $('.card-wrapper, .back').height(frontHeight);
+    } else if (frontHeight > backHeight) {
+      $('.card-wrapper, .front').height(backHeight);
+    } else {
+      $('.card-wrapper').height(backHeight);
+    }
+  });
   $('.card-share > a').on('click', function (e) {
     e.preventDefault();
     $(this).toggleClass('share-expanded').parent().find('div').toggleClass('social-reveal-active');
   });
 })(jQuery);
+
+$('.map-card').click(function () {
+  $('.card-body').toggleClass('closed');
+});
 "use strict";
 
 (function ($) {
   $.fn.characterCounter = function () {
     return this.each(function () {
-      let itHasLengthAttribute = $(this).attr('length') !== undefined;
+      var itHasLengthAttribute = $(this).attr('length') !== undefined;
 
       if (itHasLengthAttribute) {
         $(this).on('input', updateCounter);
@@ -15731,15 +15827,15 @@ $(document).ready(function () {
   };
 
   function updateCounter() {
-    let maxLength = Number($(this).attr('length'));
-    let actualLength = Number($(this).val().length);
-    let isValidLength = actualLength <= maxLength;
-    $(this).parent().find('span[class="character-counter"]').html(`${actualLength}/${maxLength}`);
+    var maxLength = Number($(this).attr('length'));
+    var actualLength = Number($(this).val().length);
+    var isValidLength = actualLength <= maxLength;
+    $(this).parent().find('span[class="character-counter"]').html("".concat(actualLength, "/").concat(maxLength));
     addInputStyle(isValidLength, $(this));
   }
 
   function addCounterElement($input) {
-    let $counterElement = $('<span/>').addClass('character-counter').css('float', 'right').css('font-size', '12px').css('height', 1);
+    var $counterElement = $('<span/>').addClass('character-counter').css('float', 'right').css('font-size', '12px').css('height', 1);
     $input.parent().append($counterElement);
   }
 
@@ -15748,7 +15844,7 @@ $(document).ready(function () {
   }
 
   function addInputStyle(isValidLength, $input) {
-    let inputHasInvalidClass = $input.hasClass('invalid');
+    var inputHasInvalidClass = $input.hasClass('invalid');
 
     if (isValidLength && inputHasInvalidClass) {
       $input.removeClass('invalid');
@@ -15919,7 +16015,7 @@ $(document).ready(function () {
             function getDefaults() {
                 return {
                     tapToDismiss: true,
-                    toastClass: 'toast',
+                    toastClass: 'md-toast',
                     containerId: 'toast-container',
                     debug: false,
 
@@ -15934,16 +16030,16 @@ $(document).ready(function () {
 
                     extendedTimeOut: 1000,
                     iconClasses: {
-                        error: 'toast-error',
-                        info: 'toast-info',
-                        success: 'toast-success',
-                        warning: 'toast-warning'
+                        error: 'md-toast-error',
+                        info: 'md-toast-info',
+                        success: 'md-toast-success',
+                        warning: 'md-toast-warning'
                     },
-                    iconClass: 'toast-info',
-                    positionClass: 'toast-top-right',
+                    iconClass: 'md-toast-info',
+                    positionClass: 'md-toast-top-right',
                     timeOut: 5000, // Set timeOut and extendedTimeOut to 0 to make it sticky
-                    titleClass: 'toast-title',
-                    messageClass: 'toast-message',
+                    titleClass: 'md-toast-title',
+                    messageClass: 'md-toast-message',
                     target: 'body',
                     closeHtml: '<button type="button">&times;</button>',
                     newestOnTop: true,
@@ -16086,14 +16182,14 @@ $(document).ready(function () {
 
                 function setCloseButton() {
                     if (options.closeButton) {
-                        $closeElement.addClass('toast-close-button').attr('role', 'button');
+                        $closeElement.addClass('md-toast-close-button').attr('role', 'button');
                         $toastElement.prepend($closeElement);
                     }
                 }
 
                 function setProgressBar() {
                     if (options.progressBar) {
-                        $progressElement.addClass('toast-progress');
+                        $progressElement.addClass('md-toast-progress');
                         $toastElement.prepend($progressElement);
                     }
                 }
@@ -16180,13 +16276,13 @@ $(document).ready(function () {
 
 "use strict";
 
-let SMOOTH_SCROLL_DURATION = 700;
+var SMOOTH_SCROLL_DURATION = 700;
 $('.smooth-scroll').on('click', 'a', function () {
-  let elAttr = $(this).attr('href');
+  var elAttr = $(this).attr('href');
 
   if (typeof elAttr !== typeof undefined && elAttr.indexOf('#') === 0) {
-    let offset = $(this).attr('data-offset') ? $(this).attr('data-offset') : 0;
-    let setHash = $(this).closest('ul').attr('data-allow-hashes');
+    var offset = $(this).attr('data-offset') ? $(this).attr('data-offset') : 0;
+    var setHash = $(this).parentsUntil('.smooth-scroll').last().parent().attr('data-allow-hashes');
     $('body,html').animate({
       scrollTop: $(elAttr).offset().top - offset
     }, SMOOTH_SCROLL_DURATION);
@@ -16208,11 +16304,11 @@ $('.smooth-scroll').on('click', 'a', function () {
 
   $.fn.dropdown = function (option) {
     this.each(function () {
-      let origin = $(this);
-      let options = $.extend({}, $.fn.dropdown.defaults, option);
-      let isFocused = false; // Dropdown menu
+      var origin = $(this);
+      var options = $.extend({}, $.fn.dropdown.defaults, option);
+      var isFocused = false; // Dropdown menu
 
-      let activates = $(`#${origin.attr('data-activates')}`);
+      var activates = $("#".concat(origin.attr('data-activates')));
 
       function updateOptions() {
         if (origin.data('induration') !== undefined) {
@@ -16271,23 +16367,23 @@ $('.smooth-scroll').on('click', 'a', function () {
         } // Offscreen detection
 
 
-        let windowHeight = window.innerHeight;
-        let originHeight = origin.innerHeight();
-        let offsetLeft = origin.offset().left;
-        let offsetTop = origin.offset().top - $(window).scrollTop();
-        let currAlignment = options.alignment;
-        let gutterSpacing = 0;
-        let leftPosition = 0; // Below Origin
+        var windowHeight = window.innerHeight;
+        var originHeight = origin.innerHeight();
+        var offsetLeft = origin.offset().left;
+        var offsetTop = origin.offset().top - $(window).scrollTop();
+        var currAlignment = options.alignment;
+        var gutterSpacing = 0;
+        var leftPosition = 0; // Below Origin
 
-        let verticalOffset = 0;
+        var verticalOffset = 0;
 
         if (options.belowOrigin === true) {
           verticalOffset = originHeight;
         } // Check for scrolling positioned container.
 
 
-        let scrollOffset = 0;
-        let wrapper = origin.parent();
+        var scrollOffset = 0;
+        var wrapper = origin.parent();
 
         if (!wrapper.is('body') && wrapper[0].scrollHeight > wrapper[0].clientHeight) {
           scrollOffset = wrapper[0].scrollTop;
@@ -16305,7 +16401,7 @@ $('.smooth-scroll').on('click', 'a', function () {
         if (offsetTop + activates.innerHeight() > windowHeight) {
           // If going upwards still goes offscreen, just crop height of dropdown.
           if (offsetTop + originHeight - activates.innerHeight() < 0) {
-            let adjustedHeight = windowHeight - offsetTop - verticalOffset;
+            var adjustedHeight = windowHeight - offsetTop - verticalOffset;
             activates.css('max-height', adjustedHeight);
           } else {
             // Flow upwards.
@@ -16322,7 +16418,7 @@ $('.smooth-scroll').on('click', 'a', function () {
           gutterSpacing = options.gutter;
           leftPosition = origin.position().left + gutterSpacing;
         } else if (currAlignment === 'right') {
-          let offsetRight = origin.position().left + origin.outerWidth() - activates.outerWidth();
+          var offsetRight = origin.position().left + origin.outerWidth() - activates.outerWidth();
           gutterSpacing = -options.gutter;
           leftPosition = offsetRight + gutterSpacing;
         } // Position dropdown
@@ -16338,11 +16434,9 @@ $('.smooth-scroll').on('click', 'a', function () {
           queue: false,
           duration: options.inDuration,
           easing: 'easeOutCubic',
-
-          complete() {
+          complete: function complete() {
             $(this).css('height', '');
           }
-
         }).animate({
           opacity: 1,
           scrollTop: 0
@@ -16366,8 +16460,8 @@ $('.smooth-scroll').on('click', 'a', function () {
 
 
       if (options.hover) {
-        let open = false;
-        origin.unbind(`click.${origin.attr('id')}`); // Hover handler to show dropdown
+        var open = false;
+        origin.unbind("click.".concat(origin.attr('id'))); // Hover handler to show dropdown
 
         origin.on('mouseenter', function () {
           // Mouse over
@@ -16378,7 +16472,7 @@ $('.smooth-scroll').on('click', 'a', function () {
         });
         origin.on('mouseleave', function (e) {
           // If hover on origin then to something other than dropdown content, then close
-          let toEl = e.toElement || e.relatedTarget; // added browser compatibility for target element
+          var toEl = e.toElement || e.relatedTarget; // added browser compatibility for target element
 
           if (!$(toEl).closest('.dropdown-content').is(activates)) {
             activates.stop(true, true);
@@ -16388,7 +16482,7 @@ $('.smooth-scroll').on('click', 'a', function () {
         });
         activates.on('mouseleave', function (e) {
           // Mouse out
-          let toEl = e.toElement || e.relatedTarget;
+          var toEl = e.toElement || e.relatedTarget;
 
           if (!$(toEl).closest('.dropdown-button').is(origin)) {
             activates.stop(true, true);
@@ -16398,8 +16492,8 @@ $('.smooth-scroll').on('click', 'a', function () {
         }); // Click
       } else {
         // Click handler to show dropdown
-        origin.unbind(`click.${origin.attr('id')}`);
-        origin.bind(`click.${origin.attr('id')}`, function (e) {
+        origin.unbind("click.".concat(origin.attr('id')));
+        origin.bind("click.".concat(origin.attr('id')), function (e) {
           if (!isFocused) {
             if (origin[0] === e.currentTarget && !origin.hasClass('active') && $(e.target).closest('.dropdown-content').length === 0) {
               e.preventDefault(); // Prevents button click from moving window
@@ -16408,15 +16502,15 @@ $('.smooth-scroll').on('click', 'a', function () {
             } else if (origin.hasClass('active')) {
               // If origin is clicked and menu is open, close menu
               hideDropdown();
-              $(document).unbind(`click.${activates.attr('id')} touchstart.${activates.attr('id')}`);
+              $(document).unbind("click.".concat(activates.attr('id'), " touchstart.").concat(activates.attr('id')));
             } // If menu open, add click close handler to document
 
 
             if (activates.hasClass('active')) {
-              $(document).bind(`click.${activates.attr('id')} touchstart.${activates.attr('id')}`, function (e) {
+              $(document).bind("click.".concat(activates.attr('id'), " touchstart.").concat(activates.attr('id')), function (e) {
                 if (!activates.is(e.target) && !origin.is(e.target) && !origin.find(e.target).length) {
                   hideDropdown();
-                  $(document).unbind(`click.${activates.attr('id')} touchstart.${activates.attr('id')}`);
+                  $(document).unbind("click.".concat(activates.attr('id'), " touchstart.").concat(activates.attr('id')));
                 }
               });
             }
@@ -16444,8 +16538,8 @@ $('.smooth-scroll').on('click', 'a', function () {
 
   $.fn.mdbDropSearch = function (options) {
     var $mdbInput = $(this).find('input');
-    this.filter(function (value) {
-      $(this).on('keyup', value, function () {
+    this.filter(function (value, index) {
+      $(index).on('keyup', function () {
         var $linksInDropMenu = $mdbInput.closest('div[id]').find('a, li');
 
         for (var i = 0; i < $linksInDropMenu.length; i++) {
@@ -16459,8 +16553,6 @@ $('.smooth-scroll').on('click', 'a', function () {
             });
           }
         }
-
-        ;
       });
     });
     var settings = $.extend({
@@ -16483,15 +16575,15 @@ $('.smooth-scroll').on('click', 'a', function () {
   };
 })(jQuery);
 
-let dropdownSelectors = $('.dropdown, .dropup'); // Custom function to read dropdown data
+var dropdownSelectors = $('.dropdown, .dropup'); // Custom function to read dropdown data
 
 function dropdownEffectData(target) {
   // TODO - page level global?
-  let effectInDefault = 'fadeIn';
-  let effectOutDefault = 'fadeOut';
-  let dropdown = $(target);
-  let dropdownMenu = $('.dropdown-menu', target);
-  let parentUl = dropdown.parents('ul.nav'); // If parent is ul.nav allow global effect settings
+  var effectInDefault = 'fadeIn';
+  var effectOutDefault = 'fadeOut';
+  var dropdown = $(target);
+  var dropdownMenu = $('.dropdown-menu', target);
+  var parentUl = dropdown.parents('ul.nav'); // If parent is ul.nav allow global effect settings
 
   if (parentUl.height > 0) {
     effectInDefault = parentUl.data('dropdown-in') || null;
@@ -16499,9 +16591,9 @@ function dropdownEffectData(target) {
   }
 
   return {
-    target,
-    dropdown,
-    dropdownMenu,
+    target: target,
+    dropdown: dropdown,
+    dropdownMenu: dropdownMenu,
     effectIn: dropdownMenu.data('dropdown-in') || effectInDefault,
     effectOut: dropdownMenu.data('dropdown-out') || effectOutDefault
   };
@@ -16517,7 +16609,7 @@ function dropdownEffectStart(data, effectToStart) {
 
 
 function dropdownEffectEnd(data, callbackFunc) {
-  let animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+  var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
   data.dropdown.one(animationEnd, function () {
     data.dropdown.removeClass('dropdown-animating');
     data.dropdownMenu.removeClass(['animated', data.effectIn, data.effectOut].join(' ')); // Custom callback option, used to remove open class in out effect
@@ -16530,24 +16622,22 @@ function dropdownEffectEnd(data, callbackFunc) {
 
 
 dropdownSelectors.on({
-  'show.bs.dropdown'() {
+  'show.bs.dropdown': function showBsDropdown() {
     // On show, start in effect
-    let dropdown = dropdownEffectData(this);
+    var dropdown = dropdownEffectData(this);
     dropdownEffectStart(dropdown, dropdown.effectIn);
   },
-
-  'shown.bs.dropdown'() {
+  'shown.bs.dropdown': function shownBsDropdown() {
     // On shown, remove in effect once complete
-    let dropdown = dropdownEffectData(this);
+    var dropdown = dropdownEffectData(this);
 
     if (dropdown.effectIn && dropdown.effectOut) {
       dropdownEffectEnd(dropdown);
     }
   },
-
-  'hide.bs.dropdown'(e) {
+  'hide.bs.dropdown': function hideBsDropdown(e) {
     // On hide, start out effect
-    let dropdown = dropdownEffectData(this);
+    var dropdown = dropdownEffectData(this);
 
     if (dropdown.effectOut) {
       e.preventDefault();
@@ -16558,7 +16648,6 @@ dropdownSelectors.on({
       });
     }
   }
-
 });
 "use strict";
 
@@ -16567,16 +16656,16 @@ dropdownSelectors.on({
 
   $(document).ready(function () {
     $(document).on('mouseenter', '.fixed-action-btn', function () {
-      let $this = $(this);
+      var $this = $(this);
       openFABMenu($this);
     });
     $(document).on('mouseleave', '.fixed-action-btn', function () {
-      let $this = $(this);
+      var $this = $(this);
       closeFABMenu($this);
     });
     $(document).on('click', '.fixed-action-btn > a', function () {
-      let $this = $(this);
-      let $menu = $this.parent();
+      var $this = $(this);
+      var $menu = $this.parent();
       $menu.hasClass('active') ? openFABMenu($menu) : closeFABMenu($menu);
 
       if ($menu.hasClass('active')) {
@@ -16587,32 +16676,30 @@ dropdownSelectors.on({
     });
   });
   $.fn.extend({
-    openFAB() {
+    openFAB: function openFAB() {
       openFABMenu($(this));
     },
-
-    closeFAB() {
+    closeFAB: function closeFAB() {
       closeFABMenu($(this));
     }
-
   });
 
-  let openFABMenu = function openFABMenu(btn) {
-    let fab = btn;
+  var openFABMenu = function openFABMenu(btn) {
+    var fab = btn;
 
     if (!fab.hasClass('active')) {
       fab.addClass('active');
-      let btnList = document.querySelectorAll('ul .btn-floating');
+      var btnList = document.querySelectorAll('ul .btn-floating');
       btnList.forEach(function (el) {
         el.classList.add('shown');
       });
     }
   };
 
-  let closeFABMenu = function closeFABMenu(btn) {
-    let fab = btn;
+  var closeFABMenu = function closeFABMenu(btn) {
+    var fab = btn;
     fab.removeClass('active');
-    let btnList = document.querySelectorAll('ul .btn-floating');
+    var btnList = document.querySelectorAll('ul .btn-floating');
     btnList.forEach(function (el) {
       el.classList.remove('shown');
     });
@@ -16627,7 +16714,7 @@ dropdownSelectors.on({
   });
 
   function toggleFABMenu(btn) {
-    let elem = btn;
+    var elem = btn;
 
     if (elem.hasClass('active')) {
       closeFABMenu(elem);
@@ -16636,3040 +16723,548 @@ dropdownSelectors.on({
     }
   }
 })(jQuery);
-/*! Hammer.JS - v2.0.7 - 2016-04-22
- * http://hammerjs.github.io/
- *
- * Copyright (c) 2016 Jorik Tangelder;
- * Licensed under the MIT license */
-(function(window, document, exportName, undefined) {
-  'use strict';
-
-var VENDOR_PREFIXES = ['', 'webkit', 'Moz', 'MS', 'ms', 'o'];
-var TEST_ELEMENT = document.createElement('div');
-
-var TYPE_FUNCTION = 'function';
-
-var round = Math.round;
-var abs = Math.abs;
-var now = Date.now;
-
-/**
- * set a timeout with a given scope
- * @param {Function} fn
- * @param {Number} timeout
- * @param {Object} context
- * @returns {number}
- */
-function setTimeoutContext(fn, timeout, context) {
-    return setTimeout(bindFn(fn, context), timeout);
-}
-
-/**
- * if the argument is an array, we want to execute the fn on each entry
- * if it aint an array we don't want to do a thing.
- * this is used by all the methods that accept a single and array argument.
- * @param {*|Array} arg
- * @param {String} fn
- * @param {Object} [context]
- * @returns {Boolean}
- */
-function invokeArrayArg(arg, fn, context) {
-    if (Array.isArray(arg)) {
-        each(arg, context[fn], context);
-        return true;
-    }
-    return false;
-}
-
-/**
- * walk objects and arrays
- * @param {Object} obj
- * @param {Function} iterator
- * @param {Object} context
- */
-function each(obj, iterator, context) {
-    var i;
-
-    if (!obj) {
-        return;
-    }
-
-    if (obj.forEach) {
-        obj.forEach(iterator, context);
-    } else if (obj.length !== undefined) {
-        i = 0;
-        while (i < obj.length) {
-            iterator.call(context, obj[i], i, obj);
-            i++;
-        }
-    } else {
-        for (i in obj) {
-            obj.hasOwnProperty(i) && iterator.call(context, obj[i], i, obj);
-        }
-    }
-}
-
-/**
- * wrap a method with a deprecation warning and stack trace
- * @param {Function} method
- * @param {String} name
- * @param {String} message
- * @returns {Function} A new function wrapping the supplied method.
- */
-function deprecate(method, name, message) {
-    var deprecationMessage = 'DEPRECATED METHOD: ' + name + '\n' + message + ' AT \n';
-    return function() {
-        var e = new Error('get-stack-trace');
-        var stack = e && e.stack ? e.stack.replace(/^[^\(]+?[\n$]/gm, '')
-            .replace(/^\s+at\s+/gm, '')
-            .replace(/^Object.<anonymous>\s*\(/gm, '{anonymous}()@') : 'Unknown Stack Trace';
-
-        var log = window.console && (window.console.warn || window.console.log);
-        if (log) {
-            log.call(window.console, deprecationMessage, stack);
-        }
-        return method.apply(this, arguments);
-    };
-}
-
-/**
- * extend object.
- * means that properties in dest will be overwritten by the ones in src.
- * @param {Object} target
- * @param {...Object} objects_to_assign
- * @returns {Object} target
- */
-var assign;
-if (typeof Object.assign !== 'function') {
-    assign = function assign(target) {
-        if (target === undefined || target === null) {
-            throw new TypeError('Cannot convert undefined or null to object');
-        }
-
-        var output = Object(target);
-        for (var index = 1; index < arguments.length; index++) {
-            var source = arguments[index];
-            if (source !== undefined && source !== null) {
-                for (var nextKey in source) {
-                    if (source.hasOwnProperty(nextKey)) {
-                        output[nextKey] = source[nextKey];
-                    }
-                }
-            }
-        }
-        return output;
-    };
-} else {
-    assign = Object.assign;
-}
-
-/**
- * extend object.
- * means that properties in dest will be overwritten by the ones in src.
- * @param {Object} dest
- * @param {Object} src
- * @param {Boolean} [merge=false]
- * @returns {Object} dest
- */
-var extend = deprecate(function extend(dest, src, merge) {
-    var keys = Object.keys(src);
-    var i = 0;
-    while (i < keys.length) {
-        if (!merge || (merge && dest[keys[i]] === undefined)) {
-            dest[keys[i]] = src[keys[i]];
-        }
-        i++;
-    }
-    return dest;
-}, 'extend', 'Use `assign`.');
-
-/**
- * merge the values from src in the dest.
- * means that properties that exist in dest will not be overwritten by src
- * @param {Object} dest
- * @param {Object} src
- * @returns {Object} dest
- */
-var merge = deprecate(function merge(dest, src) {
-    return extend(dest, src, true);
-}, 'merge', 'Use `assign`.');
-
-/**
- * simple class inheritance
- * @param {Function} child
- * @param {Function} base
- * @param {Object} [properties]
- */
-function inherit(child, base, properties) {
-    var baseP = base.prototype,
-        childP;
-
-    childP = child.prototype = Object.create(baseP);
-    childP.constructor = child;
-    childP._super = baseP;
-
-    if (properties) {
-        assign(childP, properties);
-    }
-}
-
-/**
- * simple function bind
- * @param {Function} fn
- * @param {Object} context
- * @returns {Function}
- */
-function bindFn(fn, context) {
-    return function boundFn() {
-        return fn.apply(context, arguments);
-    };
-}
-
-/**
- * let a boolean value also be a function that must return a boolean
- * this first item in args will be used as the context
- * @param {Boolean|Function} val
- * @param {Array} [args]
- * @returns {Boolean}
- */
-function boolOrFn(val, args) {
-    if (typeof val == TYPE_FUNCTION) {
-        return val.apply(args ? args[0] || undefined : undefined, args);
-    }
-    return val;
-}
-
-/**
- * use the val2 when val1 is undefined
- * @param {*} val1
- * @param {*} val2
- * @returns {*}
- */
-function ifUndefined(val1, val2) {
-    return (val1 === undefined) ? val2 : val1;
-}
-
-/**
- * addEventListener with multiple events at once
- * @param {EventTarget} target
- * @param {String} types
- * @param {Function} handler
- */
-function addEventListeners(target, types, handler) {
-    each(splitStr(types), function(type) {
-        target.addEventListener(type, handler, false);
-    });
-}
-
-/**
- * removeEventListener with multiple events at once
- * @param {EventTarget} target
- * @param {String} types
- * @param {Function} handler
- */
-function removeEventListeners(target, types, handler) {
-    each(splitStr(types), function(type) {
-        target.removeEventListener(type, handler, false);
-    });
-}
-
-/**
- * find if a node is in the given parent
- * @method hasParent
- * @param {HTMLElement} node
- * @param {HTMLElement} parent
- * @return {Boolean} found
- */
-function hasParent(node, parent) {
-    while (node) {
-        if (node == parent) {
-            return true;
-        }
-        node = node.parentNode;
-    }
-    return false;
-}
-
-/**
- * small indexOf wrapper
- * @param {String} str
- * @param {String} find
- * @returns {Boolean} found
- */
-function inStr(str, find) {
-    return str.indexOf(find) > -1;
-}
-
-/**
- * split string on whitespace
- * @param {String} str
- * @returns {Array} words
- */
-function splitStr(str) {
-    return str.trim().split(/\s+/g);
-}
-
-/**
- * find if a array contains the object using indexOf or a simple polyFill
- * @param {Array} src
- * @param {String} find
- * @param {String} [findByKey]
- * @return {Boolean|Number} false when not found, or the index
- */
-function inArray(src, find, findByKey) {
-    if (src.indexOf && !findByKey) {
-        return src.indexOf(find);
-    } else {
-        var i = 0;
-        while (i < src.length) {
-            if ((findByKey && src[i][findByKey] == find) || (!findByKey && src[i] === find)) {
-                return i;
-            }
-            i++;
-        }
-        return -1;
-    }
-}
-
-/**
- * convert array-like objects to real arrays
- * @param {Object} obj
- * @returns {Array}
- */
-function toArray(obj) {
-    return Array.prototype.slice.call(obj, 0);
-}
-
-/**
- * unique array with objects based on a key (like 'id') or just by the array's value
- * @param {Array} src [{id:1},{id:2},{id:1}]
- * @param {String} [key]
- * @param {Boolean} [sort=False]
- * @returns {Array} [{id:1},{id:2}]
- */
-function uniqueArray(src, key, sort) {
-    var results = [];
-    var values = [];
-    var i = 0;
-
-    while (i < src.length) {
-        var val = key ? src[i][key] : src[i];
-        if (inArray(values, val) < 0) {
-            results.push(src[i]);
-        }
-        values[i] = val;
-        i++;
-    }
-
-    if (sort) {
-        if (!key) {
-            results = results.sort();
-        } else {
-            results = results.sort(function sortUniqueArray(a, b) {
-                return a[key] > b[key];
-            });
-        }
-    }
-
-    return results;
-}
-
-/**
- * get the prefixed property
- * @param {Object} obj
- * @param {String} property
- * @returns {String|Undefined} prefixed
- */
-function prefixed(obj, property) {
-    var prefix, prop;
-    var camelProp = property[0].toUpperCase() + property.slice(1);
-
-    var i = 0;
-    while (i < VENDOR_PREFIXES.length) {
-        prefix = VENDOR_PREFIXES[i];
-        prop = (prefix) ? prefix + camelProp : property;
-
-        if (prop in obj) {
-            return prop;
-        }
-        i++;
-    }
-    return undefined;
-}
-
-/**
- * get a unique id
- * @returns {number} uniqueId
- */
-var _uniqueId = 1;
-function uniqueId() {
-    return _uniqueId++;
-}
-
-/**
- * get the window object of an element
- * @param {HTMLElement} element
- * @returns {DocumentView|Window}
- */
-function getWindowForElement(element) {
-    var doc = element.ownerDocument || element;
-    return (doc.defaultView || doc.parentWindow || window);
-}
-
-var MOBILE_REGEX = /mobile|tablet|ip(ad|hone|od)|android/i;
-
-var SUPPORT_TOUCH = ('ontouchstart' in window);
-var SUPPORT_POINTER_EVENTS = prefixed(window, 'PointerEvent') !== undefined;
-var SUPPORT_ONLY_TOUCH = SUPPORT_TOUCH && MOBILE_REGEX.test(navigator.userAgent);
-
-var INPUT_TYPE_TOUCH = 'touch';
-var INPUT_TYPE_PEN = 'pen';
-var INPUT_TYPE_MOUSE = 'mouse';
-var INPUT_TYPE_KINECT = 'kinect';
-
-var COMPUTE_INTERVAL = 25;
-
-var INPUT_START = 1;
-var INPUT_MOVE = 2;
-var INPUT_END = 4;
-var INPUT_CANCEL = 8;
-
-var DIRECTION_NONE = 1;
-var DIRECTION_LEFT = 2;
-var DIRECTION_RIGHT = 4;
-var DIRECTION_UP = 8;
-var DIRECTION_DOWN = 16;
-
-var DIRECTION_HORIZONTAL = DIRECTION_LEFT | DIRECTION_RIGHT;
-var DIRECTION_VERTICAL = DIRECTION_UP | DIRECTION_DOWN;
-var DIRECTION_ALL = DIRECTION_HORIZONTAL | DIRECTION_VERTICAL;
-
-var PROPS_XY = ['x', 'y'];
-var PROPS_CLIENT_XY = ['clientX', 'clientY'];
-
-/**
- * create new input type manager
- * @param {Manager} manager
- * @param {Function} callback
- * @returns {Input}
- * @constructor
- */
-function Input(manager, callback) {
-    var self = this;
-    this.manager = manager;
-    this.callback = callback;
-    this.element = manager.element;
-    this.target = manager.options.inputTarget;
-
-    // smaller wrapper around the handler, for the scope and the enabled state of the manager,
-    // so when disabled the input events are completely bypassed.
-    this.domHandler = function(ev) {
-        if (boolOrFn(manager.options.enable, [manager])) {
-            self.handler(ev);
-        }
-    };
-
-    this.init();
-
-}
-
-Input.prototype = {
-    /**
-     * should handle the inputEvent data and trigger the callback
-     * @virtual
-     */
-    handler: function() { },
-
-    /**
-     * bind the events
-     */
-    init: function() {
-        this.evEl && addEventListeners(this.element, this.evEl, this.domHandler);
-        this.evTarget && addEventListeners(this.target, this.evTarget, this.domHandler);
-        this.evWin && addEventListeners(getWindowForElement(this.element), this.evWin, this.domHandler);
-    },
-
-    /**
-     * unbind the events
-     */
-    destroy: function() {
-        this.evEl && removeEventListeners(this.element, this.evEl, this.domHandler);
-        this.evTarget && removeEventListeners(this.target, this.evTarget, this.domHandler);
-        this.evWin && removeEventListeners(getWindowForElement(this.element), this.evWin, this.domHandler);
-    }
-};
-
-/**
- * create new input type manager
- * called by the Manager constructor
- * @param {Hammer} manager
- * @returns {Input}
- */
-function createInputInstance(manager) {
-    var Type;
-    var inputClass = manager.options.inputClass;
-
-    if (inputClass) {
-        Type = inputClass;
-    } else if (SUPPORT_POINTER_EVENTS) {
-        Type = PointerEventInput;
-    } else if (SUPPORT_ONLY_TOUCH) {
-        Type = TouchInput;
-    } else if (!SUPPORT_TOUCH) {
-        Type = MouseInput;
-    } else {
-        Type = TouchMouseInput;
-    }
-    return new (Type)(manager, inputHandler);
-}
-
-/**
- * handle input events
- * @param {Manager} manager
- * @param {String} eventType
- * @param {Object} input
- */
-function inputHandler(manager, eventType, input) {
-    var pointersLen = input.pointers.length;
-    var changedPointersLen = input.changedPointers.length;
-    var isFirst = (eventType & INPUT_START && (pointersLen - changedPointersLen === 0));
-    var isFinal = (eventType & (INPUT_END | INPUT_CANCEL) && (pointersLen - changedPointersLen === 0));
-
-    input.isFirst = !!isFirst;
-    input.isFinal = !!isFinal;
-
-    if (isFirst) {
-        manager.session = {};
-    }
-
-    // source event is the normalized value of the domEvents
-    // like 'touchstart, mouseup, pointerdown'
-    input.eventType = eventType;
-
-    // compute scale, rotation etc
-    computeInputData(manager, input);
-
-    // emit secret event
-    manager.emit('hammer.input', input);
-
-    manager.recognize(input);
-    manager.session.prevInput = input;
-}
-
-/**
- * extend the data with some usable properties like scale, rotate, velocity etc
- * @param {Object} manager
- * @param {Object} input
- */
-function computeInputData(manager, input) {
-    var session = manager.session;
-    var pointers = input.pointers;
-    var pointersLength = pointers.length;
-
-    // store the first input to calculate the distance and direction
-    if (!session.firstInput) {
-        session.firstInput = simpleCloneInputData(input);
-    }
-
-    // to compute scale and rotation we need to store the multiple touches
-    if (pointersLength > 1 && !session.firstMultiple) {
-        session.firstMultiple = simpleCloneInputData(input);
-    } else if (pointersLength === 1) {
-        session.firstMultiple = false;
-    }
-
-    var firstInput = session.firstInput;
-    var firstMultiple = session.firstMultiple;
-    var offsetCenter = firstMultiple ? firstMultiple.center : firstInput.center;
-
-    var center = input.center = getCenter(pointers);
-    input.timeStamp = now();
-    input.deltaTime = input.timeStamp - firstInput.timeStamp;
-
-    input.angle = getAngle(offsetCenter, center);
-    input.distance = getDistance(offsetCenter, center);
-
-    computeDeltaXY(session, input);
-    input.offsetDirection = getDirection(input.deltaX, input.deltaY);
-
-    var overallVelocity = getVelocity(input.deltaTime, input.deltaX, input.deltaY);
-    input.overallVelocityX = overallVelocity.x;
-    input.overallVelocityY = overallVelocity.y;
-    input.overallVelocity = (abs(overallVelocity.x) > abs(overallVelocity.y)) ? overallVelocity.x : overallVelocity.y;
-
-    input.scale = firstMultiple ? getScale(firstMultiple.pointers, pointers) : 1;
-    input.rotation = firstMultiple ? getRotation(firstMultiple.pointers, pointers) : 0;
-
-    input.maxPointers = !session.prevInput ? input.pointers.length : ((input.pointers.length >
-        session.prevInput.maxPointers) ? input.pointers.length : session.prevInput.maxPointers);
-
-    computeIntervalInputData(session, input);
-
-    // find the correct target
-    var target = manager.element;
-    if (hasParent(input.srcEvent.target, target)) {
-        target = input.srcEvent.target;
-    }
-    input.target = target;
-}
-
-function computeDeltaXY(session, input) {
-    var center = input.center;
-    var offset = session.offsetDelta || {};
-    var prevDelta = session.prevDelta || {};
-    var prevInput = session.prevInput || {};
-
-    if (input.eventType === INPUT_START || prevInput.eventType === INPUT_END) {
-        prevDelta = session.prevDelta = {
-            x: prevInput.deltaX || 0,
-            y: prevInput.deltaY || 0
-        };
-
-        offset = session.offsetDelta = {
-            x: center.x,
-            y: center.y
-        };
-    }
-
-    input.deltaX = prevDelta.x + (center.x - offset.x);
-    input.deltaY = prevDelta.y + (center.y - offset.y);
-}
-
-/**
- * velocity is calculated every x ms
- * @param {Object} session
- * @param {Object} input
- */
-function computeIntervalInputData(session, input) {
-    var last = session.lastInterval || input,
-        deltaTime = input.timeStamp - last.timeStamp,
-        velocity, velocityX, velocityY, direction;
-
-    if (input.eventType != INPUT_CANCEL && (deltaTime > COMPUTE_INTERVAL || last.velocity === undefined)) {
-        var deltaX = input.deltaX - last.deltaX;
-        var deltaY = input.deltaY - last.deltaY;
-
-        var v = getVelocity(deltaTime, deltaX, deltaY);
-        velocityX = v.x;
-        velocityY = v.y;
-        velocity = (abs(v.x) > abs(v.y)) ? v.x : v.y;
-        direction = getDirection(deltaX, deltaY);
-
-        session.lastInterval = input;
-    } else {
-        // use latest velocity info if it doesn't overtake a minimum period
-        velocity = last.velocity;
-        velocityX = last.velocityX;
-        velocityY = last.velocityY;
-        direction = last.direction;
-    }
-
-    input.velocity = velocity;
-    input.velocityX = velocityX;
-    input.velocityY = velocityY;
-    input.direction = direction;
-}
-
-/**
- * create a simple clone from the input used for storage of firstInput and firstMultiple
- * @param {Object} input
- * @returns {Object} clonedInputData
- */
-function simpleCloneInputData(input) {
-    // make a simple copy of the pointers because we will get a reference if we don't
-    // we only need clientXY for the calculations
-    var pointers = [];
-    var i = 0;
-    while (i < input.pointers.length) {
-        pointers[i] = {
-            clientX: round(input.pointers[i].clientX),
-            clientY: round(input.pointers[i].clientY)
-        };
-        i++;
-    }
-
-    return {
-        timeStamp: now(),
-        pointers: pointers,
-        center: getCenter(pointers),
-        deltaX: input.deltaX,
-        deltaY: input.deltaY
-    };
-}
-
-/**
- * get the center of all the pointers
- * @param {Array} pointers
- * @return {Object} center contains `x` and `y` properties
- */
-function getCenter(pointers) {
-    var pointersLength = pointers.length;
-
-    // no need to loop when only one touch
-    if (pointersLength === 1) {
-        return {
-            x: round(pointers[0].clientX),
-            y: round(pointers[0].clientY)
-        };
-    }
-
-    var x = 0, y = 0, i = 0;
-    while (i < pointersLength) {
-        x += pointers[i].clientX;
-        y += pointers[i].clientY;
-        i++;
-    }
-
-    return {
-        x: round(x / pointersLength),
-        y: round(y / pointersLength)
-    };
-}
-
-/**
- * calculate the velocity between two points. unit is in px per ms.
- * @param {Number} deltaTime
- * @param {Number} x
- * @param {Number} y
- * @return {Object} velocity `x` and `y`
- */
-function getVelocity(deltaTime, x, y) {
-    return {
-        x: x / deltaTime || 0,
-        y: y / deltaTime || 0
-    };
-}
-
-/**
- * get the direction between two points
- * @param {Number} x
- * @param {Number} y
- * @return {Number} direction
- */
-function getDirection(x, y) {
-    if (x === y) {
-        return DIRECTION_NONE;
-    }
-
-    if (abs(x) >= abs(y)) {
-        return x < 0 ? DIRECTION_LEFT : DIRECTION_RIGHT;
-    }
-    return y < 0 ? DIRECTION_UP : DIRECTION_DOWN;
-}
-
-/**
- * calculate the absolute distance between two points
- * @param {Object} p1 {x, y}
- * @param {Object} p2 {x, y}
- * @param {Array} [props] containing x and y keys
- * @return {Number} distance
- */
-function getDistance(p1, p2, props) {
-    if (!props) {
-        props = PROPS_XY;
-    }
-    var x = p2[props[0]] - p1[props[0]],
-        y = p2[props[1]] - p1[props[1]];
-
-    return Math.sqrt((x * x) + (y * y));
-}
-
-/**
- * calculate the angle between two coordinates
- * @param {Object} p1
- * @param {Object} p2
- * @param {Array} [props] containing x and y keys
- * @return {Number} angle
- */
-function getAngle(p1, p2, props) {
-    if (!props) {
-        props = PROPS_XY;
-    }
-    var x = p2[props[0]] - p1[props[0]],
-        y = p2[props[1]] - p1[props[1]];
-    return Math.atan2(y, x) * 180 / Math.PI;
-}
-
-/**
- * calculate the rotation degrees between two pointersets
- * @param {Array} start array of pointers
- * @param {Array} end array of pointers
- * @return {Number} rotation
- */
-function getRotation(start, end) {
-    return getAngle(end[1], end[0], PROPS_CLIENT_XY) + getAngle(start[1], start[0], PROPS_CLIENT_XY);
-}
-
-/**
- * calculate the scale factor between two pointersets
- * no scale is 1, and goes down to 0 when pinched together, and bigger when pinched out
- * @param {Array} start array of pointers
- * @param {Array} end array of pointers
- * @return {Number} scale
- */
-function getScale(start, end) {
-    return getDistance(end[0], end[1], PROPS_CLIENT_XY) / getDistance(start[0], start[1], PROPS_CLIENT_XY);
-}
-
-var MOUSE_INPUT_MAP = {
-    mousedown: INPUT_START,
-    mousemove: INPUT_MOVE,
-    mouseup: INPUT_END
-};
-
-var MOUSE_ELEMENT_EVENTS = 'mousedown';
-var MOUSE_WINDOW_EVENTS = 'mousemove mouseup';
-
-/**
- * Mouse events input
- * @constructor
- * @extends Input
- */
-function MouseInput() {
-    this.evEl = MOUSE_ELEMENT_EVENTS;
-    this.evWin = MOUSE_WINDOW_EVENTS;
-
-    this.pressed = false; // mousedown state
-
-    Input.apply(this, arguments);
-}
-
-inherit(MouseInput, Input, {
-    /**
-     * handle mouse events
-     * @param {Object} ev
-     */
-    handler: function MEhandler(ev) {
-        var eventType = MOUSE_INPUT_MAP[ev.type];
-
-        // on start we want to have the left mouse button down
-        if (eventType & INPUT_START && ev.button === 0) {
-            this.pressed = true;
-        }
-
-        if (eventType & INPUT_MOVE && ev.which !== 1) {
-            eventType = INPUT_END;
-        }
-
-        // mouse must be down
-        if (!this.pressed) {
-            return;
-        }
-
-        if (eventType & INPUT_END) {
-            this.pressed = false;
-        }
-
-        this.callback(this.manager, eventType, {
-            pointers: [ev],
-            changedPointers: [ev],
-            pointerType: INPUT_TYPE_MOUSE,
-            srcEvent: ev
-        });
-    }
-});
-
-var POINTER_INPUT_MAP = {
-    pointerdown: INPUT_START,
-    pointermove: INPUT_MOVE,
-    pointerup: INPUT_END,
-    pointercancel: INPUT_CANCEL,
-    pointerout: INPUT_CANCEL
-};
-
-// in IE10 the pointer types is defined as an enum
-var IE10_POINTER_TYPE_ENUM = {
-    2: INPUT_TYPE_TOUCH,
-    3: INPUT_TYPE_PEN,
-    4: INPUT_TYPE_MOUSE,
-    5: INPUT_TYPE_KINECT // see https://twitter.com/jacobrossi/status/480596438489890816
-};
-
-var POINTER_ELEMENT_EVENTS = 'pointerdown';
-var POINTER_WINDOW_EVENTS = 'pointermove pointerup pointercancel';
-
-// IE10 has prefixed support, and case-sensitive
-if (window.MSPointerEvent && !window.PointerEvent) {
-    POINTER_ELEMENT_EVENTS = 'MSPointerDown';
-    POINTER_WINDOW_EVENTS = 'MSPointerMove MSPointerUp MSPointerCancel';
-}
-
-/**
- * Pointer events input
- * @constructor
- * @extends Input
- */
-function PointerEventInput() {
-    this.evEl = POINTER_ELEMENT_EVENTS;
-    this.evWin = POINTER_WINDOW_EVENTS;
-
-    Input.apply(this, arguments);
-
-    this.store = (this.manager.session.pointerEvents = []);
-}
-
-inherit(PointerEventInput, Input, {
-    /**
-     * handle mouse events
-     * @param {Object} ev
-     */
-    handler: function PEhandler(ev) {
-        var store = this.store;
-        var removePointer = false;
-
-        var eventTypeNormalized = ev.type.toLowerCase().replace('ms', '');
-        var eventType = POINTER_INPUT_MAP[eventTypeNormalized];
-        var pointerType = IE10_POINTER_TYPE_ENUM[ev.pointerType] || ev.pointerType;
-
-        var isTouch = (pointerType == INPUT_TYPE_TOUCH);
-
-        // get index of the event in the store
-        var storeIndex = inArray(store, ev.pointerId, 'pointerId');
-
-        // start and mouse must be down
-        if (eventType & INPUT_START && (ev.button === 0 || isTouch)) {
-            if (storeIndex < 0) {
-                store.push(ev);
-                storeIndex = store.length - 1;
-            }
-        } else if (eventType & (INPUT_END | INPUT_CANCEL)) {
-            removePointer = true;
-        }
-
-        // it not found, so the pointer hasn't been down (so it's probably a hover)
-        if (storeIndex < 0) {
-            return;
-        }
-
-        // update the event in the store
-        store[storeIndex] = ev;
-
-        this.callback(this.manager, eventType, {
-            pointers: store,
-            changedPointers: [ev],
-            pointerType: pointerType,
-            srcEvent: ev
-        });
-
-        if (removePointer) {
-            // remove from the store
-            store.splice(storeIndex, 1);
-        }
-    }
-});
-
-var SINGLE_TOUCH_INPUT_MAP = {
-    touchstart: INPUT_START,
-    touchmove: INPUT_MOVE,
-    touchend: INPUT_END,
-    touchcancel: INPUT_CANCEL
-};
-
-var SINGLE_TOUCH_TARGET_EVENTS = 'touchstart';
-var SINGLE_TOUCH_WINDOW_EVENTS = 'touchstart touchmove touchend touchcancel';
-
-/**
- * Touch events input
- * @constructor
- * @extends Input
- */
-function SingleTouchInput() {
-    this.evTarget = SINGLE_TOUCH_TARGET_EVENTS;
-    this.evWin = SINGLE_TOUCH_WINDOW_EVENTS;
-    this.started = false;
-
-    Input.apply(this, arguments);
-}
-
-inherit(SingleTouchInput, Input, {
-    handler: function TEhandler(ev) {
-        var type = SINGLE_TOUCH_INPUT_MAP[ev.type];
-
-        // should we handle the touch events?
-        if (type === INPUT_START) {
-            this.started = true;
-        }
-
-        if (!this.started) {
-            return;
-        }
-
-        var touches = normalizeSingleTouches.call(this, ev, type);
-
-        // when done, reset the started state
-        if (type & (INPUT_END | INPUT_CANCEL) && touches[0].length - touches[1].length === 0) {
-            this.started = false;
-        }
-
-        this.callback(this.manager, type, {
-            pointers: touches[0],
-            changedPointers: touches[1],
-            pointerType: INPUT_TYPE_TOUCH,
-            srcEvent: ev
-        });
-    }
-});
-
-/**
- * @this {TouchInput}
- * @param {Object} ev
- * @param {Number} type flag
- * @returns {undefined|Array} [all, changed]
- */
-function normalizeSingleTouches(ev, type) {
-    var all = toArray(ev.touches);
-    var changed = toArray(ev.changedTouches);
-
-    if (type & (INPUT_END | INPUT_CANCEL)) {
-        all = uniqueArray(all.concat(changed), 'identifier', true);
-    }
-
-    return [all, changed];
-}
-
-var TOUCH_INPUT_MAP = {
-    touchstart: INPUT_START,
-    touchmove: INPUT_MOVE,
-    touchend: INPUT_END,
-    touchcancel: INPUT_CANCEL
-};
-
-var TOUCH_TARGET_EVENTS = 'touchstart touchmove touchend touchcancel';
-
-/**
- * Multi-user touch events input
- * @constructor
- * @extends Input
- */
-function TouchInput() {
-    this.evTarget = TOUCH_TARGET_EVENTS;
-    this.targetIds = {};
-
-    Input.apply(this, arguments);
-}
-
-inherit(TouchInput, Input, {
-    handler: function MTEhandler(ev) {
-        var type = TOUCH_INPUT_MAP[ev.type];
-        var touches = getTouches.call(this, ev, type);
-        if (!touches) {
-            return;
-        }
-
-        this.callback(this.manager, type, {
-            pointers: touches[0],
-            changedPointers: touches[1],
-            pointerType: INPUT_TYPE_TOUCH,
-            srcEvent: ev
-        });
-    }
-});
-
-/**
- * @this {TouchInput}
- * @param {Object} ev
- * @param {Number} type flag
- * @returns {undefined|Array} [all, changed]
- */
-function getTouches(ev, type) {
-    var allTouches = toArray(ev.touches);
-    var targetIds = this.targetIds;
-
-    // when there is only one touch, the process can be simplified
-    if (type & (INPUT_START | INPUT_MOVE) && allTouches.length === 1) {
-        targetIds[allTouches[0].identifier] = true;
-        return [allTouches, allTouches];
-    }
-
-    var i,
-        targetTouches,
-        changedTouches = toArray(ev.changedTouches),
-        changedTargetTouches = [],
-        target = this.target;
-
-    // get target touches from touches
-    targetTouches = allTouches.filter(function(touch) {
-        return hasParent(touch.target, target);
-    });
-
-    // collect touches
-    if (type === INPUT_START) {
-        i = 0;
-        while (i < targetTouches.length) {
-            targetIds[targetTouches[i].identifier] = true;
-            i++;
-        }
-    }
-
-    // filter changed touches to only contain touches that exist in the collected target ids
-    i = 0;
-    while (i < changedTouches.length) {
-        if (targetIds[changedTouches[i].identifier]) {
-            changedTargetTouches.push(changedTouches[i]);
-        }
-
-        // cleanup removed touches
-        if (type & (INPUT_END | INPUT_CANCEL)) {
-            delete targetIds[changedTouches[i].identifier];
-        }
-        i++;
-    }
-
-    if (!changedTargetTouches.length) {
-        return;
-    }
-
-    return [
-        // merge targetTouches with changedTargetTouches so it contains ALL touches, including 'end' and 'cancel'
-        uniqueArray(targetTouches.concat(changedTargetTouches), 'identifier', true),
-        changedTargetTouches
-    ];
-}
-
-/**
- * Combined touch and mouse input
- *
- * Touch has a higher priority then mouse, and while touching no mouse events are allowed.
- * This because touch devices also emit mouse events while doing a touch.
- *
- * @constructor
- * @extends Input
- */
-
-var DEDUP_TIMEOUT = 2500;
-var DEDUP_DISTANCE = 25;
-
-function TouchMouseInput() {
-    Input.apply(this, arguments);
-
-    var handler = bindFn(this.handler, this);
-    this.touch = new TouchInput(this.manager, handler);
-    this.mouse = new MouseInput(this.manager, handler);
-
-    this.primaryTouch = null;
-    this.lastTouches = [];
-}
-
-inherit(TouchMouseInput, Input, {
-    /**
-     * handle mouse and touch events
-     * @param {Hammer} manager
-     * @param {String} inputEvent
-     * @param {Object} inputData
-     */
-    handler: function TMEhandler(manager, inputEvent, inputData) {
-        var isTouch = (inputData.pointerType == INPUT_TYPE_TOUCH),
-            isMouse = (inputData.pointerType == INPUT_TYPE_MOUSE);
-
-        if (isMouse && inputData.sourceCapabilities && inputData.sourceCapabilities.firesTouchEvents) {
-            return;
-        }
-
-        // when we're in a touch event, record touches to  de-dupe synthetic mouse event
-        if (isTouch) {
-            recordTouches.call(this, inputEvent, inputData);
-        } else if (isMouse && isSyntheticEvent.call(this, inputData)) {
-            return;
-        }
-
-        this.callback(manager, inputEvent, inputData);
-    },
-
-    /**
-     * remove the event listeners
-     */
-    destroy: function destroy() {
-        this.touch.destroy();
-        this.mouse.destroy();
-    }
-});
-
-function recordTouches(eventType, eventData) {
-    if (eventType & INPUT_START) {
-        this.primaryTouch = eventData.changedPointers[0].identifier;
-        setLastTouch.call(this, eventData);
-    } else if (eventType & (INPUT_END | INPUT_CANCEL)) {
-        setLastTouch.call(this, eventData);
-    }
-}
-
-function setLastTouch(eventData) {
-    var touch = eventData.changedPointers[0];
-
-    if (touch.identifier === this.primaryTouch) {
-        var lastTouch = {x: touch.clientX, y: touch.clientY};
-        this.lastTouches.push(lastTouch);
-        var lts = this.lastTouches;
-        var removeLastTouch = function() {
-            var i = lts.indexOf(lastTouch);
-            if (i > -1) {
-                lts.splice(i, 1);
-            }
-        };
-        setTimeout(removeLastTouch, DEDUP_TIMEOUT);
-    }
-}
-
-function isSyntheticEvent(eventData) {
-    var x = eventData.srcEvent.clientX, y = eventData.srcEvent.clientY;
-    for (var i = 0; i < this.lastTouches.length; i++) {
-        var t = this.lastTouches[i];
-        var dx = Math.abs(x - t.x), dy = Math.abs(y - t.y);
-        if (dx <= DEDUP_DISTANCE && dy <= DEDUP_DISTANCE) {
-            return true;
-        }
-    }
-    return false;
-}
-
-var PREFIXED_TOUCH_ACTION = prefixed(TEST_ELEMENT.style, 'touchAction');
-var NATIVE_TOUCH_ACTION = PREFIXED_TOUCH_ACTION !== undefined;
-
-// magical touchAction value
-var TOUCH_ACTION_COMPUTE = 'compute';
-var TOUCH_ACTION_AUTO = 'auto';
-var TOUCH_ACTION_MANIPULATION = 'manipulation'; // not implemented
-var TOUCH_ACTION_NONE = 'none';
-var TOUCH_ACTION_PAN_X = 'pan-x';
-var TOUCH_ACTION_PAN_Y = 'pan-y';
-var TOUCH_ACTION_MAP = getTouchActionProps();
-
-/**
- * Touch Action
- * sets the touchAction property or uses the js alternative
- * @param {Manager} manager
- * @param {String} value
- * @constructor
- */
-function TouchAction(manager, value) {
-    this.manager = manager;
-    this.set(value);
-}
-
-TouchAction.prototype = {
-    /**
-     * set the touchAction value on the element or enable the polyfill
-     * @param {String} value
-     */
-    set: function(value) {
-        // find out the touch-action by the event handlers
-        if (value == TOUCH_ACTION_COMPUTE) {
-            value = this.compute();
-        }
-
-        if (NATIVE_TOUCH_ACTION && this.manager.element.style && TOUCH_ACTION_MAP[value]) {
-            this.manager.element.style[PREFIXED_TOUCH_ACTION] = value;
-        }
-        this.actions = value.toLowerCase().trim();
-    },
-
-    /**
-     * just re-set the touchAction value
-     */
-    update: function() {
-        this.set(this.manager.options.touchAction);
-    },
-
-    /**
-     * compute the value for the touchAction property based on the recognizer's settings
-     * @returns {String} value
-     */
-    compute: function() {
-        var actions = [];
-        each(this.manager.recognizers, function(recognizer) {
-            if (boolOrFn(recognizer.options.enable, [recognizer])) {
-                actions = actions.concat(recognizer.getTouchAction());
-            }
-        });
-        return cleanTouchActions(actions.join(' '));
-    },
-
-    /**
-     * this method is called on each input cycle and provides the preventing of the browser behavior
-     * @param {Object} input
-     */
-    preventDefaults: function(input) {
-        var srcEvent = input.srcEvent;
-        var direction = input.offsetDirection;
-
-        // if the touch action did prevented once this session
-        if (this.manager.session.prevented) {
-            srcEvent.preventDefault();
-            return;
-        }
-
-        var actions = this.actions;
-        var hasNone = inStr(actions, TOUCH_ACTION_NONE) && !TOUCH_ACTION_MAP[TOUCH_ACTION_NONE];
-        var hasPanY = inStr(actions, TOUCH_ACTION_PAN_Y) && !TOUCH_ACTION_MAP[TOUCH_ACTION_PAN_Y];
-        var hasPanX = inStr(actions, TOUCH_ACTION_PAN_X) && !TOUCH_ACTION_MAP[TOUCH_ACTION_PAN_X];
-
-        if (hasNone) {
-            //do not prevent defaults if this is a tap gesture
-
-            var isTapPointer = input.pointers.length === 1;
-            var isTapMovement = input.distance < 2;
-            var isTapTouchTime = input.deltaTime < 250;
-
-            if (isTapPointer && isTapMovement && isTapTouchTime) {
-                return;
-            }
-        }
-
-        if (hasPanX && hasPanY) {
-            // `pan-x pan-y` means browser handles all scrolling/panning, do not prevent
-            return;
-        }
-
-        if (hasNone ||
-            (hasPanY && direction & DIRECTION_HORIZONTAL) ||
-            (hasPanX && direction & DIRECTION_VERTICAL)) {
-            return this.preventSrc(srcEvent);
-        }
-    },
-
-    /**
-     * call preventDefault to prevent the browser's default behavior (scrolling in most cases)
-     * @param {Object} srcEvent
-     */
-    preventSrc: function(srcEvent) {
-        this.manager.session.prevented = true;
-        srcEvent.preventDefault();
-    }
-};
-
-/**
- * when the touchActions are collected they are not a valid value, so we need to clean things up. *
- * @param {String} actions
- * @returns {*}
- */
-function cleanTouchActions(actions) {
-    // none
-    if (inStr(actions, TOUCH_ACTION_NONE)) {
-        return TOUCH_ACTION_NONE;
-    }
-
-    var hasPanX = inStr(actions, TOUCH_ACTION_PAN_X);
-    var hasPanY = inStr(actions, TOUCH_ACTION_PAN_Y);
-
-    // if both pan-x and pan-y are set (different recognizers
-    // for different directions, e.g. horizontal pan but vertical swipe?)
-    // we need none (as otherwise with pan-x pan-y combined none of these
-    // recognizers will work, since the browser would handle all panning
-    if (hasPanX && hasPanY) {
-        return TOUCH_ACTION_NONE;
-    }
-
-    // pan-x OR pan-y
-    if (hasPanX || hasPanY) {
-        return hasPanX ? TOUCH_ACTION_PAN_X : TOUCH_ACTION_PAN_Y;
-    }
-
-    // manipulation
-    if (inStr(actions, TOUCH_ACTION_MANIPULATION)) {
-        return TOUCH_ACTION_MANIPULATION;
-    }
-
-    return TOUCH_ACTION_AUTO;
-}
-
-function getTouchActionProps() {
-    if (!NATIVE_TOUCH_ACTION) {
-        return false;
-    }
-    var touchMap = {};
-    var cssSupports = window.CSS && window.CSS.supports;
-    ['auto', 'manipulation', 'pan-y', 'pan-x', 'pan-x pan-y', 'none'].forEach(function(val) {
-
-        // If css.supports is not supported but there is native touch-action assume it supports
-        // all values. This is the case for IE 10 and 11.
-        touchMap[val] = cssSupports ? window.CSS.supports('touch-action', val) : true;
-    });
-    return touchMap;
-}
-
-/**
- * Recognizer flow explained; *
- * All recognizers have the initial state of POSSIBLE when a input session starts.
- * The definition of a input session is from the first input until the last input, with all it's movement in it. *
- * Example session for mouse-input: mousedown -> mousemove -> mouseup
- *
- * On each recognizing cycle (see Manager.recognize) the .recognize() method is executed
- * which determines with state it should be.
- *
- * If the recognizer has the state FAILED, CANCELLED or RECOGNIZED (equals ENDED), it is reset to
- * POSSIBLE to give it another change on the next cycle.
- *
- *               Possible
- *                  |
- *            +-----+---------------+
- *            |                     |
- *      +-----+-----+               |
- *      |           |               |
- *   Failed      Cancelled          |
- *                          +-------+------+
- *                          |              |
- *                      Recognized       Began
- *                                         |
- *                                      Changed
- *                                         |
- *                                  Ended/Recognized
- */
-var STATE_POSSIBLE = 1;
-var STATE_BEGAN = 2;
-var STATE_CHANGED = 4;
-var STATE_ENDED = 8;
-var STATE_RECOGNIZED = STATE_ENDED;
-var STATE_CANCELLED = 16;
-var STATE_FAILED = 32;
-
-/**
- * Recognizer
- * Every recognizer needs to extend from this class.
- * @constructor
- * @param {Object} options
- */
-function Recognizer(options) {
-    this.options = assign({}, this.defaults, options || {});
-
-    this.id = uniqueId();
-
-    this.manager = null;
-
-    // default is enable true
-    this.options.enable = ifUndefined(this.options.enable, true);
-
-    this.state = STATE_POSSIBLE;
-
-    this.simultaneous = {};
-    this.requireFail = [];
-}
-
-Recognizer.prototype = {
-    /**
-     * @virtual
-     * @type {Object}
-     */
-    defaults: {},
-
-    /**
-     * set options
-     * @param {Object} options
-     * @return {Recognizer}
-     */
-    set: function(options) {
-        assign(this.options, options);
-
-        // also update the touchAction, in case something changed about the directions/enabled state
-        this.manager && this.manager.touchAction.update();
-        return this;
-    },
-
-    /**
-     * recognize simultaneous with an other recognizer.
-     * @param {Recognizer} otherRecognizer
-     * @returns {Recognizer} this
-     */
-    recognizeWith: function(otherRecognizer) {
-        if (invokeArrayArg(otherRecognizer, 'recognizeWith', this)) {
-            return this;
-        }
-
-        var simultaneous = this.simultaneous;
-        otherRecognizer = getRecognizerByNameIfManager(otherRecognizer, this);
-        if (!simultaneous[otherRecognizer.id]) {
-            simultaneous[otherRecognizer.id] = otherRecognizer;
-            otherRecognizer.recognizeWith(this);
-        }
-        return this;
-    },
-
-    /**
-     * drop the simultaneous link. it doesnt remove the link on the other recognizer.
-     * @param {Recognizer} otherRecognizer
-     * @returns {Recognizer} this
-     */
-    dropRecognizeWith: function(otherRecognizer) {
-        if (invokeArrayArg(otherRecognizer, 'dropRecognizeWith', this)) {
-            return this;
-        }
-
-        otherRecognizer = getRecognizerByNameIfManager(otherRecognizer, this);
-        delete this.simultaneous[otherRecognizer.id];
-        return this;
-    },
-
-    /**
-     * recognizer can only run when an other is failing
-     * @param {Recognizer} otherRecognizer
-     * @returns {Recognizer} this
-     */
-    requireFailure: function(otherRecognizer) {
-        if (invokeArrayArg(otherRecognizer, 'requireFailure', this)) {
-            return this;
-        }
-
-        var requireFail = this.requireFail;
-        otherRecognizer = getRecognizerByNameIfManager(otherRecognizer, this);
-        if (inArray(requireFail, otherRecognizer) === -1) {
-            requireFail.push(otherRecognizer);
-            otherRecognizer.requireFailure(this);
-        }
-        return this;
-    },
-
-    /**
-     * drop the requireFailure link. it does not remove the link on the other recognizer.
-     * @param {Recognizer} otherRecognizer
-     * @returns {Recognizer} this
-     */
-    dropRequireFailure: function(otherRecognizer) {
-        if (invokeArrayArg(otherRecognizer, 'dropRequireFailure', this)) {
-            return this;
-        }
-
-        otherRecognizer = getRecognizerByNameIfManager(otherRecognizer, this);
-        var index = inArray(this.requireFail, otherRecognizer);
-        if (index > -1) {
-            this.requireFail.splice(index, 1);
-        }
-        return this;
-    },
-
-    /**
-     * has require failures boolean
-     * @returns {boolean}
-     */
-    hasRequireFailures: function() {
-        return this.requireFail.length > 0;
-    },
-
-    /**
-     * if the recognizer can recognize simultaneous with an other recognizer
-     * @param {Recognizer} otherRecognizer
-     * @returns {Boolean}
-     */
-    canRecognizeWith: function(otherRecognizer) {
-        return !!this.simultaneous[otherRecognizer.id];
-    },
-
-    /**
-     * You should use `tryEmit` instead of `emit` directly to check
-     * that all the needed recognizers has failed before emitting.
-     * @param {Object} input
-     */
-    emit: function(input) {
-        var self = this;
-        var state = this.state;
-
-        function emit(event) {
-            self.manager.emit(event, input);
-        }
-
-        // 'panstart' and 'panmove'
-        if (state < STATE_ENDED) {
-            emit(self.options.event + stateStr(state));
-        }
-
-        emit(self.options.event); // simple 'eventName' events
-
-        if (input.additionalEvent) { // additional event(panleft, panright, pinchin, pinchout...)
-            emit(input.additionalEvent);
-        }
-
-        // panend and pancancel
-        if (state >= STATE_ENDED) {
-            emit(self.options.event + stateStr(state));
-        }
-    },
-
-    /**
-     * Check that all the require failure recognizers has failed,
-     * if true, it emits a gesture event,
-     * otherwise, setup the state to FAILED.
-     * @param {Object} input
-     */
-    tryEmit: function(input) {
-        if (this.canEmit()) {
-            return this.emit(input);
-        }
-        // it's failing anyway
-        this.state = STATE_FAILED;
-    },
-
-    /**
-     * can we emit?
-     * @returns {boolean}
-     */
-    canEmit: function() {
-        var i = 0;
-        while (i < this.requireFail.length) {
-            if (!(this.requireFail[i].state & (STATE_FAILED | STATE_POSSIBLE))) {
-                return false;
-            }
-            i++;
-        }
-        return true;
-    },
-
-    /**
-     * update the recognizer
-     * @param {Object} inputData
-     */
-    recognize: function(inputData) {
-        // make a new copy of the inputData
-        // so we can change the inputData without messing up the other recognizers
-        var inputDataClone = assign({}, inputData);
-
-        // is is enabled and allow recognizing?
-        if (!boolOrFn(this.options.enable, [this, inputDataClone])) {
-            this.reset();
-            this.state = STATE_FAILED;
-            return;
-        }
-
-        // reset when we've reached the end
-        if (this.state & (STATE_RECOGNIZED | STATE_CANCELLED | STATE_FAILED)) {
-            this.state = STATE_POSSIBLE;
-        }
-
-        this.state = this.process(inputDataClone);
-
-        // the recognizer has recognized a gesture
-        // so trigger an event
-        if (this.state & (STATE_BEGAN | STATE_CHANGED | STATE_ENDED | STATE_CANCELLED)) {
-            this.tryEmit(inputDataClone);
-        }
-    },
-
-    /**
-     * return the state of the recognizer
-     * the actual recognizing happens in this method
-     * @virtual
-     * @param {Object} inputData
-     * @returns {Const} STATE
-     */
-    process: function(inputData) { }, // jshint ignore:line
-
-    /**
-     * return the preferred touch-action
-     * @virtual
-     * @returns {Array}
-     */
-    getTouchAction: function() { },
-
-    /**
-     * called when the gesture isn't allowed to recognize
-     * like when another is being recognized or it is disabled
-     * @virtual
-     */
-    reset: function() { }
-};
-
-/**
- * get a usable string, used as event postfix
- * @param {Const} state
- * @returns {String} state
- */
-function stateStr(state) {
-    if (state & STATE_CANCELLED) {
-        return 'cancel';
-    } else if (state & STATE_ENDED) {
-        return 'end';
-    } else if (state & STATE_CHANGED) {
-        return 'move';
-    } else if (state & STATE_BEGAN) {
-        return 'start';
-    }
-    return '';
-}
-
-/**
- * direction cons to string
- * @param {Const} direction
- * @returns {String}
- */
-function directionStr(direction) {
-    if (direction == DIRECTION_DOWN) {
-        return 'down';
-    } else if (direction == DIRECTION_UP) {
-        return 'up';
-    } else if (direction == DIRECTION_LEFT) {
-        return 'left';
-    } else if (direction == DIRECTION_RIGHT) {
-        return 'right';
-    }
-    return '';
-}
-
-/**
- * get a recognizer by name if it is bound to a manager
- * @param {Recognizer|String} otherRecognizer
- * @param {Recognizer} recognizer
- * @returns {Recognizer}
- */
-function getRecognizerByNameIfManager(otherRecognizer, recognizer) {
-    var manager = recognizer.manager;
-    if (manager) {
-        return manager.get(otherRecognizer);
-    }
-    return otherRecognizer;
-}
-
-/**
- * This recognizer is just used as a base for the simple attribute recognizers.
- * @constructor
- * @extends Recognizer
- */
-function AttrRecognizer() {
-    Recognizer.apply(this, arguments);
-}
-
-inherit(AttrRecognizer, Recognizer, {
-    /**
-     * @namespace
-     * @memberof AttrRecognizer
-     */
-    defaults: {
-        /**
-         * @type {Number}
-         * @default 1
-         */
-        pointers: 1
-    },
-
-    /**
-     * Used to check if it the recognizer receives valid input, like input.distance > 10.
-     * @memberof AttrRecognizer
-     * @param {Object} input
-     * @returns {Boolean} recognized
-     */
-    attrTest: function(input) {
-        var optionPointers = this.options.pointers;
-        return optionPointers === 0 || input.pointers.length === optionPointers;
-    },
-
-    /**
-     * Process the input and return the state for the recognizer
-     * @memberof AttrRecognizer
-     * @param {Object} input
-     * @returns {*} State
-     */
-    process: function(input) {
-        var state = this.state;
-        var eventType = input.eventType;
-
-        var isRecognized = state & (STATE_BEGAN | STATE_CHANGED);
-        var isValid = this.attrTest(input);
-
-        // on cancel input and we've recognized before, return STATE_CANCELLED
-        if (isRecognized && (eventType & INPUT_CANCEL || !isValid)) {
-            return state | STATE_CANCELLED;
-        } else if (isRecognized || isValid) {
-            if (eventType & INPUT_END) {
-                return state | STATE_ENDED;
-            } else if (!(state & STATE_BEGAN)) {
-                return STATE_BEGAN;
-            }
-            return state | STATE_CHANGED;
-        }
-        return STATE_FAILED;
-    }
-});
-
-/**
- * Pan
- * Recognized when the pointer is down and moved in the allowed direction.
- * @constructor
- * @extends AttrRecognizer
- */
-function PanRecognizer() {
-    AttrRecognizer.apply(this, arguments);
-
-    this.pX = null;
-    this.pY = null;
-}
-
-inherit(PanRecognizer, AttrRecognizer, {
-    /**
-     * @namespace
-     * @memberof PanRecognizer
-     */
-    defaults: {
-        event: 'pan',
-        threshold: 10,
-        pointers: 1,
-        direction: DIRECTION_ALL
-    },
-
-    getTouchAction: function() {
-        var direction = this.options.direction;
-        var actions = [];
-        if (direction & DIRECTION_HORIZONTAL) {
-            actions.push(TOUCH_ACTION_PAN_Y);
-        }
-        if (direction & DIRECTION_VERTICAL) {
-            actions.push(TOUCH_ACTION_PAN_X);
-        }
-        return actions;
-    },
-
-    directionTest: function(input) {
-        var options = this.options;
-        var hasMoved = true;
-        var distance = input.distance;
-        var direction = input.direction;
-        var x = input.deltaX;
-        var y = input.deltaY;
-
-        // lock to axis?
-        if (!(direction & options.direction)) {
-            if (options.direction & DIRECTION_HORIZONTAL) {
-                direction = (x === 0) ? DIRECTION_NONE : (x < 0) ? DIRECTION_LEFT : DIRECTION_RIGHT;
-                hasMoved = x != this.pX;
-                distance = Math.abs(input.deltaX);
-            } else {
-                direction = (y === 0) ? DIRECTION_NONE : (y < 0) ? DIRECTION_UP : DIRECTION_DOWN;
-                hasMoved = y != this.pY;
-                distance = Math.abs(input.deltaY);
-            }
-        }
-        input.direction = direction;
-        return hasMoved && distance > options.threshold && direction & options.direction;
-    },
-
-    attrTest: function(input) {
-        return AttrRecognizer.prototype.attrTest.call(this, input) &&
-            (this.state & STATE_BEGAN || (!(this.state & STATE_BEGAN) && this.directionTest(input)));
-    },
-
-    emit: function(input) {
-
-        this.pX = input.deltaX;
-        this.pY = input.deltaY;
-
-        var direction = directionStr(input.direction);
-
-        if (direction) {
-            input.additionalEvent = this.options.event + direction;
-        }
-        this._super.emit.call(this, input);
-    }
-});
-
-/**
- * Pinch
- * Recognized when two or more pointers are moving toward (zoom-in) or away from each other (zoom-out).
- * @constructor
- * @extends AttrRecognizer
- */
-function PinchRecognizer() {
-    AttrRecognizer.apply(this, arguments);
-}
-
-inherit(PinchRecognizer, AttrRecognizer, {
-    /**
-     * @namespace
-     * @memberof PinchRecognizer
-     */
-    defaults: {
-        event: 'pinch',
-        threshold: 0,
-        pointers: 2
-    },
-
-    getTouchAction: function() {
-        return [TOUCH_ACTION_NONE];
-    },
-
-    attrTest: function(input) {
-        return this._super.attrTest.call(this, input) &&
-            (Math.abs(input.scale - 1) > this.options.threshold || this.state & STATE_BEGAN);
-    },
-
-    emit: function(input) {
-        if (input.scale !== 1) {
-            var inOut = input.scale < 1 ? 'in' : 'out';
-            input.additionalEvent = this.options.event + inOut;
-        }
-        this._super.emit.call(this, input);
-    }
-});
-
-/**
- * Press
- * Recognized when the pointer is down for x ms without any movement.
- * @constructor
- * @extends Recognizer
- */
-function PressRecognizer() {
-    Recognizer.apply(this, arguments);
-
-    this._timer = null;
-    this._input = null;
-}
-
-inherit(PressRecognizer, Recognizer, {
-    /**
-     * @namespace
-     * @memberof PressRecognizer
-     */
-    defaults: {
-        event: 'press',
-        pointers: 1,
-        time: 251, // minimal time of the pointer to be pressed
-        threshold: 9 // a minimal movement is ok, but keep it low
-    },
-
-    getTouchAction: function() {
-        return [TOUCH_ACTION_AUTO];
-    },
-
-    process: function(input) {
-        var options = this.options;
-        var validPointers = input.pointers.length === options.pointers;
-        var validMovement = input.distance < options.threshold;
-        var validTime = input.deltaTime > options.time;
-
-        this._input = input;
-
-        // we only allow little movement
-        // and we've reached an end event, so a tap is possible
-        if (!validMovement || !validPointers || (input.eventType & (INPUT_END | INPUT_CANCEL) && !validTime)) {
-            this.reset();
-        } else if (input.eventType & INPUT_START) {
-            this.reset();
-            this._timer = setTimeoutContext(function() {
-                this.state = STATE_RECOGNIZED;
-                this.tryEmit();
-            }, options.time, this);
-        } else if (input.eventType & INPUT_END) {
-            return STATE_RECOGNIZED;
-        }
-        return STATE_FAILED;
-    },
-
-    reset: function() {
-        clearTimeout(this._timer);
-    },
-
-    emit: function(input) {
-        if (this.state !== STATE_RECOGNIZED) {
-            return;
-        }
-
-        if (input && (input.eventType & INPUT_END)) {
-            this.manager.emit(this.options.event + 'up', input);
-        } else {
-            this._input.timeStamp = now();
-            this.manager.emit(this.options.event, this._input);
-        }
-    }
-});
-
-/**
- * Rotate
- * Recognized when two or more pointer are moving in a circular motion.
- * @constructor
- * @extends AttrRecognizer
- */
-function RotateRecognizer() {
-    AttrRecognizer.apply(this, arguments);
-}
-
-inherit(RotateRecognizer, AttrRecognizer, {
-    /**
-     * @namespace
-     * @memberof RotateRecognizer
-     */
-    defaults: {
-        event: 'rotate',
-        threshold: 0,
-        pointers: 2
-    },
-
-    getTouchAction: function() {
-        return [TOUCH_ACTION_NONE];
-    },
-
-    attrTest: function(input) {
-        return this._super.attrTest.call(this, input) &&
-            (Math.abs(input.rotation) > this.options.threshold || this.state & STATE_BEGAN);
-    }
-});
-
-/**
- * Swipe
- * Recognized when the pointer is moving fast (velocity), with enough distance in the allowed direction.
- * @constructor
- * @extends AttrRecognizer
- */
-function SwipeRecognizer() {
-    AttrRecognizer.apply(this, arguments);
-}
-
-inherit(SwipeRecognizer, AttrRecognizer, {
-    /**
-     * @namespace
-     * @memberof SwipeRecognizer
-     */
-    defaults: {
-        event: 'swipe',
-        threshold: 10,
-        velocity: 0.3,
-        direction: DIRECTION_HORIZONTAL | DIRECTION_VERTICAL,
-        pointers: 1
-    },
-
-    getTouchAction: function() {
-        return PanRecognizer.prototype.getTouchAction.call(this);
-    },
-
-    attrTest: function(input) {
-        var direction = this.options.direction;
-        var velocity;
-
-        if (direction & (DIRECTION_HORIZONTAL | DIRECTION_VERTICAL)) {
-            velocity = input.overallVelocity;
-        } else if (direction & DIRECTION_HORIZONTAL) {
-            velocity = input.overallVelocityX;
-        } else if (direction & DIRECTION_VERTICAL) {
-            velocity = input.overallVelocityY;
-        }
-
-        return this._super.attrTest.call(this, input) &&
-            direction & input.offsetDirection &&
-            input.distance > this.options.threshold &&
-            input.maxPointers == this.options.pointers &&
-            abs(velocity) > this.options.velocity && input.eventType & INPUT_END;
-    },
-
-    emit: function(input) {
-        var direction = directionStr(input.offsetDirection);
-        if (direction) {
-            this.manager.emit(this.options.event + direction, input);
-        }
-
-        this.manager.emit(this.options.event, input);
-    }
-});
-
-/**
- * A tap is ecognized when the pointer is doing a small tap/click. Multiple taps are recognized if they occur
- * between the given interval and position. The delay option can be used to recognize multi-taps without firing
- * a single tap.
- *
- * The eventData from the emitted event contains the property `tapCount`, which contains the amount of
- * multi-taps being recognized.
- * @constructor
- * @extends Recognizer
- */
-function TapRecognizer() {
-    Recognizer.apply(this, arguments);
-
-    // previous time and center,
-    // used for tap counting
-    this.pTime = false;
-    this.pCenter = false;
-
-    this._timer = null;
-    this._input = null;
-    this.count = 0;
-}
-
-inherit(TapRecognizer, Recognizer, {
-    /**
-     * @namespace
-     * @memberof PinchRecognizer
-     */
-    defaults: {
-        event: 'tap',
-        pointers: 1,
-        taps: 1,
-        interval: 300, // max time between the multi-tap taps
-        time: 250, // max time of the pointer to be down (like finger on the screen)
-        threshold: 9, // a minimal movement is ok, but keep it low
-        posThreshold: 10 // a multi-tap can be a bit off the initial position
-    },
-
-    getTouchAction: function() {
-        return [TOUCH_ACTION_MANIPULATION];
-    },
-
-    process: function(input) {
-        var options = this.options;
-
-        var validPointers = input.pointers.length === options.pointers;
-        var validMovement = input.distance < options.threshold;
-        var validTouchTime = input.deltaTime < options.time;
-
-        this.reset();
-
-        if ((input.eventType & INPUT_START) && (this.count === 0)) {
-            return this.failTimeout();
-        }
-
-        // we only allow little movement
-        // and we've reached an end event, so a tap is possible
-        if (validMovement && validTouchTime && validPointers) {
-            if (input.eventType != INPUT_END) {
-                return this.failTimeout();
-            }
-
-            var validInterval = this.pTime ? (input.timeStamp - this.pTime < options.interval) : true;
-            var validMultiTap = !this.pCenter || getDistance(this.pCenter, input.center) < options.posThreshold;
-
-            this.pTime = input.timeStamp;
-            this.pCenter = input.center;
-
-            if (!validMultiTap || !validInterval) {
-                this.count = 1;
-            } else {
-                this.count += 1;
-            }
-
-            this._input = input;
-
-            // if tap count matches we have recognized it,
-            // else it has began recognizing...
-            var tapCount = this.count % options.taps;
-            if (tapCount === 0) {
-                // no failing requirements, immediately trigger the tap event
-                // or wait as long as the multitap interval to trigger
-                if (!this.hasRequireFailures()) {
-                    return STATE_RECOGNIZED;
-                } else {
-                    this._timer = setTimeoutContext(function() {
-                        this.state = STATE_RECOGNIZED;
-                        this.tryEmit();
-                    }, options.interval, this);
-                    return STATE_BEGAN;
-                }
-            }
-        }
-        return STATE_FAILED;
-    },
-
-    failTimeout: function() {
-        this._timer = setTimeoutContext(function() {
-            this.state = STATE_FAILED;
-        }, this.options.interval, this);
-        return STATE_FAILED;
-    },
-
-    reset: function() {
-        clearTimeout(this._timer);
-    },
-
-    emit: function() {
-        if (this.state == STATE_RECOGNIZED) {
-            this._input.tapCount = this.count;
-            this.manager.emit(this.options.event, this._input);
-        }
-    }
-});
-
-/**
- * Simple way to create a manager with a default set of recognizers.
- * @param {HTMLElement} element
- * @param {Object} [options]
- * @constructor
- */
-function Hammer(element, options) {
-    options = options || {};
-    options.recognizers = ifUndefined(options.recognizers, Hammer.defaults.preset);
-    return new Manager(element, options);
-}
-
-/**
- * @const {string}
- */
-Hammer.VERSION = '2.0.7';
-
-/**
- * default settings
- * @namespace
- */
-Hammer.defaults = {
-    /**
-     * set if DOM events are being triggered.
-     * But this is slower and unused by simple implementations, so disabled by default.
-     * @type {Boolean}
-     * @default false
-     */
-    domEvents: false,
-
-    /**
-     * The value for the touchAction property/fallback.
-     * When set to `compute` it will magically set the correct value based on the added recognizers.
-     * @type {String}
-     * @default compute
-     */
-    touchAction: TOUCH_ACTION_COMPUTE,
-
-    /**
-     * @type {Boolean}
-     * @default true
-     */
-    enable: true,
-
-    /**
-     * EXPERIMENTAL FEATURE -- can be removed/changed
-     * Change the parent input target element.
-     * If Null, then it is being set the to main element.
-     * @type {Null|EventTarget}
-     * @default null
-     */
-    inputTarget: null,
-
-    /**
-     * force an input class
-     * @type {Null|Function}
-     * @default null
-     */
-    inputClass: null,
-
-    /**
-     * Default recognizer setup when calling `Hammer()`
-     * When creating a new Manager these will be skipped.
-     * @type {Array}
-     */
-    preset: [
-        // RecognizerClass, options, [recognizeWith, ...], [requireFailure, ...]
-        [RotateRecognizer, {enable: false}],
-        [PinchRecognizer, {enable: false}, ['rotate']],
-        [SwipeRecognizer, {direction: DIRECTION_HORIZONTAL}],
-        [PanRecognizer, {direction: DIRECTION_HORIZONTAL}, ['swipe']],
-        [TapRecognizer],
-        [TapRecognizer, {event: 'doubletap', taps: 2}, ['tap']],
-        [PressRecognizer]
-    ],
-
-    /**
-     * Some CSS properties can be used to improve the working of Hammer.
-     * Add them to this method and they will be set when creating a new Manager.
-     * @namespace
-     */
-    cssProps: {
-        /**
-         * Disables text selection to improve the dragging gesture. Mainly for desktop browsers.
-         * @type {String}
-         * @default 'none'
-         */
-        userSelect: 'none',
-
-        /**
-         * Disable the Windows Phone grippers when pressing an element.
-         * @type {String}
-         * @default 'none'
-         */
-        touchSelect: 'none',
-
-        /**
-         * Disables the default callout shown when you touch and hold a touch target.
-         * On iOS, when you touch and hold a touch target such as a link, Safari displays
-         * a callout containing information about the link. This property allows you to disable that callout.
-         * @type {String}
-         * @default 'none'
-         */
-        touchCallout: 'none',
-
-        /**
-         * Specifies whether zooming is enabled. Used by IE10>
-         * @type {String}
-         * @default 'none'
-         */
-        contentZooming: 'none',
-
-        /**
-         * Specifies that an entire element should be draggable instead of its contents. Mainly for desktop browsers.
-         * @type {String}
-         * @default 'none'
-         */
-        userDrag: 'none',
-
-        /**
-         * Overrides the highlight color shown when the user taps a link or a JavaScript
-         * clickable element in iOS. This property obeys the alpha value, if specified.
-         * @type {String}
-         * @default 'rgba(0,0,0,0)'
-         */
-        tapHighlightColor: 'rgba(0,0,0,0)'
-    }
-};
-
-var STOP = 1;
-var FORCED_STOP = 2;
-
-/**
- * Manager
- * @param {HTMLElement} element
- * @param {Object} [options]
- * @constructor
- */
-function Manager(element, options) {
-    this.options = assign({}, Hammer.defaults, options || {});
-
-    this.options.inputTarget = this.options.inputTarget || element;
-
-    this.handlers = {};
-    this.session = {};
-    this.recognizers = [];
-    this.oldCssProps = {};
-
-    this.element = element;
-    this.input = createInputInstance(this);
-    this.touchAction = new TouchAction(this, this.options.touchAction);
-
-    toggleCssProps(this, true);
-
-    each(this.options.recognizers, function(item) {
-        var recognizer = this.add(new (item[0])(item[1]));
-        item[2] && recognizer.recognizeWith(item[2]);
-        item[3] && recognizer.requireFailure(item[3]);
-    }, this);
-}
-
-Manager.prototype = {
-    /**
-     * set options
-     * @param {Object} options
-     * @returns {Manager}
-     */
-    set: function(options) {
-        assign(this.options, options);
-
-        // Options that need a little more setup
-        if (options.touchAction) {
-            this.touchAction.update();
-        }
-        if (options.inputTarget) {
-            // Clean up existing event listeners and reinitialize
-            this.input.destroy();
-            this.input.target = options.inputTarget;
-            this.input.init();
-        }
-        return this;
-    },
-
-    /**
-     * stop recognizing for this session.
-     * This session will be discarded, when a new [input]start event is fired.
-     * When forced, the recognizer cycle is stopped immediately.
-     * @param {Boolean} [force]
-     */
-    stop: function(force) {
-        this.session.stopped = force ? FORCED_STOP : STOP;
-    },
-
-    /**
-     * run the recognizers!
-     * called by the inputHandler function on every movement of the pointers (touches)
-     * it walks through all the recognizers and tries to detect the gesture that is being made
-     * @param {Object} inputData
-     */
-    recognize: function(inputData) {
-        var session = this.session;
-        if (session.stopped) {
-            return;
-        }
-
-        // run the touch-action polyfill
-        this.touchAction.preventDefaults(inputData);
-
-        var recognizer;
-        var recognizers = this.recognizers;
-
-        // this holds the recognizer that is being recognized.
-        // so the recognizer's state needs to be BEGAN, CHANGED, ENDED or RECOGNIZED
-        // if no recognizer is detecting a thing, it is set to `null`
-        var curRecognizer = session.curRecognizer;
-
-        // reset when the last recognizer is recognized
-        // or when we're in a new session
-        if (!curRecognizer || (curRecognizer && curRecognizer.state & STATE_RECOGNIZED)) {
-            curRecognizer = session.curRecognizer = null;
-        }
-
-        var i = 0;
-        while (i < recognizers.length) {
-            recognizer = recognizers[i];
-
-            // find out if we are allowed try to recognize the input for this one.
-            // 1.   allow if the session is NOT forced stopped (see the .stop() method)
-            // 2.   allow if we still haven't recognized a gesture in this session, or the this recognizer is the one
-            //      that is being recognized.
-            // 3.   allow if the recognizer is allowed to run simultaneous with the current recognized recognizer.
-            //      this can be setup with the `recognizeWith()` method on the recognizer.
-            if (session.stopped !== FORCED_STOP && ( // 1
-                    !curRecognizer || recognizer == curRecognizer || // 2
-                    recognizer.canRecognizeWith(curRecognizer))) { // 3
-                recognizer.recognize(inputData);
-            } else {
-                recognizer.reset();
-            }
-
-            // if the recognizer has been recognizing the input as a valid gesture, we want to store this one as the
-            // current active recognizer. but only if we don't already have an active recognizer
-            if (!curRecognizer && recognizer.state & (STATE_BEGAN | STATE_CHANGED | STATE_ENDED)) {
-                curRecognizer = session.curRecognizer = recognizer;
-            }
-            i++;
-        }
-    },
-
-    /**
-     * get a recognizer by its event name.
-     * @param {Recognizer|String} recognizer
-     * @returns {Recognizer|Null}
-     */
-    get: function(recognizer) {
-        if (recognizer instanceof Recognizer) {
-            return recognizer;
-        }
-
-        var recognizers = this.recognizers;
-        for (var i = 0; i < recognizers.length; i++) {
-            if (recognizers[i].options.event == recognizer) {
-                return recognizers[i];
-            }
-        }
-        return null;
-    },
-
-    /**
-     * add a recognizer to the manager
-     * existing recognizers with the same event name will be removed
-     * @param {Recognizer} recognizer
-     * @returns {Recognizer|Manager}
-     */
-    add: function(recognizer) {
-        if (invokeArrayArg(recognizer, 'add', this)) {
-            return this;
-        }
-
-        // remove existing
-        var existing = this.get(recognizer.options.event);
-        if (existing) {
-            this.remove(existing);
-        }
-
-        this.recognizers.push(recognizer);
-        recognizer.manager = this;
-
-        this.touchAction.update();
-        return recognizer;
-    },
-
-    /**
-     * remove a recognizer by name or instance
-     * @param {Recognizer|String} recognizer
-     * @returns {Manager}
-     */
-    remove: function(recognizer) {
-        if (invokeArrayArg(recognizer, 'remove', this)) {
-            return this;
-        }
-
-        recognizer = this.get(recognizer);
-
-        // let's make sure this recognizer exists
-        if (recognizer) {
-            var recognizers = this.recognizers;
-            var index = inArray(recognizers, recognizer);
-
-            if (index !== -1) {
-                recognizers.splice(index, 1);
-                this.touchAction.update();
-            }
-        }
-
-        return this;
-    },
-
-    /**
-     * bind event
-     * @param {String} events
-     * @param {Function} handler
-     * @returns {EventEmitter} this
-     */
-    on: function(events, handler) {
-        if (events === undefined) {
-            return;
-        }
-        if (handler === undefined) {
-            return;
-        }
-
-        var handlers = this.handlers;
-        each(splitStr(events), function(event) {
-            handlers[event] = handlers[event] || [];
-            handlers[event].push(handler);
-        });
-        return this;
-    },
-
-    /**
-     * unbind event, leave emit blank to remove all handlers
-     * @param {String} events
-     * @param {Function} [handler]
-     * @returns {EventEmitter} this
-     */
-    off: function(events, handler) {
-        if (events === undefined) {
-            return;
-        }
-
-        var handlers = this.handlers;
-        each(splitStr(events), function(event) {
-            if (!handler) {
-                delete handlers[event];
-            } else {
-                handlers[event] && handlers[event].splice(inArray(handlers[event], handler), 1);
-            }
-        });
-        return this;
-    },
-
-    /**
-     * emit event to the listeners
-     * @param {String} event
-     * @param {Object} data
-     */
-    emit: function(event, data) {
-        // we also want to trigger dom events
-        if (this.options.domEvents) {
-            triggerDomEvent(event, data);
-        }
-
-        // no handlers, so skip it all
-        var handlers = this.handlers[event] && this.handlers[event].slice();
-        if (!handlers || !handlers.length) {
-            return;
-        }
-
-        data.type = event;
-        data.preventDefault = function() {
-            data.srcEvent.preventDefault();
-        };
-
-        var i = 0;
-        while (i < handlers.length) {
-            handlers[i](data);
-            i++;
-        }
-    },
-
-    /**
-     * destroy the manager and unbinds all events
-     * it doesn't unbind dom events, that is the user own responsibility
-     */
-    destroy: function() {
-        this.element && toggleCssProps(this, false);
-
-        this.handlers = {};
-        this.session = {};
-        this.input.destroy();
-        this.element = null;
-    }
-};
-
-/**
- * add/remove the css properties as defined in manager.options.cssProps
- * @param {Manager} manager
- * @param {Boolean} add
- */
-function toggleCssProps(manager, add) {
-    var element = manager.element;
-    if (!element.style) {
-        return;
-    }
-    var prop;
-    each(manager.options.cssProps, function(value, name) {
-        prop = prefixed(element.style, name);
-        if (add) {
-            manager.oldCssProps[prop] = element.style[prop];
-            element.style[prop] = value;
-        } else {
-            element.style[prop] = manager.oldCssProps[prop] || '';
-        }
-    });
-    if (!add) {
-        manager.oldCssProps = {};
-    }
-}
-
-/**
- * trigger dom event
- * @param {String} event
- * @param {Object} data
- */
-function triggerDomEvent(event, data) {
-    var gestureEvent = document.createEvent('Event');
-    gestureEvent.initEvent(event, true, true);
-    gestureEvent.gesture = data;
-    data.target.dispatchEvent(gestureEvent);
-}
-
-assign(Hammer, {
-    INPUT_START: INPUT_START,
-    INPUT_MOVE: INPUT_MOVE,
-    INPUT_END: INPUT_END,
-    INPUT_CANCEL: INPUT_CANCEL,
-
-    STATE_POSSIBLE: STATE_POSSIBLE,
-    STATE_BEGAN: STATE_BEGAN,
-    STATE_CHANGED: STATE_CHANGED,
-    STATE_ENDED: STATE_ENDED,
-    STATE_RECOGNIZED: STATE_RECOGNIZED,
-    STATE_CANCELLED: STATE_CANCELLED,
-    STATE_FAILED: STATE_FAILED,
-
-    DIRECTION_NONE: DIRECTION_NONE,
-    DIRECTION_LEFT: DIRECTION_LEFT,
-    DIRECTION_RIGHT: DIRECTION_RIGHT,
-    DIRECTION_UP: DIRECTION_UP,
-    DIRECTION_DOWN: DIRECTION_DOWN,
-    DIRECTION_HORIZONTAL: DIRECTION_HORIZONTAL,
-    DIRECTION_VERTICAL: DIRECTION_VERTICAL,
-    DIRECTION_ALL: DIRECTION_ALL,
-
-    Manager: Manager,
-    Input: Input,
-    TouchAction: TouchAction,
-
-    TouchInput: TouchInput,
-    MouseInput: MouseInput,
-    PointerEventInput: PointerEventInput,
-    TouchMouseInput: TouchMouseInput,
-    SingleTouchInput: SingleTouchInput,
-
-    Recognizer: Recognizer,
-    AttrRecognizer: AttrRecognizer,
-    Tap: TapRecognizer,
-    Pan: PanRecognizer,
-    Swipe: SwipeRecognizer,
-    Pinch: PinchRecognizer,
-    Rotate: RotateRecognizer,
-    Press: PressRecognizer,
-
-    on: addEventListeners,
-    off: removeEventListeners,
-    each: each,
-    merge: merge,
-    extend: extend,
-    assign: assign,
-    inherit: inherit,
-    bindFn: bindFn,
-    prefixed: prefixed
-});
-
-// this prevents errors when Hammer is loaded in the presence of an AMD
-//  style loader but by script tag, not by the loader.
-var freeGlobal = (typeof window !== 'undefined' ? window : (typeof self !== 'undefined' ? self : {})); // jshint ignore:line
-freeGlobal.Hammer = Hammer;
-
-if (typeof define === 'function' && define.amd) {
-    define(function() {
-        return Hammer;
-    });
-} else if (typeof module != 'undefined' && module.exports) {
-    module.exports = Hammer;
-} else {
-    window[exportName] = Hammer;
-}
-
-})(window, document, 'Hammer');
-(function(factory) {
-    if (typeof define === 'function' && define.amd) {
-        define(['jquery', 'hammerjs'], factory);
-    } else if (typeof exports === 'object') {
-        factory(require('jquery'), require('hammerjs'));
-    } else {
-        factory(jQuery, Hammer);
-    }
-}(function($, Hammer) {
-    function hammerify(el, options) {
-        var $el = $(el);
-        if(!$el.data("hammer")) {
-            $el.data("hammer", new Hammer($el[0], options));
-        }
-    }
-
-    $.fn.hammer = function(options) {
-        return this.each(function() {
-            hammerify(this, options);
-        });
-    };
-
-    // extend the emit method to also trigger jQuery events
-    Hammer.Manager.prototype.emit = (function(originalEmit) {
-        return function(type, data) {
-            originalEmit.call(this, type, data);
-            $(this.element).trigger({
-                type: type,
-                gesture: data
-            });
-        };
-    })(Hammer.Manager.prototype.emit);
-}));
-
 "use strict";
 
-(function ($) {
-  let MENU_WIDTH = 240;
-  let SN_BREAKPOINT = 1440;
-  let MENU_WIDTH_HALF = 2;
-  let MENU_LEFT_MIN_BORDER = 0.3;
-  let MENU_LEFT_MAX_BORDER = -0.5;
-  let MENU_RIGHT_MIN_BORDER = -0.3;
-  let MENU_RIGHT_MAX_BORDER = 0.5;
-  let MENU_VELOCITY_OFFSET = 10;
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  class SideNav {
-    constructor(element, options) {
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+(function ($) {
+  var MENU_WIDTH = 240;
+  var SN_BREAKPOINT = 1440;
+  var MENU_WIDTH_HALF = 2;
+  var MENU_LEFT_MIN_BORDER = 0.3;
+  var MENU_LEFT_MAX_BORDER = -0.5;
+  var MENU_RIGHT_MIN_BORDER = -0.3;
+  var MENU_RIGHT_MAX_BORDER = 0.5;
+  var MENU_VELOCITY_OFFSET = 10;
+  var MENU_TIME_DURATION_OPEN = 300;
+  var MENU_TIME_DURATION_CLOSE = 200;
+  var MENU_TIME_DURATION_OVERLAY_OPEN = 50;
+  var MENU_TIME_DURATION_OVERLAY_CLOSE = 200;
+  var MENU_EASING_OPEN = 'easeOutQuad';
+  var MENU_EASING_CLOSE = 'easeOutCubic';
+  var SHOW_OVERLAY = true;
+  var SHOW_CLOSE_BUTTON = false;
+
+  var SideNav =
+  /*#__PURE__*/
+  function () {
+    function SideNav(element, options) {
+      _classCallCheck(this, SideNav);
+
       this.defaults = {
-        MENU_WIDTH,
+        MENU_WIDTH: MENU_WIDTH,
         edge: 'left',
-        closeOnClick: false
+        closeOnClick: false,
+        breakpoint: SN_BREAKPOINT,
+        timeDurationOpen: MENU_TIME_DURATION_OPEN,
+        timeDurationClose: MENU_TIME_DURATION_CLOSE,
+        timeDurationOverlayOpen: MENU_TIME_DURATION_OVERLAY_OPEN,
+        timeDurationOverlayClose: MENU_TIME_DURATION_OVERLAY_CLOSE,
+        easingOpen: MENU_EASING_OPEN,
+        easingClose: MENU_EASING_CLOSE,
+        showOverlay: SHOW_OVERLAY,
+        showCloseButton: SHOW_CLOSE_BUTTON
       };
       this.$element = element;
+      this.$elementCloned = element.clone().css({
+        display: 'inline-block',
+        lineHeight: '24px'
+      });
       this.options = this.assignOptions(options);
       this.menuOut = false;
+      this.lastTouchVelocity = {
+        x: {
+          startPosition: 0,
+          startTime: 0,
+          endPosition: 0,
+          endTime: 0
+        }
+      };
       this.$body = $('body');
-      this.$menu = $(`#${this.$element.attr('data-activates')}`);
+      this.$menu = $("#".concat(this.$element.attr('data-activates')));
       this.$sidenavOverlay = $('#sidenav-overlay');
       this.$dragTarget = $('<div class="drag-target"></div>');
       this.$body.append(this.$dragTarget);
       this.init();
     }
 
-    init() {
-      this.setMenuWidth();
-      this.setMenuTranslation();
-      this.closeOnClick();
-      this.openOnClick();
-      this.bindTouchEvents();
-    }
-
-    bindTouchEvents() {
-      var _this = this;
-
-      this.$dragTarget.on('click', function () {
-        _this.removeMenu();
-      });
-      this.$dragTarget.hammer({
-        prevent_default: false
-      }).bind('pan', this.panEventHandler.bind(this)).bind('panend', this.panendEventHandler.bind(this));
-    }
-
-    panEventHandler(e) {
-      if (e.gesture.pointerType !== 'touch') {
-        return;
+    _createClass(SideNav, [{
+      key: "init",
+      value: function init() {
+        this.setMENU_WIDTH();
+        this.setMenuTranslation();
+        this.closeOnClick();
+        this.openOnClick();
+        this.bindTouchEvents();
+        this.showCloseButton();
       }
+    }, {
+      key: "bindTouchEvents",
+      value: function bindTouchEvents() {
+        var _this = this;
 
-      let touchX = e.gesture.center.x;
-      this.disableScrolling();
-      let overlayExists = this.$sidenavOverlay.length !== 0;
+        this.$dragTarget.on('click', function () {
+          _this.removeMenu();
+        });
+        this.$elementCloned.on('click', function () {
+          _this.removeMenu();
+        });
+        this.$dragTarget.on('touchstart', function (e) {
+          _this.lastTouchVelocity.x.startPosition = e.touches[0].clientX;
+          _this.lastTouchVelocity.x.startTime = Date.now();
+        });
+        this.$dragTarget.on('touchmove', this.touchmoveEventHandler.bind(this));
+        this.$dragTarget.on('touchend', this.touchendEventHandler.bind(this));
+      }
+    }, {
+      key: "touchmoveEventHandler",
+      value: function touchmoveEventHandler(e) {
+        if (e.type !== 'touchmove') {
+          return;
+        }
 
-      if (!overlayExists) {
-        this.buildSidenavOverlay();
-      } // Keep within boundaries
+        var touch = e.touches[0];
+        var touchX = touch.clientX; // calculate velocity every 20ms
+
+        if (Date.now() - this.lastTouchVelocity.x.startTime > 20) {
+          this.lastTouchVelocity.x.startPosition = touch.clientX;
+          this.lastTouchVelocity.x.startTime = Date.now();
+        }
+
+        this.disableScrolling();
+        var overlayExists = this.$sidenavOverlay.length !== 0;
+
+        if (!overlayExists) {
+          this.buildSidenavOverlay();
+        } // Keep within boundaries
 
 
-      if (this.options.edge === 'left') {
-        if (touchX > this.options.MENU_WIDTH) {
-          touchX = this.options.MENU_WIDTH;
-        } else if (touchX < 0) {
-          touchX = 0;
+        if (this.options.edge === 'left') {
+          if (touchX > this.options.MENU_WIDTH) {
+            touchX = this.options.MENU_WIDTH;
+          } else if (touchX < 0) {
+            touchX = 0;
+          }
+        }
+
+        this.translateSidenavX(touchX);
+        this.updateOverlayOpacity(touchX);
+      }
+    }, {
+      key: "panEventHandler",
+      value: function panEventHandler(e) {
+        if (e.gesture.pointerType !== 'touch') {
+          return;
+        }
+
+        var touchX = e.gesture.center.x;
+        this.disableScrolling();
+        var overlayExists = this.$sidenavOverlay.length !== 0;
+
+        if (!overlayExists) {
+          this.buildSidenavOverlay();
+        } // Keep within boundaries
+
+
+        if (this.options.edge === 'left') {
+          if (touchX > this.options.MENU_WIDTH) {
+            touchX = this.options.MENU_WIDTH;
+          } else if (touchX < 0) {
+            touchX = 0;
+          }
+        }
+
+        this.translateSidenavX(touchX);
+        this.updateOverlayOpacity(touchX);
+      }
+    }, {
+      key: "translateSidenavX",
+      value: function translateSidenavX(touchX) {
+        if (this.options.edge === 'left') {
+          var isRightDirection = touchX >= this.options.MENU_WIDTH / MENU_WIDTH_HALF;
+          this.menuOut = isRightDirection;
+          this.$menu.css('transform', "translateX(".concat(touchX - this.options.MENU_WIDTH, "px)"));
+        } else {
+          var isLeftDirection = touchX < window.innerWidth - this.options.MENU_WIDTH / MENU_WIDTH_HALF;
+          this.menuOut = isLeftDirection;
+          var rightPos = touchX - this.options.MENU_WIDTH / MENU_WIDTH_HALF;
+
+          if (rightPos < 0) {
+            rightPos = 0;
+          }
+
+          this.$menu.css('transform', "translateX(".concat(rightPos, "px)"));
         }
       }
+    }, {
+      key: "updateOverlayOpacity",
+      value: function updateOverlayOpacity(touchX) {
+        var overlayPercentage;
 
-      this.translateSidenavX(touchX);
-      this.updateOverlayOpacity(touchX);
-    }
+        if (this.options.edge === 'left') {
+          overlayPercentage = touchX / this.options.MENU_WIDTH;
+        } else {
+          overlayPercentage = Math.abs((touchX - window.innerWidth) / this.options.MENU_WIDTH);
+        }
 
-    translateSidenavX(touchX) {
-      if (this.options.edge === 'left') {
-        let isRightDirection = touchX >= this.options.MENU_WIDTH / MENU_WIDTH_HALF;
-        this.menuOut = isRightDirection;
-        this.$menu.css('transform', `translateX(${touchX - this.options.MENU_WIDTH}px)`);
-      } else {
-        let isLeftDirection = touchX < window.innerWidth - this.options.MENU_WIDTH / MENU_WIDTH_HALF;
-        this.menuOut = isLeftDirection;
-        let rightPos = touchX - this.options.MENU_WIDTH / MENU_WIDTH_HALF;
+        this.$sidenavOverlay.velocity({
+          opacity: overlayPercentage
+        }, {
+          duration: 10,
+          queue: false,
+          easing: this.options.easingOpen
+        });
+      }
+    }, {
+      key: "buildSidenavOverlay",
+      value: function buildSidenavOverlay() {
+        var _this2 = this;
+
+        if (this.options.showOverlay === true) {
+          this.$sidenavOverlay = $('<div id="sidenav-overlay"></div>');
+          this.$sidenavOverlay.css('opacity', 0).on('click', function () {
+            _this2.removeMenu();
+          });
+          this.$body.append(this.$sidenavOverlay);
+        }
+      }
+    }, {
+      key: "disableScrolling",
+      value: function disableScrolling() {
+        var oldWidth = this.$body.innerWidth();
+        this.$body.css('overflow', 'hidden');
+        this.$body.width(oldWidth);
+      }
+    }, {
+      key: "touchendEventHandler",
+      value: function touchendEventHandler(e) {
+        if (e.type !== 'touchend') {
+          return;
+        }
+
+        var touch = e.changedTouches[0];
+        this.lastTouchVelocity.x.endTime = Date.now();
+        this.lastTouchVelocity.x.endPosition = touch.clientX;
+        var velocityX = this.calculateTouchVelocityX();
+        var touchX = touch.clientX;
+        var leftPos = touchX - this.options.MENU_WIDTH;
+        var rightPos = touchX - this.options.MENU_WIDTH / MENU_WIDTH_HALF;
+
+        if (leftPos > 0) {
+          leftPos = 0;
+        }
 
         if (rightPos < 0) {
           rightPos = 0;
         }
 
-        this.$menu.css('transform', `translateX(${rightPos}px)`);
-      }
-    }
-
-    updateOverlayOpacity(touchX) {
-      let overlayPercentage;
-
-      if (this.options.edge === 'left') {
-        overlayPercentage = touchX / this.options.MENU_WIDTH;
-      } else {
-        overlayPercentage = Math.abs((touchX - window.innerWidth) / this.options.MENU_WIDTH);
-      }
-
-      this.$sidenavOverlay.velocity({
-        opacity: overlayPercentage
-      }, {
-        duration: 10,
-        queue: false,
-        easing: 'easeOutQuad'
-      });
-    }
-
-    buildSidenavOverlay() {
-      var _this2 = this;
-
-      this.$sidenavOverlay = $('<div id="sidenav-overlay"></div>');
-      this.$sidenavOverlay.css('opacity', 0).on('click', function () {
-        _this2.removeMenu();
-      });
-      this.$body.append(this.$sidenavOverlay);
-    }
-
-    disableScrolling() {
-      let oldWidth = this.$body.innerWidth();
-      this.$body.css('overflow', 'hidden');
-      this.$body.width(oldWidth);
-    }
-
-    panendEventHandler(e) {
-      if (e.gesture.pointerType !== 'touch') {
-        return;
-      }
-
-      let velocityX = e.gesture.velocityX;
-      let touchX = e.gesture.center.x;
-      let leftPos = touchX - this.options.MENU_WIDTH;
-      let rightPos = touchX - this.options.MENU_WIDTH / MENU_WIDTH_HALF;
-
-      if (leftPos > 0) {
-        leftPos = 0;
-      }
-
-      if (rightPos < 0) {
-        rightPos = 0;
-      }
-
-      if (this.options.edge === 'left') {
-        // If velocityX <= 0.3 then the user is flinging the menu closed so ignore this.menuOut
-        if (this.menuOut && velocityX <= MENU_LEFT_MIN_BORDER || velocityX < MENU_LEFT_MAX_BORDER) {
-          if (leftPos !== 0) {
-            this.translateMenuX([0, leftPos], '300');
-          }
-
-          this.showSidenavOverlay();
-        } else if (!this.menuOut || velocityX > MENU_LEFT_MIN_BORDER) {
-          this.enableScrolling();
-          this.translateMenuX([-1 * this.options.MENU_WIDTH - MENU_VELOCITY_OFFSET, leftPos], '200');
-          this.hideSidenavOverlay();
-        }
-
-        this.$dragTarget.css({
-          width: '10px',
-          right: '',
-          left: 0
-        });
-      } else if (this.menuOut && velocityX >= MENU_RIGHT_MIN_BORDER || velocityX > MENU_RIGHT_MAX_BORDER) {
-        this.translateMenuX([0, rightPos], '300');
-        this.showSidenavOverlay();
-        this.$dragTarget.css({
-          width: '50%',
-          right: '',
-          left: 0
-        });
-      } else if (!this.menuOut || velocityX < MENU_RIGHT_MIN_BORDER) {
-        this.enableScrolling();
-        this.translateMenuX([this.options.MENU_WIDTH + MENU_VELOCITY_OFFSET, rightPos], '200');
-        this.hideSidenavOverlay();
-        this.$dragTarget.css({
-          width: '10px',
-          right: 0,
-          left: ''
-        });
-      }
-    }
-
-    translateMenuX(fromTo, duration) {
-      this.$menu.velocity({
-        translateX: fromTo
-      }, {
-        duration: typeof duration === 'string' ? Number(duration) : duration,
-        queue: false,
-        easing: 'easeOutQuad'
-      });
-    }
-
-    hideSidenavOverlay() {
-      this.$sidenavOverlay.velocity({
-        opacity: 0
-      }, {
-        duration: 200,
-        queue: false,
-        easing: 'easeOutQuad',
-
-        complete() {
-          $(this).remove();
-        }
-
-      });
-      this.$sidenavOverlay = $();
-    }
-
-    showSidenavOverlay() {
-      this.$sidenavOverlay.velocity({
-        opacity: 1
-      }, {
-        duration: 50,
-        queue: false,
-        easing: 'easeOutQuad'
-      });
-    }
-
-    enableScrolling() {
-      this.$body.css({
-        overflow: '',
-        width: ''
-      });
-    }
-
-    openOnClick() {
-      var _this3 = this;
-
-      this.$element.on('click', function (e) {
-        e.preventDefault();
-
-        if (_this3.menuOut === true) {
-          _this3.menuOut = false;
-
-          _this3.removeMenu();
-        } else {
-          _this3.$sidenavOverlay = $('<div id="sidenav-overlay"></div>');
-
-          _this3.$body.append(_this3.$sidenavOverlay);
-
-          let translateX = [];
-
-          if (_this3.options.edge === 'left') {
-            translateX = [0, -1 * _this3.options.MENU_WIDTH];
-          } else {
-            translateX = [0, _this3.options.MENU_WIDTH];
-          }
-
-          _this3.$menu.velocity({
-            translateX
-          }, {
-            duration: 300,
-            queue: false,
-            easing: 'easeOutQuad'
-          });
-
-          _this3.$sidenavOverlay.on('click', function () {
-            _this3.removeMenu();
-          });
-        }
-      });
-    }
-
-    closeOnClick() {
-      var _this4 = this;
-
-      if (this.options.closeOnClick === true) {
-        this.$menu.on('click', 'a:not(.collapsible-header)', function () {
-          _this4.removeMenu();
-        });
-      }
-    }
-
-    setMenuTranslation() {
-      var _this5 = this;
-
-      if (this.options.edge === 'left') {
-        this.$menu.css('transform', 'translateX(-100%)');
-        this.$dragTarget.css({
-          left: 0
-        });
-      } else {
-        this.$menu.addClass('right-aligned').css('transform', 'translateX(100%)');
-        this.$dragTarget.css({
-          right: 0
-        });
-      }
-
-      if (this.$menu.hasClass('fixed')) {
-        if (window.innerWidth > SN_BREAKPOINT) {
-          this.$menu.css('transform', 'translateX(0)');
-        }
-
-        $(window).resize(function () {
-          if (window.innerWidth > SN_BREAKPOINT) {
-            if (_this5.$sidenavOverlay.length) {
-              _this5.removeMenu(true);
-            } else {
-              _this5.$menu.css('transform', 'translateX(0%)');
+        if (this.options.edge === 'left') {
+          // If velocityX <= 0.3 then the user is flinging the menu closed so ignore this.menuOut
+          if (this.menuOut && velocityX <= MENU_LEFT_MIN_BORDER || velocityX < MENU_LEFT_MAX_BORDER) {
+            if (leftPos !== 0) {
+              this.translateMenuX([0, leftPos], '300');
             }
-          } else if (_this5.menuOut === false) {
-            let xValue = _this5.options.edge === 'left' ? '-100' : '100';
 
-            _this5.$menu.css('transform', `translateX(${xValue}%)`);
+            this.showSidenavOverlay();
+          } else if (!this.menuOut || velocityX > MENU_LEFT_MIN_BORDER) {
+            this.enableScrolling();
+            this.translateMenuX([-1 * this.options.MENU_WIDTH - MENU_VELOCITY_OFFSET, leftPos], '200');
+            this.hideSidenavOverlay();
+          }
+
+          this.$dragTarget.css({
+            width: '10px',
+            right: '',
+            left: 0
+          });
+        } else if (this.menuOut && velocityX >= MENU_RIGHT_MIN_BORDER || velocityX > MENU_RIGHT_MAX_BORDER) {
+          this.translateMenuX([0, rightPos], '300');
+          this.showSidenavOverlay();
+          this.$dragTarget.css({
+            width: '50%',
+            right: '',
+            left: 0
+          });
+        } else if (!this.menuOut || velocityX < MENU_RIGHT_MIN_BORDER) {
+          this.enableScrolling();
+          this.translateMenuX([this.options.MENU_WIDTH + MENU_VELOCITY_OFFSET, rightPos], '200');
+          this.hideSidenavOverlay();
+          this.$dragTarget.css({
+            width: '10px',
+            right: 0,
+            left: ''
+          });
+        }
+      }
+    }, {
+      key: "calculateTouchVelocityX",
+      value: function calculateTouchVelocityX() {
+        var distance = Math.abs(this.lastTouchVelocity.x.endPosition - this.lastTouchVelocity.x.startPosition);
+        var time = Math.abs(this.lastTouchVelocity.x.endTime - this.lastTouchVelocity.x.startTime);
+        return distance / time;
+      }
+    }, {
+      key: "panendEventHandler",
+      value: function panendEventHandler(e) {
+        if (e.gesture.pointerType !== 'touch') {
+          return;
+        }
+
+        var velocityX = e.gesture.velocityX;
+        var touchX = e.gesture.center.x;
+        var leftPos = touchX - this.options.MENU_WIDTH;
+        var rightPos = touchX - this.options.MENU_WIDTH / MENU_WIDTH_HALF;
+
+        if (leftPos > 0) {
+          leftPos = 0;
+        }
+
+        if (rightPos < 0) {
+          rightPos = 0;
+        }
+
+        if (this.options.edge === 'left') {
+          // If velocityX <= 0.3 then the user is flinging the menu closed so ignore this.menuOut
+          if (this.menuOut && velocityX <= MENU_LEFT_MIN_BORDER || velocityX < MENU_LEFT_MAX_BORDER) {
+            if (leftPos !== 0) {
+              this.translateMenuX([0, leftPos], '300');
+            }
+
+            this.showSidenavOverlay();
+          } else if (!this.menuOut || velocityX > MENU_LEFT_MIN_BORDER) {
+            this.enableScrolling();
+            this.translateMenuX([-1 * this.options.MENU_WIDTH - MENU_VELOCITY_OFFSET, leftPos], '200');
+            this.hideSidenavOverlay();
+          }
+
+          this.$dragTarget.css({
+            width: '10px',
+            right: '',
+            left: 0
+          });
+        } else if (this.menuOut && velocityX >= MENU_RIGHT_MIN_BORDER || velocityX > MENU_RIGHT_MAX_BORDER) {
+          this.translateMenuX([0, rightPos], '300');
+          this.showSidenavOverlay();
+          this.$dragTarget.css({
+            width: '50%',
+            right: '',
+            left: 0
+          });
+        } else if (!this.menuOut || velocityX < MENU_RIGHT_MIN_BORDER) {
+          this.enableScrolling();
+          this.translateMenuX([this.options.MENU_WIDTH + MENU_VELOCITY_OFFSET, rightPos], '200');
+          this.hideSidenavOverlay();
+          this.$dragTarget.css({
+            width: '10px',
+            right: 0,
+            left: ''
+          });
+        }
+      }
+    }, {
+      key: "translateMenuX",
+      value: function translateMenuX(fromTo, duration) {
+        this.$menu.velocity({
+          translateX: fromTo
+        }, {
+          duration: typeof duration === 'string' ? Number(duration) : duration,
+          queue: false,
+          easing: this.options.easingOpen
+        });
+      }
+    }, {
+      key: "hideSidenavOverlay",
+      value: function hideSidenavOverlay() {
+        this.$sidenavOverlay.velocity({
+          opacity: 0
+        }, {
+          duration: this.options.timeDurationOverlayClose,
+          queue: false,
+          easing: this.options.easingOpen,
+          complete: function complete() {
+            $(this).remove();
+          }
+        });
+        this.$sidenavOverlay = $();
+      }
+    }, {
+      key: "showSidenavOverlay",
+      value: function showSidenavOverlay() {
+        this.$sidenavOverlay.velocity({
+          opacity: 1
+        }, {
+          duration: this.options.timeDurationOverlayOpen,
+          queue: false,
+          easing: this.options.easingOpen
+        });
+      }
+    }, {
+      key: "enableScrolling",
+      value: function enableScrolling() {
+        this.$body.css({
+          overflow: '',
+          width: ''
+        });
+      }
+    }, {
+      key: "openOnClick",
+      value: function openOnClick() {
+        var _this3 = this;
+
+        this.$element.on('click', function (e) {
+          e.preventDefault();
+
+          if (_this3.menuOut === true) {
+            _this3.menuOut = false;
+
+            _this3.removeMenu();
+          } else {
+            if (_this3.options.showOverlay === true) {
+              _this3.$sidenavOverlay = $('<div id="sidenav-overlay"></div>');
+
+              _this3.$body.append(_this3.$sidenavOverlay);
+            } else {
+              _this3.showCloseButton();
+            }
+
+            var translateX = [];
+
+            if (_this3.options.edge === 'left') {
+              translateX = [0, -1 * _this3.options.MENU_WIDTH];
+            } else {
+              translateX = [0, _this3.options.MENU_WIDTH];
+            }
+
+            _this3.$menu.velocity({
+              translateX: translateX
+            }, {
+              duration: _this3.options.timeDurationOpen,
+              queue: false,
+              easing: _this3.options.easingOpen
+            });
+
+            _this3.$sidenavOverlay.on('click', function () {
+              _this3.removeMenu();
+            });
           }
         });
       }
-    }
+    }, {
+      key: "closeOnClick",
+      value: function closeOnClick() {
+        var _this4 = this;
 
-    setMenuWidth() {
-      let $sidenavBg = $(`#${this.$menu.attr('id')}`).find('> .sidenav-bg');
-
-      if (this.options.MENU_WIDTH !== MENU_WIDTH) {
-        this.$menu.css('width', this.options.MENU_WIDTH);
-        $sidenavBg.css('width', this.options.MENU_WIDTH);
-      }
-    }
-
-    assignOptions(newOptions) {
-      return $.extend({}, this.defaults, newOptions);
-    }
-
-    removeMenu(restoreMenu) {
-      var _this6 = this;
-
-      this.$body.css({
-        overflow: '',
-        width: ''
-      });
-      this.$menu.velocity({
-        translateX: this.options.edge === 'left' ? '-100%' : '100%'
-      }, {
-        duration: 200,
-        queue: false,
-        easing: 'easeOutCubic',
-        complete: function complete() {
-          if (restoreMenu === true) {
-            _this6.$menu.removeAttr('style');
-
-            _this6.$menu.css('width', _this6.options.MENU_WIDTH);
-          }
+        if (this.options.closeOnClick === true) {
+          this.$menu.on('click', 'a:not(.collapsible-header)', function () {
+            _this4.removeMenu();
+          });
         }
-      });
-      this.hideSidenavOverlay();
-    }
+      }
+    }, {
+      key: "showCloseButton",
+      value: function showCloseButton() {
+        if (this.options.showCloseButton === true) {
+          this.$menu.prepend(this.$elementCloned);
+          this.$menu.find('.logo-wrapper').css({
+            borderTop: '1px solid rgba(153,153,153,.3)'
+          });
+        }
+      }
+    }, {
+      key: "setMenuTranslation",
+      value: function setMenuTranslation() {
+        var _this5 = this;
 
-    show() {
-      this.trigger('click');
-    }
+        if (this.options.edge === 'left') {
+          this.$menu.css('transform', 'translateX(-100%)');
+          this.$dragTarget.css({
+            left: 0
+          });
+        } else {
+          this.$menu.addClass('right-aligned').css('transform', 'translateX(100%)');
+          this.$dragTarget.css({
+            right: 0
+          });
+        }
 
-    hide() {
-      this.$sidenavOverlay.trigger('click');
-    }
+        if (this.$menu.hasClass('fixed')) {
+          if (window.innerWidth > this.options.breakpoint) {
+            this.$menu.css('transform', 'translateX(0)');
+          }
 
-  }
+          $(window).resize(function () {
+            if (window.innerWidth > _this5.options.breakpoint) {
+              if (_this5.$sidenavOverlay.length) {
+                _this5.removeMenu(true);
+              } else {
+                _this5.$menu.css('transform', 'translateX(0%)');
+              }
+            } else if (_this5.menuOut === false) {
+              var xValue = _this5.options.edge === 'left' ? '-100' : '100';
+
+              _this5.$menu.css('transform', "translateX(".concat(xValue, "%)"));
+            }
+          });
+        }
+      }
+    }, {
+      key: "setMENU_WIDTH",
+      value: function setMENU_WIDTH() {
+        var $sidenavBg = $("#".concat(this.$menu.attr('id'))).find('> .sidenav-bg');
+
+        if (this.options.MENU_WIDTH !== MENU_WIDTH) {
+          this.$menu.css('width', this.options.MENU_WIDTH);
+          $sidenavBg.css('width', this.options.MENU_WIDTH);
+        }
+      }
+    }, {
+      key: "assignOptions",
+      value: function assignOptions(newOptions) {
+        return $.extend({}, this.defaults, newOptions);
+      }
+    }, {
+      key: "removeMenu",
+      value: function removeMenu(restoreMenu) {
+        var _this6 = this;
+
+        this.$body.css({
+          overflow: '',
+          width: ''
+        });
+        this.$menu.velocity({
+          translateX: this.options.edge === 'left' ? '-100%' : '100%'
+        }, {
+          duration: this.options.timeDurationClose,
+          queue: false,
+          easing: this.options.easingClose,
+          complete: function complete() {
+            if (restoreMenu === true) {
+              _this6.$menu.removeAttr('style');
+
+              _this6.$menu.css('width', _this6.options.MENU_WIDTH);
+            }
+          }
+        });
+        this.hideSidenavOverlay();
+      }
+    }, {
+      key: "show",
+      value: function show() {
+        this.trigger('click');
+      }
+    }, {
+      key: "hide",
+      value: function hide() {
+        this.trigger('click');
+      }
+    }]);
+
+    return SideNav;
+  }();
 
   $.fn.sideNav = function (options) {
     return this.each(function () {
@@ -19677,11 +17272,23 @@ if (typeof define === 'function' && define.amd) {
     });
   };
 })(jQuery);
+
+$(function () {
+  $("#toggle").click(function () {
+    if ($("#slide-out").hasClass('slim')) {
+      $("#slide-out").removeClass('slim');
+      $(".sv-slim-icon").removeClass('fa-angle-double-right').addClass('fa-angle-double-left');
+    } else {
+      $("#slide-out").addClass('slim');
+      $(".sv-slim-icon").removeClass('fa-angle-double-left').addClass('fa-angle-double-right');
+    }
+  });
+});
 "use strict";
 
 (function ($) {
   $.fn.collapsible = function (options) {
-    let defaults = {
+    var defaults = {
       accordion: undefined
     };
     options = $.extend(defaults, options);
@@ -19700,22 +17307,18 @@ if (typeof define === 'function' && define.amd) {
           duration: 350,
           easing: 'easeOutQuart',
           queue: false,
-
-          complete() {
+          complete: function complete() {
             $(this).css('height', '');
           }
-
         });
       } else {
         object.siblings('.collapsible-body').stop(true, false).slideUp({
           duration: 350,
           easing: 'easeOutQuart',
           queue: false,
-
-          complete() {
+          complete: function complete() {
             $(this).css('height', '');
           }
-
         });
       }
 
@@ -19724,11 +17327,9 @@ if (typeof define === 'function' && define.amd) {
         duration: 350,
         easing: 'easeOutQuart',
         queue: false,
-
-        complete() {
+        complete: function complete() {
           $(this).css('height', '');
         }
-
       });
     }
 
@@ -19744,28 +17345,24 @@ if (typeof define === 'function' && define.amd) {
           duration: 350,
           easing: 'easeOutQuart',
           queue: false,
-
-          complete() {
+          complete: function complete() {
             $(this).css('height', '');
           }
-
         });
       } else {
         object.siblings('.collapsible-body').stop(true, false).slideUp({
           duration: 350,
           easing: 'easeOutQuart',
           queue: false,
-
-          complete() {
+          complete: function complete() {
             $(this).css('height', '');
           }
-
         });
       }
     }
 
     function isChildrenOfPanelHeader(object) {
-      let panelHeader = getPanelHeader(object);
+      var panelHeader = getPanelHeader(object);
       return panelHeader.length > 0;
     }
 
@@ -19774,9 +17371,9 @@ if (typeof define === 'function' && define.amd) {
     }
 
     return this.each(function () {
-      let $this = $(this);
-      let $panelHeaders = $(this).find('> li > .collapsible-header');
-      let collapsibleType = $this.data('collapsible'); // Turn off any existing event handlers
+      var $this = $(this);
+      var $panelHeaders = $(this).find('> li > .collapsible-header');
+      var collapsibleType = $this.data('collapsible'); // Turn off any existing event handlers
 
       $this.off('click.collapse', '.collapsible-header');
       $panelHeaders.off('click.collapse');
@@ -19784,7 +17381,7 @@ if (typeof define === 'function' && define.amd) {
       if (options.accordion || collapsibleType === 'accordion' || collapsibleType === undefined) {
         $panelHeaders = $this.find('> li > .collapsible-header');
         $panelHeaders.on('click.collapse', function (e) {
-          let element = $(e.target);
+          var element = $(e.target);
 
           if (isChildrenOfPanelHeader(element)) {
             element = getPanelHeader(element);
@@ -19797,7 +17394,7 @@ if (typeof define === 'function' && define.amd) {
       } else {
         $panelHeaders.each(function () {
           $(this).on('click.collapse', function (e) {
-            let element = $(e.target);
+            var element = $(e.target);
 
             if (isChildrenOfPanelHeader(element)) {
               element = getPanelHeader(element);
@@ -20185,27 +17782,27 @@ $.fn.easyPieChart = function(options) {
 "use strict";
 
 (function ($) {
-  let rangeWrapper = '.range-field';
-  let rangeType = 'input[type=range]:not(.custom-range)';
-  let thumbHtml = '<span class="thumb"><span class="value"></span></span>';
-  let rangeMousedown = false;
-  let left;
+  var rangeWrapper = '.range-field';
+  var rangeType = 'input[type=range]:not(.custom-range):not(.multi-range)';
+  var thumbHtml = '<span class="thumb"><span class="value"></span></span>';
+  var rangeMousedown = false;
+  var left;
 
-  let addThumb = function addThumb() {
-    let $thumb = $(thumbHtml);
+  var addThumb = function addThumb() {
+    var $thumb = $(thumbHtml);
     $(rangeType).after($thumb);
   };
 
   $(document).on('change', rangeType, function () {
-    let $thumb = $(this);
-    let $thumbValue = $thumb.siblings('.thumb').find('.value');
+    var $thumb = $(this);
+    var $thumbValue = $thumb.siblings('.thumb').find('.value');
     $thumbValue.html($thumb.val());
   });
   $(document).on('input mousedown touchstart', rangeType, function (e) {
-    let $this = $(this);
-    let $thumb = $this.siblings('.thumb');
-    let width = $this.outerWidth();
-    let noThumb = !$thumb.length;
+    var $this = $(this);
+    var $thumb = $this.siblings('.thumb');
+    var width = $this.outerWidth();
+    var noThumb = !$thumb.length;
 
     if (noThumb) {
       addThumb();
@@ -20229,7 +17826,7 @@ $.fn.easyPieChart = function(options) {
     }
 
     if (e.type !== 'input') {
-      let isMobile = e.pageX === undefined || e.pageX === null;
+      var isMobile = e.pageX === undefined || e.pageX === null;
 
       if (isMobile) {
         left = e.originalEvent.touches[0].pageX - $(this).offset().left;
@@ -20253,8 +17850,8 @@ $.fn.easyPieChart = function(options) {
     $(this).removeClass('active');
   });
   $(document).on('mousemove touchmove', rangeWrapper, function (e) {
-    let $thumb = $(this).children('.thumb');
-    let left;
+    var $thumb = $(this).children('.thumb');
+    var left;
 
     if (rangeMousedown) {
       if (!$thumb.hasClass('active')) {
@@ -20269,7 +17866,7 @@ $.fn.easyPieChart = function(options) {
         });
       }
 
-      let isMobile = e.pageX === undefined || e.pageX === null;
+      var isMobile = e.pageX === undefined || e.pageX === null;
 
       if (isMobile) {
         left = e.originalEvent.touches[0].pageX - $(this).offset().left;
@@ -20277,7 +17874,7 @@ $.fn.easyPieChart = function(options) {
         left = e.pageX - $(this).offset().left;
       }
 
-      let width = $(this).outerWidth();
+      var width = $(this).outerWidth();
 
       if (left < 0) {
         left = 0;
@@ -20291,7 +17888,7 @@ $.fn.easyPieChart = function(options) {
   });
   $(document).on('mouseout touchleave', rangeWrapper, function () {
     if (!rangeMousedown) {
-      let $thumb = $(this).children('.thumb');
+      var $thumb = $(this).children('.thumb');
 
       if ($thumb.hasClass('active')) {
         $thumb.velocity({
@@ -20312,11 +17909,11 @@ $.fn.easyPieChart = function(options) {
 
 (function ($) {
   $(document).on('change', '.file-field input[type="file"]', function (e) {
-    let $this = $(e.target);
-    let $fileField = $this.closest('.file-field');
-    let $pathInput = $fileField.find('input.file-path');
-    let files = $this[0].files;
-    let fileNames = []; // files.forEach((file) => fileNames.push(file.name));
+    var $this = $(e.target);
+    var $fileField = $this.closest('.file-field');
+    var $pathInput = $fileField.find('input.file-path');
+    var files = $this[0].files;
+    var fileNames = []; // files.forEach((file) => fileNames.push(file.name));
 
     if (Array.isArray(files)) {
       files.forEach(function (file) {
@@ -20334,9 +17931,19 @@ $.fn.easyPieChart = function(options) {
 })(jQuery);
 "use strict";
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 (function ($) {
-  class MaterialSelect {
-    constructor($nativeSelect, options) {
+  var MaterialSelect =
+  /*#__PURE__*/
+  function () {
+    function MaterialSelect($nativeSelect, options) {
+      _classCallCheck(this, MaterialSelect);
+
       this.options = options;
       this.$nativeSelect = $nativeSelect;
       this.isMultiple = Boolean(this.$nativeSelect.attr('multiple'));
@@ -20344,10 +17951,10 @@ $.fn.easyPieChart = function(options) {
       this.isRequired = Boolean(this.$nativeSelect.attr('required'));
       this.uuid = this._randomUUID();
       this.$selectWrapper = $('<div class="select-wrapper"></div>');
-      this.$materialOptionsList = $(`<ul id="select-options-${this.uuid}" class="dropdown-content select-dropdown w-100 ${this.isMultiple ? 'multiple-select-dropdown' : ''}"></ul>`);
+      this.$materialOptionsList = $("<ul id=\"select-options-".concat(this.uuid, "\" class=\"dropdown-content select-dropdown w-100 ").concat(this.isMultiple ? 'multiple-select-dropdown' : '', "\"></ul>"));
       this.$materialSelectInitialOption = $nativeSelect.find('option:selected').html() || $nativeSelect.find('option:first').html() || '';
       this.$nativeSelectChildren = this.$nativeSelect.children('option, optgroup');
-      this.$materialSelect = $(`<input type="text" class="select-dropdown" readonly="true" ${this.$nativeSelect.is(':disabled') ? 'disabled' : ''} data-activates="select-options-${this.uuid}" value=""/>`);
+      this.$materialSelect = $("<input type=\"text\" class=\"select-dropdown\" readonly=\"true\" ".concat(this.$nativeSelect.is(':disabled') ? 'disabled' : '', " data-activates=\"select-options-").concat(this.uuid, "\" value=\"\"/>"));
       this.$dropdownIcon = $('<span class="caret">&#9660;</span>');
       this.$searchInput = null;
       this.$toggleAll = $('<li class="select-toggle-all"><span><input type="checkbox" class="form-check-input"><label>Select all</label></span></li>');
@@ -20362,591 +17969,658 @@ $.fn.easyPieChart = function(options) {
       MaterialSelect.mutationObservers = [];
     }
 
-    static clearMutationObservers() {
-      MaterialSelect.mutationObservers.forEach(function (observer) {
-        observer.disconnect();
-        observer.customStatus = 'stopped';
-      });
-    }
+    _createClass(MaterialSelect, [{
+      key: "init",
+      value: function init() {
+        var alreadyInitialized = Boolean(this.$nativeSelect.data('select-id'));
 
-    init() {
-      let alreadyInitialized = Boolean(this.$nativeSelect.data('select-id'));
-
-      if (alreadyInitialized) {
-        this._removeMaterialWrapper();
-      }
-
-      if (this.options === 'destroy') {
-        this.$nativeSelect.data('select-id', null).removeClass('initialized');
-        return;
-      }
-
-      this.$nativeSelect.data('select-id', this.uuid);
-      this.$selectWrapper.addClass(this.$nativeSelect.attr('class'));
-      let sanitizedLabelHtml = this.$materialSelectInitialOption.replace(/"/g, '&quot;');
-      this.$materialSelect.val(sanitizedLabelHtml);
-      this.renderMaterialSelect();
-      this.bindEvents();
-
-      if (this.isRequired) {
-        this.enableValidation();
-      }
-    }
-
-    _removeMaterialWrapper() {
-      let currentUuid = this.$nativeSelect.data('select-id');
-      this.$nativeSelect.parent().find('span.caret').remove();
-      this.$nativeSelect.parent().find('input').remove();
-      this.$nativeSelect.unwrap();
-      $(`ul#select-options-${currentUuid}`).remove();
-    }
-
-    renderMaterialSelect() {
-      var _this = this;
-
-      this.$nativeSelect.before(this.$selectWrapper);
-      this.appendDropdownIcon();
-      this.appendMaterialSelect();
-      this.appendMaterialOptionsList();
-      this.appendNativeSelect();
-      this.appendSaveSelectButton();
-
-      if (!this.$nativeSelect.is(':disabled')) {
-        this.$materialSelect.dropdown({
-          hover: false,
-          closeOnClick: false
-        });
-      }
-
-      if (this.$nativeSelect.data('inherit-tabindex') !== false) {
-        this.$materialSelect.attr('tabindex', this.$nativeSelect.attr('tabindex'));
-      }
-
-      if (this.isMultiple) {
-        this.$nativeSelect.find('option:selected:not(:disabled)').each(function (i, element) {
-          let index = $(element).index();
-
-          _this._toggleSelectedValue(index);
-
-          _this.$materialOptionsList.find('li:not(.optgroup):not(.select-toggle-all)').eq(index).find(':checkbox').prop('checked', true);
-        });
-      } else {
-        let index = this.$nativeSelect.find('option:selected').index();
-        this.$materialOptionsList.find('li').eq(index).addClass('active');
-      }
-
-      this.$nativeSelect.addClass('initialized');
-    }
-
-    appendDropdownIcon() {
-      if (this.$nativeSelect.is(':disabled')) {
-        this.$dropdownIcon.addClass('disabled');
-      }
-
-      this.$selectWrapper.append(this.$dropdownIcon);
-    }
-
-    appendMaterialSelect() {
-      this.$selectWrapper.append(this.$materialSelect);
-    }
-
-    appendMaterialOptionsList() {
-      if (this.isSearchable) {
-        this.appendSearchInputOption();
-      }
-
-      this.buildMaterialOptions();
-
-      if (this.isMultiple) {
-        this.appendToggleAllCheckbox();
-      }
-
-      this.$selectWrapper.append(this.$materialOptionsList);
-    }
-
-    appendNativeSelect() {
-      this.$nativeSelect.appendTo(this.$selectWrapper);
-    }
-
-    appendSearchInputOption() {
-      let placeholder = this.$nativeSelect.attr('searchable');
-      this.$searchInput = $(`<span class="search-wrap ml-2"><div class="md-form mt-0"><input type="text" class="search form-control w-100 d-block" placeholder="${placeholder}"></div></span>`);
-      this.$materialOptionsList.append(this.$searchInput);
-    }
-
-    appendToggleAllCheckbox() {
-      this.$materialOptionsList.find('li.disabled').first().after(this.$toggleAll);
-    }
-
-    appendSaveSelectButton() {
-      this.$selectWrapper.parent().find('button.btn-save').appendTo(this.$materialOptionsList);
-    }
-
-    buildMaterialOptions() {
-      var _this2 = this;
-
-      this.$nativeSelectChildren.each(function (index, option) {
-        let $this = $(option);
-
-        if ($this.is('option')) {
-          _this2.buildSingleOption($this, _this2.isMultiple ? 'multiple' : '');
-        } else if ($this.is('optgroup')) {
-          let $materialOptgroup = $(`<li class="optgroup"><span>${$this.attr('label')}</span></li>`);
-
-          _this2.$materialOptionsList.append($materialOptgroup);
-
-          let $optgroupOptions = $this.children('option');
-          $optgroupOptions.each(function (index, optgroupOption) {
-            _this2.buildSingleOption($(optgroupOption), 'optgroup-option');
-          });
-        }
-      });
-    }
-
-    buildSingleOption($nativeSelectChild, type) {
-      let disabled = $nativeSelectChild.is(':disabled') ? 'disabled' : '';
-      let optgroupClass = type === 'optgroup-option' ? 'optgroup-option' : '';
-      let iconUrl = $nativeSelectChild.data('icon');
-      let fa = $nativeSelectChild.data('fa') ? `<i class="fa fa-${$nativeSelectChild.data('fa')}"></i>` : '';
-      let classes = $nativeSelectChild.attr('class');
-      let iconHtml = iconUrl ? `<img alt="" src="${iconUrl}" class="${classes}">` : '';
-      let checkboxHtml = this.isMultiple ? `<input type="checkbox" class="form-check-input" ${disabled}/><label></label>` : '';
-      this.$materialOptionsList.append($(`<li class="${disabled} ${optgroupClass}">${iconHtml}<span class="filtrable">${checkboxHtml} ${fa} ${$nativeSelectChild.html()}</span></li>`));
-    }
-
-    enableValidation() {
-      this.$nativeSelect.css({
-        position: 'absolute',
-        top: '1rem',
-        left: '0',
-        height: '0',
-        width: '0',
-        opacity: '0',
-        padding: '0',
-        'pointer-events': 'none'
-      });
-
-      if (this.$nativeSelect.attr('style').indexOf('inline!important') === -1) {
-        this.$nativeSelect.attr('style', `${this.$nativeSelect.attr('style')} display: inline!important;`);
-      }
-
-      this.$nativeSelect.attr('tabindex', -1);
-      this.$nativeSelect.data('inherit-tabindex', false);
-    }
-
-    bindEvents() {
-      var _this3 = this;
-
-      let config = {
-        attributes: true,
-        childList: true,
-        characterData: true,
-        subtree: true
-      };
-      let observer = new MutationObserver(this._onMutationObserverChange.bind(this));
-      observer.observe(this.$nativeSelect.get(0), config);
-      observer.customId = this.uuid;
-      observer.customStatus = 'observing';
-      MaterialSelect.clearMutationObservers();
-      MaterialSelect.mutationObservers.push(observer);
-      let $saveSelectBtn = this.$nativeSelect.parent().find('button.btn-save');
-      $saveSelectBtn.on('click', this._onSaveSelectBtnClick);
-      this.$materialSelect.on('focus', this._onMaterialSelectFocus.bind(this));
-      this.$materialSelect.on('click', this._onMaterialSelectClick.bind(this));
-      this.$materialSelect.on('blur', this._onMaterialSelectBlur.bind(this));
-      this.$materialSelect.on('keydown', this._onMaterialSelectKeydown.bind(this));
-      this.$toggleAll.on('click', this._onToggleAllClick.bind(this));
-      this.$materialOptionsList.on('mousedown', this._onEachMaterialOptionMousedown.bind(this));
-      this.$materialOptionsList.find('li:not(.optgroup)').not(this.$toggleAll).each(function (materialOptionIndex, materialOption) {
-        $(materialOption).on('click', _this3._onEachMaterialOptionClick.bind(_this3, materialOptionIndex, materialOption));
-      });
-
-      if (!this.isMultiple && this.isSearchable) {
-        this.$materialOptionsList.find('li').on('click', this._onSingleMaterialOptionClick.bind(this));
-      }
-
-      if (this.isSearchable) {
-        this.$searchInput.find('.search').on('keyup', this._onSearchInputKeyup);
-      }
-
-      $('html').on('click', this._onHTMLClick.bind(this));
-    }
-
-    _onMutationObserverChange(mutationsList) {
-      mutationsList.forEach(function (mutation) {
-        let $select = $(mutation.target).closest('select');
-
-        if ($select.data('stop-refresh') !== true && (mutation.type === 'childList' || mutation.type === 'attributes' && $(mutation.target).is('option'))) {
-          MaterialSelect.clearMutationObservers();
-          $select.materialSelect('destroy');
-          $select.materialSelect();
-        }
-      });
-    }
-
-    _onSaveSelectBtnClick() {
-      $('input.select-dropdown').trigger('close');
-    }
-
-    _onEachMaterialOptionClick(materialOptionIndex, materialOption, e) {
-      e.stopPropagation();
-      let $this = $(materialOption);
-
-      if ($this.hasClass('disabled') || $this.hasClass('optgroup')) {
-        return;
-      }
-
-      let selected = true;
-
-      if (this.isMultiple) {
-        $this.find('input[type="checkbox"]').prop('checked', function (index, oldPropertyValue) {
-          return !oldPropertyValue;
-        });
-        let hasOptgroup = Boolean(this.$nativeSelect.find('optgroup').length);
-        let thisIndex = this._isToggleAllPresent() ? $this.index() - 1 : $this.index();
-
-        if (this.isSearchable && hasOptgroup) {
-          selected = this._toggleSelectedValue(thisIndex - $this.prevAll('.optgroup').length - 1);
-        } else if (this.isSearchable) {
-          selected = this._toggleSelectedValue(thisIndex - 1);
-        } else if (hasOptgroup) {
-          selected = this._toggleSelectedValue(thisIndex - $this.prevAll('.optgroup').length);
-        } else {
-          selected = this._toggleSelectedValue(thisIndex);
+        if (alreadyInitialized) {
+          this._removeMaterialWrapper();
         }
 
-        if (this._isToggleAllPresent()) {
-          this._updateToggleAllOption();
-        }
-
-        this.$materialSelect.trigger('focus');
-      } else {
-        this.$materialOptionsList.find('li').removeClass('active');
-        $this.toggleClass('active');
-        this.$materialSelect.val($this.text());
-        this.$materialSelect.trigger('close');
-      }
-
-      this._selectSingleOption($this);
-
-      this.$nativeSelect.data('stop-refresh', true);
-      this.$nativeSelect.find('option').eq(materialOptionIndex).prop('selected', selected);
-      this.$nativeSelect.removeData('stop-refresh');
-
-      this._triggerChangeOnNativeSelect();
-
-      if (typeof this.options === 'function') {
-        this.options();
-      }
-    }
-
-    _triggerChangeOnNativeSelect() {
-      let keyboardEvt = new KeyboardEvent('change', {
-        bubbles: true,
-        cancelable: true
-      });
-      this.$nativeSelect.get(0).dispatchEvent(keyboardEvt);
-    }
-
-    _onMaterialSelectFocus(e) {
-      let $this = $(e.target);
-
-      if ($('ul.select-dropdown').not(this.$materialOptionsList.get(0)).is(':visible')) {
-        $('input.select-dropdown').trigger('close');
-      }
-
-      if (!this.$materialOptionsList.is(':visible')) {
-        $this.trigger('open', ['focus']);
-        let label = $this.val();
-        let $selectedOption = this.$materialOptionsList.find('li').filter(function () {
-          return $(this).text().toLowerCase() === label.toLowerCase();
-        })[0];
-
-        this._selectSingleOption($selectedOption);
-      }
-    }
-
-    _onMaterialSelectClick(e) {
-      e.stopPropagation();
-    }
-
-    _onMaterialSelectBlur(e) {
-      let $this = $(e);
-
-      if (!this.isMultiple && !this.isSearchable) {
-        $this.trigger('close');
-      }
-
-      this.$materialOptionsList.find('li.selected').removeClass('selected');
-    }
-
-    _onSingleMaterialOptionClick() {
-      this.$materialSelect.trigger('close');
-    }
-
-    _onEachMaterialOptionMousedown(e) {
-      let option = e.target;
-
-      if ($('.modal-content').find(this.$materialOptionsList).length) {
-        if (option.scrollHeight > option.offsetHeight) {
-          e.preventDefault();
-        }
-      }
-    }
-
-    _onHTMLClick(e) {
-      if (!$(e.target).closest(`#select-options-${this.uuid}`).length) {
-        this.$materialSelect.trigger('close');
-      }
-    }
-
-    _onToggleAllClick() {
-      var _this4 = this;
-
-      let checkbox = $(this.$toggleAll).find('input[type="checkbox"]').first();
-      let state = !$(checkbox).prop('checked');
-      $(checkbox).prop('checked', state);
-      this.$materialOptionsList.find('li:not(.optgroup):not(.disabled):not(.select-toggle-all)').each(function (materialOptionIndex, materialOption) {
-        let $optionCheckbox = $(materialOption).find('input[type="checkbox"]');
-
-        if (state && $optionCheckbox.is(':checked') || !state && !$optionCheckbox.is(':checked')) {
+        if (this.options === 'destroy') {
+          this.$nativeSelect.data('select-id', null).removeClass('initialized');
           return;
         }
 
-        if (_this4._isToggleAllPresent()) {
-          materialOptionIndex++;
+        this.$nativeSelect.data('select-id', this.uuid);
+        this.$selectWrapper.addClass(this.$nativeSelect.attr('class'));
+        var sanitizedLabelHtml = this.$materialSelectInitialOption.replace(/"/g, '&quot;');
+        this.$materialSelect.val(sanitizedLabelHtml);
+        this.renderMaterialSelect();
+        this.bindEvents();
+
+        if (this.isRequired) {
+          this.enableValidation();
+        }
+      }
+    }, {
+      key: "debounce",
+      value: function debounce(func, wait, immediate) {
+        var timeout;
+        return function () {
+          var context = this,
+              args = arguments;
+
+          var later = function later() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+          };
+
+          var callNow = immediate && !timeout;
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+          if (callNow) func.apply(context, args);
+        };
+      }
+    }, {
+      key: "_removeMaterialWrapper",
+      value: function _removeMaterialWrapper() {
+        var currentUuid = this.$nativeSelect.data('select-id');
+        this.$nativeSelect.parent().find('span.caret').remove();
+        this.$nativeSelect.parent().find('input').remove();
+        this.$nativeSelect.unwrap();
+        $("ul#select-options-".concat(currentUuid)).remove();
+      }
+    }, {
+      key: "renderMaterialSelect",
+      value: function renderMaterialSelect() {
+        var _this = this;
+
+        this.$nativeSelect.before(this.$selectWrapper);
+        this.appendDropdownIcon();
+        this.appendMaterialSelect();
+        this.appendMaterialOptionsList();
+        this.appendNativeSelect();
+        this.appendSaveSelectButton();
+
+        if (!this.$nativeSelect.is(':disabled')) {
+          this.$materialSelect.dropdown({
+            hover: false,
+            closeOnClick: false
+          });
         }
 
-        $optionCheckbox.prop('checked', state);
+        if (this.$nativeSelect.data('inherit-tabindex') !== false) {
+          this.$materialSelect.attr('tabindex', this.$nativeSelect.attr('tabindex'));
+        }
 
-        _this4.$nativeSelect.find('option').eq(materialOptionIndex).prop('selected', state);
+        if (this.isMultiple) {
+          this.$nativeSelect.find('option:selected:not(:disabled)').each(function (i, element) {
+            var index = $(element).index();
 
-        if (state) {
-          $(materialOption).removeClass('active');
+            _this._toggleSelectedValue(index);
+
+            _this.$materialOptionsList.find('li:not(.optgroup):not(.select-toggle-all)').eq(index).find(':checkbox').prop('checked', true);
+          });
         } else {
-          $(materialOption).addClass('active');
+          var index = this.$nativeSelect.find('option:selected').index();
+          this.$materialOptionsList.find('li').eq(index).addClass('active');
         }
 
-        _this4._toggleSelectedValue(materialOptionIndex);
-
-        _this4._selectOption(materialOption);
-
-        _this4._setValueToMaterialSelect();
-      });
-      this.$nativeSelect.data('stop-refresh', true);
-
-      this._triggerChangeOnNativeSelect();
-
-      this.$nativeSelect.removeData('stop-refresh');
-    }
-
-    _onMaterialSelectKeydown(e) {
-      let $this = $(e.target);
-      let isTab = e.which === this.keyCodes.tab;
-      let isEsc = e.which === this.keyCodes.esc;
-      let isEnter = e.which === this.keyCodes.enter;
-      let isArrowUp = e.which === this.keyCodes.arrowUp;
-      let isArrowDown = e.which === this.keyCodes.arrowDown;
-      let isMaterialSelectVisible = this.$materialOptionsList.is(':visible');
-
-      if (isTab) {
-        this._handleTabKey($this);
-
-        return;
-      } else if (isArrowDown && !isMaterialSelectVisible) {
-        $this.trigger('open');
-        return;
-      } else if (isEnter && !isMaterialSelectVisible) {
-        return;
+        this.$nativeSelect.addClass('initialized');
       }
-
-      e.preventDefault();
-
-      if (isEnter) {
-        this._handleEnterKey($this);
-      } else if (isArrowDown) {
-        this._handleArrowDownKey();
-      } else if (isArrowUp) {
-        this._handleArrowUpKey();
-      } else if (isEsc) {
-        this._handleEscKey($this);
-      } else {
-        this._handleLetterKey(e);
-      }
-    }
-
-    _handleTabKey(materialSelect) {
-      this._handleEscKey(materialSelect);
-    }
-
-    _handleEnterKey(materialSelect) {
-      let $materialSelect = $(materialSelect);
-      let $activeOption = this.$materialOptionsList.find('li.selected:not(.disabled)');
-      $activeOption.trigger('click');
-
-      if (!this.isMultiple) {
-        $materialSelect.trigger('close');
-      }
-    }
-
-    _handleArrowDownKey() {
-      let $firstOption = this.$materialOptionsList.find('li').not('.disabled').not('.select-toggle-all').first();
-      let $lastOption = this.$materialOptionsList.find('li').not('.disabled').not('.select-toggle-all').last();
-      let anySelected = this.$materialOptionsList.find('li.selected').length > 0;
-      let $currentOption = anySelected ? this.$materialOptionsList.find('li.selected') : $firstOption;
-      let $matchedMaterialOption = $currentOption.is($lastOption) || !anySelected ? $currentOption : $currentOption.next('li:not(.disabled)');
-
-      this._selectSingleOption($matchedMaterialOption);
-
-      this.$materialOptionsList.find('li').removeClass('active');
-      $matchedMaterialOption.toggleClass('active');
-    }
-
-    _handleArrowUpKey() {
-      let $firstOption = this.$materialOptionsList.find('li').not('.disabled').not('.select-toggle-all').first();
-      let $lastOption = this.$materialOptionsList.find('li').not('.disabled').not('.select-toggle-all').last();
-      let anySelected = this.$materialOptionsList.find('li.selected').length > 0;
-      let $currentOption = anySelected ? this.$materialOptionsList.find('li.selected') : $lastOption;
-      let $matchedMaterialOption = $currentOption.is($firstOption) || !anySelected ? $currentOption : $currentOption.prev('li:not(.disabled)');
-
-      this._selectSingleOption($matchedMaterialOption);
-
-      this.$materialOptionsList.find('li').removeClass('active');
-      $matchedMaterialOption.toggleClass('active');
-    }
-
-    _handleEscKey(materialSelect) {
-      let $materialSelect = $(materialSelect);
-      $materialSelect.trigger('close');
-    }
-
-    _handleLetterKey(e) {
-      var _this5 = this;
-
-      let filterQueryString = '';
-      let letter = String.fromCharCode(e.which).toLowerCase();
-      let nonLetters = Object.keys(this.keyCodes).map(function (key) {
-        return _this5.keyCodes[key];
-      });
-      let isLetterSearchable = letter && nonLetters.indexOf(e.which) === -1;
-
-      if (isLetterSearchable) {
-        filterQueryString += letter;
-        let $matchedMaterialOption = this.$materialOptionsList.find('li').filter(function () {
-          return $(this).text().toLowerCase().indexOf(filterQueryString) !== -1;
-        }).first();
-
-        if (!this.isMultiple) {
-          this.$materialOptionsList.find('li').removeClass('active');
+    }, {
+      key: "appendDropdownIcon",
+      value: function appendDropdownIcon() {
+        if (this.$nativeSelect.is(':disabled')) {
+          this.$dropdownIcon.addClass('disabled');
         }
 
-        $matchedMaterialOption.addClass('active');
-
-        this._selectSingleOption($matchedMaterialOption);
+        this.$selectWrapper.append(this.$dropdownIcon);
       }
-    }
+    }, {
+      key: "appendMaterialSelect",
+      value: function appendMaterialSelect() {
+        this.$selectWrapper.append(this.$materialSelect);
+      }
+    }, {
+      key: "appendMaterialOptionsList",
+      value: function appendMaterialOptionsList() {
+        if (this.isSearchable) {
+          this.appendSearchInputOption();
+        }
 
-    _onSearchInputKeyup(e) {
-      let $this = $(e.target);
-      let $ul = $this.closest('ul');
-      let searchValue = $this.val();
-      let $options = $ul.find('li span.filtrable');
-      $options.each(function () {
-        let $option = $(this);
+        this.buildMaterialOptions();
 
-        if (typeof this.outerHTML === 'string') {
-          let liValue = this.textContent.toLowerCase();
+        if (this.isMultiple) {
+          this.appendToggleAllCheckbox();
+        }
 
-          if (liValue.includes(searchValue.toLowerCase())) {
-            $option.show().parent().show();
+        this.$selectWrapper.append(this.$materialOptionsList);
+      }
+    }, {
+      key: "appendNativeSelect",
+      value: function appendNativeSelect() {
+        this.$nativeSelect.appendTo(this.$selectWrapper);
+      }
+    }, {
+      key: "appendSearchInputOption",
+      value: function appendSearchInputOption() {
+        var placeholder = this.$nativeSelect.attr('searchable');
+        this.$searchInput = $("<span class=\"search-wrap ml-2\"><div class=\"md-form mt-0\"><input type=\"text\" class=\"search form-control w-100 d-block\" placeholder=\"".concat(placeholder, "\"></div></span>"));
+        this.$materialOptionsList.append(this.$searchInput);
+        this.$searchInput.on("click", function (e) {
+          e.stopPropagation();
+        });
+      }
+    }, {
+      key: "appendToggleAllCheckbox",
+      value: function appendToggleAllCheckbox() {
+        this.$materialOptionsList.find('li.disabled').first().after(this.$toggleAll);
+      }
+    }, {
+      key: "appendSaveSelectButton",
+      value: function appendSaveSelectButton() {
+        this.$selectWrapper.parent().find('button.btn-save').appendTo(this.$materialOptionsList);
+      }
+    }, {
+      key: "buildMaterialOptions",
+      value: function buildMaterialOptions() {
+        var _this2 = this;
+
+        this.$nativeSelectChildren.each(function (index, option) {
+          var $this = $(option);
+
+          if ($this.is('option')) {
+            _this2.buildSingleOption($this, _this2.isMultiple ? 'multiple' : '');
+          } else if ($this.is('optgroup')) {
+            var $materialOptgroup = $("<li class=\"optgroup\"><span>".concat($this.attr('label'), "</span></li>"));
+
+            _this2.$materialOptionsList.append($materialOptgroup);
+
+            var $optgroupOptions = $this.children('option');
+            $optgroupOptions.each(function (index, optgroupOption) {
+              _this2.buildSingleOption($(optgroupOption), 'optgroup-option');
+            });
+          }
+        });
+      }
+    }, {
+      key: "buildSingleOption",
+      value: function buildSingleOption($nativeSelectChild, type) {
+        var disabled = $nativeSelectChild.is(':disabled') ? 'disabled' : '';
+        var optgroupClass = type === 'optgroup-option' ? 'optgroup-option' : '';
+        var iconUrl = $nativeSelectChild.data('icon');
+        var fa = $nativeSelectChild.data('fas') ? "<i class=\"fas fa-".concat($nativeSelectChild.data('fas'), "\"></i> ") : '';
+        var classes = $nativeSelectChild.attr('class');
+        var iconHtml = iconUrl ? "<img alt=\"\" src=\"".concat(iconUrl, "\" class=\"").concat(classes, "\">") : '';
+        var checkboxHtml = this.isMultiple ? "<input type=\"checkbox\" class=\"form-check-input\" ".concat(disabled, "/><label></label>") : '';
+        this.$materialOptionsList.append($("<li class=\"".concat(disabled, " ").concat(optgroupClass, "\">").concat(iconHtml, "<span class=\"filtrable\">").concat(checkboxHtml).concat(fa).concat($nativeSelectChild.html(), "</span></li>")));
+      }
+    }, {
+      key: "enableValidation",
+      value: function enableValidation() {
+        this.$nativeSelect.css({
+          position: 'absolute',
+          top: '1rem',
+          left: '0',
+          height: '0',
+          width: '0',
+          opacity: '0',
+          padding: '0',
+          'pointer-events': 'none'
+        });
+
+        if (this.$nativeSelect.attr('style').indexOf('inline!important') === -1) {
+          this.$nativeSelect.attr('style', "".concat(this.$nativeSelect.attr('style'), " display: inline!important;"));
+        }
+
+        this.$nativeSelect.attr('tabindex', -1);
+        this.$nativeSelect.data('inherit-tabindex', false);
+      }
+    }, {
+      key: "bindEvents",
+      value: function bindEvents() {
+        var _this3 = this;
+
+        var config = {
+          attributes: true,
+          childList: true,
+          characterData: true,
+          subtree: true
+        };
+        var observer = new MutationObserver(this._onMutationObserverChange.bind(this));
+        observer.observe(this.$nativeSelect.get(0), config);
+        observer.customId = this.uuid;
+        observer.customStatus = 'observing';
+        MaterialSelect.clearMutationObservers();
+        MaterialSelect.mutationObservers.push(observer);
+        var $saveSelectBtn = this.$nativeSelect.parent().find('button.btn-save');
+        $saveSelectBtn.on('click', this._onSaveSelectBtnClick);
+        this.$materialSelect.on('focus', this.debounce(this._onMaterialSelectFocus.bind(this), 300));
+        this.$materialSelect.on('click', this._onMaterialSelectClick.bind(this));
+        this.$materialSelect.on('blur', this._onMaterialSelectBlur.bind(this));
+        this.$materialSelect.on('keydown', this._onMaterialSelectKeydown.bind(this));
+        this.$toggleAll.on('click', this._onToggleAllClick.bind(this));
+        this.$materialOptionsList.on('mousedown', this._onEachMaterialOptionMousedown.bind(this));
+        this.$materialOptionsList.find('li:not(.optgroup)').not(this.$toggleAll).each(function (materialOptionIndex, materialOption) {
+          $(materialOption).on('click', _this3._onEachMaterialOptionClick.bind(_this3, materialOptionIndex, materialOption));
+        });
+
+        if (!this.isMultiple && this.isSearchable) {
+          this.$materialOptionsList.find('li').on('click', this._onSingleMaterialOptionClick.bind(this));
+        }
+
+        if (this.isSearchable) {
+          this.$searchInput.find('.search').on('keyup', this._onSearchInputKeyup);
+        }
+
+        $('html').on('click', this._onHTMLClick.bind(this));
+      }
+    }, {
+      key: "_onMutationObserverChange",
+      value: function _onMutationObserverChange(mutationsList) {
+        mutationsList.forEach(function (mutation) {
+          var $select = $(mutation.target).closest('select');
+
+          if ($select.data('stop-refresh') !== true && (mutation.type === 'childList' || mutation.type === 'attributes' && $(mutation.target).is('option'))) {
+            MaterialSelect.clearMutationObservers();
+            $select.materialSelect('destroy');
+            $select.materialSelect();
+          }
+        });
+      }
+    }, {
+      key: "_onSaveSelectBtnClick",
+      value: function _onSaveSelectBtnClick() {
+        $('input.select-dropdown').trigger('close');
+      }
+    }, {
+      key: "_onEachMaterialOptionClick",
+      value: function _onEachMaterialOptionClick(materialOptionIndex, materialOption, e) {
+        e.stopPropagation();
+        var $this = $(materialOption);
+
+        if ($this.hasClass('disabled') || $this.hasClass('optgroup')) {
+          return;
+        }
+
+        var selected = true;
+
+        if (this.isMultiple) {
+          $this.find('input[type="checkbox"]').prop('checked', function (index, oldPropertyValue) {
+            return !oldPropertyValue;
+          });
+          var hasOptgroup = Boolean(this.$nativeSelect.find('optgroup').length);
+          var thisIndex = this._isToggleAllPresent() ? $this.index() - 1 : $this.index();
+
+          if (this.isSearchable && hasOptgroup) {
+            selected = this._toggleSelectedValue(thisIndex - $this.prevAll('.optgroup').length - 1);
+          } else if (this.isSearchable) {
+            selected = this._toggleSelectedValue(thisIndex - 1);
+          } else if (hasOptgroup) {
+            selected = this._toggleSelectedValue(thisIndex - $this.prevAll('.optgroup').length);
           } else {
-            $option.hide().parent().hide();
+            selected = this._toggleSelectedValue(thisIndex);
+          }
+
+          if (this._isToggleAllPresent()) {
+            this._updateToggleAllOption();
+          }
+
+          this.$materialSelect.trigger('focus');
+        } else {
+          this.$materialOptionsList.find('li').removeClass('active');
+          $this.toggleClass('active');
+          this.$materialSelect.val($this.text());
+          this.$materialSelect.trigger('close');
+        }
+
+        this._selectSingleOption($this);
+
+        this.$nativeSelect.data('stop-refresh', true);
+        this.$nativeSelect.find('option').eq(materialOptionIndex).prop('selected', selected);
+        this.$nativeSelect.removeData('stop-refresh');
+
+        this._triggerChangeOnNativeSelect();
+
+        if (typeof this.options === 'function') {
+          this.options();
+        }
+      }
+    }, {
+      key: "_triggerChangeOnNativeSelect",
+      value: function _triggerChangeOnNativeSelect() {
+        var keyboardEvt = new KeyboardEvent('change', {
+          bubbles: true,
+          cancelable: true
+        });
+        this.$nativeSelect.get(0).dispatchEvent(keyboardEvt);
+      }
+    }, {
+      key: "_onMaterialSelectFocus",
+      value: function _onMaterialSelectFocus(e) {
+        var $this = $(e.target);
+
+        if ($('ul.select-dropdown').not(this.$materialOptionsList.get(0)).is(':visible')) {
+          $('input.select-dropdown').trigger('close');
+        }
+
+        if (!this.$materialOptionsList.is(':visible')) {
+          $this.trigger('open', ['focus']);
+          var label = $this.val();
+          var $selectedOption = this.$materialOptionsList.find('li').filter(function () {
+            return $(this).text().toLowerCase() === label.toLowerCase();
+          })[0];
+
+          this._selectSingleOption($selectedOption);
+        }
+      }
+    }, {
+      key: "_onMaterialSelectClick",
+      value: function _onMaterialSelectClick(e) {
+        e.stopPropagation();
+      }
+    }, {
+      key: "_onMaterialSelectBlur",
+      value: function _onMaterialSelectBlur(e) {
+        var $this = $(e);
+
+        if (!this.isMultiple && !this.isSearchable) {
+          $this.trigger('close');
+        }
+
+        this.$materialOptionsList.find('li.selected').removeClass('selected');
+      }
+    }, {
+      key: "_onSingleMaterialOptionClick",
+      value: function _onSingleMaterialOptionClick() {
+        this.$materialSelect.trigger('close');
+      }
+    }, {
+      key: "_onEachMaterialOptionMousedown",
+      value: function _onEachMaterialOptionMousedown(e) {
+        var option = e.target;
+
+        if ($('.modal-content').find(this.$materialOptionsList).length) {
+          if (option.scrollHeight > option.offsetHeight) {
+            e.preventDefault();
           }
         }
-      });
-    }
-
-    _isToggleAllPresent() {
-      return this.$materialOptionsList.find(this.$toggleAll).length;
-    }
-
-    _updateToggleAllOption() {
-      let $allOptionsButToggleAll = this.$materialOptionsList.find('li').not('.select-toggle-all, .disabled').find('[type=checkbox]');
-      let $checkedOptionsButToggleAll = $allOptionsButToggleAll.filter(':checked');
-      let isToggleAllChecked = this.$toggleAll.find('[type=checkbox]').is(':checked');
-
-      if ($checkedOptionsButToggleAll.length === $allOptionsButToggleAll.length && !isToggleAllChecked) {
-        this.$toggleAll.find('[type=checkbox]').prop('checked', true);
-      } else if ($checkedOptionsButToggleAll.length < $allOptionsButToggleAll.length && isToggleAllChecked) {
-        this.$toggleAll.find('[type=checkbox]').prop('checked', false);
       }
-    }
-
-    _toggleSelectedValue(optionIndex) {
-      let selectedValueIndex = this.valuesSelected.indexOf(optionIndex);
-      let isSelected = selectedValueIndex !== -1;
-
-      if (!isSelected) {
-        this.valuesSelected.push(optionIndex);
-      } else {
-        this.valuesSelected.splice(selectedValueIndex, 1);
+    }, {
+      key: "_onHTMLClick",
+      value: function _onHTMLClick(e) {
+        if (!$(e.target).closest("#select-options-".concat(this.uuid)).length) {
+          this.$materialSelect.trigger('close');
+        }
       }
+    }, {
+      key: "_onToggleAllClick",
+      value: function _onToggleAllClick(e) {
+        var _this4 = this;
 
-      this.$materialOptionsList.find('li:not(.optgroup):not(.select-toggle-all)').eq(optionIndex).toggleClass('active');
-      this.$nativeSelect.find('option').eq(optionIndex).prop('selected', !isSelected);
+        var checkbox = $(this.$toggleAll).find('input[type="checkbox"]').first();
+        var state = !$(checkbox).prop('checked');
+        $(checkbox).prop('checked', state);
+        this.$materialOptionsList.find('li:not(.optgroup):not(.disabled):not(.select-toggle-all)').each(function (materialOptionIndex, materialOption) {
+          var $optionCheckbox = $(materialOption).find('input[type="checkbox"]');
 
-      this._setValueToMaterialSelect();
+          if (state && $optionCheckbox.is(':checked') || !state && !$optionCheckbox.is(':checked')) {
+            return;
+          }
 
-      return !isSelected;
-    }
+          if (_this4._isToggleAllPresent()) {
+            materialOptionIndex++;
+          }
 
-    _selectSingleOption(newOption) {
-      this.$materialOptionsList.find('li.selected').removeClass('selected');
+          $optionCheckbox.prop('checked', state);
 
-      this._selectOption(newOption);
-    }
+          _this4.$nativeSelect.find('option').eq(materialOptionIndex).prop('selected', state);
 
-    _selectOption(newOption) {
-      let option = $(newOption);
-      option.addClass('selected');
-    }
+          if (state) {
+            $(materialOption).removeClass('active');
+          } else {
+            $(materialOption).addClass('active');
+          }
 
-    _setValueToMaterialSelect() {
-      let value = '';
-      let itemsCount = this.valuesSelected.length;
+          _this4._toggleSelectedValue(materialOptionIndex);
 
-      for (let i = 0; i < itemsCount; i++) {
-        let text = this.$nativeSelect.find('option').eq(this.valuesSelected[i]).text();
-        value += `, ${text}`;
+          _this4._selectOption(materialOption);
+
+          _this4._setValueToMaterialSelect();
+        });
+        this.$nativeSelect.data('stop-refresh', true);
+
+        this._triggerChangeOnNativeSelect();
+
+        this.$nativeSelect.removeData('stop-refresh');
+        e.stopPropagation();
       }
+    }, {
+      key: "_onMaterialSelectKeydown",
+      value: function _onMaterialSelectKeydown(e) {
+        var $this = $(e.target);
+        var isTab = e.which === this.keyCodes.tab;
+        var isEsc = e.which === this.keyCodes.esc;
+        var isEnter = e.which === this.keyCodes.enter;
+        var isArrowUp = e.which === this.keyCodes.arrowUp;
+        var isArrowDown = e.which === this.keyCodes.arrowDown;
+        var isMaterialSelectVisible = this.$materialOptionsList.is(':visible');
 
-      if (itemsCount >= 5) {
-        value = `${itemsCount} options selected`;
-      } else {
-        value = value.substring(2);
+        if (isTab) {
+          this._handleTabKey($this);
+
+          return;
+        } else if (isArrowDown && !isMaterialSelectVisible) {
+          $this.trigger('open');
+          return;
+        } else if (isEnter && !isMaterialSelectVisible) {
+          return;
+        }
+
+        e.preventDefault();
+
+        if (isEnter) {
+          this._handleEnterKey($this);
+        } else if (isArrowDown) {
+          this._handleArrowDownKey();
+        } else if (isArrowUp) {
+          this._handleArrowUpKey();
+        } else if (isEsc) {
+          this._handleEscKey($this);
+        } else {
+          this._handleLetterKey(e);
+        }
       }
-
-      if (value.length === 0) {
-        value = this.$nativeSelect.find('option:disabled').eq(0).text();
+    }, {
+      key: "_handleTabKey",
+      value: function _handleTabKey(materialSelect) {
+        this._handleEscKey(materialSelect);
       }
+    }, {
+      key: "_handleEnterKey",
+      value: function _handleEnterKey(materialSelect) {
+        var $materialSelect = $(materialSelect);
+        var $activeOption = this.$materialOptionsList.find('li.selected:not(.disabled)');
+        $activeOption.trigger('click');
 
-      this.$nativeSelect.siblings('input.select-dropdown').val(value);
-    }
+        if (!this.isMultiple) {
+          $materialSelect.trigger('close');
+        }
+      }
+    }, {
+      key: "_handleArrowDownKey",
+      value: function _handleArrowDownKey() {
+        var $firstOption = this.$materialOptionsList.find('li').not('.disabled').not('.select-toggle-all').first();
+        var $lastOption = this.$materialOptionsList.find('li').not('.disabled').not('.select-toggle-all').last();
+        var anySelected = this.$materialOptionsList.find('li.selected').length > 0;
+        var $currentOption = anySelected ? this.$materialOptionsList.find('li.selected') : $firstOption;
+        var $matchedMaterialOption = $currentOption.is($lastOption) || !anySelected ? $currentOption : $currentOption.next('li:not(.disabled)');
 
-    _randomUUID() {
-      let d = new Date().getTime();
-      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-        let r = (d + Math.random() * 16) % 16 | 0;
-        d = Math.floor(d / 16);
-        return (c === 'x' ? r : r & 0x3 | 0x8).toString(16);
-      });
-    }
+        this._selectSingleOption($matchedMaterialOption);
 
-  }
+        this.$materialOptionsList.find('li').removeClass('active');
+        $matchedMaterialOption.toggleClass('active');
+      }
+    }, {
+      key: "_handleArrowUpKey",
+      value: function _handleArrowUpKey() {
+        var $firstOption = this.$materialOptionsList.find('li').not('.disabled').not('.select-toggle-all').first();
+        var $lastOption = this.$materialOptionsList.find('li').not('.disabled').not('.select-toggle-all').last();
+        var anySelected = this.$materialOptionsList.find('li.selected').length > 0;
+        var $currentOption = anySelected ? this.$materialOptionsList.find('li.selected') : $lastOption;
+        var $matchedMaterialOption = $currentOption.is($firstOption) || !anySelected ? $currentOption : $currentOption.prev('li:not(.disabled)');
+
+        this._selectSingleOption($matchedMaterialOption);
+
+        this.$materialOptionsList.find('li').removeClass('active');
+        $matchedMaterialOption.toggleClass('active');
+      }
+    }, {
+      key: "_handleEscKey",
+      value: function _handleEscKey(materialSelect) {
+        var $materialSelect = $(materialSelect);
+        $materialSelect.trigger('close');
+      }
+    }, {
+      key: "_handleLetterKey",
+      value: function _handleLetterKey(e) {
+        var _this5 = this;
+
+        var filterQueryString = '';
+        var letter = String.fromCharCode(e.which).toLowerCase();
+        var nonLetters = Object.keys(this.keyCodes).map(function (key) {
+          return _this5.keyCodes[key];
+        });
+        var isLetterSearchable = letter && nonLetters.indexOf(e.which) === -1;
+
+        if (isLetterSearchable) {
+          filterQueryString += letter;
+          var $matchedMaterialOption = this.$materialOptionsList.find('li').filter(function () {
+            return $(this).text().toLowerCase().indexOf(filterQueryString) !== -1;
+          }).first();
+
+          if (!this.isMultiple) {
+            this.$materialOptionsList.find('li').removeClass('active');
+          }
+
+          $matchedMaterialOption.addClass('active');
+
+          this._selectSingleOption($matchedMaterialOption);
+        }
+      }
+    }, {
+      key: "_onSearchInputKeyup",
+      value: function _onSearchInputKeyup(e) {
+        var $this = $(e.target);
+        var $ul = $this.closest('ul');
+        var searchValue = $this.val();
+        var $options = $ul.find('li span.filtrable');
+        $options.each(function () {
+          var $option = $(this);
+
+          if (typeof this.outerHTML === 'string') {
+            var liValue = this.textContent.toLowerCase();
+
+            if (liValue.includes(searchValue.toLowerCase())) {
+              $option.show().parent().show();
+            } else {
+              $option.hide().parent().hide();
+            }
+          }
+        });
+      }
+    }, {
+      key: "_isToggleAllPresent",
+      value: function _isToggleAllPresent() {
+        return this.$materialOptionsList.find(this.$toggleAll).length;
+      }
+    }, {
+      key: "_updateToggleAllOption",
+      value: function _updateToggleAllOption() {
+        var $allOptionsButToggleAll = this.$materialOptionsList.find('li').not('.select-toggle-all, .disabled').find('[type=checkbox]');
+        var $checkedOptionsButToggleAll = $allOptionsButToggleAll.filter(':checked');
+        var isToggleAllChecked = this.$toggleAll.find('[type=checkbox]').is(':checked');
+
+        if ($checkedOptionsButToggleAll.length === $allOptionsButToggleAll.length && !isToggleAllChecked) {
+          this.$toggleAll.find('[type=checkbox]').prop('checked', true);
+        } else if ($checkedOptionsButToggleAll.length < $allOptionsButToggleAll.length && isToggleAllChecked) {
+          this.$toggleAll.find('[type=checkbox]').prop('checked', false);
+        }
+      }
+    }, {
+      key: "_toggleSelectedValue",
+      value: function _toggleSelectedValue(optionIndex) {
+        var selectedValueIndex = this.valuesSelected.indexOf(optionIndex);
+        var isSelected = selectedValueIndex !== -1;
+
+        if (!isSelected) {
+          this.valuesSelected.push(optionIndex);
+        } else {
+          this.valuesSelected.splice(selectedValueIndex, 1);
+        }
+
+        this.$materialOptionsList.find('li:not(.optgroup):not(.select-toggle-all)').eq(optionIndex).toggleClass('active');
+        this.$nativeSelect.find('option').eq(optionIndex).prop('selected', !isSelected);
+
+        this._setValueToMaterialSelect();
+
+        return !isSelected;
+      }
+    }, {
+      key: "_selectSingleOption",
+      value: function _selectSingleOption(newOption) {
+        this.$materialOptionsList.find('li.selected').removeClass('selected');
+
+        this._selectOption(newOption);
+      }
+    }, {
+      key: "_selectOption",
+      value: function _selectOption(newOption) {
+        var option = $(newOption);
+        option.addClass('selected');
+      }
+    }, {
+      key: "_setValueToMaterialSelect",
+      value: function _setValueToMaterialSelect() {
+        var value = '';
+        var itemsCount = this.valuesSelected.length;
+
+        for (var i = 0; i < itemsCount; i++) {
+          var text = this.$nativeSelect.find('option').eq(this.valuesSelected[i]).text();
+          value += ", ".concat(text);
+        }
+
+        if (itemsCount >= 5) {
+          value = "".concat(itemsCount, " options selected");
+        } else {
+          value = value.substring(2);
+        }
+
+        if (value.length === 0) {
+          value = this.$nativeSelect.find('option:disabled').eq(0).text();
+        }
+
+        this.$nativeSelect.siblings('input.select-dropdown').val(value);
+      }
+    }, {
+      key: "_randomUUID",
+      value: function _randomUUID() {
+        var d = new Date().getTime();
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+          var r = (d + Math.random() * 16) % 16 | 0;
+          d = Math.floor(d / 16);
+          return (c === 'x' ? r : r & 0x3 | 0x8).toString(16);
+        });
+      }
+    }], [{
+      key: "clearMutationObservers",
+      value: function clearMutationObservers() {
+        MaterialSelect.mutationObservers.forEach(function (observer) {
+          observer.disconnect();
+          observer.customStatus = 'stopped';
+        });
+      }
+    }]);
+
+    return MaterialSelect;
+  }();
 
   $.fn.materialSelect = function (callback) {
     $(this).not('.browser-default').not('.custom-select').each(function () {
-      let materialSelect = new MaterialSelect($(this), callback);
+      var materialSelect = new MaterialSelect($(this), callback);
       materialSelect.init();
     });
   };
@@ -20962,7 +18636,7 @@ $.fn.easyPieChart = function(options) {
       if (this.data('stop-refresh') !== true && this.hasClass('mdb-select') && this.hasClass('initialized') && !this.hasClass('browser-default') && !this.hasClass('custom-select')) {
         MaterialSelect.clearMutationObservers();
         this.materialSelect('destroy');
-        let ret = originalVal.call(this, value);
+        var ret = originalVal.call(this, value);
         this.materialSelect();
         return ret;
       }
@@ -21586,7 +19260,21 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
         ) //endreturn
     } //createWrappedComponent
 
-
+    // tkane from https://davidwalsh.name/javascript-debounce-function
+    function debounce(func, wait, immediate) {
+      var timeout;
+      return function() {
+          var context = this, args = arguments;
+          var later = function() {
+              timeout = null;
+              if (!immediate) func.apply(context, args);
+          };
+          var callNow = immediate && !timeout;
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+          if (callNow) func.apply(context, args);
+      };
+  }
 
     /**
      * Prepare the input element with all bindings.
@@ -21614,10 +19302,10 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
             $ELEMENT.
 
                 // On focus/click, open the picker.
-                on( 'focus.' + STATE.id + ' click.' + STATE.id, function(event) {
+                on( 'focus.' + STATE.id + ' click.' + STATE.id, debounce(function(event) {
                     event.preventDefault()
                     P.open()
-                }).
+                  }, 300)).
 
                 // Handle keyboard event based on the picker being opened or not.
                 on( 'keydown.' + STATE.id, handleKeydownEvent )
@@ -22151,1378 +19839,1377 @@ return PickerConstructor
 
 (function (factory) {
 
-    // AMD.
-    if (typeof define == 'function' && define.amd)
-        define(['picker', 'jquery'], factory)
+  // AMD.
+  if (typeof define == 'function' && define.amd)
+    define(['picker', 'jquery'], factory)
 
-    // Node.js/browserify.
-    else if (typeof exports == 'object')
-        module.exports = factory(require('./picker.js'), require('jquery'))
+  // Node.js/browserify.
+  else if (typeof exports == 'object')
+    module.exports = factory(require('./picker.js'), require('jquery'))
 
-    // Browser globals.
-    else factory(Picker, jQuery)
+  // Browser globals.
+  else factory(Picker, jQuery)
 
 }(function (Picker, $) {
 
 
-    /**
-     * Globals and constants
-     */
-    var DAYS_IN_WEEK = 7,
-        WEEKS_IN_CALENDAR = 6,
-        _ = Picker._
+  /**
+   * Globals and constants
+   */
+  var DAYS_IN_WEEK = 7,
+    WEEKS_IN_CALENDAR = 6,
+    _ = Picker._
 
 
 
-    /**
-     * The date picker constructor
-     */
-    function DatePicker(picker, settings) {
+  /**
+   * The date picker constructor
+   */
+  function DatePicker(picker, settings) {
 
-        var calendar = this,
-            element = picker.$node[0],
-            elementValue = element.value,
-            elementDataValue = picker.$node.data('value'),
-            valueString = elementDataValue || elementValue,
-            formatString = elementDataValue ? settings.formatSubmit : settings.format,
-            isRTL = function () {
+    var calendar = this,
+      element = picker.$node[0],
+      elementValue = element.value,
+      elementDataValue = picker.$node.data('value'),
+      valueString = elementDataValue || elementValue,
+      formatString = elementDataValue ? settings.formatSubmit : settings.format,
+      isRTL = function () {
 
-                return element.currentStyle ?
+        return element.currentStyle ?
 
-                    // For IE.
-                    element.currentStyle.direction == 'rtl' :
+          // For IE.
+          element.currentStyle.direction == 'rtl' :
 
-                    // For normal browsers.
-                    getComputedStyle(picker.$root[0]).direction == 'rtl'
-            }
+          // For normal browsers.
+          getComputedStyle(picker.$root[0]).direction == 'rtl'
+      }
 
-        calendar.settings = settings
-        calendar.$node = picker.$node
+    calendar.settings = settings
+    calendar.$node = picker.$node
 
-        // The queue of methods that will be used to build item objects.
-        calendar.queue = {
-            min: 'measure create',
-            max: 'measure create',
-            now: 'now create',
-            select: 'parse create validate',
-            highlight: 'parse navigate create validate',
-            view: 'parse create validate viewset',
-            disable: 'deactivate',
-            enable: 'activate'
-        }
+    // The queue of methods that will be used to build item objects.
+    calendar.queue = {
+      min: 'measure create',
+      max: 'measure create',
+      now: 'now create',
+      select: 'parse create validate',
+      highlight: 'parse navigate create validate',
+      view: 'parse create validate viewset',
+      disable: 'deactivate',
+      enable: 'activate'
+    }
 
-        // The component's item object.
-        calendar.item = {}
+    // The component's item object.
+    calendar.item = {}
 
-        calendar.item.clear = null
-        calendar.item.disable = (settings.disable || []).slice(0)
-        calendar.item.enable = -(function (collectionDisabled) {
-            return collectionDisabled[0] === true ? collectionDisabled.shift() : -1
-        })(calendar.item.disable)
+    calendar.item.clear = null
+    calendar.item.disable = (settings.disable || []).slice(0)
+    calendar.item.enable = -(function (collectionDisabled) {
+      return collectionDisabled[0] === true ? collectionDisabled.shift() : -1
+    })(calendar.item.disable)
 
-        calendar.
-        set('min', settings.min).
-        set('max', settings.max).
-        set('now')
+    calendar.
+    set('min', settings.min).
+    set('max', settings.max).
+    set('now')
 
-        // When there’s a value, set the `select`, which in turn
-        // also sets the `highlight` and `view`.
-        if (valueString) {
-            calendar.set('select', valueString, {
-                format: formatString,
-                defaultValue: true
-            })
-        }
+    // When there’s a value, set the `select`, which in turn
+    // also sets the `highlight` and `view`.
+    if (valueString) {
+      calendar.set('select', valueString, {
+        format: formatString,
+        defaultValue: true
+      })
+    }
 
-        // If there’s no value, default to highlighting “today”.
-        else {
-            calendar.
-            set('select', null).
-            set('highlight', calendar.item.now)
-        }
-
-
-        // The keycode to movement mapping.
-        calendar.key = {
-            40: 7, // Down
-            38: -7, // Up
-            39: function () {
-                return isRTL() ? -1 : 1
-            }, // Right
-            37: function () {
-                return isRTL() ? 1 : -1
-            }, // Left
-            go: function (timeChange) {
-                var highlightedObject = calendar.item.highlight,
-                    targetDate = new Date(highlightedObject.year, highlightedObject.month, highlightedObject.date + timeChange)
-                calendar.set(
-                    'highlight',
-                    targetDate, {
-                        interval: timeChange
-                    }
-                )
-                this.render()
-            }
-        }
-
-
-        // Bind some picker events.
-        picker.
-        on('render', function () {
-            picker.$root.find('.' + settings.klass.selectMonth).on('change', function () {
-                var value = this.value
-                if (value) {
-                    picker.set('highlight', [picker.get('view').year, value, picker.get('highlight').date])
-                    picker.$root.find('.' + settings.klass.selectMonth).trigger('focus')
-                }
-            })
-            picker.$root.find('.' + settings.klass.selectYear).on('change', function () {
-                var value = this.value
-                if (value) {
-                    picker.set('highlight', [value, picker.get('view').month, picker.get('highlight').date])
-                    picker.$root.find('.' + settings.klass.selectYear).trigger('focus')
-                }
-            })
-        }, 1).
-        on('open', function () {
-            var includeToday = ''
-            if (calendar.disabled(calendar.get('now'))) {
-                includeToday = ':not(.' + settings.klass.buttonToday + ')'
-            }
-            picker.$root.find('button' + includeToday + ', select').attr('disabled', false)
-        }, 1).
-        on('close', function () {
-            picker.$root.find('button, select').attr('disabled', true)
-        }, 1)
-
-    } //DatePicker
-
-
-    /**
-     * Set a datepicker item object.
-     */
-    DatePicker.prototype.set = function (type, value, options) {
-
-            var calendar = this,
-                calendarItem = calendar.item
-
-            // If the value is `null` just set it immediately.
-            if (value === null) {
-                if (type == 'clear') type = 'select'
-                calendarItem[type] = value
-                return calendar
-            }
-
-            // Otherwise go through the queue of methods, and invoke the functions.
-            // Update this as the time unit, and set the final value as this item.
-            // * In the case of `enable`, keep the queue but set `disable` instead.
-            //   And in the case of `flip`, keep the queue but set `enable` instead.
-            calendarItem[(type == 'enable' ? 'disable' : type == 'flip' ? 'enable' : type)] = calendar.queue[type].split(' ').map(function (method) {
-                value = calendar[method](type, value, options)
-                return value
-            }).pop()
-
-            // Check if we need to cascade through more updates.
-            if (type == 'select') {
-                calendar.set('highlight', calendarItem.select, options)
-            } else if (type == 'highlight') {
-                calendar.set('view', calendarItem.highlight, options)
-            } else if (type.match(/^(flip|min|max|disable|enable)$/)) {
-                if (calendarItem.select && calendar.disabled(calendarItem.select)) {
-                    calendar.set('select', calendarItem.select, options)
-                }
-                if (calendarItem.highlight && calendar.disabled(calendarItem.highlight)) {
-                    calendar.set('highlight', calendarItem.highlight, options)
-                }
-            }
-
-            return calendar
-        } //DatePicker.prototype.set
-
-
-    /**
-     * Get a datepicker item object.
-     */
-    DatePicker.prototype.get = function (type) {
-            return this.item[type]
-        } //DatePicker.prototype.get
-
-
-    /**
-     * Create a picker date object.
-     */
-    DatePicker.prototype.create = function (type, value, options) {
-
-            var isInfiniteValue,
-                calendar = this
-
-            // If there’s no value, use the type as the value.
-            value = value === undefined ? type : value
-
-
-            // If it’s infinity, update the value.
-            if (value == -Infinity || value == Infinity) {
-                isInfiniteValue = value
-            }
-
-            // If it’s an object, use the native date object.
-            else if ($.isPlainObject(value) && _.isInteger(value.pick)) {
-                value = value.obj
-            }
-
-            // If it’s an array, convert it into a date and make sure
-            // that it’s a valid date – otherwise default to today.
-            else if ($.isArray(value)) {
-                value = new Date(value[0], value[1], value[2])
-                value = _.isDate(value) ? value : calendar.create().obj
-            }
-
-            // If it’s a number or date object, make a normalized date.
-            else if (_.isInteger(value) || _.isDate(value)) {
-                value = calendar.normalize(new Date(value), options)
-            }
-
-            // If it’s a literal true or any other case, set it to now.
-            else /*if ( value === true )*/ {
-                value = calendar.now(type, value, options)
-            }
-
-            // Return the compiled object.
-            return {
-                year: isInfiniteValue || value.getFullYear(),
-                month: isInfiniteValue || value.getMonth(),
-                date: isInfiniteValue || value.getDate(),
-                day: isInfiniteValue || value.getDay(),
-                obj: isInfiniteValue || value,
-                pick: isInfiniteValue || value.getTime()
-            }
-        } //DatePicker.prototype.create
-
-
-    /**
-     * Create a range limit object using an array, date object,
-     * literal “true”, or integer relative to another time.
-     */
-    DatePicker.prototype.createRange = function (from, to) {
-
-            var calendar = this,
-                createDate = function (date) {
-                    if (date === true || $.isArray(date) || _.isDate(date)) {
-                        return calendar.create(date)
-                    }
-                    return date
-                }
-
-            // Create objects if possible.
-            if (!_.isInteger(from)) {
-                from = createDate(from)
-            }
-            if (!_.isInteger(to)) {
-                to = createDate(to)
-            }
-
-            // Create relative dates.
-            if (_.isInteger(from) && $.isPlainObject(to)) {
-                from = [to.year, to.month, to.date + from];
-            } else if (_.isInteger(to) && $.isPlainObject(from)) {
-                to = [from.year, from.month, from.date + to];
-            }
-
-            return {
-                from: createDate(from),
-                to: createDate(to)
-            }
-        } //DatePicker.prototype.createRange
-
-
-    /**
-     * Check if a date unit falls within a date range object.
-     */
-    DatePicker.prototype.withinRange = function (range, dateUnit) {
-        range = this.createRange(range.from, range.to)
-        return dateUnit.pick >= range.from.pick && dateUnit.pick <= range.to.pick
+    // If there’s no value, default to highlighting “today”.
+    else {
+      calendar.
+      set('select', null).
+      set('highlight', calendar.item.now)
     }
 
 
-    /**
-     * Check if two date range objects overlap.
-     */
-    DatePicker.prototype.overlapRanges = function (one, two) {
-
-        var calendar = this
-
-        // Convert the ranges into comparable dates.
-        one = calendar.createRange(one.from, one.to)
-        two = calendar.createRange(two.from, two.to)
-
-        return calendar.withinRange(one, two.from) || calendar.withinRange(one, two.to) ||
-            calendar.withinRange(two, one.from) || calendar.withinRange(two, one.to)
+    // The keycode to movement mapping.
+    calendar.key = {
+      40: 7, // Down
+      38: -7, // Up
+      39: function () {
+        return isRTL() ? -1 : 1
+      }, // Right
+      37: function () {
+        return isRTL() ? 1 : -1
+      }, // Left
+      go: function (timeChange) {
+        var highlightedObject = calendar.item.highlight,
+          targetDate = new Date(highlightedObject.year, highlightedObject.month, highlightedObject.date + timeChange)
+        calendar.set(
+          'highlight',
+          targetDate, {
+            interval: timeChange
+          }
+        )
+        this.render()
+      }
     }
 
 
-    /**
-     * Get the date today.
-     */
-    DatePicker.prototype.now = function (type, value, options) {
-        value = new Date()
-        if (options && options.rel) {
-            value.setDate(value.getDate() + options.rel)
+    // Bind some picker events.
+    picker.
+    on('render', function () {
+      picker.$root.find('.' + settings.klass.selectMonth).on('change', function () {
+        var value = this.value
+        if (value) {
+          picker.set('highlight', [picker.get('view').year, value, picker.get('highlight').date])
+          picker.$root.find('.' + settings.klass.selectMonth).trigger('focus')
         }
-        return this.normalize(value, options)
+      })
+      picker.$root.find('.' + settings.klass.selectYear).on('change', function () {
+        var value = this.value
+        if (value) {
+          picker.set('highlight', [value, picker.get('view').month, picker.get('highlight').date])
+          picker.$root.find('.' + settings.klass.selectYear).trigger('focus')
+        }
+      })
+    }, 1).
+    on('open', function () {
+      var includeToday = ''
+      if (calendar.disabled(calendar.get('now'))) {
+        includeToday = ':not(.' + settings.klass.buttonToday + ')'
+      }
+      picker.$root.find('button' + includeToday + ', select').attr('disabled', false)
+    }, 1).
+    on('close', function () {
+      picker.$root.find('button, select').attr('disabled', true)
+    }, 1)
+
+  } //DatePicker
+
+
+  /**
+   * Set a datepicker item object.
+   */
+  DatePicker.prototype.set = function (type, value, options) {
+
+    var calendar = this,
+      calendarItem = calendar.item
+
+    // If the value is `null` just set it immediately.
+    if (value === null) {
+      if (type == 'clear') type = 'select'
+      calendarItem[type] = value
+      return calendar
     }
 
+    // Otherwise go through the queue of methods, and invoke the functions.
+    // Update this as the time unit, and set the final value as this item.
+    // * In the case of `enable`, keep the queue but set `disable` instead.
+    //   And in the case of `flip`, keep the queue but set `enable` instead.
+    calendarItem[(type == 'enable' ? 'disable' : type == 'flip' ? 'enable' : type)] = calendar.queue[type].split(' ').map(function (method) {
+      value = calendar[method](type, value, options)
+      return value
+    }).pop()
 
-    /**
-     * Navigate to next/prev month.
-     */
-    DatePicker.prototype.navigate = function (type, value, options) {
-
-            var targetDateObject,
-                targetYear,
-                targetMonth,
-                targetDate,
-                isTargetArray = $.isArray(value),
-                isTargetObject = $.isPlainObject(value),
-                viewsetObject = this.item.view
-                /*,
-                        safety = 100*/
-
-
-            if (isTargetArray || isTargetObject) {
-
-                if (isTargetObject) {
-                    targetYear = value.year
-                    targetMonth = value.month
-                    targetDate = value.date
-                } else {
-                    targetYear = +value[0]
-                    targetMonth = +value[1]
-                    targetDate = +value[2]
-                }
-
-                // If we’re navigating months but the view is in a different
-                // month, navigate to the view’s year and month.
-                if (options && options.nav && viewsetObject && viewsetObject.month !== targetMonth) {
-                    targetYear = viewsetObject.year
-                    targetMonth = viewsetObject.month
-                }
-
-                // Figure out the expected target year and month.
-                targetDateObject = new Date(targetYear, targetMonth + (options && options.nav ? options.nav : 0), 1)
-                targetYear = targetDateObject.getFullYear()
-                targetMonth = targetDateObject.getMonth()
-
-                // If the month we’re going to doesn’t have enough days,
-                // keep decreasing the date until we reach the month’s last date.
-                while ( /*safety &&*/ new Date(targetYear, targetMonth, targetDate).getMonth() !== targetMonth) {
-                    targetDate -= 1
-                        /*safety -= 1
-                        if ( !safety ) {
-                            throw 'Fell into an infinite loop while navigating to ' + new Date( targetYear, targetMonth, targetDate ) + '.'
-                        }*/
-                }
-
-                value = [targetYear, targetMonth, targetDate]
-            }
-
-            return value
-        } //DatePicker.prototype.navigate
-
-
-    /**
-     * Normalize a date by setting the hours to midnight.
-     */
-    DatePicker.prototype.normalize = function (value /*, options*/ ) {
-        value.setHours(0, 0, 0, 0)
-        return value
+    // Check if we need to cascade through more updates.
+    if (type == 'select') {
+      calendar.set('highlight', calendarItem.select, options)
+    } else if (type == 'highlight') {
+      calendar.set('view', calendarItem.highlight, options)
+    } else if (type.match(/^(flip|min|max|disable|enable)$/)) {
+      if (calendarItem.select && calendar.disabled(calendarItem.select)) {
+        calendar.set('select', calendarItem.select, options)
+      }
+      if (calendarItem.highlight && calendar.disabled(calendarItem.highlight)) {
+        calendar.set('highlight', calendarItem.highlight, options)
+      }
     }
 
-
-    /**
-     * Measure the range of dates.
-     */
-    DatePicker.prototype.measure = function (type, value /*, options*/ ) {
-
-            var calendar = this
-
-            // If it’s anything false-y, remove the limits.
-            if (!value) {
-                value = type == 'min' ? -Infinity : Infinity
-            }
-
-            // If it’s a string, parse it.
-            else if (typeof value == 'string') {
-                value = calendar.parse(type, value)
-            }
-
-            // If it's an integer, get a date relative to today.
-            else if (_.isInteger(value)) {
-                value = calendar.now(type, value, {
-                    rel: value
-                })
-            }
-
-            return value
-        } ///DatePicker.prototype.measure
+    return calendar
+  } //DatePicker.prototype.set
 
 
-    /**
-     * Create a viewset object based on navigation.
-     */
-    DatePicker.prototype.viewset = function (type, dateObject /*, options*/ ) {
-        return this.create([dateObject.year, dateObject.month, 1])
+  /**
+   * Get a datepicker item object.
+   */
+  DatePicker.prototype.get = function (type) {
+    return this.item[type]
+  } //DatePicker.prototype.get
+
+
+  /**
+   * Create a picker date object.
+   */
+  DatePicker.prototype.create = function (type, value, options) {
+
+    var isInfiniteValue,
+      calendar = this
+
+    // If there’s no value, use the type as the value.
+    value = value === undefined ? type : value
+
+
+    // If it’s infinity, update the value.
+    if (value == -Infinity || value == Infinity) {
+      isInfiniteValue = value
     }
 
+    // If it’s an object, use the native date object.
+    else if ($.isPlainObject(value) && _.isInteger(value.pick)) {
+      value = value.obj
+    }
 
-    /**
-     * Validate a date as enabled and shift if needed.
-     */
-    DatePicker.prototype.validate = function (type, dateObject, options) {
+    // If it’s an array, convert it into a date and make sure
+    // that it’s a valid date – otherwise default to today.
+    else if ($.isArray(value)) {
+      value = new Date(value[0], value[1], value[2])
+      value = _.isDate(value) ? value : calendar.create().obj
+    }
 
-            var calendar = this,
+    // If it’s a number or date object, make a normalized date.
+    else if (_.isInteger(value) || _.isDate(value)) {
+      value = calendar.normalize(new Date(value), options)
+    }
 
-                // Keep a reference to the original date.
-                originalDateObject = dateObject,
+    // If it’s a literal true or any other case, set it to now.
+    else /*if ( value === true )*/ {
+      value = calendar.now(type, value, options)
+    }
 
-                // Make sure we have an interval.
-                interval = options && options.interval ? options.interval : 1,
-
-                // Check if the calendar enabled dates are inverted.
-                isFlippedBase = calendar.item.enable === -1,
-
-                // Check if we have any enabled dates after/before now.
-                hasEnabledBeforeTarget, hasEnabledAfterTarget,
-
-                // The min & max limits.
-                minLimitObject = calendar.item.min,
-                maxLimitObject = calendar.item.max,
-
-                // Check if we’ve reached the limit during shifting.
-                reachedMin, reachedMax,
-
-                // Check if the calendar is inverted and at least one weekday is enabled.
-                hasEnabledWeekdays = isFlippedBase && calendar.item.disable.filter(function (value) {
-
-                    // If there’s a date, check where it is relative to the target.
-                    if ($.isArray(value)) {
-                        var dateTime = calendar.create(value).pick
-                        if (dateTime < dateObject.pick) hasEnabledBeforeTarget = true
-                        else if (dateTime > dateObject.pick) hasEnabledAfterTarget = true
-                    }
-
-                    // Return only integers for enabled weekdays.
-                    return _.isInteger(value)
-                }).length
-                /*,
-
-                        safety = 100*/
+    // Return the compiled object.
+    return {
+      year: isInfiniteValue || value.getFullYear(),
+      month: isInfiniteValue || value.getMonth(),
+      date: isInfiniteValue || value.getDate(),
+      day: isInfiniteValue || value.getDay(),
+      obj: isInfiniteValue || value,
+      pick: isInfiniteValue || value.getTime()
+    }
+  } //DatePicker.prototype.create
 
 
+  /**
+   * Create a range limit object using an array, date object,
+   * literal “true”, or integer relative to another time.
+   */
+  DatePicker.prototype.createRange = function (from, to) {
 
-            // Cases to validate for:
-            // [1] Not inverted and date disabled.
-            // [2] Inverted and some dates enabled.
-            // [3] Not inverted and out of range.
-            //
-            // Cases to **not** validate for:
-            // • Navigating months.
-            // • Not inverted and date enabled.
-            // • Inverted and all dates disabled.
-            // • ..and anything else.
-            if (!options || (!options.nav && !options.defaultValue))
-                if (
-                    /* 1 */
-                    (!isFlippedBase && calendar.disabled(dateObject)) ||
-                    /* 2 */
-                    (isFlippedBase && calendar.disabled(dateObject) && (hasEnabledWeekdays || hasEnabledBeforeTarget || hasEnabledAfterTarget)) ||
-                    /* 3 */
-                    (!isFlippedBase && (dateObject.pick <= minLimitObject.pick || dateObject.pick >= maxLimitObject.pick))
-                ) {
+    var calendar = this,
+      createDate = function (date) {
+        if (date === true || $.isArray(date) || _.isDate(date)) {
+          return calendar.create(date)
+        }
+        return date
+      }
 
+    // Create objects if possible.
+    if (!_.isInteger(from)) {
+      from = createDate(from)
+    }
+    if (!_.isInteger(to)) {
+      to = createDate(to)
+    }
 
-                    // When inverted, flip the direction if there aren’t any enabled weekdays
-                    // and there are no enabled dates in the direction of the interval.
-                    if (isFlippedBase && !hasEnabledWeekdays && ((!hasEnabledAfterTarget && interval > 0) || (!hasEnabledBeforeTarget && interval < 0))) {
-                        interval *= -1
-                    }
+    // Create relative dates.
+    if (_.isInteger(from) && $.isPlainObject(to)) {
+      from = [to.year, to.month, to.date + from];
+    } else if (_.isInteger(to) && $.isPlainObject(from)) {
+      to = [from.year, from.month, from.date + to];
+    }
 
-
-                    // Keep looping until we reach an enabled date.
-                    while ( /*safety &&*/ calendar.disabled(dateObject)) {
-
-                        /*safety -= 1
-                        if ( !safety ) {
-                            throw 'Fell into an infinite loop while validating ' + dateObject.obj + '.'
-                        }*/
+    return {
+      from: createDate(from),
+      to: createDate(to)
+    }
+  } //DatePicker.prototype.createRange
 
 
-                        // If we’ve looped into the next/prev month with a large interval, return to the original date and flatten the interval.
-                        if (Math.abs(interval) > 1 && (dateObject.month < originalDateObject.month || dateObject.month > originalDateObject.month)) {
-                            dateObject = originalDateObject
-                            interval = interval > 0 ? 1 : -1
-                        }
+  /**
+   * Check if a date unit falls within a date range object.
+   */
+  DatePicker.prototype.withinRange = function (range, dateUnit) {
+    range = this.createRange(range.from, range.to)
+    return dateUnit.pick >= range.from.pick && dateUnit.pick <= range.to.pick
+  }
 
 
-                        // If we’ve reached the min/max limit, reverse the direction, flatten the interval and set it to the limit.
-                        if (dateObject.pick <= minLimitObject.pick) {
-                            reachedMin = true
-                            interval = 1
-                            dateObject = calendar.create([
-                    minLimitObject.year,
-                    minLimitObject.month,
-                    minLimitObject.date + (dateObject.pick === minLimitObject.pick ? 0 : -1)
-                ])
-                        } else if (dateObject.pick >= maxLimitObject.pick) {
-                            reachedMax = true
-                            interval = -1
-                            dateObject = calendar.create([
-                    maxLimitObject.year,
-                    maxLimitObject.month,
-                    maxLimitObject.date + (dateObject.pick === maxLimitObject.pick ? 0 : 1)
-                ])
-                        }
+  /**
+   * Check if two date range objects overlap.
+   */
+  DatePicker.prototype.overlapRanges = function (one, two) {
+
+    var calendar = this
+
+    // Convert the ranges into comparable dates.
+    one = calendar.createRange(one.from, one.to)
+    two = calendar.createRange(two.from, two.to)
+
+    return calendar.withinRange(one, two.from) || calendar.withinRange(one, two.to) ||
+      calendar.withinRange(two, one.from) || calendar.withinRange(two, one.to)
+  }
 
 
-                        // If we’ve reached both limits, just break out of the loop.
-                        if (reachedMin && reachedMax) {
-                            break
-                        }
+  /**
+   * Get the date today.
+   */
+  DatePicker.prototype.now = function (type, value, options) {
+    value = new Date()
+    if (options && options.rel) {
+      value.setDate(value.getDate() + options.rel)
+    }
+    return this.normalize(value, options)
+  }
 
 
-                        // Finally, create the shifted date using the interval and keep looping.
-                        dateObject = calendar.create([dateObject.year, dateObject.month, dateObject.date + interval])
-                    }
+  /**
+   * Navigate to next/prev month.
+   */
+  DatePicker.prototype.navigate = function (type, value, options) {
 
-                } //endif
-
-
-                // Return the date object settled on.
-            return dateObject
-        } //DatePicker.prototype.validate
-
-
-    /**
-     * Check if a date is disabled.
-     */
-    DatePicker.prototype.disabled = function (dateToVerify) {
-
-            var
-                calendar = this,
-
-                // Filter through the disabled dates to check if this is one.
-                isDisabledMatch = calendar.item.disable.filter(function (dateToDisable) {
-
-                    // If the date is a number, match the weekday with 0index and `firstDay` check.
-                    if (_.isInteger(dateToDisable)) {
-                        return dateToVerify.day === (calendar.settings.firstDay ? dateToDisable : dateToDisable - 1) % 7
-                    }
-
-                    // If it’s an array or a native JS date, create and match the exact date.
-                    if ($.isArray(dateToDisable) || _.isDate(dateToDisable)) {
-                        return dateToVerify.pick === calendar.create(dateToDisable).pick
-                    }
-
-                    // If it’s an object, match a date within the “from” and “to” range.
-                    if ($.isPlainObject(dateToDisable)) {
-                        return calendar.withinRange(dateToDisable, dateToVerify)
-                    }
-                })
-
-            // If this date matches a disabled date, confirm it’s not inverted.
-            isDisabledMatch = isDisabledMatch.length && !isDisabledMatch.filter(function (dateToDisable) {
-                return $.isArray(dateToDisable) && dateToDisable[3] == 'inverted' ||
-                    $.isPlainObject(dateToDisable) && dateToDisable.inverted
-            }).length
-
-            // Check the calendar “enabled” flag and respectively flip the
-            // disabled state. Then also check if it’s beyond the min/max limits.
-            return calendar.item.enable === -1 ? !isDisabledMatch : isDisabledMatch ||
-                dateToVerify.pick < calendar.item.min.pick ||
-                dateToVerify.pick > calendar.item.max.pick
-
-        } //DatePicker.prototype.disabled
+    var targetDateObject,
+      targetYear,
+      targetMonth,
+      targetDate,
+      isTargetArray = $.isArray(value),
+      isTargetObject = $.isPlainObject(value),
+      viewsetObject = this.item.view
+    /*,
+            safety = 100*/
 
 
-    /**
-     * Parse a string into a usable type.
-     */
-    DatePicker.prototype.parse = function (type, value, options) {
+    if (isTargetArray || isTargetObject) {
 
-            var calendar = this,
-                parsingObject = {}
+      if (isTargetObject) {
+        targetYear = value.year
+        targetMonth = value.month
+        targetDate = value.date
+      } else {
+        targetYear = +value[0]
+        targetMonth = +value[1]
+        targetDate = +value[2]
+      }
 
-            // If it’s already parsed, we’re good.
-            if (!value || typeof value != 'string') {
-                return value
-            }
+      // If we’re navigating months but the view is in a different
+      // month, navigate to the view’s year and month.
+      if (options && options.nav && viewsetObject && viewsetObject.month !== targetMonth) {
+        targetYear = viewsetObject.year
+        targetMonth = viewsetObject.month
+      }
 
-            // We need a `.format` to parse the value with.
-            if (!(options && options.format)) {
-                options = options || {}
-                options.format = calendar.settings.format
-            }
+      // Figure out the expected target year and month.
+      targetDateObject = new Date(targetYear, targetMonth + (options && options.nav ? options.nav : 0), 1)
+      targetYear = targetDateObject.getFullYear()
+      targetMonth = targetDateObject.getMonth()
 
-            // Convert the format into an array and then map through it.
-            calendar.formats.toArray(options.format).map(function (label) {
+      // If the month we’re going to doesn’t have enough days,
+      // keep decreasing the date until we reach the month’s last date.
+      while ( /*safety &&*/ new Date(targetYear, targetMonth, targetDate).getMonth() !== targetMonth) {
+        targetDate -= 1
+        /*safety -= 1
+        if ( !safety ) {
+            throw 'Fell into an infinite loop while navigating to ' + new Date( targetYear, targetMonth, targetDate ) + '.'
+        }*/
+      }
 
-                var
-                // Grab the formatting label.
-                    formattingLabel = calendar.formats[label],
+      value = [targetYear, targetMonth, targetDate]
+    }
 
-                    // The format length is from the formatting label function or the
-                    // label length without the escaping exclamation (!) mark.
-                    formatLength = formattingLabel ? _.trigger(formattingLabel, calendar, [value, parsingObject]) : label.replace(/^!/, '').length
+    return value
+  } //DatePicker.prototype.navigate
 
-                // If there's a format label, split the value up to the format length.
-                // Then add it to the parsing object with appropriate label.
-                if (formattingLabel) {
-                    parsingObject[label] = value.substr(0, formatLength)
-                }
 
-                // Update the value as the substring from format length to end.
-                value = value.substr(formatLength)
-            })
+  /**
+   * Normalize a date by setting the hours to midnight.
+   */
+  DatePicker.prototype.normalize = function (value /*, options*/ ) {
+    value.setHours(0, 0, 0, 0)
+    return value
+  }
 
-            // Compensate for month 0index.
-            return [
-        parsingObject.yyyy || parsingObject.yy,
-        +(parsingObject.mm || parsingObject.m) - 1,
-        parsingObject.dd || parsingObject.d
+
+  /**
+   * Measure the range of dates.
+   */
+  DatePicker.prototype.measure = function (type, value /*, options*/ ) {
+
+    var calendar = this
+
+    // If it’s anything false-y, remove the limits.
+    if (!value) {
+      value = type == 'min' ? -Infinity : Infinity
+    }
+
+    // If it’s a string, parse it.
+    else if (typeof value == 'string') {
+      value = calendar.parse(type, value)
+    }
+
+    // If it's an integer, get a date relative to today.
+    else if (_.isInteger(value)) {
+      value = calendar.now(type, value, {
+        rel: value
+      })
+    }
+
+    return value
+  } ///DatePicker.prototype.measure
+
+
+  /**
+   * Create a viewset object based on navigation.
+   */
+  DatePicker.prototype.viewset = function (type, dateObject /*, options*/ ) {
+    return this.create([dateObject.year, dateObject.month, 1])
+  }
+
+
+  /**
+   * Validate a date as enabled and shift if needed.
+   */
+  DatePicker.prototype.validate = function (type, dateObject, options) {
+
+    var calendar = this,
+
+      // Keep a reference to the original date.
+      originalDateObject = dateObject,
+
+      // Make sure we have an interval.
+      interval = options && options.interval ? options.interval : 1,
+
+      // Check if the calendar enabled dates are inverted.
+      isFlippedBase = calendar.item.enable === -1,
+
+      // Check if we have any enabled dates after/before now.
+      hasEnabledBeforeTarget, hasEnabledAfterTarget,
+
+      // The min & max limits.
+      minLimitObject = calendar.item.min,
+      maxLimitObject = calendar.item.max,
+
+      // Check if we’ve reached the limit during shifting.
+      reachedMin, reachedMax,
+
+      // Check if the calendar is inverted and at least one weekday is enabled.
+      hasEnabledWeekdays = isFlippedBase && calendar.item.disable.filter(function (value) {
+
+        // If there’s a date, check where it is relative to the target.
+        if ($.isArray(value)) {
+          var dateTime = calendar.create(value).pick
+          if (dateTime < dateObject.pick) hasEnabledBeforeTarget = true
+          else if (dateTime > dateObject.pick) hasEnabledAfterTarget = true
+        }
+
+        // Return only integers for enabled weekdays.
+        return _.isInteger(value)
+      }).length
+    /*,
+
+            safety = 100*/
+
+
+
+    // Cases to validate for:
+    // [1] Not inverted and date disabled.
+    // [2] Inverted and some dates enabled.
+    // [3] Not inverted and out of range.
+    //
+    // Cases to **not** validate for:
+    // • Navigating months.
+    // • Not inverted and date enabled.
+    // • Inverted and all dates disabled.
+    // • ..and anything else.
+    if (!options || (!options.nav && !options.defaultValue))
+      if (
+        /* 1 */
+        (!isFlippedBase && calendar.disabled(dateObject)) ||
+        /* 2 */
+        (isFlippedBase && calendar.disabled(dateObject) && (hasEnabledWeekdays || hasEnabledBeforeTarget || hasEnabledAfterTarget)) ||
+        /* 3 */
+        (!isFlippedBase && (dateObject.pick <= minLimitObject.pick || dateObject.pick >= maxLimitObject.pick))
+      ) {
+
+
+        // When inverted, flip the direction if there aren’t any enabled weekdays
+        // and there are no enabled dates in the direction of the interval.
+        if (isFlippedBase && !hasEnabledWeekdays && ((!hasEnabledAfterTarget && interval > 0) || (!hasEnabledBeforeTarget && interval < 0))) {
+          interval *= -1
+        }
+
+
+        // Keep looping until we reach an enabled date.
+        while ( /*safety &&*/ calendar.disabled(dateObject)) {
+
+          /*safety -= 1
+          if ( !safety ) {
+              throw 'Fell into an infinite loop while validating ' + dateObject.obj + '.'
+          }*/
+
+
+          // If we’ve looped into the next/prev month with a large interval, return to the original date and flatten the interval.
+          if (Math.abs(interval) > 1 && (dateObject.month < originalDateObject.month || dateObject.month > originalDateObject.month)) {
+            dateObject = originalDateObject
+            interval = interval > 0 ? 1 : -1
+          }
+
+
+          // If we’ve reached the min/max limit, reverse the direction, flatten the interval and set it to the limit.
+          if (dateObject.pick <= minLimitObject.pick) {
+            reachedMin = true
+            interval = 1
+            dateObject = calendar.create([
+              minLimitObject.year,
+              minLimitObject.month,
+              minLimitObject.date + (dateObject.pick === minLimitObject.pick ? 0 : -1)
+            ])
+          } else if (dateObject.pick >= maxLimitObject.pick) {
+            reachedMax = true
+            interval = -1
+            dateObject = calendar.create([
+              maxLimitObject.year,
+              maxLimitObject.month,
+              maxLimitObject.date + (dateObject.pick === maxLimitObject.pick ? 0 : 1)
+            ])
+          }
+
+
+          // If we’ve reached both limits, just break out of the loop.
+          if (reachedMin && reachedMax) {
+            break
+          }
+
+
+          // Finally, create the shifted date using the interval and keep looping.
+          dateObject = calendar.create([dateObject.year, dateObject.month, dateObject.date + interval])
+        }
+
+      } //endif
+
+
+    // Return the date object settled on.
+    return dateObject
+  } //DatePicker.prototype.validate
+
+
+  /**
+   * Check if a date is disabled.
+   */
+  DatePicker.prototype.disabled = function (dateToVerify) {
+
+    var
+      calendar = this,
+
+      // Filter through the disabled dates to check if this is one.
+      isDisabledMatch = calendar.item.disable.filter(function (dateToDisable) {
+
+        // If the date is a number, match the weekday with 0index and `firstDay` check.
+        if (_.isInteger(dateToDisable)) {
+          return dateToVerify.day === (calendar.settings.firstDay ? dateToDisable : dateToDisable - 1) % 7
+        }
+
+        // If it’s an array or a native JS date, create and match the exact date.
+        if ($.isArray(dateToDisable) || _.isDate(dateToDisable)) {
+          return dateToVerify.pick === calendar.create(dateToDisable).pick
+        }
+
+        // If it’s an object, match a date within the “from” and “to” range.
+        if ($.isPlainObject(dateToDisable)) {
+          return calendar.withinRange(dateToDisable, dateToVerify)
+        }
+      })
+
+    // If this date matches a disabled date, confirm it’s not inverted.
+    isDisabledMatch = isDisabledMatch.length && !isDisabledMatch.filter(function (dateToDisable) {
+      return $.isArray(dateToDisable) && dateToDisable[3] == 'inverted' ||
+        $.isPlainObject(dateToDisable) && dateToDisable.inverted
+    }).length
+
+    // Check the calendar “enabled” flag and respectively flip the
+    // disabled state. Then also check if it’s beyond the min/max limits.
+    return calendar.item.enable === -1 ? !isDisabledMatch : isDisabledMatch ||
+      dateToVerify.pick < calendar.item.min.pick ||
+      dateToVerify.pick > calendar.item.max.pick
+
+  } //DatePicker.prototype.disabled
+
+
+  /**
+   * Parse a string into a usable type.
+   */
+  DatePicker.prototype.parse = function (type, value, options) {
+
+    var calendar = this,
+      parsingObject = {}
+
+    // If it’s already parsed, we’re good.
+    if (!value || typeof value != 'string') {
+      return value
+    }
+
+    // We need a `.format` to parse the value with.
+    if (!(options && options.format)) {
+      options = options || {}
+      options.format = calendar.settings.format
+    }
+
+    // Convert the format into an array and then map through it.
+    calendar.formats.toArray(options.format).map(function (label) {
+
+      var
+        // Grab the formatting label.
+        formattingLabel = calendar.formats[label],
+
+        // The format length is from the formatting label function or the
+        // label length without the escaping exclamation (!) mark.
+        formatLength = formattingLabel ? _.trigger(formattingLabel, calendar, [value, parsingObject]) : label.replace(/^!/, '').length
+
+      // If there's a format label, split the value up to the format length.
+      // Then add it to the parsing object with appropriate label.
+      if (formattingLabel) {
+        parsingObject[label] = value.substr(0, formatLength)
+      }
+
+      // Update the value as the substring from format length to end.
+      value = value.substr(formatLength)
+    })
+
+    // Compensate for month 0index.
+    return [
+      parsingObject.yyyy || parsingObject.yy,
+      +(parsingObject.mm || parsingObject.m) - 1,
+      parsingObject.dd || parsingObject.d
     ]
-        } //DatePicker.prototype.parse
+  } //DatePicker.prototype.parse
 
 
-    /**
-     * Various formats to display the object in.
-     */
-    DatePicker.prototype.formats = (function () {
+  /**
+   * Various formats to display the object in.
+   */
+  DatePicker.prototype.formats = (function () {
 
-            // Return the length of the first word in a collection.
-            function getWordLengthFromCollection(string, collection, dateObject) {
+    // Return the length of the first word in a collection.
+    function getWordLengthFromCollection(string, collection, dateObject) {
 
-                // Grab the first word from the string.
-                // Regex pattern from http://stackoverflow.com/q/150033
-                var word = string.match(/[^\x00-\x7F]+|\w+/)[0]
+      // Grab the first word from the string.
+      // Regex pattern from http://stackoverflow.com/q/150033
+      var word = string.match(/[^\x00-\x7F]+|\w+/)[0]
 
-                // If there's no month index, add it to the date object
-                if (!dateObject.mm && !dateObject.m) {
-                    dateObject.m = collection.indexOf(word) + 1
-                }
+      // If there's no month index, add it to the date object
+      if (!dateObject.mm && !dateObject.m) {
+        dateObject.m = collection.indexOf(word) + 1
+      }
 
-                // Return the length of the word.
-                return word.length
-            }
+      // Return the length of the word.
+      return word.length
+    }
 
-            // Get the length of the first word in a string.
-            function getFirstWordLength(string) {
-                return string.match(/\w+/)[0].length
-            }
+    // Get the length of the first word in a string.
+    function getFirstWordLength(string) {
+      return string.match(/\w+/)[0].length
+    }
 
-            return {
+    return {
 
-                d: function (string, dateObject) {
+      d: function (string, dateObject) {
 
-                    // If there's string, then get the digits length.
-                    // Otherwise return the selected date.
-                    return string ? _.digits(string) : dateObject.date
-                },
-                dd: function (string, dateObject) {
+        // If there's string, then get the digits length.
+        // Otherwise return the selected date.
+        return string ? _.digits(string) : dateObject.date
+      },
+      dd: function (string, dateObject) {
 
-                    // If there's a string, then the length is always 2.
-                    // Otherwise return the selected date with a leading zero.
-                    return string ? 2 : _.lead(dateObject.date)
-                },
-                ddd: function (string, dateObject) {
+        // If there's a string, then the length is always 2.
+        // Otherwise return the selected date with a leading zero.
+        return string ? 2 : _.lead(dateObject.date)
+      },
+      ddd: function (string, dateObject) {
 
-                    // If there's a string, then get the length of the first word.
-                    // Otherwise return the short selected weekday.
-                    return string ? getFirstWordLength(string) : this.settings.weekdaysShort[dateObject.day]
-                },
-                dddd: function (string, dateObject) {
+        // If there's a string, then get the length of the first word.
+        // Otherwise return the short selected weekday.
+        return string ? getFirstWordLength(string) : this.settings.weekdaysShort[dateObject.day]
+      },
+      dddd: function (string, dateObject) {
 
-                    // If there's a string, then get the length of the first word.
-                    // Otherwise return the full selected weekday.
-                    return string ? getFirstWordLength(string) : this.settings.weekdaysFull[dateObject.day]
-                },
-                m: function (string, dateObject) {
+        // If there's a string, then get the length of the first word.
+        // Otherwise return the full selected weekday.
+        return string ? getFirstWordLength(string) : this.settings.weekdaysFull[dateObject.day]
+      },
+      m: function (string, dateObject) {
 
-                    // If there's a string, then get the length of the digits
-                    // Otherwise return the selected month with 0index compensation.
-                    return string ? _.digits(string) : dateObject.month + 1
-                },
-                mm: function (string, dateObject) {
+        // If there's a string, then get the length of the digits
+        // Otherwise return the selected month with 0index compensation.
+        return string ? _.digits(string) : dateObject.month + 1
+      },
+      mm: function (string, dateObject) {
 
-                    // If there's a string, then the length is always 2.
-                    // Otherwise return the selected month with 0index and leading zero.
-                    return string ? 2 : _.lead(dateObject.month + 1)
-                },
-                mmm: function (string, dateObject) {
+        // If there's a string, then the length is always 2.
+        // Otherwise return the selected month with 0index and leading zero.
+        return string ? 2 : _.lead(dateObject.month + 1)
+      },
+      mmm: function (string, dateObject) {
 
-                    var collection = this.settings.monthsShort
+        var collection = this.settings.monthsShort
 
-                    // If there's a string, get length of the relevant month from the short
-                    // months collection. Otherwise return the selected month from that collection.
-                    return string ? getWordLengthFromCollection(string, collection, dateObject) : collection[dateObject.month]
-                },
-                mmmm: function (string, dateObject) {
+        // If there's a string, get length of the relevant month from the short
+        // months collection. Otherwise return the selected month from that collection.
+        return string ? getWordLengthFromCollection(string, collection, dateObject) : collection[dateObject.month]
+      },
+      mmmm: function (string, dateObject) {
 
-                    var collection = this.settings.monthsFull
+        var collection = this.settings.monthsFull
 
-                    // If there's a string, get length of the relevant month from the full
-                    // months collection. Otherwise return the selected month from that collection.
-                    return string ? getWordLengthFromCollection(string, collection, dateObject) : collection[dateObject.month]
-                },
-                yy: function (string, dateObject) {
+        // If there's a string, get length of the relevant month from the full
+        // months collection. Otherwise return the selected month from that collection.
+        return string ? getWordLengthFromCollection(string, collection, dateObject) : collection[dateObject.month]
+      },
+      yy: function (string, dateObject) {
 
-                    // If there's a string, then the length is always 2.
-                    // Otherwise return the selected year by slicing out the first 2 digits.
-                    return string ? 2 : ('' + dateObject.year).slice(2)
-                },
-                yyyy: function (string, dateObject) {
+        // If there's a string, then the length is always 2.
+        // Otherwise return the selected year by slicing out the first 2 digits.
+        return string ? 2 : ('' + dateObject.year).slice(2)
+      },
+      yyyy: function (string, dateObject) {
 
-                    // If there's a string, then the length is always 4.
-                    // Otherwise return the selected year.
-                    return string ? 4 : dateObject.year
-                },
+        // If there's a string, then the length is always 4.
+        // Otherwise return the selected year.
+        return string ? 4 : dateObject.year
+      },
 
-                // Create an array by splitting the formatting string passed.
-                toArray: function (formatString) {
-                    return formatString.split(/(d{1,4}|m{1,4}|y{4}|yy|!.)/g)
-                },
+      // Create an array by splitting the formatting string passed.
+      toArray: function (formatString) {
+        return formatString.split(/(d{1,4}|m{1,4}|y{4}|yy|!.)/g)
+      },
 
-                // Format an object into a string using the formatting options.
-                toString: function (formatString, itemObject) {
-                    var calendar = this
-                    return calendar.formats.toArray(formatString).map(function (label) {
-                        return _.trigger(calendar.formats[label], calendar, [0, itemObject]) || label.replace(/^!/, '')
-                    }).join('')
-                }
-            }
-        })() //DatePicker.prototype.formats
-
-
-
-
-    /**
-     * Check if two date units are the exact.
-     */
-    DatePicker.prototype.isDateExact = function (one, two) {
-
+      // Format an object into a string using the formatting options.
+      toString: function (formatString, itemObject) {
         var calendar = this
+        return calendar.formats.toArray(formatString).map(function (label) {
+          return _.trigger(calendar.formats[label], calendar, [0, itemObject]) || label.replace(/^!/, '')
+        }).join('')
+      }
+    }
+  })() //DatePicker.prototype.formats
 
-        // When we’re working with weekdays, do a direct comparison.
-        if (
-            (_.isInteger(one) && _.isInteger(two)) ||
-            (typeof one == 'boolean' && typeof two == 'boolean')
-        ) {
-            return one === two
-        }
 
-        // When we’re working with date representations, compare the “pick” value.
-        if (
-            (_.isDate(one) || $.isArray(one)) &&
-            (_.isDate(two) || $.isArray(two))
-        ) {
-            return calendar.create(one).pick === calendar.create(two).pick
-        }
 
-        // When we’re working with range objects, compare the “from” and “to”.
-        if ($.isPlainObject(one) && $.isPlainObject(two)) {
-            return calendar.isDateExact(one.from, two.from) && calendar.isDateExact(one.to, two.to)
-        }
 
-        return false
+  /**
+   * Check if two date units are the exact.
+   */
+  DatePicker.prototype.isDateExact = function (one, two) {
+
+    var calendar = this
+
+    // When we’re working with weekdays, do a direct comparison.
+    if (
+      (_.isInteger(one) && _.isInteger(two)) ||
+      (typeof one == 'boolean' && typeof two == 'boolean')
+    ) {
+      return one === two
     }
 
-
-    /**
-     * Check if two date units overlap.
-     */
-    DatePicker.prototype.isDateOverlap = function (one, two) {
-
-        var calendar = this,
-            firstDay = calendar.settings.firstDay ? 1 : 0
-
-        // When we’re working with a weekday index, compare the days.
-        if (_.isInteger(one) && (_.isDate(two) || $.isArray(two))) {
-            one = one % 7 + firstDay
-            return one === calendar.create(two).day + 1
-        }
-        if (_.isInteger(two) && (_.isDate(one) || $.isArray(one))) {
-            two = two % 7 + firstDay
-            return two === calendar.create(one).day + 1
-        }
-
-        // When we’re working with range objects, check if the ranges overlap.
-        if ($.isPlainObject(one) && $.isPlainObject(two)) {
-            return calendar.overlapRanges(one, two)
-        }
-
-        return false
+    // When we’re working with date representations, compare the “pick” value.
+    if (
+      (_.isDate(one) || $.isArray(one)) && (_.isDate(two) || $.isArray(two))
+    ) {
+      return calendar.create(one).pick === calendar.create(two).pick
     }
 
-
-    /**
-     * Flip the “enabled” state.
-     */
-    DatePicker.prototype.flipEnable = function (val) {
-        var itemObject = this.item
-        itemObject.enable = val || (itemObject.enable == -1 ? 1 : -1)
+    // When we’re working with range objects, compare the “from” and “to”.
+    if ($.isPlainObject(one) && $.isPlainObject(two)) {
+      return calendar.isDateExact(one.from, two.from) && calendar.isDateExact(one.to, two.to)
     }
 
-
-    /**
-     * Mark a collection of dates as “disabled”.
-     */
-    DatePicker.prototype.deactivate = function (type, datesToDisable) {
-
-            var calendar = this,
-                disabledItems = calendar.item.disable.slice(0)
+    return false
+  }
 
 
-            // If we’re flipping, that’s all we need to do.
-            if (datesToDisable == 'flip') {
-                calendar.flipEnable()
-            } else if (datesToDisable === false) {
-                calendar.flipEnable(1)
-                disabledItems = []
-            } else if (datesToDisable === true) {
-                calendar.flipEnable(-1)
-                disabledItems = []
+  /**
+   * Check if two date units overlap.
+   */
+  DatePicker.prototype.isDateOverlap = function (one, two) {
+
+    var calendar = this,
+      firstDay = calendar.settings.firstDay ? 1 : 0
+
+    // When we’re working with a weekday index, compare the days.
+    if (_.isInteger(one) && (_.isDate(two) || $.isArray(two))) {
+      one = one % 7 + firstDay
+      return one === calendar.create(two).day + 1
+    }
+    if (_.isInteger(two) && (_.isDate(one) || $.isArray(one))) {
+      two = two % 7 + firstDay
+      return two === calendar.create(one).day + 1
+    }
+
+    // When we’re working with range objects, check if the ranges overlap.
+    if ($.isPlainObject(one) && $.isPlainObject(two)) {
+      return calendar.overlapRanges(one, two)
+    }
+
+    return false
+  }
+
+
+  /**
+   * Flip the “enabled” state.
+   */
+  DatePicker.prototype.flipEnable = function (val) {
+    var itemObject = this.item
+    itemObject.enable = val || (itemObject.enable == -1 ? 1 : -1)
+  }
+
+
+  /**
+   * Mark a collection of dates as “disabled”.
+   */
+  DatePicker.prototype.deactivate = function (type, datesToDisable) {
+
+    var calendar = this,
+      disabledItems = calendar.item.disable.slice(0)
+
+
+    // If we’re flipping, that’s all we need to do.
+    if (datesToDisable == 'flip') {
+      calendar.flipEnable()
+    } else if (datesToDisable === false) {
+      calendar.flipEnable(1)
+      disabledItems = []
+    } else if (datesToDisable === true) {
+      calendar.flipEnable(-1)
+      disabledItems = []
+    }
+
+    // Otherwise go through the dates to disable.
+    else {
+
+      datesToDisable.map(function (unitToDisable) {
+
+        var matchFound
+
+        // When we have disabled items, check for matches.
+        // If something is matched, immediately break out.
+        for (var index = 0; index < disabledItems.length; index += 1) {
+          if (calendar.isDateExact(unitToDisable, disabledItems[index])) {
+            matchFound = true
+            break
+          }
+        }
+
+        // If nothing was found, add the validated unit to the collection.
+        if (!matchFound) {
+          if (
+            _.isInteger(unitToDisable) ||
+            _.isDate(unitToDisable) ||
+            $.isArray(unitToDisable) ||
+            ($.isPlainObject(unitToDisable) && unitToDisable.from && unitToDisable.to)
+          ) {
+            disabledItems.push(unitToDisable)
+          }
+        }
+      })
+    }
+
+    // Return the updated collection.
+    return disabledItems
+  } //DatePicker.prototype.deactivate
+
+
+  /**
+   * Mark a collection of dates as “enabled”.
+   */
+  DatePicker.prototype.activate = function (type, datesToEnable) {
+
+    var calendar = this,
+      disabledItems = calendar.item.disable,
+      disabledItemsCount = disabledItems.length
+
+    // If we’re flipping, that’s all we need to do.
+    if (datesToEnable == 'flip') {
+      calendar.flipEnable()
+    } else if (datesToEnable === true) {
+      calendar.flipEnable(1)
+      disabledItems = []
+    } else if (datesToEnable === false) {
+      calendar.flipEnable(-1)
+      disabledItems = []
+    }
+
+    // Otherwise go through the disabled dates.
+    else {
+
+      datesToEnable.map(function (unitToEnable) {
+
+        var matchFound,
+          disabledUnit,
+          index,
+          isExactRange
+
+        // Go through the disabled items and try to find a match.
+        for (index = 0; index < disabledItemsCount; index += 1) {
+
+          disabledUnit = disabledItems[index]
+
+          // When an exact match is found, remove it from the collection.
+          if (calendar.isDateExact(disabledUnit, unitToEnable)) {
+            matchFound = disabledItems[index] = null
+            isExactRange = true
+            break
+          }
+
+          // When an overlapped match is found, add the “inverted” state to it.
+          else if (calendar.isDateOverlap(disabledUnit, unitToEnable)) {
+            if ($.isPlainObject(unitToEnable)) {
+              unitToEnable.inverted = true
+              matchFound = unitToEnable
+            } else if ($.isArray(unitToEnable)) {
+              matchFound = unitToEnable
+              if (!matchFound[3]) matchFound.push('inverted')
+            } else if (_.isDate(unitToEnable)) {
+              matchFound = [unitToEnable.getFullYear(), unitToEnable.getMonth(), unitToEnable.getDate(), 'inverted']
             }
+            break
+          }
+        }
 
-            // Otherwise go through the dates to disable.
-            else {
-
-                datesToDisable.map(function (unitToDisable) {
-
-                    var matchFound
-
-                    // When we have disabled items, check for matches.
-                    // If something is matched, immediately break out.
-                    for (var index = 0; index < disabledItems.length; index += 1) {
-                        if (calendar.isDateExact(unitToDisable, disabledItems[index])) {
-                            matchFound = true
-                            break
-                        }
-                    }
-
-                    // If nothing was found, add the validated unit to the collection.
-                    if (!matchFound) {
-                        if (
-                            _.isInteger(unitToDisable) ||
-                            _.isDate(unitToDisable) ||
-                            $.isArray(unitToDisable) ||
-                            ($.isPlainObject(unitToDisable) && unitToDisable.from && unitToDisable.to)
-                        ) {
-                            disabledItems.push(unitToDisable)
-                        }
-                    }
-                })
+        // If a match was found, remove a previous duplicate entry.
+        if (matchFound)
+          for (index = 0; index < disabledItemsCount; index += 1) {
+            if (calendar.isDateExact(disabledItems[index], unitToEnable)) {
+              disabledItems[index] = null
+              break
             }
+          }
 
-            // Return the updated collection.
-            return disabledItems
-        } //DatePicker.prototype.deactivate
-
-
-    /**
-     * Mark a collection of dates as “enabled”.
-     */
-    DatePicker.prototype.activate = function (type, datesToEnable) {
-
-            var calendar = this,
-                disabledItems = calendar.item.disable,
-                disabledItemsCount = disabledItems.length
-
-            // If we’re flipping, that’s all we need to do.
-            if (datesToEnable == 'flip') {
-                calendar.flipEnable()
-            } else if (datesToEnable === true) {
-                calendar.flipEnable(1)
-                disabledItems = []
-            } else if (datesToEnable === false) {
-                calendar.flipEnable(-1)
-                disabledItems = []
+        // In the event that we’re dealing with an exact range of dates,
+        // make sure there are no “inverted” dates because of it.
+        if (isExactRange)
+          for (index = 0; index < disabledItemsCount; index += 1) {
+            if (calendar.isDateOverlap(disabledItems[index], unitToEnable)) {
+              disabledItems[index] = null
+              break
             }
+          }
 
-            // Otherwise go through the disabled dates.
-            else {
+        // If something is still matched, add it into the collection.
+        if (matchFound) {
+          disabledItems.push(matchFound)
+        }
+      })
+    }
 
-                datesToEnable.map(function (unitToEnable) {
+    // Return the updated collection.
+    return disabledItems.filter(function (val) {
+      return val != null
+    })
+  } //DatePicker.prototype.activate
 
-                    var matchFound,
-                        disabledUnit,
-                        index,
-                        isExactRange
 
-                    // Go through the disabled items and try to find a match.
-                    for (index = 0; index < disabledItemsCount; index += 1) {
+  /**
+   * Create a string for the nodes in the picker.
+   */
+  DatePicker.prototype.nodes = function (isOpen) {
 
-                        disabledUnit = disabledItems[index]
+    var
+      calendar = this,
+      settings = calendar.settings,
+      calendarItem = calendar.item,
+      nowObject = calendarItem.now,
+      selectedObject = calendarItem.select,
+      highlightedObject = calendarItem.highlight,
+      viewsetObject = calendarItem.view,
+      disabledCollection = calendarItem.disable,
+      minLimitObject = calendarItem.min,
+      maxLimitObject = calendarItem.max,
 
-                        // When an exact match is found, remove it from the collection.
-                        if (calendar.isDateExact(disabledUnit, unitToEnable)) {
-                            matchFound = disabledItems[index] = null
-                            isExactRange = true
-                            break
-                        }
 
-                        // When an overlapped match is found, add the “inverted” state to it.
-                        else if (calendar.isDateOverlap(disabledUnit, unitToEnable)) {
-                            if ($.isPlainObject(unitToEnable)) {
-                                unitToEnable.inverted = true
-                                matchFound = unitToEnable
-                            } else if ($.isArray(unitToEnable)) {
-                                matchFound = unitToEnable
-                                if (!matchFound[3]) matchFound.push('inverted')
-                            } else if (_.isDate(unitToEnable)) {
-                                matchFound = [unitToEnable.getFullYear(), unitToEnable.getMonth(), unitToEnable.getDate(), 'inverted']
-                            }
-                            break
-                        }
-                    }
+      // Create the calendar table head using a copy of weekday labels collection.
+      // * We do a copy so we don't mutate the original array.
+      tableHead = (function (collection, fullCollection) {
 
-                    // If a match was found, remove a previous duplicate entry.
-                    if (matchFound)
-                        for (index = 0; index < disabledItemsCount; index += 1) {
-                            if (calendar.isDateExact(disabledItems[index], unitToEnable)) {
-                                disabledItems[index] = null
-                                break
-                            }
-                        }
+        // If the first day should be Monday, move Sunday to the end.
+        if (settings.firstDay) {
+          collection.push(collection.shift())
+          fullCollection.push(fullCollection.shift())
+        }
 
-                    // In the event that we’re dealing with an exact range of dates,
-                    // make sure there are no “inverted” dates because of it.
-                    if (isExactRange)
-                        for (index = 0; index < disabledItemsCount; index += 1) {
-                            if (calendar.isDateOverlap(disabledItems[index], unitToEnable)) {
-                                disabledItems[index] = null
-                                break
-                            }
-                        }
-
-                    // If something is still matched, add it into the collection.
-                    if (matchFound) {
-                        disabledItems.push(matchFound)
-                    }
-                })
-            }
-
-            // Return the updated collection.
-            return disabledItems.filter(function (val) {
-                return val != null
+        // Create and return the table head group.
+        return _.node(
+          'thead',
+          _.node(
+            'tr',
+            _.group({
+              min: 0,
+              max: DAYS_IN_WEEK - 1,
+              i: 1,
+              node: 'th',
+              item: function (counter) {
+                return [
+                  collection[counter],
+                  settings.klass.weekdays,
+                  'scope=col title="' + fullCollection[counter] + '"'
+                ]
+              }
             })
-        } //DatePicker.prototype.activate
-
-
-    /**
-     * Create a string for the nodes in the picker.
-     */
-    DatePicker.prototype.nodes = function (isOpen) {
-
-            var
-                calendar = this,
-                settings = calendar.settings,
-                calendarItem = calendar.item,
-                nowObject = calendarItem.now,
-                selectedObject = calendarItem.select,
-                highlightedObject = calendarItem.highlight,
-                viewsetObject = calendarItem.view,
-                disabledCollection = calendarItem.disable,
-                minLimitObject = calendarItem.min,
-                maxLimitObject = calendarItem.max,
-
-
-                // Create the calendar table head using a copy of weekday labels collection.
-                // * We do a copy so we don't mutate the original array.
-                tableHead = (function (collection, fullCollection) {
-
-                    // If the first day should be Monday, move Sunday to the end.
-                    if (settings.firstDay) {
-                        collection.push(collection.shift())
-                        fullCollection.push(fullCollection.shift())
-                    }
-
-                    // Create and return the table head group.
-                    return _.node(
-                            'thead',
-                            _.node(
-                                'tr',
-                                _.group({
-                                    min: 0,
-                                    max: DAYS_IN_WEEK - 1,
-                                    i: 1,
-                                    node: 'th',
-                                    item: function (counter) {
-                                        return [
-                                collection[counter],
-                                settings.klass.weekdays,
-                                'scope=col title="' + fullCollection[counter] + '"'
-                            ]
-                                    }
-                                })
-                            )
-                        ) //endreturn
-                })((settings.showWeekdaysFull ? settings.weekdaysFull : settings.weekdaysShort).slice(0), settings.weekdaysFull.slice(0)), //tableHead
-
-
-                // Create the nav for next/prev month.
-                createMonthNav = function (next) {
-
-                    // Otherwise, return the created month tag.
-                    return _.node(
-                            'div',
-                            ' ',
-                            settings.klass['nav' + (next ? 'Next' : 'Prev')] + (
-
-                                // If the focused month is outside the range, disabled the button.
-                                (next && viewsetObject.year >= maxLimitObject.year && viewsetObject.month >= maxLimitObject.month) ||
-                                (!next && viewsetObject.year <= minLimitObject.year && viewsetObject.month <= minLimitObject.month) ?
-                                ' ' + settings.klass.navDisabled : ''
-                            ),
-                            'data-nav=' + (next || -1) + ' ' +
-                            _.ariaAttr({
-                                role: 'button',
-                                controls: calendar.$node[0].id + '_table'
-                            }) + ' ' +
-                            'title="' + (next ? settings.labelMonthNext : settings.labelMonthPrev) + '"'
-                        ) //endreturn
-                }, //createMonthNav
-
-
-                // Create the month label.
-                createMonthLabel = function () {
-
-                    var monthsCollection = settings.showMonthsShort ? settings.monthsShort : settings.monthsFull
-
-                    // If there are months to select, add a dropdown menu.
-                    if (settings.selectMonths) {
-
-                        return _.node('select',
-                            _.group({
-                                min: 0,
-                                max: 11,
-                                i: 1,
-                                node: 'option',
-                                item: function (loopedMonth) {
-
-                                    return [
-
-                                // The looped month and no classes.
-                                monthsCollection[loopedMonth], 0,
-
-                                // Set the value and selected index.
-                                'value=' + loopedMonth +
-                                        (viewsetObject.month == loopedMonth ? ' selected' : '') +
-                                        (
-                                            (
-                                                (viewsetObject.year == minLimitObject.year && loopedMonth < minLimitObject.month) ||
-                                                (viewsetObject.year == maxLimitObject.year && loopedMonth > maxLimitObject.month)
-                                            ) ?
-                                            ' disabled' : ''
-                                )
-                            ]
-                                }
-                            }),
-                            settings.klass.selectMonth, (isOpen ? '' : 'disabled') + ' ' +
-                            _.ariaAttr({
-                                controls: calendar.$node[0].id + '_table'
-                            }) + ' ' +
-                            'title="' + settings.labelMonthSelect + '"'
-                        )
-                    }
-
-                    // If there's a need for a month selector
-                    return _.node('div', monthsCollection[viewsetObject.month], settings.klass.month)
-                }, //createMonthLabel
-
-
-                // Create the year label.
-                createYearLabel = function () {
-
-                    var focusedYear = viewsetObject.year,
-
-                        // If years selector is set to a literal "true", set it to 5. Otherwise
-                        // divide in half to get half before and half after focused year.
-                        numberYears = settings.selectYears === true ? 5 : ~~(settings.selectYears / 2)
-
-                    // If there are years to select, add a dropdown menu.
-                    if (numberYears) {
-
-                        var
-                            minYear = minLimitObject.year,
-                            maxYear = maxLimitObject.year,
-                            lowestYear = focusedYear - numberYears,
-                            highestYear = focusedYear + numberYears
-
-                        // If the min year is greater than the lowest year, increase the highest year
-                        // by the difference and set the lowest year to the min year.
-                        if (minYear > lowestYear) {
-                            highestYear += minYear - lowestYear
-                            lowestYear = minYear
-                        }
-
-                        // If the max year is less than the highest year, decrease the lowest year
-                        // by the lower of the two: available and needed years. Then set the
-                        // highest year to the max year.
-                        if (maxYear < highestYear) {
-
-                            var availableYears = lowestYear - minYear,
-                                neededYears = highestYear - maxYear
-
-                            lowestYear -= availableYears > neededYears ? neededYears : availableYears
-                            highestYear = maxYear
-                        }
-
-                        return _.node('select',
-                            _.group({
-                                min: lowestYear,
-                                max: highestYear,
-                                i: 1,
-                                node: 'option',
-                                item: function (loopedYear) {
-                                    return [
-
-                                // The looped year and no classes.
-                                loopedYear, 0,
-
-                                // Set the value and selected index.
-                                'value=' + loopedYear + (focusedYear == loopedYear ? ' selected' : '')
-                            ]
-                                }
-                            }),
-                            settings.klass.selectYear, (isOpen ? '' : 'disabled') + ' ' + _.ariaAttr({
-                                controls: calendar.$node[0].id + '_table'
-                            }) + ' ' +
-                            'title="' + settings.labelYearSelect + '"'
-                        )
-                    }
-
-                    // Otherwise just return the year focused
-                    return _.node('div', focusedYear, settings.klass.year)
-                } //createYearLabel
-
-
-            // Create and return the entire calendar.
-            return _.node(
-                    'div', (settings.selectYears ? createYearLabel() + createMonthLabel() : createMonthLabel() + createYearLabel()) +
-                    createMonthNav() + createMonthNav(1),
-                    settings.klass.header
-                ) + _.node(
-                    'table',
-                    tableHead +
-                    _.node(
-                        'tbody',
-                        _.group({
-                            min: 0,
-                            max: WEEKS_IN_CALENDAR - 1,
-                            i: 1,
-                            node: 'tr',
-                            item: function (rowCounter) {
-
-                                // If Monday is the first day and the month starts on Sunday, shift the date back a week.
-                                var shiftDateBy = settings.firstDay && calendar.create([viewsetObject.year, viewsetObject.month, 1]).day === 0 ? -7 : 0
-
-                                return [
-                        _.group({
-                                            min: DAYS_IN_WEEK * rowCounter - viewsetObject.day + shiftDateBy + 1, // Add 1 for weekday 0index
-                                            max: function () {
-                                                return this.min + DAYS_IN_WEEK - 1
-                                            },
-                                            i: 1,
-                                            node: 'td',
-                                            item: function (targetDate) {
-
-                                                // Convert the time date from a relative date to a target date.
-                                                targetDate = calendar.create([viewsetObject.year, viewsetObject.month, targetDate + (settings.firstDay ? 1 : 0)])
-
-                                                var isSelected = selectedObject && selectedObject.pick == targetDate.pick,
-                                                    isHighlighted = highlightedObject && highlightedObject.pick == targetDate.pick,
-                                                    isDisabled = disabledCollection && calendar.disabled(targetDate) || targetDate.pick < minLimitObject.pick || targetDate.pick > maxLimitObject.pick,
-                                                    formattedDate = _.trigger(calendar.formats.toString, calendar, [settings.format, targetDate])
-
-                                                return [
-                                    _.node(
-                                                            'div',
-                                                            targetDate.date, (function (klasses) {
-
-                                                                // Add the `infocus` or `outfocus` classes based on month in view.
-                                                                klasses.push(viewsetObject.month == targetDate.month ? settings.klass.infocus : settings.klass.outfocus)
-
-                                                                // Add the `today` class if needed.
-                                                                if (nowObject.pick == targetDate.pick) {
-                                                                    klasses.push(settings.klass.now)
-                                                                }
-
-                                                                // Add the `selected` class if something's selected and the time matches.
-                                                                if (isSelected) {
-                                                                    klasses.push(settings.klass.selected)
-                                                                }
-
-                                                                // Add the `highlighted` class if something's highlighted and the time matches.
-                                                                if (isHighlighted) {
-                                                                    klasses.push(settings.klass.highlighted)
-                                                                }
-
-                                                                // Add the `disabled` class if something's disabled and the object matches.
-                                                                if (isDisabled) {
-                                                                    klasses.push(settings.klass.disabled)
-                                                                }
-
-                                                                return klasses.join(' ')
-                                                            })([settings.klass.day]),
-                                                            'data-pick=' + targetDate.pick + ' ' + _.ariaAttr({
-                                                                role: 'gridcell',
-                                                                label: formattedDate,
-                                                                selected: isSelected && calendar.$node.val() === formattedDate ? true : null,
-                                                                activedescendant: isHighlighted ? true : null,
-                                                                disabled: isDisabled ? true : null
-                                                            })
-                                    ),
-                                    '',
-                                    _.ariaAttr({
-                                                            role: 'presentation'
-                                                        })
-                                ] //endreturn
-                                            }
-                                        })
-                    ] //endreturn
-                            }
-                        })
-                    ),
-                    settings.klass.table,
-                    'id="' + calendar.$node[0].id + '_table' + '" ' + _.ariaAttr({
-                        role: 'grid',
-                        controls: calendar.$node[0].id,
-                        readonly: true
-                    })
-                ) +
-
-                // * For Firefox forms to submit, make sure to set the buttons’ `type` attributes as “button”.
-                _.node(
-                    'div',
-                    _.node('button', settings.today, settings.klass.buttonToday,
-                        'type=button data-pick=' + nowObject.pick +
-                        (isOpen && !calendar.disabled(nowObject) ? '' : ' disabled') + ' ' +
-                        _.ariaAttr({
-                            controls: calendar.$node[0].id
-                        })) +
-                    _.node('button', settings.clear, settings.klass.buttonClear,
-                        'type=button data-clear=1' +
-                        (isOpen ? '' : ' disabled') + ' ' +
-                        _.ariaAttr({
-                            controls: calendar.$node[0].id
-                        })) +
-                    _.node('button', settings.close, settings.klass.buttonClose,
-                        'type=button data-close=true ' +
-                        (isOpen ? '' : ' disabled') + ' ' +
-                        _.ariaAttr({
-                            controls: calendar.$node[0].id
-                        })),
-                    settings.klass.footer
-                ) //endreturn
-        } //DatePicker.prototype.nodes
-
-
-
-
-    /**
-     * The date picker defaults.
-     */
-    DatePicker.defaults = (function (prefix) {
-
-        return {
-
-            // The title label to use for the month nav buttons
-            labelMonthNext: 'Next month',
-            labelMonthPrev: 'Previous month',
-
-            // The title label to use for the dropdown selectors
-            labelMonthSelect: 'Select a month',
-            labelYearSelect: 'Select a year',
-
-            // Months and weekdays
-            monthsFull: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-            monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-            weekdaysFull: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-            weekdaysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-
-            // Today and clear
-            today: 'Today',
-            clear: 'Clear',
-            close: 'Close',
-
-            // Picker close behavior
-            closeOnSelect: true,
-            closeOnClear: true,
-
-            // The format to show on the `input` element
-            format: 'd mmmm, yyyy',
-
-            // Classes
-            klass: {
-
-                table: prefix + 'table',
-
-                header: prefix + 'header',
-
-                navPrev: prefix + 'nav--prev',
-                navNext: prefix + 'nav--next',
-                navDisabled: prefix + 'nav--disabled',
-
-                month: prefix + 'month',
-                year: prefix + 'year',
-
-                selectMonth: prefix + 'select--month',
-                selectYear: prefix + 'select--year',
-
-                weekdays: prefix + 'weekday',
-
-                day: prefix + 'day',
-                disabled: prefix + 'day--disabled',
-                selected: prefix + 'day--selected',
-                highlighted: prefix + 'day--highlighted',
-                now: prefix + 'day--today',
-                infocus: prefix + 'day--infocus',
-                outfocus: prefix + 'day--outfocus',
-
-                footer: prefix + 'footer',
-
-                buttonClear: prefix + 'button--clear',
-                buttonToday: prefix + 'button--today',
-                buttonClose: prefix + 'button--close'
-            }
+          )
+        ) //endreturn
+      })((settings.showWeekdaysFull ? settings.weekdaysFull : settings.weekdaysShort).slice(0), settings.weekdaysFull.slice(0)), //tableHead
+
+
+      // Create the nav for next/prev month.
+      createMonthNav = function (next) {
+
+        // Otherwise, return the created month tag.
+        return _.node(
+          'div',
+          ' ',
+          settings.klass['nav' + (next ? 'Next' : 'Prev')] + (
+
+            // If the focused month is outside the range, disabled the button.
+            (next && viewsetObject.year >= maxLimitObject.year && viewsetObject.month >= maxLimitObject.month) ||
+            (!next && viewsetObject.year <= minLimitObject.year && viewsetObject.month <= minLimitObject.month) ?
+            ' ' + settings.klass.navDisabled : ''
+          ),
+          'data-nav=' + (next || -1) + ' ' +
+          _.ariaAttr({
+            role: 'button',
+            controls: calendar.$node[0].id + '_table'
+          }) + ' ' +
+          'title="' + (next ? settings.labelMonthNext : settings.labelMonthPrev) + '"'
+        ) //endreturn
+      }, //createMonthNav
+
+
+      // Create the month label.
+      createMonthLabel = function () {
+
+        var monthsCollection = settings.showMonthsShort ? settings.monthsShort : settings.monthsFull
+
+        // If there are months to select, add a dropdown menu.
+        if (settings.selectMonths) {
+
+          return _.node('select',
+            _.group({
+              min: 0,
+              max: 11,
+              i: 1,
+              node: 'option',
+              item: function (loopedMonth) {
+
+                return [
+
+                  // The looped month and no classes.
+                  monthsCollection[loopedMonth], 0,
+
+                  // Set the value and selected index.
+                  'value=' + loopedMonth +
+                  (viewsetObject.month == loopedMonth ? ' selected' : '') +
+                  (
+                    (
+                      (viewsetObject.year == minLimitObject.year && loopedMonth < minLimitObject.month) ||
+                      (viewsetObject.year == maxLimitObject.year && loopedMonth > maxLimitObject.month)
+                    ) ?
+                    ' disabled' : ''
+                  )
+                ]
+              }
+            }),
+            settings.klass.selectMonth, (isOpen ? '' : 'disabled') + ' ' +
+            _.ariaAttr({
+              controls: calendar.$node[0].id + '_table'
+            }) + ' ' +
+            'title="' + settings.labelMonthSelect + '"'
+          )
         }
-    })(Picker.klasses().picker + '__')
+
+        // If there's a need for a month selector
+        return _.node('div', monthsCollection[viewsetObject.month], settings.klass.month)
+      }, //createMonthLabel
+
+
+      // Create the year label.
+      createYearLabel = function () {
+
+        var focusedYear = viewsetObject.year,
+
+          // If years selector is set to a literal "true", set it to 5. Otherwise
+          // divide in half to get half before and half after focused year.
+          numberYears = settings.selectYears === true ? 5 : ~~(settings.selectYears / 2)
+
+        // If there are years to select, add a dropdown menu.
+        if (numberYears) {
+
+          var
+            minYear = minLimitObject.year,
+            maxYear = maxLimitObject.year,
+            lowestYear = focusedYear - numberYears,
+            highestYear = focusedYear + numberYears
+
+          // If the min year is greater than the lowest year, increase the highest year
+          // by the difference and set the lowest year to the min year.
+          if (minYear > lowestYear) {
+            highestYear += minYear - lowestYear
+            lowestYear = minYear
+          }
+
+          // If the max year is less than the highest year, decrease the lowest year
+          // by the lower of the two: available and needed years. Then set the
+          // highest year to the max year.
+          if (maxYear < highestYear) {
+
+            var availableYears = lowestYear - minYear,
+              neededYears = highestYear - maxYear
+
+            lowestYear -= availableYears > neededYears ? neededYears : availableYears
+            highestYear = maxYear
+          }
+
+          return _.node('select',
+            _.group({
+              min: lowestYear,
+              max: highestYear,
+              i: 1,
+              node: 'option',
+              item: function (loopedYear) {
+                return [
+
+                  // The looped year and no classes.
+                  loopedYear, 0,
+
+                  // Set the value and selected index.
+                  'value=' + loopedYear + (focusedYear == loopedYear ? ' selected' : '')
+                ]
+              }
+            }),
+            settings.klass.selectYear, (isOpen ? '' : 'disabled') + ' ' + _.ariaAttr({
+              controls: calendar.$node[0].id + '_table'
+            }) + ' ' +
+            'title="' + settings.labelYearSelect + '"'
+          )
+        }
+
+        // Otherwise just return the year focused
+        return _.node('div', focusedYear, settings.klass.year)
+      } //createYearLabel
+
+
+    // Create and return the entire calendar.
+    return _.node(
+        'div', (settings.selectYears ? createYearLabel() + createMonthLabel() : createMonthLabel() + createYearLabel()) +
+        createMonthNav() + createMonthNav(1),
+        settings.klass.header
+      ) + _.node(
+        'table',
+        tableHead +
+        _.node(
+          'tbody',
+          _.group({
+            min: 0,
+            max: WEEKS_IN_CALENDAR - 1,
+            i: 1,
+            node: 'tr',
+            item: function (rowCounter) {
+
+              // If Monday is the first day and the month starts on Sunday, shift the date back a week.
+              var shiftDateBy = settings.firstDay && calendar.create([viewsetObject.year, viewsetObject.month, 1]).day === 0 ? -7 : 0
+
+              return [
+                _.group({
+                  min: DAYS_IN_WEEK * rowCounter - viewsetObject.day + shiftDateBy + 1, // Add 1 for weekday 0index
+                  max: function () {
+                    return this.min + DAYS_IN_WEEK - 1
+                  },
+                  i: 1,
+                  node: 'td',
+                  item: function (targetDate) {
+
+                    // Convert the time date from a relative date to a target date.
+                    targetDate = calendar.create([viewsetObject.year, viewsetObject.month, targetDate + (settings.firstDay ? 1 : 0)])
+
+                    var isSelected = selectedObject && selectedObject.pick == targetDate.pick,
+                      isHighlighted = highlightedObject && highlightedObject.pick == targetDate.pick,
+                      isDisabled = disabledCollection && calendar.disabled(targetDate) || targetDate.pick < minLimitObject.pick || targetDate.pick > maxLimitObject.pick,
+                      formattedDate = _.trigger(calendar.formats.toString, calendar, [settings.format, targetDate])
+
+                    return [
+                      _.node(
+                        'div',
+                        targetDate.date, (function (klasses) {
+
+                          // Add the `infocus` or `outfocus` classes based on month in view.
+                          klasses.push(viewsetObject.month == targetDate.month ? settings.klass.infocus : settings.klass.outfocus)
+
+                          // Add the `today` class if needed.
+                          if (nowObject.pick == targetDate.pick) {
+                            klasses.push(settings.klass.now)
+                          }
+
+                          // Add the `selected` class if something's selected and the time matches.
+                          if (isSelected) {
+                            klasses.push(settings.klass.selected)
+                          }
+
+                          // Add the `highlighted` class if something's highlighted and the time matches.
+                          if (isHighlighted) {
+                            klasses.push(settings.klass.highlighted)
+                          }
+
+                          // Add the `disabled` class if something's disabled and the object matches.
+                          if (isDisabled) {
+                            klasses.push(settings.klass.disabled)
+                          }
+
+                          return klasses.join(' ')
+                        })([settings.klass.day]),
+                        'data-pick=' + targetDate.pick + ' ' + _.ariaAttr({
+                          role: 'gridcell',
+                          label: formattedDate,
+                          selected: isSelected && calendar.$node.val() === formattedDate ? true : null,
+                          activedescendant: isHighlighted ? true : null,
+                          disabled: isDisabled ? true : null
+                        })
+                      ),
+                      '',
+                      _.ariaAttr({
+                        role: 'presentation'
+                      })
+                    ] //endreturn
+                  }
+                })
+              ] //endreturn
+            }
+          })
+        ),
+        settings.klass.table,
+        'id="' + calendar.$node[0].id + '_table' + '" ' + _.ariaAttr({
+          role: 'grid',
+          controls: calendar.$node[0].id,
+          readonly: true
+        })
+      ) +
+
+      // * For Firefox forms to submit, make sure to set the buttons’ `type` attributes as “button”.
+      _.node(
+        'div',
+        _.node('button', settings.today, settings.klass.buttonToday,
+          'type=button data-pick=' + nowObject.pick +
+          (isOpen && !calendar.disabled(nowObject) ? '' : ' disabled') + ' ' +
+          _.ariaAttr({
+            controls: calendar.$node[0].id
+          })) +
+        _.node('button', settings.clear, settings.klass.buttonClear,
+          'type=button data-clear=1' +
+          (isOpen ? '' : ' disabled') + ' ' +
+          _.ariaAttr({
+            controls: calendar.$node[0].id
+          })) +
+        _.node('button', settings.close, settings.klass.buttonClose,
+          'type=button data-close=true ' +
+          (isOpen ? '' : ' disabled') + ' ' +
+          _.ariaAttr({
+            controls: calendar.$node[0].id
+          })),
+        settings.klass.footer
+      ) //endreturn
+  } //DatePicker.prototype.nodes
+
+
+
+
+  /**
+   * The date picker defaults.
+   */
+  DatePicker.defaults = (function (prefix) {
+
+    return {
+
+      // The title label to use for the month nav buttons
+      labelMonthNext: 'Next month',
+      labelMonthPrev: 'Previous month',
+
+      // The title label to use for the dropdown selectors
+      labelMonthSelect: 'Select a month',
+      labelYearSelect: 'Select a year',
+
+      // Months and weekdays
+      monthsFull: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      weekdaysFull: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      weekdaysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+
+      // Today and clear
+      today: 'Today',
+      clear: 'Clear',
+      close: 'Close',
+
+      // Picker close behavior
+      closeOnSelect: true,
+      closeOnClear: true,
+
+      // The format to show on the `input` element
+      format: 'd mmmm, yyyy',
+
+      // Classes
+      klass: {
+
+        table: prefix + 'table',
+
+        header: prefix + 'header',
+
+        navPrev: prefix + 'nav--prev',
+        navNext: prefix + 'nav--next',
+        navDisabled: prefix + 'nav--disabled',
+
+        month: prefix + 'month',
+        year: prefix + 'year',
+
+        selectMonth: prefix + 'select--month',
+        selectYear: prefix + 'select--year',
+
+        weekdays: prefix + 'weekday',
+
+        day: prefix + 'day',
+        disabled: prefix + 'day--disabled',
+        selected: prefix + 'day--selected',
+        highlighted: prefix + 'day--highlighted',
+        now: prefix + 'day--today',
+        infocus: prefix + 'day--infocus',
+        outfocus: prefix + 'day--outfocus',
+
+        footer: prefix + 'footer',
+
+        buttonClear: prefix + 'button--clear',
+        buttonToday: prefix + 'button--today',
+        buttonClose: prefix + 'button--close'
+      }
+    }
+  })(Picker.klasses().picker + '__')
 
 
 
 
 
-    /**
-     * Extend the picker to add the date picker.
-     */
-    Picker.extend('pickadate', DatePicker)
+  /**
+   * Extend the picker to add the date picker.
+   */
+  Picker.extend('pickadate', DatePicker)
 
 
 }));
 
 $.extend($.fn.pickadate.defaults, {
-      selectMonths: true, // Creates a dropdown to control month
-      selectYears: 15, // Creates a dropdown of 15 years to control year,
+  selectMonths: true, // Creates a dropdown to control month
+  selectYears: 15, // Creates a dropdown of 15 years to control year,
 
-      onRender: function () {
-      var $pickerInstance = this.$root;
+  onRender: function () {
+    var $pickerInstance = this.$root;
 
-          var year = this.get('highlight', 'yyyy');
-          var day = this.get('highlight', 'dd');
-          var month = this.get('highlight', 'mmm');
-          var labelday = this.get('highlight', 'dddd');
+    var year = this.get('highlight', 'yyyy');
+    var day = this.get('highlight', 'dd');
+    var month = this.get('highlight', 'mmm');
+    var labelday = this.get('highlight', 'dddd');
 
-          $pickerInstance.find('.picker__header').prepend('<div class="picker__date-display"><div class="picker__weekday-display">' + labelday + '</div><div class="picker__month-display"><div>' + month + '</div></div><div class="picker__day-display"><div>' + day + '</div></div><div    class="picker__year-display"><div>' + year + '</div></div></div>');
-      }
-  });
+    $pickerInstance.find('.picker__header').prepend('<div class="picker__date-display"><div class="picker__weekday-display">' + labelday + '</div><div class="picker__month-display"><div>' + month + '</div></div><div class="picker__day-display"><div>' + day + '</div></div><div    class="picker__year-display"><div>' + year + '</div></div></div>');
+  }
+});
 
 /*!
  * ClockPicker v0.0.7 (http://weareoutman.github.io/clockpicker/)
@@ -23571,6 +21258,21 @@ $.extend($.fn.pickadate.defaults, {
 	function createSvgElement(name) {
 		return document.createElementNS(svgNS, name);
 	}
+
+  function debounce(func, wait, immediate) {
+    var timeout;
+    return function() {
+        var context = this, args = arguments;
+        var later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+}
 
 	function leadingZero(num) {
 		return (num < 10 ? '0' : '') + num;
@@ -23715,11 +21417,12 @@ $.extend($.fn.pickadate.defaults, {
 			// If autoclose is not setted, append a button
 		$('<button type="button" class="btn btn-flat clockpicker-button" tabindex="' + (options.twelvehour? '3' : '1') + '">' + options.donetext + '</button>').click($.proxy(this.done, this)).appendTo(this.footer);
 
+		$('<button type="button" class="btn btn-flat clockpicker-button" tabindex="' + (options.twelvehour? '4' : '2') + '">' + options.cleartext + '</button>').click($.proxy(this.clearInput, this)).appendTo(this.footer);
 		this.spanHours.click($.proxy(this.toggleView, this, 'hours'));
 		this.spanMinutes.click($.proxy(this.toggleView, this, 'minutes'));
 
 		// Show or toggle
-		input.on('focus.clockpicker click.clockpicker', $.proxy(this.show, this));
+		input.on('focus.clockpicker click.clockpicker', debounce( $.proxy(this.show, this),300));
 
 		// Build ticks
 		var tickTpl = $('<div class="clockpicker-tick"></div>'),
@@ -23902,7 +21605,8 @@ $.extend($.fn.pickadate.defaults, {
 	ClockPicker.DEFAULTS = {
 		'default': '',         // default time, 'now' or '13:14' e.g.
 		fromnow: 0,            // set default time to * milliseconds from now (using with default = 'now')
-		donetext: 'Done',      // done button text
+    donetext: 'Done',      // done button text
+    cleartext: 'Clear',    // clear button text
 		autoclose: false,      // auto close when minute is selected
 		ampmclickable: false,  // set am/pm button on itself
 		darktheme: false,			 // set to dark theme
@@ -24012,16 +21716,16 @@ ClockPicker.prototype.parseInputValue = function(){
 		this.locate();
 		this.isShown = true;
 		// Hide when clicking or tabbing on any element except the clock and input
-		$doc.on('click.clockpicker.' + this.id + ' focusin.clockpicker.' + this.id, function(e) {
+		$doc.on('click.clockpicker.' + this.id + ' focusin.clockpicker.' + this.id, debounce(function(e) {
 			var target = $(e.target);
 			if (target.closest(self.popover.find('.picker__wrap')).length === 0 && target.closest(self.input).length === 0)
 				self.hide();
-		});
+		}, 300));
 		// Hide when ESC is pressed
-		$doc.on('keyup.clockpicker.' + this.id, function(e){
+		$doc.on('keyup.clockpicker.' + this.id, debounce( function(e){
 			if (e.keyCode === 27)
 				self.hide();
-		});
+		},300));
 		raiseCallback(this.options.afterShow);
 	};
 	// Hide popover
@@ -24196,6 +21900,15 @@ ClockPicker.prototype.parseInputValue = function(){
     this.bg.setAttribute('cy', cy);
     this.fg.setAttribute('cx', cx);
     this.fg.setAttribute('cy', cy);
+  };
+
+  	// Clear clock text
+  ClockPicker.prototype.clearInput = function() {
+		this.input.val('');
+		this.hide();
+
+		if(this.options.afterDone && typeof this.options.afterDone === 'function')
+			this.options.afterDone(this.input, null);
 	};
 
     // Allow user to get time as Date object
@@ -25902,120 +23615,202 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 
 // execute above function
 initPhotoSwipeFromDOM('.mdb-lightbox');
-/* jSticky Plugin
- * =============
- * Author: Andrew Henderson (@AndrewHenderson)
- * Contributor: Mike Street (@mikestreety)
- * Date: 9/7/2012
- * Update: 09/20/2016
- * Website: http://github.com/andrewhenderson/jsticky/
- * Description: A jQuery plugin that keeps select DOM
- * element(s) in view while scrolling the page.
- */
+"use strict";
 
-;(function($) {
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  $.fn.sticky = function(options) {
-    var defaults = {
-      topSpacing: 0, // No spacing by default
-      zIndex: '', // No default z-index
-      stopper: '.sticky-stopper', // Default stopper class, also accepts number value
-      stickyClass: false // Class applied to element when it's stuck
-    };
-    var settings = $.extend({}, defaults, options); // Accepts custom stopper id or class
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-    // Checks if custom z-index was defined
-    function checkIndex() {
-      if (typeof settings.zIndex == 'number') {
-        return true;
-      } else {
-        return false;
-      }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+(function ($) {
+  var DEFAULT_TOP_SPACING = 0;
+
+  var Sticky =
+  /*#__PURE__*/
+  function () {
+    function Sticky(element, options) {
+      _classCallCheck(this, Sticky);
+
+      this.defaults = {
+        topSpacing: DEFAULT_TOP_SPACING,
+        zIndex: false,
+        stopper: '#footer',
+        stickyClass: false,
+        startScrolling: 'top',
+        minWidth: false
+      };
+      this.$element = element;
+      this.options = this.assignOptions(options);
+      this.$window = $(window);
+      this.stopper = this.options.stopper;
+      this.elementWidth = this.$element.outerWidth();
+      this.elementHeight = this.$element.outerHeight(true);
+      this.$placeholder = $('<div class="sticky-placeholder"></div>');
+      this.scrollTop = 0;
+      this.setPushPoint();
+      this.setStopperPosition();
+      this.bindEvents();
     }
 
-    var hasIndex = checkIndex(); // True or false
-
-    // Checks if a stopper exists in the DOM or number defined
-    function checkStopper() {
-      if (0 < $(settings.stopper).length || typeof settings.stopper === 'number') {
-        return true;
-      } else {
-        return false;
+    _createClass(Sticky, [{
+      key: "assignOptions",
+      value: function assignOptions(options) {
+        return $.extend({}, this.defaults, options);
       }
-    }
-    var hasStopper = checkStopper(); // True or false
-
-    return this.each(function() {
-
-      var $this = $(this);
-      var thisHeight = $this.outerHeight();
-      var thisWidth = $this.outerWidth();
-      var topSpacing = settings.topSpacing;
-      var zIndex = settings.zIndex;
-      var pushPoint = $this.offset().top - topSpacing; // Point at which the sticky element starts pushing
-      var placeholder = $('<div></div>').width(thisWidth).height(thisHeight).addClass('sticky-placeholder'); // Cache a clone sticky element
-      var stopper = settings.stopper;
-      var $window = $(window);
-
-      function stickyScroll() {
-
-        var windowTop  = $window.scrollTop(); // Check window's scroll position
-        var stopPoint = stopper;
-        var parentWidth = $this.parent().width();
-
-        placeholder.width(parentWidth)
-
-        if ( hasStopper && typeof stopper === 'string' ) {
-          var stopperTop = $(stopper).offset().top;
-          stopPoint  = (stopperTop - thisHeight) - topSpacing;
+    }, {
+      key: "bindEvents",
+      value: function bindEvents() {
+        this.$window.on('resize', this.handleResize.bind(this));
+        this.$window.on('scroll', this.init.bind(this));
+      }
+    }, {
+      key: "hasZIndex",
+      value: function hasZIndex() {
+        return typeof this.options.zIndex === 'number';
+      }
+    }, {
+      key: "hasStopper",
+      value: function hasStopper() {
+        return $(this.options.stopper).length || typeof this.options.stopper === 'number';
+      }
+    }, {
+      key: "isScreenHeightEnough",
+      value: function isScreenHeightEnough() {
+        return this.$element.outerHeight() + this.options.topSpacing < this.$window.height();
+      }
+    }, {
+      key: "setStopperPosition",
+      value: function setStopperPosition() {
+        if (typeof this.options.stopper === 'string') {
+          this.stopPoint = $(this.stopper).offset().top - this.options.topSpacing;
+        } else if (typeof this.options.stopper === 'number') {
+          this.stopPoint = this.options.stopper;
         }
-
-        if (pushPoint < windowTop) {
-          // Create a placeholder for sticky element to occupy vertical real estate
-          if(settings.stickyClass)
-            $this.addClass(settings.stickyClass);
-
-          $this.after(placeholder).css({
-            position: 'fixed',
-            top: topSpacing,
-            width: parentWidth
-          });
-
-          if (hasIndex) {
-            $this.css({
-              zIndex: zIndex
-            });
-          }
-
-          if (hasStopper) {
-            if (stopPoint < windowTop) {
-              var diff = (stopPoint - windowTop) + topSpacing;
-              $this.css({
-                top: diff
-              });
-            }
-          }
+      }
+    }, {
+      key: "setPushPoint",
+      value: function setPushPoint() {
+        if (this.options.startScrolling === 'bottom' && !this.isScreenHeightEnough()) {
+          this.$pushPoint = this.$element.offset().top + this.$element.outerHeight(true) - this.$window.height();
         } else {
-          if(settings.stickyClass)
-            $this.removeClass(settings.stickyClass);
-
-          $this.css({
-            position: 'static',
-            top: null,
-            left: null,
-            width: 'auto'
-          });
-
-          placeholder.remove();
+          this.$pushPoint = this.$element.offset().top - this.options.topSpacing;
         }
       }
-
-      if($window.innerHeight() > thisHeight) {
-
-        $window.bind('scroll', stickyScroll);
-        $window.bind('load', stickyScroll);
-        $window.bind('resize', stickyScroll);
+    }, {
+      key: "handleResize",
+      value: function handleResize() {
+        this.elementWidth = this.$element.outerWidth();
+        this.elementHeight = this.$element.outerHeight(true);
+        this.setPushPoint();
+        this.setStopperPosition();
+        this.init();
       }
+    }, {
+      key: "init",
+      value: function init() {
+        if (this.options.minWidth && this.options.minWidth > this.$window.innerWidth()) {
+          return false;
+        }
+
+        if (this.options.startScrolling === 'bottom' && !this.isScreenHeightEnough()) {
+          this.scrollTop = this.$window.scrollTop() + this.$window.height();
+        } else {
+          this.scrollTop = this.$window.scrollTop();
+        }
+
+        if (this.$pushPoint < this.scrollTop) {
+          this.appendPlaceholder();
+          this.stickyStart();
+        } else {
+          this.stickyEnd();
+        }
+
+        if (this.$window.scrollTop() > this.$pushPoint) {
+          this.stop();
+        } else {
+          this.stickyEnd();
+        }
+      }
+    }, {
+      key: "appendPlaceholder",
+      value: function appendPlaceholder() {
+        this.$element.after(this.$placeholder);
+        this.$placeholder.css({
+          width: this.elementWidth,
+          height: this.elementHeight
+        });
+      }
+    }, {
+      key: "stickyStart",
+      value: function stickyStart() {
+        if (this.options.stickyClass) {
+          this.$element.addClass(this.options.stickyClass);
+        } // @see: https://stackoverflow.com/a/4370047
+
+
+        this.$element.get(0).style.overflow = 'scroll';
+        var scrollHeight = this.$element.get(0).scrollHeight;
+        this.$element.get(0).style.overflow = '';
+        this.$element.css({
+          'position': 'fixed',
+          'width': this.elementWidth,
+          'height': scrollHeight
+        });
+
+        if (this.options.startScrolling === 'bottom' && !this.isScreenHeightEnough()) {
+          this.$element.css({
+            bottom: 0,
+            top: ''
+          });
+        } else {
+          this.$element.css({
+            top: this.options.topSpacing
+          });
+        }
+
+        if (this.hasZIndex()) {
+          this.$element.css({
+            zIndex: this.options.zIndex
+          });
+        }
+      }
+    }, {
+      key: "stickyEnd",
+      value: function stickyEnd() {
+        if (this.options.stickyClass) {
+          this.$element.removeClass(this.options.stickyClass);
+        }
+
+        this.$placeholder.remove();
+        this.$element.css({
+          position: 'static',
+          top: DEFAULT_TOP_SPACING
+        });
+      }
+    }, {
+      key: "stop",
+      value: function stop() {
+        if (this.stopPoint < $(this.$element).offset().top + this.$element.outerHeight(true)) {
+          this.$element.css({
+            position: 'absolute',
+            bottom: 0,
+            top: ''
+          });
+        }
+      }
+    }]);
+
+    return Sticky;
+  }();
+
+  $.fn.sticky = function (options) {
+    return this.each(function () {
+      var $self = $(this);
+      $(window).on('load', function () {
+        var sticky = new Sticky($self, options);
+        sticky.init();
+      });
     });
   };
 })(jQuery);
@@ -26026,7 +23821,7 @@ initPhotoSwipeFromDOM('.mdb-lightbox');
 (function ($) {
   $(document).ready(function () {
     $(document).on('click', '.chip .close', function () {
-      let $this = $(this);
+      var $this = $(this);
 
       if ($this.closest('.chips').data('initialized')) {
         return;
@@ -26051,7 +23846,7 @@ initPhotoSwipeFromDOM('.mdb-lightbox');
       chips: '.chips',
       chip: '.chip',
       input: 'input',
-      delete: '.fa',
+      delete: '.fas',
       selectedChip: '.selected'
     };
     this.keyCodes = {
@@ -26074,13 +23869,13 @@ initPhotoSwipeFromDOM('.mdb-lightbox');
 
     this.init = function () {
       _this.$el.each(function (index, element) {
-        let $this = $(element);
+        var $this = $(element);
 
         if ($this.data('initialized')) {
           return;
         }
 
-        let options = $this.data('options');
+        var options = $this.data('options');
 
         if (!options.data || !Array.isArray(options.data)) {
           options.data = [];
@@ -26113,19 +23908,19 @@ initPhotoSwipeFromDOM('.mdb-lightbox');
           return;
         }
 
-        let $selectedChip = _this2.$document.find(_this2.selectors.chip + _this2.selectors.selectedChip);
+        var $selectedChip = _this2.$document.find(_this2.selectors.chip + _this2.selectors.selectedChip);
 
-        let $chipsWrapper = $selectedChip.closest(_this2.selectors.chips);
-        let siblingsLength = $selectedChip.siblings(_this2.selectors.chip).length;
+        var $chipsWrapper = $selectedChip.closest(_this2.selectors.chips);
+        var siblingsLength = $selectedChip.siblings(_this2.selectors.chip).length;
 
         if (!$selectedChip.length) {
           return;
         }
 
-        let backspacePressed = e.which === _this2.keyCodes.backspace;
-        let deletePressed = e.which === _this2.keyCodes.delete;
-        let leftArrowPressed = e.which === _this2.keyCodes.arrowLeft;
-        let rightArrowPressed = e.which === _this2.keyCodes.arrowRight;
+        var backspacePressed = e.which === _this2.keyCodes.backspace;
+        var deletePressed = e.which === _this2.keyCodes.delete;
+        var leftArrowPressed = e.which === _this2.keyCodes.arrowLeft;
+        var rightArrowPressed = e.which === _this2.keyCodes.arrowRight;
 
         if (backspacePressed || deletePressed) {
           e.preventDefault();
@@ -26137,19 +23932,19 @@ initPhotoSwipeFromDOM('.mdb-lightbox');
           _this2.selectRightChip($chipsWrapper, $selectedChip, siblingsLength);
         }
       });
-      this.$document.on('focusin', `${this.selectors.chips} ${this.selectors.input}`, function (e) {
+      this.$document.on('focusin', "".concat(this.selectors.chips, " ").concat(this.selectors.input), function (e) {
         $(e.target).closest(_this2.selectors.chips).addClass('focus');
         $(_this2.selectors.chip).removeClass('selected');
       });
-      this.$document.on('focusout', `${this.selectors.chips} ${this.selectors.input}`, function (e) {
+      this.$document.on('focusout', "".concat(this.selectors.chips, " ").concat(this.selectors.input), function (e) {
         $(e.target).closest(_this2.selectors.chips).removeClass('focus');
       });
-      this.$document.on('keydown', `${this.selectors.chips} ${this.selectors.input}`, function (e) {
-        let $target = $(e.target);
-        let $chipsWrapper = $target.closest(_this2.selectors.chips);
-        let chipsIndex = $chipsWrapper.data('index');
-        let chipsLength = $chipsWrapper.children(_this2.selectors.chip).length;
-        let enterPressed = e.which === _this2.keyCodes.enter;
+      this.$document.on('keydown', "".concat(this.selectors.chips, " ").concat(this.selectors.input), function (e) {
+        var $target = $(e.target);
+        var $chipsWrapper = $target.closest(_this2.selectors.chips);
+        var chipsIndex = $chipsWrapper.data('index');
+        var chipsLength = $chipsWrapper.children(_this2.selectors.chip).length;
+        var enterPressed = e.which === _this2.keyCodes.enter;
 
         if (enterPressed) {
           e.preventDefault();
@@ -26162,8 +23957,8 @@ initPhotoSwipeFromDOM('.mdb-lightbox');
           return;
         }
 
-        let leftArrowOrDeletePressed = e.keyCode === _this2.keyCodes.arrowLeft || e.keyCode === _this2.keyCodes.delete;
-        let isValueEmpty = $target.val() === '';
+        var leftArrowOrDeletePressed = e.keyCode === _this2.keyCodes.arrowLeft || e.keyCode === _this2.keyCodes.delete;
+        var isValueEmpty = $target.val() === '';
 
         if (leftArrowOrDeletePressed && isValueEmpty && chipsLength) {
           _this2.selectChip(chipsIndex, chipsLength - 1, $chipsWrapper);
@@ -26171,10 +23966,10 @@ initPhotoSwipeFromDOM('.mdb-lightbox');
           $target.blur();
         }
       });
-      this.$document.on('click', `${this.selectors.chips} ${this.selectors.delete}`, function (e) {
-        let $target = $(e.target);
-        let $chipsWrapper = $target.closest(_this2.selectors.chips);
-        let $chip = $target.closest(_this2.selectors.chip);
+      this.$document.on('click', "".concat(this.selectors.chips, " ").concat(this.selectors.delete), function (e) {
+        var $target = $(e.target);
+        var $chipsWrapper = $target.closest(_this2.selectors.chips);
+        var $chip = $target.closest(_this2.selectors.chip);
         e.stopPropagation();
 
         _this2.deleteChip($chipsWrapper.data('index'), $chip.index(), $chipsWrapper);
@@ -26184,12 +23979,12 @@ initPhotoSwipeFromDOM('.mdb-lightbox');
     };
 
     this.deleteSelectedChip = function ($chipsWrapper, $selectedChip, siblingsLength) {
-      let chipsIndex = $chipsWrapper.data('index');
-      let chipIndex = $selectedChip.index();
+      var chipsIndex = $chipsWrapper.data('index');
+      var chipIndex = $selectedChip.index();
 
       _this.deleteChip(chipsIndex, chipIndex, $chipsWrapper);
 
-      let selectIndex = null;
+      var selectIndex = null;
 
       if (chipIndex < siblingsLength - 1) {
         selectIndex = chipIndex;
@@ -26211,7 +24006,7 @@ initPhotoSwipeFromDOM('.mdb-lightbox');
     };
 
     this.selectLeftChip = function ($chipsWrapper, $selectedChip) {
-      let chipIndex = $selectedChip.index() - 1;
+      var chipIndex = $selectedChip.index() - 1;
 
       if (chipIndex < 0) {
         return;
@@ -26223,7 +24018,7 @@ initPhotoSwipeFromDOM('.mdb-lightbox');
     };
 
     this.selectRightChip = function ($chipsWrapper, $selectedChip, siblingsLength) {
-      let chipIndex = $selectedChip.index() + 1;
+      var chipIndex = $selectedChip.index() + 1;
       $(_this.selectors.chip).removeClass('selected');
 
       if (chipIndex > siblingsLength) {
@@ -26235,7 +24030,7 @@ initPhotoSwipeFromDOM('.mdb-lightbox');
     };
 
     this.renderChips = function ($chipsWrapper) {
-      let html = '';
+      var html = '';
       $chipsWrapper.data('chips').forEach(function (elem) {
         html += _this.getSingleChipHtml(elem);
       });
@@ -26250,19 +24045,19 @@ initPhotoSwipeFromDOM('.mdb-lightbox');
         return '';
       }
 
-      let html = `<div class="chip">${elem.tag}`;
+      var html = "<div class=\"chip\">".concat(elem.tag);
 
       if (elem.image) {
-        html += ` <img src="${elem.image}"> `;
+        html += " <img src=\"".concat(elem.image, "\"> ");
       }
 
-      html += '<i class="close fa fa-times"></i>';
+      html += '<i class="close fas fa-times"></i>';
       html += '</div>';
       return html;
     };
 
     this.setPlaceholder = function ($chips) {
-      let options = $chips.data('options');
+      var options = $chips.data('options');
 
       if ($chips.data('chips').length && options.placeholder) {
         $chips.find('input').prop('placeholder', options.placeholder);
@@ -26272,9 +24067,9 @@ initPhotoSwipeFromDOM('.mdb-lightbox');
     };
 
     this.isValid = function ($chipsWrapper, elem) {
-      let chips = $chipsWrapper.data('chips');
+      var chips = $chipsWrapper.data('chips');
 
-      for (let i = 0; i < chips.length; i++) {
+      for (var i = 0; i < chips.length; i++) {
         if (chips[i].tag === elem.tag) {
           return false;
         }
@@ -26288,7 +24083,7 @@ initPhotoSwipeFromDOM('.mdb-lightbox');
         return;
       }
 
-      let chipHtml = _this.getSingleChipHtml(elem);
+      var chipHtml = _this.getSingleChipHtml(elem);
 
       $chipsWrapper.data('chips').push(elem);
       $(chipHtml).insertBefore($chipsWrapper.find('input'));
@@ -26298,7 +24093,7 @@ initPhotoSwipeFromDOM('.mdb-lightbox');
     };
 
     this.deleteChip = function (chipsIndex, chipIndex, $chipsWrapper) {
-      let chip = $chipsWrapper.data('chips')[chipIndex];
+      var chip = $chipsWrapper.data('chips')[chipIndex];
       $chipsWrapper.find('.chip').eq(chipIndex).remove();
       $chipsWrapper.data('chips').splice(chipIndex, 1);
       $chipsWrapper.trigger('chip.delete', chip);
@@ -26307,7 +24102,7 @@ initPhotoSwipeFromDOM('.mdb-lightbox');
     };
 
     this.selectChip = function (chipsIndex, chipIndex, $chipsWrapper) {
-      let $chip = $chipsWrapper.find('.chip').eq(chipIndex);
+      var $chip = $chipsWrapper.find('.chip').eq(chipIndex);
 
       if ($chip && $chip.hasClass('selected') === false) {
         $chip.addClass('selected');
@@ -28981,91 +26776,236 @@ function jarallaxVideo() {
 /******/ ]);
 "use strict";
 
-$.fn.mdb_autocomplete = function (options) {
-  // Default options
-  let defaults = {
-    data: {}
-  };
-  let ENTER_CHAR_CODE = 13; // Get options
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  options = $.extend(defaults, options);
-  return this.each(function () {
-    // text input
-    let $input = $(this);
-    let $autocomplete; // assign data from options
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-    let data = options.data;
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-    if (Object.keys(data).length) {
-      $autocomplete = $('<ul class="mdb-autocomplete-wrap"></ul>');
-      $autocomplete.insertAfter($(this));
-    } // Listen if key was pressed
+(function ($) {
+  var INPUT_DATA = {};
+  var DATA_COLOR = '';
+  var BUTTON_X_COLOR = '';
+  var BUTTON_X_BLUR_COLOR = '#ced4da';
+  var INPUT_FOCUS = '1px solid #4285f4';
+  var INPUT_BLUR = '1px solid #ced4da';
+  var INPUT_FOCUS_SHADOW = '0 1px 0 0 #4285f4';
+  var INPUT_BLUR_SHADOW = '';
+  var ENTER_CHAR_CODE = 13;
 
+  var mdbAutocomplete =
+  /*#__PURE__*/
+  function () {
+    function mdbAutocomplete(input, options) {
+      _classCallCheck(this, mdbAutocomplete);
 
-    $input.on('keyup', function (e) {
-      // get value from input
-      let q = $input.val();
-      $autocomplete.empty(); // check if input isn't empty
+      this.defaults = {
+        data: INPUT_DATA,
+        dataColor: DATA_COLOR,
+        xColor: BUTTON_X_COLOR,
+        xBlurColor: BUTTON_X_BLUR_COLOR,
+        inputFocus: INPUT_FOCUS,
+        inputBlur: INPUT_BLUR,
+        inputFocusShadow: INPUT_FOCUS_SHADOW,
+        inputBlurShadow: INPUT_BLUR_SHADOW
+      };
+      this.$input = input;
+      this.options = this.assignOptions(options);
+      this.$clearButton = $('.mdb-autocomplete-clear');
+      this.$autocompleteWrap = $('<ul class="mdb-autocomplete-wrap"></ul>');
+      this.init();
+    }
 
-      if (q.length) {
-        for (let item in data) {
-          // check if item contains value that we're looking for
-          if (data[item].toLowerCase().indexOf(q.toLowerCase()) !== -1) {
-            let option = $(`<li>${data[item]}</li>`);
-            $autocomplete.append(option);
-          }
+    _createClass(mdbAutocomplete, [{
+      key: "init",
+      value: function init() {
+        this.setData();
+        this.inputFocus();
+        this.inputBlur();
+        this.inputKeyupData();
+        this.inputLiClick();
+        this.clearAutocomplete();
+      }
+    }, {
+      key: "assignOptions",
+      value: function assignOptions(newOptions) {
+        return $.extend({}, this.defaults, newOptions);
+      }
+    }, {
+      key: "setData",
+      value: function setData() {
+        if (Object.keys(this.options.data).length) {
+          this.$autocompleteWrap.insertAfter(this.$input);
         }
       }
+    }, {
+      key: "inputFocus",
+      value: function inputFocus() {
+        var _this = this;
 
-      if (e.which === ENTER_CHAR_CODE) {
-        $autocomplete.children(':first').trigger('click');
-        $autocomplete.empty();
+        this.$input.on('focus', function () {
+          _this.$input.css('border-bottom', _this.options.inputFocus);
+
+          _this.$input.css('box-shadow', _this.options.inputFocusShadow);
+        });
       }
+    }, {
+      key: "inputBlur",
+      value: function inputBlur() {
+        var _this2 = this;
 
-      if (q.length === 0) {
-        $('.mdb-autocomplete-clear').css('visibility', 'hidden');
-      } else {
-        $('.mdb-autocomplete-clear').css('visibility', 'visible');
+        this.$input.on('blur', function () {
+          _this2.$input.css('border-bottom', _this2.options.inputBlur);
+
+          _this2.$input.css('box-shadow', _this2.options.inputBlurShadow);
+        });
       }
-    });
-    $autocomplete.on('click', 'li', function () {
-      // Set input value after click
-      $input.val($(this).text()); // Clear autocomplete
+    }, {
+      key: "inputKeyupData",
+      value: function inputKeyupData() {
+        var _this3 = this;
 
-      $autocomplete.empty();
+        this.$input.on('keyup', function (e) {
+          var $inputValue = _this3.$input.val();
+
+          _this3.$autocompleteWrap.empty();
+
+          if ($inputValue.length) {
+            for (var item in _this3.options.data) {
+              if (_this3.options.data[item].toLowerCase().indexOf($inputValue.toLowerCase()) !== -1) {
+                var option = $("<li>".concat(_this3.options.data[item], "</li>"));
+
+                _this3.$autocompleteWrap.append(option);
+              }
+            }
+          }
+
+          if (e.which === ENTER_CHAR_CODE) {
+            _this3.$autocompleteWrap.children(':first').trigger('click');
+
+            _this3.$autocompleteWrap.empty();
+          }
+
+          if ($inputValue.length === 0) {
+            _this3.$input.parent().find('.mdb-autocomplete-clear').css('visibility', 'hidden');
+          } else {
+            _this3.$input.parent().find('.mdb-autocomplete-clear').css('visibility', 'visible');
+          }
+
+          _this3.$autocompleteWrap.children().css('color', _this3.options.dataColor);
+        });
+      }
+    }, {
+      key: "inputLiClick",
+      value: function inputLiClick() {
+        var _this4 = this;
+
+        this.$autocompleteWrap.on('click', 'li', function (e) {
+          e.preventDefault();
+
+          _this4.$input.val($(e.target).text());
+
+          _this4.$autocompleteWrap.empty();
+        });
+      }
+    }, {
+      key: "clearAutocomplete",
+      value: function clearAutocomplete() {
+        var _this5 = this;
+
+        this.$clearButton.on('click', function (e) {
+          e.preventDefault();
+          var $this = $(e.currentTarget);
+          $this.parent().find('.mdb-autocomplete').val('');
+          $this.css('visibility', 'hidden');
+
+          _this5.$autocompleteWrap.empty();
+
+          $this.parent().find('label').removeClass('active');
+        });
+      }
+    }, {
+      key: "changeSVGcolors",
+      value: function changeSVGcolors() {
+        if (this.$input.hasClass('mdb-autocomplete')) {
+          this.$input.on('click keyup', function (e) {
+            e.preventDefault();
+            $(e.target).parent().find('.mdb-autocomplete-clear').find('svg').css('fill', xColor);
+          });
+          this.$input.on('blur', function (e) {
+            e.preventDefault();
+            $(e.target).parent().find('.mdb-autocomplete-clear').find('svg').css('fill', xBlurColor);
+          });
+        }
+      }
+    }]);
+
+    return mdbAutocomplete;
+  }();
+
+  $.fn.mdbAutocomplete = function (options) {
+    return this.each(function () {
+      new mdbAutocomplete($(this), options);
     });
-    $('.mdb-autocomplete-clear').on('click', function (e) {
-      e.preventDefault();
-      $input.val('');
-      $(this).css('visibility', 'hidden');
-      $autocomplete.empty();
-      $(this).parent().find('label').removeClass('active');
-    });
-  });
-};
+  }; //deprecated, delete soon
+
+
+  $.fn.mdb_autocomplete = $.fn.mdbAutocomplete;
+})(jQuery);
 /*
     Enhanced Bootstrap Modals
     https://mdbootstrap.com
     office@mdbootstrap.com
 */
 
-$('body').on('shown.bs.modal', '.modal', function() {
-    if($('.modal-backdrop').length) {
-    } else {
+(function($){
+  $('body').on('shown.bs.modal', '.modal', function() {
+    if(!$('.modal-backdrop').length) {
 
-        $modal_dialog = $(this).children('.modal-dialog')
+      $modal_dialog = $(this).children('.modal-dialog')
 
-        if($modal_dialog.hasClass('modal-side')) {
-            $(this).addClass('modal-scrolling');
-            $('body').addClass('scrollable');
-        }
+      if($modal_dialog.hasClass('modal-side')) {
+        $(this).addClass('modal-scrolling');
+        $('body').addClass('scrollable');
+      }
 
-        if($modal_dialog.hasClass('modal-frame')) {
-            $(this).addClass('modal-content-clickable');
-            $('body').addClass('scrollable');
-        }
+      if($modal_dialog.hasClass('modal-frame')) {
+        $(this).addClass('modal-content-clickable');
+        $('body').addClass('scrollable');
+      }
     }
-});
-$('body').on('hidden.bs.modal', '.modal', function() {
+  });
+  $('body').on('hidden.bs.modal', '.modal', function() {
     $('body').removeClass('scrollable');
-});
+  });
+})(jQuery);
+
+"use strict";
+
+var toggler = document.getElementsByClassName("rotate");
+var i;
+
+for (i = 0; i < toggler.length; i++) {
+  toggler[i].addEventListener("click", function () {
+    this.parentElement.querySelector(".nested").classList.toggle("active");
+    this.classList.toggle("down");
+  });
+}
+"use strict";
+
+(function ($) {
+  $('.input-default-wrapper').on('change', '.input-default-js', function (e) {
+    var $this = $(e.target),
+        $label = $this.next('label'),
+        $files = $this[0].files;
+    var fileName = '';
+
+    if ($files && $files.length > 1) {
+      fileName = ($this.attr('data-multiple-target') || '').replace('{target}', $files.length);
+    } else if (e.target.value) {
+      fileName = e.target.value.split('\\').pop();
+    }
+
+    fileName ? $label.find('.span-choose-file').html(fileName) : $label.html($label.html());
+  });
+})(jQuery);

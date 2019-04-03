@@ -2,14 +2,14 @@
 
 (function ($) {
   $(document).on('click.card', '.card', function (e) {
-    let $reveal = $(this).find('.card-reveal');
+    var $reveal = $(this).find('.card-reveal');
 
     if ($reveal.length) {
-      let $clicked = $(e.target);
-      let isTitle = $clicked.is('.card-reveal .card-title');
-      let isTitleIcon = $clicked.is('.card-reveal .card-title i');
-      let isActivator = $clicked.is('.card .activator');
-      let isActivatorIcon = $clicked.is('.card .activator i');
+      var $clicked = $(e.target);
+      var isTitle = $clicked.is('.card-reveal .card-title');
+      var isTitleIcon = $clicked.is('.card-reveal .card-title i');
+      var isActivator = $clicked.is('.card .activator');
+      var isActivatorIcon = $clicked.is('.card .activator i');
 
       if (isTitle || isTitleIcon) {
         // down
@@ -40,22 +40,27 @@
     }
   });
   $('.rotate-btn').on('click', function () {
-    let cardId = $(this).attr('data-card');
-    $(`#${cardId}`).toggleClass('flipped');
+    var cardId = $(this).attr('data-card');
+    $("#".concat(cardId)).toggleClass('flipped');
   });
-  var frontHeight = $('.front').outerHeight();
-  var backHeight = $('.back').outerHeight();
+  $(window).on('load', function () {
+    var frontHeight = $('.front').outerHeight();
+    var backHeight = $('.back').outerHeight();
 
-  if (frontHeight > backHeight) {
-    $('.card-wrapper, .back').height(frontHeight);
-  } else if (frontHeight > backHeight) {
-    $('.card-wrapper, .front').height(backHeight);
-  } else {
-    $('.card-wrapper').height(backHeight);
-  }
-
+    if (frontHeight > backHeight) {
+      $('.card-wrapper, .back').height(frontHeight);
+    } else if (frontHeight > backHeight) {
+      $('.card-wrapper, .front').height(backHeight);
+    } else {
+      $('.card-wrapper').height(backHeight);
+    }
+  });
   $('.card-share > a').on('click', function (e) {
     e.preventDefault();
     $(this).toggleClass('share-expanded').parent().find('div').toggleClass('social-reveal-active');
   });
 })(jQuery);
+
+$('.map-card').click(function () {
+  $('.card-body').toggleClass('closed');
+});

@@ -5,16 +5,16 @@
 
   $(document).ready(function () {
     $(document).on('mouseenter', '.fixed-action-btn', function () {
-      let $this = $(this);
+      var $this = $(this);
       openFABMenu($this);
     });
     $(document).on('mouseleave', '.fixed-action-btn', function () {
-      let $this = $(this);
+      var $this = $(this);
       closeFABMenu($this);
     });
     $(document).on('click', '.fixed-action-btn > a', function () {
-      let $this = $(this);
-      let $menu = $this.parent();
+      var $this = $(this);
+      var $menu = $this.parent();
       $menu.hasClass('active') ? openFABMenu($menu) : closeFABMenu($menu);
 
       if ($menu.hasClass('active')) {
@@ -25,32 +25,30 @@
     });
   });
   $.fn.extend({
-    openFAB() {
+    openFAB: function openFAB() {
       openFABMenu($(this));
     },
-
-    closeFAB() {
+    closeFAB: function closeFAB() {
       closeFABMenu($(this));
     }
-
   });
 
-  let openFABMenu = function openFABMenu(btn) {
-    let fab = btn;
+  var openFABMenu = function openFABMenu(btn) {
+    var fab = btn;
 
     if (!fab.hasClass('active')) {
       fab.addClass('active');
-      let btnList = document.querySelectorAll('ul .btn-floating');
+      var btnList = document.querySelectorAll('ul .btn-floating');
       btnList.forEach(function (el) {
         el.classList.add('shown');
       });
     }
   };
 
-  let closeFABMenu = function closeFABMenu(btn) {
-    let fab = btn;
+  var closeFABMenu = function closeFABMenu(btn) {
+    var fab = btn;
     fab.removeClass('active');
-    let btnList = document.querySelectorAll('ul .btn-floating');
+    var btnList = document.querySelectorAll('ul .btn-floating');
     btnList.forEach(function (el) {
       el.classList.remove('shown');
     });
@@ -65,7 +63,7 @@
   });
 
   function toggleFABMenu(btn) {
-    let elem = btn;
+    var elem = btn;
 
     if (elem.hasClass('active')) {
       closeFABMenu(elem);

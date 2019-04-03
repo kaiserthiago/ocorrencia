@@ -49,10 +49,12 @@ class OcorrenciaForm(forms.ModelForm):
             }),
             'descricao': forms.Textarea(attrs={
                 'class': 'form-control md-textarea validate',
+                'placeholder': 'Utilize esse espaço para descrever, detalhadamente, a ocorrência',
                 'rows': '3'
             }),
             'disciplina': forms.TextInput(attrs={
-                'class': 'form-control'
+                'class': 'form-control',
+                'placeholder': 'Informe a disciplina'
             })
         }
 

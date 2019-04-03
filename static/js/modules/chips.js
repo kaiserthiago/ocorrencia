@@ -3,7 +3,7 @@
 (function ($) {
   $(document).ready(function () {
     $(document).on('click', '.chip .close', function () {
-      let $this = $(this);
+      var $this = $(this);
 
       if ($this.closest('.chips').data('initialized')) {
         return;
@@ -28,7 +28,7 @@
       chips: '.chips',
       chip: '.chip',
       input: 'input',
-      delete: '.fa',
+      delete: '.fas',
       selectedChip: '.selected'
     };
     this.keyCodes = {
@@ -51,13 +51,13 @@
 
     this.init = function () {
       _this.$el.each(function (index, element) {
-        let $this = $(element);
+        var $this = $(element);
 
         if ($this.data('initialized')) {
           return;
         }
 
-        let options = $this.data('options');
+        var options = $this.data('options');
 
         if (!options.data || !Array.isArray(options.data)) {
           options.data = [];
@@ -90,19 +90,19 @@
           return;
         }
 
-        let $selectedChip = _this2.$document.find(_this2.selectors.chip + _this2.selectors.selectedChip);
+        var $selectedChip = _this2.$document.find(_this2.selectors.chip + _this2.selectors.selectedChip);
 
-        let $chipsWrapper = $selectedChip.closest(_this2.selectors.chips);
-        let siblingsLength = $selectedChip.siblings(_this2.selectors.chip).length;
+        var $chipsWrapper = $selectedChip.closest(_this2.selectors.chips);
+        var siblingsLength = $selectedChip.siblings(_this2.selectors.chip).length;
 
         if (!$selectedChip.length) {
           return;
         }
 
-        let backspacePressed = e.which === _this2.keyCodes.backspace;
-        let deletePressed = e.which === _this2.keyCodes.delete;
-        let leftArrowPressed = e.which === _this2.keyCodes.arrowLeft;
-        let rightArrowPressed = e.which === _this2.keyCodes.arrowRight;
+        var backspacePressed = e.which === _this2.keyCodes.backspace;
+        var deletePressed = e.which === _this2.keyCodes.delete;
+        var leftArrowPressed = e.which === _this2.keyCodes.arrowLeft;
+        var rightArrowPressed = e.which === _this2.keyCodes.arrowRight;
 
         if (backspacePressed || deletePressed) {
           e.preventDefault();
@@ -114,19 +114,19 @@
           _this2.selectRightChip($chipsWrapper, $selectedChip, siblingsLength);
         }
       });
-      this.$document.on('focusin', `${this.selectors.chips} ${this.selectors.input}`, function (e) {
+      this.$document.on('focusin', "".concat(this.selectors.chips, " ").concat(this.selectors.input), function (e) {
         $(e.target).closest(_this2.selectors.chips).addClass('focus');
         $(_this2.selectors.chip).removeClass('selected');
       });
-      this.$document.on('focusout', `${this.selectors.chips} ${this.selectors.input}`, function (e) {
+      this.$document.on('focusout', "".concat(this.selectors.chips, " ").concat(this.selectors.input), function (e) {
         $(e.target).closest(_this2.selectors.chips).removeClass('focus');
       });
-      this.$document.on('keydown', `${this.selectors.chips} ${this.selectors.input}`, function (e) {
-        let $target = $(e.target);
-        let $chipsWrapper = $target.closest(_this2.selectors.chips);
-        let chipsIndex = $chipsWrapper.data('index');
-        let chipsLength = $chipsWrapper.children(_this2.selectors.chip).length;
-        let enterPressed = e.which === _this2.keyCodes.enter;
+      this.$document.on('keydown', "".concat(this.selectors.chips, " ").concat(this.selectors.input), function (e) {
+        var $target = $(e.target);
+        var $chipsWrapper = $target.closest(_this2.selectors.chips);
+        var chipsIndex = $chipsWrapper.data('index');
+        var chipsLength = $chipsWrapper.children(_this2.selectors.chip).length;
+        var enterPressed = e.which === _this2.keyCodes.enter;
 
         if (enterPressed) {
           e.preventDefault();
@@ -139,8 +139,8 @@
           return;
         }
 
-        let leftArrowOrDeletePressed = e.keyCode === _this2.keyCodes.arrowLeft || e.keyCode === _this2.keyCodes.delete;
-        let isValueEmpty = $target.val() === '';
+        var leftArrowOrDeletePressed = e.keyCode === _this2.keyCodes.arrowLeft || e.keyCode === _this2.keyCodes.delete;
+        var isValueEmpty = $target.val() === '';
 
         if (leftArrowOrDeletePressed && isValueEmpty && chipsLength) {
           _this2.selectChip(chipsIndex, chipsLength - 1, $chipsWrapper);
@@ -148,10 +148,10 @@
           $target.blur();
         }
       });
-      this.$document.on('click', `${this.selectors.chips} ${this.selectors.delete}`, function (e) {
-        let $target = $(e.target);
-        let $chipsWrapper = $target.closest(_this2.selectors.chips);
-        let $chip = $target.closest(_this2.selectors.chip);
+      this.$document.on('click', "".concat(this.selectors.chips, " ").concat(this.selectors.delete), function (e) {
+        var $target = $(e.target);
+        var $chipsWrapper = $target.closest(_this2.selectors.chips);
+        var $chip = $target.closest(_this2.selectors.chip);
         e.stopPropagation();
 
         _this2.deleteChip($chipsWrapper.data('index'), $chip.index(), $chipsWrapper);
@@ -161,12 +161,12 @@
     };
 
     this.deleteSelectedChip = function ($chipsWrapper, $selectedChip, siblingsLength) {
-      let chipsIndex = $chipsWrapper.data('index');
-      let chipIndex = $selectedChip.index();
+      var chipsIndex = $chipsWrapper.data('index');
+      var chipIndex = $selectedChip.index();
 
       _this.deleteChip(chipsIndex, chipIndex, $chipsWrapper);
 
-      let selectIndex = null;
+      var selectIndex = null;
 
       if (chipIndex < siblingsLength - 1) {
         selectIndex = chipIndex;
@@ -188,7 +188,7 @@
     };
 
     this.selectLeftChip = function ($chipsWrapper, $selectedChip) {
-      let chipIndex = $selectedChip.index() - 1;
+      var chipIndex = $selectedChip.index() - 1;
 
       if (chipIndex < 0) {
         return;
@@ -200,7 +200,7 @@
     };
 
     this.selectRightChip = function ($chipsWrapper, $selectedChip, siblingsLength) {
-      let chipIndex = $selectedChip.index() + 1;
+      var chipIndex = $selectedChip.index() + 1;
       $(_this.selectors.chip).removeClass('selected');
 
       if (chipIndex > siblingsLength) {
@@ -212,7 +212,7 @@
     };
 
     this.renderChips = function ($chipsWrapper) {
-      let html = '';
+      var html = '';
       $chipsWrapper.data('chips').forEach(function (elem) {
         html += _this.getSingleChipHtml(elem);
       });
@@ -227,19 +227,19 @@
         return '';
       }
 
-      let html = `<div class="chip">${elem.tag}`;
+      var html = "<div class=\"chip\">".concat(elem.tag);
 
       if (elem.image) {
-        html += ` <img src="${elem.image}"> `;
+        html += " <img src=\"".concat(elem.image, "\"> ");
       }
 
-      html += '<i class="close fa fa-times"></i>';
+      html += '<i class="close fas fa-times"></i>';
       html += '</div>';
       return html;
     };
 
     this.setPlaceholder = function ($chips) {
-      let options = $chips.data('options');
+      var options = $chips.data('options');
 
       if ($chips.data('chips').length && options.placeholder) {
         $chips.find('input').prop('placeholder', options.placeholder);
@@ -249,9 +249,9 @@
     };
 
     this.isValid = function ($chipsWrapper, elem) {
-      let chips = $chipsWrapper.data('chips');
+      var chips = $chipsWrapper.data('chips');
 
-      for (let i = 0; i < chips.length; i++) {
+      for (var i = 0; i < chips.length; i++) {
         if (chips[i].tag === elem.tag) {
           return false;
         }
@@ -265,7 +265,7 @@
         return;
       }
 
-      let chipHtml = _this.getSingleChipHtml(elem);
+      var chipHtml = _this.getSingleChipHtml(elem);
 
       $chipsWrapper.data('chips').push(elem);
       $(chipHtml).insertBefore($chipsWrapper.find('input'));
@@ -275,7 +275,7 @@
     };
 
     this.deleteChip = function (chipsIndex, chipIndex, $chipsWrapper) {
-      let chip = $chipsWrapper.data('chips')[chipIndex];
+      var chip = $chipsWrapper.data('chips')[chipIndex];
       $chipsWrapper.find('.chip').eq(chipIndex).remove();
       $chipsWrapper.data('chips').splice(chipIndex, 1);
       $chipsWrapper.trigger('chip.delete', chip);
@@ -284,7 +284,7 @@
     };
 
     this.selectChip = function (chipsIndex, chipIndex, $chipsWrapper) {
-      let $chip = $chipsWrapper.find('.chip').eq(chipIndex);
+      var $chip = $chipsWrapper.find('.chip').eq(chipIndex);
 
       if ($chip && $chip.hasClass('selected') === false) {
         $chip.addClass('selected');
