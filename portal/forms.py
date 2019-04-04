@@ -55,7 +55,8 @@ class OcorrenciaForm(forms.ModelForm):
             'providencias': forms.Textarea(attrs={
                 'class': 'form-control md-textarea validate',
                 'placeholder': 'Utilize esse espaço para descrever as providências adotadas',
-                'rows': '3'
+                'rows': '3',
+                'required': 'required'
             }),
             'disciplina': forms.TextInput(attrs={
                 'class': 'form-control',
