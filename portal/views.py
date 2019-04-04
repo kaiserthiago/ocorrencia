@@ -1276,13 +1276,15 @@ def ocorrencia_delete(request, ocorrencia_id):
 
 @login_required
 def ocorrencia_pendente(request):
+    qs = request.GET.get('qs', '')
     cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa)
     ocorrencias = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
                                             data__year=date.today().year, status='Registrada')
 
     context = {
         'cursos': cursos,
-        'ocorrencias': ocorrencias
+        'ocorrencias': ocorrencias,
+        'qs': qs
     }
     return render(request, 'portal/ocorrencia_pendente.html', context)
 
@@ -1334,7 +1336,7 @@ def ocorrencia_providencia(request, ocorrencia_id):
         if email:
             RegistraOcorrenciaProvidenciasMail(ocorrencia).send(email)
 
-        return redirect('ocorrencia_pendente')
+        return redirect('/ocorrencia/pendente?qs=' + ocorrencia_id)
 
     form = OcorrenciaForm(instance=ocorrencia)
 
