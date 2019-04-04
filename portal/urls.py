@@ -12,7 +12,9 @@ urlpatterns = [
 
     url(r'^ocorrencia/relatorio/(?P<aluno_id>\d+)$', views.ocorrencia_relatorio, name='ocorrencia_relatorio'),
     url(r'^ocorrencia/relatorio/aluno$', views.ocorrencia_relatorio_aluno, name='ocorrencia_relatorio_aluno'),
+    url(r'^ocorrencia/providencia/(?P<ocorrencia_id>\d+)$', views.ocorrencia_providencia, name='ocorrencia_providencia'),
     url(r'^ocorrencia/register$', views.ocorrencia_register, name='ocorrencia_register'),
+    url(r'^ocorrencia/pendente$', views.ocorrencia_pendente, name='ocorrencia_pendente'),
     url(r'^ocorrencia/delete/(?P<ocorrencia_id>\d+)$', views.ocorrencia_delete, name='ocorrencia_delete'),
     url(r'^ocorrencia/show/(?P<ocorrencia_id>\d+)$', views.ocorrencia_show, name='ocorrencia_show'),
     url(r'^ocorrencia/new$', views.ocorrencia_new, name='ocorrencia_new'),
@@ -86,6 +88,7 @@ urlpatterns = [
     url(r'^report/ocorrencia/turma$', views.report_ocorrencia_turma, name='report_ocorrencia_turma'),
 
     url(r'^report/pdf/financeiro/turma$', views.report_pdf_dados_bancarios, name='report_pdf_dados_bancarios'),
+    url(r'^report/pdf/lista/usuarios', views.report_pdf_lista_usuarios, name='report_pdf_lista_usuarios'),
     url(r'^report/pdf/lista/turma$', views.report_pdf_lista_aluno_turma, name='report_pdf_lista_aluno_turma'),
     url(r'^report/pdf/aluno/pcd', views.report_pdf_lista_aluno_pcd, name='report_pdf_lista_aluno_pcd'),
 

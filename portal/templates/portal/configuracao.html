@@ -18,7 +18,7 @@
             </div>
             <div class="card-body">
                 <div class="form-row">
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                         <div class="card redonda">
                             <div class="card-header redonda btn-warning white-text">
                                 Autorizações de saída
@@ -27,18 +27,21 @@
                                 {{ form.autorizacao_email_aluno }}
                                 <label for="id_autorizacao_email_aluno"
                                        class="form-check-label">{{ form.autorizacao_email_aluno.label }}</label>
-
+                                <br>
                                 {{ form.autorizacao_email_responsavel_aluno }}
                                 <label for="id_autorizacao_email_responsavel_aluno"
                                        class="form-check-label">{{ form.autorizacao_email_responsavel_aluno.label }}</label>
+                                <br>
 
                                 {{ form.autorizacao_email_responsavel_user }}
                                 <label for="id_autorizacao_email_responsavel_user"
                                        class="form-check-label">{{ form.autorizacao_email_responsavel_user.label }}</label>
+                                <br>
 
                                 {{ form.autorizacao_email_responsavel_setor }}
                                 <label for="id_autorizacao_email_responsavel_setor"
                                        class="form-check-label">{{ form.autorizacao_email_responsavel_setor.label }}</label>
+                                <br>
 
                                 {{ form.autorizacao_email_coordenacao_curso }}
                                 <label for="id_autorizacao_email_coordenacao_curso"
@@ -49,7 +52,7 @@
 
                     <hr class="w-100 clearfix d-md-none">
 
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                         <div class="card redonda">
                             <div class="card-header redonda primary-color-dark white-text">
                                 Encaminhamentos
@@ -58,18 +61,22 @@
                                 {{ form.encaminhamento_email_aluno }}
                                 <label for="id_encaminhamento_email_aluno"
                                        class="form-check-label">{{ form.encaminhamento_email_aluno.label }}</label>
+                                <br>
 
                                 {{ form.encaminhamento_email_responsavel_aluno }}
                                 <label for="id_encaminhamento_email_responsavel_aluno"
                                        class="form-check-label">{{ form.encaminhamento_email_responsavel_aluno.label }}</label>
+                                <br>
 
                                 {{ form.encaminhamento_email_responsavel_user }}
                                 <label for="id_encaminhamento_email_responsavel_user"
                                        class="form-check-label">{{ form.encaminhamento_email_responsavel_user.label }}</label>
+                                <br>
 
                                 {{ form.encaminhamento_email_responsavel_setor }}
                                 <label for="id_encaminhamento_email_responsavel_setor"
                                        class="form-check-label">{{ form.encaminhamento_email_responsavel_setor.label }}</label>
+                                <br>
 
                                 {{ form.encaminhamento_email_coordenacao_curso }}
                                 <label for="id_encaminhamento_email_coordenacao_curso"
@@ -80,7 +87,7 @@
 
                     <hr class="w-100 clearfix d-md-none">
 
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                         <div class="card redonda">
                             <div class="card-header redonda ifro-color white-text">
                                 Ocorrências disciplinares
@@ -89,18 +96,22 @@
                                 {{ form.ocorrencia_email_aluno }}
                                 <label for="id_ocorrencia_email_aluno"
                                        class="form-check-label">{{ form.ocorrencia_email_aluno.label }}</label>
+                                <br>
 
                                 {{ form.ocorrencia_email_responsavel_aluno }}
                                 <label for="id_ocorrencia_email_responsavel_aluno"
                                        class="form-check-label">{{ form.ocorrencia_email_responsavel_aluno.label }}</label>
+                                <br>
 
                                 {{ form.ocorrencia_email_responsavel_user }}
                                 <label for="id_ocorrencia_email_responsavel_user"
                                        class="form-check-label">{{ form.ocorrencia_email_responsavel_user.label }}</label>
+                                <br>
 
                                 {{ form.ocorrencia_email_responsavel_setor }}
                                 <label for="id_ocorrencia_email_responsavel_setor"
                                        class="form-check-label">{{ form.ocorrencia_email_responsavel_setor.label }}</label>
+                                <br>
 
                                 {{ form.ocorrencia_email_coordenacao_curso }}
                                 <label for="id_ocorrencia_email_coordenacao_curso"
@@ -108,10 +119,11 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <br>
 
-                    <hr class="w-100 clearfix d-md-none">
-
-                    <div class="col-sm-3">
+                <div class="row">
+                    <div class="col-sm-6">
                         <div class="card redonda">
                             <div class="card-header redonda primary-color-dark white-text">
                                 Retorno encaminhamentos
@@ -120,18 +132,22 @@
                                 {{ form.providencia_encaminhamento_email_aluno }}
                                 <label for="id_providencia_encaminhamento_email_aluno"
                                        class="form-check-label">{{ form.providencia_encaminhamento_email_aluno.label }}</label>
+                                <br>
 
                                 {{ form.providencia_encaminhamento_email_responsavel_aluno }}
                                 <label for="id_providencia_encaminhamento_email_responsavel_aluno"
                                        class="form-check-label">{{ form.providencia_encaminhamento_email_responsavel_aluno.label }}</label>
+                                <br>
 
                                 {{ form.providencia_encaminhamento_email_responsavel_user }}
                                 <label for="id_providencia_encaminhamento_email_responsavel_user"
                                        class="form-check-label">{{ form.providencia_encaminhamento_email_responsavel_user.label }}</label>
+                                <br>
 
                                 {{ form.providencia_encaminhamento_email_responsavel_setor }}
                                 <label for="id_providencia_encaminhamento_email_responsavel_setor"
                                        class="form-check-label">{{ form.providencia_encaminhamento_email_responsavel_setor.label }}</label>
+                                <br>
 
                                 {{ form.providencia_encaminhamento_email_coordenacao_curso }}
                                 <label for="id_providencia_encaminhamento_email_coordenacao_curso"
@@ -139,7 +155,43 @@
                             </div>
                         </div>
                     </div>
+
+                    <hr class="w-100 clearfix d-md-none">
+
+                    <div class="col-sm-6">
+                        <div class="card redonda">
+                            <div class="card-header redonda primary-color-dark white-text">
+                                Retorno ocorrências
+                            </div>
+                            <div class="card-body">
+                                {{ form.providencia_ocorrencia_email_aluno }}
+                                <label for="id_providencia_ocorrencia_email_aluno"
+                                       class="form-check-label">{{ form.providencia_ocorrencia_email_aluno.label }}</label>
+                                <br>
+
+                                {{ form.providencia_ocorrencia_email_responsavel_aluno }}
+                                <label for="id_providencia_ocorrencia_email_responsavel_aluno"
+                                       class="form-check-label">{{ form.providencia_ocorrencia_email_responsavel_aluno.label }}</label>
+                                <br>
+
+                                {{ form.providencia_ocorrencia_email_responsavel_user }}
+                                <label for="id_providencia_ocorrencia_email_responsavel_user"
+                                       class="form-check-label">{{ form.providencia_ocorrencia_email_responsavel_user.label }}</label>
+                                <br>
+
+                                {{ form.providencia_ocorrencia_email_responsavel_setor }}
+                                <label for="id_providencia_ocorrencia_email_responsavel_setor"
+                                       class="form-check-label">{{ form.providencia_ocorrencia_email_responsavel_setor.label }}</label>
+                                <br>
+
+                                {{ form.providencia_ocorrencia_email_coordenacao_curso }}
+                                <label for="id_providencia_ocorrencia_email_coordenacao_curso"
+                                       class="form-check-label">{{ form.providencia_ocorrencia_email_coordenacao_curso.label }}</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="float-right">

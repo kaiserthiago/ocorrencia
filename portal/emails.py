@@ -44,6 +44,19 @@ class RegistraEncaminhamentoProvidenciasMail(Maiable):
             context={'encaminhamento': self.encaminhamento}
         )
 
+class RegistraOcorrenciaProvidenciasMail(Maiable):
+    def __init__(self, ocorrencia):
+        self.ocorrencia = ocorrencia
+
+    def send(self, to):
+        super().sendMail(
+            from_email=MAIL_REPLY,
+            to=to,
+            subject='SGE - Atualização de ocorrência #' + str(self.ocorrencia.id),
+            template='emails/registra-ocorrencia-providencias.html',
+            context={'ocorrencia': self.ocorrencia}
+        )
+
 
 class RegistraOcorrenciaMail(Maiable):
     def __init__(self, ocorrencia):

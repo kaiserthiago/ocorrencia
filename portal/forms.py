@@ -40,7 +40,7 @@ class UserProfileForm(forms.ModelForm):
 class OcorrenciaForm(forms.ModelForm):
     class Meta:
         model = Ocorrencia
-        fields = ('data', 'descricao', 'disciplina')
+        fields = ('data', 'descricao', 'disciplina', 'providencias')
 
         widgets = {
             'data': forms.TextInput(attrs={
@@ -52,6 +52,11 @@ class OcorrenciaForm(forms.ModelForm):
                 'placeholder': 'Utilize esse espaço para descrever, detalhadamente, a ocorrência',
                 'rows': '3'
             }),
+            'providencias': forms.Textarea(attrs={
+                'class': 'form-control md-textarea validate',
+                'placeholder': 'Utilize esse espaço para descrever as providências adotadas',
+                'rows': '3'
+            }),
             'disciplina': forms.TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Informe a disciplina'
@@ -59,7 +64,8 @@ class OcorrenciaForm(forms.ModelForm):
         }
 
         labels = {
-            'descricao': 'Descrição da ocorrência'
+            'descricao': 'Descrição da ocorrência',
+            'providencias': 'Providências adotadas'
         }
 
 
@@ -337,6 +343,22 @@ class ConfiguracaoForm(forms.ModelForm):
                 'class': 'form-check-input',
             }),
 
+            'providencia_ocorrencia_email_aluno': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'providencia_ocorrencia_email_responsavel_aluno': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'providencia_ocorrencia_email_responsavel_user': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'providencia_ocorrencia_email_responsavel_setor': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'providencia_ocorrencia_email_coordenacao_curso': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+
             'providencia_encaminhamento_email_aluno': forms.CheckboxInput(attrs={
                 'class': 'form-check-input',
             }),
@@ -388,6 +410,12 @@ class ConfiguracaoForm(forms.ModelForm):
             'providencia_encaminhamento_email_responsavel_user': 'Servidor/Aluno',
             'providencia_encaminhamento_email_responsavel_setor': 'CAED/DEPAE',
             'providencia_encaminhamento_email_coordenacao_curso': 'Coordenador',
+
+            'providencia_ocorrencia_email_aluno': 'Estudante',
+            'providencia_ocorrencia_email_responsavel_aluno': 'Responsável',
+            'providencia_ocorrencia_email_responsavel_user': 'Servidor/Aluno',
+            'providencia_ocorrencia_email_responsavel_setor': 'CAED/DEPAE',
+            'providencia_ocorrencia_email_coordenacao_curso': 'Coordenador',
 
             'autorizacao_email_aluno': 'Estudante',
             'autorizacao_email_responsavel_aluno': 'Responsável',

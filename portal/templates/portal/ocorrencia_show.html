@@ -94,16 +94,18 @@
                                 {{ ocorrencia.matricula.aluno }}
                             </td>
                         </tr>
-                        <tr>
-                            <td colspan="3">
-                                <div class="font-weight-bold">
-                                    DESCRIÇÃO DA FALTA
-                                </div>
-                                ART. {{ ocorrencia.falta.categoria.artigo }} -
-                                {{ ocorrencia.falta.categoria.descricao|upper }}<br>
-                                {{ ocorrencia.falta.inciso }} - {{ ocorrencia.falta.descricao }}
-                            </td>
-                        </tr>
+                        {% if ocorrencia.providencias %}
+                            <tr>
+                                <td colspan="3">
+                                    <div class="font-weight-bold">
+                                        DESCRIÇÃO DA FALTA
+                                    </div>
+                                    ART. {{ ocorrencia.falta.categoria.artigo }} -
+                                    {{ ocorrencia.falta.categoria.descricao|upper }}<br>
+                                    {{ ocorrencia.falta.inciso }} - {{ ocorrencia.falta.descricao }}
+                                </td>
+                            </tr>
+                        {% endif %}
                         <tr>
                             <td colspan="3">
                                 <div class="font-weight-bold">
@@ -112,21 +114,60 @@
                                 {{ ocorrencia.descricao }}
                             </td>
                         </tr>
+                        {% if ocorrencia.providencias %}
+                            <tr>
+                                <td colspan="3">
+                                    <div class="font-weight-bold">
+                                        PROVIDÊNCIAS ADOTADAS
+                                    </div>
+                                    {{ ocorrencia.providencias }}
+                                </td>
+                            </tr>
+                        {% endif %}
                         </tbody>
                     </table>
                     <table class="table table-bordered table-sm">
                         <tbody>
-                        <tr>
-                            <td colspan="2" class="text-center align-bottom">
-                                <p class="font-weight-bold text-left">
-                                    REGISTRADO POR
-                                </p>
-                                <div class="font-weight-bold">
-                                    {{ ocorrencia.user }}
-                                </div>
-                                {{ ocorrencia.user.userprofile.siape }}
-                            </td>
-                        </tr>
+                        {% if ocorrencia.providencias %}
+                            <tr>
+                                <td colspan="3" class="text-center align-bottom">
+                                    <p class="font-weight-bold text-left">
+                                        REGISTRADO POR
+                                    </p>
+                                    <div class="font-weight-bold">
+                                        {{ ocorrencia.user }}
+                                    </div>
+                                    {{ ocorrencia.user.userprofile.siape }}
+                                </td>
+                                <td colspan="3" class="text-center align-bottom">
+                                    <p class="font-weight-bold text-left">
+                                        OCORRÊNCIA ATENDIDA POR
+                                    </p>
+                                    <div class="font-weight-bold">
+                                        {{ ocorrencia.responsavel_retorno_ocorrencia }}
+                                    </div>
+                                    {{ ocorrencia.responsavel_retorno_ocorrencia.userprofile.siape }}
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="3" class="text-center align-bottom">
+                                    <p class="font-weight-bold text-left">
+                                        REGISTRADO POR
+                                    </p>
+                                    <div class="font-weight-bold">
+                                        {{ ocorrencia.user }}
+                                    </div>
+                                    {{ ocorrencia.user.userprofile.siape }}
+                                </td>
+                                <td colspan="3" class="text-center align-bottom">
+                                    <p class="font-weight-bold text-left">
+                                        OCORRÊNCIA ATENDIDA POR
+                                    </p>
+                                    <p>Aguardando posicionamento do setor responsável.</p>
+                                </td>
+                            </tr>
+                        {% endif %}
                         </tbody>
                     </table>
                     <div style="font-size: 8pt; text-align: left"><strong>Impresso em:</strong> {% now "d/m/y" %}

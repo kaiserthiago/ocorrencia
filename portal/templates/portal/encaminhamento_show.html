@@ -21,12 +21,6 @@
 {% endblock %}
 
 {% block content %}
-    {# <div id="div-buttons" class="fixed-action-btn" style="bottom: 45px; right: 24px;"> #}
-        {# <a href="#" onclick="window.print(); return false;" class="btn-floating btn-lg btn-danger"> #}
-            {# <i class="fa fa-print"></i> #}
-        {# </a> #}
-    {# </div> #}
-    {# <br> #}
     <div class="row mb-4">
         <div class="col-sm-12">
             <div class="card redonda mb-3">
@@ -192,10 +186,6 @@
                                 </td>
                             </tr>
                         {% endif %}
-
-                        {#                        <tr>#}
-                        {#                            <td style="font-size: 8pt; text-align: left"><strong>Registrado em:</strong> {{ encaminhamento.created_at|date }} às {{ encaminhamento.created_at|time:'h:i:s' }}</td>#}
-                        {#                        </tr>#}
                         </tbody>
                     </table>
                     <div style="font-size: 8pt; text-align: left"><strong>Impresso em:</strong> {% now "d/m/y" %}

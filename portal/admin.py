@@ -44,15 +44,15 @@ class CursoAdmin(admin.ModelAdmin):
 
 
 class OcorrenciaAdmin(admin.ModelAdmin):
-    list_display = ('id', 'matricula', 'data', 'descricao', 'falta', 'user')
-    list_filter = ['falta__categoria', 'matricula__ano_letivo', 'empresa']
+    list_display = ('id', 'matricula', 'data', 'falta', 'status')
+    list_filter = ['falta__categoria', 'matricula__ano_letivo', 'empresa', 'status']
     search_fields = ['matricula__aluno__nome', 'user']
 
 
 class EncaminhamentoAdmin(admin.ModelAdmin):
     list_display = (
         'id', 'created_at', 'update_at', 'matricula', 'descricao', 'status')
-    list_filter = ['status', 'servico__categoria', 'matricula__ano_letivo', 'empresa']
+    list_filter = ['status', 'servico__categoria', 'matricula__ano_letivo', 'empresa', 'status']
     search_fields = ['matricula__aluno__nome', 'user']
 
 

@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% block title %}Ocorrências{% endblock %}
+{% block class_retorno_ocorrencia_menu %}active{% endblock %}
+{% load widget_tweaks %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb blue-grey lighten-4">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'ocorrencia_pendente' %}">Ocorrências pendentes</a></li>
+        <li class="breadcrumb-item active">Retorno de ocorrências</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="row mb-4">
+        <div class="col-sm-12">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-1 font-weight-bold">
+                    DADOS DA OCORRÊNCIA DISCIPLINAR
+                </div>
+                <div class="card-body">
+                    <form action="{% url 'ocorrencia_providencia' ocorrencia.id %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-sm-6">
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-borderless">
+                                        <tr>
+                                            <td>
+                                                <p style="font-weight: bold">
+                                                    DATA
+                                                </p>
+                                                {{ ocorrencia.data }}
+                                            </td>
+                                            <td>
+                                                <p style="font-weight: bold">
+                                                    CURSO E TURMA
+                                                </p>
+                                                {{ ocorrencia.matricula.turma }}
+                                            </td>
+                                            <td>
+                                                <p style="font-weight: bold">
+                                                    DISCIPLINA
+                                                </p>
+                                                {% if ocorrencia.disciplina %}
+                                                    {{ ocorrencia.disciplina }}
+                                                {% else %}
+                                                    NÃO INFORMADO
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                                <p style="font-weight: bold">
+                                                    ESTUDANTE
+                                                </p>
+                                                {{ ocorrencia.matricula.aluno }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                                <p style="font-weight: bold">
+                                                    DESCRIÇÃO DA OCORRÊNCIA
+                                                </p>
+                                                {{ ocorrencia.descricao }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                                <p style="font-weight: bold">
+                                                    REGISTRADO POR
+                                                </p>
+                                                {{ ocorrencia.user|upper }}<br>
+                                                SIAPE: {{ ocorrencia.user.userprofile.siape }}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <select name="SelectFalta" id="SelectFalta"
+                                        class="mdb-select md-form colorful-select dropdown-success"
+                                        searchable="Pesquisar..."
+                                        required>
+                                    <option value="" disabled selected>Selecione a falta</option>
+                                    {% for c in categorias %}
+                                        <optgroup label="ART. {{ c.artigo }} - {{ c.descricao|upper }}">
+                                            {% for f in c.retorna_faltas %}
+                                                <option value={{ f.id }}>{{ f.inciso }} - {{ f.descricao }}</option>
+                                            {% endfor %}
+                                        </optgroup>
+                                    {% endfor %}
+                                </select>
+                                <label for="SelectFalta">Falta</label>
+                                <br>
+                                <div class="md-form">
+                                    <label>{{ form.providencias.label }}</label>
+                                    {{ form.providencias }}
+                                </div>
+                            </div>
+                        </div>
+
+
+                        {#                        <div class="form-row">#}
+                        {#                            <div class="col-sm-6">#}
+
+                        {#                            </div>#}
+
+                        {#                            <div class="col-sm-6">#}
+
+                        {#                            </div>#}
+                        {#                        </div>#}
+
+                        <div class="form-row">
+                            <div class="col-sm-12">
+                                <div class="float-right">
+                                    <button type="submit" class="btn btn-rounded btn-success" data-toggle="tooltip"
+                                            data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
+                                    <a href="{% url 'ocorrencia' %}" class="btn btn-rounded btn-danger"
+                                       data-toggle="tooltip" data-placement="top" title="Cancelar"><i
+                                            class="fa fa-close"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

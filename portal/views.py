@@ -19,11 +19,12 @@ from django.template.defaultfilters import lower, upper
 from tablib import Dataset
 
 from portal.emails import RegistraOcorrenciaMail, ConfirmaUsuarioMail, RegistraEncaminhamentoMail, \
-    RegistraAutorizacaoSaidaMail, RegistraEncaminhamentoProvidenciasMail, NegaUsuarioMail
+    RegistraAutorizacaoSaidaMail, RegistraEncaminhamentoProvidenciasMail, NegaUsuarioMail, \
+    RegistraOcorrenciaProvidenciasMail
 from portal.forms import OcorrenciaForm, CursoForm, TurmaForm, AlunoForm, UserForm, UserProfileForm, \
     ServicoCategoriaForm, ServicoForm, EncaminhamentoForm, AutorizacaoForm, ConfiguracaoForm
 from portal.models import Curso, Aluno, Turma, Ocorrencia, Matricula, CategoriaFalta, Falta, UserProfile, \
-    ServicoCategoria, Servico, Encaminhamento, Autorizacao, Configuracao
+    ServicoCategoria, Servico, Encaminhamento, Autorizacao, Configuracao, Empresa
 
 
 def home(request):
@@ -78,6 +79,17 @@ def configuracao(request):
                 'providencia_encaminhamento_email_responsavel_setor']
             configuracao.providencia_encaminhamento_email_coordenacao_curso = form.cleaned_data[
                 'providencia_encaminhamento_email_coordenacao_curso']
+
+            configuracao.providencia_ocorrencia_email_aluno = form.cleaned_data[
+                'providencia_ocorrencia_email_aluno']
+            configuracao.providencia_ocorrencia_email_responsavel_aluno = form.cleaned_data[
+                'providencia_ocorrencia_email_responsavel_aluno']
+            configuracao.providencia_ocorrencia_email_responsavel_user = form.cleaned_data[
+                'providencia_ocorrencia_email_responsavel_user']
+            configuracao.providencia_ocorrencia_email_responsavel_setor = form.cleaned_data[
+                'providencia_ocorrencia_email_responsavel_setor']
+            configuracao.providencia_ocorrencia_email_coordenacao_curso = form.cleaned_data[
+                'providencia_ocorrencia_email_coordenacao_curso']
 
             configuracao.ocorrencia_email_aluno = form.cleaned_data['ocorrencia_email_aluno']
             configuracao.ocorrencia_email_responsavel_aluno = form.cleaned_data['ocorrencia_email_responsavel_aluno']
@@ -927,7 +939,8 @@ def dashboard(request):
         dados_grafico_encaminhamento_distribuicao = ''
 
     # DADOS GRÁFICO DE ENCAMINHAMENTOS POR CATEGORIA
-    servico_categorias = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa, data__year=date.today().year).order_by(
+    servico_categorias = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
+                                                       data__year=date.today().year).order_by(
         'servico__categoria__descricao').values_list('servico__categoria__descricao').annotate(
         qtde=Count('id')).distinct()
 
@@ -946,7 +959,8 @@ def dashboard(request):
 
     # dados_grafico_encaminhamento_curso = json.dumps(list(cursos_encaminhamento))
 
-    courses_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa, data__year=date.today().year,
+    courses_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
+                                                           data__year=date.today().year,
                                                            matricula__turma__curso__in=Curso.objects.all()).order_by(
         'matricula__turma__curso__descricao').values('matricula__turma__curso__id',
                                                      'matricula__turma__curso__descricao').distinct()
@@ -1163,12 +1177,9 @@ def ocorrencia_new(request):
             turma = get_object_or_404(Turma, id=id)
             matriculas = Matricula.objects.filter(turma=turma, ano_letivo=int(date.today().year))
 
-            categorias = CategoriaFalta.objects.all().order_by('artigo')
-
             form = OcorrenciaForm()
 
             context = {
-                'categorias': categorias,
                 'matriculas': matriculas,
                 'turma': turma,
                 'ano': int(date.today().year),
@@ -1192,11 +1203,7 @@ def ocorrencia_register(request):
 
                     matricula = get_object_or_404(Matricula, id=m.id)
 
-                    falta_id = request.POST['SelectFalta']
-                    falta = get_object_or_404(Falta, id=falta_id)
-
                     ocorrencia.matricula = matricula
-                    ocorrencia.falta = falta
                     ocorrencia.data = form.cleaned_data['data']
                     ocorrencia.descricao = form.cleaned_data['descricao']
                     ocorrencia.disciplina = form.cleaned_data['disciplina']
@@ -1280,10 +1287,84 @@ def ocorrencia_delete(request, ocorrencia_id):
     return redirect('ocorrencia')
 
 
+@login_required
+def ocorrencia_pendente(request):
+    cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa)
+    ocorrencias = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
+                                            data__year=date.today().year, status='Registrada')
+
+    context = {
+        'cursos': cursos,
+        'ocorrencias': ocorrencias
+    }
+    return render(request, 'portal/ocorrencia_pendente.html', context)
+
+
+@login_required
+def ocorrencia_providencia(request, ocorrencia_id):
+    ocorrencia = get_object_or_404(Ocorrencia, id=ocorrencia_id)
+    categorias = CategoriaFalta.objects.all().order_by('artigo')
+
+    if request.method == 'POST':
+        providencias = request.POST['providencias']
+
+        falta_id = request.POST['SelectFalta']
+        falta = get_object_or_404(Falta, id=falta_id)
+
+        ocorrencia.falta = falta
+        ocorrencia.providencias = providencias
+        ocorrencia.status = 'Retornada'
+        ocorrencia.responsavel_retorno_ocorrencia = request.user
+
+        ocorrencia.save()
+
+        email = []
+        configuracao = get_object_or_404(Configuracao, empresa=request.user.userprofile.empresa)
+
+        # VERIFICA SE TEM EMAIL DO ALUNO
+        if configuracao.providencia_ocorrencia_email_aluno:
+            if ocorrencia.matricula.aluno.email:
+                email.append(ocorrencia.matricula.aluno.email)
+
+        # VERIFICA SE TEM EMAIL DO RESPONSÁVEL
+        if configuracao.providencia_ocorrencia_email_responsavel_aluno:
+            if ocorrencia.matricula.aluno.email_responsavel:
+                email.append(ocorrencia.matricula.aluno.email_responsavel)
+
+        # EMAIL DO SERVIDOR QUE REGISTROU A OCORRÊNCIA
+        if configuracao.providencia_ocorrencia_email_responsavel_user:
+            email.append(ocorrencia.user.email)
+
+        # EMAIL DA COORDENAÇÃO DE CURSO
+        if configuracao.providencia_ocorrencia_email_coordenacao_curso:
+            email.append(ocorrencia.matricula.turma.curso.email)
+
+        # EMAIL DO SETOR RESPONSÁVEL PELAS OCORRÊNCIAS
+        if configuracao.providencia_ocorrencia_email_responsavel_setor:
+            email.append(ocorrencia.user.userprofile.empresa.email_responsavel_ocorrencia)
+
+        # ENVIA OS E-MAILS
+        if email:
+            RegistraOcorrenciaProvidenciasMail(ocorrencia).send(email)
+
+        return redirect('ocorrencia_pendente')
+
+    form = OcorrenciaForm(instance=ocorrencia)
+
+    context = {
+        'form': form,
+        'ocorrencia': ocorrencia,
+        'categorias': categorias
+    }
+
+    return render(request, 'portal/ocorrencia_providencias.html', context)
+
+
 @permission_required('is_superuser')
 def matricula(request):
-    matriculas = Matricula.objects.filter(empresa=request.user.userprofile.empresa, ano_letivo=date.today().year).order_by('-ano_letivo', 'turma',
-                                                                                             'aluno')
+    matriculas = Matricula.objects.filter(empresa=request.user.userprofile.empresa,
+                                          ano_letivo=date.today().year).order_by('-ano_letivo', 'turma',
+                                                                                 'aluno')
 
     paginator = Paginator(matriculas, 30)
     page = request.GET.get('page', 1)
@@ -1919,6 +2000,28 @@ def report_pdf_lista_aluno_turma(request):
         }
 
         return rendering.render_to_pdf_response(request, 'pdf/report_lista_aluno_turma.html',
+                                                context,
+                                                using=None, download_filename=None,
+                                                content_type='application/pdf', response_class=HttpResponse)
+    except:
+        erro = 'Não existem dados para gerar o relatório solicitado.'
+        return render(request, 'portal/erro.html', {'erro': erro})
+
+
+@login_required
+def report_pdf_lista_usuarios(request):
+    try:
+        empresa = get_object_or_404(Empresa, id=request.user.userprofile.empresa_id)
+        ano = date.today().year
+
+        usuarios = UserProfile.objects.filter(empresa=empresa, aluno__isnull=True).order_by('user__first_name')
+
+        context = {
+            'empresa': empresa,
+            'usuarios': usuarios,
+        }
+
+        return rendering.render_to_pdf_response(request, 'pdf/report_lista_usuarios.html',
                                                 context,
                                                 using=None, download_filename=None,
                                                 content_type='application/pdf', response_class=HttpResponse)

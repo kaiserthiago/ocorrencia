@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% block title %}Ocorrências{% endblock %}
+{% block class_retorno_ocorrencia_menu %}active{% endblock %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb blue-grey lighten-4">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item active">Ocorrências pendentes</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="row mb-4">
+        <div class="col-sm-12">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-1 font-weight-bold">
+                    OCORRÊNCIAS PENDENTES - {{ ocorrencias.count }}
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="col-sm-12">
+                            <div class="md-form">
+                                <input id="myInput" type="text" class="form-control form-control-sm" autofocus/>
+                                <label for="myInput">Pesquisar...</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped btn-table">
+                            <thead>
+                            <tr>
+                                <th style="font-weight: bold">Data</th>
+                                <th style="font-weight: bold">Aluno</th>
+                                <th style="font-weight: bold">Descrição</th>
+                                <th style="text-align: center; font-weight: bold">Ações</th>
+                            </tr>
+                            </thead>
+                            <tbody id="myTable">
+                            {% for ocorrencia in ocorrencias %}
+                                <tr>
+                                    <td style="vertical-align: middle;">{{ ocorrencia.data }}</td>
+                                    <td style="vertical-align: middle;">{{ ocorrencia.matricula.aluno }}</td>
+                                    <td style="vertical-align: middle;">{{ ocorrencia.descricao|truncatechars:50 }}</td>
+                                    <td class="px-0 py-0"
+                                        style="vertical-align: middle; text-align: right; min-width: 170px; width: 170px">
+
+                                        <a href="{% url 'ocorrencia_show' ocorrencia.id %}"
+                                           class="btn-floating btn-sm btn-info"><i class="fa fa-search"></i>
+                                        </a>
+
+                                        <a href="{% url 'report_pdf_ocorrencia' ocorrencia.id %}"
+                                           target="_blank"
+                                           class="btn-floating btn-sm btn-indigo"><i class="fa fa-print"></i>
+                                        </a>
+
+                                        <a href="{% url 'ocorrencia_providencia' ocorrencia.id %}"
+                                           class="btn-floating btn-sm btn-success"><i class="fa fa-check"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td colspan="6" class="card-header warning-color white-text text-center"><strong>
+                                        NÃO HÁ OCORRÊNCIAS PENDENTES</strong></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block modal %}
+    {% for ocorrencia in ocorrencias %}
+        <!--Modal PROVIDÊNCIAS-->
+        <div class="modal fade" id="Providencia{{ ocorrencia.id }}" tabindex="-1"
+             role="dialog"
+             aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-notify modal-success" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title white-text w-100 font-bold py-2">
+                            Providências adotadas</h4>
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
+                    </div>
+                    <!--Body-->
+                    <div class="modal-body">
+                        <form action="{% url 'ocorrencia_providencia' ocorrencia.id %}"
+                              method="POST">
+                            {% csrf_token %}
+                            <div class="row text-left">
+                                <div class="col-sm-12">
+                                    <div class="md-form">
+                                        <textarea type="text" id="id_providencias" name="providencias"
+                                                  class="md-textarea form-control validate" rows="3"
+                                                  required></textarea>
+                                        <label for="id_providencias">Providências adotadas</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit"
+                                        class="btn btn-rounded btn-success waves-effect">
+                                    Confirmar
+                                </button>
+                                <a type="button"
+                                   class="btn btn-rounded btn-outline-success waves-effect"
+                                   data-dismiss="modal">
+                                    Voltar
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!--Fim Modal PROVIDÊNCIAS-->
+    {% endfor %}
+{% endblock %}

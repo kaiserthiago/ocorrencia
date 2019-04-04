@@ -329,8 +329,18 @@ class Ocorrencia(AuditoriaMixin):
     matricula = models.ForeignKey(Matricula, on_delete=models.DO_NOTHING)
     data = models.DateField()
     descricao = models.TextField(verbose_name='Descrição')
-    falta = models.ForeignKey(Falta, on_delete=models.DO_NOTHING)
+    falta = models.ForeignKey(Falta, on_delete=models.DO_NOTHING, null=True, blank=True)
     disciplina = models.CharField(max_length=150, null=True, blank=True)
+    providencias = models.TextField(blank=True, null=True)
+
+    responsavel_retorno_ocorrencia = models.ForeignKey(User, on_delete=models.DO_NOTHING,
+                                                 related_name='responsavel_retorno_ocorrencia',
+                                                 blank=True, null=True)
+    status_choiches = (
+        ('Registrada', 'Registrada'),
+        ('Retornada', 'Retornada'),
+    )
+    status = models.CharField(choices=status_choiches, max_length=30, default='Registrada')
 
     def __str__(self):
         return str(self.id)
@@ -438,6 +448,12 @@ class Configuracao(AuditoriaMixin):
     providencia_encaminhamento_email_responsavel_user = models.BooleanField(default=True)
     providencia_encaminhamento_email_responsavel_setor = models.BooleanField(default=True)
     providencia_encaminhamento_email_coordenacao_curso = models.BooleanField(default=True)
+
+    providencia_ocorrencia_email_aluno = models.BooleanField(default=True)
+    providencia_ocorrencia_email_responsavel_aluno = models.BooleanField(default=True)
+    providencia_ocorrencia_email_responsavel_user = models.BooleanField(default=True)
+    providencia_ocorrencia_email_responsavel_setor = models.BooleanField(default=True)
+    providencia_ocorrencia_email_coordenacao_curso = models.BooleanField(default=True)
 
     autorizacao_email_aluno = models.BooleanField(default=True)
     autorizacao_email_responsavel_aluno = models.BooleanField(default=True)
