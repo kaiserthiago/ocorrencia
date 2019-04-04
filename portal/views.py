@@ -1155,19 +1155,6 @@ def ocorrencia(request):
 
 
 @login_required
-def ocorrencia_show(request, ocorrencia_id):
-    ocorrencia = get_object_or_404(Ocorrencia, id=ocorrencia_id)
-    ano = date.today().year
-
-    context = {
-        'ocorrencia': ocorrencia,
-        'ano': ano
-    }
-
-    return render(request, 'portal/ocorrencia_show.html', context)
-
-
-@login_required
 def ocorrencia_new(request):
     if request.method == 'POST':
         form = OcorrenciaForm(request.POST)
@@ -2293,18 +2280,6 @@ def encaminhamento_providencia(request, encaminhamento_id):
 
         return redirect('encaminhamento_pendente')
 
-
-@login_required
-def encaminhamento_show(request, encaminhamento_id):
-    encaminhamento = get_object_or_404(Encaminhamento, id=encaminhamento_id)
-    ano = date.today().year
-
-    context = {
-        'encaminhamento': encaminhamento,
-        'ano': ano
-    }
-
-    return render(request, 'portal/encaminhamento_show.html', context)
 
 
 @login_required

@@ -16,7 +16,6 @@ urlpatterns = [
     url(r'^ocorrencia/register$', views.ocorrencia_register, name='ocorrencia_register'),
     url(r'^ocorrencia/pendente$', views.ocorrencia_pendente, name='ocorrencia_pendente'),
     url(r'^ocorrencia/delete/(?P<ocorrencia_id>\d+)$', views.ocorrencia_delete, name='ocorrencia_delete'),
-    url(r'^ocorrencia/show/(?P<ocorrencia_id>\d+)$', views.ocorrencia_show, name='ocorrencia_show'),
     url(r'^ocorrencia/new$', views.ocorrencia_new, name='ocorrencia_new'),
     url(r'^ocorrencia$', views.ocorrencia, name='ocorrencia'),
 
@@ -25,7 +24,6 @@ urlpatterns = [
     url(r'^encaminhamento/providencia/(?P<encaminhamento_id>\d+)$', views.encaminhamento_providencia, name='encaminhamento_providencia'),
     url(r'^encaminhamento/solicitar/(?P<matricula_id>\d+)$', views.encaminhamento_solicitar, name='encaminhamento_solicitar'),
     url(r'^encaminhamento/delete/(?P<encaminhamento_id>\d+)$', views.encaminhamento_delete, name='encaminhamento_delete'),
-    url(r'^encaminhamento/show/(?P<encaminhamento_id>\d+)$', views.encaminhamento_show, name='encaminhamento_show'),
     url(r'^encaminhamento/register$', views.encaminhamento_register, name='encaminhamento_register'),
     url(r'^encaminhamento/pendente$', views.encaminhamento_pendente, name='encaminhamento_pendente'),
     url(r'^encaminhamento/new$', views.encaminhamento_new, name='encaminhamento_new'),

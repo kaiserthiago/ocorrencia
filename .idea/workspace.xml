@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="opção para negar acesso às solicitações de cadastro">
-      <change afterPath="$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia-providencias.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/templates/pdf/report_lista_usuarios.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_pendente.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_providencias.html" afterDir="false" />
+    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="Retorno de ocorrência">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/emails.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/emails.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/pdf/report_ocorrencia.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/pdf/report_ocorrencia.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/configuracao.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/configuracao.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/encaminhamento_show.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/encaminhamento_show.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_show.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_show.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/user_account.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/user_account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/encaminhamento.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/encaminhamento.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/encaminhamento_pendente.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/encaminhamento_pendente.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/encaminhamento_relatorio.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/encaminhamento_relatorio.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_pendente.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_pendente.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views.py" afterDir="false" />
     </list>
@@ -61,7 +52,7 @@
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="540">
-              <caret line="1351" column="46" selection-start-line="1351" selection-start-column="46" selection-end-line="1351" selection-end-column="46" />
+              <caret line="1338" column="46" selection-start-line="1338" selection-start-column="46" selection-end-line="1338" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -84,11 +75,38 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_pendente.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="320">
               <caret line="16" column="64" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_pendente.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="56" selection-start-line="56" selection-end-line="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="54" selection-start-line="54" selection-end-line="54" />
             </state>
           </provider>
         </entry>
@@ -110,37 +128,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
-              <caret line="167" column="55" selection-start-line="167" selection-start-column="55" selection-end-line="167" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/pdf/report_ocorrencia.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
-              <folding>
-                <element signature="n#style#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="123" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -154,7 +141,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>TURMA(</find>
       <find>turma_new</find>
       <find>CAMPUS</find>
       <find>ocorrencia.python</find>
@@ -184,6 +170,7 @@
       <find>a_provi</find>
       <find>ocorrencia(a</find>
       <find>a_reg</find>
+      <find>a_show</find>
     </findStrings>
     <replaceStrings>
       <replace>btn-primary-modal</replace>
@@ -220,8 +207,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/portal/templates/portal/perfil_individual.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/validar_declaracao_matricula.html" />
         <option value="$PROJECT_DIR$/static/js/qrcodlib.js" />
         <option value="$PROJECT_DIR$/static/js/webcodecamjs.js" />
         <option value="$PROJECT_DIR$/static/js/qrcode/jquery.js" />
@@ -234,12 +219,9 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html" />
         <option value="$PROJECT_DIR$/portal/templates/pdf/report_lista_aluno_pcd.html" />
         <option value="$PROJECT_DIR$/portal/templates/pdf/report_declaracao_matricula.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_pendente.html" />
         <option value="$PROJECT_DIR$/ocorrencia/settings.py" />
         <option value="$PROJECT_DIR$/portal/templates/pdf/report_encaminhamento.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/dashboard.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/turma.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/turma_new.html" />
@@ -256,7 +238,6 @@
         <option value="$PROJECT_DIR$/portal/templates/emails/nega-usuario.html" />
         <option value="$PROJECT_DIR$/portal/emails.py" />
         <option value="$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia-providencias.html" />
-        <option value="$PROJECT_DIR$/portal/urls.py" />
         <option value="$PROJECT_DIR$/portal/templates/pdf/report_lista_usuarios.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/user_account.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/configuracao.html" />
@@ -267,10 +248,16 @@
         <option value="$PROJECT_DIR$/portal/templates/base.html" />
         <option value="$PROJECT_DIR$/portal/forms.py" />
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_providencias.html" />
-        <option value="$PROJECT_DIR$/portal/views.py" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_show.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_show.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_pendente.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_pendente.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_relatorio.html" />
+        <option value="$PROJECT_DIR$/portal/views.py" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html" />
+        <option value="$PROJECT_DIR$/portal/urls.py" />
       </list>
     </option>
   </component>
@@ -447,14 +434,7 @@
       <option name="presentableId" value="Default" />
       <updated>1513873763063</updated>
       <workItem from="1554324186338" duration="1333000" />
-      <workItem from="1554332658702" duration="3498000" />
-    </task>
-    <task id="LOCAL-00013" summary="Envio de e-mail via Thread.">
-      <created>1539972557971</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1539972557971</updated>
+      <workItem from="1554332658702" duration="4155000" />
     </task>
     <task id="LOCAL-00014" summary="Envio de e-mail de forma síncronoma...normal">
       <created>1539973167562</created>
@@ -792,7 +772,14 @@
       <option name="project" value="LOCAL" />
       <updated>1554298644548</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="Retorno de ocorrência">
+      <created>1554336504945</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1554336504945</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -801,7 +788,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4831000" />
+    <option name="totallyTimeSpent" value="5488000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -846,7 +833,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="SHOW_FILE_HISTORY_DETAILS" value="false" />
-    <MESSAGE value="leitor qrcode confirmação de saída inseguro" />
     <MESSAGE value="leitor qrcode confirmação de saída" />
     <MESSAGE value="grava user que registrou a saída" />
     <MESSAGE value="erro se não encontrar aluno" />
@@ -871,7 +857,8 @@
     <MESSAGE value="alterar visualização no admin dos encaminhamentos" />
     <MESSAGE value="atualização MDBootstrp 4.7.6" />
     <MESSAGE value="opção para negar acesso às solicitações de cadastro" />
-    <option name="LAST_COMMIT_MESSAGE" value="opção para negar acesso às solicitações de cadastro" />
+    <MESSAGE value="Retorno de ocorrência" />
+    <option name="LAST_COMMIT_MESSAGE" value="Retorno de ocorrência" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/static/css/style.css">
@@ -895,13 +882,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_show.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_pendente.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1000">
-          <caret line="50" column="44" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="44" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_relatorio.html">
       <provider selected="true" editor-type-id="text-editor" />
@@ -932,13 +912,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="760">
           <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="154" column="99" selection-start-line="154" selection-start-column="99" selection-end-line="154" selection-end-column="99" />
         </state>
       </provider>
     </entry>
@@ -1086,13 +1059,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1000">
-          <caret line="50" column="120" selection-start-line="48" selection-start-column="36" selection-end-line="50" selection-end-column="120" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/configuracao.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3060">
@@ -1192,7 +1158,7 @@
     <entry file="file://$PROJECT_DIR$/portal/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
-          <caret line="1351" column="46" selection-start-line="1351" selection-start-column="46" selection-end-line="1351" selection-end-column="46" />
+          <caret line="1338" column="46" selection-start-line="1338" selection-start-column="46" selection-end-line="1338" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -1221,6 +1187,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="16" column="64" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_pendente.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
         </state>
       </provider>
     </entry>
