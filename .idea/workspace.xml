@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="obrigar informar providências no retorno da ocorrência">
+    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="abrir pdf ocorrência após providências">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_pendente.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_pendente.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_providencias.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_providencias.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,8 +26,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="1338" column="37" selection-start-line="1338" selection-start-column="37" selection-end-line="1338" selection-end-column="37" />
+            <state relative-caret-position="132">
+              <caret line="1177" selection-start-line="1177" selection-end-line="1177" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="479">
+              <caret line="126" column="18" lean-forward="true" selection-start-line="126" selection-start-column="18" selection-end-line="126" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/pdf/report_ocorrencia.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1320">
+              <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -39,11 +55,11 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_pendente.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+            <state relative-caret-position="340">
+              <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -51,7 +67,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
+            <state relative-caret-position="3920">
               <caret line="196" column="73" selection-start-line="196" selection-start-column="44" selection-end-line="196" selection-end-column="73" />
             </state>
           </provider>
@@ -69,7 +85,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1362">
+            <state relative-caret-position="1780">
               <caret line="91" selection-start-line="91" selection-end-line="91" />
             </state>
           </provider>
@@ -88,8 +104,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ocorrencia.python</find>
-      <find>encaminhamento(A</find>
       <find>turno</find>
       <find>t.descricao</find>
       <find>ocorrec</find>
@@ -118,6 +132,8 @@
       <find>a_show</find>
       <find>a_pr</find>
       <find>a_pe</find>
+      <find>ocorrencia_register</find>
+      <find>form</find>
     </findStrings>
     <replaceStrings>
       <replace>btn-primary-modal</replace>
@@ -190,7 +206,6 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/configuracao.html" />
         <option value="$PROJECT_DIR$/portal/admin.py" />
         <option value="$PROJECT_DIR$/portal/templates/pdf/report_ocorrencia.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html" />
         <option value="$PROJECT_DIR$/portal/models.py" />
         <option value="$PROJECT_DIR$/portal/templates/base.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_show.html" />
@@ -205,6 +220,7 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_providencias.html" />
         <option value="$PROJECT_DIR$/portal/views.py" />
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_pendente.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html" />
       </list>
     </option>
   </component>
@@ -237,6 +253,13 @@
               <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
               <item name="portal" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
+              <item name="portal" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="pdf" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
@@ -375,14 +398,8 @@
       <updated>1513873763063</updated>
       <workItem from="1554324186338" duration="1333000" />
       <workItem from="1554332658702" duration="5436000" />
-      <workItem from="1554397604676" duration="2869000" />
-    </task>
-    <task id="LOCAL-00016" summary="Correção endereço de validação de declaração de matrícula.">
-      <created>1540043871058</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1540043871058</updated>
+      <workItem from="1554397604676" duration="3614000" />
+      <workItem from="1554898661574" duration="855000" />
     </task>
     <task id="LOCAL-00017" summary="Emissão de declaração de matrícula no acesso do aluno.">
       <created>1540044482960</created>
@@ -720,7 +737,14 @@
       <option name="project" value="LOCAL" />
       <updated>1554337532170</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="abrir pdf ocorrência após providências">
+      <created>1554400592237</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1554400592237</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -729,7 +753,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9638000" />
+    <option name="totallyTimeSpent" value="11238000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -744,7 +768,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49931034" visible="true" weight="0.26072386" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49931034" visible="true" weight="0.26407507" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5006896" side_tool="true" weight="0.2298177" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -774,7 +798,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="SHOW_FILE_HISTORY_DETAILS" value="false" />
-    <MESSAGE value="erro se não encontrar aluno" />
     <MESSAGE value="admin autorização" />
     <MESSAGE value="alteração view confirma saída" />
     <MESSAGE value="botão imprimir pdf em autorização, encaminhamento e ocorrência." />
@@ -799,7 +822,8 @@
     <MESSAGE value="Retorno de ocorrência" />
     <MESSAGE value="retirar opção show" />
     <MESSAGE value="obrigar informar providências no retorno da ocorrência" />
-    <option name="LAST_COMMIT_MESSAGE" value="obrigar informar providências no retorno da ocorrência" />
+    <MESSAGE value="abrir pdf ocorrência após providências" />
+    <option name="LAST_COMMIT_MESSAGE" value="abrir pdf ocorrência após providências" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html">
@@ -1021,24 +1045,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="123" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/pdf/report_ocorrencia.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
-          <folding>
-            <element signature="n#style#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6500">
@@ -1095,15 +1101,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
+    <entry file="file://$PROJECT_DIR$/ocorrencia/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="196" column="73" selection-start-line="196" selection-start-column="44" selection-end-line="196" selection-end-column="73" />
+        <state relative-caret-position="760">
+          <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_edit.html">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3920">
+          <caret line="196" column="73" selection-start-line="196" selection-start-column="44" selection-end-line="196" selection-end-column="73" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_providencias.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -1114,29 +1127,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1362">
+        <state relative-caret-position="1780">
           <caret line="91" selection-start-line="91" selection-end-line="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="1338" column="37" selection-start-line="1338" selection-start-column="37" selection-end-line="1338" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ocorrencia/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_pendente.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+        <state relative-caret-position="340">
+          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/pdf/report_ocorrencia.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="1177" selection-start-line="1177" selection-end-line="1177" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="126" column="18" lean-forward="true" selection-start-line="126" selection-start-column="18" selection-end-line="126" selection-end-column="18" />
         </state>
       </provider>
     </entry>

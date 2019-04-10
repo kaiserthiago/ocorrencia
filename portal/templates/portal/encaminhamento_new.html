@@ -13,7 +13,7 @@
 {% endblock %}
 
 {% block content %}
-    <form action="{% url 'encaminhamento_register' %}" method="POST">
+    <form action="{% url 'encaminhamento_register' %}" method="POST" onsubmit='disableButton()'>
         <div class="row mb-4">
             <div class="col-sm-6">
                 <div class="card redonda">
@@ -111,7 +111,7 @@
                         <div class="form-row">
                             <div class="col">
                                 <div class="float-right">
-                                    <button type="submit" class="btn btn-rounded btn-success" data-toggle="tooltip"
+                                    <button id="btn_enviar" type="submit" class="btn btn-rounded btn-success" data-toggle="tooltip"
                                             data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
                                     <a href="{% url 'encaminhamento' %}" class="btn btn-rounded btn-danger"
                                        data-toggle="tooltip"
@@ -125,4 +125,13 @@
             </div>
         </div>
     </form>
+{% endblock %}
+{% block script %}
+    <script>
+    function disableButton() {
+        var btn = document.getElementById('btn_enviar');
+        btn.disabled = true;
+        btn.innerText = 'Registrando...'
+    }
+</script>
 {% endblock %}
