@@ -78,23 +78,24 @@
                             </div>
                         </div>
 
-                        {#                        <div class="form-row">#}
-                        {#                            <div class="col-sm-12">#}
-                        {#                                    <select name="SelectFalta" id="SelectFalta"#}
-                        {#                                            class="mdb-select md-form colorful-select dropdown-success" searchable="Pesquisar..."#}
-                        {#                                            required>#}
-                        {#                                        <option value="" disabled selected>Selecione a falta</option>#}
-                        {#                                        {% for c in categorias %}#}
-                        {#                                            <optgroup label="ART. {{ c.artigo }} - {{ c.descricao|upper }}">#}
-                        {#                                                {% for f in c.retorna_faltas %}#}
-                        {#                                                    <option value={{ f.id }}>{{ f.inciso }} - {{ f.descricao }}</option>#}
-                        {#                                                {% endfor %}#}
-                        {#                                            </optgroup>#}
-                        {#                                        {% endfor %}#}
-                        {#                                    </select>#}
-                        {#                                    <label for="SelectFalta">Falta</label>#}
-                        {#                            </div>#}
-                        {#                        </div>#}
+                        <div class="form-row">
+                            <div class="col-sm-12">
+                                <select name="SelectFalta" id="SelectFalta"
+                                        class="mdb-select md-form colorful-select dropdown-success"
+                                        searchable="Pesquisar..."
+                                        required>
+                                    <option value="" disabled selected>Selecione a falta</option>
+                                    {% for c in categorias %}
+                                        <optgroup label="ART. {{ c.artigo }} - {{ c.descricao|upper }}">
+                                            {% for f in c.retorna_faltas %}
+                                                <option value={{ f.id }}>{{ f.inciso }} - {{ f.descricao }}</option>
+                                            {% endfor %}
+                                        </optgroup>
+                                    {% endfor %}
+                                </select>
+                                <label for="SelectFalta">Falta</label>
+                            </div>
+                        </div>
 
                         <div class="form-row">
                             <div class="col-sm-12">
@@ -108,7 +109,8 @@
                         <div class="form-row">
                             <div class="col-sm-12">
                                 <div class="float-right">
-                                    <button id="btn_enviar" type="submit" class="btn btn-rounded btn-success" data-toggle="tooltip"
+                                    <button id="btn_enviar" type="submit" class="btn btn-rounded btn-success"
+                                            data-toggle="tooltip"
                                             data-placement="top" title="Salvar"><i class="fa fa-check"></i>
                                     </button>
                                     <a href="{% url 'ocorrencia' %}" class="btn btn-rounded btn-danger"
@@ -126,10 +128,10 @@
 {% endblock %}
 {% block script %}
     <script>
-    function disableButton() {
-        var btn = document.getElementById('btn_enviar');
-        btn.disabled = true;
-        btn.innerText = 'Registrando...'
-    }
-</script>
+        function disableButton() {
+            var btn = document.getElementById('btn_enviar');
+            btn.disabled = true;
+            btn.innerText = 'Registrando...'
+        }
+    </script>
 {% endblock %}

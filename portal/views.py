@@ -1156,6 +1156,7 @@ def ocorrencia(request):
 
 @login_required
 def ocorrencia_new(request):
+    categorias = CategoriaFalta.objects.all().order_by('artigo')
     if request.method == 'POST':
         form = OcorrenciaForm(request.POST)
 
@@ -1168,6 +1169,7 @@ def ocorrencia_new(request):
 
             context = {
                 'matriculas': matriculas,
+                'categorias': categorias,
                 'turma': turma,
                 'ano': int(date.today().year),
                 'form': form
@@ -1190,6 +1192,10 @@ def ocorrencia_register(request):
 
                     matricula = get_object_or_404(Matricula, id=m.id)
 
+                    falta_id = request.POST['SelectFalta']
+                    falta = get_object_or_404(Falta, id=falta_id)
+
+                    ocorrencia.falta = falta
                     ocorrencia.matricula = matricula
                     ocorrencia.data = form.cleaned_data['data']
                     ocorrencia.descricao = form.cleaned_data['descricao']
