@@ -45,6 +45,16 @@
                             {% endif %}
                         </span>
                     </p>
+                    <p class="border-bottom">
+                        Retorno ocorrência (dias)
+                        <span class="badge badge-danger badge-pill pull-right">
+                            {% if indicador_ocorrencia_tempo.is_integer %}
+                                {{ indicador_ocorrencia_tempo|intword }}
+                            {% else %}
+                                0
+                            {% endif %}
+                        </span>
+                    </p>
                 </div>
             </div>
         </div>

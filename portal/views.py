@@ -776,12 +776,22 @@ def dashboard(request):
         tempo=ExpressionWrapper(
             F('update_at') - F('created_at'), output_field=DurationField()))
 
+    dados_ocorrencias = Ocorrencia.objects.filter(
+        empresa=request.user.userprofile.empresa, status='Retornada', data__year=date.today().year).order_by().annotate(
+        tempo=ExpressionWrapper(
+            F('update_at') - F('created_at'), output_field=DurationField()))
+
     indicador_encaminhamento_tempo = []
+    indicador_ocorrencia_tempo = []
 
     for i in dados_encaminhamentos:
         indicador_encaminhamento_tempo.append(i.tempo.days)
 
+    for i in dados_ocorrencias:
+        indicador_ocorrencia_tempo.append(i.tempo.days)
+
     indicador_encaminhamento_tempo = round(numpy.mean(indicador_encaminhamento_tempo))
+    indicador_ocorrencia_tempo = round(numpy.mean(indicador_ocorrencia_tempo))
 
     # DADOS GRÁFICO DE OCORRÊNCIAS POR CATEGORIA
     categorias = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
@@ -985,6 +995,7 @@ def dashboard(request):
         'indicador_encaminhamento': indicador_encaminhamento,
         'indicador_ocorrencia': indicador_ocorrencia,
         'indicador_encaminhamento_tempo': indicador_encaminhamento_tempo,
+        'indicador_ocorrencia_tempo': indicador_ocorrencia_tempo,
 
         # OCORRÊNCIAS
         'c': c,
