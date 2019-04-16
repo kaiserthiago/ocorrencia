@@ -334,11 +334,13 @@ class Ocorrencia(AuditoriaMixin):
     providencias = models.TextField(blank=True, null=True)
 
     responsavel_retorno_ocorrencia = models.ForeignKey(User, on_delete=models.DO_NOTHING,
-                                                 related_name='responsavel_retorno_ocorrencia',
-                                                 blank=True, null=True)
+                                                       related_name='responsavel_retorno_ocorrencia',
+                                                       blank=True, null=True)
     status_choiches = (
         ('Registrada', 'Registrada'),
         ('Retornada', 'Retornada'),
+        ('Enviada', 'Enviada'),
+        ('Arquivada', 'Arquivada')
     )
     status = models.CharField(choices=status_choiches, max_length=30, default='Registrada')
 
@@ -420,7 +422,8 @@ class Autorizacao(AuditoriaMixin):
     matricula = models.ForeignKey(Matricula, on_delete=models.DO_NOTHING)
     data = models.DateField()
     descricao = models.TextField()
-    user_confirma = models.ForeignKey(User, on_delete=models.DO_NOTHING, blank=True, null=True, related_name='user_confirma')
+    user_confirma = models.ForeignKey(User, on_delete=models.DO_NOTHING, blank=True, null=True,
+                                      related_name='user_confirma')
 
     def __str__(self):
         return str(self.id)

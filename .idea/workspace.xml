@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="Dashboard com prazo de retorno das ocorrências em dias">
+    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="desabilitar botão submit ao clicar para envitar clique duplo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_providencias.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia_providencias.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -413,21 +411,7 @@
       <workItem from="1554397604676" duration="3614000" />
       <workItem from="1554898661574" duration="2179000" />
       <workItem from="1554988771018" duration="3462000" />
-      <workItem from="1555091843876" duration="1394000" />
-    </task>
-    <task id="LOCAL-00020" summary="no login_required pdf_declaração_matricula">
-      <created>1540163206699</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1540163206699</updated>
-    </task>
-    <task id="LOCAL-00021" summary="leitor qrcode confirmação de saída">
-      <created>1540224981098</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1540224981098</updated>
+      <workItem from="1555091843876" duration="1445000" />
     </task>
     <task id="LOCAL-00022" summary="leitor qrcode confirmação de saída">
       <created>1540229041147</created>
@@ -758,7 +742,21 @@
       <option name="project" value="LOCAL" />
       <updated>1554991127475</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="exibir status na lista de ocorrências">
+      <created>1555094166986</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1555094166986</updated>
+    </task>
+    <task id="LOCAL-00070" summary="desabilitar botão submit ao clicar para envitar clique duplo">
+      <created>1555094189742</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1555094189742</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -767,7 +765,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17418000" />
+    <option name="totallyTimeSpent" value="17469000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -780,8 +778,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49931034" visible="true" weight="0.2707775" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49931034" visible="true" weight="0.24463807" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5006896" side_tool="true" weight="0.2298177" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -811,8 +810,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="SHOW_FILE_HISTORY_DETAILS" value="false" />
-    <MESSAGE value="remoção número/ano da visualização de autorização, encaminhamento e ocorrência" />
-    <MESSAGE value="install django-dbbackup" />
     <MESSAGE value="inserir ciente do aluno na ocorrência" />
     <MESSAGE value="inserir disciplina na ocorrência" />
     <MESSAGE value="novos e-mails ao registrar ocorrência e encaminhamento" />
@@ -836,7 +833,9 @@
     <MESSAGE value="msg no botão de registrar ocorrência e encaminhamento para evitar clique duplo" />
     <MESSAGE value="Tipificação da ocorrência liberado no momento do registro. Alteraçõs visuais na página de providências da ocorrência." />
     <MESSAGE value="Dashboard com prazo de retorno das ocorrências em dias" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dashboard com prazo de retorno das ocorrências em dias" />
+    <MESSAGE value="exibir status na lista de ocorrências" />
+    <MESSAGE value="desabilitar botão submit ao clicar para envitar clique duplo" />
+    <option name="LAST_COMMIT_MESSAGE" value="desabilitar botão submit ao clicar para envitar clique duplo" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_show.html">
