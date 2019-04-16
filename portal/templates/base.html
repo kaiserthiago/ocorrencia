@@ -87,6 +87,8 @@
                                 class="fa fa-user"></i> Meus dados</a>
                     </li>
                 {% else %}
+                    <ul class="social">
+                    </ul>
                     <li>
                         <a href="{% url 'dashboard' %}"
                            class="collapsible-header waves-effect arrow-r
@@ -94,45 +96,76 @@
                                 class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
 
-                    {% if request.user.is_staff %}
-                        <li>
-                            <a href="{% url 'perfil' %}"
-                               class="collapsible-header waves-effect arrow-r
-                                   {% block class_conselho_menu %}{% endblock %}"><i
-                                    class="fa fa-graduation-cap"></i> Conselho de classe</a>
-                        </li>
-                    {% endif %}
+                    <li>
+                        <a class="collapsible-header waves-effect arrow-r {% block class_encaminhamento_menu %}{% endblock %}"><i class="fa fa-book"></i>
+                            Encaminhamentos<i class="fa fa-angle-down rotate-icon"></i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="{% url 'encaminhamento' %}" class="waves-effect
+                                            {% block class_encaminhamento_encaminhamento_item %}{% endblock %}">Registrar</a>
+                                </li>
 
+                                {% if request.user.is_superuser or request.user|has_group:'CAED' %}
+                                    <li>
+                                        <a href="{% url 'encaminhamento_pendente' %}" class="waves-effect
+
+
+                                                {% block class_encaminhamento_pendente_item %}{% endblock %}">Pendentes</a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </li>
 
                     <li>
                         <a class="collapsible-header waves-effect arrow-r
-                                {% block class_registros_menu %}{% endblock %}"><i
-                                class="fa fa-sign-out"></i> Registros<i
+                                {% block class_ocorrencia_menu %}{% endblock %}"><i
+                                class="fa fa-pencil"></i> Ocorrências<i
                                 class="fa fa-angle-down rotate-icon"></i></a>
                         <div class="collapsible-body">
                             <ul>
                                 <li>
-                                    {% if request.user.is_staff %}
-                                        <a href="{% url 'autorizacao' %}"
-                                           class="waves-effect
-                                                   {% block class_registros_autorizacao_item %}{% endblock %}"><i
-                                                class="fa fa-sign-out"></i> Autorização de saída</a>
-                                    {% endif %}
-
-                                    <a href="{% url 'encaminhamento' %}"
-                                       class="waves-effect
-                                               {% block class_registros_encaminhamento_item %}{% endblock %}"><i
-                                            class="fa fa-book"></i> Encaminhamento</a>
-
                                     <a href="{% url 'ocorrencia' %}"
-                                       class="waves-effect
-                                                   {% block class_registros_ocorrencia_item %}{% endblock %}"><i
-                                            class="fa fa-pencil"></i> Ocorrência disciplinar</a>
-
+                                       class="waves-effect {% block class_ocorrencia_ocorrencia_item %}{% endblock %}">Registrar</a>
                                 </li>
+                                {% if request.user.is_superuser or request.user|has_group:'CAED' %}
+                                    <li>
+                                        <a href="{% url 'ocorrencia_pendente' %}" class="waves-effect
+                                                {% block class_ocorrencia_pendente_item %}{% endblock %}">Pendentes</a>
+                                    </li>
+                                {% endif %}
                             </ul>
                         </div>
                     </li>
+
+                    {% if request.user.is_staff %}
+                        <li>
+                            <a class="collapsible-header waves-effect arrow-r
+                                {% block class_saida_menu %}{% endblock %}"><i
+                                    class="fa fa-sign-out"></i> Saídas<i
+                                    class="fa fa-angle-down rotate-icon"></i></a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li>
+                                        <a href="{% url 'autorizacao' %}"
+                                           class="waves-effect {% block class_saida_autorizacao_item %}{% endblock %}">Autorizar</a>
+                                    </li>
+
+                                    {% if request.user.is_superuser or request.user|has_group:'Vigia' %}
+                                        <li>
+                                            <a href="{% url 'autorizacao_pendente' %}"
+                                               class="waves-effect {% block class_saida_pendente_item %}{% endblock %}">Pendentes</a>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+
+                            </div>
+                        </li>
+                    {% endif %}
+
+                    <ul class="social">
+                    </ul>
                     <li>
                         <a href="{% url 'report_general' %}"
                            class="collapsible-header waves-effect arrow-r
@@ -140,38 +173,9 @@
                                 class="fa fa-file"></i> Relatórios</a>
                     </li>
 
-                    {% if request.user.is_superuser or request.user|has_group:'Vigia' %}
-                        <ul class="social"></ul>
-                        <li>
-                            <a href="{% url 'autorizacao_pendente' %}"
-                               class="collapsible-header waves-effect arrow-r
-                                   {% block class_autorizacao_pendente_menu %}{% endblock %}"><i
-                                    class="fa fa-check-square-o"></i>
-                                Confirmar saída</a>
-                        </li>
-                    {% endif %}
-
                     {% if request.user.is_superuser or request.user|has_group:'CAED' %}
-                        {% if not request.user.is_superuser %}
-                            <ul class="social"></ul>
-                        {% endif %}
-                        <li>
-                            <a href="{% url 'encaminhamento_pendente' %}"
-                               class="collapsible-header waves-effect arrow-r
-                                   {% block class_retorno_encaminhamento_menu %}{% endblock %}"><i
-                                    class="fa fa-book"></i>
-                                Retorno encaminhamento</a>
-
-                        <a href="{% url 'ocorrencia_pendente' %}"
-                               class="collapsible-header waves-effect arrow-r
-                                   {% block class_retorno_ocorrencia_menu %}{% endblock %}"><i
-                                    class="fa fa-pencil"></i>
-                                Retorno ocorrência</a>
-                        </li>
-                    {% endif %}
-
-                    {% if request.user.is_superuser or request.user|has_group:'CAED' %}
-                        <ul class="social"></ul>
+                        <ul class="social">
+                        </ul>
                         <li>
                             <a class="collapsible-header waves-effect arrow-r
                                 {% block class_cadastro_menu %}{% endblock %}"><i
@@ -212,13 +216,19 @@
                                 </ul>
                             </div>
                         </li>
-                        {% if request.user.is_superuser or request.user|has_group:'CAED' %}
-                            <li>
-                                <a href="{% url 'configuracao' %}" class="collapsible-header waves-effect arrow-r
+                        <li>
+                            <a href="{% url 'configuracao' %}" class="collapsible-header waves-effect arrow-r
                                     {% block class_configuracoes_menu %}{% endblock %}"><i class="fa fa-cogs"></i>
-                                    Configurações</a>
-                            </li>
-                        {% endif %}
+                                Configurações</a>
+                        </li>
+                    {% endif %}
+                    {% if request.user.is_staff %}
+                        <li>
+                            <a href="{% url 'perfil' %}"
+                               class="collapsible-header waves-effect arrow-r
+                                   {% block class_conselho_menu %}{% endblock %}"><i
+                                    class="fa fa-graduation-cap"></i> Conselho de classe</a>
+                        </li>
                     {% endif %}
                 {% endif %}
 
