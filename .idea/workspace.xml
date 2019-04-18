@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="nova organização menus">
+    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="novo dashboard">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -96,20 +94,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="1017" column="25" lean-forward="true" selection-start-line="1017" selection-start-column="25" selection-end-line="1017" selection-end-column="25" />
+            <state relative-caret-position="142">
+              <caret line="797" column="59" lean-forward="true" selection-start-line="797" selection-start-column="59" selection-end-line="797" selection-end-column="59" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="83" column="4" selection-start-line="83" selection-start-column="4" selection-end-line="83" selection-end-column="4" />
+            <state relative-caret-position="100">
+              <caret line="74" column="99" selection-start-line="74" selection-start-column="99" selection-end-line="74" selection-end-column="99" />
             </state>
           </provider>
         </entry>
@@ -242,8 +240,8 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_pendente.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html" />
         <option value="$PROJECT_DIR$/portal/templates/base.html" />
-        <option value="$PROJECT_DIR$/portal/views.py" />
         <option value="$PROJECT_DIR$/portal/templates/portal/dashboard.html" />
+        <option value="$PROJECT_DIR$/portal/views.py" />
       </list>
     </option>
   </component>
@@ -419,21 +417,7 @@
       <workItem from="1554988771018" duration="3462000" />
       <workItem from="1555091843876" duration="1445000" />
       <workItem from="1555446854418" duration="1788000" />
-      <workItem from="1555613628775" duration="1781000" />
-    </task>
-    <task id="LOCAL-00026" summary="grava user que registrou a saída">
-      <created>1540233001151</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1540233001151</updated>
-    </task>
-    <task id="LOCAL-00027" summary="grava user que registrou a saída">
-      <created>1540233083866</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1540233083866</updated>
+      <workItem from="1555613628775" duration="2915000" />
     </task>
     <task id="LOCAL-00028" summary="grava user que registrou a saída">
       <created>1540233204532</created>
@@ -764,7 +748,21 @@
       <option name="project" value="LOCAL" />
       <updated>1555614504118</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="novo dashboard">
+      <created>1555615603370</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1555615603370</updated>
+    </task>
+    <task id="LOCAL-00076" summary="novo dashboard">
+      <created>1555616442176</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1555616442176</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -773,7 +771,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21038000" />
+    <option name="totallyTimeSpent" value="22172000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -798,7 +796,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32765958" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32905984" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3281471" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.32765958" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49932885" weight="0.34087694" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
@@ -818,7 +816,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="SHOW_FILE_HISTORY_DETAILS" value="false" />
-    <MESSAGE value="novos e-mails ao registrar ocorrência e encaminhamento" />
     <MESSAGE value="novos e-mails ao atender encaminhamento" />
     <MESSAGE value="correção pdf encaminhamento" />
     <MESSAGE value="mudança senha dos alunos" />
@@ -843,7 +840,8 @@
     <MESSAGE value="desabilitar botão submit ao clicar para envitar clique duplo" />
     <MESSAGE value="novos status de ocorrências" />
     <MESSAGE value="nova organização menus" />
-    <option name="LAST_COMMIT_MESSAGE" value="nova organização menus" />
+    <MESSAGE value="novo dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="novo dashboard" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/portal/migrations/__init__.py">
@@ -1172,17 +1170,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/views.py">
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="1017" column="25" lean-forward="true" selection-start-line="1017" selection-start-column="25" selection-end-line="1017" selection-end-column="25" />
+        <state relative-caret-position="100">
+          <caret line="74" column="99" selection-start-line="74" selection-start-column="99" selection-end-line="74" selection-end-column="99" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
+    <entry file="file://$PROJECT_DIR$/portal/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="83" column="4" selection-start-line="83" selection-start-column="4" selection-end-line="83" selection-end-column="4" />
+        <state relative-caret-position="142">
+          <caret line="797" column="59" lean-forward="true" selection-start-line="797" selection-start-column="59" selection-end-line="797" selection-end-column="59" />
         </state>
       </provider>
     </entry>
