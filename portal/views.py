@@ -975,7 +975,7 @@ def dashboard(request):
         empresa=request.user.userprofile.empresa, data__year=date.today().year).order_by().values_list(
         'matricula__turma__curso__descricao').annotate(qtde=Count('id')).distinct()
 
-    dados_grafico_encaminhamento_curso = json.dumps(list(cursos))
+    dados_grafico_encaminhamento_curso = json.dumps(list(cursos_encaminhamento))
 
     courses_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
                                                            data__year=date.today().year,
