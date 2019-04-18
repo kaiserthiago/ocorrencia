@@ -97,21 +97,23 @@
                     </li>
 
                     <li>
-                        <a class="collapsible-header waves-effect arrow-r {% block class_encaminhamento_menu %}{% endblock %}"><i class="fa fa-book"></i>
+                        <a class="collapsible-header waves-effect arrow-r
+                                {% block class_encaminhamento_menu %}{% endblock %}"><i class="fa fa-book"></i>
                             Encaminhamentos<i class="fa fa-angle-down rotate-icon"></i></a>
                         <div class="collapsible-body">
                             <ul>
                                 <li>
                                     <a href="{% url 'encaminhamento' %}" class="waves-effect
-                                            {% block class_encaminhamento_encaminhamento_item %}{% endblock %}">Registrar</a>
+                                            {% block class_encaminhamento_encaminhamento_item %}{% endblock %}"><i
+                                            class="fa fa-plus"></i> Registrar</a>
                                 </li>
 
                                 {% if request.user.is_superuser or request.user|has_group:'CAED' %}
                                     <li>
                                         <a href="{% url 'encaminhamento_pendente' %}" class="waves-effect
 
-
-                                                {% block class_encaminhamento_pendente_item %}{% endblock %}">Pendentes</a>
+                                                {% block class_encaminhamento_pendente_item %}{% endblock %}"><i
+                                                class="fa fa-clock-o"></i> Pendentes</a>
                                     </li>
                                 {% endif %}
                             </ul>
@@ -127,12 +129,15 @@
                             <ul>
                                 <li>
                                     <a href="{% url 'ocorrencia' %}"
-                                       class="waves-effect {% block class_ocorrencia_ocorrencia_item %}{% endblock %}">Registrar</a>
+                                       class="waves-effect
+                                               {% block class_ocorrencia_ocorrencia_item %}{% endblock %}"><i
+                                            class="fa fa-plus"></i> Registrar</a>
                                 </li>
                                 {% if request.user.is_superuser or request.user|has_group:'CAED' %}
                                     <li>
                                         <a href="{% url 'ocorrencia_pendente' %}" class="waves-effect
-                                                {% block class_ocorrencia_pendente_item %}{% endblock %}">Pendentes</a>
+                                                {% block class_ocorrencia_pendente_item %}{% endblock %}"><i
+                                                class="fa fa-clock-o"></i> Pendentes</a>
                                     </li>
                                 {% endif %}
                             </ul>
@@ -149,13 +154,16 @@
                                 <ul>
                                     <li>
                                         <a href="{% url 'autorizacao' %}"
-                                           class="waves-effect {% block class_saida_autorizacao_item %}{% endblock %}">Autorizar</a>
+                                           class="waves-effect
+                                                   {% block class_saida_autorizacao_item %}{% endblock %}"><i
+                                                class="fa fa-check"></i> Autorizar</a>
                                     </li>
 
                                     {% if request.user.is_superuser or request.user|has_group:'Vigia' %}
                                         <li>
                                             <a href="{% url 'autorizacao_pendente' %}"
-                                               class="waves-effect {% block class_saida_pendente_item %}{% endblock %}">Pendentes</a>
+                                               class="waves-effect {% block class_saida_pendente_item %}{% endblock %}"><i
+                                                    class="fa fa-clock-o"></i> Pendentes</a>
                                         </li>
                                     {% endif %}
                                 </ul>
@@ -193,12 +201,16 @@
                                             <a href="{% url 'servico_categoria' %}"
                                                class="waves-effect
                                                {% block class_cadastro_servicos_categoria_item %}{% endblock %}"><i
-                                                    class="fa fa-cog"></i> Categoria
-                                                de serviço</a>
+                                                    class="fa fa-user-md"></i> Categoria
+                                                de atendimento</a>
                                             <a href="{% url 'curso' %}"
                                                class="waves-effect
                                                {% block class_cadastro_curso_item %}{% endblock %}"><i
                                                     class="fa fa-industry"></i> Curso</a>
+                                            <a href="{% url 'servico' %}"
+                                               class="waves-effect
+                                                       {% block class_cadastro_servicos_item %}{% endblock %}"><i
+                                                    class="fa fa-stethoscope"></i> Tipo de atendimento</a>
                                             <a href="{% url 'turma' %}"
                                                class="waves-effect
                                                {% block class_cadastro_turma_item %}{% endblock %}"><i
@@ -207,10 +219,6 @@
                                                class="waves-effect
                                                        {% block class_cadastro_matricula_item %}{% endblock %}"><i
                                                     class="fa fa-users"></i> Matrícula</a>
-                                            <a href="{% url 'servico' %}"
-                                               class="waves-effect
-                                                       {% block class_cadastro_servicos_item %}{% endblock %}"><i
-                                                    class="fa fa-cog"></i> Serviço</a>
                                         {% endif %}
                                     </li>
                                 </ul>
