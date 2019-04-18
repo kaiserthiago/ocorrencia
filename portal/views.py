@@ -771,6 +771,16 @@ def dashboard(request):
     indicador_ocorrencia = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
                                                      data__year=date.today().year)
 
+    indicador_alunos = Matricula.objects.filter(empresa=request.user.userprofile.empresa,
+                                                ano_letivo=date.today().year)
+
+    indicador_cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa)
+
+    indicador_turmas = Turma.objects.filter(empresa=request.user.userprofile.empresa)
+
+    indicador_servidores = UserProfile.objects.filter(empresa=request.user.userprofile.empresa, user__is_active=True,
+                                                      siape__isnull=False)
+
     dados_encaminhamentos = Encaminhamento.objects.filter(
         empresa=request.user.userprofile.empresa, status='Atendido', data__year=date.today().year).order_by().annotate(
         tempo=ExpressionWrapper(
@@ -798,14 +808,12 @@ def dashboard(request):
                                            data__year=date.today().year).order_by(
         'falta__categoria__artigo').values_list('falta__categoria__descricao').annotate(qtde=Count('id')).distinct()
 
-
     dados_grafico_ocorrencia_categoria = json.dumps(list(categorias))
 
     # DADOS GRÁFICO DE OCORRÊNCIAS POR CURSO
     cursos = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
                                        data__year=date.today().year).order_by().values_list(
         'matricula__turma__curso__descricao').annotate(qtde=Count('id')).distinct()
-
 
     dados_grafico_ocorrencia_curso = json.dumps(list(cursos))
 
@@ -993,6 +1001,11 @@ def dashboard(request):
         'indicador_ocorrencia': indicador_ocorrencia,
         'indicador_encaminhamento_tempo': indicador_encaminhamento_tempo,
         'indicador_ocorrencia_tempo': indicador_ocorrencia_tempo,
+
+        'indicador_alunos': indicador_alunos,
+        'indicador_cursos': indicador_cursos,
+        'indicador_turmas': indicador_turmas,
+        'indicador_servidores': indicador_servidores,
 
         # OCORRÊNCIAS
         'c': c,
@@ -2283,7 +2296,6 @@ def encaminhamento_providencia(request, encaminhamento_id):
         messages.success(request, 'Providências adotadas registradas.')
 
         return redirect('encaminhamento_pendente')
-
 
 
 @login_required

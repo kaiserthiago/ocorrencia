@@ -12,7 +12,7 @@
 
 {% block content %}
     <div class="row mb-4">
-        <div class="col-sm-12">
+        <div class="col-sm-6">
             <!--Card-->
             <div class="card redonda">
                 <div class="card-header redonda grey lighten-1 font-weight-bold">
@@ -54,6 +54,38 @@
                                 0
                             {% endif %}
                         </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <hr class="w-100 clearfix d-md-none">
+
+        <div class="col-sm-6">
+            <!--Card-->
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-1 font-weight-bold">
+                    <p class="float-left m-0">
+                        Indicadores gerais
+                    </p>
+                </div>
+                <div class="card-body">
+                    <p class="border-bottom">
+                        Total de alunos matriculados
+                        <span class="badge badge-warning badge-pill pull-right">{{ indicador_alunos.count }}</span>
+
+                    </p>
+                    <p class="border-bottom">
+                        Total de cursos
+                        <span class="badge badge-primary badge-pill pull-right">{{ indicador_cursos.count }}</span>
+                    </p>
+                    <p class="border-bottom">
+                        Total de turmas
+                        <span class="badge ifro-color badge-pill pull-right">{{ indicador_turmas.count }}</span>
+                    </p>
+                    <p class="border-bottom">
+                        Servidores ativos
+                        <span class="badge badge-danger badge-pill pull-right">{{ indicador_servidores.count }}</span>
                     </p>
                 </div>
             </div>
