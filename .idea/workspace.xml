@@ -85,20 +85,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="204" column="58" selection-start-line="204" selection-start-column="58" selection-end-line="204" selection-end-column="58" />
+            <state relative-caret-position="209">
+              <caret line="300" column="101" selection-start-line="300" selection-start-column="101" selection-end-line="300" selection-end-column="101" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="797" column="59" lean-forward="true" selection-start-line="797" selection-start-column="59" selection-end-line="797" selection-end-column="59" />
+            <state relative-caret-position="262">
+              <caret line="977" column="78" selection-start-line="977" selection-start-column="78" selection-end-line="977" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -106,8 +106,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="74" column="99" selection-start-line="74" selection-start-column="99" selection-end-line="74" selection-end-column="99" />
+            <state relative-caret-position="169">
+              <caret line="121" column="47" selection-start-line="121" selection-start-column="47" selection-end-line="121" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -125,9 +125,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>delete</find>
-      <find>encaminhamento(</find>
-      <find>ModalRegistrarEncaminhamento</find>
       <find>ocorrencia</find>
       <find>pend</find>
       <find>pendente</find>
@@ -155,6 +152,9 @@
       <find>registros</find>
       <find>servico</find>
       <find>status_</find>
+      <find>curso</find>
+      <find>o_curso</find>
+      <find>fa-user</find>
     </findStrings>
     <replaceStrings>
       <replace>btn-primary-modal</replace>
@@ -239,9 +239,9 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_pendente.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_pendente.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html" />
-        <option value="$PROJECT_DIR$/portal/templates/base.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/dashboard.html" />
         <option value="$PROJECT_DIR$/portal/views.py" />
+        <option value="$PROJECT_DIR$/portal/templates/base.html" />
       </list>
     </option>
   </component>
@@ -417,21 +417,7 @@
       <workItem from="1554988771018" duration="3462000" />
       <workItem from="1555091843876" duration="1445000" />
       <workItem from="1555446854418" duration="1788000" />
-      <workItem from="1555613628775" duration="2915000" />
-    </task>
-    <task id="LOCAL-00028" summary="grava user que registrou a saída">
-      <created>1540233204532</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1540233204532</updated>
-    </task>
-    <task id="LOCAL-00029" summary="erro se não encontrar aluno">
-      <created>1540233572346</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1540233572346</updated>
+      <workItem from="1555613628775" duration="3578000" />
     </task>
     <task id="LOCAL-00030" summary="erro se não encontrar aluno">
       <created>1540233669063</created>
@@ -762,7 +748,21 @@
       <option name="project" value="LOCAL" />
       <updated>1555616442176</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="adição de novos status nas ocorrências">
+      <created>1555616594446</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1555616594446</updated>
+    </task>
+    <task id="LOCAL-00078" summary="novo dashboard">
+      <created>1555617118170</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1555617118170</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -771,7 +771,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22172000" />
+    <option name="totallyTimeSpent" value="22835000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -786,7 +786,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49931034" visible="true" weight="0.25134048" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49931034" visible="true" weight="0.25134048" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5006896" side_tool="true" weight="0.2298177" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -814,9 +814,18 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="SHOW_FILE_HISTORY_DETAILS" value="false" />
-    <MESSAGE value="novos e-mails ao atender encaminhamento" />
     <MESSAGE value="correção pdf encaminhamento" />
     <MESSAGE value="mudança senha dos alunos" />
     <MESSAGE value="alteração ano base.html" />
@@ -840,6 +849,7 @@
     <MESSAGE value="desabilitar botão submit ao clicar para envitar clique duplo" />
     <MESSAGE value="novos status de ocorrências" />
     <MESSAGE value="nova organização menus" />
+    <MESSAGE value="adição de novos status nas ocorrências" />
     <MESSAGE value="novo dashboard" />
     <option name="LAST_COMMIT_MESSAGE" value="novo dashboard" />
   </component>
@@ -1163,24 +1173,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="204" column="58" selection-start-line="204" selection-start-column="58" selection-end-line="204" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="74" column="99" selection-start-line="74" selection-start-column="99" selection-end-line="74" selection-end-column="99" />
+        <state relative-caret-position="169">
+          <caret line="121" column="47" selection-start-line="121" selection-start-column="47" selection-end-line="121" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="797" column="59" lean-forward="true" selection-start-line="797" selection-start-column="59" selection-end-line="797" selection-end-column="59" />
+        <state relative-caret-position="262">
+          <caret line="977" column="78" selection-start-line="977" selection-start-column="78" selection-end-line="977" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="300" column="101" selection-start-line="300" selection-start-column="101" selection-end-line="300" selection-end-column="101" />
         </state>
       </provider>
     </entry>
