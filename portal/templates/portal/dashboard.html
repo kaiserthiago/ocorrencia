@@ -12,7 +12,7 @@
 
 {% block content %}
     <div class="row mb-4">
-        <div class="col-sm-4">
+        <div class="col-sm-12">
             <!--Card-->
             <div class="card redonda">
                 <div class="card-header redonda grey lighten-1 font-weight-bold">
@@ -23,7 +23,7 @@
                 </div>
                 <div class="card-body">
                     <p class="border-bottom">
-                        Autorizações
+                        Autorizações de saída
                         <span class="badge badge-warning badge-pill pull-right">{{ indicador_autorizacao.count }}</span>
 
                     </p>
@@ -32,11 +32,11 @@
                         <span class="badge badge-primary badge-pill pull-right">{{ indicador_encaminhamento.count }}</span>
                     </p>
                     <p class="border-bottom">
-                        Ocorrências
+                        Ocorrências disciplinares
                         <span class="badge ifro-color badge-pill pull-right">{{ indicador_ocorrencia.count }}</span>
                     </p>
                     <p class="border-bottom">
-                        Retorno encaminhamento (dias)
+                        Prazo médio de retorno de encaminhamentos (dias)
                         <span class="badge badge-danger badge-pill pull-right">
                             {% if indicador_encaminhamento_tempo.is_integer %}
                                 {{ indicador_encaminhamento_tempo|intword }}
@@ -46,7 +46,7 @@
                         </span>
                     </p>
                     <p class="border-bottom">
-                        Retorno ocorrência (dias)
+                        Prazo médio de retorno de ocorrências (dias)
                         <span class="badge badge-danger badge-pill pull-right">
                             {% if indicador_ocorrencia_tempo.is_integer %}
                                 {{ indicador_ocorrencia_tempo|intword }}
@@ -55,52 +55,6 @@
                             {% endif %}
                         </span>
                     </p>
-                </div>
-            </div>
-        </div>
-
-        <hr class="w-100 clearfix d-md-none">
-
-        <div class="col-sm-4">
-            <div class="card redonda">
-                <div class="card-header redonda grey lighten-1 font-weight-bold">
-                    Ocorrências por categoria
-                </div>
-                <div class="card-body">
-                    {% if categorias %}
-                        <!--Div that will hold the dashboard-->
-                        <div id="dashboard_ocorrencia_categoria" class="text-center">
-                            <!--Divs that will hold each control and chart-->
-                            <div id="grafico_ocorrencia_categoria"></div>
-                        </div>
-                    {% else %}
-                        <div class="card-header warning-color white-text text-center">
-                            <strong>NÃO HÁ OCORRÊNCIAS</strong>
-                        </div>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-
-        <hr class="w-100 clearfix d-md-none">
-
-        <div class="col-sm-4">
-            <div class="card redonda">
-                <div class="card-header redonda grey lighten-1 font-weight-bold">
-                    Ocorrências por curso
-                </div>
-                <div class="card-body">
-                    {% if cursos %}
-                        <!--Div that will hold the dashboard-->
-                        <div id="dashboard_ocorrencia_curso" class="text-center">
-                            <!--Divs that will hold each control and chart-->
-                            <div id="grafico_ocorrencia_curso"></div>
-                        </div>
-                    {% else %}
-                        <div class="card-header warning-color white-text text-center">
-                            <strong>NÃO HÁ OCORRÊNCIAS</strong>
-                        </div>
-                    {% endif %}
                 </div>
             </div>
         </div>
@@ -130,6 +84,77 @@
         <div class="col-sm-6">
             <div class="card redonda">
                 <div class="card-header redonda grey lighten-1 font-weight-bold">
+                    Encaminhamentos por curso
+                </div>
+                <div class="card-body">
+                    {% if cursos %}
+                        <!--Div that will hold the dashboard-->
+                        <div id="dashboard_encaminhamento_curso" class="text-center">
+                            <!--Divs that will hold each control and chart-->
+                            <div id="grafico_encaminhamento_curso"></div>
+                        </div>
+                    {% else %}
+                        <div class="card-header warning-color white-text text-center">
+                            <strong>NÃO HÁ ENCAMINHAMENTOS</strong>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--OCORRÊNCIAS-->
+    <div class="row mb-4">
+        <div class="col-sm-6">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-1 font-weight-bold">
+                    Ocorrências por categoria
+                </div>
+                <div class="card-body">
+                    {% if categorias %}
+                        <!--Div that will hold the dashboard-->
+                        <div id="dashboard_ocorrencia_categoria" class="text-center">
+                            <!--Divs that will hold each control and chart-->
+                            <div id="grafico_ocorrencia_categoria"></div>
+                        </div>
+                    {% else %}
+                        <div class="card-header warning-color white-text text-center">
+                            <strong>NÃO HÁ OCORRÊNCIAS</strong>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <hr class="w-100 clearfix d-md-none">
+
+        <div class="col-sm-6">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-1 font-weight-bold">
+                    Ocorrências por curso
+                </div>
+                <div class="card-body">
+                    {% if cursos %}
+                        <!--Div that will hold the dashboard-->
+                        <div id="dashboard_ocorrencia_curso" class="text-center">
+                            <!--Divs that will hold each control and chart-->
+                            <div id="grafico_ocorrencia_curso"></div>
+                        </div>
+                    {% else %}
+                        <div class="card-header warning-color white-text text-center">
+                            <strong>NÃO HÁ OCORRÊNCIAS</strong>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--STATUS-->
+    <div class="row mb-4">
+        <div class="col-sm-6">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-1 font-weight-bold">
                     <p class="float-left m-0">
                         Encaminhamentos por status
                     </p>
@@ -148,18 +173,22 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="row mb-4">
-        <div class="col-sm-12">
+        <hr class="w-100 clearfix d-md-none">
+
+        <div class="col-sm-6">
             <div class="card redonda">
                 <div class="card-header redonda grey lighten-1 font-weight-bold">
-                    Registro de ocorrências
+                    <p class="float-left m-0">
+                        Ocorrências por status
+                    </p>
+                    {% if request.user.is_superuser or perms.portal.change_encaminhamento %}
+                        <a href="{% url 'ocorrencia_pendente' %}" class="float-right m-0"> VER MAIS</a>
+                    {% endif %}
                 </div>
                 <div class="card-body">
-                    {% if dados_grafico_datas_ocorrencia %}
-                        <div id="ocorrencia_mes"></div>
-
+                    {% if status_ocorrencia %}
+                        <div id="status_ocorrencia"></div>
                     {% else %}
                         <div class="card-header warning-color white-text text-center">
                             <strong>NÃO HÁ OCORRÊNCIAS</strong>
@@ -170,6 +199,7 @@
         </div>
     </div>
 
+    <!--ENCAMINHAMENTOS POR MÊS-->
     <div class="row mb-4">
         <div class="col-sm-12">
             <div class="card redonda">
@@ -190,74 +220,28 @@
         </div>
     </div>
 
+    <!--OCORRÊNCIAS POR MÊS-->
     <div class="row mb-4">
         <div class="col-sm-12">
             <div class="card redonda">
                 <div class="card-header redonda grey lighten-1 font-weight-bold">
-                    Ocorrências detalhadas
+                    Registro de ocorrências
                 </div>
                 <div class="card-body">
-                    {% if categorias %}
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <form action="" method="POST">
-                                    {% csrf_token %}
-                                    <select name="CourseOcorrencia" id="CourseOcorrencia"
-                                            class="mdb-select md-form colorful-select dropdown-success"
-                                            onchange="this.form.submit();">
-                                        <option value="" disabled
-                                                {% if not distribuicao %}selected{% endif %}>Selecione...
-                                        </option>
-                                        {% for course in courses %}
-                                            <option value="{{ course.matricula__turma__curso__id }}"
-                                                    {% if distribuicao and course.matricula__turma__curso__id == c.id %}
-                                                    selected {% endif %}>{{ course.matricula__turma__curso__descricao }}</option>
-                                        {% endfor %}
-                                    </select>
-                                    <label for="CourseOcorrencia">Curso</label>
-                                </form>
-                            </div>
-                            <hr class="w-100 clearfix d-md-none">
+                    {% if dados_grafico_datas_ocorrencia %}
+                        <div id="ocorrencia_mes"></div>
 
-                            <div class="col-sm-6">
-                                <select id="SelectYearOcorrencia" name="SelectYearOcorrencia"
-                                        class="mdb-select md-form colorful-select dropdown-success">
-                                    <option value="2019" selected>2019</option>
-                                    <option value="2018">2018</option>
-                                </select>
-                                <label for="SelectYearOcorrencia">Ano letivo</label>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            {% if distribuicao %}
-                                <div class="col-sm-6">
-                                    <div id="turma" style="height: 250px"></div>
-                                </div>
-                                <hr class="w-100 clearfix d-md-none">
-
-                                <div class="col-sm-6">
-                                    <div id="distribuicao" style="height: 250px"></div>
-                                </div>
-                            {% else %}
-                                <div class="col-sm-12">
-                                    <div class="alert card-header ifro-color white-text text-center">
-                                        <strong>SELECIONE O CURSO PARA VER O GRÁFICO</strong>
-                                    </div>
-                                </div>
-                            {% endif %}
-                        </div>
                     {% else %}
                         <div class="card-header warning-color white-text text-center">
                             <strong>NÃO HÁ OCORRÊNCIAS</strong>
                         </div>
                     {% endif %}
-
                 </div>
             </div>
         </div>
     </div>
-    <hr class="w-100 clearfix d-md-none">
 
+    <!--ENCAMINHAMENTOS DETALHADOS-->
     <div class="row mb-4">
         <div class="col-sm-12">
             <div class="card redonda">
@@ -317,6 +301,76 @@
                     {% else %}
                         <div class="card-header warning-color white-text text-center">
                             <strong>NÃO HÁ ENCAMINHAMENTOS</strong>
+                        </div>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="w-100 clearfix d-md-none">
+
+    <!--OCORRÊNCIAS DETALHADAS-->
+    <div class="row mb-4">
+        <div class="col-sm-12">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-1 font-weight-bold">
+                    Ocorrências detalhadas
+                </div>
+                <div class="card-body">
+                    {% if categorias %}
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <form action="" method="POST">
+                                    {% csrf_token %}
+                                    <select name="CourseOcorrencia" id="CourseOcorrencia"
+                                            class="mdb-select md-form colorful-select dropdown-success"
+                                            onchange="this.form.submit();">
+                                        <option value="" disabled
+                                                {% if not distribuicao %}selected{% endif %}>Selecione...
+                                        </option>
+                                        {% for course in courses %}
+                                            <option value="{{ course.matricula__turma__curso__id }}"
+                                                    {% if distribuicao and course.matricula__turma__curso__id == c.id %}
+                                                    selected {% endif %}>{{ course.matricula__turma__curso__descricao }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <label for="CourseOcorrencia">Curso</label>
+                                </form>
+                            </div>
+                            <hr class="w-100 clearfix d-md-none">
+
+                            <div class="col-sm-6">
+                                <select id="SelectYearOcorrencia" name="SelectYearOcorrencia"
+                                        class="mdb-select md-form colorful-select dropdown-success">
+                                    <option value="2019" selected>2019</option>
+                                    <option value="2018">2018</option>
+                                </select>
+                                <label for="SelectYearOcorrencia">Ano letivo</label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            {% if distribuicao %}
+                                <div class="col-sm-6">
+                                    <div id="turma" style="height: 250px"></div>
+                                </div>
+                                <hr class="w-100 clearfix d-md-none">
+
+                                <div class="col-sm-6">
+                                    <div id="distribuicao" style="height: 250px"></div>
+                                </div>
+                            {% else %}
+                                <div class="col-sm-12">
+                                    <div class="alert card-header ifro-color white-text text-center">
+                                        <strong>SELECIONE O CURSO PARA VER O GRÁFICO</strong>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% else %}
+                        <div class="card-header warning-color white-text text-center">
+                            <strong>NÃO HÁ OCORRÊNCIAS</strong>
                         </div>
                     {% endif %}
 
@@ -509,6 +563,68 @@
             chart.draw(data, options);
         }
     </script>
+
+    <script type="text/javascript">
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Status');
+            data.addColumn('number', 'Ocorrências');
+            data.addRows({{ dados_grafico_ocorrencia_status|safe }});
+
+            var options = {
+                chartArea: {
+                    top: 10,
+                    bottom: 10,
+                    widht: '100%',
+                },
+                legend: {
+                    position: 'right',
+                    alignment: 'center'
+                }
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('status_ocorrencia'));
+
+            chart.draw(data, options);
+        }
+    </script>
+
+
+    <script type="text/javascript">
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Categoria');
+            data.addColumn('number', 'Encaminhamentos');
+            data.addRows({{ dados_grafico_encaminhamento_curso|safe }});
+
+            var options = {
+                pieSliceText: 'percentage',
+                legend: {
+                    position: 'right',
+                    alignment: 'center'
+                },
+                chartArea: {
+                    left: 15,
+                    top: 15,
+                    right: 0,
+                    bottom: 10
+                }
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('grafico_encaminhamento_curso'));
+
+            chart.draw(data, options);
+        }
+    </script>
+
 
     <script type="text/javascript">
         google.charts.load('current', {'packages': ['corechart']});

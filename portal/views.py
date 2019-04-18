@@ -798,8 +798,6 @@ def dashboard(request):
                                            data__year=date.today().year).order_by(
         'falta__categoria__artigo').values_list('falta__categoria__descricao').annotate(qtde=Count('id')).distinct()
 
-    # categorias_faltas = [obj[0] for obj in categorias]
-    # qtde_categorias_faltas = [int(obj[1]) for obj in categorias]
 
     dados_grafico_ocorrencia_categoria = json.dumps(list(categorias))
 
@@ -808,10 +806,15 @@ def dashboard(request):
                                        data__year=date.today().year).order_by().values_list(
         'matricula__turma__curso__descricao').annotate(qtde=Count('id')).distinct()
 
-    # cursos_ocorrencia = [obj[0] for obj in cursos]
-    # qtde_cursos_ocorrencia = [int(obj[1]) for obj in cursos]
 
     dados_grafico_ocorrencia_curso = json.dumps(list(cursos))
+
+    # DADOS GRÁFICO DE OCORRÊNCIAS POR STATUS
+    status_ocorrencia = Ocorrencia.objects.filter(
+        empresa=request.user.userprofile.empresa, data__year=date.today().year).order_by().values_list(
+        'status').annotate(qtde=Count('id')).distinct()
+
+    dados_grafico_ocorrencia_status = json.dumps(list(status_ocorrencia))
 
     courses = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa, data__year=date.today().year,
                                         matricula__turma__curso__in=Curso.objects.all()).order_by(
@@ -964,10 +967,7 @@ def dashboard(request):
         empresa=request.user.userprofile.empresa, data__year=date.today().year).order_by().values_list(
         'matricula__turma__curso__descricao').annotate(qtde=Count('id')).distinct()
 
-    # cursos_ocorrencia_encaminhamento = [obj[0] for obj in cursos_encaminhamento]
-    # qtde_cursos_ocorrencia_encaminhamento = [int(obj[1]) for obj in cursos_encaminhamento]
-
-    # dados_grafico_encaminhamento_curso = json.dumps(list(cursos_encaminhamento))
+    dados_grafico_encaminhamento_curso = json.dumps(list(cursos))
 
     courses_encaminhamento = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
                                                            data__year=date.today().year,
@@ -979,9 +979,6 @@ def dashboard(request):
     status_encaminhamento = Encaminhamento.objects.filter(
         empresa=request.user.userprofile.empresa, data__year=date.today().year).order_by().values_list(
         'status').annotate(qtde=Count('id')).distinct()
-
-    # status_ocorrencia_encaminhamento = [obj[0] for obj in status_encaminhamento]
-    # qtde_status_ocorrencia_encaminhamento = [int(obj[1]) for obj in status_encaminhamento]
 
     dados_grafico_encaminhamento_status = json.dumps(list(status_encaminhamento))
 
@@ -1004,10 +1001,12 @@ def dashboard(request):
 
         'dados_grafico_ocorrencia_categoria': dados_grafico_ocorrencia_categoria,
         'dados_grafico_ocorrencia_curso': dados_grafico_ocorrencia_curso,
+        'dados_grafico_ocorrencia_status': dados_grafico_ocorrencia_status,
         'dados_grafico_ocorrencia_turma': dados_grafico_ocorrencia_turma,
         'dados_grafico_ocorrencia_distribuicao': dados_grafico_ocorrencia_distribuicao,
 
         'dados_grafico_encaminhamento_categoria': dados_grafico_encaminhamento_categoria,
+        'dados_grafico_encaminhamento_curso': dados_grafico_encaminhamento_curso,
         'dados_grafico_encaminhamento_status': dados_grafico_encaminhamento_status,
         'dados_grafico_encaminhamento_distribuicao': dados_grafico_encaminhamento_distribuicao,
         'dados_grafico_encaminhamento_turma': dados_grafico_encaminhamento_turma,
@@ -1015,6 +1014,7 @@ def dashboard(request):
         'courses': courses,
         'categorias': categorias,
         'cursos': cursos,
+        'status_ocorrencia': status_ocorrencia,
         'turmas': turmas,
         'distribuicao': distribuicao,
 
@@ -1041,21 +1041,6 @@ def dashboard(request):
         'status_encaminhamento': status_encaminhamento,
         'turmas_encaminhamento': turmas_encaminhamento,
         'distribuicao_encaminhamento': distribuicao_encaminhamento,
-
-        # 'categorias_faltas_encaminhamento': json.dumps(categorias_faltas_encaminhamento),
-        # 'qtde_categorias_faltas_encaminhamento': json.dumps(qtde_categorias_faltas_encaminhamento),
-
-        # 'cursos_ocorrencia_encaminhamento': json.dumps(cursos_ocorrencia_encaminhamento),
-        # 'qtde_cursos_ocorrencia_encaminhamento': json.dumps(qtde_cursos_ocorrencia_encaminhamento),
-
-        # 'status_ocorrencia_encaminhamento': json.dumps(status_ocorrencia_encaminhamento),
-        # 'qtde_status_ocorrencia_encaminhamento': json.dumps(qtde_status_ocorrencia_encaminhamento),
-
-        # 'turmas_ocorrencia_encaminhamento': json.dumps(turmas_ocorrencia_encaminhamento),
-        # 'qtde_turmas_encaminhamento': json.dumps(qtde_turmas_encaminhamento),
-
-        # 'distribuicao_json_encaminhamento': json.dumps(distribuicao_json_encaminhamento),
-        # 'distribuicao_qtde_encaminhamento': json.dumps(distribuicao_qtde_encaminhamento),
     }
 
     return render(request, 'portal/dashboard.html', context)
