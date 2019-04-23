@@ -11,6 +11,11 @@
 {% endblock %}
 
 {% block content %}
+    {% if qs %}
+        <script>
+            window.open('/report/pdf/encaminhamento/{{ qs }}', '_blank');
+        </script>
+    {% endif %}
     <div class="row mb-4">
         <div class="col-sm-12">
             <div class="card redonda">
@@ -52,7 +57,7 @@
                                            class="btn-floating btn-sm btn-indigo"><i class="fa fa-print"></i>
                                         </a>
 
-                                        <a data-toggle="modal" href="#Providencia{{ encaminhamento.id }}"
+                                        <a href="{% url 'encaminhamento_providencia' encaminhamento.id %}"
                                            class="btn-floating btn-sm btn-success"><i class="fa fa-check"></i>
                                         </a>
                                     </td>

@@ -87,7 +87,9 @@ class EncaminhamentoForm(forms.ModelForm):
             }),
             'providencias': forms.Textarea(attrs={
                 'class': 'form-control md-textarea validate',
-                'rows': '3'
+                'placeholder': 'Utilize esse espaço para descrever as providências adotadas',
+                'rows': '6',
+                'required': 'required'
             }),
             'outras_informacoes': forms.Textarea(attrs={
                 'class': 'form-control md-textarea validate',

@@ -1351,6 +1351,7 @@ def ocorrencia_providencia(request, ocorrencia_id):
         if email:
             RegistraOcorrenciaProvidenciasMail(ocorrencia).send(email)
 
+        messages.success(request, 'Providências adotadas registradas.')
         return redirect('/ocorrencia/pendente?qs=' + ocorrencia_id)
 
     form = OcorrenciaForm(instance=ocorrencia)
@@ -2240,13 +2241,15 @@ def encaminhamento(request):
 
 @login_required
 def encaminhamento_pendente(request):
+    qs = request.GET.get('qs', '')
     cursos = Curso.objects.filter(empresa=request.user.userprofile.empresa)
     encaminhamentos = Encaminhamento.objects.filter(empresa=request.user.userprofile.empresa,
                                                     data__year=date.today().year, status='Encaminhado')
 
     context = {
         'cursos': cursos,
-        'encaminhamentos': encaminhamentos
+        'encaminhamentos': encaminhamentos,
+        'qs': qs
     }
     return render(request, 'portal/encaminhamento_pendente.html', context)
 
@@ -2277,7 +2280,7 @@ def encaminhamento_providencia(request, encaminhamento_id):
             if encaminhamento.matricula.aluno.email_responsavel:
                 email.append(encaminhamento.matricula.aluno.email_responsavel)
 
-        # EMAIL DO SERVIDOR QUE REGISTROU A OCORRÊNCIA
+        # EMAIL DO SERVIDOR QUE REGISTROU O ENCAMINHAMENTO
         if configuracao.providencia_encaminhamento_email_responsavel_user:
             email.append(encaminhamento.user.email)
 
@@ -2294,9 +2297,16 @@ def encaminhamento_providencia(request, encaminhamento_id):
             RegistraEncaminhamentoProvidenciasMail(encaminhamento).send(email)
 
         messages.success(request, 'Providências adotadas registradas.')
+        return redirect('/encaminhamento/pendente?qs=' + encaminhamento_id)
 
-        return redirect('encaminhamento_pendente')
+    form = EncaminhamentoForm(instance=encaminhamento)
 
+    context = {
+        'form': form,
+        'encaminhamento': encaminhamento
+    }
+
+    return render(request, 'portal/encaminhamento_providencias.html', context)
 
 @login_required
 def encaminhamento_new(request):
