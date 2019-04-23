@@ -13,7 +13,6 @@
 {% block content %}
     {% if qs %}
         <script>
-            {#window.open('http://ocorrencia.pythonanywhere.com/report/pdf/ocorrencia/{{ qs }}', '_blank');#}
             window.open('/report/pdf/ocorrencia/{{ qs }}', '_blank');
         </script>
     {% endif %}
