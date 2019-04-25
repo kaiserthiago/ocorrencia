@@ -31,6 +31,7 @@
                             <thead>
                             <tr>
                                 <th style="font-weight: bold">Aluno</th>
+                                <th style="font-weight: bold">Curso/Turma</th>
                                 <th style="font-weight: bold">Data inicial</th>
                                 <th style="font-weight: bold; text-align: right">Tempo afastamento</th>
                                 <th style="text-align: right; font-weight: bold">Ações</th>
@@ -40,6 +41,7 @@
                             {% for justificativa in justificativas %}
                                 <tr>
                                     <td style="vertical-align: middle;">{{ justificativa.matricula.aluno }}</td>
+                                    <td style="vertical-align: middle;">{{ justificativa.matricula.turma }}</td>
                                     <td style="vertical-align: middle;">{{ justificativa.data_inicial }}</td>
                                     <td style="vertical-align: middle; text-align: right">{{ justificativa.tempo_afastamento }}
                                         dias

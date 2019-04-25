@@ -1,28 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="remoção de linha comentada">
-      <change afterPath="$PROJECT_DIR$/portal/migrations/0008_justificativa.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/migrations/0009_auto_20190424_2125.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/migrations/0010_auto_20190425_1405.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/templates/emails/registra-justificativa-aluno.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/templates/emails/registra-justificativa-setor.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/templates/emails/retorno-justificativa-aluno.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/templates/pdf/report_justificativa.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/templates/portal/justificativa.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/templates/portal/justificativa_pendente.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/templates/portal/justificativa_solicitar.html" afterDir="false" />
+    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="justificativa de faltas e trabalhos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/emails.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/emails.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/configuracao.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/configuracao.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/import_aluno_atualizar.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/import_aluno_atualizar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/perfil_individual.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/perfil_individual.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/justificativa.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/justificativa.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,13 +26,25 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="2529" column="55" selection-start-line="2529" selection-start-column="55" selection-end-line="2529" selection-end-column="55" />
+            <state relative-caret-position="260">
+              <caret line="2541" column="6" selection-start-line="2541" selection-start-column="6" selection-end-line="2541" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/justificativa_pendente.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="580">
+              <caret line="53" selection-start-line="53" selection-end-line="53" />
+              <folding>
+                <element signature="e#1719#1763#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/emails/retorno-justificativa-aluno.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="439">
@@ -61,40 +54,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/emails.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="33" column="36" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/configuracao.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
+            <state relative-caret-position="3840">
               <caret line="192" selection-start-line="192" selection-end-line="192" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/justificativa.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="72" column="99" selection-start-line="72" selection-start-column="99" selection-end-line="72" selection-end-column="99" />
+            <state relative-caret-position="159">
+              <caret line="43" column="77" selection-start-line="43" selection-start-column="77" selection-end-line="43" selection-end-column="77" />
               <folding>
-                <element signature="e#1603#1647#0#HTML" expanded="true" />
-                <element signature="e#1761#1805#0#HTML" expanded="true" />
-                <element signature="e#1774#1818#0#HTML" expanded="true" />
-                <element signature="e#1707#1752#0#HTML" expanded="true" />
-                <element signature="e#2254#2303#0#HTML" expanded="true" />
-                <element signature="e#3607#3656#0#HTML" expanded="true" />
-                <element signature="e#3807#3856#0#HTML" expanded="true" />
-                <element signature="e#2777#2826#0#HTML" expanded="true" />
+                <element signature="e#2199#2224#0#HTML" expanded="true" />
+                <element signature="e#3170#3201#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -103,22 +78,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/pdf/report_justificativa.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
+            <state relative-caret-position="2020">
               <caret line="101" column="17" selection-start-line="101" selection-start-column="17" selection-end-line="101" selection-end-column="17" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#td#0;n#tr#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#td#1;n#tr#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -126,7 +87,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
+            <state relative-caret-position="2820">
               <caret line="141" selection-start-line="141" selection-end-line="141" />
             </state>
           </provider>
@@ -135,7 +96,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
+            <state relative-caret-position="9620">
               <caret line="491" column="65" selection-start-line="491" selection-start-column="65" selection-end-line="491" selection-end-column="65" />
             </state>
           </provider>
@@ -144,7 +105,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
+            <state relative-caret-position="1580">
               <caret line="81" column="127" selection-start-line="81" selection-start-column="103" selection-end-line="81" selection-end-column="127" />
             </state>
           </provider>
@@ -153,7 +114,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="565">
+            <state relative-caret-position="9400">
               <caret line="474" column="52" selection-start-line="474" selection-start-column="52" selection-end-line="474" selection-end-column="52" />
             </state>
           </provider>
@@ -194,7 +155,6 @@
       <find>saida_p</find>
       <find>justificativa(</find>
       <find>atricula(a</find>
-      <find>solicitar</find>
       <find>ocorrencia</find>
       <find>report_pdf_o</find>
       <find>configu</find>
@@ -202,6 +162,7 @@
       <find>configuracao(</find>
       <find>defe</find>
       <find>deferimento</find>
+      <find>solicitar</find>
     </findStrings>
     <replaceStrings>
       <replace>btn-primary-modal</replace>
@@ -274,7 +235,6 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/justificativa_solicitar.html" />
         <option value="$PROJECT_DIR$/portal/admin.py" />
         <option value="$PROJECT_DIR$/portal/templates/portal/justificativa_providencias.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/justificativa_pendente.html" />
         <option value="$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia.html" />
         <option value="$PROJECT_DIR$/portal/templates/emails/registra-justificativa.html" />
         <option value="$PROJECT_DIR$/portal/templates/emails/registra-justificativa-setor.html" />
@@ -283,13 +243,14 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/perfil_individual.html" />
         <option value="$PROJECT_DIR$/portal/urls.py" />
         <option value="$PROJECT_DIR$/portal/templates/pdf/report_justificativa.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/justificativa.html" />
         <option value="$PROJECT_DIR$/portal/templates/base.html" />
         <option value="$PROJECT_DIR$/portal/models.py" />
         <option value="$PROJECT_DIR$/portal/forms.py" />
         <option value="$PROJECT_DIR$/portal/templates/portal/configuracao.html" />
         <option value="$PROJECT_DIR$/portal/emails.py" />
         <option value="$PROJECT_DIR$/portal/views.py" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/justificativa_pendente.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/justificativa.html" />
       </list>
     </option>
   </component>
@@ -486,20 +447,7 @@
       <workItem from="1556050436616" duration="1588000" />
       <workItem from="1556149264748" duration="6799000" />
       <workItem from="1556208897937" duration="8029000" />
-    </task>
-    <task id="LOCAL-00034" summary="admin autorização">
-      <created>1540235001145</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1540235001145</updated>
-    </task>
-    <task id="LOCAL-00035" summary="alteração view confirma saída">
-      <created>1540235336327</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1540235336327</updated>
+      <workItem from="1556217682259" duration="902000" />
     </task>
     <task id="LOCAL-00036" summary="botão imprimir pdf em autorização, encaminhamento e ocorrência.">
       <created>1540989882380</created>
@@ -830,7 +778,21 @@
       <option name="project" value="LOCAL" />
       <updated>1556051810506</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="justificativa de faltas e trabalhos">
+      <created>1556217734977</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1556217734977</updated>
+    </task>
+    <task id="LOCAL-00084" summary="justificativa de faltas e trabalhos">
+      <created>1556218398637</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1556218398637</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -839,7 +801,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42089000" />
+    <option name="totallyTimeSpent" value="42991000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -854,7 +816,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49931034" visible="true" weight="0.25737265" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49931034" visible="true" weight="0.26072386" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5006896" side_tool="true" weight="0.2298177" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -894,7 +856,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="SHOW_FILE_HISTORY_DETAILS" value="false" />
-    <MESSAGE value="Identificação de QA" />
     <MESSAGE value="Remoção da identificação de QA" />
     <MESSAGE value="Liberar configurações para grupo de usuários CAED" />
     <MESSAGE value="adicionar turno ao nome da turma nos relatórios" />
@@ -919,7 +880,8 @@
     <MESSAGE value="correção da active do menu" />
     <MESSAGE value="remoção de linha comentada" />
     <MESSAGE value="solicitação de justificativa de abono de falta e/ou trabalhos" />
-    <option name="LAST_COMMIT_MESSAGE" value="solicitação de justificativa de abono de falta e/ou trabalhos" />
+    <MESSAGE value="justificativa de faltas e trabalhos" />
+    <option name="LAST_COMMIT_MESSAGE" value="justificativa de faltas e trabalhos" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/portal/templates/pdf/report_lista_usuarios.html">
@@ -1130,17 +1092,6 @@
         <state relative-caret-position="-95" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/justificativa_pendente.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
-          <folding>
-            <element signature="e#1615#1659#0#HTML" expanded="true" />
-            <element signature="e#2270#2319#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-ocorrencia.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1191,82 +1142,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="81" column="127" selection-start-line="81" selection-start-column="103" selection-end-line="81" selection-end-column="127" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/pdf/report_justificativa.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="101" column="17" selection-start-line="101" selection-start-column="17" selection-end-line="101" selection-end-column="17" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#td#0;n#tr#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#td#1;n#tr#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/justificativa.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="72" column="99" selection-start-line="72" selection-start-column="99" selection-end-line="72" selection-end-column="99" />
-          <folding>
-            <element signature="e#1603#1647#0#HTML" expanded="true" />
-            <element signature="e#1761#1805#0#HTML" expanded="true" />
-            <element signature="e#1774#1818#0#HTML" expanded="true" />
-            <element signature="e#1707#1752#0#HTML" expanded="true" />
-            <element signature="e#2254#2303#0#HTML" expanded="true" />
-            <element signature="e#3607#3656#0#HTML" expanded="true" />
-            <element signature="e#3807#3856#0#HTML" expanded="true" />
-            <element signature="e#2777#2826#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="141" selection-start-line="141" selection-end-line="141" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="491" column="65" selection-start-line="491" selection-start-column="65" selection-end-line="491" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="565">
-          <caret line="474" column="52" selection-start-line="474" selection-start-column="52" selection-end-line="474" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/configuracao.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="192" selection-start-line="192" selection-end-line="192" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/emails.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
+        <state relative-caret-position="600">
           <caret line="33" column="36" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="36" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
@@ -1274,10 +1152,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/views.py">
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/configuracao.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="2529" column="55" selection-start-line="2529" selection-start-column="55" selection-end-line="2529" selection-end-column="55" />
+        <state relative-caret-position="3840">
+          <caret line="192" selection-start-line="192" selection-end-line="192" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/pdf/report_justificativa.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2020">
+          <caret line="101" column="17" selection-start-line="101" selection-start-column="17" selection-end-line="101" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2820">
+          <caret line="141" selection-start-line="141" selection-end-line="141" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9620">
+          <caret line="491" column="65" selection-start-line="491" selection-start-column="65" selection-end-line="491" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1580">
+          <caret line="81" column="127" selection-start-line="81" selection-start-column="103" selection-end-line="81" selection-end-column="127" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9400">
+          <caret line="474" column="52" selection-start-line="474" selection-start-column="52" selection-end-line="474" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -1285,6 +1198,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="439">
           <caret line="55" selection-start-line="55" selection-end-line="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="2541" column="6" selection-start-line="2541" selection-start-column="6" selection-end-line="2541" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/justificativa_pendente.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+          <folding>
+            <element signature="e#1719#1763#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/justificativa.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="43" column="77" selection-start-line="43" selection-start-column="77" selection-end-line="43" selection-end-column="77" />
+          <folding>
+            <element signature="e#2199#2224#0#HTML" expanded="true" />
+            <element signature="e#3170#3201#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
