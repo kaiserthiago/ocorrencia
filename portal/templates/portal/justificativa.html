@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+{% block title %}Justificativas{% endblock %}
+{% block class_justificativa_menu %}active{% endblock %}
+{% block class_justificativa_listar_item %}collapsible-header active{% endblock %}
+
+{% block breadcrumb_base %}
+    <ol class="breadcrumb blue-grey lighten-4">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+        <li class="breadcrumb-item active">Justificativas</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="row mb-4">
+        <div class="col-sm-12">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-1 font-weight-bold">
+                    JUSTIFICATIVAS
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="col-sm-10">
+                            <div class="md-form">
+                                <input id="myInput" type="text" class="form-control form-control-sm" autofocus/>
+                                <label for="myInput">Pesquisar...</label>
+                            </div>
+                        </div>
+                        {% if perms.portal.change_aluno and not request.user.is_staff and not request.user.is_superuser %}
+                            <div class="col-sm-2">
+                                <div class="float-right">
+                                    <a href="{% url 'justificativa_solicitar' matricula.id %}"
+                                       class="btn btn-rounded btn-block btn-success"><i
+                                            class="fa fa-plus"></i> Adicionar</a>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped btn-table">
+                            <thead>
+                            <tr>
+                                {% if not perms.portal.change_aluno or request.user.is_superuser %}
+                                    <th style="font-weight: bold">Aluno</th>
+                                {% endif %}
+                                <th style="font-weight: bold">Data inicial</th>
+                                <th style="font-weight: bold; text-align: right">Tempo afastamento</th>
+                                <th style="font-weight: bold; text-align: right">Responsável análise</th>
+                                <th style="font-weight: bold; text-align: right">Status</th>
+                                <th style="text-align: right; font-weight: bold">Ações</th>
+                            </tr>
+                            </thead>
+                            <tbody id="myTable">
+                            {% for justificativa in justificativas %}
+                                <tr>
+                                    {% if not perms.portal.change_aluno or request.user.is_superuser %}
+                                        <td style="vertical-align: middle;">{{ justificativa.matricula.aluno }}</td>
+                                    {% endif %}
+
+                                    <td style="vertical-align: middle;">{{ justificativa.data_inicial }}</td>
+                                    <td style="vertical-align: middle; text-align: right">{{ justificativa.tempo_afastamento }}
+                                        dias
+                                    </td>
+                                    {% if justificativa.responsavel_analise_justificativa %}
+                                        <td style="vertical-align: middle; text-align: right">{{ justificativa.responsavel_analise_justificativa }}</td>
+                                    {% else %}
+                                        <td style="vertical-align: middle; text-align: right">Aguardando análise</td>
+
+                                    {% endif %}
+                                    <td style="vertical-align: middle; text-align: right">{{ justificativa.status }}</td>
+                                    <td class="px-0 py-0"
+                                        style="vertical-align: middle; text-align: right; min-width: 170px; width: 170px">
+
+                                        <a href="{% url 'report_pdf_justificativa' justificativa.id %}" target="_blank" class="btn-floating btn-sm btn-indigo"><i
+                                                class="fa fa-print"></i>
+                                        </a>
+
+                                        {#                                        <a data-toggle="modal" href="#indeferimento{{ justificativa.id }}"#}
+                                        {#                                           class="btn-floating btn-sm btn-danger"><i class="fa fa-close"></i>#}
+                                        {#                                        </a>#}
+                                        {##}
+                                        {#                                        <a data-toggle="modal" href="#deferimento{{ justificativa.id }}"#}
+                                        {#                                           class="btn-floating btn-sm btn-success"><i class="fa fa-check"></i>#}
+                                        {#                                        </a>#}
+                                    </td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td colspan="6" class="card-header warning-color white-text text-center"><strong>
+                                        NÃO HÁ JUSTIFICATIVAS</strong></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block modal %}
+    {% for ocorrencia in ocorrencias %}
+        <!--Modal EXCLUIR-->
+        <div class="modal fade" id="Excluir{{ ocorrencia.id }}" tabindex="-1"
+             role="dialog"
+             aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-danger" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header text-center">
+                        <h4 class="heading lead">Excluir</h4>
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
+                    </div>
+                    <form action="{% url 'ocorrencia_delete' ocorrencia.id %}" method="POST">
+                        <!--Body-->
+                        <div class="modal-body text-center">
+                            {% csrf_token %}
+                            Tem certeza que deseja excluir?
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="submit"
+                                    class="btn btn-rounded btn-danger waves-effect">
+                                Confirmar
+                            </button>
+                            <a type="button"
+                               class="btn btn-rounded btn-outline-danger waves-effect"
+                               data-dismiss="modal">
+                                Voltar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!--Fim Modal EXCLUIR-->
+    {% endfor %}
+    <!--Modal TURMA-->
+    <div class="modal fade" id="ModalRegistrarOcorrencia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-success" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header text-center">
+                    <h4 class="modal-title white-text w-100 font-bold py-2">Registrar ocorrência disciplinar</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                </div>
+                <form action="{% url 'ocorrencia_new' %}" method="POST">
+                    <!--Body-->
+                    <div class="modal-body">
+                        {% csrf_token %}
+                        <select name="SelectTurma" id="SelectTurma"
+                                class="mdb-select md-form colorful-select dropdown-success"
+                                searchable="Pesquisar..." required>
+                            <option value="" disabled selected>Selecione a turma</option>
+                            {% for c in cursos %}
+                                {% if c.retorna_turmas %}
+                                    <optgroup label="{{ c.descricao }}">
+                                        {% for t in c.retorna_turmas %}
+                                            <option value={{ t.id }}>{{ t.descricao }} - {{ t.turno }}</option>
+                                        {% endfor %}
+                                    </optgroup>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        <label for="SelectTurma">Turma</label>
+                    </div>
+                    <!--Footer-->
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-rounded btn-success waves-effect">Enviar</button>
+                        <a type="button" class="btn btn-rounded btn-outline-success"
+                           data-dismiss="modal">Voltar</a>
+                    </div>
+                </form>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+{% endblock %}

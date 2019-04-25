@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Justificativa - {{ justificativa.id }}/{{ justificativa.matricula.ano_letivo }}</title>
+
+    <style type="text/css">
+        @page {
+            size: {{ pagesize|default:"A4" }};
+            margin-left: 1cm;
+            margin-right: 1cm;
+            margin-top: 6.5cm;
+            margin-bottom: 2cm;
+
+            @frame header {
+            -pdf-frame-content: page-header;
+            margin-top: 0.7cm;
+            margin-right: 1cm;
+        {#margin-bottom: 0cm;#}
+            margin-left: 1cm;
+        }
+
+        @frame footer {
+        -pdf-frame-content:page-footer;
+        bottom: 0cm;
+        margin-left: 1cm;
+        margin-right: 1cm;
+        height: 2cm;
+        }
+        }
+    </style>
+
+</head>
+<body>
+<div id="page-header">
+    <div style="font-weight: bold; font-size: 12px; text-align: center; vertical-align: middle; border-bottom: 1px solid">
+        <img src="{{ justificativa.user.userprofile.empresa.logo.url }}" width="120px"><br>
+        MINISTÉRIO DA EDUCAÇÃO<br>
+        SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA<br>
+        {{ justificativa.user.userprofile.empresa.razao_social|upper }}<br>
+        <em>CAMPUS </em>{{ justificativa.user.userprofile.empresa|upper }}
+    </div>
+    <div style="padding-top:5px; font-weight: bold; font-size: 12px; text-align: center; vertical-align: middle">
+        <h3>JUSTIFICATIVA - {{ justificativa.id }}/{{ justificativa.matricula.ano_letivo }}</h3>
+    </div>
+</div>
+
+
+<table cellpadding="5" cellspacing="0"
+       style="border: 1px solid #ddd; width: 100%; font-size: 12px; vertical-align: middle">
+    <tr>
+        <td style="width: 55%;">
+            <p>
+                <strong>CURSO E TURMA</strong><br>
+                {{ justificativa.matricula.turma|upper }}
+            </p>
+        </td>
+        <td style="width: 15%;">
+            <p>
+                <strong>DATA INICIAL</strong><br>
+                {{ justificativa.data_inicial }}
+            </p>
+        </td>
+        <td style="width: 30%;">
+            <p>
+                <strong>TEMPO AFASTAMENTO (DIAS)</strong><br>
+                {{ justificativa.tempo_afastamento }}
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            <p>
+                <strong>ESTUDANTE</strong><br>
+                {{ justificativa.matricula.aluno }}
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            <p>
+                <strong>DESCRIÇÃO DA JUSTIFICATIVA</strong><br>
+                {{ justificativa.descricao }}
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            <p>
+                <strong>STATUS</strong><br>
+                {{ justificativa.status }}
+            </p>
+        </td>
+    </tr>
+    {% if justificativa.status == 'Indeferida' %}
+        <tr>
+            <td colspan="3">
+                <p>
+                    <strong>MOTIVO INDEFERIMENTO</strong><br>
+                    {{ justificativa.motivo_indeferimento }}
+                </p>
+            </td>
+        </tr>
+    {% endif %}
+</table>
+<br>
+<table cellpadding="5" cellspacing="0"
+       style="border: 1px solid #ddd; width: 100%; font-size: 12px; vertical-align: middle">
+    <tr>
+        <td style="text-align: center; width: 50%">
+            <p style="text-align: left">
+                <strong>SOLICITADO POR</strong>
+            </p>
+            <br>
+            <p>
+                <strong>{{ justificativa.user|upper }}</strong><br>
+                CPF: {{ justificativa.user.userprofile.aluno.cpf }}
+            </p>
+        </td>
+        <td style="text-align: center; width: 50%">
+            <p style="text-align: left">
+                <strong>ANALISADO POR</strong>
+            </p>
+            <br>
+            {% if justificativa.status != 'Solicitada' %}
+                <p>
+                    <strong>{{ justificativa.responsavel_analise_justificativa|upper }}</strong><br>
+                    SIAPE: {{ justificativa.responsavel_analise_justificativa.userprofile.siape }}
+                </p>
+            {% else %}
+                <p>
+                    Aguardando posicionamento do setor responsável.
+                </p>
+                <p></p>
+            {% endif %}
+        </td>
+    </tr>
+</table>
+{#<br>#}
+{#<table cellpadding="5" cellspacing="0"#}
+{#       style="border: 1px solid #ddd; width: 100%; font-size: 12px; vertical-align: middle">#}
+{#    <tr>#}
+{#        <td style="text-align: center; width: 50%">#}
+{#            <p style="text-align: left">#}
+{#                <strong>CIENTE DO ESTUDANTE</strong>#}
+{#            </p>#}
+{#            <br>#}
+{#            <p>#}
+{#                <strong>{{ justificativa.matricula.aluno|upper }}</strong><br>#}
+{#                {{ justificativa.matricula.aluno.cpf }}#}
+{#            </p>#}
+{#        </td>#}
+{#        <td style="text-align: center; width: 50%">#}
+{#            <p style="text-align: left">#}
+{#                <strong>CIENTE DO RESPONSÁVEL</strong>#}
+{#                <br>#}
+{#                <br>#}
+{#                <br>#}
+{#                <br>#}
+{#                <br>#}
+{#            </p>#}
+{#        </td>#}
+{#    </tr>#}
+{#</table>#}
+
+
+<div id="page-footer" style="text-align: right; font-size: 11px">
+    {#    Página#}
+    {#    <pdf:pagenumber/>#}
+    <div style="text-align:center;padding-top: 2px; border-top: 1px solid">
+        {{ justificativa.user.userprofile.empresa.razao_social }} -
+        <em>Campus</em> {{ justificativa.user.userprofile.empresa }}<br>
+        {{ justificativa.user.userprofile.empresa.endereco }}, {{ justificativa.user.userprofile.empresa.bairro }},{{ justificativa.user.userprofile.empresa.cidade }}/{{ justificativa.user.userprofile.empresa.uf }},
+        CEP {{ justificativa.user.userprofile.empresa.cep }}<br>
+        Fone: {{ justificativa.user.userprofile.empresa.fone }} /
+        E-mail: {{ justificativa.user.userprofile.empresa.email }} /
+        Site: {{ justificativa.user.userprofile.empresa.site }}
+    </div>
+</div>
+</body>
+</html>

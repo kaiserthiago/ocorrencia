@@ -10,6 +10,12 @@ urlpatterns = [
 
     url(r'^dashboard$', views.dashboard, name='dashboard'),
 
+    url(r'^justificativa/solicitar/(?P<matricula_id>\d+)$', views.justificativa_solicitar, name='justificativa_solicitar'),
+    url(r'^justificativa/indeferir/(?P<justificativa_id>\d+)$', views.justificativa_indeferimento, name='justificativa_indeferimento'),
+    url(r'^justificativa/deferir/(?P<justificativa_id>\d+)$', views.justificativa_deferimento, name='justificativa_deferimento'),
+    url(r'^justificativa/pendente$', views.justificativa_pendente, name='justificativa_pendente'),
+    url(r'^justificativa$', views.justificativa, name='justificativa'),
+
     url(r'^ocorrencia/relatorio/(?P<aluno_id>\d+)$', views.ocorrencia_relatorio, name='ocorrencia_relatorio'),
     url(r'^ocorrencia/relatorio/aluno$', views.ocorrencia_relatorio_aluno, name='ocorrencia_relatorio_aluno'),
     url(r'^ocorrencia/providencia/(?P<ocorrencia_id>\d+)$', views.ocorrencia_providencia, name='ocorrencia_providencia'),
@@ -72,6 +78,8 @@ urlpatterns = [
     url('^perfil/aluno/(?P<aluno_id>\d+)$', views.perfil_individual, name='perfil_individual'),
     url('^perfil/turma/(?P<turma_id>\d+)$', views.perfil_turma, name='perfil_turma'),
     url('^perfil$', views.perfil, name='perfil'),
+
+    url(r'^report/pdf/justificativa/(?P<justificativa_id>\d+)$', views.report_pdf_justificativa, name='report_pdf_justificativa'),
 
     url(r'^report/autorizacao/aluno/(?P<aluno_id>\d+)$', views.report_autorizacao_saida_aluno, name='report_autorizacao_saida_aluno'),
     url(r'^report/autorizacao/curso$', views.report_autorizacao_saida_curso, name='report_autorizacao_saida_curso'),

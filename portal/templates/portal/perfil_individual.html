@@ -131,6 +131,12 @@
             </div>
             {% if matricula %}
                 <a data-toggle="tooltip" data-placement="bottom"
+                   title="Solicite justificativa de falta ou 2ª chamada de atividades/provas"
+                   href="{% url 'justificativa' %}"
+                   class="btn btn-danger btn-rounded btn-block mt-2"><i
+                        class="fa fa-question-circle-o"></i> Justificativas</a>
+
+                <a data-toggle="tooltip" data-placement="bottom"
                    title="Solicite atendimento da equipe multiprofissional com absoluto sigilo."
                    href="{% url 'encaminhamento_solicitar' matricula.id %}"
                    class="btn btn-success btn-rounded btn-block mt-2"><i

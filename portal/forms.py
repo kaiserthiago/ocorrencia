@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 
 from portal.models import UserProfile, Ocorrencia, Curso, Turma, Aluno, ServicoCategoria, Servico, Encaminhamento, \
-    Autorizacao, Configuracao, Banco
+    Autorizacao, Configuracao, Banco, Justificativa
 
 
 class UserForm(forms.ModelForm):
@@ -101,6 +101,41 @@ class EncaminhamentoForm(forms.ModelForm):
             'descricao': 'Descrição',
             'providencias': 'Providências adotadas',
             'outras_informacoes': 'Outras informações que julgue necessárias',
+        }
+
+
+class JustificativaForm(forms.ModelForm):
+    class Meta:
+        model = Justificativa
+        fields = ('data_inicial', 'descricao', 'tempo_afastamento', 'motivo_indeferimento')
+
+        widgets = {
+            'data_inicial': forms.TextInput(attrs={
+                'class': 'form-control datepicker',
+                'placeholder': 'Clique para selecionar',
+            }),
+            'descricao': forms.Textarea(attrs={
+                'class': 'form-control md-textarea validate',
+                'placeholder': 'Utilize esse espaço para descrever sua justificativa de faltas e/ou trabalho/prova.',
+                'rows': '4',
+                'required': 'required'
+            }),
+            'motivo_indeferimento': forms.Textarea(attrs={
+                'class': 'form-control md-textarea validate',
+                'placeholder': 'Utilize esse espaço para descrever o motivo do INDEFERIMENTO do pedido de justificativa',
+                'rows': '4',
+            }),
+            'tempo_afastamento': forms.NumberInput(attrs={
+                'class': 'form-control md-textarea validate',
+                'required': 'required'
+            }),
+        }
+
+        labels = {
+            'descricao': 'Descrição da Justificativa',
+            'data_inicial': 'Data de início do afastamento',
+            'tempo_afastamento': 'Quantidade de dias de afastamento',
+            'motivo_indeferimento': 'Motivação do indeferimento'
         }
 
 
@@ -393,6 +428,15 @@ class ConfiguracaoForm(forms.ModelForm):
             'autorizacao_email_coordenacao_curso': forms.CheckboxInput(attrs={
                 'class': 'form-check-input',
             }),
+            'justificativa_email_aluno': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'justificativa_email_retorno_aluno': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'justificativa_email_setor': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
         }
 
         labels = {
@@ -425,4 +469,8 @@ class ConfiguracaoForm(forms.ModelForm):
             'autorizacao_email_responsavel_user': 'Servidor',
             'autorizacao_email_responsavel_setor': 'CAED/DEPAE',
             'autorizacao_email_coordenacao_curso': 'Coordenador',
+
+            'justificativa_email_retorno_aluno': 'Retorno estudante',
+            'justificativa_email_aluno': 'Estudante',
+            'justificativa_email_setor': 'CAED/DEPAE'
         }

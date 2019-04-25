@@ -119,7 +119,29 @@
                             </ul>
                         </div>
                     </li>
-
+                    <li>
+                        <a class="collapsible-header waves-effect arrow-r
+                                {% block class_justificativa_menu %}{% endblock %}"><i
+                                class="fa fa-question-circle-o"></i> Justificativas<i
+                                class="fa fa-angle-down rotate-icon"></i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="{% url 'justificativa' %}"
+                                       class="waves-effect
+                                               {% block class_justificativa_listar_item %}{% endblock %}"><i
+                                            class="fa fa-search"></i> Listar</a>
+                                </li>
+                                {% if request.user.is_superuser or request.user|has_group:'CAED' %}
+                                    <li>
+                                        <a href="{% url 'justificativa_pendente' %}" class="waves-effect
+                                                {% block class_justificativa_pendente_item %}{% endblock %}"><i
+                                                class="fa fa-clock-o"></i> Pendentes</a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </li>
                     <li>
                         <a class="collapsible-header waves-effect arrow-r
                                 {% block class_ocorrencia_menu %}{% endblock %}"><i
@@ -274,7 +296,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                            data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i><span
+                           aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <span
                                 class="clearfix d-none d-sm-inline-block"> {{ request.user.userprofile.aluno }}</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-success">

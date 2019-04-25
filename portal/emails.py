@@ -17,6 +17,46 @@ class Maiable:
                   )
 
 
+class RegistraJustificativaSetorMail(Maiable):
+    def __init__(self, justificativa):
+        self.justificativa = justificativa
+
+    def send(self, to):
+        super().sendMail(
+            from_email=MAIL_REPLY,
+            to=to,
+            subject='SGE - Registro de justificativa #' + str(self.justificativa.id),
+            template='emails/registra-justificativa-setor.html',
+            context={'justificativa': self.justificativa}
+        )
+
+
+class RegistraJustificativaAlunoMail(Maiable):
+    def __init__(self, justificativa):
+        self.justificativa = justificativa
+
+    def send(self, to):
+        super().sendMail(
+            from_email=MAIL_REPLY,
+            to=to,
+            subject='SGE - Registro de justificativa #' + str(self.justificativa.id),
+            template='emails/registra-justificativa-aluno.html',
+            context={'justificativa': self.justificativa}
+        )
+
+class RetornoJustificativaAlunoMail(Maiable):
+    def __init__(self, justificativa):
+        self.justificativa = justificativa
+
+    def send(self, to):
+        super().sendMail(
+            from_email=MAIL_REPLY,
+            to=to,
+            subject='SGE - Retorno de justificativa #' + str(self.justificativa.id),
+            template='emails/retorno-justificativa-aluno.html',
+            context={'justificativa': self.justificativa}
+        )
+
 class RegistraEncaminhamentoMail(Maiable):
     def __init__(self, encaminhamento):
         self.encaminhamento = encaminhamento
@@ -43,6 +83,7 @@ class RegistraEncaminhamentoProvidenciasMail(Maiable):
             template='emails/registra-encaminhamento-providencias.html',
             context={'encaminhamento': self.encaminhamento}
         )
+
 
 class RegistraOcorrenciaProvidenciasMail(Maiable):
     def __init__(self, ocorrencia):

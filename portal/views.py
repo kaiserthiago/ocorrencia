@@ -20,11 +20,12 @@ from tablib import Dataset
 
 from portal.emails import RegistraOcorrenciaMail, ConfirmaUsuarioMail, RegistraEncaminhamentoMail, \
     RegistraAutorizacaoSaidaMail, RegistraEncaminhamentoProvidenciasMail, NegaUsuarioMail, \
-    RegistraOcorrenciaProvidenciasMail
+    RegistraOcorrenciaProvidenciasMail, RetornoJustificativaAlunoMail, RegistraJustificativaAlunoMail, \
+    RegistraJustificativaSetorMail
 from portal.forms import OcorrenciaForm, CursoForm, TurmaForm, AlunoForm, UserForm, UserProfileForm, \
-    ServicoCategoriaForm, ServicoForm, EncaminhamentoForm, AutorizacaoForm, ConfiguracaoForm
+    ServicoCategoriaForm, ServicoForm, EncaminhamentoForm, AutorizacaoForm, ConfiguracaoForm, JustificativaForm
 from portal.models import Curso, Aluno, Turma, Ocorrencia, Matricula, CategoriaFalta, Falta, UserProfile, \
-    ServicoCategoria, Servico, Encaminhamento, Autorizacao, Configuracao, Empresa
+    ServicoCategoria, Servico, Encaminhamento, Autorizacao, Configuracao, Empresa, Justificativa
 
 
 def home(request):
@@ -96,6 +97,10 @@ def configuracao(request):
             configuracao.ocorrencia_email_responsavel_user = form.cleaned_data['ocorrencia_email_responsavel_user']
             configuracao.ocorrencia_email_responsavel_setor = form.cleaned_data['ocorrencia_email_responsavel_setor']
             configuracao.ocorrencia_email_coordenacao_curso = form.cleaned_data['ocorrencia_email_coordenacao_curso']
+
+            configuracao.justificativa_email_setor = form.cleaned_data['justificativa_email_setor']
+            configuracao.justificativa_email_aluno = form.cleaned_data['justificativa_email_aluno']
+            configuracao.justificativa_email_retorno_aluno = form.cleaned_data['justificativa_email_retorno_aluno']
 
             configuracao.save()
 
@@ -193,15 +198,23 @@ def import_aluno_atualizar(request):
 
                     if aluno.cpf:
                         try:
+                            # EXCLUI OS USUÁRIOS EXISTENTES COM CPF COM PONTOS
+                            usuario_excluir = get_object_or_404(User, username=aluno.cpf)
+                            usuario_excluir.delete()
+
+                            # INSERE UM NOVO USUÁRIO
                             User.objects.create_user(
-                                username=aluno.cpf,
-                                password='ifro@ifro',
+                                username=aluno.cpf[0:3] + aluno.cpf[4:7] + aluno.cpf[8:11] + aluno.cpf[12:14],
+                                password='ifro' + aluno.cpf[0:3] + aluno.cpf[4:7] + aluno.cpf[8:11] + aluno.cpf[12:14],
                                 email=aluno.email,
                                 first_name=aluno.nome,
                                 is_active=True,
                             )
 
-                            usuario = get_object_or_404(User, username=aluno.cpf)
+                            # BUSCA O NOVO USUÁRIO INSERIDO PARA ATRIBUIR PERFIL DE ALUNO
+                            usuario = get_object_or_404(User, username=aluno.cpf[0:3] + aluno.cpf[4:7] + aluno.cpf[
+                                                                                                         8:11] + aluno.cpf[
+                                                                                                                 12:14])
                             permission = Permission.objects.get(name='Can change aluno')
                             usuario.user_permissions.add(permission)
                             usuario.save()
@@ -219,9 +232,8 @@ def import_aluno_atualizar(request):
                 else:
                     contador += 1
 
-            messages.success(request, 'Dados importados')
+            messages.success(request, 'Dados atualizados')
         context = {
-
         }
 
         return render(request, 'portal/import_aluno_atualizar.html', context)
@@ -1948,6 +1960,24 @@ def report_pdf_ocorrencia(request, ocorrencia_id):
 
 
 @login_required
+def report_pdf_justificativa(request, justificativa_id):
+    try:
+        justificativa = get_object_or_404(Justificativa, id=justificativa_id)
+
+        context = {
+            'justificativa': justificativa,
+        }
+
+        return rendering.render_to_pdf_response(request, 'pdf/report_justificativa.html',
+                                                context,
+                                                using=None, download_filename=None,
+                                                content_type='application/pdf', response_class=HttpResponse)
+    except:
+        erro = 'Não foi possível imprimir a ocorrência. Por favor contate o suporte.'
+        return render(request, 'portal/erro.html', {'erro': erro})
+
+
+@login_required
 def report_pdf_autorizacao(request, autorizacao_id):
     try:
         autorizacao = get_object_or_404(Autorizacao, id=autorizacao_id)
@@ -2308,6 +2338,7 @@ def encaminhamento_providencia(request, encaminhamento_id):
 
     return render(request, 'portal/encaminhamento_providencias.html', context)
 
+
 @login_required
 def encaminhamento_new(request):
     if request.method == 'POST':
@@ -2405,6 +2436,173 @@ def encaminhamento_solicitar(request, matricula_id):
                 }
 
                 return render(request, 'portal/encaminhamento_solicitar.html', context)
+        else:
+            erro = 'Você não tem permissão para acessar esses dados.'
+            return render(request, 'portal/erro.html', {'erro': erro})
+    except:
+        erro = 'Você não tem permissão para acessar esses dados.'
+        return render(request, 'portal/erro.html', {'erro': erro})
+
+
+@login_required
+def justificativa(request):
+    permissao = Permission.objects.filter(user=request.user)
+    matricula = ''
+    if permissao:
+        matricula = get_object_or_404(Matricula, ano_letivo=date.today().year, aluno=request.user.userprofile.aluno)
+        justificativas = Justificativa.objects.filter(user=request.user,
+                                                      data_inicial__year=date.today().year)
+    else:
+        justificativas = Justificativa.objects.filter(empresa=request.user.userprofile.empresa,
+                                                      data_inicial__year=date.today().year)
+
+    context = {
+        'justificativas': justificativas,
+        'matricula': matricula
+    }
+
+    return render(request, 'portal/justificativa.html', context)
+
+
+@login_required
+def justificativa_pendente(request):
+    qs = request.GET.get('qs', '')
+    justificativas = Justificativa.objects.filter(empresa=request.user.userprofile.empresa,
+                                                  data_inicial__year=date.today().year, status='Solicitada')
+
+    context = {
+        'justificativas': justificativas,
+        'qs': qs
+    }
+    return render(request, 'portal/justificativa_pendente.html', context)
+
+
+@login_required
+def justificativa_deferimento(request, justificativa_id):
+    justificativa = get_object_or_404(Justificativa, id=justificativa_id)
+
+    if request.method == 'POST':
+        justificativa.status = 'Deferida'
+        justificativa.responsavel_analise_justificativa = request.user
+
+        justificativa.save()
+
+        email = []
+        configuracao = get_object_or_404(Configuracao, empresa=request.user.userprofile.empresa)
+
+        # VERIFICA SE TEM EMAIL DO ALUNO
+        if configuracao.justificativa_email_retorno_aluno:
+            if justificativa.matricula.aluno.email:
+                email.append(justificativa.matricula.aluno.email)
+
+        # ENVIA OS E-MAILS
+        if email:
+            RetornoJustificativaAlunoMail(justificativa).send(email)
+
+        messages.success(request, 'Justificativa deferida.')
+
+        return redirect('justificativa_pendente')
+    else:
+        return HttpResponse('Não é POST')
+
+
+@login_required
+def justificativa_indeferimento(request, justificativa_id):
+    justificativa = get_object_or_404(Justificativa, id=justificativa_id)
+
+    if request.method == 'POST':
+        justificativa.status = 'Indeferida'
+        justificativa.motivo_indeferimento = request.POST['motivo']
+        justificativa.responsavel_analise_justificativa = request.user
+
+        justificativa.save()
+
+        email = []
+        configuracao = get_object_or_404(Configuracao, empresa=request.user.userprofile.empresa)
+
+        # VERIFICA SE TEM EMAIL DO ALUNO
+        if configuracao.justificativa_email_retorno_aluno:
+            if justificativa.matricula.aluno.email:
+                email.append(justificativa.matricula.aluno.email)
+
+        # ENVIA OS E-MAILS
+        if email:
+            RetornoJustificativaAlunoMail(justificativa).send(email)
+
+        messages.success(request, 'Justificativa indeferida.')
+
+        return redirect('justificativa_pendente')
+
+
+@login_required
+def justificativa_solicitar(request, matricula_id):
+    # date.today() + timedelta(days=15)
+
+    try:
+        matricula = get_object_or_404(Matricula, id=matricula_id)
+        if matricula.aluno.id == request.user.userprofile.aluno.id:
+            if request.method == 'POST':
+                form = JustificativaForm(request.POST)
+
+                if form.is_valid():
+
+                    justificativa = Justificativa()
+
+                    justificativa.matricula = matricula
+                    justificativa.data_inicial = form.cleaned_data['data_inicial']
+                    justificativa.tempo_afastamento = form.cleaned_data['tempo_afastamento']
+                    justificativa.descricao = form.cleaned_data['descricao']
+
+                    justificativa.user = request.user
+                    justificativa.empresa = request.user.userprofile.empresa
+
+                    justificativa.save()
+
+                    email = []
+                    configuracao = get_object_or_404(Configuracao, empresa=request.user.userprofile.empresa)
+
+                    # VERIFICA SE TEM EMAIL DO ALUNO
+                    if configuracao.justificativa_email_aluno:
+                        if justificativa.matricula.aluno.email:
+                            email.append(justificativa.matricula.aluno.email)
+
+                    # ENVIA OS E-MAILS
+                    if email:
+                        RegistraJustificativaAlunoMail(justificativa).send(email)
+
+                    email = []
+                    # VERIFICA SE TEM EMAIL DO SETOR
+                    if configuracao.justificativa_email_setor:
+                        if justificativa.matricula.aluno.empresa.email_responsavel_ocorrencia:
+                            email.append(justificativa.matricula.aluno.empresa.email_responsavel_ocorrencia)
+
+                    # ENVIA OS E-MAILS
+                    if email:
+                        RegistraJustificativaSetorMail(justificativa).send(email)
+
+                    messages.success(request, 'Justificativa solicitada.')
+
+                    return redirect('perfil_individual')
+                else:
+                    form = JustificativaForm(request.POST)
+                    aluno = get_object_or_404(Aluno, id=request.user.userprofile.aluno.id)
+
+                    context = {
+                        'aluno': aluno,
+                        'form': form,
+                    }
+
+                    return render(request, 'portal/justificativa_solicitar.html', context)
+            else:
+                form = JustificativaForm()
+                aluno = get_object_or_404(Aluno, id=request.user.userprofile.aluno.id)
+
+                context = {
+                    'aluno': aluno,
+                    'form': form,
+                }
+
+                return render(request, 'portal/justificativa_solicitar.html', context)
         else:
             erro = 'Você não tem permissão para acessar esses dados.'
             return render(request, 'portal/erro.html', {'erro': erro})

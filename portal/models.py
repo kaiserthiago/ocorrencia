@@ -388,6 +388,29 @@ class Servico(AuditoriaMixin):
         verbose_name_plural = 'Serviços'
         ordering = ['descricao']
 
+class Justificativa(AuditoriaMixin):
+    matricula = models.ForeignKey(Matricula, on_delete=models.DO_NOTHING)
+    data_inicial = models.DateField()
+    tempo_afastamento = models.IntegerField()
+    descricao = models.TextField()
+    motivo_indeferimento = models.TextField(blank=True, null=True)
+    responsavel_analise_justificativa = models.ForeignKey(User, on_delete=models.DO_NOTHING,
+                                                 related_name='responsavel_analise_justificativa',
+                                                 blank=True, null=True)
+    status_choiches = (
+        ('Solicitada', 'Solicitada'),
+        ('Deferida', 'Deferida'),
+        ('Indeferida', 'Indeferida'),
+    )
+    status = models.CharField(choices=status_choiches, max_length=30, default='Solicitada')
+
+    def __str__(self):
+        return str(self.id)
+
+    class Meta:
+        verbose_name_plural = 'Justificativas'
+        ordering = ['-data_inicial', 'matricula__aluno']
+
 
 class Encaminhamento(AuditoriaMixin):
     matricula = models.ForeignKey(Matricula, on_delete=models.DO_NOTHING)
@@ -463,6 +486,10 @@ class Configuracao(AuditoriaMixin):
     autorizacao_email_responsavel_user = models.BooleanField(default=True)
     autorizacao_email_responsavel_setor = models.BooleanField(default=True)
     autorizacao_email_coordenacao_curso = models.BooleanField(default=True)
+
+    justificativa_email_aluno = models.BooleanField(default=True)
+    justificativa_email_retorno_aluno = models.BooleanField(default=True)
+    justificativa_email_setor = models.BooleanField(default=True)
 
     def __str__(self):
         return str(self.id)

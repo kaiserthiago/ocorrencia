@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block title %}Justificativas{% endblock %}
+{% load widget_tweaks %}
+
+{#{% block breadcrumb_base %}#}
+{#    <ol class="breadcrumb blue-grey lighten-4">#}
+{#        <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>#}
+{#        <li class="breadcrumb-item"><a href="{% url 'encaminhamento' %}">Encaminhamentos</a></li>#}
+{#        <li class="breadcrumb-item active">Solicitar encaminhamento</li>#}
+{#    </ol>#}
+{#{% endblock %}#}
+
+{% block content %}
+    {% if form.errors %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <form action="" method="POST">
+        <div class="row mb-4">
+            <div class="col-sm-12">
+                <div class="card redonda">
+                    <div class="card-header redonda grey lighten-1 font-weight-bold">
+                        DADOS DA SOLICITAÇÃO
+                    </div>
+                    <div class="card-body">
+                        <input type="hidden" value="{% now 'd/m/y' %}" name="data" id="id_data">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-sm-6">
+                                <div class="md-form">
+                                    <label>{{ form.data_inicial.label }}</label>
+                                    {{ form.data_inicial }}
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                            <div class="md-form">
+                                    <label>{{ form.tempo_afastamento.label }}</label>
+                                    {{ form.tempo_afastamento }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-sm-12">
+                                <div class="md-form">
+                                    <label>{{ form.descricao.label }}</label>
+                                    {{ form.descricao }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-sm-12">
+                                <div class="float-right">
+                                    <button type="submit" class="btn btn-rounded btn-success" data-toggle="tooltip"
+                                            data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
+                                    <a href="{% url 'perfil_individual' request.user.userprofile.aluno.id %}"
+                                       class="btn btn-rounded btn-danger"
+                                       data-toggle="tooltip" data-placement="top" title="Cancelar"><i
+                                            class="fa fa-close"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

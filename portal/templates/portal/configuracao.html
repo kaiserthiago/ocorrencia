@@ -123,7 +123,7 @@
                 <br>
 
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <div class="card redonda">
                             <div class="card-header redonda primary-color-dark white-text">
                                 Retorno encaminhamentos
@@ -158,7 +158,7 @@
 
                     <hr class="w-100 clearfix d-md-none">
 
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <div class="card redonda">
                             <div class="card-header redonda primary-color-dark white-text">
                                 Retorno ocorrências
@@ -187,6 +187,33 @@
                                 {{ form.providencia_ocorrencia_email_coordenacao_curso }}
                                 <label for="id_providencia_ocorrencia_email_coordenacao_curso"
                                        class="form-check-label">{{ form.providencia_ocorrencia_email_coordenacao_curso.label }}</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="w-100 clearfix d-md-none">
+
+                    <div class="col-sm-4">
+                        <div class="card redonda">
+                            <div class="card-header redonda danger-color white-text">
+                                Justificativas
+                            </div>
+                            <div class="card-body">
+                                {{ form.justificativa_email_aluno }}
+                                <label for="id_justificativa_email_aluno"
+                                       class="form-check-label">{{ form.justificativa_email_aluno.label }}</label>
+                                <br>
+
+                                {{ form.justificativa_email_setor }}
+                                <label for="id_justificativa_email_setor"
+                                       class="form-check-label">{{ form.justificativa_email_setor.label }}</label>
+                                <br>
+
+                                {{ form.justificativa_email_retorno_aluno }}
+                                <label for="id_justificativa_email_retorno_aluno"
+                                       class="form-check-label">{{ form.justificativa_email_retorno_aluno.label }}</label>
+                                <br>
+
                             </div>
                         </div>
                     </div>
