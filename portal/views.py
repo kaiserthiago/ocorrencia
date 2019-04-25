@@ -2582,7 +2582,7 @@ def justificativa_solicitar(request, matricula_id):
 
                     messages.success(request, 'Justificativa solicitada.')
 
-                    return redirect('perfil_individual')
+                    return redirect('justificativa')
                 else:
                     form = JustificativaForm(request.POST)
                     aluno = get_object_or_404(Aluno, id=request.user.userprofile.aluno.id)
