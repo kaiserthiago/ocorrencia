@@ -836,6 +836,26 @@ def dashboard(request):
 
     dados_grafico_ocorrencia_status = json.dumps(list(status_ocorrencia))
 
+    # DADOS GRÁFICO DE JUSTIFICATIVAS POR CURSO
+    cursos_justificativa = Justificativa.objects.filter(
+        empresa=request.user.userprofile.empresa, data_inicial__year=date.today().year).order_by().values_list(
+        'matricula__turma__curso__descricao').annotate(qtde=Count('id')).distinct()
+
+    dados_grafico_justificativa_curso = json.dumps(list(cursos_justificativa))
+
+    cursos_justificativa = Justificativa.objects.filter(empresa=request.user.userprofile.empresa,
+                                                           data_inicial__year=date.today().year,
+                                                           matricula__turma__curso__in=Curso.objects.all()).order_by(
+        'matricula__turma__curso__descricao').values('matricula__turma__curso__id',
+                                                     'matricula__turma__curso__descricao').distinct()
+
+    # DADOS GRÁFICO DE JUSTIFICATIVA POR STATUS
+    status_justificativa = Justificativa.objects.filter(
+        empresa=request.user.userprofile.empresa, data_inicial__year=date.today().year).order_by().values_list(
+        'status').annotate(qtde=Count('id')).distinct()
+
+    dados_grafico_justificativa_status = json.dumps(list(status_justificativa))
+
     courses = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa, data__year=date.today().year,
                                         matricula__turma__curso__in=Curso.objects.all()).order_by(
         'matricula__turma__curso__descricao').values('matricula__turma__curso__id',
@@ -1066,6 +1086,12 @@ def dashboard(request):
         'status_encaminhamento': status_encaminhamento,
         'turmas_encaminhamento': turmas_encaminhamento,
         'distribuicao_encaminhamento': distribuicao_encaminhamento,
+
+        # JUSTIFICATIVAS
+        'dados_grafico_justificativa_curso': dados_grafico_justificativa_curso,
+        'cursos_justificativa': cursos_justificativa,
+        'dados_grafico_justificativa_status':dados_grafico_justificativa_status,
+        'status_justificativa':status_justificativa
     }
 
     return render(request, 'portal/dashboard.html', context)

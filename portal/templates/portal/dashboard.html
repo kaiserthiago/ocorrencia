@@ -2,6 +2,7 @@
 {% block title %}Dashboard{% endblock %}
 {% block class_dashboard_menu %}active{% endblock %}
 {% load humanize %}
+{% load has_group %}
 
 {% block breadcrumb_base %}
     <ol class="breadcrumb blue-grey lighten-4">
@@ -73,7 +74,6 @@
                     <p class="border-bottom">
                         Total de alunos matriculados
                         <span class="badge badge-warning badge-pill pull-right">{{ indicador_alunos.count }}</span>
-
                     </p>
                     <p class="border-bottom">
                         Total de cursos
@@ -230,7 +230,52 @@
             </div>
         </div>
     </div>
+    <div class="row mb-4">
+        <div class="col-sm-6">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-1 font-weight-bold">
+                    Justificativas por curso
+                </div>
+                <div class="card-body">
+                    {% if cursos_justificativa %}
+                        <!--Div that will hold the dashboard-->
+                        <div id="dashboard_justificativa_curso" class="text-center">
+                            <!--Divs that will hold each control and chart-->
+                            <div id="grafico_justificativa_curso"></div>
+                        </div>
+                    {% else %}
+                        <div class="card-header warning-color white-text text-center">
+                            <strong>NÃO HÁ JUSTIFICATIVAS</strong>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
 
+        <hr class="w-100 clearfix d-md-none">
+
+        <div class="col-sm-6">
+            <div class="card redonda">
+                <div class="card-header redonda grey lighten-1 font-weight-bold">
+                    <p class="float-left m-0">
+                        Justificativa por status
+                    </p>
+                    {% if request.user.is_superuser or request.user|has_group:'CAED' %}
+                        <a href="{% url 'justificativa_pendente' %}" class="float-right m-0"> VER MAIS</a>
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    {% if status_justificativa %}
+                        <div id="status_justificativa"></div>
+                    {% else %}
+                        <div class="card-header warning-color white-text text-center">
+                            <strong>NÃO HÁ JUSTIFICATIVAS</strong>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
     <!--ENCAMINHAMENTOS POR MÊS-->
     <div class="row mb-4">
         <div class="col-sm-12">
@@ -591,6 +636,66 @@
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('status_encaminhamento'));
+
+            chart.draw(data, options);
+        }
+    </script>
+
+    <script type="text/javascript">
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Categoria');
+            data.addColumn('number', 'Justificativas');
+            data.addRows({{ dados_grafico_justificativa_curso|safe }});
+
+            var options = {
+                pieSliceText: 'percentage',
+                legend: {
+                    position: 'right',
+                    alignment: 'center'
+                },
+                chartArea: {
+                    left: 15,
+                    top: 15,
+                    right: 0,
+                    bottom: 10
+                }
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('grafico_justificativa_curso'));
+
+            chart.draw(data, options);
+        }
+    </script>
+
+    <script type="text/javascript">
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Status');
+            data.addColumn('number', 'Justificativas');
+            data.addRows({{ dados_grafico_justificativa_status|safe }});
+
+            var options = {
+                chartArea: {
+                    top: 10,
+                    bottom: 10,
+                    widht: '100%',
+                },
+                legend: {
+                    position: 'right',
+                    alignment: 'center'
+                }
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('status_justificativa'));
 
             chart.draw(data, options);
         }
