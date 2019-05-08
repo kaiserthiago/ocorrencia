@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="justificativa de faltas e trabalhos">
+    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="gráficos de justificativa no dhasboard">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,33 +23,8 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="845" column="9" selection-start-line="845" selection-start-column="9" selection-end-line="845" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/justificativa_pendente.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="43" column="104" selection-start-line="43" selection-start-column="104" selection-end-line="43" selection-end-column="104" />
-              <folding>
-                <element signature="e#2234#2265#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="651" column="50" selection-start-line="651" selection-start-column="50" selection-end-line="651" selection-end-column="50" />
-            </state>
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -68,9 +41,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1100">
               <caret line="55" column="116" selection-start-line="55" selection-start-column="116" selection-end-line="55" selection-end-column="116" />
-              <folding>
-                <element signature="e#2529#2573#0#HTML" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -87,8 +57,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="123" column="25" selection-start-line="123" selection-start-column="25" selection-end-line="123" selection-end-column="25" />
+            <state relative-caret-position="11820">
+              <caret line="591" column="7" selection-start-line="591" selection-start-column="7" selection-end-line="591" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login/templates/registration/login.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_pendente.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2425">
+              <caret line="155" column="50" selection-start-line="155" selection-start-column="44" selection-end-line="155" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -102,10 +86,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1580">
+            <state relative-caret-position="619">
               <caret line="81" column="127" selection-start-line="81" selection-start-column="103" selection-end-line="81" selection-end-column="127" />
             </state>
           </provider>
@@ -276,6 +260,11 @@
             <path>
               <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
               <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
               <item name="portal" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -434,14 +423,12 @@
       <workItem from="1556149264748" duration="6799000" />
       <workItem from="1556208897937" duration="8029000" />
       <workItem from="1556217682259" duration="1683000" />
-      <workItem from="1556280500915" duration="1768000" />
-    </task>
-    <task id="LOCAL-00037" summary="remoção número/ano da visualização de autorização, encaminhamento e ocorrência">
-      <created>1540990051409</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1540990051409</updated>
+      <workItem from="1556280500915" duration="2635000" />
+      <workItem from="1556302795447" duration="77000" />
+      <workItem from="1557153604678" duration="68000" />
+      <workItem from="1557153724672" duration="605000" />
+      <workItem from="1557163698921" duration="650000" />
+      <workItem from="1557334731660" duration="1123000" />
     </task>
     <task id="LOCAL-00038" summary="install django-dbbackup">
       <created>1540990463129</created>
@@ -779,7 +766,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556218761884</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="gráficos de justificativa no dhasboard">
+      <created>1556300232344</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1556300232345</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -788,7 +782,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45540000" />
+    <option name="totallyTimeSpent" value="48930000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -803,7 +797,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49931034" visible="true" weight="0.26407507" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49931034" visible="true" weight="0.22855228" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5006896" side_tool="true" weight="0.2298177" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -843,7 +837,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="SHOW_FILE_HISTORY_DETAILS" value="false" />
-    <MESSAGE value="Remoção da identificação de QA" />
     <MESSAGE value="Liberar configurações para grupo de usuários CAED" />
     <MESSAGE value="adicionar turno ao nome da turma nos relatórios" />
     <MESSAGE value="alterar visualização no admin dos encaminhamentos" />
@@ -868,16 +861,10 @@
     <MESSAGE value="remoção de linha comentada" />
     <MESSAGE value="solicitação de justificativa de abono de falta e/ou trabalhos" />
     <MESSAGE value="justificativa de faltas e trabalhos" />
-    <option name="LAST_COMMIT_MESSAGE" value="justificativa de faltas e trabalhos" />
+    <MESSAGE value="gráficos de justificativa no dhasboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="gráficos de justificativa no dhasboard" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/portal/templates/pdf/report_lista_usuarios.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1660">
-          <caret line="83" column="53" selection-start-line="83" selection-start-column="53" selection-end-line="83" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_new.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1043,13 +1030,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/justificativa_providencias.html" />
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_pendente.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3100">
-          <caret line="155" column="50" selection-start-line="155" selection-start-column="44" selection-end-line="155" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_providencias.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2500">
@@ -1139,6 +1119,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/portal/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16360">
+          <caret line="845" column="9" selection-start-line="845" selection-start-column="9" selection-end-line="845" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/justificativa_pendente.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="860">
+          <caret line="43" column="104" selection-start-line="43" selection-start-column="104" selection-end-line="43" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/configuracao.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3840">
@@ -1150,9 +1147,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1100">
           <caret line="55" column="116" selection-start-line="55" selection-start-column="116" selection-end-line="55" selection-end-column="116" />
-          <folding>
-            <element signature="e#2529#2573#0#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1163,17 +1157,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11820">
+          <caret line="591" column="7" selection-start-line="591" selection-start-column="7" selection-end-line="591" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/portal/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9620">
           <caret line="491" column="65" selection-start-line="491" selection-start-column="65" selection-end-line="491" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1580">
-          <caret line="81" column="127" selection-start-line="81" selection-start-column="103" selection-end-line="81" selection-end-column="127" />
         </state>
       </provider>
     </entry>
@@ -1184,34 +1178,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/justificativa_pendente.html">
+    <entry file="file://$PROJECT_DIR$/login/templates/registration/login.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_pendente.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="43" column="104" selection-start-line="43" selection-start-column="104" selection-end-line="43" selection-end-column="104" />
-          <folding>
-            <element signature="e#2234#2265#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="2425">
+          <caret line="155" column="50" selection-start-line="155" selection-start-column="44" selection-end-line="155" selection-end-column="50" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
+    <entry file="file://$PROJECT_DIR$/portal/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="123" column="25" selection-start-line="123" selection-start-column="25" selection-end-line="123" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="845" column="9" selection-start-line="845" selection-start-column="9" selection-end-line="845" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="651" column="50" selection-start-line="651" selection-start-column="50" selection-end-line="651" selection-end-column="50" />
+        <state relative-caret-position="619">
+          <caret line="81" column="127" selection-start-line="81" selection-start-column="103" selection-end-line="81" selection-end-column="127" />
         </state>
       </provider>
     </entry>
