@@ -545,6 +545,13 @@
         "hideMethod": "fadeOut"
     }
 </script>
+<script>
+    function disableButton() {
+        var btn = document.getElementById('btn_enviar');
+        btn.disabled = true;
+        btn.innerText = 'Processando...'
+    }
+</script>
 {% block script %}
 
 {% endblock %}

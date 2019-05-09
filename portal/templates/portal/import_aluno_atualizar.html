@@ -19,7 +19,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-sm-12">
-                    <form method="POST" enctype="multipart/form-data" class="md-form">
+                    <form method="POST" enctype="multipart/form-data" class="md-form" onsubmit='disableButton()'>
                         {% csrf_token %}
                         <div class="form-row">
                             <div class="col">
@@ -39,7 +39,7 @@
                         <div class="form-row">
                             <div class="col">
                                 <div class="float-right">
-                                    <button type="submit" class="btn btn-rounded btn-success" data-toggle="tooltip"
+                                    <button id="btn_enviar"  type="submit" class="btn btn-rounded btn-success" data-toggle="tooltip"
                                             data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
                                     <a href="{% url 'aluno' %}?qs=a" class="btn btn-rounded btn-danger" data-toggle="tooltip"
                                        data-placement="top" title="Cancelar"><i
