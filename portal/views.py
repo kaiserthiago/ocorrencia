@@ -198,9 +198,12 @@ def import_aluno_atualizar(request):
 
                     if aluno.cpf:
                         try:
-                            # EXCLUI OS USUÁRIOS EXISTENTES COM CPF COM PONTOS
-                            usuario_excluir = get_object_or_404(User, username=aluno.cpf)
-                            usuario_excluir.delete()
+                            try:
+                                # EXCLUI OS USUÁRIOS EXISTENTES COM CPF COM PONTOS
+                                usuario_excluir = get_object_or_404(User, username=aluno.cpf)
+                                usuario_excluir.delete()
+                            except:
+                                pass
 
                             # INSERE UM NOVO USUÁRIO
                             User.objects.create_user(
