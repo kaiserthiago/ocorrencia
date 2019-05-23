@@ -9,7 +9,7 @@
             size: {{ pagesize|default:"A4" }};
             margin-left: 1cm;
             margin-right: 1cm;
-            margin-top: 6.5cm;
+            margin-top: 7.13cm;
             margin-bottom: 2cm;
 
             @frame header {
@@ -37,7 +37,7 @@
         }
 
         tr {
-            height: 30px;
+            height: 25px;
         }
 
         th {
@@ -62,27 +62,37 @@
     <div style="padding-top:5px; font-weight: bold; font-size: 12px; text-align: center; vertical-align: middle;">
         <h3 class="font-weight-bold">Dados Bancários - {{ turma.curso.descricao }} - {{ turma.descricao }}</h3>
     </div>
+    <table style="border: 1px solid #ddd; width: 100%" bgcolor="#a9a9a9">
+        <thead>
+        <tr>
+            <th style="text-align: center; width: 30px">#</th>
+            <th style="width: 430px">Aluno</th>
+            <th style="width: 110px">CPF</th>
+            <th style="width: 170px">Banco</th>
+            <th style="width: 90px">Agência</th>
+            <th style="width: 130px">Conta</th>
+        </tr>
+        </thead>
+    </table>
 </div>
+
 <table style="border: 1px solid #ddd; width: 100%">
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>Aluno</th>
-        <th>CPF</th>
-        <th>Banco</th>
-        <th>Agência</th>
-        <th>Conta</th>
-    </tr>
-    </thead>
+
     <tbody>
     {% for aluno in alunos %}
         <tr>
-            <td style="text-align: center; width: 30px">{{ forloop.counter }}</td>
-            <td style="width: 430px">{{ aluno.aluno.nome }}</td>
-            <td style="width: 110px">{{ aluno.aluno.cpf }}</td>
-            <td style="width: 170px">{{ aluno.aluno.banco }}</td>
-            <td style="width: 90px">{{ aluno.aluno.agencia }}</td>
-            <td style="width: 130px">{{ aluno.aluno.conta }}</td>
+            <td style="text-align: center; width: 30px"{% if forloop.counter|divisibleby:2 %}
+                bgcolor="#ededed"{% endif %}>{{ forloop.counter }}</td>
+            <td style="width: 430px"{% if forloop.counter|divisibleby:2 %}
+                bgcolor="#ededed"{% endif %}>{{ aluno.aluno.nome }}</td>
+            <td style="width: 110px"{% if forloop.counter|divisibleby:2 %}
+                bgcolor="#ededed"{% endif %}>{{ aluno.aluno.cpf }}</td>
+            <td style="width: 170px"{% if forloop.counter|divisibleby:2 %}
+                bgcolor="#ededed"{% endif %}>{{ aluno.aluno.banco }}</td>
+            <td style="width: 90px"{% if forloop.counter|divisibleby:2 %}
+                bgcolor="#ededed"{% endif %}>{{ aluno.aluno.agencia }}</td>
+            <td style="width: 130px"{% if forloop.counter|divisibleby:2 %}
+                bgcolor="#ededed"{% endif %}>{{ aluno.aluno.conta }}</td>
         </tr>
     {% endfor %}
     </tbody>
