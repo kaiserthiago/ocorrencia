@@ -76,22 +76,22 @@
                     </p>
                 </div>
                 <div class="card-body">
-                    <p class="border-bottom">
-                        Autorizações
-                        <span class="badge badge-warning badge-pill pull-right">
-                            {% if aluno.count_autorizacoes %}
-                                {% for i in aluno.count_autorizacoes %}
-                                    {% if not i.qtde %}
-                                        0
-                                    {% else %}
-                                        {{ i.qtde }}
-                                    {% endif %}
-                                {% endfor %}
-                            {% else %}
-                                0
-                            {% endif %}
-                        </span>
-                    </p>
+{#                    <p class="border-bottom">#}
+{#                        Autorizações#}
+{#                        <span class="badge badge-warning badge-pill pull-right">#}
+{#                            {% if aluno.count_autorizacoes %}#}
+{#                                {% for i in aluno.count_autorizacoes %}#}
+{#                                    {% if not i.qtde %}#}
+{#                                        0#}
+{#                                    {% else %}#}
+{#                                        {{ i.qtde }}#}
+{#                                    {% endif %}#}
+{#                                {% endfor %}#}
+{#                            {% else %}#}
+{#                                0#}
+{#                            {% endif %}#}
+{#                        </span>#}
+{#                    </p>#}
                     {% if perms.portal.change_aluno and not request.user.is_staff and not request.user.is_superuser %}
                     {% else %}
                         <p class="border-bottom">
