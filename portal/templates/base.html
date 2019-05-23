@@ -84,7 +84,7 @@
                         <a href="{% url 'perfil_individual' request.user.userprofile.aluno.id %}"
                            class="collapsible-header waves-effect arrow-r
                                    {% block class_aluno_menu %}{% endblock %}"><i
-                                class="fa fa-user"></i> Meus dados</a>
+                                class="fa fa-user"></i> Perfil</a>
                     </li>
                 {% else %}
                     <ul class="social">
@@ -307,7 +307,7 @@
                             <a class="dropdown-item"
                                href="{% url 'perfil_individual' request.user.userprofile.aluno.id %}"><i
                                     class="fa fa-user"></i>
-                                Meus dados</a>
+                                Perfil</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" data-toggle="modal" href="#ModalLogout"><i
                                     class="fa fa-power-off"></i> Sair</a>
