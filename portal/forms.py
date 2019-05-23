@@ -127,14 +127,15 @@ class JustificativaForm(forms.ModelForm):
             }),
             'tempo_afastamento': forms.NumberInput(attrs={
                 'class': 'form-control md-textarea validate',
-                'required': 'required'
+                'required': 'required',
+                'placeholder': 'Informe quantos dias de afastamento'
             }),
         }
 
         labels = {
             'descricao': 'Descrição da Justificativa',
             'data_inicial': 'Data de início do afastamento',
-            'tempo_afastamento': 'Quantidade de dias de afastamento',
+            'tempo_afastamento': 'Afastamento',
             'motivo_indeferimento': 'Motivação do indeferimento'
         }
 
