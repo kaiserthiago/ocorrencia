@@ -16,8 +16,8 @@
     <form action="{% url 'encaminhamento_register' %}" method="POST" onsubmit='disableButton()'>
         <div class="row mb-4">
             <div class="col-sm-6">
-                <div class="card redonda">
-                    <div class="card-header redonda grey lighten-1 font-weight-bold">
+                <div class="card">
+                    <div class="card-header grey lighten-1 font-weight-bold">
                         <div class="float-left">
                             Curso: {{ turma.curso.descricao|upper }}<br>
                             <span class="float-lg-left">Turma: {{ turma.descricao }}</span>
@@ -56,8 +56,8 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="card redonda">
-                    <div class="card-header redonda grey lighten-1 font-weight-bold">
+                <div class="card">
+                    <div class="card-header grey lighten-1 font-weight-bold">
                         DADOS DO ENCAMINHAMENTO
                     </div>
                     <div class="card-body">

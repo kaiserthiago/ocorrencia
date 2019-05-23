@@ -28,8 +28,8 @@
     <form action="" method="POST">
         <div class="row mb-4">
             <div class="col-sm-12">
-                <div class="card redonda">
-                    <div class="card-header redonda grey lighten-1 font-weight-bold">
+                <div class="card">
+                    <div class="card-header grey lighten-1 font-weight-bold">
                         DADOS DA SOLICITAÇÃO
                     </div>
                     <div class="card-body">
@@ -64,7 +64,7 @@
                                 <div class="float-right">
                                     <button type="submit" class="btn btn-success">SOLICITAR</button>
                                     <a href="{% url 'perfil_individual' request.user.userprofile.aluno.id %}"
-                                       class="btn btn-success">CANCELAR</a>
+                                       class="btn btn-danger">CANCELAR</a>
                                 </div>
                             </div>
                         </div>

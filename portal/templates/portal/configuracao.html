@@ -12,49 +12,15 @@
 {% block content %}
     <form action="" method="POST">
         {% csrf_token %}
-        <div class="card redonda mb-4">
-            <div class="card-header redonda grey lighten-1 font-weight-bold">
+        <div class="card mb-4">
+            <div class="card-header grey lighten-1 font-weight-bold">
                 ENVIO DE E-MAILS
             </div>
             <div class="card-body">
                 <div class="form-row">
                     <div class="col-sm-4">
-                        <div class="card redonda">
-                            <div class="card-header redonda btn-warning white-text">
-                                Autorizações de saída
-                            </div>
-                            <div class="card-body">
-                                {{ form.autorizacao_email_aluno }}
-                                <label for="id_autorizacao_email_aluno"
-                                       class="form-check-label">{{ form.autorizacao_email_aluno.label }}</label>
-                                <br>
-                                {{ form.autorizacao_email_responsavel_aluno }}
-                                <label for="id_autorizacao_email_responsavel_aluno"
-                                       class="form-check-label">{{ form.autorizacao_email_responsavel_aluno.label }}</label>
-                                <br>
-
-                                {{ form.autorizacao_email_responsavel_user }}
-                                <label for="id_autorizacao_email_responsavel_user"
-                                       class="form-check-label">{{ form.autorizacao_email_responsavel_user.label }}</label>
-                                <br>
-
-                                {{ form.autorizacao_email_responsavel_setor }}
-                                <label for="id_autorizacao_email_responsavel_setor"
-                                       class="form-check-label">{{ form.autorizacao_email_responsavel_setor.label }}</label>
-                                <br>
-
-                                {{ form.autorizacao_email_coordenacao_curso }}
-                                <label for="id_autorizacao_email_coordenacao_curso"
-                                       class="form-check-label">{{ form.autorizacao_email_coordenacao_curso.label }}</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <hr class="w-100 clearfix d-md-none">
-
-                    <div class="col-sm-4">
-                        <div class="card redonda">
-                            <div class="card-header redonda primary-color-dark white-text">
+                        <div class="card">
+                            <div class="card-header primary-color-dark white-text">
                                 Encaminhamentos
                             </div>
                             <div class="card-body">
@@ -88,9 +54,9 @@
                     <hr class="w-100 clearfix d-md-none">
 
                     <div class="col-sm-4">
-                        <div class="card redonda">
-                            <div class="card-header redonda ifro-color white-text">
-                                Ocorrências disciplinares
+                        <div class="card">
+                            <div class="card-header ifro-color white-text">
+                                Ocorrências
                             </div>
                             <div class="card-body">
                                 {{ form.ocorrencia_email_aluno }}
@@ -119,13 +85,47 @@
                             </div>
                         </div>
                     </div>
+
+                    <hr class="w-100 clearfix d-md-none">
+
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-header btn-warning white-text">
+                                Saídas
+                            </div>
+                            <div class="card-body">
+                                {{ form.autorizacao_email_aluno }}
+                                <label for="id_autorizacao_email_aluno"
+                                       class="form-check-label">{{ form.autorizacao_email_aluno.label }}</label>
+                                <br>
+                                {{ form.autorizacao_email_responsavel_aluno }}
+                                <label for="id_autorizacao_email_responsavel_aluno"
+                                       class="form-check-label">{{ form.autorizacao_email_responsavel_aluno.label }}</label>
+                                <br>
+
+                                {{ form.autorizacao_email_responsavel_user }}
+                                <label for="id_autorizacao_email_responsavel_user"
+                                       class="form-check-label">{{ form.autorizacao_email_responsavel_user.label }}</label>
+                                <br>
+
+                                {{ form.autorizacao_email_responsavel_setor }}
+                                <label for="id_autorizacao_email_responsavel_setor"
+                                       class="form-check-label">{{ form.autorizacao_email_responsavel_setor.label }}</label>
+                                <br>
+
+                                {{ form.autorizacao_email_coordenacao_curso }}
+                                <label for="id_autorizacao_email_coordenacao_curso"
+                                       class="form-check-label">{{ form.autorizacao_email_coordenacao_curso.label }}</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <br>
 
                 <div class="row">
                     <div class="col-sm-4">
-                        <div class="card redonda">
-                            <div class="card-header redonda primary-color-dark white-text">
+                        <div class="card">
+                            <div class="card-header primary-color-dark white-text">
                                 Retorno encaminhamentos
                             </div>
                             <div class="card-body">
@@ -159,8 +159,8 @@
                     <hr class="w-100 clearfix d-md-none">
 
                     <div class="col-sm-4">
-                        <div class="card redonda">
-                            <div class="card-header redonda primary-color-dark white-text">
+                        <div class="card">
+                            <div class="card-header ifro-color white-text">
                                 Retorno ocorrências
                             </div>
                             <div class="card-body">
@@ -194,8 +194,8 @@
                     <hr class="w-100 clearfix d-md-none">
 
                     <div class="col-sm-4">
-                        <div class="card redonda">
-                            <div class="card-header redonda danger-color white-text">
+                        <div class="card">
+                            <div class="card-header danger-color white-text">
                                 Justificativas
                             </div>
                             <div class="card-body">
@@ -233,8 +233,8 @@
     {% if request.user.is_superuser %}
         <div class="row">
             <div class="col-sm-12">
-                <div class="card redonda mb-4">
-                    <div class="card-header redonda grey lighten-1 font-weight-bold">
+                <div class="card mb-4">
+                    <div class="card-header grey lighten-1 font-weight-bold">
                         SOLICITAÇÕES DE ACESSO
                     </div>
                     <div class="card-body">
@@ -253,15 +253,15 @@
                                         <td style="vertical-align: middle;">{{ usuario.username }}</td>
                                         <td style="vertical-align: middle;">{{ usuario.email }}</td>
                                         <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
-                                                <a data-toggle="modal" href="#NegarRegistro{{ usuario.id }}"><i
-                                                class="fa fa-close fa-2x red-text" title="Indeferir"
-                                                data-toggle="tooltip" data-placement="top"></i>
-                                                </a>
+                                            <a data-toggle="modal" href="#NegarRegistro{{ usuario.id }}"><i
+                                                    class="fa fa-close fa-2x red-text" title="Indeferir"
+                                                    data-toggle="tooltip" data-placement="top"></i>
+                                            </a>
 
-                                                <a data-toggle="modal" href="#ConfirmarRegistro{{ usuario.id }}"><i
-                                                class="fa fa-check fa-2x green-text" title="Deferir"
-                                                data-toggle="tooltip" data-placement="top"></i>
-                                                </a>
+                                            <a data-toggle="modal" href="#ConfirmarRegistro{{ usuario.id }}"><i
+                                                    class="fa fa-check fa-2x green-text" title="Deferir"
+                                                    data-toggle="tooltip" data-placement="top"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 {% empty %}
@@ -310,11 +310,11 @@
                         </div>
                         <div class="modal-footer justify-content-center">
                             <button type="submit"
-                                    class="btn btn-rounded btn-danger waves-effect">
+                                    class="btn btn-danger waves-effect">
                                 Confirmar
                             </button>
                             <a type="button"
-                               class="btn btn-rounded btn-outline-danger"
+                               class="btn btn-outline-danger"
                                data-dismiss="modal">
                                 Voltar
                             </a>
@@ -353,11 +353,11 @@
                         </div>
                         <div class="modal-footer justify-content-center">
                             <button type="submit"
-                                    class="btn btn-rounded btn-success waves-effect">
+                                    class="btn btn-success waves-effect">
                                 Confirmar
                             </button>
                             <a type="button"
-                               class="btn btn-rounded btn-outline-success"
+                               class="btn btn-outline-success"
                                data-dismiss="modal">
                                 Voltar
                             </a>

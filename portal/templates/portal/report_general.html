@@ -15,46 +15,46 @@
 
     <div class="row mb-4">
         <div class="col-sm-3">
-            <div class="card redonda">
-                <div class="card-header redonda btn-primary white-text">
+            <div class="card">
+                <div class="card-header btn-primary white-text">
                     ADMINISTRATIVO
                 </div>
                 <div class="card-body">
                     <div class="form-row">
                         <div class="col">
                             <button data-toggle="modal" href="#ModalDadosBancarios"
-                                    class="btn btn-rounded btn-primary btn-block mb-2">
+                                    class="btn btn-primary btn-block mb-2">
                                 <i class="fa fa-dollar"></i> Financeiro
                             </button>
 
                             <button data-toggle="modal" href="#ModalListaAlunos"
-                                    class="btn btn-rounded btn-primary btn-block mb-2">
-                                <i class="fa fa-users"></i> Lista de alunos
+                                    class="btn btn-primary btn-block mb-2">
+                                <i class="fa fa-users"></i> Lista alunos
                             </button>
                             {% if request.user.is_staff or request.user.is_superuser %}
                                 <a href="{% url 'report_pdf_lista_aluno_pcd' %}"
-                                   class="btn btn-rounded btn-primary btn-block mb-2"
+                                   class="btn btn-primary btn-block mb-2"
                                    target="_blank">
                                     <i class="fa fa-users"></i> Alunos PCD
                                 </a>
 
                                 <button data-toggle="modal" href="#ModalConclusaoIntegrado"
-                                        class="btn btn-rounded btn-primary btn-block mb-2">
+                                        class="btn btn-primary btn-block mb-2">
                                     <i class="fa fa-check"></i> Conclusão
                                 </button>
 
                                 <button data-toggle="modal" href="#ModalMatriculaAluno"
-                                        class="btn btn-rounded btn-primary btn-block mb-2">
+                                        class="btn btn-primary btn-block mb-2">
                                     <i class="fa fa-graduation-cap"></i> Matrícula
                                 </button>
 
                                 <button data-toggle="modal" href="#ModalSabadoLetivo"
-                                        class="btn btn-rounded btn-primary btn-block mb-2">
+                                        class="btn btn-primary btn-block mb-2">
                                     <i class="fa fa-calendar"></i> Sábado letivo
                                 </button>
 
                                 <button data-toggle="modal" href="#ModalTransferenciaAluno"
-                                        class="btn btn-rounded btn-primary btn-block">
+                                        class="btn btn-primary btn-block">
                                     <i class="fa fa-arrows-h"></i> Transferência
                                 </button>
                             {% endif %}
@@ -68,55 +68,25 @@
         </div>
         {% if request.user.is_staff or request.user.is_superuser %}
             <div class="col-sm-3">
-                <div class="card redonda">
-                    <div class="card-header redonda btn-warning white-text">
-                        AUTORIZAÇÕES DE SAÍDAS
-                    </div>
-                    <div class="card-body">
-                        <div class="form-row">
-                            <div class="col">
-                                <button data-toggle="modal" href="#ModalRegistrarAutorizacaoSaidaAluno"
-                                        class="btn btn-rounded btn-warning btn-block mb-2">
-                                    <i class="fa fa-user"></i> Aluno
-                                </button>
-
-                                <button data-toggle="modal" href="#ModalRegistrarAutorizacaoSaidaCurso"
-                                        class="btn btn-rounded btn-warning btn-block mb-2">
-                                    <i class="fa fa-industry"></i> Curso
-                                </button>
-
-                                <button data-toggle="modal" href="#ModalRegistrarAutorizacaoSaidaTurma"
-                                        class="btn btn-rounded btn-warning btn-block">
-                                    <i class="fa fa-graduation-cap"></i> Turma
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <hr class="w-100 clearfix d-md-none">
-
-            <div class="col-sm-3">
-                <div class="card redonda">
-                    <div class="card-header redonda primary-color-dark white-text">
+                <div class="card">
+                    <div class="card-header primary-color-dark white-text">
                         ENCAMINHAMENTOS
                     </div>
                     <div class="card-body">
                         <div class="form-row">
                             <div class="col-sm-12">
                                 <button data-toggle="modal" href="#ModalRegistrarEncaminhamentoAluno"
-                                        class="btn btn-rounded primary-color-dark text-white btn-block mb-2">
+                                        class="btn primary-color-dark text-white btn-block mb-2">
                                     <i class="fa fa-user"></i> Aluno
                                 </button>
 
                                 <button data-toggle="modal" href="#ModalRegistrarEncaminhamentoCurso"
-                                        class="btn btn-rounded primary-color-dark text-white     btn-block mb-2">
+                                        class="btn primary-color-dark text-white     btn-block mb-2">
                                     <i class="fa fa-industry"></i> Curso
                                 </button>
 
                                 <button data-toggle="modal" href="#ModalRegistrarEncaminhamentoTurma"
-                                        class="btn btn-rounded primary-color-dark text-white     btn-block">
+                                        class="btn primary-color-dark text-white     btn-block">
                                     <i class="fa fa-graduation-cap"></i> Turma
                                 </button>
                             </div>
@@ -128,25 +98,55 @@
             <hr class="w-100 clearfix d-md-none">
 
             <div class="col-sm-3">
-                <div class="card redonda">
-                    <div class="card-header redonda ifro-color white-text">
+                <div class="card">
+                    <div class="card-header ifro-color white-text">
                         OCORRÊNCIAS
                     </div>
                     <div class="card-body">
                         <div class="form-row">
                             <div class="col">
                                 <button data-toggle="modal" href="#ModalRegistrarOcorrenciaAluno"
-                                        class="btn btn-rounded ifro-color text-white     btn-block mb-2">
+                                        class="btn ifro-color text-white     btn-block mb-2">
                                     <i class="fa fa-user"></i> Aluno
                                 </button>
 
                                 <button data-toggle="modal" href="#ModalRegistrarOcorrenciaCurso"
-                                        class="btn btn-rounded ifro-color text-white     btn-block mb-2">
+                                        class="btn ifro-color text-white     btn-block mb-2">
                                     <i class="fa fa-industry"></i> Curso
                                 </button>
 
                                 <button data-toggle="modal" href="#ModalRegistrarOcorrenciaTurma"
-                                        class="btn btn-rounded ifro-color text-white     btn-block">
+                                        class="btn ifro-color text-white     btn-block">
+                                    <i class="fa fa-graduation-cap"></i> Turma
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="w-100 clearfix d-md-none">
+
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-header btn-warning white-text">
+                        SAÍDAS
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="col">
+                                <button data-toggle="modal" href="#ModalRegistrarAutorizacaoSaidaAluno"
+                                        class="btn btn-warning btn-block mb-2">
+                                    <i class="fa fa-user"></i> Aluno
+                                </button>
+
+                                <button data-toggle="modal" href="#ModalRegistrarAutorizacaoSaidaCurso"
+                                        class="btn btn-warning btn-block mb-2">
+                                    <i class="fa fa-industry"></i> Curso
+                                </button>
+
+                                <button data-toggle="modal" href="#ModalRegistrarAutorizacaoSaidaTurma"
+                                        class="btn btn-warning btn-block">
                                     <i class="fa fa-graduation-cap"></i> Turma
                                 </button>
                             </div>
@@ -190,8 +190,8 @@
                     </div>
                     <!--Footer-->
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-rounded btn-success waves-effect">Enviar</button>
-                        <a type="button" class="btn btn-rounded btn-outline-success"
+                        <button type="submit" class="btn btn-success waves-effect">Enviar</button>
+                        <a type="button" class="btn btn-outline-success"
                            data-dismiss="modal">Voltar</a>
                     </div>
                 </form>
@@ -230,8 +230,8 @@
                     </div>
                     <!--Footer-->
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-rounded btn-success waves-effect">Enviar</button>
-                        <a type="button" class="btn btn-rounded btn-outline-success"
+                        <button type="submit" class="btn btn-success waves-effect">Enviar</button>
+                        <a type="button" class="btn btn-outline-success"
                            data-dismiss="modal">Voltar</a>
                     </div>
                 </form>
@@ -276,8 +276,8 @@
                     </div>
                     <!--Footer-->
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-rounded btn-success waves-effect">Enviar</button>
-                        <a type="button" class="btn btn-rounded btn-outline-success "
+                        <button type="submit" class="btn btn-success waves-effect">Enviar</button>
+                        <a type="button" class="btn btn-outline-success "
                            data-dismiss="modal">Voltar</a>
                     </div>
                 </form>
@@ -315,8 +315,8 @@
                         <label for="SelectAlunoEncaminhamento">Lista de alunos</label>
                     </div>  <!--Footer-->
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-rounded btn-primary waves-effect">Enviar</button>
-                        <a type="button" class="btn btn-rounded btn-outline-primary"
+                        <button type="submit" class="btn btn-primary waves-effect">Enviar</button>
+                        <a type="button" class="btn btn-outline-primary"
                            data-dismiss="modal">Voltar</a>
                     </div>
                 </form>
@@ -354,8 +354,8 @@
                     </div>
                     <!--Footer-->
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-rounded btn-primary waves-effect">Enviar</button>
-                        <a type="button" class="btn btn-rounded btn-outline-primary"
+                        <button type="submit" class="btn btn-primary waves-effect">Enviar</button>
+                        <a type="button" class="btn btn-outline-primary"
                            data-dismiss="modal">Voltar</a>
                     </div>
                 </form>
@@ -399,8 +399,8 @@
                     </div>
                     <!--Footer-->
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-rounded btn-primary waves-effect">Enviar</button>
-                        <a type="button" class="btn btn-rounded btn-outline-primary"
+                        <button type="submit" class="btn btn-primary waves-effect">Enviar</button>
+                        <a type="button" class="btn btn-outline-primary"
                            data-dismiss="modal">Voltar</a>
                     </div>
                 </form>
@@ -441,8 +441,8 @@
                     </div>
                     <!--Footer-->
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-rounded btn-warning waves-effect">Enviar</button>
-                        <a type="button" class="btn btn-rounded btn-outline-warning"
+                        <button type="submit" class="btn btn-warning waves-effect">Enviar</button>
+                        <a type="button" class="btn btn-outline-warning"
                            data-dismiss="modal">Voltar</a>
                     </div>
                 </form>
@@ -487,8 +487,8 @@
                     </div>
                     <!--Footer-->
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-rounded btn-warning waves-effect">Enviar</button>
-                        <a type="button" class="btn btn-rounded btn-outline-warning"
+                        <button type="submit" class="btn btn-warning waves-effect">Enviar</button>
+                        <a type="button" class="btn btn-outline-warning"
                            data-dismiss="modal">Voltar</a>
                     </div>
                 </form>
@@ -533,10 +533,10 @@
                     </div>
                     <!--Footer-->
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-rounded btn-info waves-effect"
+                        <button type="submit" class="btn btn-info waves-effect"
                                 onclick="$('#ModalDadosBancarios').modal('hide')">Enviar
                         </button>
-                        <a type="button" class="btn btn-rounded btn-outline-info"
+                        <a type="button" class="btn btn-outline-info"
                            data-dismiss="modal">Voltar</a>
                     </div>
                 </form>
@@ -587,10 +587,10 @@
                     </div>
                     <!--Footer-->
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-rounded btn-info waves-effect"
+                        <button type="submit" class="btn btn-info waves-effect"
                                 onclick="$('#ModalListaAlunos').modal('hide')">Enviar
                         </button>
-                        <a type="button" class="btn btn-rounded btn-outline-info"
+                        <a type="button" class="btn btn-outline-info"
                            data-dismiss="modal">Voltar</a>
                     </div>
                 </form>
@@ -630,10 +630,10 @@
                     </div>
                     <!--Footer-->
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-rounded btn-info waves-effect"
+                        <button type="submit" class="btn btn-info waves-effect"
                                 onclick="$('#ModalMatriculaAluno').modal('hide')">Enviar
                         </button>
-                        <a type="button" class="btn btn-rounded btn-outline-info"
+                        <a type="button" class="btn btn-outline-info"
                            data-dismiss="modal">Voltar</a>
                     </div>
                 </form>
@@ -685,10 +685,10 @@
 
                     <!--Footer-->
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-rounded btn-info waves-effect"
+                        <button type="submit" class="btn btn-info waves-effect"
                                 onclick="$('#ModalSabadoLetivo').modal('hide')">Enviar
                         </button>
-                        <a type="button" class="btn btn-rounded btn-outline-info"
+                        <a type="button" class="btn btn-outline-info"
                            data-dismiss="modal">Voltar</a>
                     </div>
                 </form>
@@ -728,10 +728,10 @@
                     </div>
                     <!--Footer-->
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-rounded btn-info waves-effect"
+                        <button type="submit" class="btn btn-info waves-effect"
                                 onclick="$('#ModalTransferenciaAluno').modal('hide')">Enviar
                         </button>
-                        <a type="button" class="btn btn-rounded btn-outline-info"
+                        <a type="button" class="btn btn-outline-info"
                            data-dismiss="modal">Voltar</a>
                     </div>
                 </form>
@@ -789,10 +789,10 @@
 
                     <!--Footer-->
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-rounded btn-info waves-effect"
+                        <button type="submit" class="btn btn-info waves-effect"
                                 onclick="$('#ModalConclusaoIntegrado').modal('hide')">Enviar
                         </button>
-                        <a type="button" class="btn btn-rounded btn-outline-info"
+                        <a type="button" class="btn btn-outline-info"
                            data-dismiss="modal">Voltar</a>
                     </div>
                 </form>
