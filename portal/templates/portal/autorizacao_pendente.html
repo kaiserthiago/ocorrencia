@@ -15,7 +15,7 @@
 {% block content %}
     {% if aluno == 'erro' %}
         <div class="alert alert-danger">
-        Erro! Não foi possível identificar o aluno com o CPF {{ cpf }}
+            Erro! Não foi possível identificar o aluno com o CPF {{ cpf }}
         </div>
     {% endif %}
     <div class="card redonda mb-4">
@@ -72,11 +72,9 @@
                             <td style="vertical-align: middle;">{{ autorizacao.data }}</td>
                             <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
 
-                                <i data-toggle="tooltip" data-placement="top" title="Registrar Saída">
-                                    <a data-toggle="modal" href="#RegistrarSaida{{ autorizacao.id }}"
-                                       class="btn-floating btn-sm success-color"><i
-                                            class="fa fa-check"></i></a>
-                                </i>
+                                <a data-toggle="modal" href="#RegistrarSaida{{ autorizacao.id }}"><i
+                                        class="fa fa-check fa-2x green-text" title="Registrar saída"
+                                        data-toggle="tooltip" data-placement="top"></i></a>
                             </td>
                         </tr>
                     {% empty %}

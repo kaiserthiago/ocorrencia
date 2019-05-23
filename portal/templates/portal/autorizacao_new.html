@@ -13,7 +13,7 @@
 {% endblock %}
 
 {% block content %}
-    <form action="{% url 'autorizacao_register' %}" method="POST">
+    <form action="{% url 'autorizacao_register' %}" method="POST" onsubmit='disableButton()'>
         <div class="row mb-4">
             <div class="col-sm-6">
                 <div class="card redonda">
@@ -84,12 +84,8 @@
                         <div class="form-row">
                             <div class="col">
                                 <div class="float-right">
-                                    <button type="submit" class="btn btn-rounded btn-success" data-toggle="tooltip"
-                                            data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
-                                    <a href="{% url 'autorizacao' %}" class="btn btn-rounded btn-danger"
-                                       data-toggle="tooltip"
-                                       data-placement="top" title="Cancelar"><i
-                                            class="fa fa-close"></i></a>
+                                    <button id="btn_enviar" type="submit" class="btn btn-success">REGISTRAR</button>
+                                    <a href="{% url 'autorizacao' %}" class="btn btn-danger">CANCELAR</a>
                                 </div>
                             </div>
                         </div>

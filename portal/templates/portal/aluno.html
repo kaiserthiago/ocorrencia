@@ -28,11 +28,11 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="float-right">
-                            <a href="{% url 'aluno_new' %}?qs={{ qs }}" class="btn btn-rounded btn-success"><i
+                            <a href="{% url 'aluno_new' %}?qs={{ qs }}" class="btn btn-success"><i
                                     class="fa fa-plus"></i> Adicionar</a>
-                            <a href="{% url 'import_aluno' %}" class="btn btn-rounded btn-info"><i
+                            <a href="{% url 'import_aluno' %}" class="btn btn-info"><i
                                     class="fa fa-arrow-circle-down"></i> Importar</a>
-                            <a href="{% url 'import_aluno_atualizar' %}" class="btn btn-rounded btn-warning"><i
+                            <a href="{% url 'import_aluno_atualizar' %}" class="btn btn-warning"><i
                                     class="fa fa-refresh"></i> Atualizar</a>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                     <tr>
                         <th style="font-weight: bold">Nome</th>
                         <th style="font-weight: bold">Contato</th>
-                        <th style="text-align: center; font-weight: bold">Ações</th>
+                        <th style="text-align: right; font-weight: bold">Ações</th>
                     </tr>
                     </thead>
                     <tbody id="myTable">
@@ -81,28 +81,25 @@
                             <td style="vertical-align: middle">{{ aluno.contato }}</td>
                             <td class="px-0 py-0"
                                 style="vertical-align: middle; text-align: right; min-width: 170px; width: 170px">
-
-                                <i data-toggle="tooltip" data-placement="top" title="Perfil">
-                                    <a href="{% url 'perfil_individual' aluno.id %}?qs={{ qs }}"
-                                       class="btn-floating btn-sm ifro-color"><i class="fa fa-address-book"></i>
-                                    </a>
-                                </i>
                                 {% if aluno.count_autorizacoes or aluno.count_encaminhamento or aluno.count_ocorrencia %}
                                     <span class="counter">!</span>
                                 {% endif %}
 
-                                <i data-toggle="tooltip" data-placement="top" title="Editar">
-                                    <a href="{% url 'aluno_edit' aluno.id %}?qs={{ qs }}"
-                                       class="btn-floating btn-sm btn-warning"><i
-                                            class="fa fa-pencil"></i>
-                                    </a>
-                                </i>
+                                <a href="{% url 'perfil_individual' aluno.id %}?qs={{ qs }}"><i
+                                        class="fa fa-address-book-o fa-2x green-text" title="Perfil"
+                                        data-toggle="tooltip" data-placement="top"></i>
+                                </a>
+
+
+                                <a href="{% url 'aluno_edit' aluno.id %}?qs={{ qs }}"><i
+                                        class="fa fa-pencil fa-2x orange-text" title="Editar"
+                                        data-toggle="tooltip" data-placement="top"></i>
+                                </a>
                                 {% if request.user.is_superuser %}
-                                    <i data-toggle="tooltip" data-placement="top" title="Excluir">
-                                        <a data-toggle="modal" href="#Excluir{{ aluno.id }}"
-                                           class="btn-floating btn-sm btn-danger"><i class="fa fa-trash"></i>
-                                        </a>
-                                    </i>
+                                    <a data-toggle="modal" href="#Excluir{{ aluno.id }}"><i
+                                            class="fa fa-trash fa-2x red-text" title="Excluir"
+                                            data-toggle="tooltip" data-placement="top"></i>
+                                    </a>
                                     </td>
                                 {% endif %}
                         </tr>

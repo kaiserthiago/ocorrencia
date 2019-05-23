@@ -133,17 +133,17 @@
                 <a data-toggle="tooltip" data-placement="bottom"
                    title="Solicite justificativa de falta ou 2ª chamada de atividades/provas"
                    href="{% url 'justificativa' %}"
-                   class="btn btn-danger btn-rounded btn-block mt-2"><i
+                   class="btn btn-danger btn-block mt-2"><i
                         class="fa fa-question-circle-o"></i> Justificativas</a>
 
                 <a data-toggle="tooltip" data-placement="bottom"
                    title="Solicite atendimento da equipe multiprofissional com absoluto sigilo."
                    href="{% url 'encaminhamento_solicitar' matricula.id %}"
-                   class="btn btn-success btn-rounded btn-block mt-2"><i
+                   class="btn btn-success btn-block mt-2"><i
                         class="fa fa-book"></i> Solicitar atendimento</a>
 
                 <a href="{% url 'report_pdf_declaracao_matricula' %}"
-                   class="btn btn-info btn-rounded btn-block mt-2" target="_blank"><i
+                   class="btn btn-info btn-block mt-2" target="_blank"><i
                         class="fa fa-graduation-cap"></i> Declaração matrícula</a>
             {% endif %}
         </div>

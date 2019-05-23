@@ -50,16 +50,18 @@
                                         style="vertical-align: middle; text-align: right; min-width: 170px; width: 170px">
 
                                         <a href="{% url 'report_pdf_justificativa' justificativa.id %}"
-                                           target="_blank"
-                                           class="btn-floating btn-sm btn-indigo"><i class="fa fa-print"></i>
+                                           target="_blank"><i class="fa fa-print fa-2x indigo-text" title="Imprimir"
+                                                              data-toggle="tooltip" data-placement="top"></i>
                                         </a>
 
-                                        <a data-toggle="modal" href="#indeferimento{{ justificativa.id }}"
-                                           class="btn-floating btn-sm btn-danger"><i class="fa fa-close"></i>
+                                        <a data-toggle="modal" href="#indeferimento{{ justificativa.id }}"><i
+                                                class="fa fa-close fa-2x red-text" title="Indeferir"
+                                                data-toggle="tooltip" data-placement="top"></i>
                                         </a>
 
-                                        <a data-toggle="modal" href="#deferimento{{ justificativa.id }}"
-                                           class="btn-floating btn-sm btn-success"><i class="fa fa-check"></i>
+                                        <a data-toggle="modal" href="#deferimento{{ justificativa.id }}"><i
+                                                class="fa fa-check fa-2x green-text" title="Deferir"
+                                                data-toggle="tooltip" data-placement="top"></i>
                                         </a>
                                     </td>
                                 </tr>

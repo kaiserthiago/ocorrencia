@@ -28,7 +28,7 @@
                         </div>
                         <div class="col-sm-2">
                             <div class="float-right">
-                                <a href="{% url 'turma_new' %}" class="btn btn-rounded btn-block btn-success"><i
+                                <a href="{% url 'turma_new' %}" class="btn btn-block btn-success"><i
                                         class="fa fa-plus"></i> Adicionar</a>
                             </div>
                         </div>
@@ -50,19 +50,15 @@
                                     <td style="vertical-align: middle;">{{ turma.descricao }}</td>
                                     <td style="vertical-align: middle;">{{ turma.turno }}</td>
                                     <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
-                                        <i data-toggle="tooltip" data-placement="top" title="Editar">
-                                            <a href="{% url 'turma_edit' turma.id %}"
-                                               class="btn-floating btn-sm btn-warning"><i
-                                                    class="fa fa-pencil"></i>
+                                            <a href="{% url 'turma_edit' turma.id %}"><i
+                                        class="fa fa-pencil fa-2x orange-text" title="Editar"
+                                        data-toggle="tooltip" data-placement="top"></i>
                                             </a>
-                                        </i>
 
-                                        <i data-toggle="tooltip" data-placement="top" title="Excluir">
-                                            <a data-toggle="modal" href="#Excluir{{ turma.id }}"
-                                               class="btn-floating btn-sm btn-danger"
-                                               title="Excluir"><i class="fa fa-trash"></i>
+                                            <a data-toggle="modal" href="#Excluir{{ turma.id }}"><i
+                                            class="fa fa-trash fa-2x red-text" title="Excluir"
+                                            data-toggle="tooltip" data-placement="top"></i>
                                             </a>
-                                        </i>
                                     </td>
                                 </tr>
                             {% empty %}

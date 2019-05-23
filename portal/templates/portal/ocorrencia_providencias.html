@@ -28,21 +28,24 @@
                                     <table class="table table-sm table-bordered">
                                         <tr>
                                             <td>
-                                                <p style="font-weight: bold">
+                                                <strong style="font-weight: bold">
                                                     DATA
-                                                </p>
+                                                </strong>
+                                                <br>
                                                 {{ ocorrencia.data }}
                                             </td>
                                             <td>
-                                                <p style="font-weight: bold">
+                                                <strong style="font-weight: bold">
                                                     CURSO E TURMA
-                                                </p>
+                                                </strong>
+                                                <br>
                                                 {{ ocorrencia.matricula.turma }}
                                             </td>
                                             <td>
-                                                <p style="font-weight: bold">
+                                                <strong style="font-weight: bold">
                                                     DISCIPLINA
-                                                </p>
+                                                </strong>
+                                                <br>
                                                 {% if ocorrencia.disciplina %}
                                                     {{ ocorrencia.disciplina }}
                                                 {% else %}
@@ -52,17 +55,19 @@
                                         </tr>
                                         <tr>
                                             <td colspan="3">
-                                                <p style="font-weight: bold">
+                                                <strong style="font-weight: bold">
                                                     ESTUDANTE
-                                                </p>
+                                                </strong>
+                                                <br>
                                                 {{ ocorrencia.matricula.aluno }}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td colspan="3">
-                                                <p style="font-weight: bold">
+                                                <strong style="font-weight: bold">
                                                     DESCRIÇÃO DA OCORRÊNCIA
-                                                </p>
+                                                </strong>
+                                                <br>
                                                 {{ ocorrencia.descricao }}
                                             </td>
                                         </tr>
@@ -71,6 +76,7 @@
                                                 <p style="font-weight: bold; text-align: left">
                                                     REGISTRADO POR
                                                 </p>
+
                                                 <strong>{{ ocorrencia.user|upper }}</strong><br>
                                                 SIAPE: {{ ocorrencia.user.userprofile.siape }}
                                             </td>
@@ -105,11 +111,8 @@
                         <div class="form-row">
                             <div class="col-sm-12">
                                 <div class="float-right">
-                                    <button id=btn_enviar type="submit" class="btn btn-rounded btn-success" data-toggle="tooltip"
-                                            data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
-                                    <a href="{% url 'ocorrencia_pendente' %}" class="btn btn-rounded btn-danger"
-                                       data-toggle="tooltip" data-placement="top" title="Cancelar"><i
-                                            class="fa fa-close"></i></a>
+                                    < id=btn_enviar type="submit" class="btn btn-success">REGISTRAR</button>
+                                    <a href="{% url 'ocorrencia_pendente' %}" class="btn btn-danger">CANCELAR</a>
                                 </div>
                             </div>
                         </div>

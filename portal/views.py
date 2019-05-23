@@ -618,7 +618,7 @@ def perfil(request):
         'cursos': cursos
     }
 
-    return render(request, 'portal/perfil.html', context)
+    return render(request, 'portal/conselho.html', context)
 
 
 @login_required
@@ -744,7 +744,7 @@ def perfil_turma(request, turma_id):
         'turma': turma,
         'alunos': alunos
     }
-    return render(request, 'portal/perfil_turma.html', context)
+    return render(request, 'portal/conselho_turma.html', context)
 
 
 @login_required

@@ -28,7 +28,7 @@
                         <div class="col-sm-2">
                             <div class="float-right">
                                 <a href="{% url 'servico_categoria_new' %}"
-                                   class="btn btn-rounded btn-block btn-success"><i
+                                   class="btn btn-block btn-success"><i
                                         class="fa fa-plus"></i> Adicionar</a>
                             </div>
                         </div>
@@ -46,19 +46,15 @@
                                 <tr>
                                     <td style="vertical-align: middle;">{{ servico_categoria.descricao }}</td>
                                     <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
-                                        <i data-toggle="tooltip" data-placement="top" title="Editar">
-                                            <a href="{% url 'servico_categoria_edit' servico_categoria.id %}"
-                                               class="btn-floating btn-sm btn-warning"><i
-                                                    class="fa fa-pencil"></i>
-                                            </a>
-                                        </i>
+                                        <a href="{% url 'servico_categoria_edit' servico_categoria.id %}"><i
+                                        class="fa fa-pencil fa-2x orange-text" title="Editar"
+                                        data-toggle="tooltip" data-placement="top"></i>
+                                        </a>
 
-                                        <i data-toggle="tooltip" data-placement="top" title="Excluir">
-                                            <a data-toggle="modal" href="#Excluir{{ servico_categoria.id }}"
-                                               class="btn-floating btn-sm btn-danger"
-                                               title="Excluir"><i class="fa fa-trash"></i>
-                                            </a>
-                                        </i>
+                                        <a data-toggle="modal" href="#Excluir{{ servico_categoria.id }}"><i
+                                            class="fa fa-trash fa-2x red-text" title="Excluir"
+                                            data-toggle="tooltip" data-placement="top"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             {% empty %}

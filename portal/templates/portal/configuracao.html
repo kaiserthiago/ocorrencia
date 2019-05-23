@@ -222,8 +222,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="float-right">
-                            <button type="submit" class="btn btn-rounded btn-success" data-toggle="tooltip"
-                                    data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
+                            <button type="submit" class="btn btn-success">SALVAR</button>
                         </div>
                     </div>
                 </div>
@@ -254,25 +253,22 @@
                                         <td style="vertical-align: middle;">{{ usuario.username }}</td>
                                         <td style="vertical-align: middle;">{{ usuario.email }}</td>
                                         <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
-                                            <i data-toggle="tooltip" data-placement="top" title="Negar acesso">
-                                                <a data-toggle="modal" href="#NegarRegistro{{ usuario.id }}"
-                                                   class="btn-floating btn-sm danger-color"><i class="fa fa-close"></i>
+                                                <a data-toggle="modal" href="#NegarRegistro{{ usuario.id }}"><i
+                                                class="fa fa-close fa-2x red-text" title="Indeferir"
+                                                data-toggle="tooltip" data-placement="top"></i>
                                                 </a>
-                                            </i>
 
-                                            <i data-toggle="tooltip" data-placement="top" title="Confirmar acesso">
-                                                <a data-toggle="modal" href="#ConfirmarRegistro{{ usuario.id }}"
-                                                   class="btn-floating btn-sm success-color"><i class="fa fa-check"></i>
+                                                <a data-toggle="modal" href="#ConfirmarRegistro{{ usuario.id }}"><i
+                                                class="fa fa-check fa-2x green-text" title="Deferir"
+                                                data-toggle="tooltip" data-placement="top"></i>
                                                 </a>
-                                            </i>
                                         </td>
                                     </tr>
                                 {% empty %}
                                     <tr>
                                         <td colspan="5"
                                             class="card-header warning-color white-text text-center font-weight-bold">
-                                            SEM
-                                            NOVAS SOLICITAÇÕES DE ACESSO
+                                            NÃO HÁ REGISTROS
                                         </td>
                                     </tr>
                                 {% endfor %}

@@ -29,49 +29,55 @@
                                     <table class="table table-sm table-bordered">
                                         <tr>
                                             <td>
-                                                <p style="font-weight: bold">
+                                                <strong style="font-weight: bold">
                                                     DATA
-                                                </p>
+                                                </strong>
+                                                <br>
                                                 {{ encaminhamento.data }}
                                             </td>
                                             <td>
-                                                <p style="font-weight: bold">
+                                                <strong style="font-weight: bold">
                                                     CURSO E TURMA
-                                                </p>
+                                                </strong>
+                                                <br>
                                                 {{ encaminhamento.matricula.turma }}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td colspan="3">
-                                                <p style="font-weight: bold">
+                                                <strong style="font-weight: bold">
                                                     ESTUDANTE
-                                                </p>
+                                                </strong>
+                                                <br>
                                                 {{ encaminhamento.matricula.aluno }}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td colspan="3">
-                                                <p style="font-weight: bold">
+                                                <strong style="font-weight: bold">
                                                     CATEGORIA DO ENCAMINHAMENTO
-                                                </p>
+                                                </strong>
+                                                <br>
                                                 {{ encaminhamento.servico.categoria.descricao|upper }}<br>
                                                 {{ encaminhamento.servico.descricao }}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td colspan="3">
-                                                <p style="font-weight: bold">
+                                                <strong style="font-weight: bold">
                                                     DESCRIÇÃO DO ENCAMINHAMENTO
-                                                </p>
+                                                </strong>
+                                                <br>
                                                 {{ encaminhamento.descricao }}
                                             </td>
                                         </tr>
                                         {% if encaminhamento.outras_informacoes %}
                                             <tr>
                                                 <td colspan="3">
-                                                    <p style="font-weight: bold">
+                                                    <strong style="font-weight: bold">
                                                         OUTRAS INFORMAÇÕES
-                                                    </p>
+                                                    </strong>
+                                                    <br>
                                                     {{ encaminhamento.outras_informacoes }}
                                                 </td>
                                             </tr>
@@ -99,12 +105,8 @@
                         <div class="form-row">
                             <div class="col-sm-12">
                                 <div class="float-right">
-                                    <button id=btn_enviar type="submit" class="btn btn-rounded btn-success"
-                                            data-toggle="tooltip"
-                                            data-placement="top" title="Salvar"><i class="fa fa-check"></i></button>
-                                    <a href="{% url 'encaminhamento_pendente' %}" class="btn btn-rounded btn-danger"
-                                       data-toggle="tooltip" data-placement="top" title="Cancelar"><i
-                                            class="fa fa-close"></i></a>
+                                    <button id=btn_enviar type="submit" class="btn btn-success">REGISTRAR</button>
+                                    <a href="{% url 'encaminhamento_pendente' %}" class="btn btn-danger">CANCELAR</a>
                                 </div>
                             </div>
                         </div>
