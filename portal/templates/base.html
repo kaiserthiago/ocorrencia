@@ -25,11 +25,7 @@
     </style>
 </head>
 {% if request.user.is_authenticated %}
-    {% if perms.portal.change_aluno and not request.user.is_staff and not request.user.is_superuser %}
         <body class="hidden-sn mdb-skin" id="body">
-    {% else %}
-        <body class="fixed-sn mdb-skin" id="body">
-    {% endif %}
 {% else %}
     <body class="mdb-skin" id="body">
 {% endif %}
@@ -38,11 +34,7 @@
     <!--Double navigation-->
     <header>
         <!-- Sidebar navigation -->
-        {% if perms.portal.change_aluno and not request.user.is_staff and not request.user.is_superuser %}
             <ul id="slide-out" class="side-nav sn-bg-4 custom-scrollbar">
-        {% else %}
-            <ul id="slide-out" class="side-nav sn-bg-4 fixed custom-scrollbar">
-        {% endif %}
         <!-- Logo -->
         <li>
             <div class="logo-wrapper waves-light text-center">
@@ -412,28 +404,95 @@
     </main>
 </div>
 <!--/Main layout-->
+<!-- Footer -->
+<footer class="page-footer font-small pt-2" id="footer">
 
-<!--Footer-->
-<footer class="footer page-footer center-on-small-only" id="footer">
-    <div class="container-fluid">
-        <!--Call to action-->
-        <div class="social-section text-center">
-            Instituto Federal de Rondônia
-            <br>
-            Desenvolvimento: <a
-                href="mailto:thiago.kaiser@ifro.edu.br?Subject=Contato SGE" target="_top"> Prof. Thiago Kaiser</a>
+    <!-- Footer Links -->
+    <div class="container-fluid text-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-6 mt-md-0 mt-3">
+
+                <!-- Content -->
+                <h5 class="text-uppercase font-weight-bold">Gestão Educacional</h5>
+                <p>Sistema para gestão edutandil no âmbito do Intituto Federal de Rondônia</p>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none pb-3">
+
+            <!-- Grid column -->
+            <div class="col-md-3 mb-md-0 mb-3">
+
+                <!-- Links -->
+                <h5 class="text-uppercase font-weight-bold">Desenvolvimento</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="mailto:thiago.kaiser@ifro.edu.br?Subject=Contato - SGE">Prof. Thiago José Sampaio Kaiser</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 mb-md-0 mb-3">
+
+                <!-- Links -->
+                <h5 class="text-uppercase font-weight-bold">Contato</h5>
+
+                <ul class="list-unstyled">
+{#                    <li>#}
+{#                        <i class="fa fa-phone-square"></i> (69) 98488-8660#}
+{#                    </li>#}
+                    <li>
+                        <i class="fa fa-envelope"></i> thiago.kaiser@ifro.edu.br
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
         </div>
-        <!--/.Call to action-->
+        <!-- Grid row -->
+
     </div>
-    <!--Copyright-->
-    <div class="footer-copyright text-center">
-        <div class="container-fluid">
-            © 2019 - SGE - Gestão Educacional
-        </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 - Todos os direitos reservados
     </div>
-    <!--/.Copyright-->
+    <!-- Copyright -->
+
 </footer>
 <!--/.Footer-->
+{##}
+{#<!--Footer-->#}
+{#<footer class="footer page-footer center-on-small-only" id="footer">#}
+{#    <div class="container-fluid">#}
+{#        <!--Call to action-->#}
+{#        <div class="social-section text-center">#}
+{#            Instituto Federal de Rondônia#}
+{#            <br>#}
+{#            Desenvolvimento: <a#}
+{#                href="mailto:thiago.kaiser@ifro.edu.br?Subject=Contato SGE" target="_top"> Prof. Thiago Kaiser</a>#}
+{#        </div>#}
+{#        <!--/.Call to action-->#}
+{#    </div>#}
+{#    <!--Copyright-->#}
+{#    <div class="footer-copyright text-center">#}
+{#        <div class="container-fluid">#}
+{#            © 2019 - SGE - Gestão Educacional#}
+{#        </div>#}
+{#    </div>#}
+{#    <!--/.Copyright-->#}
+{#</footer>#}
+{#<!--/.Footer-->#}
 
 {% block modal %}
 {% endblock %}
