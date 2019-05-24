@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="novo layout de ícones e botões">
+    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="novo footer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/login/templates/registration/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/base.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="467" column="49" selection-start-line="467" selection-start-column="48" selection-end-line="467" selection-end-column="49" />
+            <state relative-caret-position="1400">
+              <caret line="452" column="24" selection-start-line="452" selection-start-column="24" selection-end-line="452" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -36,8 +34,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login/templates/registration/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="210" column="42" selection-start-line="210" selection-start-column="42" selection-end-line="210" selection-end-column="42" />
+            <state relative-caret-position="325">
+              <caret line="252" column="22" selection-start-line="252" selection-start-column="22" selection-end-line="254" selection-end-column="27" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -463,14 +461,7 @@
       <workItem from="1558579568400" duration="76000" />
       <workItem from="1558581041977" duration="583000" />
       <workItem from="1558639664428" duration="7585000" />
-      <workItem from="1558656671479" duration="578000" />
-    </task>
-    <task id="LOCAL-00051" summary="correção turno na ocorrência, encaminhamento e autorização, além de possibilitar criar/editar o turno no cadastro da turma">
-      <created>1551445364355</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1551445364363</updated>
+      <workItem from="1558656671479" duration="770000" />
     </task>
     <task id="LOCAL-00052" summary="Identificação de QA">
       <created>1551712222834</created>
@@ -808,7 +799,14 @@
       <option name="project" value="LOCAL" />
       <updated>1558654339026</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="novo footer">
+      <created>1558657426452</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1558657426452</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -817,7 +815,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66138000" />
+    <option name="totallyTimeSpent" value="66330000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -872,7 +870,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="SHOW_FILE_HISTORY_DETAILS" value="false" />
-    <MESSAGE value="Dashboard com prazo de retorno das ocorrências em dias" />
     <MESSAGE value="exibir status na lista de ocorrências" />
     <MESSAGE value="desabilitar botão submit ao clicar para envitar clique duplo" />
     <MESSAGE value="novos status de ocorrências" />
@@ -897,7 +894,8 @@
     <MESSAGE value="remoção do indicador de saídas" />
     <MESSAGE value="relatório pdf com tabela zebrada" />
     <MESSAGE value="novo layout de ícones e botões" />
-    <option name="LAST_COMMIT_MESSAGE" value="novo layout de ícones e botões" />
+    <MESSAGE value="novo footer" />
+    <option name="LAST_COMMIT_MESSAGE" value="novo footer" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html">
@@ -1269,8 +1267,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/login/templates/registration/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="210" column="42" selection-start-line="210" selection-start-column="42" selection-end-line="210" selection-end-column="42" />
+        <state relative-caret-position="325">
+          <caret line="252" column="22" selection-start-line="252" selection-start-column="22" selection-end-line="254" selection-end-column="27" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1280,8 +1278,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="467" column="49" selection-start-line="467" selection-start-column="48" selection-end-line="467" selection-end-column="49" />
+        <state relative-caret-position="1400">
+          <caret line="452" column="24" selection-start-line="452" selection-start-column="24" selection-end-line="452" selection-end-column="24" />
         </state>
       </provider>
     </entry>
