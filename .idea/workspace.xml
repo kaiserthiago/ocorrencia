@@ -4,8 +4,6 @@
     <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="novo modal turmas new ocorrencia">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,17 +32,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="939">
-              <caret line="137" column="24" selection-start-line="137" selection-start-column="24" selection-end-line="137" selection-end-column="24" />
-              <caret line="188" column="18" lean-forward="true" selection-start-line="188" selection-start-column="18" selection-end-line="188" selection-end-column="18" />
+            <state relative-caret-position="585">
+              <caret line="159" column="65" lean-forward="true" selection-start-line="159" selection-start-column="46" selection-end-line="159" selection-end-column="65" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
@@ -252,8 +249,8 @@
         <option value="$PROJECT_DIR$/login/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_providencias.html" />
         <option value="$PROJECT_DIR$/portal/urls.py" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" />
         <option value="$PROJECT_DIR$/portal/views.py" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" />
       </list>
     </option>
   </component>
@@ -453,21 +450,7 @@
       <workItem from="1558657543484" duration="840000" />
       <workItem from="1558742892193" duration="431000" />
       <workItem from="1558966767626" duration="3657000" />
-      <workItem from="1558989554190" duration="234000" />
-    </task>
-    <task id="LOCAL-00057" summary="adicionar turno ao nome da turma nos relatórios">
-      <created>1553822786402</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1553822786403</updated>
-    </task>
-    <task id="LOCAL-00058" summary="alterar visualização no admin dos encaminhamentos">
-      <created>1553822827391</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1553822827391</updated>
+      <workItem from="1558989554190" duration="768000" />
     </task>
     <task id="LOCAL-00059" summary="atualização MDBootstrp 4.7.6">
       <created>1554297540262</created>
@@ -798,7 +781,21 @@
       <option name="project" value="LOCAL" />
       <updated>1558967934526</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="novo modal turmas new ocorrencia">
+      <created>1558989893565</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1558989893565</updated>
+    </task>
+    <task id="LOCAL-00107" summary="novo modal turmas new ocorrencia">
+      <created>1558990097271</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1558990097271</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -807,7 +804,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71577000" />
+    <option name="totallyTimeSpent" value="71875000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1273,14 +1270,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="939">
-          <caret line="137" column="24" selection-start-line="137" selection-start-column="24" selection-end-line="137" selection-end-column="24" />
-          <caret line="188" column="18" lean-forward="true" selection-start-line="188" selection-start-column="18" selection-end-line="188" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -1288,6 +1277,13 @@
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="159" column="65" lean-forward="true" selection-start-line="159" selection-start-column="46" selection-end-line="159" selection-end-column="65" />
         </state>
       </provider>
     </entry>

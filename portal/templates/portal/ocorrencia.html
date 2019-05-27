@@ -135,57 +135,42 @@
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                 </div>
-                    <!--Body-->
-                    <div class="modal-body">
-                        {% csrf_token %}
-                        {#                        <select name="SelectTurma" id="SelectTurma"#}
-                        {#                                class="mdb-select md-form colorful-select dropdown-success"#}
-                        {#                                searchable="Pesquisar..." required>#}
-                        {#                            <option value="" disabled selected>Selecione a turma</option>#}
-                        {#                            {% for c in cursos %}#}
-                        {#                                {% if c.retorna_turmas %}#}
-                        {#                                    <optgroup label="{{ c.descricao }}">#}
-                        {#                                        {% for t in c.retorna_turmas %}#}
-                        {#                                            <option value={{ t.id }}>{{ t.descricao }} - {{ t.turno }}</option>#}
-                        {#                                        {% endfor %}#}
-                        {#                                    </optgroup>#}
-                        {#                                {% endif %}#}
-                        {#                            {% endfor %}#}
-                        {#                        </select>#}
-                        {#                        <label for="SelectTurma" class="mdb-main-label">Turma</label>#}
-                        {% for curso in cursos %}
+                <!--Body-->
+                <div class="modal-body">
+                    {% csrf_token %}
+                    {#                        <select name="SelectTurma" id="SelectTurma"#}
+                    {#                                class="mdb-select md-form colorful-select dropdown-success"#}
+                    {#                                searchable="Pesquisar..." required>#}
+                    {#                            <option value="" disabled selected>Selecione a turma</option>#}
+                    {#                            {% for c in cursos %}#}
+                    {#                                {% if c.retorna_turmas %}#}
+                    {#                                    <optgroup label="{{ c.descricao }}">#}
+                    {#                                        {% for t in c.retorna_turmas %}#}
+                    {#                                            <option value={{ t.id }}>{{ t.descricao }} - {{ t.turno }}</option>#}
+                    {#                                        {% endfor %}#}
+                    {#                                    </optgroup>#}
+                    {#                                {% endif %}#}
+                    {#                            {% endfor %}#}
+                    {#                        </select>#}
+                    {#                        <label for="SelectTurma" class="mdb-main-label">Turma</label>#}
+                    {% for curso in cursos %}
+                        {% if curso.retorna_turmas %}
                             <p><strong style="font-weight: bold">{{ curso.descricao.upper }}</strong><br>
                                 {% for turma in curso.retorna_turmas %}
                                     <a class="btn btn-sm btn-info" type="button"
                                        href="{% url 'ocorrencia_new' turma.id %}"
                                        style="font-weight: bold">{{ turma.descricao }} - {{ turma.turno }}</a>
                                 {% endfor %}<br>
-                            </p>{#                            <div class="row mb-4">#}
-                            {#                                <div class="col-sm-12">#}
-                            {#                                    <div class="card">#}
-                            {#                                        <div class="card-header grey lighten-1 font-weight-bold text-uppercase">#}
-                            {#                                            {{ curso.descricao }}#}
-                            {#                                        </div>#}
-                            {#                                        <div class="card-body">#}
-                            {#                                            <div class="d-flex flex-wrap">#}
-                            {#                                                {% for turma in curso.retorna_turmas %}#}
-                            {#                                                    <a class="btn btn-sm btn-outline-success waves-effect" type="button"#}
-                            {#                                                       href="{% url 'perfil_turma' turma.id %}"#}
-                            {#                                                       style="font-weight: bold">{{ turma.descricao }}</a><br>#}
-                            {#                                                {% endfor %}#}
-                            {#                                            </div>#}
-                            {#                                        </div>#}
-                            {#                                    </div>#}
-                            {#                                </div>#}
-                            {#                            </div>#}
-                        {% endfor %}
-                    </div>
-                    <!--Footer-->
-                    {#                    <div class="modal-footer justify-content-center">#}
-                    {#                        <button type="submit" class="btn btn-success waves-effect">Enviar</button>#}
-                    {#                        <a type="button" class="btn btn-outline-success"#}
-                    {#                           data-dismiss="modal">Voltar</a>#}
-                    {#                    </div>#}
+                            </p>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <!--Footer-->
+                {#                    <div class="modal-footer justify-content-center">#}
+                {#                        <button type="submit" class="btn btn-success waves-effect">Enviar</button>#}
+                {#                        <a type="button" class="btn btn-outline-success"#}
+                {#                           data-dismiss="modal">Voltar</a>#}
+                {#                    </div>#}
             </div>
             <!--/.Content-->
         </div>
