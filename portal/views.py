@@ -1205,25 +1205,23 @@ def ocorrencia(request):
 
 
 @login_required
-def ocorrencia_new(request):
+def ocorrencia_new(request, turma_id):
     categorias = CategoriaFalta.objects.all().order_by('artigo')
-    if request.method == 'POST':
-        form = OcorrenciaForm(request.POST)
+    form = OcorrenciaForm(request.POST)
 
-        if not form.is_valid():
-            id = request.POST['SelectTurma']
-            turma = get_object_or_404(Turma, id=id)
-            matriculas = Matricula.objects.filter(turma=turma, ano_letivo=int(date.today().year))
+    if not form.is_valid():
+        turma = get_object_or_404(Turma, id=turma_id)
+        matriculas = Matricula.objects.filter(turma=turma, ano_letivo=int(date.today().year))
 
-            form = OcorrenciaForm()
+        form = OcorrenciaForm()
 
-            context = {
-                'matriculas': matriculas,
-                'categorias': categorias,
-                'turma': turma,
-                'ano': int(date.today().year),
-                'form': form
-            }
+        context = {
+            'matriculas': matriculas,
+            'categorias': categorias,
+            'turma': turma,
+            'ano': int(date.today().year),
+            'form': form
+        }
 
     return render(request, 'portal/ocorrencia_new.html', context)
 

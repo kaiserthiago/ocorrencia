@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^ocorrencia/register$', views.ocorrencia_register, name='ocorrencia_register'),
     url(r'^ocorrencia/pendente$', views.ocorrencia_pendente, name='ocorrencia_pendente'),
     url(r'^ocorrencia/delete/(?P<ocorrencia_id>\d+)$', views.ocorrencia_delete, name='ocorrencia_delete'),
-    url(r'^ocorrencia/new$', views.ocorrencia_new, name='ocorrencia_new'),
+    url(r'^ocorrencia/(?P<turma_id>\d+)/new$', views.ocorrencia_new, name='ocorrencia_new'),
     url(r'^ocorrencia$', views.ocorrencia, name='ocorrencia'),
 
     url(r'^encaminhamento/relatorio/(?P<aluno_id>\d+)$', views.encaminhamento_relatorio, name='encaminhamento_relatorio'),
