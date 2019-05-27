@@ -139,40 +139,40 @@
                     <!--Body-->
                     <div class="modal-body">
                         {% csrf_token %}
-{#                        <select name="SelectTurma" id="SelectTurma"#}
-{#                                class="mdb-select md-form colorful-select dropdown-success"#}
-{#                                searchable="Pesquisar..." required>#}
-{#                            <option value="" disabled selected>Selecione a turma</option>#}
-{#                            {% for c in cursos %}#}
-{#                                {% if c.retorna_turmas %}#}
-{#                                    <optgroup label="{{ c.descricao }}">#}
-{#                                        {% for t in c.retorna_turmas %}#}
-{#                                            <option value={{ t.id }}>{{ t.descricao }} - {{ t.turno }}</option>#}
-{#                                        {% endfor %}#}
-{#                                    </optgroup>#}
-{#                                {% endif %}#}
-{#                            {% endfor %}#}
-{#                        </select>#}
-{#                        <label for="SelectTurma" class="mdb-main-label">Turma</label>#}
-                       {% for curso in cursos %}
-        <div class="row mb-4">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header grey lighten-1 font-weight-bold text-uppercase">
-                        {{ curso.descricao }}
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex flex-wrap">
-                            {% for turma in curso.retorna_turmas %}
-                                <a class="btn btn-success waves-effect" type="button"
-                                   href="{% url 'perfil_turma' turma.id %}">{{ turma.descricao }}</a><br>
+                        <select name="SelectTurma" id="SelectTurma"
+                                class="mdb-select md-form colorful-select dropdown-success"
+                                searchable="Pesquisar..." required>
+                            <option value="" disabled selected>Selecione a turma</option>
+                            {% for c in cursos %}
+                                {% if c.retorna_turmas %}
+                                    <optgroup label="{{ c.descricao }}">
+                                        {% for t in c.retorna_turmas %}
+                                            <option value={{ t.id }}>{{ t.descricao }} - {{ t.turno }}</option>
+                                        {% endfor %}
+                                    </optgroup>
+                                {% endif %}
                             {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {% endfor %}
+                        </select>
+                        <label for="SelectTurma" class="mdb-main-label">Turma</label>
+{#                       {% for curso in cursos %}#}
+{#        <div class="row mb-4">#}
+{#            <div class="col-sm-12">#}
+{#                <div class="card">#}
+{#                    <div class="card-header grey lighten-1 font-weight-bold text-uppercase">#}
+{#                        {{ curso.descricao }}#}
+{#                    </div>#}
+{#                    <div class="card-body">#}
+{#                        <div class="d-flex flex-wrap">#}
+{#                            {% for turma in curso.retorna_turmas %}#}
+{#                                <a class="btn btn-success waves-effect" type="button"#}
+{#                                   href="{% url 'perfil_turma' turma.id %}">{{ turma.descricao }}</a><br>#}
+{#                            {% endfor %}#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    {% endfor %}#}
                     </div>
                     <!--Footer-->
                     <div class="modal-footer justify-content-center">

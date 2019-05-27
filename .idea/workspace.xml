@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="correção erro button providências ocorrência">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="novo modal turmas new ocorrencia" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,17 +41,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2040">
-              <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
+            <state relative-caret-position="619">
+              <caret line="174" column="16" selection-start-line="174" selection-start-column="16" selection-end-line="174" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/user_account.html">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/conselho.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1180">
-              <caret line="59" column="88" selection-start-line="59" selection-start-column="69" selection-end-line="59" selection-end-column="88" />
+            <state relative-caret-position="602">
+              <caret line="39" column="16" lean-forward="true" selection-start-line="21" selection-start-column="4" selection-end-line="39" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -212,7 +210,6 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao_relatorio.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/aluno.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/aluno_edit.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/aluno_new.html" />
@@ -244,6 +241,7 @@
         <option value="$PROJECT_DIR$/portal/templates/base.html" />
         <option value="$PROJECT_DIR$/login/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_providencias.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" />
       </list>
     </option>
   </component>
@@ -442,21 +440,7 @@
       <workItem from="1558656671479" duration="770000" />
       <workItem from="1558657543484" duration="840000" />
       <workItem from="1558742892193" duration="431000" />
-      <workItem from="1558966767626" duration="230000" />
-    </task>
-    <task id="LOCAL-00054" summary="Liberar configurações para grupo de usuários CAED">
-      <created>1553805259720</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1553805259721</updated>
-    </task>
-    <task id="LOCAL-00055" summary="Liberar configurações para grupo de usuários CAED">
-      <created>1553805591762</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1553805591762</updated>
+      <workItem from="1558966767626" duration="1068000" />
     </task>
     <task id="LOCAL-00056" summary="Liberar configurações para grupo de usuários CAED">
       <created>1553805760843</created>
@@ -787,7 +771,21 @@
       <option name="project" value="LOCAL" />
       <updated>1558742935793</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="add class select label modal new ocorrência">
+      <created>1558967166002</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1558967166002</updated>
+    </task>
+    <task id="LOCAL-00104" summary="novo modal turmas new ocorrencia">
+      <created>1558967809260</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1558967809260</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -796,7 +794,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67842000" />
+    <option name="totallyTimeSpent" value="68669000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -851,8 +849,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="SHOW_FILE_HISTORY_DETAILS" value="false" />
-    <MESSAGE value="desabilitar botão submit ao clicar para envitar clique duplo" />
-    <MESSAGE value="novos status de ocorrências" />
     <MESSAGE value="nova organização menus" />
     <MESSAGE value="adição de novos status nas ocorrências" />
     <MESSAGE value="novo dashboard" />
@@ -876,7 +872,9 @@
     <MESSAGE value="novo layout de ícones e botões" />
     <MESSAGE value="novo footer" />
     <MESSAGE value="correção erro button providências ocorrência" />
-    <option name="LAST_COMMIT_MESSAGE" value="correção erro button providências ocorrência" />
+    <MESSAGE value="add class select label modal new ocorrência" />
+    <MESSAGE value="novo modal turmas new ocorrencia" />
+    <option name="LAST_COMMIT_MESSAGE" value="novo modal turmas new ocorrencia" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html">
@@ -945,13 +943,6 @@
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/conselho.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="31" column="45" lean-forward="true" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -1253,10 +1244,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/conselho.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="39" column="16" lean-forward="true" selection-start-line="21" selection-start-column="4" selection-end-line="39" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2040">
-          <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
+        <state relative-caret-position="619">
+          <caret line="174" column="16" selection-start-line="174" selection-start-column="16" selection-end-line="174" selection-end-column="16" />
         </state>
       </provider>
     </entry>
