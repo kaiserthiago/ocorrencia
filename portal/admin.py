@@ -57,7 +57,7 @@ class EncaminhamentoAdmin(admin.ModelAdmin):
 
 class JustificativaAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'matricula', 'status')
+        'id', 'matricula', 'data_inicial', 'status')
     list_filter = ['status', 'matricula__ano_letivo', 'empresa', 'status']
     search_fields = ['matricula__aluno__nome', 'user']
 

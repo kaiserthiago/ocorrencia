@@ -9,7 +9,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.forms import PasswordChangeForm
-from django.contrib.auth.models import User, Permission
+from django.contrib.auth.models import User, Permission, Group
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Count, Sum, Avg, Func, F, ExpressionWrapper, DurationField
 from django.db.models.functions import TruncMonth
@@ -847,8 +847,8 @@ def dashboard(request):
     dados_grafico_justificativa_curso = json.dumps(list(cursos_justificativa))
 
     cursos_justificativa = Justificativa.objects.filter(empresa=request.user.userprofile.empresa,
-                                                           data_inicial__year=date.today().year,
-                                                           matricula__turma__curso__in=Curso.objects.all()).order_by(
+                                                        data_inicial__year=date.today().year,
+                                                        matricula__turma__curso__in=Curso.objects.all()).order_by(
         'matricula__turma__curso__descricao').values('matricula__turma__curso__id',
                                                      'matricula__turma__curso__descricao').distinct()
 
@@ -1093,8 +1093,8 @@ def dashboard(request):
         # JUSTIFICATIVAS
         'dados_grafico_justificativa_curso': dados_grafico_justificativa_curso,
         'cursos_justificativa': cursos_justificativa,
-        'dados_grafico_justificativa_status':dados_grafico_justificativa_status,
-        'status_justificativa':status_justificativa
+        'dados_grafico_justificativa_status': dados_grafico_justificativa_status,
+        'status_justificativa': status_justificativa
     }
 
     return render(request, 'portal/dashboard.html', context)
@@ -1991,16 +1991,31 @@ def report_pdf_justificativa(request, justificativa_id):
     try:
         justificativa = get_object_or_404(Justificativa, id=justificativa_id)
 
-        context = {
-            'justificativa': justificativa,
-        }
+        if (request.user.userprofile.aluno):
+            if (justificativa.matricula.aluno.id == request.user.userprofile.aluno.id):
+                context = {
+                    'justificativa': justificativa,
+                }
 
-        return rendering.render_to_pdf_response(request, 'pdf/report_justificativa.html',
-                                                context,
-                                                using=None, download_filename=None,
-                                                content_type='application/pdf', response_class=HttpResponse)
+                return rendering.render_to_pdf_response(request, 'pdf/report_justificativa.html',
+                                                        context,
+                                                        using=None, download_filename=None,
+                                                        content_type='application/pdf', response_class=HttpResponse)
+            else:
+                erro = 'Você não tem permissão para acessar esses dados.'
+                return render(request, 'portal/erro.html', {'erro': erro})
+        else:
+            context = {
+                'justificativa': justificativa,
+            }
+
+            return rendering.render_to_pdf_response(request, 'pdf/report_justificativa.html',
+                                                    context,
+                                                    using=None, download_filename=None,
+                                                    content_type='application/pdf', response_class=HttpResponse)
+
     except:
-        erro = 'Não foi possível imprimir a ocorrência. Por favor contate o suporte.'
+        erro = 'Não foi possível imprimir a justificativa. Por favor contate o suporte.'
         return render(request, 'portal/erro.html', {'erro': erro})
 
 
