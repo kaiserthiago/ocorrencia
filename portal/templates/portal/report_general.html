@@ -31,6 +31,12 @@
                                     class="btn btn-primary btn-block mb-2">
                                 <i class="fa fa-users"></i> Lista alunos
                             </button>
+
+                            <a href="{% url 'report_aluno_xls' %}"
+                                    class="btn btn-primary btn-block mb-2">
+                                <i class="fa fa-file-excel-o"></i> Lista alunos XLS
+                            </a>
+
                             {% if request.user.is_staff or request.user.is_superuser %}
                                 <a href="{% url 'report_pdf_lista_aluno_pcd' %}"
                                    class="btn btn-primary btn-block mb-2"

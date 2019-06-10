@@ -1,3 +1,4 @@
+import xlwt
 import json
 import string
 from datetime import date, timedelta
@@ -26,6 +27,7 @@ from portal.forms import OcorrenciaForm, CursoForm, TurmaForm, AlunoForm, UserFo
     ServicoCategoriaForm, ServicoForm, EncaminhamentoForm, AutorizacaoForm, ConfiguracaoForm, JustificativaForm
 from portal.models import Curso, Aluno, Turma, Ocorrencia, Matricula, CategoriaFalta, Falta, UserProfile, \
     ServicoCategoria, Servico, Encaminhamento, Autorizacao, Configuracao, Empresa, Justificativa
+from portal.resources import AlunoResource
 
 
 def home(request):
@@ -2995,3 +2997,48 @@ def validar_declaracao_matricula(request):
 
     else:
         return render(request, 'portal/validar_declaracao_matricula.html', {})
+
+
+@login_required
+def report_aluno_xls(request):
+    empresa = get_object_or_404(Empresa, id=request.user.userprofile.empresa.id)
+
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="users.xls"'
+
+    wb = xlwt.Workbook(encoding='utf-8')
+    ws = wb.add_sheet('Users')
+
+    # Sheet header, first row
+    row_num = 0
+
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+
+    columns = ['ALUNO', 'EMAIL', 'CURSO', 'TURMA']
+
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style)
+
+    # Sheet body, remaining rows
+    font_style = xlwt.XFStyle()
+
+    rows = Matricula.objects.filter(empresa=empresa, ano_letivo=date.today().year).values_list('aluno__nome', 'aluno__email', 'turma__curso__descricao', 'turma__descricao')
+    # rows = Aluno.objects.filter(empresa=empresa).values_list('nome', 'email')
+    for row in rows:
+        row_num += 1
+        for col_num in range(len(row)):
+            ws.write(row_num, col_num, row[col_num], font_style)
+
+    wb.save(response)
+    return response
+
+    # aluno_resource = AlunoResource()
+    # queryset = Aluno.objects.filter(empresa=empresa)
+    dataset = aluno_resource.export(queryset)
+
+    # response = HttpResponse(dataset.csv, content_type='application/vnd.ms-excel')
+
+    # name = 'lista_alunos_' + empresa.nome_fantasia + '.xls'
+    # response['Content-Disposition'] = 'attachment; filename="' + name + '"'
+    # return response

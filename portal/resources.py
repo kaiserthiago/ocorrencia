@@ -1,5 +1,5 @@
 from import_export import resources
-from .models import Aluno, Matricula, Teste
+from .models import Aluno, Matricula
 
 
 class AlunoResource(resources.ModelResource):
@@ -9,7 +9,3 @@ class AlunoResource(resources.ModelResource):
 class MatriculaResource(resources.ModelResource):
     class Meta:
         model = Matricula
-
-class TesteResource(resources.ModelResource):
-    class Meta:
-        model = Teste

@@ -106,6 +106,8 @@ urlpatterns = [
     url(r'^report/pdf/matricula$', views.report_pdf_declaracao_matricula, name='report_pdf_declaracao_matricula'),
     url(r'^report/pdf/sabado$', views.report_pdf_declaracao_sabado_letivo, name='report_pdf_declaracao_sabado_letivo'),
 
+    url(r'^report/xls/aluno$', views.report_aluno_xls, name='report_aluno_xls'),
+
     url(r'^report/general$', views.report_general, name='report_general'),
 
     url(r'^servico/categoria/delete/(?P<servico_categoria_id>\d+)$', views.servico_categoria_delete,
