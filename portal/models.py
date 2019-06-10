@@ -391,7 +391,7 @@ class Servico(AuditoriaMixin):
 class Justificativa(AuditoriaMixin):
     matricula = models.ForeignKey(Matricula, on_delete=models.DO_NOTHING)
     data_inicial = models.DateField()
-    tempo_afastamento = models.IntegerField()
+    tempo_afastamento = models.PositiveIntegerField()
     descricao = models.TextField()
     motivo_indeferimento = models.TextField(blank=True, null=True)
     responsavel_analise_justificativa = models.ForeignKey(User, on_delete=models.DO_NOTHING,

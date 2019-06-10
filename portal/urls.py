@@ -74,10 +74,10 @@ urlpatterns = [
     url(r'^user/account/change$', views.user_change_password, name='user_change_password'),
     url(r'^user/account$', views.user_account, name='user_account'),
 
-    url('^perfil/aluno/(?P<aluno_id>\d+)/edit/pagina/(?P<page>\d+)/turma/(?P<turma>\d+)$', views.aluno_perfil_edit, name='aluno_perfil_edit'),
-    url('^perfil/aluno/(?P<aluno_id>\d+)$', views.perfil_individual, name='perfil_individual'),
-    url('^perfil/turma/(?P<turma_id>\d+)$', views.perfil_turma, name='perfil_turma'),
-    url('^perfil$', views.perfil, name='perfil'),
+    url(r'^perfil/aluno/(?P<aluno_id>\d+)/edit/pagina/(?P<page>\d+)/turma/(?P<turma>\d+)$', views.aluno_perfil_edit, name='aluno_perfil_edit'),
+    url(r'^perfil/aluno/(?P<aluno_id>\d+)$', views.perfil_individual, name='perfil_individual'),
+    url(r'^perfil/turma/(?P<turma_id>\d+)$', views.perfil_turma, name='perfil_turma'),
+    url(r'^perfil$', views.perfil, name='perfil'),
 
     url(r'^report/pdf/justificativa/(?P<justificativa_id>\d+)$', views.report_pdf_justificativa, name='report_pdf_justificativa'),
 

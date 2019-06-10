@@ -2584,7 +2584,7 @@ def justificativa_solicitar(request, matricula_id):
 
     try:
         matricula = get_object_or_404(Matricula, id=matricula_id)
-        if matricula.aluno.id == request.user.userprofile.aluno.id:
+        if (matricula.aluno.id == request.user.userprofile.aluno.id) or request.user.is_superuser:
             if request.method == 'POST':
                 form = JustificativaForm(request.POST)
 
@@ -2651,7 +2651,7 @@ def justificativa_solicitar(request, matricula_id):
             erro = 'Você não tem permissão para acessar esses dados.'
             return render(request, 'portal/erro.html', {'erro': erro})
     except:
-        erro = 'Você não tem permissão para acessar esses dados.'
+        erro = 'Contate o suporte.'
         return render(request, 'portal/erro.html', {'erro': erro})
 
 
@@ -3033,12 +3033,4 @@ def report_aluno_xls(request):
     wb.save(response)
     return response
 
-    # aluno_resource = AlunoResource()
-    # queryset = Aluno.objects.filter(empresa=empresa)
     dataset = aluno_resource.export(queryset)
-
-    # response = HttpResponse(dataset.csv, content_type='application/vnd.ms-excel')
-
-    # name = 'lista_alunos_' + empresa.nome_fantasia + '.xls'
-    # response['Content-Disposition'] = 'attachment; filename="' + name + '"'
-    # return response
