@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="novo layout saídas pendentes" />
+    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="block button salvar import matrícula">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,55 +22,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/portal/views.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-21">
-              <caret line="2939" column="22" selection-start-line="2939" selection-start-column="22" selection-end-line="2939" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="325">
+              <caret line="111" column="60" selection-start-line="111" selection-start-column="44" selection-end-line="111" selection-end-column="60" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/emails.py">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/import_matricula.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="425">
+              <caret line="62" column="27" lean-forward="true" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-saida.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1295">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="351" selection-start-line="351" selection-end-line="351" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_new.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="439">
-              <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
+              <caret line="22" column="104" selection-start-line="22" selection-start-column="104" selection-end-line="22" selection-end-column="104" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_new.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="22" column="104" selection-start-line="22" selection-start-column="104" selection-end-line="22" selection-end-column="104" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/templates/portal/turma.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="65" column="50" selection-start-line="65" selection-start-column="50" selection-end-line="65" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -91,11 +85,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1060">
-              <caret line="59" column="40" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
+            <state relative-caret-position="280">
+              <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -106,7 +100,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
+            <state relative-caret-position="8560">
               <caret line="438" column="12" selection-start-line="438" selection-start-column="6" selection-end-line="438" selection-end-column="12" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
@@ -205,12 +199,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_providencias.html" />
         <option value="$PROJECT_DIR$/portal/forms.py" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_pendente.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_pendente.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao_new.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_relatorio.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao_relatorio.html" />
@@ -223,7 +214,6 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/import_aluno.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/import_aluno_atualizar.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/categoria_servico.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/turma.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/curso.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/matricula.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/servico.html" />
@@ -237,7 +227,6 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/turma_new.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/user_change_password.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/user_account.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/import_matricula.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_solicitar.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/justificativa_solicitar.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/perfil_individual.html" />
@@ -256,6 +245,11 @@
         <option value="$PROJECT_DIR$/portal/templates/base.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html" />
         <option value="$PROJECT_DIR$/portal/views.py" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_new.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao_new.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/turma.html" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/import_matricula.html" />
       </list>
     </option>
   </component>
@@ -287,13 +281,6 @@
               <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
               <item name="portal" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ocorrencia" type="462c0819:PsiDirectoryNode" />
-              <item name="portal" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="emails" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ocorrencia" type="b2602c69:ProjectViewProjectNode" />
@@ -471,20 +458,7 @@
       <workItem from="1560171042176" duration="198000" />
       <workItem from="1560257532431" duration="1315000" />
       <workItem from="1560259941550" duration="2720000" />
-    </task>
-    <task id="LOCAL-00067" summary="Tipificação da ocorrência liberado no momento do registro. Alteraçõs visuais na página de providências da ocorrência.">
-      <created>1554990175039</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1554990175040</updated>
-    </task>
-    <task id="LOCAL-00068" summary="Dashboard com prazo de retorno das ocorrências em dias">
-      <created>1554991127475</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1554991127475</updated>
+      <workItem from="1560292298038" duration="1696000" />
     </task>
     <task id="LOCAL-00069" summary="exibir status na lista de ocorrências">
       <created>1555094166986</created>
@@ -815,7 +789,21 @@
       <option name="project" value="LOCAL" />
       <updated>1560260403974</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="exibir turno da turma nos registros de ocorrência, encaminhamento e saída">
+      <created>1560292376774</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1560292376774</updated>
+    </task>
+    <task id="LOCAL-00117" summary="block button salvar import matrícula">
+      <created>1560295712129</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1560295712129</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -824,7 +812,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86019000" />
+    <option name="totallyTimeSpent" value="87715000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -839,7 +827,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49931034" visible="true" weight="0.27144772" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49931034" visible="true" weight="0.27479893" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5006896" side_tool="true" weight="0.2298177" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -879,8 +867,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="SHOW_FILE_HISTORY_DETAILS" value="false" />
-    <MESSAGE value="remoção de linha comentada" />
-    <MESSAGE value="solicitação de justificativa de abono de falta e/ou trabalhos" />
     <MESSAGE value="justificativa de faltas e trabalhos" />
     <MESSAGE value="gráficos de justificativa no dhasboard" />
     <MESSAGE value="adequação funções relatório de ocorrências pelo conselho de classe" />
@@ -904,34 +890,15 @@
     <MESSAGE value="correção solicitar justificativa" />
     <MESSAGE value="correção menu opções grupo vigia" />
     <MESSAGE value="novo layout saídas pendentes" />
-    <option name="LAST_COMMIT_MESSAGE" value="novo layout saídas pendentes" />
+    <MESSAGE value="exibir turno da turma nos registros de ocorrência, encaminhamento e saída" />
+    <MESSAGE value="block button salvar import matrícula" />
+    <option name="LAST_COMMIT_MESSAGE" value="block button salvar import matrícula" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_new.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="130" column="88" selection-start-line="130" selection-start-column="88" selection-end-line="130" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/aluno_edit_perfil.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="114" column="103" selection-start-line="114" selection-start-column="103" selection-end-line="114" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_show.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-438">
           <caret line="37" selection-start-line="33" selection-start-column="20" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_new.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="15" column="95" selection-start-line="15" selection-start-column="68" selection-end-line="15" selection-end-column="95" />
         </state>
       </provider>
     </entry>
@@ -966,13 +933,6 @@
           <folding>
             <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/turma.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="30" column="74" selection-start-line="30" selection-start-column="74" selection-end-line="30" selection-end-column="74" />
         </state>
       </provider>
     </entry>
@@ -1152,13 +1112,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/import_matricula.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="57" column="88" selection-start-line="57" selection-start-column="69" selection-end-line="57" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_solicitar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1560">
@@ -1220,6 +1173,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/portal/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="2939" column="22" selection-start-line="2939" selection-start-column="22" selection-end-line="2939" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/emails.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-saida.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7020">
+          <caret line="351" selection-start-line="351" selection-end-line="351" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/justificativa.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1200">
@@ -1234,12 +1224,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/admin.py">
+    <entry file="file://$PROJECT_DIR$/portal/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1060">
-          <caret line="59" column="40" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
+        <state relative-caret-position="8560">
+          <caret line="438" column="12" selection-start-line="438" selection-start-column="6" selection-end-line="438" selection-end-column="12" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1251,55 +1241,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="351" selection-start-line="351" selection-end-line="351" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html">
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/encaminhamento_new.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="439">
-          <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
+          <caret line="22" column="104" selection-start-line="22" selection-start-column="104" selection-end-line="22" selection-end-column="104" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/models.py">
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_new.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="438" column="12" selection-start-line="438" selection-start-column="6" selection-end-line="438" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="440">
+          <caret line="22" column="104" selection-start-line="22" selection-start-column="104" selection-end-line="22" selection-end-column="104" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/emails/registra-saida.html">
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/ocorrencia_new.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1295">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="325">
+          <caret line="111" column="60" selection-start-line="111" selection-start-column="44" selection-end-line="111" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/emails.py">
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/import_matricula.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="425">
+          <caret line="62" column="27" lean-forward="true" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/views.py">
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/turma.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-21">
-          <caret line="2939" column="22" selection-start-line="2939" selection-start-column="22" selection-end-line="2939" selection-end-column="22" />
+        <state relative-caret-position="280">
+          <caret line="65" column="50" selection-start-line="65" selection-start-column="50" selection-end-line="65" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
