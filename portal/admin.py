@@ -34,7 +34,7 @@ class BancoAdmin(ImportExportModelAdmin):
 class MatriculaAdmin(ImportExportModelAdmin):
     list_display = ('id', 'aluno', 'turma', 'ano_letivo', 'empresa')
     list_filter = ['turma__curso', 'ano_letivo', 'empresa']
-    search_fields = ['aluno__nome', 'turma__curso__descricao']
+    search_fields = ['aluno__nome', 'turma__curso__descricao', 'turma__descricao']
 
 
 class CursoAdmin(admin.ModelAdmin):
