@@ -20,77 +20,73 @@
             Erro! Não foi possível identificar o aluno com o CPF {{ cpf }}
         </div>
     {% endif %}
-    <div class="card mb-4">
-        <div class="card-header grey lighten-1 font-weight-bold">
-            Leitor de QrCode
+    <div class="row mb-4">
+        <div class="col-sm-4">
+            <div class="card mb-4">
+                <div class="card-header grey lighten-1 font-weight-bold">
+                    Leitor de QrCode
+                </div>
+                <div class="card-body text-center">
+                    <canvas></canvas>
+                    <form action="" id="formcpf" method="POST">
+                        {% csrf_token %}
+                        <input type="text" id="cpf" name="cpf" onchange="this.form.submit();" style="display: none">
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="card-body text-center">
-            <canvas></canvas>
-            <form action="" id="formcpf" method="POST">
-                {% csrf_token %}
-                <input type="text" id="cpf" name="cpf" onchange="this.form.submit();" style="display: none">
-            </form>
-            {#            {% if aluno %}#}
-            {#                <strong>Aluno: </strong> {{ aluno.nome }}<br>#}
-            {#                <strong>Nascimento: </strong> {{ aluno.nascimento }}<br>#}
-            {#                <strong>CPF: </strong> {{ aluno.cpf }}<br>#}
-            {#                <strong>Matrícula: </strong> {{ aluno.numero_matricula }}#}
-            {#            {% endif %}#}
-            {#            {% if matricula %}#}
-            {#                <hr>#}
-            {#                <strong>Curso: </strong>{{ matricula.turma.curso.descricao }}<br>#}
-            {#                <strong>Turma: </strong>{{ matricula.turma.descricao }}<br>#}
-            {#                <strong>Ano Letivo: </strong>{{ matricula.ano_letivo }}#}
-            {#            {% endif %}#}
-        </div>
-    </div>
-    <!--Panel PENDENTES-->
-    <div class="card mb-4">
-        <div class="card-header grey lighten-1 font-weight-bold">SAÍDAS AUTORIZADAS PENDENTES</div>
-        <div class="card-body">
-            <div class="form-row">
-                <div class="col-sm-12">
-                    <div class="md-form">
-                        <input id="myInput" type="text" class="form-control form-control-sm" autofocus/>
-                        <label for="myInput">Pesquisar...</label>
+        <div class="col-sm-8">
+            <!--Panel PENDENTES-->
+            <div class="card mb-4">
+                <div class="card-header grey lighten-1 font-weight-bold">
+                    SAÍDAS AUTORIZADAS PENDENTES
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="col-sm-12">
+                            <div class="md-form">
+                                <input id="myInput" type="text" class="form-control form-control-sm" autofocus/>
+                                <label for="myInput">Pesquisar...</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped btn-table">
+                            <thead>
+                            <tr>
+                                <th style="font-weight: bold">Aluno</th>
+                                <th style="font-weight: bold">Autorizado por</th>
+                                <th style="font-weight: bold">Data</th>
+                                <th style="text-align: right; font-weight: bold">Ações</th>
+                            </tr>
+                            </thead>
+                            <tbody id="myTable">
+                            {% for autorizacao in autorizacoes %}
+                                <tr>
+                                    <td style="vertical-align: middle;">{{ autorizacao.matricula.aluno }}</td>
+                                    <td style="vertical-align: middle;">{{ autorizacao.user }}</td>
+                                    <td style="vertical-align: middle;">{{ autorizacao.data }}</td>
+                                    <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
+
+                                        <a data-toggle="modal" href="#RegistrarSaida{{ autorizacao.id }}"><i
+                                                class="fa fa-check fa-2x green-text" title="Registrar saída"
+                                                data-toggle="tooltip" data-placement="top"></i></a>
+                                    </td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td colspan="6" class="card-header warning-color white-text text-center"><strong>
+                                        NÃO HÁ SAÍDAS AUTORIZADAS</strong></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-            <div class="table-responsive">
-                <table class="table table-sm table-striped btn-table">
-                    <thead>
-                    <tr>
-                        <th style="font-weight: bold">Aluno</th>
-                        <th style="font-weight: bold">Autorizado por</th>
-                        <th style="font-weight: bold">Data</th>
-                        <th style="text-align: right; font-weight: bold">Ações</th>
-                    </tr>
-                    </thead>
-                    <tbody id="myTable">
-                    {% for autorizacao in autorizacoes %}
-                        <tr>
-                            <td style="vertical-align: middle;">{{ autorizacao.matricula.aluno }}</td>
-                            <td style="vertical-align: middle;">{{ autorizacao.user }}</td>
-                            <td style="vertical-align: middle;">{{ autorizacao.data }}</td>
-                            <td class="px-0 py-0" style="vertical-align: middle; text-align: right">
-
-                                <a data-toggle="modal" href="#RegistrarSaida{{ autorizacao.id }}"><i
-                                        class="fa fa-check fa-2x green-text" title="Registrar saída"
-                                        data-toggle="tooltip" data-placement="top"></i></a>
-                            </td>
-                        </tr>
-                    {% empty %}
-                        <tr>
-                            <td colspan="6" class="card-header warning-color white-text text-center"><strong>
-                                NÃO HÁ SAÍDAS AUTORIZADAS</strong></td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+            <!--/.Panel PENDENTES-->
         </div>
     </div>
-    <!--/.Panel PENDENTES-->
 {% endblock %}
 
 {% block script %}
