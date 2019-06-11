@@ -25,7 +25,7 @@
     </style>
 </head>
 {% if request.user.is_authenticated %}
-        <body class="hidden-sn mdb-skin" id="body">
+    <body class="hidden-sn mdb-skin" id="body">
 {% else %}
     <body class="mdb-skin" id="body">
 {% endif %}
@@ -34,236 +34,264 @@
     <!--Double navigation-->
     <header>
         <!-- Sidebar navigation -->
-            <ul id="slide-out" class="side-nav sn-bg-4 custom-scrollbar">
-        <!-- Logo -->
-        <li>
-            <div class="logo-wrapper waves-light text-center">
-                <a href="#"><img src="{% static 'img/Logotipo IFRO - Cacoal-2.png' %}"
-                                 class="img-fluid flex-center" style="width: 100%; height: 100%; padding: 5px"></a>
-            </div>
-        </li>
-        <!--/. Logo -->
-        <!--Social-->
-        <li>
-            <ul class="social">
-                {#                            <li><a class="icons-sm fb-ic"><i class="fa fa-facebook"> </i></a></li>#}
-                {#                            <li><a class="icons-sm pin-ic"><i class="fa fa-pinterest"> </i></a></li>#}
-                {#                            <li><a class="icons-sm gplus-ic"><i class="fa fa-google-plus"> </i></a></li>#}
-                {#                            <li><a class="icons-sm tw-ic"><i class="fa fa-twitter"> </i></a></li>#}
-                {#                        <li></li>#}
-            </ul>
-        </li>
-        <!--/Social-->
-        <!-- Side navigation links -->
-        <li>
-            <ul class="collapsible collapsible-accordion">
-                <li>
-                    <a href="{% url 'home' %}"
-                       class="collapsible-header waves-effect arrow-r
+        <ul id="slide-out" class="side-nav sn-bg-4 custom-scrollbar">
+            <!-- Logo -->
+            <li>
+                <div class="logo-wrapper waves-light text-center">
+                    <a href="#"><img src="{% static 'img/Logotipo IFRO - Cacoal-2.png' %}"
+                                     class="img-fluid flex-center" style="width: 100%; height: 100%; padding: 5px"></a>
+                </div>
+            </li>
+            <!--/. Logo -->
+            <!--Social-->
+            <li>
+                <ul class="social">
+                    {#                            <li><a class="icons-sm fb-ic"><i class="fa fa-facebook"> </i></a></li>#}
+                    {#                            <li><a class="icons-sm pin-ic"><i class="fa fa-pinterest"> </i></a></li>#}
+                    {#                            <li><a class="icons-sm gplus-ic"><i class="fa fa-google-plus"> </i></a></li>#}
+                    {#                            <li><a class="icons-sm tw-ic"><i class="fa fa-twitter"> </i></a></li>#}
+                    {#                        <li></li>#}
+                </ul>
+            </li>
+            <!--/Social-->
+            <!-- Side navigation links -->
+            <li>
+                <ul class="collapsible collapsible-accordion">
+                    <li>
+                        <a href="{% url 'home' %}"
+                           class="collapsible-header waves-effect arrow-r
                                    {% block class_inicio_menu %}{% endblock %}"><i
-                            class="fa fa-home"></i>
-                        Início</a>
-                </li>
-
-                {% if perms.portal.change_aluno and not request.user.is_staff and not request.user.is_superuser %}
-                    <li>
-                        <a href="{% url 'user_change_password' %}"
-                           class="collapsible-header waves-effect arrow-r
-                                   {% block class_senha_menu %}{% endblock %}"><i
-                                class="fa fa-lock"></i> Alterar senha</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'perfil_individual' request.user.userprofile.aluno.id %}"
-                           class="collapsible-header waves-effect arrow-r
-                                   {% block class_aluno_menu %}{% endblock %}"><i
-                                class="fa fa-user"></i> Perfil</a>
-                    </li>
-                {% else %}
-                    <ul class="social">
-                    </ul>
-                    <li>
-                        <a href="{% url 'dashboard' %}"
-                           class="collapsible-header waves-effect arrow-r
-                                   {% block class_dashboard_menu %}{% endblock %}"><i
-                                class="fa fa-dashboard"></i> Dashboard</a>
+                                class="fa fa-home"></i>
+                            Início</a>
                     </li>
 
-                    <li>
-                        <a class="collapsible-header waves-effect arrow-r
-                                {% block class_encaminhamento_menu %}{% endblock %}"><i class="fa fa-book"></i>
-                            Encaminhamentos<i class="fa fa-angle-down rotate-icon"></i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li>
-                                    <a href="{% url 'encaminhamento' %}" class="waves-effect
-                                            {% block class_encaminhamento_encaminhamento_item %}{% endblock %}"><i
-                                            class="fa fa-plus"></i> Registrar</a>
-                                </li>
-
-                                {% if request.user.is_superuser or request.user|has_group:'CAED' %}
-                                    <li>
-                                        <a href="{% url 'encaminhamento_pendente' %}" class="waves-effect
-
-                                                {% block class_encaminhamento_pendente_item %}{% endblock %}"><i
-                                                class="fa fa-clock-o"></i> Pendentes</a>
-                                    </li>
-                                {% endif %}
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="collapsible-header waves-effect arrow-r
-                                {% block class_justificativa_menu %}{% endblock %}"><i
-                                class="fa fa-question-circle-o"></i> Justificativas<i
-                                class="fa fa-angle-down rotate-icon"></i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li>
-                                    <a href="{% url 'justificativa' %}"
-                                       class="waves-effect
-                                               {% block class_justificativa_listar_item %}{% endblock %}"><i
-                                            class="fa fa-search"></i> Listar</a>
-                                </li>
-                                {% if request.user.is_superuser or request.user|has_group:'CAED' %}
-                                    <li>
-                                        <a href="{% url 'justificativa_pendente' %}" class="waves-effect
-                                                {% block class_justificativa_pendente_item %}{% endblock %}"><i
-                                                class="fa fa-clock-o"></i> Pendentes</a>
-                                    </li>
-                                {% endif %}
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="collapsible-header waves-effect arrow-r
-                                {% block class_ocorrencia_menu %}{% endblock %}"><i
-                                class="fa fa-pencil"></i> Ocorrências<i
-                                class="fa fa-angle-down rotate-icon"></i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li>
-                                    <a href="{% url 'ocorrencia' %}"
-                                       class="waves-effect
-                                               {% block class_ocorrencia_ocorrencia_item %}{% endblock %}"><i
-                                            class="fa fa-plus"></i> Registrar</a>
-                                </li>
-                                {% if request.user.is_superuser or request.user|has_group:'CAED' %}
-                                    <li>
-                                        <a href="{% url 'ocorrencia_pendente' %}" class="waves-effect
-                                                {% block class_ocorrencia_pendente_item %}{% endblock %}"><i
-                                                class="fa fa-clock-o"></i> Pendentes</a>
-                                    </li>
-                                {% endif %}
-                            </ul>
-                        </div>
-                    </li>
-
-                    {% if request.user.is_staff %}
+                    {% if perms.portal.change_aluno and not request.user.is_staff and not request.user.is_superuser %}
                         <li>
-                            <a class="collapsible-header waves-effect arrow-r
-                                {% block class_saida_menu %}{% endblock %}"><i
-                                    class="fa fa-sign-out"></i> Saídas<i
-                                    class="fa fa-angle-down rotate-icon"></i></a>
-                            <div class="collapsible-body">
-                                <ul>
-                                    <li>
-                                        <a href="{% url 'autorizacao' %}"
-                                           class="waves-effect
-                                                   {% block class_saida_autorizacao_item %}{% endblock %}"><i
-                                                class="fa fa-check"></i> Autorizar</a>
-                                    </li>
+                            <a href="{% url 'user_change_password' %}"
+                               class="collapsible-header waves-effect arrow-r
+                                   {% block class_senha_menu %}{% endblock %}"><i
+                                    class="fa fa-lock"></i> Alterar senha</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'perfil_individual' request.user.userprofile.aluno.id %}"
+                               class="collapsible-header waves-effect arrow-r
+                                   {% block class_aluno_menu %}{% endblock %}"><i
+                                    class="fa fa-user"></i> Perfil</a>
+                        </li>
+                    {% else %}
+                        {% if request.user|has_group:'Vigia' %}
+                            <ul class="social">
+                            </ul>
+                            <li>
+                                <a class="collapsible-header waves-effect arrow-r
+                                {% block class_saida_vigia_menu %}{% endblock %}"><i
+                                        class="fa fa-sign-out"></i> Saídas<i
+                                        class="fa fa-angle-down rotate-icon"></i></a>
+                                <div class="collapsible-body">
+                                    <ul>
 
-                                    {% if request.user.is_superuser or request.user|has_group:'Vigia' %}
                                         <li>
                                             <a href="{% url 'autorizacao_pendente' %}"
-                                               class="waves-effect {% block class_saida_pendente_item %}{% endblock %}"><i
+                                               class="waves-effect
+
+                                                       {% block class_saida_vigia_pendente_item %}{% endblock %}"><i
                                                     class="fa fa-clock-o"></i> Pendentes</a>
                                         </li>
-                                    {% endif %}
-                                </ul>
+                                    </ul>
 
-                            </div>
-                        </li>
-                    {% endif %}
+                                </div>
+                            </li>
+                        {% else %}
+                            <ul class="social">
+                            </ul>
+                            <li>
+                                <a href="{% url 'dashboard' %}"
+                                   class="collapsible-header waves-effect arrow-r
+                                   {% block class_dashboard_menu %}{% endblock %}"><i
+                                        class="fa fa-dashboard"></i> Dashboard</a>
+                            </li>
 
-                    <ul class="social">
-                    </ul>
-                    <li>
-                        <a href="{% url 'report_general' %}"
-                           class="collapsible-header waves-effect arrow-r
-                                   {% block class_relatorio_menu %}{% endblock %}"><i
-                                class="fa fa-file"></i> Relatórios</a>
-                    </li>
+                            <li>
+                                <a class="collapsible-header waves-effect arrow-r
+                                {% block class_encaminhamento_menu %}{% endblock %}"><i class="fa fa-book"></i>
+                                    Encaminhamentos<i class="fa fa-angle-down rotate-icon"></i></a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li>
+                                            <a href="{% url 'encaminhamento' %}" class="waves-effect
+                                            {% block class_encaminhamento_encaminhamento_item %}{% endblock %}"><i
+                                                    class="fa fa-plus"></i> Registrar</a>
+                                        </li>
 
-                    {% if request.user.is_superuser or request.user|has_group:'CAED' %}
-                        <ul class="social">
-                        </ul>
-                        <li>
-                            <a class="collapsible-header waves-effect arrow-r
-                                {% block class_cadastro_menu %}{% endblock %}"><i
-                                    class="fa fa-address-card"></i> Cadastros<i
-                                    class="fa fa-angle-down rotate-icon"></i></a>
-                            <div class="collapsible-body">
-                                <ul>
-                                    <li>
+                                        {% if request.user.is_superuser or request.user|has_group:'CAED' %}
+                                            <li>
+                                                <a href="{% url 'encaminhamento_pendente' %}" class="waves-effect
 
-                                        <a href="{% url 'aluno' %}?qs=a"
-                                           class="waves-effect
-                                               {% block class_cadastro_aluno_item %}{% endblock %}"><i
-                                                class="fa fa-user"></i> Aluno</a>
-                                        {% if request.user.is_superuser %}
-                                            <a href="{% url 'servico_categoria' %}"
-                                               class="waves-effect
-                                               {% block class_cadastro_servicos_categoria_item %}{% endblock %}"><i
-                                                    class="fa fa-user-md"></i> Categoria
-                                                de serviço</a>
-                                            <a href="{% url 'curso' %}"
-                                               class="waves-effect
-                                               {% block class_cadastro_curso_item %}{% endblock %}"><i
-                                                    class="fa fa-industry"></i> Curso</a>
-                                            <a href="{% url 'servico' %}"
-                                               class="waves-effect
-                                                       {% block class_cadastro_servicos_item %}{% endblock %}"><i
-                                                    class="fa fa-stethoscope"></i> Tipo de serviço</a>
-                                            <a href="{% url 'turma' %}"
-                                               class="waves-effect
-                                               {% block class_cadastro_turma_item %}{% endblock %}"><i
-                                                    class="fa fa-graduation-cap"></i> Turma</a>
-                                            <a href="{% url 'matricula' %}"
-                                               class="waves-effect
-                                                       {% block class_cadastro_matricula_item %}{% endblock %}"><i
-                                                    class="fa fa-users"></i> Matrícula</a>
+                                                {% block class_encaminhamento_pendente_item %}{% endblock %}"><i
+                                                        class="fa fa-clock-o"></i> Pendentes</a>
+                                            </li>
                                         {% endif %}
-                                    </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="collapsible-header waves-effect arrow-r
+                                {% block class_justificativa_menu %}{% endblock %}"><i
+                                        class="fa fa-question-circle-o"></i> Justificativas<i
+                                        class="fa fa-angle-down rotate-icon"></i></a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li>
+                                            <a href="{% url 'justificativa' %}"
+                                               class="waves-effect
+                                               {% block class_justificativa_listar_item %}{% endblock %}"><i
+                                                    class="fa fa-search"></i> Listar</a>
+                                        </li>
+                                        {% if request.user.is_superuser or request.user|has_group:'CAED' %}
+                                            <li>
+                                                <a href="{% url 'justificativa_pendente' %}" class="waves-effect
+                                                {% block class_justificativa_pendente_item %}{% endblock %}"><i
+                                                        class="fa fa-clock-o"></i> Pendentes</a>
+                                            </li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="collapsible-header waves-effect arrow-r
+                                {% block class_ocorrencia_menu %}{% endblock %}"><i
+                                        class="fa fa-pencil"></i> Ocorrências<i
+                                        class="fa fa-angle-down rotate-icon"></i></a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li>
+                                            <a href="{% url 'ocorrencia' %}"
+                                               class="waves-effect
+                                               {% block class_ocorrencia_ocorrencia_item %}{% endblock %}"><i
+                                                    class="fa fa-plus"></i> Registrar</a>
+                                        </li>
+                                        {% if request.user.is_superuser or request.user|has_group:'CAED' %}
+                                            <li>
+                                                <a href="{% url 'ocorrencia_pendente' %}" class="waves-effect
+                                                {% block class_ocorrencia_pendente_item %}{% endblock %}"><i
+                                                        class="fa fa-clock-o"></i> Pendentes</a>
+                                            </li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </li>
+
+                            {% if request.user.is_staff %}
+                                <li>
+                                    <a class="collapsible-header waves-effect arrow-r
+                                {% block class_saida_menu %}{% endblock %}"><i
+                                            class="fa fa-sign-out"></i> Saídas<i
+                                            class="fa fa-angle-down rotate-icon"></i></a>
+                                    <div class="collapsible-body">
+                                        <ul>
+                                            <li>
+                                                <a href="{% url 'autorizacao' %}"
+                                                   class="waves-effect
+                                                   {% block class_saida_autorizacao_item %}{% endblock %}"><i
+                                                        class="fa fa-check"></i> Autorizar</a>
+                                            </li>
+
+                                            {% if request.user.is_superuser or request.user|has_group:'Vigia' %}
+                                                <li>
+                                                    <a href="{% url 'autorizacao_pendente' %}"
+                                                       class="waves-effect
+                                                               {% block class_saida_pendente_item %}{% endblock %}"><i
+                                                            class="fa fa-clock-o"></i> Pendentes</a>
+                                                </li>
+                                            {% endif %}
+                                        </ul>
+
+                                    </div>
+                                </li>
+                            {% endif %}
+
+                            <ul class="social">
+                            </ul>
+                            <li>
+                                <a href="{% url 'report_general' %}"
+                                   class="collapsible-header waves-effect arrow-r
+                                   {% block class_relatorio_menu %}{% endblock %}"><i
+                                        class="fa fa-file"></i> Relatórios</a>
+                            </li>
+
+                            {% if request.user.is_superuser or request.user|has_group:'CAED' %}
+                                <ul class="social">
                                 </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="{% url 'configuracao' %}" class="collapsible-header waves-effect arrow-r
+                                <li>
+                                    <a class="collapsible-header waves-effect arrow-r
+                                {% block class_cadastro_menu %}{% endblock %}"><i
+                                            class="fa fa-address-card"></i> Cadastros<i
+                                            class="fa fa-angle-down rotate-icon"></i></a>
+                                    <div class="collapsible-body">
+                                        <ul>
+                                            <li>
+
+                                                <a href="{% url 'aluno' %}?qs=a"
+                                                   class="waves-effect
+                                               {% block class_cadastro_aluno_item %}{% endblock %}"><i
+                                                        class="fa fa-user"></i> Aluno</a>
+                                                {% if request.user.is_superuser %}
+                                                    <a href="{% url 'servico_categoria' %}"
+                                                       class="waves-effect
+                                               {% block class_cadastro_servicos_categoria_item %}{% endblock %}"><i
+                                                            class="fa fa-user-md"></i> Categoria
+                                                        de serviço</a>
+                                                    <a href="{% url 'curso' %}"
+                                                       class="waves-effect
+                                               {% block class_cadastro_curso_item %}{% endblock %}"><i
+                                                            class="fa fa-industry"></i> Curso</a>
+                                                    <a href="{% url 'servico' %}"
+                                                       class="waves-effect
+                                                       {% block class_cadastro_servicos_item %}{% endblock %}"><i
+                                                            class="fa fa-stethoscope"></i> Tipo de serviço</a>
+                                                    <a href="{% url 'turma' %}"
+                                                       class="waves-effect
+                                               {% block class_cadastro_turma_item %}{% endblock %}"><i
+                                                            class="fa fa-graduation-cap"></i> Turma</a>
+                                                    <a href="{% url 'matricula' %}"
+                                                       class="waves-effect
+                                                       {% block class_cadastro_matricula_item %}{% endblock %}"><i
+                                                            class="fa fa-users"></i> Matrícula</a>
+                                                {% endif %}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="{% url 'configuracao' %}" class="collapsible-header waves-effect arrow-r
                                     {% block class_configuracoes_menu %}{% endblock %}"><i class="fa fa-cogs"></i>
-                                Configurações</a>
-                        </li>
-                    {% endif %}
-                    {% if request.user.is_staff %}
-                        <li>
-                            <a href="{% url 'perfil' %}"
-                               class="collapsible-header waves-effect arrow-r
+                                        Configurações</a>
+                                </li>
+                            {% endif %}
+                            {% if request.user.is_staff %}
+                                <li>
+                                    <a href="{% url 'perfil' %}"
+                                       class="collapsible-header waves-effect arrow-r
                                    {% block class_conselho_menu %}{% endblock %}"><i
-                                    class="fa fa-graduation-cap"></i> Conselho de classe</a>
-                        </li>
+                                            class="fa fa-graduation-cap"></i> Conselho de classe</a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
                     {% endif %}
-                {% endif %}
 
 
-                <ul class="social"></ul>
-                <li>
-                    <a data-toggle="modal" href="#ModalLogout" class="collapsible-header waves-effect arrow-r"><i
-                            class="fa fa-power-off"></i> Sair</a>
-                </li>
-            </ul>
-        </li>
-        <!--/. Side navigation links -->
-        <div class="sidenav-bg mask-strong"></div>
+                    <ul class="social"></ul>
+                    <li>
+                        <a data-toggle="modal" href="#ModalLogout"
+                           class="collapsible-header waves-effect arrow-r"><i
+                                class="fa fa-power-off"></i> Sair</a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <!--/. Side navigation links -->
+            <div class="sidenav-bg mask-strong"></div>
         </ul>
         <!--/. Sidebar navigation -->
 
@@ -308,42 +336,65 @@
 
                 {% else %}
                     {% if request.user.is_authenticated %}
-                        <!-- Dropdown -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                               data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <span
-                                    class="clearfix d-none d-sm-inline-block"> {{ request.user }}</span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-success">
-                                <a class="dropdown-item"
-                                   href="http://www.ifro.edu.br/consup/index.php?option=com_docman&task=doc_view&gid=781&tmpl=component&format=raw&Itemid=11"
-                                   target="_blank"><i class="fa fa-external-link"></i> RDD</a>
+                        {% if request.user|has_group:'Vigia' %}
+                            <!-- Dropdown -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                   data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <span
+                                        class="clearfix d-none d-sm-inline-block"> {{ request.user }}</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-success">
+                                    <a class="dropdown-item"
+                                       href="http://www.ifro.edu.br/consup/index.php?option=com_docman&task=doc_view&gid=781&tmpl=component&format=raw&Itemid=11"
+                                       target="_blank"><i class="fa fa-external-link"></i> RDD</a>
+                                    <div class="dropdown-divider"></div>
 
-                                <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" data-toggle="modal" href="#ModalLogout"><i
+                                            class="fa fa-power-off"></i> Sair</a>
+                                </div>
+                            </li>
+                        {% else %}
+                            <!-- Dropdown -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                   data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <span
+                                        class="clearfix d-none d-sm-inline-block"> {{ request.user }}</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-success">
+                                    <a class="dropdown-item"
+                                       href="http://www.ifro.edu.br/consup/index.php?option=com_docman&task=doc_view&gid=781&tmpl=component&format=raw&Itemid=11"
+                                       target="_blank"><i class="fa fa-external-link"></i> RDD</a>
 
-                                <a class="dropdown-item" href="{% url 'dashboard' %}"><i class="fa fa-dashboard"></i>
-                                    Dashboard</a>
+                                    <div class="dropdown-divider"></div>
 
-                                {% if request.user.is_staff %}
-                                    <a class="dropdown-item" href="{% url 'autorizacao' %}"><i
-                                            class="fa fa-sign-out"></i>
-                                        Autorizações de saída</a>
-                                {% endif %}
+                                    <a class="dropdown-item" href="{% url 'dashboard' %}"><i
+                                            class="fa fa-dashboard"></i>
+                                        Dashboard</a>
 
-                                <a class="dropdown-item" href="{% url 'encaminhamento' %}"><i class="fa fa-book"></i>
-                                    Encaminhamentos</a>
-                                <a class="dropdown-item" href="{% url 'ocorrencia' %}"><i class="fa fa-pencil"></i>
-                                    Ocorrências
-                                    disciplinares</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{% url 'user_account' %}"><i class="fa fa-user"></i>
-                                    Minha
-                                    conta</a>
-                                <a class="dropdown-item" data-toggle="modal" href="#ModalLogout"><i
-                                        class="fa fa-power-off"></i> Sair</a>
-                            </div>
-                        </li>
+                                    {% if request.user.is_staff %}
+                                        <a class="dropdown-item" href="{% url 'autorizacao' %}"><i
+                                                class="fa fa-sign-out"></i>
+                                            Autorizações de saída</a>
+                                    {% endif %}
+
+                                    <a class="dropdown-item" href="{% url 'encaminhamento' %}"><i
+                                            class="fa fa-book"></i>
+                                        Encaminhamentos</a>
+                                    <a class="dropdown-item" href="{% url 'ocorrencia' %}"><i class="fa fa-pencil"></i>
+                                        Ocorrências
+                                        disciplinares</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="{% url 'user_account' %}"><i class="fa fa-user"></i>
+                                        Minha
+                                        conta</a>
+                                    <a class="dropdown-item" data-toggle="modal" href="#ModalLogout"><i
+                                            class="fa fa-power-off"></i> Sair</a>
+                                </div>
+                            </li>
+                        {% endif %}
+
                     {% else %}
                         <li class="nav-item">
                             <a href="{% url 'login' %}" class="nav-link"><i class="fa fa-lock"></i> <span
@@ -433,7 +484,8 @@
 
                 <ul class="list-unstyled">
                     <li>
-                        <a href="mailto:thiago.kaiser@ifro.edu.br?Subject=Contato - SGE">Prof. Thiago José Sampaio Kaiser</a>
+                        <a href="mailto:thiago.kaiser@ifro.edu.br?Subject=Contato - SGE">Prof. Thiago José Sampaio
+                            Kaiser</a>
                     </li>
                 </ul>
 
@@ -447,9 +499,9 @@
                 <h5 class="text-uppercase font-weight-bold">Contato</h5>
 
                 <ul class="list-unstyled">
-{#                    <li>#}
-{#                        <i class="fa fa-phone-square"></i> (69) 98488-8660#}
-{#                    </li>#}
+                    {#                    <li>#}
+                    {#                        <i class="fa fa-phone-square"></i> (69) 98488-8660#}
+                    {#                    </li>#}
                     <li>
                         <i class="fa fa-envelope"></i> thiago.kaiser@ifro.edu.br
                     </li>

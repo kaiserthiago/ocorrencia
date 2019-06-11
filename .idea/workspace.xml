@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="correção solicitar justificativa">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/justificativa.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/justificativa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/justificativa_pendente.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/justificativa_pendente.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="559">
-              <caret line="2662" column="27" lean-forward="true" selection-start-line="2662" selection-start-column="27" selection-end-line="2662" selection-end-column="27" />
+            <state relative-caret-position="142">
+              <caret line="2662" column="27" selection-start-line="2662" selection-start-column="27" selection-end-line="2662" selection-end-column="27" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -39,14 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/urls.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1479">
-              <caret line="79" column="18" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="239">
+              <caret line="90" column="44" lean-forward="true" selection-start-line="90" selection-start-column="44" selection-end-line="90" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -54,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2240">
-              <caret line="112" column="14" selection-start-line="112" selection-start-column="14" selection-end-line="112" selection-end-column="14" />
+            <state relative-caret-position="280">
+              <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -81,7 +75,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/justificativa.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
+            <state relative-caret-position="1200">
               <caret line="60" column="44" selection-start-line="60" selection-start-column="44" selection-end-line="60" selection-end-column="44" />
             </state>
           </provider>
@@ -90,7 +84,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ocorrencia/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
+            <state relative-caret-position="2800">
               <caret line="141" column="31" selection-start-line="141" selection-start-column="23" selection-end-line="141" selection-end-column="31" />
             </state>
           </provider>
@@ -111,7 +105,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
+            <state relative-caret-position="7620">
               <caret line="391" column="45" selection-start-line="391" selection-start-column="45" selection-end-line="391" selection-end-column="45" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
@@ -123,7 +117,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/justificativa_pendente.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
+            <state relative-caret-position="920">
               <caret line="46" column="46" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
             </state>
           </provider>
@@ -216,7 +210,6 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_pendente.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_pendente.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao_new.html" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_relatorio.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/encaminhamento_relatorio.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao_relatorio.html" />
@@ -248,7 +241,6 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/justificativa_solicitar.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/perfil_individual.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/configuracao.html" />
-        <option value="$PROJECT_DIR$/portal/templates/base.html" />
         <option value="$PROJECT_DIR$/login/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia_providencias.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/ocorrencia.html" />
@@ -261,6 +253,8 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/justificativa.html" />
         <option value="$PROJECT_DIR$/portal/urls.py" />
         <option value="$PROJECT_DIR$/portal/views.py" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html" />
+        <option value="$PROJECT_DIR$/portal/templates/base.html" />
       </list>
     </option>
   </component>
@@ -466,13 +460,8 @@
       <workItem from="1559855473012" duration="2675000" />
       <workItem from="1560168308414" duration="1801000" />
       <workItem from="1560170273854" duration="661000" />
-    </task>
-    <task id="LOCAL-00064" summary="obrigar informar providências no retorno da ocorrência">
-      <created>1554337532170</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1554337532170</updated>
+      <workItem from="1560171042176" duration="198000" />
+      <workItem from="1560257532431" duration="510000" />
     </task>
     <task id="LOCAL-00065" summary="abrir pdf ocorrência após providências">
       <created>1554400592237</created>
@@ -810,7 +799,14 @@
       <option name="project" value="LOCAL" />
       <updated>1560170110450</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="correção solicitar justificativa">
+      <created>1560171214431</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1560171214431</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -819,7 +815,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81786000" />
+    <option name="totallyTimeSpent" value="82494000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -834,7 +830,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49931034" visible="true" weight="0.2613941" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49931034" visible="true" weight="0.2680965" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5006896" side_tool="true" weight="0.2298177" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1175,13 +1171,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="102" column="95" selection-start-line="102" selection-start-column="91" selection-end-line="102" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/templatetags/has_group.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1212,10 +1201,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html">
+    <entry file="file://$PROJECT_DIR$/portal/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2240">
-          <caret line="112" column="14" selection-start-line="112" selection-start-column="14" selection-end-line="112" selection-end-column="14" />
+        <state relative-caret-position="142">
+          <caret line="2662" column="27" selection-start-line="2662" selection-start-column="27" selection-end-line="2662" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1540">
+          <caret line="79" column="18" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1233,6 +1235,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/justificativa.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="60" column="44" selection-start-line="60" selection-start-column="44" selection-end-line="60" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ocorrencia/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2800">
+          <caret line="141" column="31" selection-start-line="141" selection-start-column="23" selection-end-line="141" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/portal/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1060">
@@ -1245,7 +1261,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
+        <state relative-caret-position="7620">
           <caret line="391" column="45" selection-start-line="391" selection-start-column="45" selection-end-line="391" selection-end-column="45" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
@@ -1255,42 +1271,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/justificativa_pendente.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
+        <state relative-caret-position="920">
           <caret line="46" column="46" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/justificativa.html">
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_pendente.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="60" column="44" selection-start-line="60" selection-start-column="44" selection-end-line="60" selection-end-column="44" />
+        <state relative-caret-position="280">
+          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ocorrencia/settings.py">
+    <entry file="file://$PROJECT_DIR$/portal/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="141" column="31" selection-start-line="141" selection-start-column="23" selection-end-line="141" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1479">
-          <caret line="79" column="18" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="2662" column="27" lean-forward="true" selection-start-line="2662" selection-start-column="27" selection-end-line="2662" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="239">
+          <caret line="90" column="44" lean-forward="true" selection-start-line="90" selection-start-column="44" selection-end-line="90" selection-end-column="44" />
         </state>
       </provider>
     </entry>
