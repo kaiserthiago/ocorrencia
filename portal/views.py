@@ -3015,7 +3015,7 @@ def report_aluno_xls(request):
     font_style = xlwt.XFStyle()
     font_style.font.bold = True
 
-    columns = ['ALUNO', 'EMAIL', 'CURSO', 'TURMA']
+    columns = ['ALUNO', 'CPF', 'EMAIL', 'CURSO', 'TURMA']
 
     for col_num in range(len(columns)):
         ws.write(row_num, col_num, columns[col_num], font_style)
@@ -3023,8 +3023,7 @@ def report_aluno_xls(request):
     # Sheet body, remaining rows
     font_style = xlwt.XFStyle()
 
-    rows = Matricula.objects.filter(empresa=empresa, ano_letivo=date.today().year).values_list('aluno__nome', 'aluno__email', 'turma__curso__descricao', 'turma__descricao')
-    # rows = Aluno.objects.filter(empresa=empresa).values_list('nome', 'email')
+    rows = Matricula.objects.filter(empresa=empresa, ano_letivo=date.today().year).values_list('aluno__nome', 'aluno__cpf', 'aluno__email', 'turma__curso__descricao', 'turma__descricao')
     for row in rows:
         row_num += 1
         for col_num in range(len(row)):
@@ -3032,5 +3031,3 @@ def report_aluno_xls(request):
 
     wb.save(response)
     return response
-
-    dataset = aluno_resource.export(queryset)
