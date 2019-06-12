@@ -3023,11 +3023,17 @@ def report_aluno_xls(request):
     # Sheet body, remaining rows
     font_style = xlwt.XFStyle()
 
-    rows = Matricula.objects.filter(empresa=empresa, ano_letivo=date.today().year).values_list('aluno__nome', 'aluno__cpf', 'aluno__email', 'turma__curso__descricao', 'turma__descricao')
+    # rows = Matricula.objects.filter(empresa=empresa, ano_letivo=date.today().year).values_list('aluno__nome', 'aluno__cpf', 'aluno__email', 'turma__curso__descricao', 'turma__descricao')
+    rows = Matricula.objects.filter(empresa=empresa, ano_letivo=date.today().year)
+
     for row in rows:
         row_num += 1
-        for col_num in range(len(row)):
-            ws.write(row_num, col_num, row[col_num], font_style)
+
+        ws.write(row_num, 0, row.aluno.nome, font_style)
+        ws.write(row_num, 1, row.aluno.cpf[0:3] + row.aluno.cpf[4:7] + row.aluno.cpf[8:11] + row.aluno.cpf[12:14], font_style)
+        ws.write(row_num, 2, row.aluno.email, font_style)
+        ws.write(row_num, 3, row.turma.curso.descricao, font_style)
+        ws.write(row_num, 4, row.turma.descricao, font_style)
 
     wb.save(response)
     return response
