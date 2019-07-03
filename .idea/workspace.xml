@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="relatório xls com cpf">
+    <list default="true" id="648fcd66-999d-46c1-b414-641a2f126df6" name="Default" comment="relatório xls com cpf sem pontos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -92,8 +91,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="3038" column="19" lean-forward="true" selection-start-line="3038" selection-start-column="19" selection-end-line="3038" selection-end-column="19" />
+            <state relative-caret-position="385">
+              <caret line="3031" selection-start-line="3031" selection-end-line="3031" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -464,14 +463,7 @@
       <workItem from="1560259941550" duration="2720000" />
       <workItem from="1560292298038" duration="2310000" />
       <workItem from="1560343101135" duration="2671000" />
-      <workItem from="1560346278872" duration="389000" />
-    </task>
-    <task id="LOCAL-00074" summary="nova organização menus">
-      <created>1555614504117</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1555614504118</updated>
+      <workItem from="1560346278872" duration="774000" />
     </task>
     <task id="LOCAL-00075" summary="novo dashboard">
       <created>1555615603370</created>
@@ -809,7 +801,14 @@
       <option name="project" value="LOCAL" />
       <updated>1560343948216</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="relatório xls com cpf sem pontos">
+      <created>1560346930322</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1560346930323</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -818,7 +817,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91389000" />
+    <option name="totallyTimeSpent" value="91774000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -838,7 +837,7 @@
       <window_info id="Favorites" order="2" sideWeight="0.5006896" side_tool="true" weight="0.2298177" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32965517" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49934897" visible="true" weight="0.32673267" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49934897" weight="0.32673267" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39745402" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -873,7 +872,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="SHOW_FILE_HISTORY_DETAILS" value="false" />
-    <MESSAGE value="alterar data copyright página login" />
     <MESSAGE value="disabled button on form submit" />
     <MESSAGE value="atualizar aluno exclui qualquer cadastro de cpf com pontos e inclui sem pontos" />
     <MESSAGE value="não permitir que aluno altere foto" />
@@ -898,7 +896,8 @@
     <MESSAGE value="exibir empresa admin matricula" />
     <MESSAGE value="pesquisa por turma e curso matricula admin" />
     <MESSAGE value="relatório xls com cpf" />
-    <option name="LAST_COMMIT_MESSAGE" value="relatório xls com cpf" />
+    <MESSAGE value="relatório xls com cpf sem pontos" />
+    <option name="LAST_COMMIT_MESSAGE" value="relatório xls com cpf sem pontos" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/autorizacao_show.html">
@@ -1284,8 +1283,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="3038" column="19" lean-forward="true" selection-start-line="3038" selection-start-column="19" selection-end-line="3038" selection-end-column="19" />
+        <state relative-caret-position="385">
+          <caret line="3031" selection-start-line="3031" selection-end-line="3031" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
