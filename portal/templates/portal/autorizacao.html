@@ -60,18 +60,15 @@
                                         style="vertical-align: middle; text-align: right; min-width: 170px; width: 170px">
 
                                         <a href="{% url 'autorizacao_show' autorizacao.id %}"><i
-                                                class="fa fa-search fa-2x blue-text" title="Visualizar"
-                                                data-toggle="tooltip" data-placement="top"></i>
+                                                class="fa fa-search fa-2x blue-text"></i>
                                         </a>
 
                                         <a href="{% url 'report_pdf_autorizacao' autorizacao.id %}"
-                                           target="_blank"><i class="fa fa-print fa-2x indigo-text" title="Imprimir"
-                                                              data-toggle="tooltip" data-placement="top"></i>
+                                           target="_blank"><i class="fa fa-print fa-2x indigo-text"></i>
                                         </a>
 
                                         <a data-toggle="modal" href="#Excluir{{ autorizacao.id }}"><i
-                                                class="fa fa-trash fa-2x red-text" title="Excluir" data-toggle="tooltip"
-                                                data-placement="top"></i>
+                                                class="fa fa-trash fa-2x red-text"></i>
                                         </a>
                                     </td>
                                 </tr>
