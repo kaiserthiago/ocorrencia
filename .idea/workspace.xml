@@ -115,8 +115,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/justificativa_pendente.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="101" column="31" lean-forward="true" selection-start-line="101" selection-start-column="31" selection-end-line="101" selection-end-column="31" />
+            <state relative-caret-position="531">
+              <caret line="141" column="17" lean-forward="true" selection-start-line="141" selection-start-column="17" selection-end-line="141" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -134,7 +134,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>justificativa</find>
       <find>atualizar(r</find>
       <find>breadcrumb</find>
       <find>ver mais</find>
@@ -164,6 +163,7 @@
       <find>autorizacao</find>
       <find>matriculaad</find>
       <find>xls</find>
+      <find>formlogout</find>
     </findStrings>
     <replaceStrings>
       <replace>btn-primary</replace>
@@ -305,7 +305,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="GitLabConfigurableProvider" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -468,21 +468,7 @@
       <workItem from="1562170671722" duration="231000" />
       <workItem from="1562170984828" duration="93000" />
       <workItem from="1562171113540" duration="103000" />
-      <workItem from="1562188569319" duration="322000" />
-    </task>
-    <task id="LOCAL-00076" summary="novo dashboard">
-      <created>1555616442176</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1555616442176</updated>
-    </task>
-    <task id="LOCAL-00077" summary="adição de novos status nas ocorrências">
-      <created>1555616594446</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1555616594446</updated>
+      <workItem from="1562188569319" duration="722000" />
     </task>
     <task id="LOCAL-00078" summary="novo dashboard">
       <created>1555617118170</created>
@@ -813,7 +799,21 @@
       <option name="project" value="LOCAL" />
       <updated>1562188796188</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="correção erro modal logout e deferimento de justificativa">
+      <created>1562188929699</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1562188929699</updated>
+    </task>
+    <task id="LOCAL-00126" summary="correção erro modal logout e deferimento de justificativa">
+      <created>1562189172049</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1562189172049</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -822,7 +822,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92523000" />
+    <option name="totallyTimeSpent" value="92923000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -837,7 +837,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49931034" visible="true" weight="0.29530916" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49931034" visible="true" weight="0.29530916" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5006896" side_tool="true" weight="0.2298177" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -847,7 +847,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32765958" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3281471" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32719395" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.32673267" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49932885" weight="0.34087694" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
@@ -873,6 +873,32 @@
         <option value="3" />
         <option value="1" />
       </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
@@ -1291,8 +1317,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/justificativa_pendente.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="101" column="31" lean-forward="true" selection-start-line="101" selection-start-column="31" selection-end-line="101" selection-end-column="31" />
+        <state relative-caret-position="531">
+          <caret line="141" column="17" lean-forward="true" selection-start-line="141" selection-start-column="17" selection-end-line="141" selection-end-column="17" />
         </state>
       </provider>
     </entry>
