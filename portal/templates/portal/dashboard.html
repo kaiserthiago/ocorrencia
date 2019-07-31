@@ -12,6 +12,7 @@
 {% endblock %}
 
 {% block content %}
+
     <div class="row mb-4">
         <div class="col-sm-6">
             <!--Card-->
@@ -96,9 +97,9 @@
     <div class="row mb-4">
         <div class="col-sm-6">
             <div class="card">
-{#                <div class="card-header grey lighten-1 font-weight-bold">#}
-{#                    Encaminhamentos por categoria#}
-{#                </div>#}
+                {#                <div class="card-header grey lighten-1 font-weight-bold">#}
+                {#                    Encaminhamentos por categoria#}
+                {#                </div>#}
                 <div class="card-body">
                     {% if servico_categorias %}
                         <div id="categoria_encaminhamento"></div>
@@ -115,9 +116,9 @@
 
         <div class="col-sm-6">
             <div class="card">
-{#                <div class="card-header grey lighten-1 font-weight-bold">#}
-{#                    Encaminhamentos por curso#}
-{#                </div>#}
+                {#                <div class="card-header grey lighten-1 font-weight-bold">#}
+                {#                    Encaminhamentos por curso#}
+                {#                </div>#}
                 <div class="card-body">
                     {% if cursos_encaminhamento %}
                         <!--Div that will hold the dashboard-->
@@ -139,9 +140,9 @@
     <div class="row mb-4">
         <div class="col-sm-6">
             <div class="card">
-{#                <div class="card-header grey lighten-1 font-weight-bold">#}
-{#                    Ocorrências por categoria#}
-{#                </div>#}
+                {#                <div class="card-header grey lighten-1 font-weight-bold">#}
+                {#                    Ocorrências por categoria#}
+                {#                </div>#}
                 <div class="card-body">
                     {% if categorias %}
                         <!--Div that will hold the dashboard-->
@@ -162,9 +163,9 @@
 
         <div class="col-sm-6">
             <div class="card">
-{#                <div class="card-header grey lighten-1 font-weight-bold">#}
-{#                    Ocorrências por curso#}
-{#                </div>#}
+                {#                <div class="card-header grey lighten-1 font-weight-bold">#}
+                {#                    Ocorrências por curso#}
+                {#                </div>#}
                 <div class="card-body">
                     {% if cursos %}
                         <!--Div that will hold the dashboard-->
@@ -186,14 +187,14 @@
     <div class="row mb-4">
         <div class="col-sm-6">
             <div class="card">
-{#                <div class="card-header grey lighten-1 font-weight-bold">#}
-{#                    <p class="float-left m-0">#}
-{#                        Encaminhamentos por status#}
-{#                    </p>#}
-{#                    {% if request.user.is_superuser or perms.portal.change_encaminhamento %}#}
-{#                        <a href="{% url 'encaminhamento_pendente' %}" class="float-right m-0"> VER MAIS</a>#}
-{#                    {% endif %}#}
-{#                </div>#}
+                {#                <div class="card-header grey lighten-1 font-weight-bold">#}
+                {#                    <p class="float-left m-0">#}
+                {#                        Encaminhamentos por status#}
+                {#                    </p>#}
+                {#                    {% if request.user.is_superuser or perms.portal.change_encaminhamento %}#}
+                {#                        <a href="{% url 'encaminhamento_pendente' %}" class="float-right m-0"> VER MAIS</a>#}
+                {#                    {% endif %}#}
+                {#                </div>#}
                 <div class="card-body">
                     {% if status_encaminhamento %}
                         <div id="status_encaminhamento"></div>
@@ -210,14 +211,14 @@
 
         <div class="col-sm-6">
             <div class="card">
-{#                <div class="card-header grey lighten-1 font-weight-bold">#}
-{#                    <p class="float-left m-0">#}
-{#                        Ocorrências por status#}
-{#                    </p>#}
-{#                    {% if request.user.is_superuser or perms.portal.change_encaminhamento %}#}
-{#                        <a href="{% url 'ocorrencia_pendente' %}" class="float-right m-0"> VER MAIS</a>#}
-{#                    {% endif %}#}
-{#                </div>#}
+                {#                <div class="card-header grey lighten-1 font-weight-bold">#}
+                {#                    <p class="float-left m-0">#}
+                {#                        Ocorrências por status#}
+                {#                    </p>#}
+                {#                    {% if request.user.is_superuser or perms.portal.change_encaminhamento %}#}
+                {#                        <a href="{% url 'ocorrencia_pendente' %}" class="float-right m-0"> VER MAIS</a>#}
+                {#                    {% endif %}#}
+                {#                </div>#}
                 <div class="card-body">
                     {% if status_ocorrencia %}
                         <div id="status_ocorrencia"></div>
@@ -233,9 +234,9 @@
     <div class="row mb-4">
         <div class="col-sm-6">
             <div class="card">
-{#                <div class="card-header grey lighten-1 font-weight-bold">#}
-{#                    Justificativas por curso#}
-{#                </div>#}
+                {#                <div class="card-header grey lighten-1 font-weight-bold">#}
+                {#                    Justificativas por curso#}
+                {#                </div>#}
                 <div class="card-body">
                     {% if cursos_justificativa %}
                         <!--Div that will hold the dashboard-->
@@ -256,14 +257,14 @@
 
         <div class="col-sm-6">
             <div class="card">
-{#                <div class="card-header grey lighten-1 font-weight-bold">#}
-{#                    <p class="float-left m-0">#}
-{#                        Justificativa por status#}
-{#                    </p>#}
-{#                    {% if request.user.is_superuser or request.user|has_group:'CAED' %}#}
-{#                        <a href="{% url 'justificativa_pendente' %}" class="float-right m-0"> VER MAIS</a>#}
-{#                    {% endif %}#}
-{#                </div>#}
+                {#                <div class="card-header grey lighten-1 font-weight-bold">#}
+                {#                    <p class="float-left m-0">#}
+                {#                        Justificativa por status#}
+                {#                    </p>#}
+                {#                    {% if request.user.is_superuser or request.user|has_group:'CAED' %}#}
+                {#                        <a href="{% url 'justificativa_pendente' %}" class="float-right m-0"> VER MAIS</a>#}
+                {#                    {% endif %}#}
+                {#                </div>#}
                 <div class="card-body">
                     {% if status_justificativa %}
                         <div id="status_justificativa"></div>
@@ -313,6 +314,18 @@
                             <strong>NÃO HÁ OCORRÊNCIAS</strong>
                         </div>
                     {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col-sm-12">
+            <div class="card">
+                {#                <div class="card-header grey lighten-1 font-weight-bold">#}
+                {#                    Justificativas por curso#}
+                {#                </div>#}
+                <div class="card-body">
+                        <div id="ano_ano"></div>
                 </div>
             </div>
         </div>
@@ -496,7 +509,7 @@
     </script>
 
 
-   <script>
+    <script>
         document.addEventListener('DOMContentLoaded', function () {
             var data = JSON.parse('{{ dados_grafico_ocorrencia_curso|safe }}');
             var myChart = Highcharts.chart('grafico_ocorrencia_curso', {
@@ -936,5 +949,50 @@
             chart.draw(data, options);
         }
     </script>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var labels = JSON.parse('{{ dados_grafico_ocorrencia_categoria|safe }}');
+            var data_anterior = JSON.parse('{{ dados_grafico_ocorrencia_categoria_ano_anterior|safe }}');
+            var data_atual = JSON.parse('{{ dados_grafico_ocorrencia_categoria_ano_atual|safe }}');
+            var myChart = Highcharts.chart('ano_ano', {
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: 'Registros de Ocorrências'
+                },
+                subtitle: {
+                    text: 'Comparativo ano atual x ano anterior'
+                },
+                xAxis: {
+                    categories: ['Falta Leve', 'Falta Média', 'Falta Grave']
+                },
+                yAxis: {
+                    title: {
+                        text: 'Ocorrências'
+                    }
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'top',
+                    x: -40,
+                    y: 150,
+                    floating: true,
+                    borderWidth: 1,
+                    backgroundColor:
+                        Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
+                    shadow: true
+                },
+                series: [{
+                    name: '2018',
+                    data: data_anterior
+                },
+                    {
+                        name: '2019',
+                        data: data_atual
+                    }]
+            });
+        });
+    </script>
 {% endblock %}

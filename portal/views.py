@@ -825,7 +825,14 @@ def dashboard(request):
                                            data__year=date.today().year).order_by(
         'falta__categoria__artigo').values_list('falta__categoria__descricao').annotate(qtde=Count('id')).distinct()
 
+    categorias_ano_anterior = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
+                                           data__year=date.today().year-1).order_by(
+        'falta__categoria__artigo').values_list('falta__categoria__descricao').annotate(qtde=Count('id')).distinct()
+
     dados_grafico_ocorrencia_categoria = json.dumps(list(categorias))
+    dados_grafico_ocorrencia_categoria_ano_atual = json.dumps(list(categorias))
+    dados_grafico_ocorrencia_categoria_ano_anterior = json.dumps(list(categorias_ano_anterior))
+
 
     # DADOS GRÁFICO DE OCORRÊNCIAS POR CURSO
     cursos = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
@@ -1050,10 +1057,15 @@ def dashboard(request):
         'total': total,
 
         'dados_grafico_ocorrencia_categoria': dados_grafico_ocorrencia_categoria,
+
+        'dados_grafico_ocorrencia_categoria_ano_atual': dados_grafico_ocorrencia_categoria_ano_atual,
+        'dados_grafico_ocorrencia_categoria_ano_anterior': dados_grafico_ocorrencia_categoria_ano_anterior,
+
         'dados_grafico_ocorrencia_curso': dados_grafico_ocorrencia_curso,
         'dados_grafico_ocorrencia_status': dados_grafico_ocorrencia_status,
         'dados_grafico_ocorrencia_turma': dados_grafico_ocorrencia_turma,
         'dados_grafico_ocorrencia_distribuicao': dados_grafico_ocorrencia_distribuicao,
+
 
         'dados_grafico_encaminhamento_categoria': dados_grafico_encaminhamento_categoria,
         'dados_grafico_encaminhamento_curso': dados_grafico_encaminhamento_curso,
