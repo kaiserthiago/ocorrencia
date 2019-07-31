@@ -773,9 +773,15 @@ def dashboard(request):
     qtde_encaminhamento = [int(obj[1]) for obj in datas_encaminhamento]
 
     dados_grafico_datas_encaminhamento = []
+    dados_grafico_datas_encaminhamento_label = []
 
     for i in range(0, datas_encaminhamento.count()):
         dados_grafico_datas_encaminhamento.append([mes_encaminhamento[i], qtde_encaminhamento[i]])
+        dados_grafico_datas_encaminhamento_label.append([mes_encaminhamento[i]])
+
+    registros_duplos_label = json.dumps(list(dados_grafico_datas_encaminhamento_label))
+    registros_duplos_encaminhamentos = json.dumps(list(dados_grafico_datas_encaminhamento))
+    registros_duplos_ocorrencias = json.dumps(list(dados_grafico_datas_ocorrencia))
 
     # for i in datas_ocorrencia:
     #     dados_grafico_datas_ocorrencia.append([i[0], i[1]])
@@ -826,13 +832,12 @@ def dashboard(request):
         'falta__categoria__artigo').values_list('falta__categoria__descricao').annotate(qtde=Count('id')).distinct()
 
     categorias_ano_anterior = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
-                                           data__year=date.today().year-1).order_by(
+                                                        data__year=date.today().year - 1).order_by(
         'falta__categoria__artigo').values_list('falta__categoria__descricao').annotate(qtde=Count('id')).distinct()
 
     dados_grafico_ocorrencia_categoria = json.dumps(list(categorias))
     dados_grafico_ocorrencia_categoria_ano_atual = json.dumps(list(categorias))
     dados_grafico_ocorrencia_categoria_ano_anterior = json.dumps(list(categorias_ano_anterior))
-
 
     # DADOS GRÁFICO DE OCORRÊNCIAS POR CURSO
     cursos = Ocorrencia.objects.filter(empresa=request.user.userprofile.empresa,
@@ -1066,7 +1071,6 @@ def dashboard(request):
         'dados_grafico_ocorrencia_turma': dados_grafico_ocorrencia_turma,
         'dados_grafico_ocorrencia_distribuicao': dados_grafico_ocorrencia_distribuicao,
 
-
         'dados_grafico_encaminhamento_categoria': dados_grafico_encaminhamento_categoria,
         'dados_grafico_encaminhamento_curso': dados_grafico_encaminhamento_curso,
         'dados_grafico_encaminhamento_status': dados_grafico_encaminhamento_status,
@@ -1080,11 +1084,9 @@ def dashboard(request):
         'turmas': turmas,
         'distribuicao': distribuicao,
 
-        # 'categorias_faltas': json.dumps(categorias_faltas),
-        # 'qtde_categorias_faltas': json.dumps(qtde_categorias_faltas),
-
-        # 'cursos_ocorrencia': json.dumps(cursos_ocorrencia),
-        # 'qtde_cursos_ocorrencia': json.dumps(qtde_cursos_ocorrencia),
+        'registros_duplos_label': registros_duplos_label,
+        'registros_duplos_encaminhamentos': registros_duplos_encaminhamentos,
+        'registros_duplos_ocorrencias': registros_duplos_ocorrencias,
 
         'turmas_ocorrencia': json.dumps(turmas_ocorrencia),
         'qtde_turmas_ocorrencia': json.dumps(qtde_turmas_ocorrencia),
@@ -3042,7 +3044,8 @@ def report_aluno_xls(request):
         row_num += 1
 
         ws.write(row_num, 0, row.aluno.nome, font_style)
-        ws.write(row_num, 1, row.aluno.cpf[0:3] + row.aluno.cpf[4:7] + row.aluno.cpf[8:11] + row.aluno.cpf[12:14], font_style)
+        ws.write(row_num, 1, row.aluno.cpf[0:3] + row.aluno.cpf[4:7] + row.aluno.cpf[8:11] + row.aluno.cpf[12:14],
+                 font_style)
         ws.write(row_num, 2, row.aluno.email, font_style)
         ws.write(row_num, 3, row.turma.curso.descricao, font_style)
         ws.write(row_num, 4, row.turma.descricao, font_style)
