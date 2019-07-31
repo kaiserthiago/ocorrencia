@@ -12,7 +12,6 @@
 {% endblock %}
 
 {% block content %}
-
     <div class="row mb-4">
         <div class="col-sm-6">
             <!--Card-->
@@ -24,11 +23,11 @@
                     <a href="{% url 'report_general' %}" class="float-right m-0"> VER MAIS</a>
                 </div>
                 <div class="card-body">
-{#                    <p class="border-bottom">#}
-{#                        Autorizações de saída#}
-{#                        <span class="badge badge-warning badge-pill pull-right">{{ indicador_autorizacao.count }}</span>#}
-{##}
-{#                    </p>#}
+                    {#                    <p class="border-bottom">#}
+                    {#                        Autorizações de saída#}
+                    {#                        <span class="badge badge-warning badge-pill pull-right">{{ indicador_autorizacao.count }}</span>#}
+                    {##}
+                    {#                    </p>#}
                     <p class="border-bottom">
                         Encaminhamentos
                         <span class="badge badge-primary badge-pill pull-right">{{ indicador_encaminhamento.count }}</span>
@@ -277,47 +276,21 @@
             </div>
         </div>
     </div>
-    <!--ENCAMINHAMENTOS POR MÊS-->
+    <!--REGISTROS POR MÊS-->
     <div class="row mb-4">
         <div class="col-sm-12">
             <div class="card">
-                <div class="card-header grey lighten-1 font-weight-bold">
-                    Registro de encaminhamentos
-                </div>
+{#                <div class="card-header grey lighten-1 font-weight-bold">#}
+{#                    Registro de encaminhamentos#}
+{#                </div>#}
                 <div class="card-body">
-                    {% if dados_grafico_datas_encaminhamento %}
-                        <div id="encaminhamento_mes"></div>
+                        <div id="registros_mensais"></div>
 
-                    {% else %}
-                        <div class="card-header warning-color white-text text-center">
-                            <strong>NÃO HÁ ENCAMINHAMENTOS</strong>
-                        </div>
-                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
 
-    <!--OCORRÊNCIAS POR MÊS-->
-    <div class="row mb-4">
-        <div class="col-sm-12">
-            <div class="card">
-                <div class="card-header grey lighten-1 font-weight-bold">
-                    Registro de ocorrências
-                </div>
-                <div class="card-body">
-                    {% if dados_grafico_datas_ocorrencia %}
-                        <div id="ocorrencia_mes"></div>
-
-                    {% else %}
-                        <div class="card-header warning-color white-text text-center">
-                            <strong>NÃO HÁ OCORRÊNCIAS</strong>
-                        </div>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="row mb-4">
         <div class="col-sm-12">
             <div class="card">
@@ -325,7 +298,7 @@
                 {#                    Justificativas por curso#}
                 {#                </div>#}
                 <div class="card-body">
-                        <div id="ano_ano"></div>
+                    <div id="ano_ano"></div>
                 </div>
             </div>
         </div>
@@ -499,11 +472,15 @@
                         showInLegend: true
                     }
                 },
-                series: [{
-                    name: 'Total',
-                    colorByPoint: true,
-                    data: data
-                }]
+                series: [
+                    {
+                        name: 'Total',
+                        colorByPoint: true,
+                        data: data
+                    }],
+                credits: {
+                    enabled: false
+                }
             });
         });
     </script>
@@ -536,11 +513,15 @@
                         showInLegend: true
                     }
                 },
-                series: [{
-                    name: 'Total',
-                    colorByPoint: true,
-                    data: data
-                }]
+                series: [
+                    {
+                        name: 'Total',
+                        colorByPoint: true,
+                        data: data
+                    }],
+                credits: {
+                    enabled: false
+                }
             });
         });
     </script>
@@ -633,11 +614,15 @@
                         showInLegend: true
                     }
                 },
-                series: [{
-                    name: 'Total',
-                    colorByPoint: true,
-                    data: data
-                }]
+                series: [
+                    {
+                        name: 'Total',
+                        colorByPoint: true,
+                        data: data
+                    }],
+                credits: {
+                    enabled: false
+                }
             });
         });
     </script>
@@ -669,11 +654,15 @@
                         showInLegend: true
                     }
                 },
-                series: [{
-                    name: 'Total',
-                    colorByPoint: true,
-                    data: data
-                }]
+                series: [
+                    {
+                        name: 'Total',
+                        colorByPoint: true,
+                        data: data
+                    }],
+                credits: {
+                    enabled: false
+                }
             });
         });
     </script>
@@ -708,11 +697,15 @@
                         showInLegend: true
                     }
                 },
-                series: [{
-                    name: 'Total',
-                    colorByPoint: true,
-                    data: data
-                }]
+                series: [
+                    {
+                        name: 'Total',
+                        colorByPoint: true,
+                        data: data
+                    }],
+                credits: {
+                    enabled: false
+                }
             });
         });
     </script>
@@ -744,11 +737,15 @@
                         showInLegend: true
                     }
                 },
-                series: [{
-                    name: 'Total',
-                    colorByPoint: true,
-                    data: data
-                }]
+                series: [
+                    {
+                        name: 'Total',
+                        colorByPoint: true,
+                        data: data
+                    }],
+                credits: {
+                    enabled: false
+                }
             });
         });
     </script>
@@ -780,11 +777,15 @@
                         showInLegend: true
                     }
                 },
-                series: [{
-                    name: 'Total',
-                    colorByPoint: true,
-                    data: data
-                }]
+                series: [
+                    {
+                        name: 'Total',
+                        colorByPoint: true,
+                        data: data
+                    }],
+                credits: {
+                    enabled: false
+                }
             });
         });
     </script>
@@ -817,11 +818,15 @@
                         showInLegend: true
                     }
                 },
-                series: [{
-                    name: 'Total',
-                    colorByPoint: true,
-                    data: data
-                }]
+                series: [
+                    {
+                        name: 'Total',
+                        colorByPoint: true,
+                        data: data
+                    }],
+                credits: {
+                    enabled: false
+                }
             });
         });
     </script>
@@ -984,14 +989,75 @@
                         Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
                     shadow: true
                 },
-                series: [{
-                    name: '2018',
-                    data: data_anterior
-                },
+                series: [
+                    {
+                        name: '2018',
+                        data: data_anterior
+                    },
                     {
                         name: '2019',
                         data: data_atual
-                    }]
+                    }],
+                credits: {
+                    enabled: false
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var labels = JSON.parse('{{ registros_duplos_label|safe }}');
+            var data_anterior = JSON.parse('{{ registros_duplos_ocorrencias|safe }}');
+            var data_atual = JSON.parse('{{ registros_duplos_encaminhamentos|safe }}');
+            var myChart = Highcharts.chart('registros_mensais', {
+                chart: {
+                    type: 'line'
+                },
+                title: {
+                    text: 'Comparativo de Registros - <i>Campus</i> {{ request.user.userprofile.empresa }}'
+                },
+                subtitle: {
+                    text: 'Registros mês a mês'
+                },
+                xAxis: {
+                    categories: labels
+                },
+                yAxis: {
+                    title: {
+                        text: 'Ocorrências'
+                    }
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'top',
+                    x: -40,
+                    y: 150,
+                    floating: true,
+                    borderWidth: 1,
+                    backgroundColor:
+                        Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
+                    shadow: true
+                },
+                plotOptions: {
+                    series: {
+                        label: {
+                            connectorAllowed: false
+                        },
+                    }
+                },
+                series: [
+                    {
+                        name: 'Ocorrências',
+                        data: data_anterior
+                    },
+                    {
+                        name: 'Encaminhamentos',
+                        data: data_atual
+                    }],
+                credits: {
+                    enabled: false
+                }
             });
         });
     </script>
