@@ -96,9 +96,9 @@
     <div class="row mb-4">
         <div class="col-sm-6">
             <div class="card">
-                <div class="card-header grey lighten-1 font-weight-bold">
-                    Encaminhamentos por categoria
-                </div>
+{#                <div class="card-header grey lighten-1 font-weight-bold">#}
+{#                    Encaminhamentos por categoria#}
+{#                </div>#}
                 <div class="card-body">
                     {% if servico_categorias %}
                         <div id="categoria_encaminhamento"></div>
@@ -115,9 +115,9 @@
 
         <div class="col-sm-6">
             <div class="card">
-                <div class="card-header grey lighten-1 font-weight-bold">
-                    Encaminhamentos por curso
-                </div>
+{#                <div class="card-header grey lighten-1 font-weight-bold">#}
+{#                    Encaminhamentos por curso#}
+{#                </div>#}
                 <div class="card-body">
                     {% if cursos_encaminhamento %}
                         <!--Div that will hold the dashboard-->
@@ -139,9 +139,9 @@
     <div class="row mb-4">
         <div class="col-sm-6">
             <div class="card">
-                <div class="card-header grey lighten-1 font-weight-bold">
-                    Ocorrências por categoria
-                </div>
+{#                <div class="card-header grey lighten-1 font-weight-bold">#}
+{#                    Ocorrências por categoria#}
+{#                </div>#}
                 <div class="card-body">
                     {% if categorias %}
                         <!--Div that will hold the dashboard-->
@@ -162,9 +162,9 @@
 
         <div class="col-sm-6">
             <div class="card">
-                <div class="card-header grey lighten-1 font-weight-bold">
-                    Ocorrências por curso
-                </div>
+{#                <div class="card-header grey lighten-1 font-weight-bold">#}
+{#                    Ocorrências por curso#}
+{#                </div>#}
                 <div class="card-body">
                     {% if cursos %}
                         <!--Div that will hold the dashboard-->
@@ -186,14 +186,14 @@
     <div class="row mb-4">
         <div class="col-sm-6">
             <div class="card">
-                <div class="card-header grey lighten-1 font-weight-bold">
-                    <p class="float-left m-0">
-                        Encaminhamentos por status
-                    </p>
-                    {% if request.user.is_superuser or perms.portal.change_encaminhamento %}
-                        <a href="{% url 'encaminhamento_pendente' %}" class="float-right m-0"> VER MAIS</a>
-                    {% endif %}
-                </div>
+{#                <div class="card-header grey lighten-1 font-weight-bold">#}
+{#                    <p class="float-left m-0">#}
+{#                        Encaminhamentos por status#}
+{#                    </p>#}
+{#                    {% if request.user.is_superuser or perms.portal.change_encaminhamento %}#}
+{#                        <a href="{% url 'encaminhamento_pendente' %}" class="float-right m-0"> VER MAIS</a>#}
+{#                    {% endif %}#}
+{#                </div>#}
                 <div class="card-body">
                     {% if status_encaminhamento %}
                         <div id="status_encaminhamento"></div>
@@ -210,14 +210,14 @@
 
         <div class="col-sm-6">
             <div class="card">
-                <div class="card-header grey lighten-1 font-weight-bold">
-                    <p class="float-left m-0">
-                        Ocorrências por status
-                    </p>
-                    {% if request.user.is_superuser or perms.portal.change_encaminhamento %}
-                        <a href="{% url 'ocorrencia_pendente' %}" class="float-right m-0"> VER MAIS</a>
-                    {% endif %}
-                </div>
+{#                <div class="card-header grey lighten-1 font-weight-bold">#}
+{#                    <p class="float-left m-0">#}
+{#                        Ocorrências por status#}
+{#                    </p>#}
+{#                    {% if request.user.is_superuser or perms.portal.change_encaminhamento %}#}
+{#                        <a href="{% url 'ocorrencia_pendente' %}" class="float-right m-0"> VER MAIS</a>#}
+{#                    {% endif %}#}
+{#                </div>#}
                 <div class="card-body">
                     {% if status_ocorrencia %}
                         <div id="status_ocorrencia"></div>
@@ -233,9 +233,9 @@
     <div class="row mb-4">
         <div class="col-sm-6">
             <div class="card">
-                <div class="card-header grey lighten-1 font-weight-bold">
-                    Justificativas por curso
-                </div>
+{#                <div class="card-header grey lighten-1 font-weight-bold">#}
+{#                    Justificativas por curso#}
+{#                </div>#}
                 <div class="card-body">
                     {% if cursos_justificativa %}
                         <!--Div that will hold the dashboard-->
@@ -256,14 +256,14 @@
 
         <div class="col-sm-6">
             <div class="card">
-                <div class="card-header grey lighten-1 font-weight-bold">
-                    <p class="float-left m-0">
-                        Justificativa por status
-                    </p>
-                    {% if request.user.is_superuser or request.user|has_group:'CAED' %}
-                        <a href="{% url 'justificativa_pendente' %}" class="float-right m-0"> VER MAIS</a>
-                    {% endif %}
-                </div>
+{#                <div class="card-header grey lighten-1 font-weight-bold">#}
+{#                    <p class="float-left m-0">#}
+{#                        Justificativa por status#}
+{#                    </p>#}
+{#                    {% if request.user.is_superuser or request.user|has_group:'CAED' %}#}
+{#                        <a href="{% url 'justificativa_pendente' %}" class="float-right m-0"> VER MAIS</a>#}
+{#                    {% endif %}#}
+{#                </div>#}
                 <div class="card-body">
                     {% if status_justificativa %}
                         <div id="status_justificativa"></div>
@@ -459,67 +459,77 @@
 
 {% block script %}
     <!--OCORRÊNCIAS-->
-    <script type="text/javascript">
-        google.charts.load('current', {'packages': ['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Categoria');
-            data.addColumn('number', 'Ocorrências');
-            data.addRows({{ dados_grafico_ocorrencia_categoria|safe }});
-
-            var options = {
-                pieSliceText: 'percentage',
-                legend: {
-                    position: 'right',
-                    alignment: 'center'
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var data = JSON.parse('{{ dados_grafico_ocorrencia_categoria|safe }}');
+            var myChart = Highcharts.chart('grafico_ocorrencia_categoria', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
                 },
-                chartArea: {
-                    left: 15,
-                    top: 15,
-                    right: 0,
-                    bottom: 10
-                }
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('grafico_ocorrencia_categoria'));
-
-            chart.draw(data, options);
-        }
+                title: {
+                    text: 'Ocorrências por categorias'
+                },
+                tooltip: {
+                    pointFormat: '<b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        },
+                        showInLegend: false
+                    }
+                },
+                series: [{
+                    name: 'Total',
+                    colorByPoint: true,
+                    data: data
+                }]
+            });
+        });
     </script>
 
 
-    <script type="text/javascript">
-        google.charts.load('current', {'packages': ['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Categoria');
-            data.addColumn('number', 'Ocorrências');
-            data.addRows({{ dados_grafico_ocorrencia_curso|safe }});
-
-            var options = {
-                pieSliceText: 'percentage',
-                legend: {
-                    position: 'right',
-                    alignment: 'center'
+   <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var data = JSON.parse('{{ dados_grafico_ocorrencia_curso|safe }}');
+            var myChart = Highcharts.chart('grafico_ocorrencia_curso', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
                 },
-                chartArea: {
-                    left: 15,
-                    top: 15,
-                    right: 0,
-                    bottom: 10
-                }
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('grafico_ocorrencia_curso'));
-
-            chart.draw(data, options);
-        }
+                title: {
+                    text: 'Ocorrências por cursos'
+                },
+                tooltip: {
+                    pointFormat: '<b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: false,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        },
+                        showInLegend: true
+                    }
+                },
+                series: [{
+                    name: 'Total',
+                    colorByPoint: true,
+                    data: data
+                }]
+            });
+        });
     </script>
 
 
@@ -583,183 +593,224 @@
     </script>
 
     <!--ENCAMINHAMENTOS-->
-    <script type="text/javascript">
-        google.charts.load('current', {'packages': ['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Categoria');
-            data.addColumn('number', 'Encaminhamentos');
-            data.addRows({{ dados_grafico_encaminhamento_categoria|safe }});
-
-            var options = {
-                chartArea: {
-                    top: 10,
-                    bottom: 10,
-                    widht: '100%',
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var data = JSON.parse('{{ dados_grafico_encaminhamento_categoria|safe }}');
+            var myChart = Highcharts.chart('categoria_encaminhamento', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
                 },
-                legend: {
-                    position: 'right',
-                    alignment: 'center'
-                }
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('categoria_encaminhamento'));
-
-            chart.draw(data, options);
-        }
+                title: {
+                    text: 'Encaminhamentos por categorias'
+                },
+                tooltip: {
+                    pointFormat: '<b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        },
+                        showInLegend: false
+                    }
+                },
+                series: [{
+                    name: 'Total',
+                    colorByPoint: true,
+                    data: data
+                }]
+            });
+        });
     </script>
 
-    <script type="text/javascript">
-        google.charts.load('current', {'packages': ['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Status');
-            data.addColumn('number', 'Encaminhamentos');
-            data.addRows({{ dados_grafico_encaminhamento_status|safe }});
-
-            var options = {
-                chartArea: {
-                    top: 10,
-                    bottom: 10,
-                    widht: '100%',
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var data = JSON.parse('{{ dados_grafico_encaminhamento_status|safe }}');
+            var myChart = Highcharts.chart('status_encaminhamento', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
                 },
-                legend: {
-                    position: 'right',
-                    alignment: 'center'
-                }
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('status_encaminhamento'));
-
-            chart.draw(data, options);
-        }
+                title: {
+                    text: 'Encaminhamentos por status'
+                },
+                tooltip: {
+                    pointFormat: '<b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: false,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        },
+                        showInLegend: true
+                    }
+                },
+                series: [{
+                    name: 'Total',
+                    colorByPoint: true,
+                    data: data
+                }]
+            });
+        });
     </script>
 
-    <script type="text/javascript">
-        google.charts.load('current', {'packages': ['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Categoria');
-            data.addColumn('number', 'Justificativas');
-            data.addRows({{ dados_grafico_justificativa_curso|safe }});
-
-            var options = {
-                pieSliceText: 'percentage',
-                legend: {
-                    position: 'right',
-                    alignment: 'center'
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var data = JSON.parse('{{ dados_grafico_justificativa_curso|safe }}');
+            var myChart = Highcharts.chart('grafico_justificativa_curso', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
                 },
-                chartArea: {
-                    left: 15,
-                    top: 15,
-                    right: 0,
-                    bottom: 10
-                }
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('grafico_justificativa_curso'));
-
-            chart.draw(data, options);
-        }
+                title: {
+                    text: 'Justificativas por curso'
+                },
+                subtitle: {
+                    text: 'Distribuição das solicitações de justificativas'
+                },
+                tooltip: {
+                    pointFormat: '<b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: false,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        },
+                        showInLegend: true
+                    }
+                },
+                series: [{
+                    name: 'Total',
+                    colorByPoint: true,
+                    data: data
+                }]
+            });
+        });
     </script>
 
-    <script type="text/javascript">
-        google.charts.load('current', {'packages': ['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Status');
-            data.addColumn('number', 'Justificativas');
-            data.addRows({{ dados_grafico_justificativa_status|safe }});
-
-            var options = {
-                chartArea: {
-                    top: 10,
-                    bottom: 10,
-                    widht: '100%',
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var data = JSON.parse('{{ dados_grafico_justificativa_status|safe }}');
+            var myChart = Highcharts.chart('status_justificativa', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
                 },
-                legend: {
-                    position: 'right',
-                    alignment: 'center'
-                }
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('status_justificativa'));
-
-            chart.draw(data, options);
-        }
+                title: {
+                    text: 'Justificativas por status'
+                },
+                tooltip: {
+                    pointFormat: '<b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: false,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        },
+                        showInLegend: true
+                    }
+                },
+                series: [{
+                    name: 'Total',
+                    colorByPoint: true,
+                    data: data
+                }]
+            });
+        });
     </script>
 
-    <script type="text/javascript">
-        google.charts.load('current', {'packages': ['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Status');
-            data.addColumn('number', 'Ocorrências');
-            data.addRows({{ dados_grafico_ocorrencia_status|safe }});
-
-            var options = {
-                chartArea: {
-                    top: 10,
-                    bottom: 10,
-                    widht: '100%',
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var data = JSON.parse('{{ dados_grafico_ocorrencia_status|safe }}');
+            var myChart = Highcharts.chart('status_ocorrencia', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
                 },
-                legend: {
-                    position: 'right',
-                    alignment: 'center'
-                }
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('status_ocorrencia'));
-
-            chart.draw(data, options);
-        }
+                title: {
+                    text: 'Ocorrências por status'
+                },
+                tooltip: {
+                    pointFormat: '<b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        },
+                        showInLegend: false
+                    }
+                },
+                series: [{
+                    name: 'Total',
+                    colorByPoint: true,
+                    data: data
+                }]
+            });
+        });
     </script>
 
 
-    <script type="text/javascript">
-        google.charts.load('current', {'packages': ['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Categoria');
-            data.addColumn('number', 'Encaminhamentos');
-            data.addRows({{ dados_grafico_encaminhamento_curso|safe }});
-
-            var options = {
-                pieSliceText: 'percentage',
-                legend: {
-                    position: 'right',
-                    alignment: 'center'
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var data = JSON.parse('{{ dados_grafico_encaminhamento_curso|safe }}');
+            var myChart = Highcharts.chart('grafico_encaminhamento_curso', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
                 },
-                chartArea: {
-                    left: 15,
-                    top: 15,
-                    right: 0,
-                    bottom: 10
-                }
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('grafico_encaminhamento_curso'));
-
-            chart.draw(data, options);
-        }
+                title: {
+                    text: 'Encaminhamentos por cursos'
+                },
+                tooltip: {
+                    pointFormat: '<b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: false,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        },
+                        showInLegend: true
+                    }
+                },
+                series: [{
+                    name: 'Total',
+                    colorByPoint: true,
+                    data: data
+                }]
+            });
+        });
     </script>
 
 
@@ -885,4 +936,5 @@
             chart.draw(data, options);
         }
     </script>
+
 {% endblock %}
