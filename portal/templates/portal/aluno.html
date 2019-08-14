@@ -86,19 +86,16 @@
                                 {% endif %}
 
                                 <a href="{% url 'perfil_individual' aluno.id %}?qs={{ qs }}"><i
-                                        class="fa fa-address-book-o fa-2x green-text" title="Perfil"
-                                        data-toggle="tooltip" data-placement="top"></i>
+                                        class="fa fa-address-book-o fa-2x green-text"></i>
                                 </a>
 
 
                                 <a href="{% url 'aluno_edit' aluno.id %}?qs={{ qs }}"><i
-                                        class="fa fa-pencil fa-2x orange-text" title="Editar"
-                                        data-toggle="tooltip" data-placement="top"></i>
+                                        class="fa fa-pencil fa-2x orange-text"></i>
                                 </a>
                                 {% if request.user.is_superuser %}
                                     <a data-toggle="modal" href="#Excluir{{ aluno.id }}"><i
-                                            class="fa fa-trash fa-2x red-text" title="Excluir"
-                                            data-toggle="tooltip" data-placement="top"></i>
+                                            class="fa fa-trash fa-2x red-text"></i>
                                     </a>
                                     </td>
                                 {% endif %}

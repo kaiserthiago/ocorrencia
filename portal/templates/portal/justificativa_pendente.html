@@ -49,20 +49,14 @@
                                     <td class="px-0 py-0"
                                         style="vertical-align: middle; text-align: right; min-width: 170px; width: 170px">
 
-                                        <a href="{% url 'report_pdf_justificativa' justificativa.id %}"
-                                           target="_blank"><i class="fa fa-print fa-2x indigo-text" title="Imprimir"
-                                                              data-toggle="tooltip" data-placement="top"></i>
-                                        </a>
+                                        <a href="{% url 'report_pdf_justificativa' justificativa.id %}" target="_blank"><i
+                                                class="fa fa-print fa-2x indigo-text"></i></a>
 
                                         <a data-toggle="modal" href="#indeferimento{{ justificativa.id }}"><i
-                                                class="fa fa-close fa-2x red-text" title="Indeferir"
-                                                data-toggle="tooltip" data-placement="top"></i>
-                                        </a>
+                                                class="fa fa-close fa-2x red-text"></i></a>
 
                                         <a data-toggle="modal" href="#deferimento{{ justificativa.id }}"><i
-                                                class="fa fa-check fa-2x green-text" title="Deferir"
-                                                data-toggle="tooltip" data-placement="top"></i>
-                                        </a>
+                                                class="fa fa-check fa-2x green-text"></i></a>
                                     </td>
                                 </tr>
                             {% empty %}
@@ -110,20 +104,14 @@
                                         <textarea type="text" id="id_motivo" name="motivo"
                                                   class="md-textarea form-control validate" rows="4"
                                                   required></textarea>
-                                        <label for="id_providencias">Motivação do indeferimento</label>
+                                        <label for="id_providencias">Motivo do indeferimento</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button type="submit"
-                                        class="btn btn-danger waves-effect">
-                                    Confirmar
-                                </button>
-                                <a type="button"
-                                   class="btn btn-outline-danger waves-effect"
-                                   data-dismiss="modal">
-                                    Voltar
-                                </a>
+                                <button type="submit" class="btn btn-danger waves-effect">Confirmar</button>
+                                <a type="button" class="btn btn-outline-danger waves-effect"
+                                   data-dismiss="modal">Voltar</a>
                             </div>
                         </form>
                     </div>
@@ -135,41 +123,42 @@
 
         <!--Modal DEFERIMENTO-->
         <div class="modal fade" id="deferimento{{ justificativa.id }}" tabindex="-1"
-     role="dialog"
-     aria-labelledby="myModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog modal-notify modal-success" role="document">
-        <!--Content-->
-        <div class="modal-content">
-            <!--Header-->
-            <div class="modal-header text-center">
-                <h4 class="heading lead">Deferir justificativa</h4>
-                <button type="button" class="close" data-dismiss="modal"
-                        aria-label="Close">
-                    <span aria-hidden="true" class="white-text">&times;</span>
-                </button>
-            </div>
-            <!--Body-->
-            <div class="modal-body">
-                <form action="{% url 'justificativa_deferimento' justificativa.id %}" method="POST" id="FormLogout">
-                    {% csrf_token %}
-                    <p class="text-center mb-0 mt-3">Tem certeza que deseja deferir a justificativa?</p>
-                </form>
-            </div>
-            <!--Footer-->
-            <div class="modal-footer justify-content-center">
-                <div class="text-center">
-                    <button type="submit" class="btn btn-success waves-effect" form="FormLogout">
-                        Confirmar
-                    </button>
-                    <a type="button" class="btn btn-outline-success waves-effect" data-dismiss="modal">
-                        Voltar</a>
+             role="dialog"
+             aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-success" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header text-center">
+                        <h4 class="heading lead">Deferir justificativa</h4>
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
+                    </div>
+                    <!--Body-->
+                    <div class="modal-body">
+                        <form action="{% url 'justificativa_deferimento' justificativa.id %}" method="POST"
+                              id="FormDeferimento">
+                            {% csrf_token %}
+                            <p class="text-center mb-0 mt-3">Tem certeza que deseja deferir a justificativa?</p>
+                        </form>
+                    </div>
+                    <!--Footer-->
+                    <div class="modal-footer justify-content-center">
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success waves-effect" form="FormDeferimento">
+                                Confirmar
+                            </button>
+                            <a type="button" class="btn btn-outline-success waves-effect"
+                               data-dismiss="modal">Voltar</a>
+                        </div>
+                    </div>
                 </div>
+                <!--/.Content-->
             </div>
         </div>
-        <!--/.Content-->
-    </div>
-</div>
         <!--Fim Modal DEFERIMENTO-->
     {% endfor %}
 {% endblock %}
