@@ -135,21 +135,6 @@
                 </div>
                 <!--Body-->
                 <div class="modal-body">
-                    {#                        <select name="SelectTurma" id="SelectTurma"#}
-                    {#                                class="mdb-select md-form colorful-select dropdown-success"#}
-                    {#                                searchable="Pesquisar..." required>#}
-                    {#                            <option value="" disabled selected>Selecione a turma</option>#}
-                    {#                            {% for c in cursos %}#}
-                    {#                                {% if c.retorna_turmas %}#}
-                    {#                                    <optgroup label="{{ c.descricao }}">#}
-                    {#                                        {% for t in c.retorna_turmas %}#}
-                    {#                                            <option value={{ t.id }}>{{ t.descricao }} - {{ t.turno }}</option>#}
-                    {#                                        {% endfor %}#}
-                    {#                                    </optgroup>#}
-                    {#                                {% endif %}#}
-                    {#                            {% endfor %}#}
-                    {#                        </select>#}
-                    {#                        <label for="SelectTurma" class="mdb-main-label">Turma</label>#}
                     {% for curso in cursos %}
                         {% if curso.retorna_turmas %}
                             <p><strong style="font-weight: bold">{{ curso.descricao.upper }}</strong><br>

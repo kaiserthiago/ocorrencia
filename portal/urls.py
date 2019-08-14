@@ -32,7 +32,7 @@ urlpatterns = [
     url(r'^encaminhamento/delete/(?P<encaminhamento_id>\d+)$', views.encaminhamento_delete, name='encaminhamento_delete'),
     url(r'^encaminhamento/register$', views.encaminhamento_register, name='encaminhamento_register'),
     url(r'^encaminhamento/pendente$', views.encaminhamento_pendente, name='encaminhamento_pendente'),
-    url(r'^encaminhamento/new$', views.encaminhamento_new, name='encaminhamento_new'),
+    url(r'^encaminhamento/(?P<turma_id>\d+)/new$', views.encaminhamento_new, name='encaminhamento_new'),
     url(r'^encaminhamento$', views.encaminhamento, name='encaminhamento'),
 
     url(r'^autorizacao/relatorio/(?P<aluno_id>\d+)$', views.autorizacao_relatorio, name='autorizacao_relatorio'),

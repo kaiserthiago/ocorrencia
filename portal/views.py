@@ -2398,27 +2398,25 @@ def encaminhamento_providencia(request, encaminhamento_id):
 
 
 @login_required
-def encaminhamento_new(request):
-    if request.method == 'POST':
-        form = EncaminhamentoForm(request.POST)
+def encaminhamento_new(request, turma_id):
+    form = EncaminhamentoForm(request.POST)
 
-        if not form.is_valid():
-            id = request.POST['SelectTurma']
-            turma = get_object_or_404(Turma, id=id)
-            matriculas = Matricula.objects.filter(turma=turma, ano_letivo=int(date.today().year))
+    if not form.is_valid():
+        turma = get_object_or_404(Turma, id=turma_id)
+        matriculas = Matricula.objects.filter(turma=turma, ano_letivo=int(date.today().year))
 
-            servico_categorias = ServicoCategoria.objects.filter(empresa=request.user.userprofile.empresa).order_by(
-                'descricao')
+        servico_categorias = ServicoCategoria.objects.filter(empresa=request.user.userprofile.empresa).order_by(
+            'descricao')
 
-            form = EncaminhamentoForm()
+        form = EncaminhamentoForm()
 
-            context = {
-                'servico_categorias': servico_categorias,
-                'matriculas': matriculas,
-                'turma': turma,
-                'ano': int(date.today().year),
-                'form': form
-            }
+        context = {
+            'servico_categorias': servico_categorias,
+            'matriculas': matriculas,
+            'turma': turma,
+            'ano': int(date.today().year),
+            'form': form
+        }
 
     return render(request, 'portal/encaminhamento_new.html', context)
 
