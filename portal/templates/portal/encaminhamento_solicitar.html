@@ -38,9 +38,9 @@
                         <input type="hidden" value="{% now 'd/m/y' %}" name="data" id="id_data">
                         {% csrf_token %}
                         <div class="form-row">
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 select-outline">
                                 <select name="SelectServico" id="SelectServico"
-                                        class="mdb-select md-form colorful-select dropdown-success"
+                                        class="mdb-select md-form md-outline colorful-select dropdown-success"
                                         searchable="Pesquisar..."
                                         required>
                                     <option value="" disabled selected>Selecione o serviço</option>
@@ -58,13 +58,13 @@
 
                         <div class="form-row">
                             <div class="col-sm-6">
-                                <div class="md-form">
+                                <div class="md-form md-outline">
                                     <label>{{ form.descricao.label }}</label>
                                     {{ form.descricao }}
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <div class="md-form">
+                                <div class="md-form md-outline">
                                     <label>{{ form.outras_informacoes.label }}</label>
                                     {{ form.outras_informacoes }}
                                 </div>

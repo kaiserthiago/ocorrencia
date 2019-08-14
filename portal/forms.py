@@ -49,18 +49,15 @@ class OcorrenciaForm(forms.ModelForm):
             }),
             'descricao': forms.Textarea(attrs={
                 'class': 'form-control md-textarea validate',
-                'placeholder': 'Utilize esse espaço para descrever, detalhadamente, a ocorrência',
                 'rows': '3'
             }),
             'providencias': forms.Textarea(attrs={
                 'class': 'form-control md-textarea validate',
-                'placeholder': 'Utilize esse espaço para descrever as providências adotadas',
                 'rows': '4',
                 'required': 'required'
             }),
             'disciplina': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Informe a disciplina'
             })
         }
 
@@ -87,7 +84,6 @@ class EncaminhamentoForm(forms.ModelForm):
             }),
             'providencias': forms.Textarea(attrs={
                 'class': 'form-control md-textarea validate',
-                'placeholder': 'Utilize esse espaço para descrever as providências adotadas',
                 'rows': '6',
                 'required': 'required'
             }),
@@ -246,7 +242,7 @@ class AlunoForm(forms.ModelForm):
                 'class': 'file-path validate'
             }),
             'banco': forms.Select(attrs={
-                'class': 'mdb-select md-form colorful-select dropdown-success'
+                'class': 'mdb-select md-form md-outline colorful-select dropdown-success'
             }),
             'agencia': forms.TextInput(attrs={
                 'class': 'form-control validate',

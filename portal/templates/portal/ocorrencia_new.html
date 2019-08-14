@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="md-form form-group">
+                        <div class="md-form form-group md-outline">
                             <input id="myInput" type="text" class="form-control form-control-sm" autofocus/>
                             <label for="myInput">Pesquisar aluno...</label>
                         </div>
@@ -65,13 +65,13 @@
                         {% csrf_token %}
                         <div class="form-row">
                             <div class="col-sm-6">
-                                <div class="md-form">
+                                <div class="md-form md-outline">
                                     <label>{{ form.data.label }}</label>
                                     {{ form.data }}
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <div class="md-form">
+                                <div class="md-form md-outline">
                                     <label>{{ form.disciplina.label }}</label>
                                     {{ form.disciplina }}
                                 </div>
@@ -79,9 +79,9 @@
                         </div>
 
                         <div class="form-row">
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 select-outline">
                                 <select name="SelectFalta" id="SelectFalta"
-                                        class="mdb-select md-form colorful-select dropdown-success"
+                                        class="mdb-select md-outline md-form colorful-select dropdown-success"
                                         searchable="Pesquisar..."
                                         required>
                                     <option value="" disabled selected>Selecione a falta</option>
@@ -99,7 +99,7 @@
 
                         <div class="form-row">
                             <div class="col-sm-12">
-                                <div class="md-form">
+                                <div class="md-form md-outline">
                                     <label>{{ form.descricao.label }}</label>
                                     {{ form.descricao }}
                                 </div>

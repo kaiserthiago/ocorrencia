@@ -37,13 +37,13 @@
                         {% csrf_token %}
                         <div class="form-row">
                             <div class="col-sm-6">
-                                <div class="md-form">
+                                <div class="md-form md-outline">
                                     <label>{{ form.data_inicial.label }}</label>
                                     {{ form.data_inicial }}
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                            <div class="md-form">
+                            <div class="md-form md-outline">
                                     <label>{{ form.tempo_afastamento.label }}</label>
                                     {{ form.tempo_afastamento }}
                                 </div>
@@ -52,7 +52,7 @@
 
                         <div class="form-row">
                             <div class="col-sm-12">
-                                <div class="md-form">
+                                <div class="md-form md-outline">
                                     <label>{{ form.descricao.label }}</label>
                                     {{ form.descricao }}
                                 </div>

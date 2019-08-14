@@ -27,13 +27,13 @@
                         {% csrf_token %}
                         <div class="row">
                             <div class=" col-sm-6">
-                                <div class="md-form">
+                                <div class="md-form md-outline">
                                     <label>{{ form.nome.label }}</label>
                                     {{ form.nome }}
                                 </div>
                             </div>
                             <div class=" col-sm-6">
-                                <div class="md-form">
+                                <div class="md-form md-outline">
                                     <label>{{ form.email.label }}</label>
                                     {{ form.email }}
                                 </div>
@@ -42,19 +42,19 @@
 
                         <div class="row">
                             <div class=" col-sm-4">
-                                <div class="md-form">
+                                <div class="md-form md-outline">
                                     <label>{{ form.rg.label }}</label>
                                     {{ form.rg }}
                                 </div>
                             </div>
                             <div class=" col-sm-4">
-                                <div class="md-form">
+                                <div class="md-form md-outline">
                                     <label>{{ form.emissor.label }}</label>
                                     {{ form.emissor }}
                                 </div>
                             </div>
                             <div class=" col-sm-4">
-                                <div class="md-form">
+                                <div class="md-form md-outline">
                                     <label>{{ form.cpf.label }}</label>
                                     {{ form.cpf }}
                                 </div>
@@ -67,13 +67,13 @@
                                 <label>{{ form.banco.label }}</label>
                             </div>
                             <div class=" col-sm-4">
-                                <div class="md-form">
+                                <div class="md-form md-outline">
                                     <label>{{ form.agencia.label }}</label>
                                     {{ form.agencia }}
                                 </div>
                             </div>
                             <div class=" col-sm-4">
-                                <div class="md-form">
+                                <div class="md-form md-outline">
                                     <label>{{ form.conta.label }}</label>
                                     {{ form.conta }}
                                 </div>
@@ -82,13 +82,13 @@
 
                         <div class="row">
                             <div class=" col-sm-6">
-                                <div class="md-form">
+                                <div class="md-form md-outline">
                                     <label>{{ form.mae.label }}</label>
                                     {{ form.mae }}
                                 </div>
                             </div>
                             <div class=" col-sm-6">
-                                <div class="md-form">
+                                <div class="md-form md-outline">
                                     <label>{{ form.pai.label }}</label>
                                     {{ form.pai }}
                                 </div>
@@ -97,14 +97,14 @@
 
                         <div class="row">
                             <div class=" col-sm-6">
-                                <div class="md-form">
+                                <div class="md-form md-outline">
                                     <label>{{ form.email_responsavel.label }}</label>
                                     {{ form.email_responsavel }}
                                 </div>
                             </div>
                             {% if not perms.portal.change_aluno and request.user.is_staff or request.user.is_superuser %}
                                 <div class=" col-sm-6">
-                                    <div class="md-form">
+                                    <div class="md-form md-outline">
                                         {{ form.foto }}
                                     </div>
                                 </div>
@@ -113,7 +113,7 @@
 
                         <div class="row">
                             <div class=" col-sm-12">
-                                <div class="md-form">
+                                <div class="md-form md-outline">
                                     <label>{{ form.contato.label }}</label>
                                     {{ form.contato }}
                                 </div>
@@ -127,13 +127,13 @@
                                     <label for="id_pcd" class="form-check-label">{{ form.pcd.label|upper }}</label>
                                 </div>
                                 <div class=" col-sm-2">
-                                    <div class="md-form">
+                                    <div class="md-form md-outline">
                                         {{ form.cid }}
                                         <label>{{ form.cid.label|upper }}</label>
                                     </div>
                                 </div>
                                 <div class=" col-sm-8">
-                                    <div class="md-form">
+                                    <div class="md-form md-outline">
                                         {{ form.pcd_descricao }}
                                         <label>{{ form.pcd_descricao.label }}</label>
                                     </div>
