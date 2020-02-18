@@ -21,7 +21,7 @@ pycparser==2.19
 PyPDF2==1.26.0
 Pyphen==0.9.5
 pytz==2018.4
-PyYAML==3.12
+PyYAML==5.1
 reportlab==3.5.9
 six==1.11.0
 tablib==0.12.1
