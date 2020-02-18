@@ -42,7 +42,7 @@ urlpatterns = [
     url(r'^autorizacao/show/(?P<autorizacao_id>\d+)$', views.autorizacao_show, name='autorizacao_show'),
     url(r'^autorizacao/confirmar/(?P<autorizacao_id>\d+)$', views.autorizacao_confirmar, name='autorizacao_confirmar'),
     url(r'^autorizacao/pendente$', views.autorizacao_pendente, name='autorizacao_pendente'),
-    url(r'^autorizacao/new$', views.autorizacao_new, name='autorizacao_new'),
+    url(r'^autorizacao/(?P<turma_id>\d+)new$', views.autorizacao_new, name='autorizacao_new'),
     url(r'^autorizacao$', views.autorizacao, name='autorizacao'),
 
     url(r'^aluno/delete/(?P<aluno_id>\d+)$', views.aluno_delete, name='aluno_delete'),
