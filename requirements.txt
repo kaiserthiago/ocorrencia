@@ -16,7 +16,7 @@ numpy==1.15.1
 odfpy==1.3.6
 openpyxl==2.5.2
 pdfrw==0.4
-Pillow==5.1.0
+Pillow==8.1.1
 pycparser==2.19
 PyPDF2==1.26.0
 Pyphen==0.9.5
